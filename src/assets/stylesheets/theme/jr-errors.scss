@@ -1,0 +1,48 @@
+/* illustrattions / 
+ =================================================================== */
+
+.box-error {
+  display: flex;
+  flex-flow: column;
+  margin: 15vh 0;
+  align-items: center;
+}
+.card .box-error {
+  margin: 2vh 0;
+}
+
+.box-error h3 {
+  opacity: 0.7;
+}
+
+.spaceman {
+  @include spaceman;
+  width: 250px;
+  height: 200px;
+}
+.spaceman-lock {
+  @include spaceman-lock;
+  width: 250px;
+  height: 200px;
+}
+.success-plane {
+  @include success-plane;
+  width: 250px;
+  height: 200px;
+}
+
+.file-question {
+  @include file-question;
+  width: 200px;
+  height: 200px;
+}
+.file-error {
+  @include file-error;
+  width: 200px;
+  height: 200px;
+}
+.file-ok {
+  @include file-ok;
+  width: 200px;
+  height: 200px;
+}

@@ -1,0 +1,35 @@
+ /*  Toasts / 
+ =================================================================== */
+
+  .toast { 
+    padding: 15px; 
+    border-radius: 5px;
+    box-shadow: 0 8px 26px -4px rgba(20, 20, 20, 0.15), 0 8px 9px -5px rgba(20, 20, 20, 0.06); 
+  }
+  
+  .toast * { word-wrap: break-word !important; word-break: break-word !important;}
+  
+  .toast .toast-body { padding: 0;}
+  .toast .btn-close { float: right;}
+  .toast h5 { margin-bottom: 5px; }
+  .toast p { 
+    font-size: 14px;
+    line-height: 16px;;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    opacity: 0.7;
+  }
+  
+  .toast-message { 
+    display: flex; 
+    align-items: center;
+    margin: 0 ; 
+  }
+  .toast-message {
+    .toast-group {
+      display: flex;
+      flex-flow: column;
+      flex: 0 auto;
+    }
+    .toast-group:first-child { align-self: flex-start; }
+  }

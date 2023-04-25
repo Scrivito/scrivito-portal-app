@@ -1,0 +1,112 @@
+/* jr table
+ =================================================================== */
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: #12263f;
+  --bs-table-striped-bg: #f9fbfd;
+  --bs-table-active-color: #12263f;
+  --bs-table-active-bg: #f9fbfd;
+  --bs-table-hover-color: #12263f;
+  --bs-table-hover-bg: #f9fbfd;
+  border-color: $jr-lightgrey;
+  color: $jr-darkgrey;
+  margin-bottom: 1.5rem;
+  vertical-align: top;
+  width: 100%;
+}
+.table th {
+  padding: 6px 15px 4px 15px;
+}
+.table td {
+  padding: 10px 15px;
+}
+
+.table > :not(:first-child) {
+  border-top: 1px solid $jr-lightgrey;
+}
+
+.table thead th,
+.table tbody td,
+.table tbody th {
+  vertical-align: middle;
+}
+
+.table thead th {
+  color: $jr-middlegrey;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 5px 5px 0 0;
+  white-space: nowrap;
+  position: relative;
+}
+
+.responsive-stacked,
+.responsive-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-grey .table-hover > tbody > tr:hover > * {
+  --bs-table-accent-bg: #eee;
+}
+
+/* ordering + drag handles */
+
+.table thead th .jr-icon {
+  font-size: 12px;
+  opacity: 0.5;
+}
+.table thead th .jr-icon.jr-icon-chevron-up,
+.table thead th .jr-icon.jr-icon-chevron-down {
+  position: absolute;
+  top: 6px;
+  right: 1px;
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+.table thead th .jr-icon.jr-icon-dots-vertical {
+  position: absolute;
+  top: 6px;
+  left: 1px;
+  &:hover {
+    cursor: move;
+    opacity: 1;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  .responsive-stacked {
+    .table thead th {
+      display: none;
+    }
+    .table tr:not(:first-child) {
+      border-top: 1px solid $jr-lightgrey;
+    }
+    .table td {
+      display: block;
+      border: none;
+      padding: 2px 15px;
+    }
+    .table td:first-child {
+      padding: 5px 15px 0 15px;
+    }
+
+    table td:before {
+      content: attr(data-label);
+      display: block;
+      color: $jr-darkgrey;
+      font-size: 8px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+
+      text-transform: uppercase;
+      margin: 5px 0 -5px 0;
+    }
+  }
+}

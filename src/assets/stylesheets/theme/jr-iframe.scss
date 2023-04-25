@@ -1,0 +1,90 @@
+/* preview iframe
+ ================================================== */
+
+.preview-iframe-wrapper {
+  position: relative;
+  text-align: center;
+  border: 1px solid #eee;
+  padding: 0;
+  background: #fafafa;
+  background-image: radial-gradient(#e3e3e3 2px, transparent 2px),
+    radial-gradient(#e3e3e3 2px, transparent 2px);
+  background-size: calc(10 * 3px) calc(10 * 3px);
+  background-position: 0 0, calc(5 * 3px) calc(5 * 3px);
+}
+.preview-iframe-wrapper.small {
+  width: 250px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.preview-iframe-wrapper .preview-iframe {
+  display: block;
+  margin: 0 auto;
+  transition: all ease-in-out 0.5s;
+}
+.preview-iframe-wrapper.small .preview-iframe {
+  display: block;
+  pointer-events: none;
+  overflow: hidden;
+  width: 1024px;
+  height: 786px;
+  border: 0;
+  -ms-transform: scale(0.243);
+  -moz-transform: scale(0.243);
+  -o-transform: scale(0.2413);
+  -webkit-transform: scale(0.243);
+  transform: scale(0.243);
+
+  -ms-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+.preview-iframe-wrapper.large .preview-iframe {
+  width: 100%;
+  height: 90vh;
+}
+
+.preview-iframe-wrapper.mobile .preview-iframe {
+  width: 375px;
+  height: 90vh;
+}
+
+.preview-iframe-wrapper {
+  .btn-hover {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background: $jr-darkgrey;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 10px 1px #ddd !important;
+    display: flex;
+    flex-flow: row;
+    padding: 3px 15px;
+    opacity: 0;
+    transition: all ease-in-out 0.3s;
+  }
+  .btn-hover .jr-icon {
+    color: #fff;
+    font-size: 14px;
+    line-height: 13px;
+    padding: 5px 5px 5px 0;
+    margin: auto;
+  }
+  .btn-hover span {
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 13px;
+    padding: 5px 3px;
+    margin: auto;
+  }
+}
+.preview-iframe-wrapper:hover .btn-hover {
+  opacity: 0.9;
+}

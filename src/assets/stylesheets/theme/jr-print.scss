@@ -1,0 +1,71 @@
+
+ /* PRINT - some easy adaptions
+ ================================================== */
+ 
+ @media print {
+  html,
+  body {
+    width: 800px !important;
+  }
+  html,
+  body {
+    height: auto;
+    padding: 0;
+    margin: 0;
+  }
+  .col-md-11 {
+    width: 91.66666666666666%;
+    float: left !important;
+  }
+  .col-md-10 {
+    width: 83.33333333333334%;
+    float: left !important;
+  }
+  .col-md-9 {
+    width: 75%;
+    float: left !important;
+  }
+  .col-md-8 {
+    width: 66.66666666666666%;
+    float: left !important;
+  }
+  .col-md-7 {
+    width: 58.333333333333336%;
+    float: left !important;
+  }
+  .col-md-6 {
+    width: 50%;
+    float: left !important;
+  }
+  .col-md-5 {
+    width: 41.66666666666667%;
+    float: left !important;
+  }
+  .col-md-4 {
+    width: 33.33333333333333%;
+    float: left !important;
+  }
+  .col-md-3 {
+    width: 25%;
+    float: left !important;
+  }
+  .col-md-2 {
+    width: 16.666666666666664%;
+    float: left !important;
+  }
+  .col-md-1 {
+    width: 8.333333333333332%;
+    float: left !important;
+  }
+
+  .navbar-nav {
+    display: none;
+  }
+
+  a[href]:after {
+    display: none;
+  }
+  abbr[title]:after {
+    display: none;
+  }
+}

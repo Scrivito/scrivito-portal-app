@@ -1,0 +1,155 @@
+/* jr forms
+ =================================================================== */
+
+.form-label,
+.col-form-label,
+.form-check-label {
+  font-weight: 800;
+  display: inline-flex;
+}
+
+.form-label .jr-icon {
+  font-size: 16px;
+  margin-left: 5px;
+  line-height: 21px;
+}
+.form-control {
+  padding: 0.375rem;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #f7f8fa;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.card-grey {
+  .form-control,
+  .form-select {
+    background-color: #fff;
+  }
+}
+
+.form-select:focus,
+.form-control:focus {
+  color: $jr-darkgrey;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-color: $jr-yellow;
+  outline: 0;
+  box-shadow: 0 0 0.25rem rgba(227, 194, 13, 0.4);
+}
+
+textarea.form-control {
+  min-height: 80px;
+}
+.form-select {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 2.25rem 0.375rem 0.375rem;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: $jr-darkgrey;
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+.form-check-input:checked {
+  background-color: $jr-darkgrey;
+  border-color: $jr-darkgrey;
+}
+.form-check-input:focus {
+  border-color: $jr-darkgrey;
+  box-shadow: 0 0 4px 1px $jr-yellow, 0 0 0.25rem rgba(227, 194, 13, 0.4);
+}
+.form-control-plaintext {
+  color: $jr-middlegrey;
+  outline: none;
+  padding: 0;
+  margin-top: -7px;
+}
+.form-control-readonly {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.375rem;
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: $jr-darkgrey;
+  background-color: rgba(0, 0, 0, 0.01) !important;
+  border: 1px solid rgba(0, 0, 0, 0.05) !important;
+  border-radius: 5px;
+}
+
+/* input-group-search */
+
+.input-group-search {
+  .form-control {
+    border-radius: 25px !important;
+    background: #fff;
+    position: relative;
+    padding: 0.375rem 45px 0.375rem 15px;
+  }
+  .form-control:focus {
+    background: #fff;
+  }
+  .btn {
+    border-radius: 0 25px 25px 0;
+    border: none;
+    background: transparent;
+    box-shadow: none !important;
+    width: 40px;
+    min-width: 40px;
+    margin-left: -40px !important;
+    position: relative;
+    z-index: 3;
+  }
+}
+
+/* input-group-btn-inside */
+
+.input-group-btn-inside {
+  .form-control {
+    border-radius: 5px !important;
+    position: relative;
+    padding: 0.375rem 45px 0.375rem 0.375rem;
+  }
+  .btn {
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background: transparent;
+    box-shadow: none !important;
+    width: 40px;
+    min-width: 40px;
+    margin-left: -40px !important;
+    position: relative;
+    z-index: 3;
+  }
+}
+
+/* errors */
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  border-color: $jr-red;
+}
+.was-validated .form-control:invalid:focus,
+.form-control.is-invalid:focus {
+  border-color: $jr-red;
+  box-shadow: 0 0 4px 0 $jr-red, 0 0 0.25rem rgba(246, 79, 79, 0.2);
+}
+
+.readonly-mode {
+  .form-label,
+  .col-form-label {
+    font-weight: normal;
+    opacity: 0.6;
+    font-size: 11px;
+  }
+  .form-control-plaintext {
+    color: $jr-darkgrey;
+  }
+  .form-check-label {
+    font-weight: normal;
+  }
+}
