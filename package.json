@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start-design": "vite --config design/vite-design.config.ts",
+    "start": "vite"
   },
   "dependencies": {
     "react": "^18.2.0",
