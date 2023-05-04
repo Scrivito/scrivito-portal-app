@@ -1,5 +1,5 @@
 import * as Scrivito from 'scrivito'
-import './App.css'
+import './App.scss'
 import './Objs/index'
 import './Widgets/index'
 
