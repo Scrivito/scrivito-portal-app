@@ -4,7 +4,7 @@
  ================================================== */
 
 @import 'bs5/bootstrap';
-@import 'bootstrap-icons';
+//@import 'bootstrap-icons';
 //@import "fontawesome/fontawesome";
 
 /* bs5 variables
@@ -628,6 +628,7 @@ section:focus >,
   height: 400px;
 }
 
+.header-caption,
 .carousel-caption {
   text-align: left;
   h3 {
