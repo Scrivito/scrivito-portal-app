@@ -69,12 +69,6 @@
   --bs-link-hover-color-rgb: 10, 88, 202;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
-
-  --bs-border-width: 0;
-  --bs-border-color: transparent;
-  --bs-border-radius: 0;
-
-  --bs-nav-link-color: var(--dark-grey);
 }
 
 .btn-primary {
@@ -428,6 +422,11 @@ section,
   overflow: hidden;
   z-index: 1;
 }
+header section {
+  overflow: visible;
+  z-index: 2;
+}
+
 .card-body {
   position: relative;
   z-index: 1;

@@ -100,11 +100,9 @@
   margin-bottom: 0;
   list-style: none;
 
-  .nav-link {
-    &.active,
-    &.show {
-      color: var(--#{$prefix}navbar-active-color);
-    }
+  .show > .nav-link,
+  .nav-link.active {
+    color: var(--#{$prefix}navbar-active-color);
   }
 
   .dropdown-menu {
@@ -277,12 +275,4 @@
   --#{$prefix}navbar-toggler-border-color: #{$navbar-dark-toggler-border-color};
   --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-dark-toggler-icon-bg)};
   // scss-docs-end navbar-dark-css-vars
-}
-
-@if $enable-dark-mode {
-  @include color-mode(dark) {
-    .navbar-toggler-icon {
-      --#{$prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-dark-toggler-icon-bg)};
-    }
-  }
 }
