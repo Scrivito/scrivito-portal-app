@@ -1,5 +1,4 @@
 import * as Scrivito from 'scrivito'
-import './App.scss'
 import './Objs/index'
 import './Widgets/index'
 
