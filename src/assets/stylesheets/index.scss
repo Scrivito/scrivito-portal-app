@@ -70,6 +70,10 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+.btn {
+  --bs-btn-border-radius: 0;
+}
+
 .btn-primary {
   --bs-btn-color: #fff;
   --bs-btn-bg: var(--bs-primary);
@@ -721,6 +725,19 @@ section:focus >,
       margin: 3px 0;
     }
   }
+}
+
+// -- general badges -- //
+
+.bg-middle-grey {
+  color: var(--bs-secondary);
+}
+
+// -- general form-control -- //
+
+.form-control {
+  border: none;
+  border-radius: unset;
 }
 
 /* navbar 
