@@ -742,6 +742,7 @@ section:focus >,
   flex-flow: column;
   width: 100%;
 }
+.navbar-landing,
 .navbar-meta,
 .navbar-main {
   display: flex;
@@ -763,6 +764,13 @@ section:focus >,
   .form-control {
     background-color: var(--light-grey);
     height: 100%;
+  }
+}
+
+.navbar-landing {
+  .nav-link {
+    font-size: 1rem;
+    font-weight: 600;
   }
 }
 
