@@ -1,5 +1,9 @@
 import * as Scrivito from 'scrivito'
-const modules = import.meta.glob(['./**/ObjClass.ts', './**/*Component.tsx'])
+const modules = import.meta.glob([
+  './**/ObjClass.ts',
+  './**/*Component.tsx',
+  './**/*LayoutComponent.tsx',
+])
 
 for (const path in modules) {
   modules[path]()

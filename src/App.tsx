@@ -3,13 +3,7 @@ import './Objs/index'
 import './Widgets/index'
 
 function App() {
-  return (
-    <div className="App">
-      <div id="mainContent">
-        <Scrivito.CurrentPage />
-      </div>
-    </div>
-  )
+  return <Scrivito.CurrentPage />
 }
 
 export default App
