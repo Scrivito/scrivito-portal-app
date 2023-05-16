@@ -6,6 +6,8 @@ export const Homepage = Scrivito.provideObjClass('Homepage', {
     childOrder: 'referencelist',
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],
     siteHeader: ['widgetlist', { only: 'SectionWidget' }],
+    siteLogoDark: ['reference', { only: 'Image' }],
+    siteLogoLight: ['reference', { only: 'Image' }],
     title: 'string',
   },
   extractTextAttributes: ['body'],
