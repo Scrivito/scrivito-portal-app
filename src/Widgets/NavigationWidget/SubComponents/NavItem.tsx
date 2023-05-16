@@ -7,6 +7,8 @@ export const NavItem = Scrivito.connect(function ScrivitoNavItem({
 }: {
   obj: Scrivito.Obj
 }) {
+  if (obj.get('hideFromNavigation') === true) return null
+
   if (obj.objClass() === 'Dropdown') {
     return (
       <NavDropdown title={objTitle(obj)} active={Scrivito.isOnCurrentPath(obj)}>
