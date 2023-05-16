@@ -18,8 +18,11 @@ Scrivito.provideEditingConfig(SectionWidget, {
         { value: 'transparent', title: 'Transparent' },
       ],
     },
+    backgroundImage: {
+      title: 'Background image',
+    },
   },
-  properties: ['backgroundColor'],
+  properties: ['backgroundColor', 'backgroundImage'],
   initialContent: {
     backgroundColor: 'white',
   },

@@ -9,8 +9,19 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
     sectionClassNames.push(`bg-${backgroundColor}`)
   }
 
+  const backgroundImage = widget.get('backgroundImage')
+
   return (
     <section className={sectionClassNames.join(' ')}>
+      {backgroundImage && (
+        <Scrivito.InPlaceEditingOff>
+          <Scrivito.ImageTag
+            content={widget}
+            attribute="backgroundImage"
+            className="img-background"
+          />
+        </Scrivito.InPlaceEditingOff>
+      )}
       <Scrivito.ContentTag
         tag="div"
         content={widget}

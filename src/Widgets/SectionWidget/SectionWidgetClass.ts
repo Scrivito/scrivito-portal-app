@@ -16,6 +16,7 @@ export const SectionWidget = Scrivito.provideWidgetClass('SectionWidget', {
         ],
       },
     ],
+    backgroundImage: ['reference', { only: ['Image'] }],
     content: 'widgetlist',
   },
   extractTextAttributes: ['content'],
