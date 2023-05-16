@@ -2,7 +2,7 @@ import * as Scrivito from 'scrivito'
 
 export const Page = Scrivito.provideObjClass('Page', {
   attributes: {
-    body: 'widgetlist',
+    body: ['widgetlist', { only: 'SectionWidget' }],
     childOrder: 'referencelist',
     title: 'string',
   },
