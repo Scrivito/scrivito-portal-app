@@ -4,17 +4,20 @@ import { ImageWidget } from './ImageWidgetClass'
 Scrivito.provideComponent(ImageWidget, ({ widget }) => {
   let image = (
     <Scrivito.ImageTag
-      content={widget}
-      attribute="image"
       alt={alternativeText(widget)}
+      attribute="image"
+      content={widget}
     />
   )
 
   const link = widget.get('link')
   if (link && !Scrivito.isInPlaceEditingActive()) {
-    return <Scrivito.LinkTag to={link}>{image}</Scrivito.LinkTag>
+    image = <Scrivito.LinkTag to={link}>{image}</Scrivito.LinkTag>
   }
-  return image
+
+  return (
+    <div className={alignmentClassName(widget.get('alignment'))}>{image}</div>
+  )
 })
 
 function alternativeText(widget: Scrivito.Widget): string {
@@ -30,4 +33,11 @@ function alternativeText(widget: Scrivito.Widget): string {
   }
 
   return ''
+}
+
+function alignmentClassName(
+  widgetAlignment: string | null
+): string | undefined {
+  if (widgetAlignment === 'center') return 'text-center'
+  if (widgetAlignment === 'right') return 'text-end'
 }

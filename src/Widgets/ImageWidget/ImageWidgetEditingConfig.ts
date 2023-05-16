@@ -4,6 +4,15 @@ import { ImageWidget } from './ImageWidgetClass'
 Scrivito.provideEditingConfig(ImageWidget, {
   title: 'Image',
   attributes: {
+    alignment: {
+      title: 'Alignment',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
+    },
     alternativeText: {
       title: 'Alternative text (optional)',
       description:
@@ -15,7 +24,10 @@ Scrivito.provideEditingConfig(ImageWidget, {
       description: 'The page to open after clicking the image.',
     },
   },
-  properties: ['alternativeText', 'link'],
+  properties: ['alignment', 'alternativeText', 'link'],
+  initialContent: {
+    alignment: 'left',
+  },
   validations: [
     [
       'image',
