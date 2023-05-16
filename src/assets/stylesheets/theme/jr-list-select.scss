@@ -1,0 +1,48 @@
+ /* jr-list-select
+ =================================================================== */
+ .jr-list-select-item { 
+   display: flex; flex-wrap: nowrap;
+   padding: 5px; min-height: 30px;
+   border-radius: 5px; 
+   background: #fff;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+   box-shadow: 0 0 10px rgba(0,0,0,0.05);
+   margin-bottom: 5px;
+   }
+ .jr-list-select-item:hover { 
+   border: 1px solid rgba(0, 0, 0, 0.2);
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+ }
+ .jr-list-select-item .jr-list-select-input {
+   display: flex; flex-flow: column; flex: 0 auto;
+   border-radius: 3px;
+   width: 18px; height: 18px;
+   margin: auto 15px auto 10px; 
+   background-color: #fff;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+   border: 1px solid rgba(0, 0, 0, 0.15);
+   appearance: none;
+   color-adjust: exact;
+   cursor: pointer;
+ }
+ .jr-list-select-item .jr-list-select-input:disabled {
+   background-color: $jr-lightgrey;
+   filter: none; opacity: 0.5;
+   cursor: not-allowed;
+ }
+ .jr-list-select-item .jr-list-select-input:checked[type="checkbox"] { 
+   background-color: $jr-orange;
+   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+ }
+ .jr-list-select-item .jr-list-select-label {
+   display: flex; flex-flow: column; flex: 1;
+   cursor: pointer;
+ }
+ .jr-list-select-item .jr-list-select-input[disabled] ~ .jr-list-select-label, 
+ .jr-list-select-item .jr-list-select-input:disabled ~ .jr-list-select-label{
+   opacity: 0.5;
+   cursor: not-allowed;
+ }
+ 

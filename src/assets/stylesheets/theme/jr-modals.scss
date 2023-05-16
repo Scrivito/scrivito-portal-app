@@ -1,0 +1,79 @@
+/* modals / 
+ =================================================================== */
+
+.modal-open .jr-wrapper {
+  filter: blur(10px);
+}
+.modal-backdrop {
+  background: $jr-lightgrey;
+  transition: all cubic-bezier(0.79, 0.14, 0.15, 0.86) 0.1s;
+}
+.modal-backdrop.open {
+  opacity: 0.4;
+}
+
+.modal.fade .modal-dialog {
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+}
+.modal.fade.show .modal-dialog {
+  transform: scale(1);
+}
+
+.modal-content {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-shadow: 0 8px 56px -4px rgba(20, 20, 20, 0.15),
+    0 8px 9px -5px rgba(20, 20, 20, 0.06);
+}
+
+.modal-header {
+  border-radius: 5px 5px 0 0;
+  border: none;
+  padding: 10px 15px 15px 15px;
+  flex-flow: column;
+  align-items: flex-start;
+}
+.modal-body {
+  min-height: 110px;
+  padding: 0;
+}
+.modal-footer {
+  border-radius: 0 0 5px 5px;
+  border: none;
+  padding: 15px;
+}
+
+.modal-question {
+  display: flex;
+  align-items: center;
+  margin: 30px 30px 0 30px;
+}
+
+.modal-question * {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+.modal-question {
+  .modal-group {
+    display: flex;
+    flex-flow: column;
+    flex: 0 auto;
+  }
+  .modal-group:first-child {
+    align-self: flex-start;
+  }
+}
+
+.modal-xl {
+  .modal-content {
+    height: 95%;
+  }
+  .modal-body .container-fluid {
+    height: 100% !important;
+  }
+  .modal-body .container-fluid .preview-iframe-wrapper,
+  .modal-body .container-fluid .preview-iframe-wrapper .preview-iframe {
+    height: 100% !important;
+  }
+}

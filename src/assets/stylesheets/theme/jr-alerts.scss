@@ -1,0 +1,17 @@
+.alert {
+  position: relative;
+  background: #fff;
+  padding: 15px 15px 15px 45px!important; margin: 10px 0;
+  border-radius: 5px; border: none;
+  color: $jr-darkgrey;
+  box-shadow: 0 8px 26px -4px rgba(20, 20, 20, 0.15), 0 8px 9px -5px rgba(20, 20, 20, 0.06); 
+  font-size: 14px; line-height: 16px; font-weight: 800;
+}
+.alert-danger { border-top: 5px solid $jr-red!important;}
+.alert-warning { border-top: 5px solid $jr-yellow!important;}
+.alert:after { 
+  @include jr-icon-mixin(); content: "\F00f";
+  position: absolute;
+  top: 15px; left: 15px;
+}
+.alert p { margin: 0;}
