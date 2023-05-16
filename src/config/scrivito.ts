@@ -6,7 +6,7 @@ export function configureScrivito() {
     optimizedWidgetLoading: true,
     strictSearchOperators: true,
     contentTagsForEmptyAttributes: false,
-    tenant: '11215e19da5de47023db5c142893e6fd',
+    tenant: 'd0a154d76edf2a7bd991fc658e700a1d',
   }
 
   Scrivito.configure(config)

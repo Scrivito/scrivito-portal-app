@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
-    "scrivito": "^1.32.0"
+    "scrivito": "^1.33.0-rc1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
