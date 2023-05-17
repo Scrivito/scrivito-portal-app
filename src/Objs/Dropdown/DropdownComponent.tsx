@@ -24,12 +24,12 @@ Scrivito.provideComponent(Dropdown, ({ page }) => {
 
   if (Scrivito.isEditorLoggedIn()) {
     return (
-      <div class="container d-flex h-100">
-        <div class="alert alert-warning d-flex m-auto">
-          <i class="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
-          <div class="my-auto mx-2">
-            This obj is only a placeholder, so that a dropdown can be rendered in
-            the navigation
+      <div className="container d-flex h-100">
+        <div className="alert alert-warning d-flex m-auto">
+          <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
+          <div className="my-auto mx-2">
+            This obj is only a placeholder, so that a dropdown can be rendered
+            in the navigation.
           </div>
         </div>
       </div>
