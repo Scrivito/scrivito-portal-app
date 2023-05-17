@@ -11,19 +11,13 @@ Scrivito.provideComponent(NavigationWidget, ({ widget }) => {
   if (!root) return null
 
   return (
-    <>
-      <a href="#afterNavigation" className="btn skip-to-content">
-        Skip to Content
-      </a>
-      <Navbar expand="lg" collapseOnSelect={true}>
-        <Brand root={root} />
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <MetaNavigation widget={widget} />
-          <MainNavigation root={root} />
-        </Navbar.Collapse>
-      </Navbar>
-      <div id="afterNavigation" />
-    </>
+    <Navbar expand="lg" collapseOnSelect={true}>
+      <Brand root={root} />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <MetaNavigation widget={widget} />
+        <MainNavigation root={root} />
+      </Navbar.Collapse>
+    </Navbar>
   )
 })

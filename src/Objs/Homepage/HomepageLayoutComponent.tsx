@@ -4,8 +4,11 @@ import { Homepage } from './HomepageObjClass'
 Scrivito.provideLayoutComponent(Homepage, ({ page }) => {
   return (
     <>
+      <a href="#main" className="btn skip-to-content">
+        Skip to Content
+      </a>
       <Scrivito.ContentTag tag="header" content={page} attribute="siteHeader" />
-      <main>
+      <main id="main">
         <Scrivito.CurrentPage />
       </main>
       <Scrivito.ContentTag
