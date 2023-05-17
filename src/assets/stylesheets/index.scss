@@ -4,7 +4,7 @@
  ================================================== */
 
 @import 'bs5/bootstrap';
-//@import 'bootstrap-icons'; loaded separately
+@import 'bootstrap-icons'; // maybe later loaded separately
 
 /* bs5 variables
  ================================================== */
@@ -299,6 +299,26 @@ body {
 }
 main {
   flex: 1;
+}
+
+/* alert
+ ================================================== */
+.alert {
+  background: #fff;
+  color: var(--dark-grey);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 26px -4px rgba(20, 20, 20, 0.15),
+    0 8px 9px -5px rgba(20, 20, 20, 0.06);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 16px;
+  margin: 10px 0;
+  padding: 15px;
+  position: relative;
+}
+.alert-warning {
+  border-top: 5px solid var(--bs-warning) !important;
 }
 
 /* color / helper classes
