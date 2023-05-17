@@ -1,6 +1,7 @@
 import * as Scrivito from 'scrivito'
 import { Dropdown } from './DropdownObjClass'
 import { useEffect } from 'react'
+import '../../assets/stylesheets/bootstrap-icons.scss'
 
 Scrivito.provideComponent(Dropdown, ({ page }) => {
   useEffect(() => {

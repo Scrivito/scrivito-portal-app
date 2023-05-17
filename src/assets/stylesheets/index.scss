@@ -4,7 +4,7 @@
  ================================================== */
 
 @import 'bs5/bootstrap';
-@import 'bootstrap-icons'; // maybe later loaded separately
+//@import 'bootstrap-icons'; loaded separately
 
 /* bs5 variables
  ================================================== */
@@ -759,7 +759,7 @@ section:focus >,
   border-radius: unset;
 }
 
-/* navbar 
+/* navbar
  =================================================================== */
 
 .navbar-brand-logo {
@@ -909,7 +909,7 @@ section:focus >,
   }
 }
 
-/* navbar-toggler 
+/* navbar-toggler
  =================================================================== */
 
 :root {
