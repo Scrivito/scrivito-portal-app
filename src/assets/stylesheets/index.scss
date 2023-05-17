@@ -4,8 +4,7 @@
  ================================================== */
 
 @import 'bs5/bootstrap';
-//@import 'bootstrap-icons';
-//@import "fontawesome/fontawesome";
+//@import 'bootstrap-icons'; loaded separately
 
 /* bs5 variables
  ================================================== */
@@ -284,6 +283,42 @@ strong {
 }
 .uppercase {
   text-transform: uppercase;
+}
+
+/* full height website
+ ================================================== */
+
+html,
+body {
+  height: 100%;
+}
+#root {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+}
+main {
+  flex: 1;
+}
+
+/* alert
+ ================================================== */
+.alert {
+  background: #fff;
+  color: var(--dark-grey);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 8px 26px -4px rgba(20, 20, 20, 0.15),
+    0 8px 9px -5px rgba(20, 20, 20, 0.06);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 16px;
+  margin: 10px 0;
+  padding: 15px;
+  position: relative;
+}
+.alert-warning {
+  border-top: 5px solid var(--bs-warning) !important;
 }
 
 /* color / helper classes
@@ -678,22 +713,6 @@ section:focus >,
   border-radius: 50%;
 }
 
-//-- square box (not used) --//
-
-.square-box:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-.square-box:before {
-  content: '';
-  width: 1px;
-  margin-left: -1px;
-  float: left;
-  height: 0;
-  padding-top: 100%;
-}
-
 //-- carousel & headline with background --//
 
 .carousel-item {
@@ -740,8 +759,12 @@ section:focus >,
   border-radius: unset;
 }
 
-/* navbar 
+/* navbar
  =================================================================== */
+
+.navbar-brand-logo {
+  max-width: 135px;
+}
 
 .navbar {
   padding: 0;
@@ -886,7 +909,7 @@ section:focus >,
   }
 }
 
-/* navbar-toggler 
+/* navbar-toggler
  =================================================================== */
 
 :root {
