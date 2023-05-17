@@ -4,8 +4,7 @@
  ================================================== */
 
 @import 'bs5/bootstrap';
-//@import 'bootstrap-icons';
-//@import "fontawesome/fontawesome";
+//@import 'bootstrap-icons'; loaded separately
 
 /* bs5 variables
  ================================================== */
@@ -284,6 +283,22 @@ strong {
 }
 .uppercase {
   text-transform: uppercase;
+}
+
+/* full height website
+ ================================================== */
+
+html,
+body {
+  height: 100%;
+}
+#root {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+}
+main {
+  flex: 1;
 }
 
 /* color / helper classes
@@ -678,22 +693,6 @@ section:focus >,
   border-radius: 50%;
 }
 
-//-- square box (not used) --//
-
-.square-box:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-.square-box:before {
-  content: '';
-  width: 1px;
-  margin-left: -1px;
-  float: left;
-  height: 0;
-  padding-top: 100%;
-}
-
 //-- carousel & headline with background --//
 
 .carousel-item {
@@ -742,6 +741,10 @@ section:focus >,
 
 /* navbar 
  =================================================================== */
+
+.navbar-brand-logo {
+  max-width: 135px;
+}
 
 .navbar {
   padding: 0;
