@@ -3,7 +3,12 @@ import { HeadlineWidget } from './HeadlineWidgetClass'
 import * as speakingUrl from 'speakingurl'
 
 Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
-  const level = widget.get('level') || 'h2'
+  const style = widget.get('style') || 'h2'
+  const level = widget.get('level') || style
+  const classNames = [style]
+
+  const alignment = alignmentClassName(widget.get('alignment'))
+  if (alignment) classNames.push(alignment)
 
   return (
     <>
@@ -14,7 +19,7 @@ Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
       <Scrivito.ContentTag
         content={widget}
         attribute="headline"
-        className={alignmentClassName(widget.get('alignment'))}
+        className={classNames.join(' ')}
         tag={level}
       />
     </>
