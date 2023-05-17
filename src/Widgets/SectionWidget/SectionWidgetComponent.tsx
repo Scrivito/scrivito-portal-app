@@ -9,6 +9,8 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
     sectionClassNames.push(`bg-${backgroundColor}`)
   }
 
+  if (widget.get('showPadding')) sectionClassNames.push('py-5')
+
   const backgroundImage = widget.get('backgroundImage')
   const backgroundImageClassNames = ['img-background']
   if (widget.get('backgroundAnimateOnHover')) {
