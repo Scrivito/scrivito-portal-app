@@ -19,6 +19,10 @@ Scrivito.provideEditingConfig(SectionWidget, {
         { value: 'middle-grey', title: 'Grey' },
         { value: 'dark-grey', title: 'Dark grey' },
         { value: 'transparent', title: 'Transparent' },
+        { value: 'success', title: 'Success' },
+        { value: 'info', title: 'Info' },
+        { value: 'warning', title: 'Warning' },
+        { value: 'danger', title: 'Danger' },
       ],
     },
     backgroundImage: {
