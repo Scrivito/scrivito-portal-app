@@ -4,6 +4,9 @@ import { SectionWidget } from './SectionWidgetClass'
 Scrivito.provideEditingConfig(SectionWidget, {
   title: 'Section',
   attributes: {
+    backgroundAnimateOnHover: {
+      title: 'Animate background on hover',
+    },
     backgroundColor: {
       title: 'Background color',
       description:
@@ -16,13 +19,21 @@ Scrivito.provideEditingConfig(SectionWidget, {
         { value: 'middle-grey', title: 'Grey' },
         { value: 'dark-grey', title: 'Dark grey' },
         { value: 'transparent', title: 'Transparent' },
+        { value: 'success', title: 'Success' },
+        { value: 'info', title: 'Info' },
+        { value: 'warning', title: 'Warning' },
+        { value: 'danger', title: 'Danger' },
       ],
     },
     backgroundImage: {
       title: 'Background image',
     },
   },
-  properties: ['backgroundColor', 'backgroundImage'],
+  properties: (widget) => [
+    'backgroundColor',
+    'backgroundImage',
+    ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
+  ],
   initialContent: {
     backgroundColor: 'white',
   },

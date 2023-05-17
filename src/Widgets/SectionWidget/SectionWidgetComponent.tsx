@@ -10,6 +10,10 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
   }
 
   const backgroundImage = widget.get('backgroundImage')
+  const backgroundImageClassNames = ['img-background']
+  if (widget.get('backgroundAnimateOnHover')) {
+    backgroundImageClassNames.push('img-zoom')
+  }
 
   return (
     <section className={sectionClassNames.join(' ')}>
@@ -18,7 +22,7 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
           <Scrivito.ImageTag
             content={widget}
             attribute="backgroundImage"
-            className="img-background"
+            className={backgroundImageClassNames.join(' ')}
           />
         </Scrivito.InPlaceEditingOff>
       )}
