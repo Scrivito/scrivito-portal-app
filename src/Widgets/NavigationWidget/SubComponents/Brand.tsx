@@ -12,7 +12,6 @@ export const Brand = Scrivito.connect(function Brand({
           content={root}
           attribute="siteLogoDark"
           className="navbar-brand-logo"
-          style={{ maxWidth: '135px' }} // TODO: Remove inline styling
         />
       </Scrivito.LinkTag>
     </Scrivito.InPlaceEditingOff>
