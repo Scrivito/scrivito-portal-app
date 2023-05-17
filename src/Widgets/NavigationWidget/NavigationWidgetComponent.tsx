@@ -15,7 +15,7 @@ Scrivito.provideComponent(NavigationWidget, ({ widget }) => {
       <a href="#afterNavigation" className="btn skip-to-content">
         Skip to Content
       </a>
-      <Navbar expand="lg">
+      <Navbar expand="lg" collapseOnSelect={true}>
         <Brand root={root} />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
