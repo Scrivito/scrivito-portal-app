@@ -400,6 +400,10 @@ main {
   .h6 {
     color: rgba(255, 255, 255, 0.9);
   }
+  .btn-outline-secondary {
+    color: #fff;
+    border-color: #fff;
+  }
 }
 
 .bg-white,
@@ -740,6 +744,10 @@ section:focus >,
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 50%;
+}
+.editor-large {
+  width: 5.75rem;
+  height: 5.75rem;
 }
 .editor-img {
   max-width: 100%;
