@@ -4,6 +4,9 @@ import { Homepage } from './HomepageObjClass'
 Scrivito.provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
+    contentTitle: {
+      title: 'Site name',
+    },
     siteLogoDark: {
       title: 'Dark logo',
       description: 'Used with light backgrounds',
@@ -17,7 +20,7 @@ Scrivito.provideEditingConfig(Homepage, {
   propertiesGroups: [
     {
       title: 'Site settings',
-      properties: ['siteLogoDark', 'siteLogoLight'],
+      properties: ['contentTitle', 'siteLogoDark', 'siteLogoLight'],
       key: 'site-settings-group',
     },
   ],
