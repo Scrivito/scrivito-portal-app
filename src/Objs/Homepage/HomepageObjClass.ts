@@ -4,6 +4,7 @@ export const Homepage = Scrivito.provideObjClass('Homepage', {
   attributes: {
     body: ['widgetlist', { only: 'SectionWidget' }],
     childOrder: 'referencelist',
+    contentTitle: 'string',
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],
     siteHeader: ['widgetlist', { only: 'SectionWidget' }],
     siteLogoDark: ['reference', { only: 'Image' }],

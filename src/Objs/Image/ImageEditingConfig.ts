@@ -2,6 +2,7 @@ import * as Scrivito from 'scrivito'
 import { Image } from './ImageObjClass'
 
 Scrivito.provideEditingConfig(Image, {
+  title: 'Image',
   attributes: {
     alternativeText: {
       title: 'Alternative text',
