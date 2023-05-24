@@ -8,7 +8,9 @@ Scrivito.provideComponent(CarouselContainerWidget, ({ widget }) => {
     <Carousel interval={null}>
       {widget.get('items').map((item) => (
         <Carousel.Item key={item.id()}>
-          <Scrivito.ImageTag content={item} attribute="background" />
+          <Scrivito.InPlaceEditingOff>
+            <Scrivito.ImageTag content={item} attribute="background" />
+          </Scrivito.InPlaceEditingOff>
 
           <Scrivito.ContentTag
             content={item}
