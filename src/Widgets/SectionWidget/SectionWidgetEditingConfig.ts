@@ -9,16 +9,15 @@ Scrivito.provideEditingConfig(SectionWidget, {
     },
     backgroundColor: {
       title: 'Background color',
-      description:
-        'Does not apply if a background image is set. Default: White',
+      description: 'Default: Transparent',
       values: [
+        { value: 'transparent', title: 'Transparent' },
         { value: 'white', title: 'White' },
         { value: 'primary', title: 'Primary color' },
         { value: 'secondary', title: 'Secondary color' },
         { value: 'light-grey', title: 'Light grey' },
         { value: 'middle-grey', title: 'Grey' },
         { value: 'dark-grey', title: 'Dark grey' },
-        { value: 'transparent', title: 'Transparent' },
         { value: 'success', title: 'Success' },
         { value: 'info', title: 'Info' },
         { value: 'warning', title: 'Warning' },
@@ -50,7 +49,7 @@ Scrivito.provideEditingConfig(SectionWidget, {
     'showPadding',
   ],
   initialContent: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     containerWidth: 'fixed',
     showPadding: true,
   },
