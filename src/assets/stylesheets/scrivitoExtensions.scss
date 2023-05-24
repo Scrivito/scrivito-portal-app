@@ -1,0 +1,11 @@
+// --------------------------------------------------------------- //
+// scrivito_dark adaptions
+// --------------------------------------------------------------- //
+
+.scrivito_dark {
+  background: #3f3f3f;
+
+  [data-scrivito-editors-placeholder]:empty:not(:focus):before {
+    color: #aaa !important;
+  }
+}
