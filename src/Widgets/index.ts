@@ -10,7 +10,10 @@ for (const path in modules) {
 }
 
 if (Scrivito.isEditorLoggedIn()) {
-  const editingConfigModules = import.meta.glob(['./**/*EditingConfig.ts'])
+  const editingConfigModules = import.meta.glob([
+    './**/*EditingConfig.ts',
+    './**/*EditingConfig.tsx',
+  ])
 
   for (const path in editingConfigModules) {
     editingConfigModules[path]()
