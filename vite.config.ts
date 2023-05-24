@@ -1,6 +1,5 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
-// @ts-ignore-next-line
 import dns from 'dns'
 
 // Ensure, that vite prints "localhost" instead of 127.0.0.1
