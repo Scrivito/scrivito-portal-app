@@ -1135,5 +1135,17 @@ section:focus >,
   display: block;
 }
 
-/* RESPONSIVE
- ================================================== */
+/* .nav-pills
+ =================================================================== */
+
+.nav-pills {
+  --bs-nav-pills-border-radius: 0;
+  --bs-nav-pills-link-active-color: #fff;
+  --bs-nav-pills-link-active-bg: var(--bs-primary);
+}
+.nav-pills .nav-link {
+  padding: 4px 8px;
+}
+.nav-pills .nav-link.active {
+  border: 1px solid #fff;
+}
