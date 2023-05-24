@@ -7,7 +7,10 @@ Scrivito.provideComponent(CarouselContainerWidget, ({ widget }) => {
   return (
     <Carousel interval={null}>
       {widget.get('items').map((item) => (
-        <Carousel.Item key={item.id()}>
+        <Carousel.Item
+          key={item.id()}
+          className={itemClassName(item.get('backgroundColor'))}
+        >
           <Scrivito.InPlaceEditingOff>
             <Scrivito.ImageTag content={item} attribute="background" />
           </Scrivito.InPlaceEditingOff>
@@ -22,3 +25,9 @@ Scrivito.provideComponent(CarouselContainerWidget, ({ widget }) => {
     </Carousel>
   )
 })
+
+function itemClassName(backgroundColor: unknown) {
+  if (!backgroundColor || backgroundColor === 'transparent') return
+
+  if (typeof backgroundColor === 'string') return `bg-${backgroundColor}`
+}
