@@ -1,11 +1,56 @@
 // --------------------------------------------------------------- //
-// scrivito_dark adaptions
+// general styles adaptions
 // --------------------------------------------------------------- //
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
 
 .scrivito_dark {
   background: #3f3f3f;
 
   [data-scrivito-editors-placeholder]:empty:not(:focus):before {
+    color: #aaa !important;
+  }
+}
+
+// --------------------------------------------------------------- //
+// editor styles adaptions
+// --------------------------------------------------------------- //
+
+.scrivito_detail_content {
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  margin: 0;
+  padding: 15px;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.scrivito_detail_label {
+  display: block;
+  padding: 0;
+  width: 100%;
+}
+.scrivito_detail_label span {
+  color: #444;
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 2px 3px 2px;
+}
+.scrivito_notice_body {
+  color: #666;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 0 0 10px;
+}
+
+.scrivito_dark {
+  .scrivito_detail_label span {
+    color: #eee;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+  .scrivito_notice_body {
     color: #aaa !important;
   }
 }
