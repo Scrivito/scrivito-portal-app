@@ -17,6 +17,14 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
     backgroundImageClassNames.push('img-zoom')
   }
 
+  let contentClassName = 'container'
+  if (widget.get('containerWidth') === '95-percent') {
+    contentClassName = 'container-fluid'
+  }
+  if (widget.get('containerWidth') === '100-percent') {
+    contentClassName = ''
+  }
+
   return (
     <section className={sectionClassNames.join(' ')}>
       {backgroundImage && (
@@ -31,7 +39,7 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
       <Scrivito.ContentTag
         tag="div"
         content={widget}
-        className="container"
+        className={contentClassName}
         attribute="content"
       />
     </section>

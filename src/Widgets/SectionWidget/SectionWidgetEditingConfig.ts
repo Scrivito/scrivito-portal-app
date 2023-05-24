@@ -28,6 +28,15 @@ Scrivito.provideEditingConfig(SectionWidget, {
     backgroundImage: {
       title: 'Background image',
     },
+    containerWidth: {
+      title: 'Container width',
+      description: 'Default: fixed',
+      values: [
+        { value: 'fixed', title: 'fixed' },
+        { value: '95-percent', title: '95%' },
+        { value: '100-percent', title: '100%' },
+      ],
+    },
     showPadding: {
       title: 'Padding',
       description: 'Padding adds space around this section. Default: Yes',
@@ -37,10 +46,12 @@ Scrivito.provideEditingConfig(SectionWidget, {
     'backgroundColor',
     'backgroundImage',
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
+    'containerWidth',
     'showPadding',
   ],
   initialContent: {
     backgroundColor: 'white',
+    containerWidth: 'fixed',
     showPadding: true,
   },
 })
