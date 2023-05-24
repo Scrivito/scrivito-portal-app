@@ -2,6 +2,7 @@ import * as Scrivito from 'scrivito'
 import Carousel from 'react-bootstrap/Carousel'
 import { CarouselContainerWidget } from './CarouselContainerWidgetClass'
 
+// TODO: Improve editing, e.g. add a button to add more items etc.
 Scrivito.provideComponent(CarouselContainerWidget, ({ widget }) => {
   return (
     <Carousel interval={null}>
