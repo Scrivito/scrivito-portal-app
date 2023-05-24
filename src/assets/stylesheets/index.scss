@@ -759,7 +759,7 @@ section:focus >,
 //-- carousel & headline with background --//
 
 .carousel-item {
-  height: 400px;
+  min-height: 400px;
 }
 
 .header-caption,

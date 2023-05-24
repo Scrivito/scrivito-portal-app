@@ -12,14 +12,15 @@ Scrivito.provideComponent(CarouselContainerWidget, ({ widget }) => {
           className={itemClassName(item.get('backgroundColor'))}
         >
           <Scrivito.InPlaceEditingOff>
-            <Scrivito.ImageTag content={item} attribute="background" />
+            <Scrivito.ImageTag content={item} attribute="background" className="img-background"/>
           </Scrivito.InPlaceEditingOff>
-
+          <div className='container'>
           <Scrivito.ContentTag
             content={item}
             attribute="caption"
             className="carousel-caption"
           />
+          </div>
         </Carousel.Item>
       ))}
     </Carousel>
