@@ -9,16 +9,15 @@ Scrivito.provideEditingConfig(SectionWidget, {
     },
     backgroundColor: {
       title: 'Background color',
-      description:
-        'Does not apply if a background image is set. Default: White',
+      description: 'Default: Transparent',
       values: [
+        { value: 'transparent', title: 'Transparent' },
         { value: 'white', title: 'White' },
         { value: 'primary', title: 'Primary color' },
         { value: 'secondary', title: 'Secondary color' },
         { value: 'light-grey', title: 'Light grey' },
         { value: 'middle-grey', title: 'Grey' },
         { value: 'dark-grey', title: 'Dark grey' },
-        { value: 'transparent', title: 'Transparent' },
         { value: 'success', title: 'Success' },
         { value: 'info', title: 'Info' },
         { value: 'warning', title: 'Warning' },
@@ -27,6 +26,15 @@ Scrivito.provideEditingConfig(SectionWidget, {
     },
     backgroundImage: {
       title: 'Background image',
+    },
+    containerWidth: {
+      title: 'Container width',
+      description: 'Default: fixed',
+      values: [
+        { value: 'fixed', title: 'fixed' },
+        { value: '95-percent', title: '95%' },
+        { value: '100-percent', title: '100%' },
+      ],
     },
     showPadding: {
       title: 'Padding',
@@ -37,10 +45,12 @@ Scrivito.provideEditingConfig(SectionWidget, {
     'backgroundColor',
     'backgroundImage',
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
+    'containerWidth',
     'showPadding',
   ],
   initialContent: {
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
+    containerWidth: 'fixed',
     showPadding: true,
   },
 })
