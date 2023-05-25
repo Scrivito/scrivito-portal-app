@@ -105,6 +105,23 @@
   --bs-btn-disabled-border-color: var(--bs-secondary-darken);
 }
 
+.btn-outline-primary {
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--bs-primary-lighten);
+  --bs-btn-hover-border-color: var(--bs-primary-lighten);
+  --bs-btn-focus-shadow-rgb: 13, 110, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--bs-primary-darken);
+  --bs-btn-active-border-color: var(--bs-primary-darken);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: var(--bs-primary-lighten);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--bs-primary-lighten);
+  --bs-gradient: none;
+}
+
 /* parts imports
  ================================================== */
 
@@ -400,6 +417,7 @@ main {
   .h6 {
     color: rgba(255, 255, 255, 0.9);
   }
+  .btn-outline-primary,
   .btn-outline-secondary {
     color: #fff;
     border-color: #fff;
@@ -800,6 +818,13 @@ section:focus >,
 .form-control {
   border: none;
   border-radius: unset;
+}
+
+/* btn + alignment
+ =================================================================== */
+
+.btn-block .btn {
+  width: 100%;
 }
 
 /* navbar
