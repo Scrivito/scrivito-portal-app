@@ -9,6 +9,8 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
     cardClassNames.push(`bg-${backgroundColor}`)
   }
 
+  if (widget.get('cardExtended')) cardClassNames.push('card-extended')
+
   const backgroundImage = widget.get('backgroundImage')
   const backgroundImageClassNames = ['img-background']
   if (widget.get('backgroundAnimateOnHover')) {
