@@ -21,7 +21,17 @@ export const NavItem = Scrivito.connect(function ScrivitoNavItem({
     )
   }
 
-  return <Nav.Link {...itemProps(obj)}>{objTitle(obj)}</Nav.Link>
+  const linkIcon = obj.get('linkIcon')
+  return (
+    <Nav.Link {...itemProps(obj)}>
+      {linkIcon && (
+        <>
+          <i className={`bi ${linkIcon}`}></i>
+        </>
+      )}
+      {objTitle(obj)}
+    </Nav.Link>
+  )
 })
 
 function objTitle(obj: Scrivito.Obj): string {

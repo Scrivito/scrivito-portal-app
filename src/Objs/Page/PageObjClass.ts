@@ -6,6 +6,7 @@ export const Page = Scrivito.provideObjClass('Page', {
     childOrder: 'referencelist',
     hideFromNavigation: 'boolean',
     title: 'string',
+    linkIcon: 'string',
   },
   extractTextAttributes: ['body'],
 })
