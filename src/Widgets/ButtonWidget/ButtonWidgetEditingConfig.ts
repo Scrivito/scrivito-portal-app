@@ -20,6 +20,8 @@ Scrivito.provideEditingConfig(ButtonWidget, {
       values: [
         { value: 'btn-primary', title: 'Primary color' },
         { value: 'btn-secondary', title: 'Secondary color' },
+        { value: 'btn-outline-primary', title: 'Primary outline color' },
+        { value: 'btn-outline-secondary', title: 'Secondary outline color' },
       ],
     },
     buttonSize: {

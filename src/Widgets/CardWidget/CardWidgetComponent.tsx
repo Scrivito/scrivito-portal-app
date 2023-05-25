@@ -35,7 +35,7 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
           <Scrivito.ImageTag
             content={widget}
             attribute="image"
-            className="image-box img-h-200"
+            className="img-box img-h-200"
           />
         </Scrivito.InPlaceEditingOff>
       )}
