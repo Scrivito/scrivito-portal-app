@@ -10,6 +10,8 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
   widget: InstanceType<typeof NavigationWidget>
 }) {
   const metaNavigationPortalObjs = widget.get('metaNavigationPortalObjs')
+  const showPortalNav = metaNavigationPortalObjs.length > 0
+
   return (
     <div className="navbar-meta">
       <Nav className="me-auto">
@@ -18,7 +20,7 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
         ))}
       </Nav>
       <Nav className="border-left ms-auto">
-        {metaNavigationPortalObjs.length > 0 && (
+        {showPortalNav && (
           <NavDropdown
             title={
               <>
