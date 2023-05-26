@@ -3,5 +3,5 @@ import { NavigationWidget } from './NavigationWidgetClass'
 
 Scrivito.provideEditingConfig(NavigationWidget, {
   title: 'Navigation',
-  properties: ['metaNavigationObjs'],
+  properties: ['metaNavigationObjs', 'metaNavigationPortalObjs'],
 })

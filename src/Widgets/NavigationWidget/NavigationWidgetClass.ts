@@ -5,6 +5,7 @@ export const NavigationWidget = Scrivito.provideWidgetClass(
   {
     attributes: {
       metaNavigationObjs: 'referencelist',
+      metaNavigationPortalObjs: 'referencelist',
     },
   }
 )
