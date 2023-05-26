@@ -1,0 +1,25 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.1
+
+jobs:
+  execute-npm:
+    parameters:
+      npm-run-command:
+        type: string
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - node/install:
+          node-version: '16'
+      - node/install-packages
+      - run: npm run << parameters.npm-run-command >>
+
+workflows:
+  main:
+    jobs:
+      - execute-npm:
+          name: npm run build
+          npm-run-command: build
