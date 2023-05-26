@@ -1,6 +1,7 @@
 import * as Scrivito from 'scrivito'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import { objTitle } from './objTitle'
 
 export const NavItem = Scrivito.connect(function ScrivitoNavItem({
   obj,
@@ -33,12 +34,6 @@ export const NavItem = Scrivito.connect(function ScrivitoNavItem({
     </Nav.Link>
   )
 })
-
-function objTitle(obj: Scrivito.Obj): string {
-  const title = obj.get('title')
-
-  return typeof title === 'string' && title ? title : '<untitled>'
-}
 
 function itemProps(obj: Scrivito.Obj) {
   return {
