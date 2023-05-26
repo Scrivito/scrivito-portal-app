@@ -3,6 +3,7 @@ import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import { objTitle } from './objTitle'
 
 export const MetaNavigation = Scrivito.connect(function MetaNavigation({
   widget,
@@ -19,8 +20,9 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
           <NavItem obj={metaObj} key={`${metaObj.id()}${index}`} />
         ))}
       </Nav>
-      <Nav className="border-left ms-auto">
-        {showPortalNav && (
+
+      {showPortalNav && (
+        <Nav className="border-left ms-auto">
           <NavDropdown
             title={
               <>
@@ -30,11 +32,22 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
             }
           >
             {widget.get('metaNavigationPortalObjs').map((portalObj, index) => (
-              <NavItem obj={portalObj} key={`${portalObj.id()}${index}`} />
+              <NavDropdown.Item
+                active={Scrivito.isOnCurrentPath(portalObj)}
+                href={Scrivito.urlFor(portalObj)}
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
+                  event.preventDefault()
+
+                  Scrivito.navigateTo(portalObj)
+                }}
+                key={`${portalObj.id()}${index}`}
+              >
+                {objTitle(portalObj)}
+              </NavDropdown.Item>
             ))}
           </NavDropdown>
-        )}
-      </Nav>
+        </Nav>
+      )}
     </div>
   )
 })
