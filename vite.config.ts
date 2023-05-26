@@ -24,6 +24,10 @@ export default defineConfig(({ command, mode }) => {
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
     },
     plugins: [react()],
+    preview: {
+      port: 8080,
+      strictPort: true,
+    },
     server: {
       port: 8080,
       strictPort: true,

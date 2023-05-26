@@ -1,6 +1,6 @@
 import * as Scrivito from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
-import * as speakingUrl from 'speakingurl'
+import speakingUrl from 'speakingurl'
 
 Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
   const style = widget.get('style') || 'h2'
