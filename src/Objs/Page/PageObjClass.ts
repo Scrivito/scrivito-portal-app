@@ -4,7 +4,7 @@ export const Page = Scrivito.provideObjClass('Page', {
   attributes: {
     body: ['widgetlist', { only: 'SectionWidget' }],
     childOrder: 'referencelist',
-    hideFromNavigation: 'boolean',
+    hideInNavigation: 'boolean',
     title: 'string',
     linkIcon: 'string',
   },

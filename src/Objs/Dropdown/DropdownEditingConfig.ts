@@ -4,11 +4,11 @@ import { Dropdown } from './DropdownObjClass'
 Scrivito.provideEditingConfig(Dropdown, {
   title: 'Dropdown',
   attributes: {
-    hideFromNavigation: {
-      title: 'Hide from navigation?',
+    hideInNavigation: {
+      title: 'Hide in navigation?',
       description: 'Default: No',
     },
     title: { title: 'Title' },
   },
-  properties: ['title', 'hideFromNavigation'],
+  properties: ['title', 'hideInNavigation'],
 })
