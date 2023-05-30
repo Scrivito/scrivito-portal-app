@@ -8,10 +8,10 @@
   --bs-table-striped-bg: #f9fbfd;
   --bs-table-active-color: #12263f;
   --bs-table-active-bg: #f9fbfd;
-  --bs-table-hover-color: #12263f;
-  --bs-table-hover-bg: #f9fbfd;
-  border-color: $jr-lightgrey;
-  color: $jr-darkgrey;
+  --bs-table-hover-color: var(--dark-grey);
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--dark-grey);
   margin-bottom: 1.5rem;
   vertical-align: top;
   width: 100%;
@@ -24,7 +24,7 @@
 }
 
 .table > :not(:first-child) {
-  border-top: 1px solid $jr-lightgrey;
+  border-top: 1px solid var(--dark-grey);
 }
 
 .table thead th,
@@ -34,7 +34,6 @@
 }
 
 .table thead th {
-  color: $jr-middlegrey;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -86,7 +85,7 @@
       display: none;
     }
     .table tr:not(:first-child) {
-      border-top: 1px solid $jr-lightgrey;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
     .table td {
       display: block;
@@ -100,13 +99,13 @@
     table td:before {
       content: attr(data-label);
       display: block;
-      color: $jr-darkgrey;
+      color: var(--dark-grey);
       font-size: 8px;
       font-weight: 600;
       letter-spacing: 0.08em;
 
       text-transform: uppercase;
-      margin: 5px 0 -5px 0;
+      margin: 5px 0 0 0;
     }
   }
 }
