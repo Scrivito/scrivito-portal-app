@@ -856,9 +856,24 @@ section:focus >,
 }
 .navbar-meta {
   border-bottom: 1px solid var(--border);
+  .dropdown-menu {
+    right: 0;
+    left: auto;
+  }
   .nav-link {
     font-size: 0.75rem;
     opacity: 0.9;
+  }
+  .nav-link:hover,
+  .nav-link:focus {
+    color: var(--bs-dropdown-link-hover-color);
+    background-color: var(--bs-dropdown-link-hover-bg);
+  }
+  .nav-link.active,
+  .nav-link:active {
+    color: var(--bs-dropdown-link-active-color);
+    text-decoration: none;
+    background-color: var(--bs-dropdown-link-active-bg);
   }
 }
 .navbar-main {
