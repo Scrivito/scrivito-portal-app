@@ -13,7 +13,23 @@ export function configureScrivito() {
     // Multitenancy mode
     const tenantFromUrl =
       window.location.pathname.match(/^\/([0-9a-f]{32})\b/)?.[1]
-    if (!tenantFromUrl) throw new Error('Could not determine tenant!')
+    if (!tenantFromUrl) {
+      if (import.meta.env.VITE_MULTITENANCY_FALLBACK_SCRIVITO_TENANT) {
+        const fallbackScrivitoTenant = import.meta.env
+          .VITE_MULTITENANCY_FALLBACK_SCRIVITO_TENANT
+        if (
+          typeof fallbackScrivitoTenant === 'string' &&
+          fallbackScrivitoTenant.match(/^[0-9a-f]{32}$/)
+        ) {
+          window.location.replace(
+            `${window.location.origin}/${fallbackScrivitoTenant}`
+          )
+          return
+        }
+      }
+
+      throw new Error('Could not determine tenant!')
+    }
 
     config.tenant = tenantFromUrl
     config.routingBasePath = `/${tenantFromUrl}`
