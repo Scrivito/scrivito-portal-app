@@ -3,7 +3,7 @@ import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import { objTitle } from './objTitle'
+import { objIconAndTitle } from './objTitle'
 
 export const MetaNavigation = Scrivito.connect(function MetaNavigation({
   widget,
@@ -42,7 +42,7 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                 }}
                 key={`${portalObj.id()}${index}`}
               >
-                {objTitle(portalObj)}
+                {objIconAndTitle(portalObj)}
               </NavDropdown.Item>
             ))}
           </NavDropdown>

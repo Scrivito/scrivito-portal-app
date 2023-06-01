@@ -1,7 +1,7 @@
 import * as Scrivito from 'scrivito'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import { objTitle } from './objTitle'
+import { objIconAndTitle, objTitle } from './objTitle'
 
 export const NavItem = Scrivito.connect(function ScrivitoNavItem({
   obj,
@@ -15,24 +15,14 @@ export const NavItem = Scrivito.connect(function ScrivitoNavItem({
       <NavDropdown title={objTitle(obj)} active={Scrivito.isOnCurrentPath(obj)}>
         {obj.orderedChildren().map((child) => (
           <NavDropdown.Item {...itemProps(child)} key={child.id()}>
-            {objTitle(child)}
+            {objIconAndTitle(child)}
           </NavDropdown.Item>
         ))}
       </NavDropdown>
     )
   }
 
-  const linkIcon = obj.get('linkIcon')
-  return (
-    <Nav.Link {...itemProps(obj)}>
-      {linkIcon && (
-        <>
-          <i className={`bi ${linkIcon}`}></i>
-        </>
-      )}
-      {objTitle(obj)}
-    </Nav.Link>
-  )
+  return <Nav.Link {...itemProps(obj)}>{objIconAndTitle(obj)}</Nav.Link>
 })
 
 function itemProps(obj: Scrivito.Obj) {
