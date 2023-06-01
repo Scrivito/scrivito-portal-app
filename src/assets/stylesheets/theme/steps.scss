@@ -1,0 +1,78 @@
+/* steps 
+ =================================================================== */
+
+.steps {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.steps .steps-item {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 0;
+  max-width: 100%;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  margin-bottom: 2.25rem;
+}
+
+.steps .steps-wrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.steps .steps-item {
+  overflow: hidden;
+  flex-grow: 1;
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.steps .steps-icon {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.steps .steps-title {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.65rem;
+}
+.steps .steps-title::after {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  margin-left: 0.5rem;
+  content: '';
+}
+
+.steps .steps-item:last-child .steps-title::after {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .steps .steps-item {
+    flex: 0 0 100%;
+    padding-bottom: 0.5rem;
+  }
+  .steps .steps-item .steps-title::after {
+    display: none;
+  }
+}
