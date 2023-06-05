@@ -32,6 +32,7 @@ Scrivito.provideEditingConfig(ImageWidget, {
     [
       'image',
 
+      // TODO: Remove explicit type of image, once #9955 is resolved
       (image: Scrivito.Obj | null) => {
         if (!image) {
           return {
