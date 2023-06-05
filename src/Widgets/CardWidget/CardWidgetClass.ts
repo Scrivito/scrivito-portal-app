@@ -23,9 +23,10 @@ export const CardWidget = Scrivito.provideWidgetClass('CardWidget', {
     ],
     backgroundImage: ['reference', { only: ['Image'] }],
     cardBody: 'widgetlist',
-    cardFooter: 'widgetlist',
     cardExtended: 'boolean',
+    cardFooter: 'widgetlist',
     image: ['reference', { only: ['Image'] }],
+    linkTo: 'link',
     showFooter: 'boolean',
   },
 })

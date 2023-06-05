@@ -2,15 +2,6 @@ import * as Scrivito from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
 
 Scrivito.provideComponent(CardWidget, ({ widget }) => {
-  const cardClassNames: string[] = ['card']
-
-  const backgroundColor = widget.get('backgroundColor')
-  if (backgroundColor && backgroundColor !== 'transparent') {
-    cardClassNames.push(`bg-${backgroundColor}`)
-  }
-
-  if (widget.get('cardExtended')) cardClassNames.push('card-extended')
-
   const backgroundImage = widget.get('backgroundImage')
   const backgroundImageClassNames = ['img-background']
   if (widget.get('backgroundAnimateOnHover')) {
@@ -20,7 +11,7 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
   const image = widget.get('image')
 
   return (
-    <div className={cardClassNames.join(' ')}>
+    <OuterCardTag widget={widget}>
       {backgroundImage && (
         <Scrivito.InPlaceEditingOff>
           <Scrivito.ImageTag
@@ -51,6 +42,37 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
           className="card-footer"
         />
       )}
-    </div>
+    </OuterCardTag>
   )
 })
+
+const OuterCardTag = Scrivito.connect(
+  ({
+    children,
+    widget,
+  }: {
+    children: React.ReactNode
+    widget: InstanceType<typeof CardWidget>
+  }) => {
+    const cardClassNames: string[] = ['card']
+
+    const backgroundColor = widget.get('backgroundColor')
+    if (backgroundColor && backgroundColor !== 'transparent') {
+      cardClassNames.push(`bg-${backgroundColor}`)
+    }
+
+    if (widget.get('cardExtended')) cardClassNames.push('card-extended')
+
+    const link = widget.get('linkTo')
+
+    if (link && !Scrivito.isInPlaceEditingActive()) {
+      return (
+        <Scrivito.LinkTag to={link} className={cardClassNames.join(' ')}>
+          {children}
+        </Scrivito.LinkTag>
+      )
+    }
+
+    return <div className={cardClassNames.join(' ')}>{children}</div>
+  }
+)

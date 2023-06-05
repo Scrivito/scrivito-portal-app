@@ -11,6 +11,7 @@ Scrivito.provideEditingConfig(CardWidget, {
     },
   },
   properties: (widget: InstanceType<typeof CardWidget>) => [
+    'linkTo',
     'image',
     'backgroundColor',
     'backgroundImage',
