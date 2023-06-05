@@ -2,6 +2,10 @@ import * as Scrivito from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
 
 Scrivito.provideComponent(CardWidget, ({ widget }) => {
+  const cardBodyClassNames: string[] = ['card-body']
+  const padding = widget.get('padding')
+  cardBodyClassNames.push(padding ? padding : 'p-4')
+
   const backgroundImage = widget.get('backgroundImage')
   const backgroundImageClassNames = ['img-background']
   if (widget.get('backgroundAnimateOnHover')) {
@@ -33,7 +37,7 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
       <Scrivito.ContentTag
         content={widget}
         attribute="cardBody"
-        className="card-body"
+        className={cardBodyClassNames.join(' ')}
       />
       {widget.get('showFooter') && (
         <Scrivito.ContentTag
@@ -55,6 +59,9 @@ const OuterCardTag = Scrivito.connect(
     widget: InstanceType<typeof CardWidget>
   }) => {
     const cardClassNames: string[] = ['card']
+
+    const margin = widget.get('margin')
+    cardClassNames.push(margin ? margin : 'mb-4')
 
     const backgroundColor = widget.get('backgroundColor')
     if (backgroundColor && backgroundColor !== 'transparent') {
