@@ -49,8 +49,8 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.card-grey .table-hover > tbody > tr:hover > * {
-  --bs-table-accent-bg: #eee;
+table tr:last-child td {
+  border: none;
 }
 
 /* ordering + drag handles */

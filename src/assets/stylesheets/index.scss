@@ -129,6 +129,7 @@
 @import 'theme/fonts';
 @import 'theme/loader';
 @import 'theme/table';
+@import 'theme/steps';
 
 /* accessiblity support
  =================================================================== */
@@ -1117,6 +1118,7 @@ section:focus >,
   list-style-type: none;
   display: block;
   overflow: hidden;
+  width: 100%;
 }
 
 .nav-bordered li:first-child {
@@ -1189,4 +1191,19 @@ section:focus >,
 }
 .nav-pills .nav-link.active {
   border: 1px solid #fff;
+}
+
+/* list details
+ =================================================================== */
+
+.list-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.65rem;
+  display: block;
+  opacity: 0.6;
+}
+.list-value {
+  display: block;
+  margin: 0;
 }
