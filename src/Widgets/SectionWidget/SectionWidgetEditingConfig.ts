@@ -41,7 +41,8 @@ Scrivito.provideEditingConfig(SectionWidget, {
       description: 'Padding adds space around this section. Default: Yes',
     },
   },
-  properties: (widget) => [
+  // TODO: Remove explicit type of widget, once #9955 is resolved
+  properties: (widget: InstanceType<typeof SectionWidget>) => [
     'backgroundColor',
     'backgroundImage',
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
