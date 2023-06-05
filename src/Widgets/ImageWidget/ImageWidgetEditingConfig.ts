@@ -32,7 +32,7 @@ Scrivito.provideEditingConfig(ImageWidget, {
     [
       'image',
 
-      (image) => {
+      (image: Scrivito.Obj | null) => {
         if (!image) {
           return {
             message: 'The image should be set.',
