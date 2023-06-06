@@ -41,7 +41,7 @@ Scrivito.provideEditingConfig(SectionWidget, {
       description: 'Padding adds space around this section. Default: Yes',
     },
   },
-  properties: (widget: InstanceType<typeof SectionWidget>) => [
+  properties: (widget) => [
     'backgroundColor',
     'backgroundImage',
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
