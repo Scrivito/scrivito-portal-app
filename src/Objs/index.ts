@@ -1,13 +1,9 @@
 import * as Scrivito from 'scrivito'
-const modules = import.meta.glob([
-  './**/ObjClass.ts',
-  './**/*Component.tsx',
-  './**/*LayoutComponent.tsx',
-])
 
-for (const path in modules) {
-  modules[path]()
-}
+import.meta.glob(
+  ['./**/ObjClass.ts', './**/*Component.tsx', './**/*LayoutComponent.tsx'],
+  { eager: true }
+)
 
 if (Scrivito.isEditorLoggedIn()) {
   const editingConfigModules = import.meta.glob([
