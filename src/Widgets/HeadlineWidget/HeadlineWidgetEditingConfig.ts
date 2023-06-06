@@ -50,8 +50,7 @@ Scrivito.provideEditingConfig(HeadlineWidget, {
     [
       'headline',
 
-      // TODO: Remove explicit type of headline, once #9955 is resolved
-      (headline: string) => {
+      (headline) => {
         if (!headline) {
           return { message: 'The headline must be set.', severity: 'error' }
         }
