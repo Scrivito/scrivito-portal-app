@@ -1,7 +1,7 @@
 import * as Scrivito from 'scrivito'
 
 import.meta.glob(
-  ['./**/ObjClass.ts', './**/*Component.tsx', './**/*LayoutComponent.tsx'],
+  ['./**/*ObjClass.ts', './**/*Component.tsx', './**/*LayoutComponent.tsx'],
   { eager: true }
 )
 
