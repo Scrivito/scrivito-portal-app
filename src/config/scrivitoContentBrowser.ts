@@ -82,6 +82,15 @@ function defaultFilters() {
         },
         Download: filterOptionForObjClass('Download'),
         Video: filterOptionForObjClass('Video'),
+        Data: {
+          title: 'Data',
+          field: '_objClass',
+          value: DATA,
+          options: DATA.reduce((result, value) => {
+            result[value] = filterOptionForObjClass(value)
+            return result
+          }, {} as { [key: string]: FilterOption }),
+        },
       },
     },
     _modification: {
@@ -123,9 +132,11 @@ function isFilterPresentationsKey(
 const FILTER_PRESENTATIONS = {
   Download: { title: 'Downloads', icon: 'pdf' },
   Homepage: { title: 'Homepage', icon: 'inbox' },
+  Order: { title: 'Orders', icon: 'inbox' },
   Image: { title: 'Images', icon: 'image' },
   Page: { title: 'Standard pages', icon: 'sheet' },
   Video: { title: 'Videos', icon: 'video' },
 }
 
 const PAGES = ['Page', 'Homepage']
+const DATA = ['Order']
