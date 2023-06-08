@@ -241,19 +241,28 @@ h6,
 }
 
 h1,
-.h1,
+h2,
 h3,
-.h3,
 h4,
-.h4,
 h5,
-.h5,
-h6,
-.h6 {
+h6 {
   line-height: 1.4;
   font-weight: 300;
   letter-spacing: -0.5px;
   margin-bottom: 0.7rem;
+}
+
+div {
+  &.h1,
+  &.h2,
+  &.h3,
+  &.h4,
+  &.h5,
+  &.h6 {
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+    margin-bottom: 0;
+  }
 }
 
 a {
@@ -347,14 +356,24 @@ main {
   opacity: 0.5;
   color: inherit !important;
 }
-
-.text-intro {
-  font-size: 18px;
-  line-height: 1.5em;
+.text-bold {
+  font-weight: 700;
 }
 .text-small {
   font-size: 0.75rem;
-  font-weight: 700;
+}
+.text-extra-small {
+  font-size: 0.65rem;
+}
+
+.opacity-40 {
+  opacity: 0.4;
+}
+.opacity-50 {
+  opacity: 0.5;
+}
+.opacity-60 {
+  opacity: 0.6;
 }
 
 //-- --//
@@ -397,6 +416,25 @@ main {
 }
 
 // -- color content adaptions -- //
+
+a {
+  &.bg-primary,
+  &.bg-dark-grey,
+  &.bg-secondary,
+  &.bg-success,
+  &.bg-warning,
+  &.bg-danger,
+  &.bg-info {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+a {
+  &.bg-white,
+  &.bg-light-grey,
+  &.bg-middle-grey {
+    color: var(--dark-grey) !important;
+  }
+}
 
 .bg-primary,
 .bg-dark-grey,
@@ -847,6 +885,11 @@ section:focus >,
 
 .btn-block .btn {
   width: 100%;
+}
+
+.nav {
+  --bs-nav-link-color: var(--bs-primary);
+  --bs-nav-link-hover-color: var(--bs-dark);
 }
 
 /* navbar
