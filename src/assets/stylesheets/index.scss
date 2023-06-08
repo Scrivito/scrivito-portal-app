@@ -424,6 +424,12 @@ main {
     color: #fff;
     border-color: #fff;
   }
+  .text-primary {
+    color: var(--bs-primary) !important;
+  }
+  .text-secondary {
+    color: var(--bs-secondary) !important;
+  }
 }
 
 .bg-white,
@@ -442,6 +448,12 @@ main {
   .h4 .h5,
   .h6 {
     color: var(--dark-grey) !important;
+  }
+  .text-primary {
+    color: var(--bs-primary) !important;
+  }
+  .text-secondary {
+    color: var(--bs-secondary) !important;
   }
 }
 
@@ -754,6 +766,14 @@ section:focus >,
 .img-box.img-h-200 {
   position: static;
   height: 200px;
+}
+.img-box.img-h-100 {
+  position: static;
+  height: 100px;
+}
+.img-box.img-h-50 {
+  position: static;
+  height: 50px;
 }
 
 // -- editor -- //
