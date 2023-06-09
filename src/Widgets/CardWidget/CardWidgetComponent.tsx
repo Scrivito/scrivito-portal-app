@@ -72,14 +72,21 @@ const OuterCardTag = Scrivito.connect(
 
     const link = widget.get('linkTo')
 
-    if (link && !Scrivito.isInPlaceEditingActive()) {
-      return (
-        <Scrivito.LinkTag to={link} className={cardClassNames.join(' ')}>
-          {children}
-        </Scrivito.LinkTag>
-      )
+    const topLevelProps: React.AllHTMLAttributes<unknown> = {
+      className: cardClassNames.join(' '),
     }
 
-    return <div className={cardClassNames.join(' ')}>{children}</div>
+    let Tag = 'div'
+
+    if (link && !Scrivito.isInPlaceEditingActive()) {
+      Tag = 'a'
+      topLevelProps.href = Scrivito.urlFor(link)
+      topLevelProps.onClick = (e) => {
+        e.preventDefault()
+        Scrivito.navigateTo(link)
+      }
+    }
+
+    return <Tag {...topLevelProps}>{children}</Tag>
   }
 )
