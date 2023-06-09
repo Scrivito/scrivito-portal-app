@@ -936,6 +936,20 @@ section:focus >,
     text-decoration: none;
     background-color: var(--bs-dropdown-link-active-bg);
   }
+  .nav-link.btn,
+  .nav-link.btn:focus {
+    border: none;
+    background: var(--bs-primary);
+    color: #fff;
+    line-height: var(--bs-body-line-height);
+    padding: var(--bs-nav-link-padding-y);
+  }
+  .nav-link.btn:hover {
+    background: var(--bs-primary-lighten);
+  }
+  .nav-link.btn:active {
+    background: var(--bs-primary-darken);
+  }
 }
 .navbar-main {
   .nav-link {
