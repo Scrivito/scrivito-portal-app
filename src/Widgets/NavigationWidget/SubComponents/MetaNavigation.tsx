@@ -3,15 +3,17 @@ import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import { objIconAndTitle } from './objTitle'
+import { objTitle, objIconAndTitle } from './objTitle'
 
 export const MetaNavigation = Scrivito.connect(function MetaNavigation({
   widget,
 }: {
   widget: InstanceType<typeof NavigationWidget>
 }) {
-  const metaNavigationPortalObjs = widget.get('metaNavigationPortalObjs')
-  const showPortalNav = metaNavigationPortalObjs.length > 0
+  const metaNavigationPortalOverview = widget.get(
+    'metaNavigationPortalOverview'
+  )
+  const showPortalNav = !!metaNavigationPortalOverview
 
   return (
     <div className="navbar-meta">
@@ -27,24 +29,27 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
             title={
               <>
                 <i className="bi bi-person-circle" aria-hidden="true"></i>
-                Customer Portal
+                {objTitle(metaNavigationPortalOverview)}
               </>
             }
           >
-            {widget.get('metaNavigationPortalObjs').map((portalObj, index) => (
-              <NavDropdown.Item
-                active={Scrivito.isOnCurrentPath(portalObj)}
-                href={Scrivito.urlFor(portalObj)}
-                onClick={(event: React.MouseEvent<HTMLElement>) => {
-                  event.preventDefault()
+            {widget
+              .get('metaNavigationPortalOverview')
+              ?.orderedChildren()
+              .map((portalObj) => (
+                <NavDropdown.Item
+                  active={Scrivito.isOnCurrentPath(portalObj)}
+                  href={Scrivito.urlFor(portalObj)}
+                  onClick={(event: React.MouseEvent<HTMLElement>) => {
+                    event.preventDefault()
 
-                  Scrivito.navigateTo(portalObj)
-                }}
-                key={`${portalObj.id()}${index}`}
-              >
-                {objIconAndTitle(portalObj)}
-              </NavDropdown.Item>
-            ))}
+                    Scrivito.navigateTo(portalObj)
+                  }}
+                  key={portalObj.id()}
+                >
+                  {objIconAndTitle(portalObj)}
+                </NavDropdown.Item>
+              ))}
           </NavDropdown>
         </Nav>
       )}
