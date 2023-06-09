@@ -1,4 +1,4 @@
-/* jr table
+/* table
  =================================================================== */
 
 .table {
@@ -49,34 +49,9 @@
   -webkit-overflow-scrolling: touch;
 }
 
-table tr:last-child td {
+tr:last-child th,
+tr:last-child td {
   border: none;
-}
-
-/* ordering + drag handles */
-
-.table thead th .jr-icon {
-  font-size: 12px;
-  opacity: 0.5;
-}
-.table thead th .jr-icon.jr-icon-chevron-up,
-.table thead th .jr-icon.jr-icon-chevron-down {
-  position: absolute;
-  top: 6px;
-  right: 1px;
-  &:hover {
-    cursor: pointer;
-    opacity: 1;
-  }
-}
-.table thead th .jr-icon.jr-icon-dots-vertical {
-  position: absolute;
-  top: 6px;
-  left: 1px;
-  &:hover {
-    cursor: move;
-    opacity: 1;
-  }
 }
 
 @media (max-width: $screen-sm-max) {
@@ -107,5 +82,17 @@ table tr:last-child td {
       text-transform: uppercase;
       margin: 5px 0 0 0;
     }
+  }
+}
+
+/* table
+ =================================================================== */
+
+.table-small {
+  font-size: 0.7rem;
+
+  th,
+  td {
+    padding: 5px;
   }
 }
