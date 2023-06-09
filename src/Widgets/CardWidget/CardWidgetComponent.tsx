@@ -14,8 +14,37 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
 
   const image = widget.get('image')
 
+  const cardClassNames: string[] = ['card']
+
+  const margin = widget.get('margin')
+  cardClassNames.push(margin ? margin : 'mb-4')
+
+  const backgroundColor = widget.get('backgroundColor')
+  if (backgroundColor && backgroundColor !== 'transparent') {
+    cardClassNames.push(`bg-${backgroundColor}`)
+  }
+
+  if (widget.get('cardExtended')) cardClassNames.push('card-extended')
+
+  const link = widget.get('linkTo')
+
+  const topLevelProps: React.AllHTMLAttributes<unknown> = {
+    className: cardClassNames.join(' '),
+  }
+
+  let tag = 'div'
+
+  if (link && !Scrivito.isInPlaceEditingActive()) {
+    tag = 'a'
+    topLevelProps.href = Scrivito.urlFor(link)
+    topLevelProps.onClick = (e) => {
+      e.preventDefault()
+      Scrivito.navigateTo(link)
+    }
+  }
+
   return (
-    <OuterCardTag widget={widget}>
+    <Scrivito.WidgetTag tag={tag} {...topLevelProps}>
       {backgroundImage && (
         <Scrivito.InPlaceEditingOff>
           <Scrivito.ImageTag
@@ -46,40 +75,6 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
           className="card-footer"
         />
       )}
-    </OuterCardTag>
+    </Scrivito.WidgetTag>
   )
 })
-
-const OuterCardTag = Scrivito.connect(
-  ({
-    children,
-    widget,
-  }: {
-    children: React.ReactNode
-    widget: InstanceType<typeof CardWidget>
-  }) => {
-    const cardClassNames: string[] = ['card']
-
-    const margin = widget.get('margin')
-    cardClassNames.push(margin ? margin : 'mb-4')
-
-    const backgroundColor = widget.get('backgroundColor')
-    if (backgroundColor && backgroundColor !== 'transparent') {
-      cardClassNames.push(`bg-${backgroundColor}`)
-    }
-
-    if (widget.get('cardExtended')) cardClassNames.push('card-extended')
-
-    const link = widget.get('linkTo')
-
-    if (link && !Scrivito.isInPlaceEditingActive()) {
-      return (
-        <Scrivito.LinkTag to={link} className={cardClassNames.join(' ')}>
-          {children}
-        </Scrivito.LinkTag>
-      )
-    }
-
-    return <div className={cardClassNames.join(' ')}>{children}</div>
-  }
-)
