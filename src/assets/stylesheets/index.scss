@@ -366,12 +366,8 @@ main {
 .text-extra-small {
   font-size: 0.65rem;
 }
-
 .opacity-40 {
   opacity: 0.4;
-}
-.opacity-50 {
-  opacity: 0.5;
 }
 .opacity-60 {
   opacity: 0.6;
@@ -1156,8 +1152,14 @@ section:focus >,
 /* nav sidebar + navbar-toggler
  ================================================== */
 
+header .navbar.navbar-expand-lg {
+  display: flex;
+}
+.navbar.navbar-expand-lg {
+  display: block;
+}
 .navbar-toggler.btn {
-  font-size: var(--bs-navbar-toggler-font-size);
+  font-size: 0.9rem;
   line-height: 1;
   color: var(--bs-navbar-color);
   background: var(--light-grey);
@@ -1213,10 +1215,10 @@ section:focus >,
   color: #fff;
 }
 .nav-bordered li a:hover,
-.nav-bordered li a:active,
-.nav-bordered li a:focus {
-  background: var(--middle-grey);
+.nav-bordered li a:active {
+  background: var(--bs-primary-lighten);
   text-decoration: none !important;
+  color: #fff;
 }
 
 .nav-bordered li a .bi {
