@@ -32,10 +32,10 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
     className: cardClassNames.join(' '),
   }
 
-  let Tag = 'div'
+  let tag = 'div'
 
   if (link && !Scrivito.isInPlaceEditingActive()) {
-    Tag = 'a'
+    tag = 'a'
     topLevelProps.href = Scrivito.urlFor(link)
     topLevelProps.onClick = (e) => {
       e.preventDefault()
@@ -44,7 +44,7 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
   }
 
   return (
-    <Tag {...topLevelProps}>
+    <Scrivito.WidgetTag tag={tag} {...topLevelProps}>
       {backgroundImage && (
         <Scrivito.InPlaceEditingOff>
           <Scrivito.ImageTag
@@ -75,6 +75,6 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
           className="card-footer"
         />
       )}
-    </Tag>
+    </Scrivito.WidgetTag>
   )
 })
