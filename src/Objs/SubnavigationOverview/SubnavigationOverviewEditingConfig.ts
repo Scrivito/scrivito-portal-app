@@ -9,6 +9,11 @@ Scrivito.provideEditingConfig(SubnavigationOverview, {
       description: 'Default: No',
     },
     title: { title: 'Title' },
+    showTopContentSection: {
+      title: 'Show top content section?',
+      description:
+        'This section will be visible before the regular content and a potential sub-navigation',
+    },
   },
-  properties: ['title', 'hideInNavigation'],
+  properties: ['title', 'hideInNavigation', 'showTopContentSection'],
 })

@@ -5,8 +5,10 @@ export const Page = Scrivito.provideObjClass('Page', {
     body: 'widgetlist',
     childOrder: 'referencelist',
     hideInNavigation: 'boolean',
-    title: 'string',
     linkIcon: 'string',
+    showTopContentSection: 'boolean',
+    title: 'string',
+    topContentSection: 'widgetlist',
   },
   extractTextAttributes: ['body'],
 })

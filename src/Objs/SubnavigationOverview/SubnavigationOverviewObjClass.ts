@@ -7,7 +7,9 @@ export const SubnavigationOverview = Scrivito.provideObjClass(
       body: 'widgetlist',
       childOrder: 'referencelist',
       hideInNavigation: 'boolean',
+      showTopContentSection: 'boolean',
       title: 'string',
+      topContentSection: 'widgetlist',
     },
     extractTextAttributes: ['body'],
   }
