@@ -951,6 +951,7 @@ section:focus >,
     background: var(--bs-primary-darken);
   }
 }
+
 .navbar-main {
   .nav-link {
     font-size: 1rem;
@@ -969,6 +970,25 @@ section:focus >,
   .nav-link {
     font-size: 1rem;
     font-weight: 600;
+  }
+}
+// -- second line in items -- //
+
+.nav-link-extended {
+  display: inline-block;
+  height: 36px;
+  overflow: hidden;
+  margin: -16px 0;
+  span {
+    display: block;
+    line-height: 18px;
+  }
+  span.text-meta {
+    color: var(--bs-primary);
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
