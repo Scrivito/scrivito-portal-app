@@ -33,23 +33,32 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
               </>
             }
           >
-            {widget
-              .get('metaNavigationPortalOverview')
-              ?.orderedChildren()
-              .map((portalObj) => (
-                <NavDropdown.Item
-                  active={Scrivito.isOnCurrentPath(portalObj)}
-                  href={Scrivito.urlFor(portalObj)}
-                  onClick={(event: React.MouseEvent<HTMLElement>) => {
-                    event.preventDefault()
+            <NavDropdown.Item
+              active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
+              href={Scrivito.urlFor(metaNavigationPortalOverview)}
+              onClick={(event: React.MouseEvent<HTMLElement>) => {
+                event.preventDefault()
 
-                    Scrivito.navigateTo(portalObj)
-                  }}
-                  key={portalObj.id()}
-                >
-                  {objIconAndTitle(portalObj)}
-                </NavDropdown.Item>
-              ))}
+                Scrivito.navigateTo(metaNavigationPortalOverview)
+              }}
+              key={metaNavigationPortalOverview.id()}
+            >
+              {objIconAndTitle(metaNavigationPortalOverview)}
+            </NavDropdown.Item>
+            {metaNavigationPortalOverview.orderedChildren().map((portalObj) => (
+              <NavDropdown.Item
+                active={Scrivito.isOnCurrentPath(portalObj)}
+                href={Scrivito.urlFor(portalObj)}
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
+                  event.preventDefault()
+
+                  Scrivito.navigateTo(portalObj)
+                }}
+                key={portalObj.id()}
+              >
+                {objIconAndTitle(portalObj)}
+              </NavDropdown.Item>
+            ))}
           </NavDropdown>
         </Nav>
       )}
