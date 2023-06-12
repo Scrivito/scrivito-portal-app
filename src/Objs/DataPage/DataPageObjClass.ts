@@ -5,6 +5,8 @@ export const DataPage = Scrivito.provideObjClass('DataPage', {
     body: 'widgetlist',
     dataClass: 'string',
     hideInNavigation: 'boolean',
+    showTopContentSection: 'boolean',
     title: 'string',
+    topContentSection: 'widgetlist',
   },
 })

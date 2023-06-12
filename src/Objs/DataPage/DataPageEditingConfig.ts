@@ -9,9 +9,19 @@ Scrivito.provideEditingConfig(DataPage, {
     dataClass: {
       title: 'Data class',
     },
+    showTopContentSection: {
+      title: 'Show top content section?',
+      description:
+        'This section will be visible before the regular content and a potential sub-navigation',
+    },
   },
 
-  properties: ['dataClass', 'title', 'hideInNavigation'],
+  properties: [
+    'dataClass',
+    'title',
+    'hideInNavigation',
+    'showTopContentSection',
+  ],
 
   validations: [
     [

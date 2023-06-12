@@ -8,7 +8,7 @@ Scrivito.provideLayoutComponent(SubnavigationOverview, ({ page }) => {
     <>
       <section className="bg-light-grey py-2 hidden-xs">
         <div className="container">
-          <Breadcrumb page={page} />
+          <Breadcrumb />
         </div>
       </section>
       <section className="py-4">
@@ -28,18 +28,16 @@ Scrivito.provideLayoutComponent(SubnavigationOverview, ({ page }) => {
   )
 })
 
-const Breadcrumb = Scrivito.connect(function Breadcrumb({
-  page,
-}: {
-  page: Scrivito.Obj
-}) {
+const Breadcrumb = Scrivito.connect(function Breadcrumb() {
   const currentPage = Scrivito.currentPage()
   if (!currentPage) return <nav aria-label="breadcrumb" />
 
-  const breadcrumbItems = calculateBreadcrumbItems({
-    ancestor: page,
-    descendant: currentPage,
-  })
+  const breadcrumbItems: Scrivito.Obj[] = []
+  let item = currentPage.parent()
+  while (item) {
+    if (!item.get('hideInNavigation')) breadcrumbItems.unshift(item)
+    item = item.parent()
+  }
 
   return (
     <nav aria-label="breadcrumb">
@@ -54,26 +52,6 @@ const Breadcrumb = Scrivito.connect(function Breadcrumb({
     </nav>
   )
 })
-
-function calculateBreadcrumbItems({
-  ancestor,
-  descendant,
-}: {
-  ancestor: Scrivito.Obj
-  descendant: Scrivito.Obj
-}): Scrivito.Obj[] {
-  if (ancestor.id() === descendant.id()) return []
-
-  const result: Scrivito.Obj[] = []
-
-  let item = descendant.parent()
-  while (item) {
-    result.unshift(item)
-    item = item.id() === ancestor.id() ? null : item.parent()
-  }
-
-  return result
-}
 
 const Subnavigation = Scrivito.connect(function Subnavigation({
   page,
