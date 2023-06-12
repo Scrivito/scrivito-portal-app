@@ -7,6 +7,7 @@ export const SubnavigationOverview = Scrivito.provideObjClass(
       body: 'widgetlist',
       childOrder: 'referencelist',
       hideInNavigation: 'boolean',
+      linkIcon: 'string',
       showTopContentSection: 'boolean',
       title: 'string',
       topContentSection: 'widgetlist',
