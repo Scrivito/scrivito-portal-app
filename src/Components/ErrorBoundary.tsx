@@ -28,7 +28,7 @@ export class ErrorBoundary extends React.Component<
     return (
       <section className="bg-danger vh-100 py-4">
         <img
-          src="design/images/factory-3.jpeg"
+          src="src/assets/images/error-background.jpg"
           alt="factory"
           className="img-background img-zoom"
         />
