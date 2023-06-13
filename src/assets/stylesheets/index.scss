@@ -451,7 +451,9 @@ a {
   .h2,
   .h3,
   .h4 .h5,
-  .h6 {
+  .h6,
+  th,
+  td {
     color: rgba(255, 255, 255, 0.9);
   }
   .btn-outline-primary,
@@ -829,6 +831,18 @@ section:focus >,
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.box-date {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: var(--bs-primary);
+  color: #fff;
+  border-radius: 50%;
+  line-height: 60px;
+  text-align: center;
+  font-weight: bold;
 }
 
 //-- carousel & headline with background --//
