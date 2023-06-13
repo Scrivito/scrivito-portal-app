@@ -13,6 +13,8 @@ Scrivito.provideEditingConfig(StyledTextWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    bold: { title: 'Bold?', description: 'Default: No' },
+    multiline: { title: 'Multiline?', description: 'Default: No' },
     opacity: {
       title: 'Opacity',
       description: 'Default: 100%',
@@ -23,8 +25,16 @@ Scrivito.provideEditingConfig(StyledTextWidget, {
         { value: 'opacity-40', title: '40%' },
       ],
     },
+    uppercase: { title: 'Uppercase?', description: 'Default: No' },
   },
-  properties: ['alignment', 'uppercase', 'bold', 'size', 'opacity'],
+  properties: [
+    'alignment',
+    'multiline',
+    'uppercase',
+    'bold',
+    'size',
+    'opacity',
+  ],
   initialContent: {
     alignment: 'left',
     size: 'body-font-size',

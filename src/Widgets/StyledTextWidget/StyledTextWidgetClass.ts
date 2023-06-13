@@ -12,6 +12,7 @@ export const StyledTextWidget = Scrivito.provideWidgetClass(
           values: ['opacity-100', 'opacity-60', 'opacity-50', 'opacity-40'],
         },
       ],
+      multiline: 'boolean',
       size: [
         'enum',
         {
