@@ -310,8 +310,38 @@ b,
 strong {
   font-weight: 700;
 }
-.uppercase {
-  text-transform: uppercase;
+
+.card {
+  pre {
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+  pre.h1 {
+    font-size: 2rem;
+  }
+  pre.h2 {
+    font-size: 1.75rem;
+  }
+  pre.h3 {
+    font-size: 1.5rem;
+  }
+  pre.h4 {
+    font-size: 1.25rem;
+  }
+
+  pre.h5 {
+    font-size: 1.15rem;
+  }
+  pre.h6 {
+    font-size: 1rem;
+  }
+  pre.text-small {
+    font-size: 0.75rem;
+  }
+  pre.text-extra-small {
+    font-size: 0.65rem;
+  }
 }
 
 /* full height website

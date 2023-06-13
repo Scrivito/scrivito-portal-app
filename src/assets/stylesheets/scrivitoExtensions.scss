@@ -26,6 +26,11 @@ body {
   padding: 15px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
+
+.scrivito_detail_content:first-of-type {
+  border: none;
+}
+
 .scrivito_detail_label {
   display: block;
   padding: 0;
@@ -36,13 +41,16 @@ body {
   display: block;
   font-size: 13px;
   font-weight: bold;
-  padding: 2px 3px 2px;
+  padding: 7px 3px 6px 3px;
 }
 .scrivito_notice_body {
   color: #666;
   font-weight: bold;
   font-size: 12px;
   padding: 0 0 10px;
+}
+.scrivito_notice_body:empty {
+  padding: 0;
 }
 
 .scrivito_dark {
