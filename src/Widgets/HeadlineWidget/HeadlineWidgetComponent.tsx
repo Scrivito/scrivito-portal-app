@@ -11,18 +11,13 @@ Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
   if (alignment) classNames.push(alignment)
 
   return (
-    <>
-      <span
-        className="headline-widget--anchor"
-        id={speakingUrl(widget.get('headline'))}
-      ></span>
-      <Scrivito.ContentTag
-        content={widget}
-        attribute="headline"
-        className={classNames.join(' ')}
-        tag={level}
-      />
-    </>
+    <Scrivito.ContentTag
+      content={widget}
+      attribute="headline"
+      className={classNames.join(' ')}
+      tag={level}
+      id={speakingUrl(widget.get('headline'))}
+    />
   )
 })
 
