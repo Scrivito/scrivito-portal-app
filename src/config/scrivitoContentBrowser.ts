@@ -129,14 +129,16 @@ function isFilterPresentationsKey(
   return Object.keys(FILTER_PRESENTATIONS).includes(objClass)
 }
 
+// Icons are listed at https://www.scrivito.com/js-sdk/configureContentBrowser#filter-definition
 const FILTER_PRESENTATIONS = {
   Download: { title: 'Downloads', icon: 'pdf' },
   Homepage: { title: 'Homepage', icon: 'inbox' },
   Order: { title: 'Orders', icon: 'inbox' },
+  Shipment: { title: 'Shipments', icon: 'globe' },
   Image: { title: 'Images', icon: 'image' },
   Page: { title: 'Standard pages', icon: 'sheet' },
   Video: { title: 'Videos', icon: 'video' },
 }
 
 const PAGES = ['Page', 'Homepage']
-const DATA = ['Order']
+const DATA = ['Order', 'Shipment']
