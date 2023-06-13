@@ -14,8 +14,20 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
 
   const image = widget.get('image')
 
+  const cardClassNames: string[] = ['card']
+
+  const margin = widget.get('margin')
+  cardClassNames.push(margin ? margin : 'mb-4')
+
+  const backgroundColor = widget.get('backgroundColor')
+  if (backgroundColor && backgroundColor !== 'transparent') {
+    cardClassNames.push(`bg-${backgroundColor}`)
+  }
+
+  if (widget.get('cardExtended')) cardClassNames.push('card-extended')
+
   return (
-    <OuterCardTag widget={widget}>
+    <Scrivito.WidgetTag className={cardClassNames.join(' ')}>
       {backgroundImage && (
         <Scrivito.InPlaceEditingOff>
           <Scrivito.ImageTag
@@ -25,61 +37,49 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
           />
         </Scrivito.InPlaceEditingOff>
       )}
-      {image && (
-        <Scrivito.InPlaceEditingOff>
-          <Scrivito.ImageTag
-            content={widget}
-            attribute="image"
-            className="img-box img-h-200"
-          />
-        </Scrivito.InPlaceEditingOff>
-      )}
-      <Scrivito.ContentTag
-        content={widget}
-        attribute="cardBody"
-        className={cardBodyClassNames.join(' ')}
-      />
-      {widget.get('showFooter') && (
+      <LinkOrNotTag link={widget.get('linkTo')}>
+        {image && (
+          <Scrivito.InPlaceEditingOff>
+            <Scrivito.ImageTag
+              content={widget}
+              attribute="image"
+              className="img-box img-h-200"
+            />
+          </Scrivito.InPlaceEditingOff>
+        )}
         <Scrivito.ContentTag
           content={widget}
-          attribute="cardFooter"
-          className="card-footer"
+          attribute="cardBody"
+          className={cardBodyClassNames.join(' ')}
         />
-      )}
-    </OuterCardTag>
+        {widget.get('showFooter') && (
+          <Scrivito.ContentTag
+            content={widget}
+            attribute="cardFooter"
+            className="card-footer"
+          />
+        )}
+      </LinkOrNotTag>
+    </Scrivito.WidgetTag>
   )
 })
 
-const OuterCardTag = Scrivito.connect(
+const LinkOrNotTag = Scrivito.connect(
   ({
     children,
-    widget,
+    link,
   }: {
     children: React.ReactNode
-    widget: InstanceType<typeof CardWidget>
+    link: Scrivito.Link | null
   }) => {
-    const cardClassNames: string[] = ['card']
-
-    const margin = widget.get('margin')
-    cardClassNames.push(margin ? margin : 'mb-4')
-
-    const backgroundColor = widget.get('backgroundColor')
-    if (backgroundColor && backgroundColor !== 'transparent') {
-      cardClassNames.push(`bg-${backgroundColor}`)
-    }
-
-    if (widget.get('cardExtended')) cardClassNames.push('card-extended')
-
-    const link = widget.get('linkTo')
-
     if (link && !Scrivito.isInPlaceEditingActive()) {
       return (
-        <Scrivito.LinkTag to={link} className={cardClassNames.join(' ')}>
+        <Scrivito.LinkTag to={link} className="stretched-link">
           {children}
         </Scrivito.LinkTag>
       )
     }
 
-    return <div className={cardClassNames.join(' ')}>{children}</div>
+    return <>{children}</>
   }
 )
