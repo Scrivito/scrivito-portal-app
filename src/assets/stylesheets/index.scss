@@ -451,7 +451,9 @@ a {
   .h2,
   .h3,
   .h4 .h5,
-  .h6 {
+  .h6,
+  th,
+  td {
     color: rgba(255, 255, 255, 0.9);
   }
   .btn-outline-primary,
@@ -831,6 +833,18 @@ section:focus >,
   border-radius: 50%;
 }
 
+.box-date {
+  display: block;
+  width: 60px;
+  height: 60px;
+  background: var(--bs-primary);
+  color: #fff;
+  border-radius: 50%;
+  line-height: 60px;
+  text-align: center;
+  font-weight: bold;
+}
+
 //-- carousel & headline with background --//
 
 .carousel-item {
@@ -936,7 +950,22 @@ section:focus >,
     text-decoration: none;
     background-color: var(--bs-dropdown-link-active-bg);
   }
+  .nav-link.btn,
+  .nav-link.btn:focus {
+    border: none;
+    background: var(--bs-primary);
+    color: #fff;
+    line-height: var(--bs-body-line-height);
+    padding: var(--bs-nav-link-padding-y);
+  }
+  .nav-link.btn:hover {
+    background: var(--bs-primary-lighten);
+  }
+  .nav-link.btn:active {
+    background: var(--bs-primary-darken);
+  }
 }
+
 .navbar-main {
   .nav-link {
     font-size: 1rem;
@@ -955,6 +984,25 @@ section:focus >,
   .nav-link {
     font-size: 1rem;
     font-weight: 600;
+  }
+}
+// -- second line in items -- //
+
+.nav-link-extended {
+  display: inline-block;
+  height: 36px;
+  overflow: hidden;
+  margin: -16px 0;
+  span {
+    display: block;
+    line-height: 18px;
+  }
+  span.text-meta {
+    color: var(--bs-primary);
+    font-size: 10px;
+    line-height: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 }
 
