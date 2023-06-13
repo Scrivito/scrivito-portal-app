@@ -1,4 +1,5 @@
 import * as Scrivito from 'scrivito'
+import React from 'react'
 import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
@@ -10,6 +11,13 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
 }: {
   widget: InstanceType<typeof NavigationWidget>
 }) {
+  // TODO: Use `Scrivito.currentUser()` once available
+  const [currentUser, setCurrentUser] = React.useState<null | {
+    id: string
+    name: string
+    email: string
+  }>(null)
+
   const metaNavigationPortalOverview = widget.get(
     'metaNavigationPortalOverview'
   )
@@ -29,7 +37,12 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
             title={
               <>
                 <i className="bi bi-person-circle" aria-hidden="true"></i>
-                {objTitle(metaNavigationPortalOverview)}
+                <span className="nav-link-extended">
+                  <span>{objTitle(metaNavigationPortalOverview)}</span>
+                  <span className="text-meta">
+                    {currentUser ? currentUser.name : 'Please log in'}
+                  </span>
+                </span>
               </>
             }
           >
@@ -41,10 +54,12 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
 
                 Scrivito.navigateTo(metaNavigationPortalOverview)
               }}
-              key={metaNavigationPortalOverview.id()}
             >
               {objIconAndTitle(metaNavigationPortalOverview)}
             </NavDropdown.Item>
+            <li>
+              <hr className="dropdown-divider" />
+            </li>
             {metaNavigationPortalOverview.orderedChildren().map((portalObj) => (
               <NavDropdown.Item
                 active={Scrivito.isOnCurrentPath(portalObj)}
@@ -59,6 +74,40 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                 {objIconAndTitle(portalObj)}
               </NavDropdown.Item>
             ))}
+            <li>
+              <hr className="dropdown-divider" />
+            </li>
+            {currentUser === null ? (
+              <NavDropdown.Item
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
+                  event.preventDefault()
+
+                  setCurrentUser({
+                    id: '123321',
+                    name: 'Jane Smith',
+                    email: 'jane.smith@example.com',
+                  })
+                }}
+              >
+                <>
+                  <i className={`bi bi-box-arrow-in-right`}></i>
+                </>
+                Log in
+              </NavDropdown.Item>
+            ) : (
+              <NavDropdown.Item
+                onClick={(event: React.MouseEvent<HTMLElement>) => {
+                  event.preventDefault()
+
+                  setCurrentUser(null)
+                }}
+              >
+                <>
+                  <i className={`bi bi-box-arrow-right`}></i>
+                </>
+                Log out
+              </NavDropdown.Item>
+            )}
           </NavDropdown>
         </Nav>
       )}
