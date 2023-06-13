@@ -40,6 +40,16 @@ export class ErrorBoundary extends React.Component<
             <div className="col-sm-6">
               <h1 className="display-1">Error</h1>
               <h3 className="h3">Something went wrong.</h3>
+              <div>
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={() => window.location.reload()}
+                >
+                  Please try again
+                  <i className="fa fa-angle-right fa-4" aria-hidden="true" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
