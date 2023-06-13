@@ -33,17 +33,6 @@ export class ErrorBoundary extends React.Component<
           className="img-background img-zoom"
         />
         <div className="container h-100">
-          <div className="row">
-            <div className="col-12">
-              <div className="text-center">
-                <img
-                  className="navbar-brand-logo text-center"
-                  src="design/images/logo-tynacoon-white.svg"
-                  alt="Logo"
-                />
-              </div>
-            </div>
-          </div>
           <div className="row h-100 align-items-center">
             <div className="col-sm-6">
               <img src="src/assets/images/spaceman.svg" alt="spaceman" />
