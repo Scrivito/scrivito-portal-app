@@ -18,7 +18,7 @@ Scrivito.provideEditingConfig(Shipment, {
     },
     dimensions: {
       title: 'Dimensions',
-      description: 'E.g. "15x8x6". Measurements are in centimeter.',
+      description: 'E.g. "15 x 8.5 x 6 cm"',
     },
     orderId: { title: 'Order ID' },
     shipmentDate: {
@@ -36,7 +36,7 @@ Scrivito.provideEditingConfig(Shipment, {
     shippedTo: { title: 'Shipped to', description: 'Location of receiver' },
     weight: {
       title: 'Weight',
-      description: 'E.g. "25.6". Measurements are in kilo.',
+      description: 'E.g. "25.6 kg"',
     },
   },
   properties: [
