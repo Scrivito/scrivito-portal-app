@@ -20,7 +20,9 @@ export const MultilineStringEditor = Scrivito.connect(
     return (
       <div className={`scrivito_${uiContext.theme}`}>
         <div className="scrivito_detail_content">
-          <div className="scrivito_detail_label"><span>{title}</span></div>
+          <div className="scrivito_detail_label">
+            <span>{title}</span>
+          </div>
           <Scrivito.ContentTag
             content={content}
             attribute={attribute}
@@ -28,8 +30,6 @@ export const MultilineStringEditor = Scrivito.connect(
             tag="pre"
           />
           <div className="scrivito_notice_body">{description}</div>
-
-
         </div>
       </div>
     )
