@@ -789,6 +789,12 @@ section:focus >,
   }
 }
 
+@media (max-width: 991px) {
+  .carousel-caption {
+    position: static;
+  }
+}
+
 // -- general badges -- //
 
 .bg-middle-grey {
