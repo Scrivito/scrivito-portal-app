@@ -20,7 +20,7 @@ Scrivito.provideComponent(StyledTextWidget, ({ widget }) => {
   return (
     <Scrivito.ContentTag
       attribute="text"
-      className={classNames.join(' ')}
+      className={classNames.join(' ') + ' styled-text-widget'}
       content={widget}
       tag={widget.get('multiline') ? 'pre' : 'div'}
     />

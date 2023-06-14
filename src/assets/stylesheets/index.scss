@@ -311,35 +311,35 @@ strong {
   font-weight: 700;
 }
 
-.card {
-  pre {
+pre {
+  &.styled-text-widget {
     font-family: 'Manrope', sans-serif;
     font-size: 0.875rem;
     margin: 0;
   }
-  pre.h1 {
+  &.styled-text-widget.h1 {
+    font-size: 2.5rem;
+  }
+  &.styled-text-widget.h2 {
     font-size: 2rem;
   }
-  pre.h2 {
+  &.styled-text-widget.h3 {
     font-size: 1.75rem;
   }
-  pre.h3 {
+  &.styled-text-widget.h4 {
     font-size: 1.5rem;
   }
-  pre.h4 {
+
+  &.styled-text-widget.h5 {
     font-size: 1.25rem;
   }
-
-  pre.h5 {
-    font-size: 1.15rem;
-  }
-  pre.h6 {
+  &.styled-text-widget.h6 {
     font-size: 1rem;
   }
-  pre.text-small {
+  &.styled-text-widget.text-small {
     font-size: 0.75rem;
   }
-  pre.text-extra-small {
+  &.styled-text-widget.text-extra-small {
     font-size: 0.65rem;
   }
 }
