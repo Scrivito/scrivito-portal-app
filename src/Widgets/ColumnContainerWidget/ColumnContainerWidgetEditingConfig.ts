@@ -5,6 +5,11 @@ import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 
 Scrivito.provideEditingConfig(ColumnContainerWidget, {
   title: 'Columns',
+  attributes: {
+    disableResponsiveAdaption: {
+      title: 'Disable responsive adaption?',
+    },
+  },
   propertiesGroups: [
     {
       title: 'Columns layout',
@@ -13,6 +18,12 @@ Scrivito.provideEditingConfig(ColumnContainerWidget, {
       // Cast is a working around for issue #9925
       // TODO: remove work around
       component: ColumnsEditorTab as unknown as null,
+    },
+
+    {
+      title: 'Responsive Adaptions',
+      key: 'responsive-adaptions',
+      properties: ['disableResponsiveAdaption'],
     },
   ],
   initialContent: {

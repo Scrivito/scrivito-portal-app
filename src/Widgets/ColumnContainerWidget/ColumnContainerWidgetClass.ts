@@ -6,6 +6,7 @@ export const ColumnContainerWidget = Scrivito.provideWidgetClass(
     attributes: {
       columns: ['widgetlist', { only: 'ColumnWidget' }],
       alignment: ['enum', { values: ['start', 'center', 'end', 'stretch'] }],
+      disableResponsiveAdaption: 'boolean',
     },
     extractTextAttributes: ['columns'],
   }
