@@ -11,13 +11,11 @@ export const CurrentPageMetadata = Scrivito.connect(() => {
   if (page) {
     lang = page.language() || 'en'
 
-    const receivedTitle = page.get('title')
-    title = typeof receivedTitle === 'string' ? receivedTitle : ''
+    const pageTitle = page.get('title')
+    title = typeof pageTitle === 'string' ? pageTitle : ''
 
     links.push({ rel: 'canonical', href: Scrivito.urlFor(page) })
   }
 
-  const htmlAttributes = { lang }
-
-  return <Helmet htmlAttributes={htmlAttributes} title={title} link={links} />
+  return <Helmet htmlAttributes={{ lang }} title={title} link={links} />
 })

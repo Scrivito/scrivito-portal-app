@@ -7,7 +7,7 @@ import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 
 export const helmetContext = {}
 
-function App() {
+export function App() {
   return (
     <HelmetProvider context={helmetContext}>
       <ErrorBoundary>
@@ -20,5 +20,3 @@ function App() {
     </HelmetProvider>
   )
 }
-
-export default App
