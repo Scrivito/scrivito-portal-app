@@ -16,13 +16,13 @@ Scrivito.provideComponent(StyledTextWidget, ({ widget }) => {
   if (size && size !== 'body-font-size') classNames.push(size)
 
   if (widget.get('uppercase')) classNames.push('text-uppercase')
+  if (widget.get('multiline')) classNames.push('text-multiline')
 
   return (
     <Scrivito.ContentTag
       attribute="text"
       className={classNames.join(' ')}
       content={widget}
-      tag={widget.get('multiline') ? 'pre' : 'div'}
     />
   )
 })
