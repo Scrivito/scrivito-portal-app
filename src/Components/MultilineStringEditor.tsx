@@ -1,4 +1,5 @@
 import * as Scrivito from 'scrivito'
+import './MultilineStringEditor.scss'
 
 // Workaround until #9963 is resolved
 export const MultilineStringEditor = Scrivito.connect(
@@ -19,15 +20,16 @@ export const MultilineStringEditor = Scrivito.connect(
     return (
       <div className={`scrivito_${uiContext.theme}`}>
         <div className="scrivito_detail_content">
-          <span className="scrivito_detail_label">{title}</span>
-          <span className="scrivito_notice_body">{description}</span>
-
+          <div className="scrivito_detail_label">
+            <span>{title}</span>
+          </div>
           <Scrivito.ContentTag
             content={content}
             attribute={attribute}
-            style={{ border: '2px dotted grey' }}
+            className="multi-string-editor"
             tag="pre"
           />
+          <div className="scrivito_notice_body">{description}</div>
         </div>
       </div>
     )

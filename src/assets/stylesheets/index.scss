@@ -310,9 +310,6 @@ b,
 strong {
   font-weight: 700;
 }
-.uppercase {
-  text-transform: uppercase;
-}
 
 /* full height website
  ================================================== */
@@ -365,6 +362,9 @@ main {
 }
 .text-extra-small {
   font-size: 0.65rem;
+}
+.text-multiline {
+  white-space: pre-line;
 }
 .opacity-40 {
   opacity: 0.4;
