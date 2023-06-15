@@ -21,6 +21,12 @@ Scrivito.provideComponent(LabelWidget, ({ widget }) => {
         attribute="value"
         className={valueCssClassNames.join(' ')}
       />
+      <Scrivito.ContentTag
+        content={widget}
+        attribute="details"
+        tag="span"
+        className="list-value text-muted text-small text-multiline"
+      />
     </div>
   )
 })

@@ -10,6 +10,7 @@ export const LabelWidget = Scrivito.provideWidgetClass('LabelWidget', {
       },
     ],
     value: 'string',
+    details: 'string',
   },
-  extractTextAttributes: ['label', 'value'],
+  extractTextAttributes: ['label', 'value', 'details'],
 })
