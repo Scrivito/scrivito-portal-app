@@ -3,17 +3,21 @@ import { DataListWidget } from './DataListWidgetClass'
 
 Scrivito.provideComponent(DataListWidget, ({ widget }) => {
   const objSearch = Scrivito.objsFromDataLocator(widget.get('data'))
+  const nrOfColumns = widget.get('nrOfColumns') || '1'
 
   return (
     <>
-      {objSearch.take().map((order) => (
-        <Scrivito.ContentTag
-          content={widget}
-          attribute="content"
-          dataContext={order}
-          key={order.id()}
-        />
-      ))}
+      <div className={`row row-cols-1 row-cols-lg-${nrOfColumns}`}>
+        {objSearch.take().map((order) => (
+          <Scrivito.ContentTag
+            content={widget}
+            attribute="content"
+            className="col"
+            dataContext={order}
+            key={order.id()}
+          />
+        ))}
+      </div>
       {Scrivito.isInPlaceEditingActive() && (
         <div className="alert alert-warning d-flex m-auto">
           <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
