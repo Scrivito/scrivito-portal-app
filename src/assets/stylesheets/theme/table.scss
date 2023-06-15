@@ -85,7 +85,7 @@ tr:last-child td {
   }
 }
 
-/* table
+/* table smaller
  =================================================================== */
 
 .table-small {
@@ -94,5 +94,14 @@ tr:last-child td {
   th,
   td {
     padding: 5px;
+  }
+}
+
+.table-extra-small {
+  font-size: 0.7rem;
+
+  th,
+  td {
+    padding: 0 2px;
   }
 }
