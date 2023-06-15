@@ -43,11 +43,10 @@ export class ErrorBoundary extends React.Component<
               <div>
                 <button
                   type="button"
-                  className="btn btn-primary"
+                  className="btn btn-secondary"
                   onClick={() => window.location.reload()}
                 >
                   Please try again
-                  <i className="fa fa-angle-right fa-4" aria-hidden="true" />
                 </button>
               </div>
             </div>
