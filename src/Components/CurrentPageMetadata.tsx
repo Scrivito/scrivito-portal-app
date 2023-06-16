@@ -1,10 +1,10 @@
 import * as Scrivito from 'scrivito'
-import { Helmet } from 'react-helmet-async'
+import { Helmet, HelmetProps } from 'react-helmet-async'
 
 export const CurrentPageMetadata = Scrivito.connect(() => {
   let lang = 'en'
   let title = ''
-  let links = []
+  let links: HelmetProps['link'] = []
 
   const page = Scrivito.currentPage()
 
