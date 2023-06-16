@@ -8,7 +8,6 @@ export const Order = Scrivito.provideObjClass('Order', {
     orderId: 'string',
     orderTotal: 'string',
     payment: 'string',
-    salesRepresentative: 'string',
     shippingId: 'string',
   },
 })
