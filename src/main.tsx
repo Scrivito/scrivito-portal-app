@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 
 import './Objs'
 import './Widgets'
-import App from './App'
+import { App } from './App'
 import { configure } from './config'
 
 configure()
