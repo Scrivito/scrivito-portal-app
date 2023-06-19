@@ -12,19 +12,11 @@ Scrivito.provideEditingConfig(Order, {
     orderTotal: { title: 'Order total', description: 'Example: €123.00' },
     payment: {
       title: 'Payment',
-      description: '"invoice" or "advance payment"',
+      description: '"advance payment", "cash", "credit card" or "invoice"',
     },
-    salesRepresentative: { title: 'Sales representative' },
     shippingId: { title: 'Shipping ID' },
   },
-  properties: [
-    'orderId',
-    'orderDate',
-    'orderTotal',
-    'payment',
-    'shippingId',
-    'salesRepresentative',
-  ],
+  properties: ['orderId', 'orderDate', 'orderTotal', 'payment', 'shippingId'],
   propertiesGroups: [
     {
       title: 'Multiline attributes',
