@@ -2,13 +2,16 @@ import * as Scrivito from 'scrivito'
 import { DataListWidget } from './DataListWidgetClass'
 
 Scrivito.provideComponent(DataListWidget, ({ widget }) => {
-  const objSearch = Scrivito.objsFromDataLocator(widget.get('data'))
+  const data = widget.get('data')
+  const dataScope = Scrivito.useDataLocator(data)
+
   const nrOfColumns = widget.get('nrOfColumns') || '1'
 
   return (
     <>
       <div className={`row row-cols-1 row-cols-lg-${nrOfColumns}`}>
-        {objSearch.take().map((order) => (
+        {/* @ts-expect-error */}
+        {dataScope.take().map((order) => (
           <Scrivito.ContentTag
             content={widget}
             attribute="content"
@@ -27,7 +30,7 @@ Scrivito.provideComponent(DataListWidget, ({ widget }) => {
           </div>
         </div>
       )}
-      {(objSearch.count() === 0 || Scrivito.isInPlaceEditingActive()) && (
+      {(dataScope.isEmpty() || Scrivito.isInPlaceEditingActive()) && (
         <Scrivito.ContentTag content={widget} attribute="nothingFound" />
       )}
     </>
