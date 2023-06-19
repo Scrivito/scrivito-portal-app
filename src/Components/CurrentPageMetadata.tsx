@@ -1,10 +1,17 @@
 import * as Scrivito from 'scrivito'
 import { Helmet, HelmetProps } from 'react-helmet-async'
+import favicon from '../assets/images/favicon.png'
 
 export const CurrentPageMetadata = Scrivito.connect(() => {
   let lang = 'en'
   let title = ''
-  let links: HelmetProps['link'] = []
+  let links: HelmetProps['link'] = [
+    {
+      rel: 'shortcut icon',
+      type: 'image/png',
+      href: favicon,
+    },
+  ]
 
   const page = Scrivito.currentPage()
 
