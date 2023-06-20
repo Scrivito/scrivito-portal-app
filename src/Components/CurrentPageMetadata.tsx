@@ -4,7 +4,6 @@ import { Helmet, HelmetProps } from 'react-helmet-async'
 export const CurrentPageMetadata = Scrivito.connect(() => {
   let lang = 'en'
   let title = ''
-  let faviconUrl = ''
   let links: HelmetProps['link'] = []
 
   const root = Scrivito.Obj.root()
@@ -13,12 +12,10 @@ export const CurrentPageMetadata = Scrivito.connect(() => {
     favicon instanceof Scrivito.Obj &&
     favicon.contentType().startsWith('image/')
   ) {
-    faviconUrl = Scrivito.urlFor(favicon)
-
     links.push({
       rel: 'shortcut icon',
       type: 'image/png',
-      href: faviconUrl,
+      href: Scrivito.urlFor(favicon),
     })
   }
 
