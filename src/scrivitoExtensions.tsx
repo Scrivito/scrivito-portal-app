@@ -1,5 +1,6 @@
 import * as Scrivito from 'scrivito'
 import * as ReactDOM from 'react-dom/client'
+import './Data'
 import './Objs'
 import './Widgets'
 import { configure } from './config'
