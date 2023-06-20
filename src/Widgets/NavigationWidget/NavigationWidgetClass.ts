@@ -6,6 +6,9 @@ export const NavigationWidget = Scrivito.provideWidgetClass(
     attributes: {
       metaNavigationObjs: 'referencelist',
       metaNavigationPortalOverview: 'reference',
+      metaNavigationUserDescription: 'string',
+      metaNavigationUserProfile: 'reference',
+      metaNavigationUserTitle: 'string',
     },
   }
 )
