@@ -14,7 +14,7 @@ export const CurrentPageMetadata = Scrivito.connect(() => {
   ) {
     links.push({
       rel: 'shortcut icon',
-      type: 'image/png',
+      type: favicon.contentType(),
       href: Scrivito.urlFor(favicon),
     })
   }
