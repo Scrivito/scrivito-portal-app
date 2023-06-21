@@ -6,6 +6,7 @@ export const HeadlineWidget = Scrivito.provideWidgetClass('HeadlineWidget', {
     headline: 'string',
     level: ['enum', { values: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
     style: ['enum', { values: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'] }],
+    uppercase: 'boolean',
   },
   extractTextAttributes: ['headline'],
 })
