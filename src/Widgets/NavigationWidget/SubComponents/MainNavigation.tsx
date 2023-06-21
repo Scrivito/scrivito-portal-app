@@ -9,7 +9,7 @@ export const MainNavigation = Scrivito.connect(function MainNavigation({
   return (
     <div className="navbar-main">
       <Scrivito.ChildListTag
-        className="navbar-nav me-auto mb-2 mb-lg-0"
+        className="navbar-nav me-auto mb-2 mb-md-0"
         tag="div"
         parent={root}
         renderChild={(child) => <NavItem obj={child} />}

@@ -14,11 +14,11 @@ Scrivito.provideLayoutComponent(SubnavigationOverview, ({ page }) => {
       <section className="py-4">
         <div className="container">
           <div className="row">
-            <div className="col-lg-2">
+            <div className="col-md-2">
               <Subnavigation page={page} />
             </div>
 
-            <div className="col-lg-10">
+            <div className="col-md-10">
               <Scrivito.CurrentPage />
             </div>
           </div>
