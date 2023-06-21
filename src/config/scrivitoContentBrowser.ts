@@ -134,6 +134,7 @@ const FILTER_PRESENTATIONS = {
   Download: { title: 'Downloads', icon: 'pdf' },
   Homepage: { title: 'Homepage', icon: 'inbox' },
   Order: { title: 'Orders', icon: 'inbox' },
+  Person: { title: 'People', icon: 'users' },
   Shipment: { title: 'Shipments', icon: 'globe' },
   Image: { title: 'Images', icon: 'image' },
   Page: { title: 'Standard pages', icon: 'sheet' },
@@ -141,4 +142,4 @@ const FILTER_PRESENTATIONS = {
 }
 
 const PAGES = ['Page', 'Homepage']
-const DATA = ['Order', 'Shipment']
+const DATA = ['Order', 'Shipment', 'Person']
