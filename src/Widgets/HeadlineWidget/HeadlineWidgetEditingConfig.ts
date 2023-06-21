@@ -39,8 +39,9 @@ Scrivito.provideEditingConfig(HeadlineWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    uppercase: { title: 'Uppercase?', description: 'Default: No' },
   },
-  properties: ['style', 'level', 'alignment'],
+  properties: ['style', 'level', 'alignment', 'uppercase'],
   initialContent: {
     alignment: 'left',
     headline: 'Lorem Ipsum',
