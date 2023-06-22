@@ -21,6 +21,7 @@ Scrivito.provideEditingConfig(Shipment, {
       description: 'E.g. "15 x 8.5 x 6 cm"',
     },
     orderId: { title: 'Order ID' },
+    pdfDownloadUrl: { title: 'PDF download URL' },
     shipmentDate: {
       title: 'Shipment date',
       description:
@@ -49,6 +50,7 @@ Scrivito.provideEditingConfig(Shipment, {
     'carrierTrackingNumber',
     'dimensions',
     'weight',
+    'pdfDownloadUrl',
   ],
   propertiesGroups: [
     {
