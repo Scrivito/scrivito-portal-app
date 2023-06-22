@@ -14,9 +14,17 @@ Scrivito.provideEditingConfig(Order, {
       title: 'Payment',
       description: '"advance payment", "cash", "credit card" or "invoice"',
     },
+    pdfDownloadUrl: { title: 'PDF download URL' },
     shippingId: { title: 'Shipping ID' },
   },
-  properties: ['orderId', 'orderDate', 'orderTotal', 'payment', 'shippingId'],
+  properties: [
+    'orderId',
+    'orderDate',
+    'orderTotal',
+    'payment',
+    'shippingId',
+    'pdfDownloadUrl',
+  ],
   propertiesGroups: [
     {
       title: 'Multiline attributes',
