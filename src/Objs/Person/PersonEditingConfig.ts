@@ -5,6 +5,7 @@ Scrivito.provideEditingConfig(Person, {
   title: 'Person',
   attributes: {
     email: { title: 'Email' },
+    employeeId: { title: 'Employee ID' },
     fax: { title: 'Fax' },
     image: { title: 'Image' },
     jobTitle: { title: 'Job title' },
@@ -12,6 +13,14 @@ Scrivito.provideEditingConfig(Person, {
     telephone: { title: 'Telephone' },
   },
   thumbnailForContent: (obj) => obj.get('image'),
-  properties: ['name', 'email', 'telephone', 'fax', 'jobTitle', 'image'],
+  properties: [
+    'name',
+    'email',
+    'telephone',
+    'fax',
+    'jobTitle',
+    'image',
+    'employeeId',
+  ],
   titleForContent: (obj) => obj.get('name'),
 })
