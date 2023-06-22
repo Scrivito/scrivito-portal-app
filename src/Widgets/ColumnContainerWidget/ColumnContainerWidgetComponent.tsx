@@ -9,7 +9,7 @@ Scrivito.provideComponent(ColumnContainerWidget, ({ widget }) => {
     const colSize = columnWidget.get('colSize') || 1
     const className = widget.get('disableResponsiveAdaption')
       ? `col-${colSize}`
-      : `col-lg-${colSize}`
+      : `col-md-${colSize}`
     return (
       <div key={index} className={className}>
         <Scrivito.ContentTag
