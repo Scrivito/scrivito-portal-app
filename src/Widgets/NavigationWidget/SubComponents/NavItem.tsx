@@ -28,11 +28,7 @@ export const NavItem = Scrivito.connect(function ScrivitoNavItem({
 function itemProps(obj: Scrivito.Obj) {
   return {
     active: Scrivito.isOnCurrentPath(obj),
-    href: Scrivito.urlFor(obj),
-    onClick: (event: React.MouseEvent<HTMLElement>) => {
-      event.preventDefault()
-
-      Scrivito.navigateTo(obj)
-    },
+    as: Scrivito.LinkTag,
+    to: obj,
   }
 }
