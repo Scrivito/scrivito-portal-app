@@ -1,0 +1,55 @@
+// Styles for FormContainerWidget
+@import "../../assets/stylesheets/bs5/functions";
+@import "../../assets/stylesheets/bs5/variables";
+
+.form-container-widget {
+  .text-super {
+    vertical-align: super;
+  }
+  .text-mandatory {
+    font-weight: 700;
+    color: $secondary;
+    cursor: default;
+  }
+  .fa {
+    color: #ccc;
+  }
+
+  .winnie-the-pooh {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 0;
+    z-index: -1;
+  }
+}
+
+.bg-dark-image,
+.bg-brand-primary,
+.bg-brand-secondary,
+.bg-grey,
+.bg-greydark,
+.bg-greymiddle {
+  .form-container-widget label,
+  .form-container-widget .text-mandatory,
+  .form-container-widget .fa,
+  .form-container-widget .text-super,
+  .card.card-theme .form-container-widget label,
+  .card.card-theme .form-container-widget .text-mandatory,
+  .card.card-theme .form-container-widget .fa {
+    color: #fff !important;
+  }
+
+  .card .form-container-widget label {
+    // TODO: Fix styling.
+    // color: $theme-grey !important;
+  }
+  .card .form-container-widget .text-mandatory {
+    color: red !important;
+  }
+  .card .form-container-widget .fa {
+    color: #ccc !important;
+  }
+}
