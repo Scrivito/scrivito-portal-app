@@ -80,14 +80,7 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
           parent={page}
           renderChild={(child) => (
             <li className={Scrivito.isOnCurrentPath(child) ? 'active' : ''}>
-              <Nav.Link
-                href={Scrivito.urlFor(child)}
-                onClick={(event: React.MouseEvent<HTMLElement>) => {
-                  event.preventDefault()
-
-                  Scrivito.navigateTo(child)
-                }}
-              >
+              <Nav.Link as={Scrivito.LinkTag} to={child}>
                 {objIconAndTitle(child)}
               </Nav.Link>
             </li>

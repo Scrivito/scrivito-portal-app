@@ -35,12 +35,8 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
           <Nav.Item>
             <Nav.Link
               active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
-              href={Scrivito.urlFor(metaNavigationPortalOverview)}
-              onClick={(event: React.MouseEvent<HTMLElement>) => {
-                event.preventDefault()
-
-                Scrivito.navigateTo(metaNavigationPortalOverview)
-              }}
+              as={Scrivito.LinkTag}
+              to={metaNavigationPortalOverview}
             >
               {objIconAndTitle(metaNavigationPortalOverview)}
             </Nav.Link>
@@ -71,12 +67,8 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                 <>
                   <NavDropdown.Item
                     active={Scrivito.isCurrentPage(metaNavigationUserProfile)}
-                    href={Scrivito.urlFor(metaNavigationUserProfile)}
-                    onClick={(event: React.MouseEvent<HTMLElement>) => {
-                      event.preventDefault()
-
-                      Scrivito.navigateTo(metaNavigationUserProfile)
-                    }}
+                    as={Scrivito.LinkTag}
+                    to={metaNavigationUserProfile}
                   >
                     {objIconAndTitle(metaNavigationUserProfile)}
                   </NavDropdown.Item>
