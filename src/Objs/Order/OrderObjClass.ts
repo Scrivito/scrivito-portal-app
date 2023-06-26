@@ -4,6 +4,7 @@ export const Order = Scrivito.provideObjClass('Order', {
   attributes: {
     billingAddress: 'string',
     createdAt: 'string',
+    customerId: 'string',
     items: 'string',
     orderId: 'string',
     payment: 'string',

@@ -4,6 +4,7 @@ export const Shipment = Scrivito.provideObjClass('Shipment', {
   attributes: {
     carrier: 'string',
     carrierTrackingNumber: 'string',
+    customerId: 'string',
     deliveryConfirmation: 'string',
     dimensions: 'string',
     from: 'string',

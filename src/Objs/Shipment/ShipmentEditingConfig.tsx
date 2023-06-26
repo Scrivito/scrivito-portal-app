@@ -11,6 +11,7 @@ Scrivito.provideEditingConfig(Shipment, {
         'The name of the shipping carrier or logistics provider responsible for transporting the shipment.',
     },
     carrierTrackingNumber: { title: 'Carrier tracking number' },
+    customerId: { title: 'Customer ID' },
     deliveryConfirmation: {
       title: 'Delivery confirmation',
       description:
@@ -42,6 +43,7 @@ Scrivito.provideEditingConfig(Shipment, {
   },
   properties: [
     'shipmentId',
+    'customerId',
     'orderId',
     'scheduledDate',
     'status',
