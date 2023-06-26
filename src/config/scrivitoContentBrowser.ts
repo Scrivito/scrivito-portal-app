@@ -138,9 +138,10 @@ const FILTER_PRESENTATIONS = {
   Order: { title: 'Orders', icon: 'inbox' },
   Page: { title: 'Standard pages', icon: 'sheet' },
   Person: { title: 'People', icon: 'users' },
+  Quote: { title: 'Quotes', icon: 'sheet' },
   Shipment: { title: 'Shipments', icon: 'globe' },
   Video: { title: 'Videos', icon: 'video' },
 }
 
 const PAGES = ['Page', 'Homepage']
-const DATA = ['Notification', 'Person', 'Order', 'Shipment']
+const DATA = ['Notification', 'Person', 'Quote', 'Order', 'Shipment']
