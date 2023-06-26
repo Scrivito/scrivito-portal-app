@@ -28,7 +28,7 @@ Scrivito.provideEditingConfig(Order, {
   propertiesGroups: [
     {
       title: 'Multiline attributes',
-      key: 'multiline-attributes',
+      key: 'order-multiline-attributes',
 
       // Cast is a working around for issue #9925
       // TODO: remove work around
