@@ -7,6 +7,7 @@ Scrivito.provideEditingConfig(Order, {
   attributes: {
     billingAddress: { title: 'Billing address' },
     createdAt: { title: 'Order created at', description: 'Format: YYYY-MM-DD' },
+    customerId: { title: 'Customer ID' },
     items: { title: 'Items' },
     orderId: { title: 'Order ID' },
     payment: {
@@ -19,6 +20,7 @@ Scrivito.provideEditingConfig(Order, {
   },
   properties: [
     'orderId',
+    'customerId',
     'createdAt',
     'total',
     'payment',

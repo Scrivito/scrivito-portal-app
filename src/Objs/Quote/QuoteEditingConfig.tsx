@@ -8,6 +8,7 @@ Scrivito.provideEditingConfig(Quote, {
     comments: { title: 'Comments' },
     content: { title: 'Content' },
     createdAt: { title: 'Quote created at', description: 'Format: YYYY-MM-DD' },
+    customerId: { title: 'Customer ID' },
     payment: {
       title: 'Payment',
       description: '"advance payment", "cash", "credit card" or "invoice"',
@@ -27,6 +28,7 @@ Scrivito.provideEditingConfig(Quote, {
   },
   properties: [
     'quoteId',
+    'customerId',
     'createdAt',
     'validUntil',
     'payment',
