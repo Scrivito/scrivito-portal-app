@@ -99,7 +99,7 @@ function objTitle(obj: Scrivito.Obj) {
 
 export function objIconAndTitle(obj: Scrivito.Obj) {
   const linkIcon = obj.get('linkIcon')
-  const showLinkIcon = typeof linkIcon === 'string'
+  const showLinkIcon = typeof linkIcon === 'string' && !!linkIcon
 
   return (
     <>
