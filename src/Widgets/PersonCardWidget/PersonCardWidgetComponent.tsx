@@ -20,7 +20,7 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
   }
 
   return (
-    <Scrivito.WidgetTag className="card mb-2 bg-secondary text-secondary max-width-350">
+    <Scrivito.WidgetTag className="card mb-2 bg-secondary max-width-350">
       <Scrivito.InPlaceEditingOff>
         <div className="card-body p-3">
           <div className="row">
