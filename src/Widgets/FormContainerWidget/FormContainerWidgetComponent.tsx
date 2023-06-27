@@ -119,7 +119,7 @@ async function submit(formElement: unknown, formEndpoint: string) {
   const formData = new FormData(formElement)
   // @ts-expect-error TODO: Investigate why it is not working.
   const body = new URLSearchParams(formData)
-  // console.log("submitting", Object.fromEntries(body.entries()));
+  // console.log('submitting', Object.fromEntries(body.entries()))
   const response = await fetch(formEndpoint, { method: 'post', body })
   if (!response.ok) {
     throw new Error(
