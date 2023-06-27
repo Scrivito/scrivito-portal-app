@@ -1190,9 +1190,24 @@ section:focus >,
       margin: 0 !important;
     }
     .navbar-nav.border-left {
-      flex-flow: column-reverse;
       .nav-item {
         border: none !important;
+      }
+    }
+    .navbar-nav .dropdown-menu {
+      box-shadow: none;
+      border: none;
+    }
+
+    .nav-link,
+    .dropdown-item {
+      padding: 0.375rem;
+      &:hover {
+        background: var(--middle-grey);
+      }
+      &.active {
+        background: var(--bs-primary);
+        color: #fff;
       }
     }
   }
