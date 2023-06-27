@@ -20,7 +20,7 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
   }
 
   return (
-    <Scrivito.WidgetTag className="card mb-2 bg-secondary text-secondary">
+    <Scrivito.WidgetTag className="card mb-2 bg-secondary text-secondary max-width-350">
       <Scrivito.InPlaceEditingOff>
         <div className="card-body p-3">
           <div className="row">
@@ -35,7 +35,7 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
               <Scrivito.ContentTag
                 content={person}
                 attribute="name"
-                className="h5"
+                className="h5 text-break"
               />
               <Scrivito.ContentTag
                 content={person}
@@ -45,31 +45,33 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
               <table className="table-extra-small">
                 <tbody>
                   <tr>
-                    <th>Tel:</th>
+                    <th className="align-top">Tel:</th>
                     <td>
                       <a href={`tel:${person.get('telephone')}`}>
                         <Scrivito.ContentTag
                           content={person}
                           attribute="telephone"
+                          className="text-break"
                         />
                       </a>
                     </td>
                   </tr>
                   <tr>
-                    <th>Fax:</th>
+                    <th className="align-top">Fax:</th>
                     <td>
                       <a href={`tel:${person.get('fax')}`}>
-                        <Scrivito.ContentTag content={person} attribute="fax" />
+                        <Scrivito.ContentTag content={person} attribute="fax" className="text-break"/>
                       </a>
                     </td>
                   </tr>
                   <tr>
-                    <th>eMail:</th>
+                    <th className="align-top">eMail:</th>
                     <td>
                       <a href={`mailto:${person.get('email')}`}>
                         <Scrivito.ContentTag
                           content={person}
                           attribute="email"
+                          className="text-break"
                         />
                       </a>
                     </td>
