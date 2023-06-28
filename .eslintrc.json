@@ -2,5 +2,11 @@
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
-  "root": true
+  "root": true,
+  "overrides": [
+    {
+      "files": ["src/config/windowScrivito.ts"],
+      "rules": { "@typescript-eslint/ban-ts-comment": 0 }
+    }
+  ]
 }

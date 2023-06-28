@@ -4,7 +4,7 @@ import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import { objTitle, objIconAndTitle } from './objTitle'
+import { objIconAndTitle } from './objTitle'
 
 export const MetaNavigation = Scrivito.connect(function MetaNavigation({
   widget,
