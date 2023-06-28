@@ -26,3 +26,6 @@ workflows:
       - execute-npm:
           name: npm run eslint
           npm-run-command: eslint
+      - execute-npm:
+          name: npm run prettier
+          npm-run-command: prettier
