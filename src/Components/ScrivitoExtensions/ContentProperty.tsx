@@ -1,7 +1,17 @@
 import * as Scrivito from 'scrivito'
 
 export const ContentProperty = Scrivito.connect(
-  ({ content, attribute, title, description }) => {
+  ({
+    content,
+    attribute,
+    title,
+    description,
+  }: {
+    content: Scrivito.Obj | Scrivito.Widget
+    attribute: string
+    title: string
+    description: string
+  }) => {
     const validationResults = Scrivito.validationResultsFor(content, attribute)
     const highestSeverity = findHighestSeverity(validationResults)
     const severityClass = highestSeverity && `scrivito_${highestSeverity}`
