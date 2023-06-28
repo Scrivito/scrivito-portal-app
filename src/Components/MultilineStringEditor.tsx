@@ -27,7 +27,6 @@ export const MultilineStringEditor = Scrivito.connect(
             content={content}
             attribute={attribute}
             className="multi-string-editor"
-            tag="pre"
           />
           <div className="scrivito_notice_body">{description}</div>
         </div>

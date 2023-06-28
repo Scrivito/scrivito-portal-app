@@ -7,6 +7,14 @@ export function configureScrivito() {
     strictSearchOperators: true,
     contentTagsForEmptyAttributes: false,
     tenant: import.meta.env.SCRIVITO_TENANT || '',
+    // @ts-expect-error // TODO: Remove later on
+    unstable: {
+      trustedUiOrigins: [
+        'http://localhost:8090',
+        'https://*.netlify.app',
+        'https://*.pages.dev',
+      ],
+    },
   }
 
   if (!import.meta.env.SCRIVITO_TENANT) {

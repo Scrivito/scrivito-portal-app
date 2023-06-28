@@ -14,11 +14,11 @@ Scrivito.provideLayoutComponent(SubnavigationOverview, ({ page }) => {
       <section className="py-4">
         <div className="container">
           <div className="row">
-            <div className="col-lg-3">
+            <div className="col-md-2">
               <Subnavigation page={page} />
             </div>
 
-            <div className="col-lg-9">
+            <div className="col-md-10">
               <Scrivito.CurrentPage />
             </div>
           </div>
@@ -80,14 +80,7 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
           parent={page}
           renderChild={(child) => (
             <li className={Scrivito.isOnCurrentPath(child) ? 'active' : ''}>
-              <Nav.Link
-                href={Scrivito.urlFor(child)}
-                onClick={(event: React.MouseEvent<HTMLElement>) => {
-                  event.preventDefault()
-
-                  Scrivito.navigateTo(child)
-                }}
-              >
+              <Nav.Link as={Scrivito.LinkTag} to={child}>
                 {objIconAndTitle(child)}
               </Nav.Link>
             </li>
@@ -106,7 +99,7 @@ function objTitle(obj: Scrivito.Obj) {
 
 export function objIconAndTitle(obj: Scrivito.Obj) {
   const linkIcon = obj.get('linkIcon')
-  const showLinkIcon = typeof linkIcon === 'string'
+  const showLinkIcon = typeof linkIcon === 'string' && !!linkIcon
 
   return (
     <>

@@ -3,12 +3,13 @@ import * as Scrivito from 'scrivito'
 export const Order = Scrivito.provideObjClass('Order', {
   attributes: {
     billingAddress: 'string',
+    createdAt: 'string',
+    customerId: 'string',
     items: 'string',
-    orderDate: 'string',
     orderId: 'string',
-    orderTotal: 'string',
     payment: 'string',
-    salesRepresentative: 'string',
+    pdfDownloadUrl: 'string',
     shippingId: 'string',
+    total: 'string',
   },
 })

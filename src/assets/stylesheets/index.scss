@@ -131,6 +131,7 @@
 @import 'theme/table';
 @import 'theme/steps';
 @import 'theme/loading-placeholder';
+@import 'theme/print';
 
 /* accessiblity support
  =================================================================== */
@@ -888,6 +889,10 @@ section:focus >,
 .form-control {
   border: none;
   border-radius: unset;
+}
+.form-control:disabled {
+  background: rgba(255, 255, 255, 0.65);
+  cursor: not-allowed;
 }
 
 /* btn + alignment

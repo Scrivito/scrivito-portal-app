@@ -6,29 +6,31 @@ Scrivito.provideEditingConfig(Order, {
   title: 'Order',
   attributes: {
     billingAddress: { title: 'Billing address' },
+    createdAt: { title: 'Order created at', description: 'Format: YYYY-MM-DD' },
+    customerId: { title: 'Customer ID' },
     items: { title: 'Items' },
-    orderDate: { title: 'Order date', description: 'Format: YYYY-MM-DD' },
     orderId: { title: 'Order ID' },
-    orderTotal: { title: 'Order total', description: 'Example: €123.00' },
     payment: {
       title: 'Payment',
-      description: '"invoice" or "advance payment"',
+      description: '"advance payment", "cash", "credit card" or "invoice"',
     },
-    salesRepresentative: { title: 'Sales representative' },
+    pdfDownloadUrl: { title: 'PDF download URL' },
     shippingId: { title: 'Shipping ID' },
+    total: { title: 'Total', description: 'Example: €123.00' },
   },
   properties: [
     'orderId',
-    'orderDate',
-    'orderTotal',
+    'customerId',
+    'createdAt',
+    'total',
     'payment',
     'shippingId',
-    'salesRepresentative',
+    'pdfDownloadUrl',
   ],
   propertiesGroups: [
     {
       title: 'Multiline attributes',
-      key: 'multiline-attributes',
+      key: 'order-multiline-attributes',
 
       // Cast is a working around for issue #9925
       // TODO: remove work around
