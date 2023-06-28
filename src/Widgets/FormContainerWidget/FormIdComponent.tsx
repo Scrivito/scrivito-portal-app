@@ -7,7 +7,7 @@ export const FormIdComponent = Scrivito.connect(({ widget }) => {
     ? `https://edit.neoletter.com/i/${
         process.env.SCRIVITO_TENANT
       }/forms/${widget.get('formId')}`
-    : null
+    : undefined
   const uiContext = Scrivito.uiContext()
   if (!uiContext) return null
 
@@ -26,7 +26,7 @@ export const FormIdComponent = Scrivito.connect(({ widget }) => {
             className={`scrivito_button ${
               formSubmissionsHref ? 'scrivito_blue' : 'scrivito_disabled'
             }`}
-            href={formSubmissionsHref || undefined}
+            href={formSubmissionsHref}
             target="_blank"
             rel="noreferrer"
           >
