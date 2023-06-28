@@ -1,4 +1,4 @@
-/* Main UI elements / 
+/* Main UI elements /
 =================================================================== */
 
 /* Main UI colors
@@ -11,7 +11,7 @@
   background: #fff;
 }
 
-/* Main Layout / 
+/* Main Layout /
 =================================================================== */
 
 html {
@@ -297,7 +297,7 @@ main {
     position: absolute;
     width: calc(0.4 * 29px);
     transform: translateY(calc(0.22 * 29px));
-    content: "";
+    content: '';
   }
   &.open {
     background: rgba(0, 0, 0, 0.02);
@@ -315,7 +315,7 @@ main {
   }
 }
 
-/* just relate app switcher 
+/* just relate app switcher
  =================================================================== */
 
 .jr-buttonbar.jr-app-switcher {

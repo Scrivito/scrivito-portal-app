@@ -4,7 +4,7 @@ import { Helmet, HelmetProps } from 'react-helmet-async'
 export const CurrentPageMetadata = Scrivito.connect(() => {
   let lang = 'en'
   let title = ''
-  let links: HelmetProps['link'] = []
+  const links: HelmetProps['link'] = []
 
   const root = Scrivito.Obj.root()
   const favicon = root?.get('siteFavicon')
