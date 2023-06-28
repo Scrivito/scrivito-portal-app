@@ -1,6 +1,7 @@
 import * as Scrivito from 'scrivito'
 import { FormIdComponent } from './FormIdComponent'
 import { getFormContainer } from './utils/getFormContainer'
+import { pseudoRandom32CharHex } from './utils/pseudoRandom32CharHex'
 
 Scrivito.provideEditingConfig('FormContainerWidget', {
   title: 'Form',
@@ -36,6 +37,14 @@ Scrivito.provideEditingConfig('FormContainerWidget', {
       component: FormIdComponent as unknown as null,
     },
   ],
+  initialContent: {
+    formId: () => pseudoRandom32CharHex(),
+    submittingMessage: 'Submitting...',
+    submittedMessage:
+      'Your message has been successfully sent. Thank you for your request. We will get back to you as soon as possible.',
+    failedMessage:
+      'We are sorry, your request could not be completed. Please try again later.',
+  },
   validations: [
     (widget: Scrivito.Widget) => {
       if (getFormContainer(widget)) {
