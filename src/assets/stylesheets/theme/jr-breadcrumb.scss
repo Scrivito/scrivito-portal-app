@@ -1,34 +1,44 @@
-  /* jr breadcrumb
+/* jr breadcrumb
  =================================================================== */
 
- .breadcrumb {
+.breadcrumb {
   display: flex;
   flex-wrap: wrap;
   padding: 0 0;
   margin-bottom: 5px;
   list-style: none;
-  font-size: 14px; font-weight: 800;
-
+  font-size: 14px;
+  font-weight: 800;
 }
-.breadcrumb-item { position: relative; margin: 0 5px 0 0; max-width: 98%; }
-.breadcrumb-item + .breadcrumb-item { margin: 0 5px 0 12px; }
+.breadcrumb-item {
+  position: relative;
+  margin: 0 5px 0 0;
+  max-width: 98%;
+}
+.breadcrumb-item + .breadcrumb-item {
+  margin: 0 5px 0 12px;
+}
 .breadcrumb-item + .breadcrumb-item:before {
   @include jr-icon-mixin();
   color: $jr-darkgrey;
-  content: "\F02c"; 
-  position: absolute; left: -14px;
-  font-size: 10px; font-weight: bold;
+  content: '\F02c';
+  position: absolute;
+  left: -14px;
+  font-size: 10px;
+  font-weight: bold;
 }
 
-.breadcrumb-item.active { box-shadow: 0 2px 0 0 $jr-yellow; }
+.breadcrumb-item.active {
+  box-shadow: 0 2px 0 0 $jr-yellow;
+}
 
 .breadcrumb-item {
   a,
-  span {  
+  span {
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 100%;
   }
-} 
+}

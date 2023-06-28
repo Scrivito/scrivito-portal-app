@@ -233,7 +233,7 @@
   box-shadow: none !important;
 }
 
-[class*="btn-social-"] {
+[class*='btn-social-'] {
   text-align: left;
   line-height: 28px;
   font-size: 12px !important;
@@ -336,7 +336,7 @@
   border-radius: 5px 5px 0 0;
 }
 .btn-toggle.active:after {
-  content: "";
+  content: '';
   position: absolute;
   display: block;
   top: 100%;

@@ -1,4 +1,4 @@
-/* nav-tabs + tab-content / 
+/* nav-tabs + tab-content /
  =================================================================== */
 
 .nav-tabs {
@@ -34,7 +34,7 @@
   border-radius: 0 5px 5px 5px;
 }
 
-/* boxless style of nav-tabs + tab-content / 
+/* boxless style of nav-tabs + tab-content /
  =================================================================== */
 
 .nav-tabs.boxless {
@@ -58,7 +58,7 @@
     box-shadow: none;
   }
   .nav-link.active:after {
-    content: "";
+    content: '';
     background: $jr-yellow;
     display: block;
     height: 3px;
