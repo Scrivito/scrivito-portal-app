@@ -1,5 +1,4 @@
 import * as Scrivito from 'scrivito'
-import formContainerWidgetIcon from '../../assets/images/form_container_widget.svg'
 import { FormIdComponent } from './FormIdComponent'
 import { getFormContainer } from './utils/getFormContainer'
 

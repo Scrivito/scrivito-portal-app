@@ -1,6 +1,5 @@
 import * as React from 'react'
 import * as Scrivito from 'scrivito'
-import { getFieldName } from './utils/getFieldName'
 import { scrollIntoView } from './utils/scrollIntoView'
 import { getHistory } from '../../config/history'
 
@@ -129,6 +128,7 @@ async function submit(formElement: unknown, formEndpoint: string) {
 }
 
 const HiddenField = Scrivito.connect(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ widget }: { widget: Scrivito.Widget }) => {
     return null
     // TODO: Implement once FormHiddenFieldWidget is available.

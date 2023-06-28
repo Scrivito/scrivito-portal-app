@@ -1,4 +1,5 @@
 // TODO: Implement it some time later.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
 export function scrollIntoView(element: unknown): void {}
 
 // export function scrollIntoView(element) {
