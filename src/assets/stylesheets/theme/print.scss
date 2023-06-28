@@ -1,12 +1,51 @@
-
- /* PRINT - some easy adaptions
+/* PRINT styles
  ================================================== */
- 
- @media print {
-  html,
-  body {
-    width: 800px !important;
+
+.print {
+  background: #eee;
+
+  dl dt {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0.6;
   }
+  dl dd {
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+}
+
+.print-wrapper {
+  width: 950px !important;
+  margin: 5px auto;
+
+  tr th,
+  tr td {
+    border: 1px solid #aaa !important;
+  }
+}
+
+.print-wrapper .print-header {
+  padding: 10px;
+}
+.print-wrapper .print-body {
+  border-radius: 10px;
+  padding: 10px;
+  background: #fff;
+}
+.print-wrapper .print-footer {
+  padding: 5px;
+  font-size: 0.9em;
+  text-align: center;
+  color: #999;
+}
+
+@media print {
+  .print {
+    background: #fff;
+  }
+
   html,
   body {
     height: auto;

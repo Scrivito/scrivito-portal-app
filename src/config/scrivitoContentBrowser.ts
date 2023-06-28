@@ -133,12 +133,15 @@ function isFilterPresentationsKey(
 const FILTER_PRESENTATIONS = {
   Download: { title: 'Downloads', icon: 'pdf' },
   Homepage: { title: 'Homepage', icon: 'inbox' },
-  Order: { title: 'Orders', icon: 'inbox' },
-  Shipment: { title: 'Shipments', icon: 'globe' },
   Image: { title: 'Images', icon: 'image' },
+  Notification: { title: 'Notifications', icon: 'mail' },
+  Order: { title: 'Orders', icon: 'inbox' },
   Page: { title: 'Standard pages', icon: 'sheet' },
+  Person: { title: 'People', icon: 'users' },
+  Quote: { title: 'Quotes', icon: 'sheet' },
+  Shipment: { title: 'Shipments', icon: 'globe' },
   Video: { title: 'Videos', icon: 'video' },
 }
 
 const PAGES = ['Page', 'Homepage']
-const DATA = ['Order', 'Shipment']
+const DATA = ['Notification', 'Person', 'Quote', 'Order', 'Shipment']

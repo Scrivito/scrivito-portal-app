@@ -10,6 +10,8 @@ Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
 
+  if (widget.get('uppercase')) classNames.push('text-uppercase')
+
   return (
     <Scrivito.ContentTag
       content={widget}

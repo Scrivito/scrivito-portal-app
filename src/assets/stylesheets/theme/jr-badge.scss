@@ -40,7 +40,7 @@
 .badge.permissions:before {
   @include jr-icon-mixin();
   color: $jr-middlegrey;
-  content: "\F04c";
+  content: '\F04c';
   font-size: 10px;
   display: inline-block;
   padding: 1px 3px 0 0;
