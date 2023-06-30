@@ -13,6 +13,9 @@ export default defineConfig(({ mode }) => {
 
   return {
     build: {
+      commonjsOptions: {
+        include: [/scrivito/, /node_modules/],
+      },
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
@@ -22,6 +25,9 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
+    },
+    optimizeDeps: {
+      include: ['scrivito'],
     },
     plugins: [react()],
     preview: {
