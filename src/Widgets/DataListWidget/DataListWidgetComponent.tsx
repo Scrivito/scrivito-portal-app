@@ -10,7 +10,6 @@ Scrivito.provideComponent(DataListWidget, ({ widget }) => {
   return (
     <>
       <div className={`row row-cols-1 row-cols-md-${nrOfColumns}`}>
-        {/* @ts-expect-error Will be available in a later Scrivito Release */}
         {dataScope.take().map((order) => (
           <Scrivito.ContentTag
             content={widget}
