@@ -74,6 +74,17 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
         </Navbar.Toggle>
       </div>
       <Navbar.Collapse id="nav-sidebar">
+        <ul
+          className="nav-bordered"
+          // TODO: Make official styling & make it work in mobile as well
+          style={{ margin: '0', borderBottom: '1px solid var(--border)' }}
+        >
+          <li className={Scrivito.isCurrentPage(page) ? 'active' : ''}>
+            <Nav.Link as={Scrivito.LinkTag} to={page}>
+              {objIconAndTitle(page)}
+            </Nav.Link>
+          </li>
+        </ul>
         <Scrivito.ChildListTag
           className="nav-bordered"
           tag="ul"
