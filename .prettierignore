@@ -1,0 +1,6 @@
+design/*
+dist/*
+public/scrivito/*
+src/assets/stylesheets/bootstrap-icons.scss
+src/assets/stylesheets/bs5/*
+vendor/*

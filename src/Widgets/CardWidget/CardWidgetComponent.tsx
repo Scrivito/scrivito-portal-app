@@ -72,14 +72,8 @@ const LinkOrNotTag = Scrivito.connect(
     children: React.ReactNode
     link: Scrivito.Link | null
   }) => {
-    if (link && !Scrivito.isInPlaceEditingActive()) {
-      return (
-        <Scrivito.LinkTag to={link} className="stretched-link">
-          {children}
-        </Scrivito.LinkTag>
-      )
-    }
+    if (!link) return <>{children}</>
 
-    return <>{children}</>
+    return <Scrivito.LinkTag to={link}>{children}</Scrivito.LinkTag>
   }
 )

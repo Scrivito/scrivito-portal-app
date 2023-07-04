@@ -9,6 +9,7 @@ export function configureScrivito() {
     tenant: import.meta.env.SCRIVITO_TENANT || '',
     // @ts-expect-error // TODO: Remove later on
     unstable: {
+      assetUrlBase: '/scrivito',
       trustedUiOrigins: [
         'http://localhost:8090',
         'https://*.netlify.app',

@@ -8,11 +8,14 @@ import { resolve } from 'path'
 dns.setDefaultResultOrder('verbatim')
 
 // https://vitejs.dev/config/
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
 
   return {
     build: {
+      commonjsOptions: {
+        include: [/scrivito/, /node_modules/],
+      },
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
@@ -31,6 +34,9 @@ export default defineConfig(({ command, mode }) => {
     server: {
       port: 8080,
       strictPort: true,
+    },
+    optimizeDeps: {
+      include: ['scrivito'],
     },
   }
 })

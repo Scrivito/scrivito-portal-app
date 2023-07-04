@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rechteck_1" data-name="Rechteck 1" width="47.898" height="37.188"/>
+    </clipPath>
+    <clipPath id="clip-scrivito-envelope">
+      <rect width="50" height="50"/>
+    </clipPath>
+  </defs>
+  <g id="scrivito-envelope" clip-path="url(#clip-scrivito-envelope)">
+    <g id="Gruppe_2" data-name="Gruppe 2" transform="translate(1.051 6.409)">
+      <g id="Gruppe_1" data-name="Gruppe 1" transform="translate(0 -0.003)" clip-path="url(#clip-path)">
+        <path id="Pfad_1" data-name="Pfad 1" d="M43.577,37.217H4.318A4.324,4.324,0,0,1,0,32.9V2.563A2.534,2.534,0,0,1,2.533.03H45.36a2.534,2.534,0,0,1,2.533,2.533V32.9a4.32,4.32,0,0,1-4.316,4.318M5.066,32.151H42.827V5.1H5.066Z" transform="translate(0 -0.029)"/>
+        <path id="Pfad_2" data-name="Pfad 2" d="M24.014,24.693a2.532,2.532,0,0,1-1.712-.666L.889,4.4A2.533,2.533,0,1,1,4.313.664l19.7,18.062L43.719.664A2.533,2.533,0,1,1,47.143,4.4L25.728,24.027a2.543,2.543,0,0,1-1.715.666" transform="translate(-0.066 0.003)"/>
+      </g>
+    </g>
+  </g>
+</svg>

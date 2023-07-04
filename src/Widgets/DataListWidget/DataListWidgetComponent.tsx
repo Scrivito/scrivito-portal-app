@@ -10,13 +10,13 @@ Scrivito.provideComponent(DataListWidget, ({ widget }) => {
   return (
     <>
       <div className={`row row-cols-1 row-cols-md-${nrOfColumns}`}>
-        {/* @ts-expect-error */}
         {dataScope.take().map((order) => (
           <Scrivito.ContentTag
             content={widget}
             attribute="content"
             className="col"
             dataContext={order}
+            // @ts-expect-error Not yet public, but in a later release
             key={order.id()}
           />
         ))}
