@@ -7,6 +7,7 @@ export const Quote = Scrivito.provideObjClass('Quote', {
     createdAt: 'string',
     customerId: 'string',
     payment: 'string',
+    pdfDownloadUrl: 'string',
     quoteId: 'string',
     status: 'string',
     termsAndConditions: 'string',
