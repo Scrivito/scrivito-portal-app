@@ -94,9 +94,10 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
           ) : (
             <Nav.Item>
               <Nav.Link
-                onClick={(event: React.MouseEvent<HTMLElement>) => {
-                  event.preventDefault()
-
+                active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
+                as={Scrivito.LinkTag}
+                to={metaNavigationPortalOverview}
+                onClick={() => {
                   setLoggedIn(true)
                 }}
               >
