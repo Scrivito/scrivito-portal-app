@@ -3,7 +3,7 @@ import { DownloadCardWidget } from './DownloadCardWidgetClass'
 
 Scrivito.provideComponent(DownloadCardWidget, ({ widget }) => {
   return (
-    <Scrivito.WidgetTag className="card mb-4 bg-white">
+    <Scrivito.WidgetTag className="card mb-4 bg-white max-width-350">
       <Scrivito.LinkTag to={widget.get('link')}>
         <div className="card-body p-2">
           <div className="row">
