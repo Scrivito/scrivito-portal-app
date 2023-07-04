@@ -35,7 +35,7 @@ Scrivito.provideEditingConfig(Quote, {
     'payment',
     'total',
     'status',
-    'comment',
+    'comments',
     'termsAndConditions',
     'pdfDownloadUrl',
   ],
