@@ -60,7 +60,11 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
                     <th className="align-top">Fax:</th>
                     <td>
                       <a href={`tel:${person.get('fax')}`}>
-                        <Scrivito.ContentTag content={person} attribute="fax" className="text-break"/>
+                        <Scrivito.ContentTag
+                          content={person}
+                          attribute="fax"
+                          className="text-break"
+                        />
                       </a>
                     </td>
                   </tr>
