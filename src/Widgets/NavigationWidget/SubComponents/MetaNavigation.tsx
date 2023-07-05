@@ -81,9 +81,9 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                   <></>
                 )}
                 <NavDropdown.Item
-                  onClick={(event: React.MouseEvent<HTMLElement>) => {
-                    event.preventDefault()
-
+                  as={Scrivito.LinkTag}
+                  to={Scrivito.Obj.root()}
+                  onClick={() => {
                     setLoggedIn(false)
                   }}
                 >
