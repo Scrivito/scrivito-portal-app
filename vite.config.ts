@@ -21,7 +21,9 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
+      'import.meta.env.SCRIVITO_TENANT': JSON.stringify(
+        env.SCRIVITO_TENANT_DEMO1
+      ),
     },
     plugins: [react()],
     preview: {
