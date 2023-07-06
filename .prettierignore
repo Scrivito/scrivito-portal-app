@@ -1,5 +1,6 @@
 design/*
 dist/*
+initialContent/*
 public/scrivito/*
 src/assets/stylesheets/bootstrap-icons.scss
 src/assets/stylesheets/bs5/*
