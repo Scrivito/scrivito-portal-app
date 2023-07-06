@@ -1,0 +1,21 @@
+# Initial content
+
+## Basic requirements
+
+- Ruby
+- The locally cloned repository https://github.com/apepper/cms-migrations
+- Check out branch `dump_scrivito-portal-app`
+- `SCRIVITO_API_KEY` of the "Scrivito Portal App - Golden Master" tenant (Visible at https://my.scrivito.com/tenants/d0a154d76edf2a7bd991fc658e700a1d/settings)
+
+## How to generate `objs.json` and `assets/*`?
+
+- `cd ~/repos/cms-migrations/scrivito_import_export/`
+- `bundle install`
+- `SCRIVITO_TENANT=d0a154d76edf2a7bd991fc658e700a1d SCRIVITO_API_KEY=thesupersecretkey bundle exec ruby scrivito_export.rb "../../scrivito-portal-app/initialContent/" | tee export.log`
+
+## How to import the content into a different tenant
+
+- `cd ~/repos/cms-migrations/scrivito_import_export/`
+- `bundle install`
+- `SCRIVITO_TENANT=dfbd32dababb6673b2efe46207fd6242 SCRIVITO_API_KEY=supersubersecret bundle exec ruby scrivito_import.rb "../../scrivito-portal-app/initialContent/" "Content dump 2023-07-06" | tee import.log`
+- Visit the tenant in the Scrivito UI. Switch to the newly created working copy. Inspect the changes and publish it after wards.
