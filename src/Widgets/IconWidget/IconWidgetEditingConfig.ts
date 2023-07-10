@@ -4,9 +4,6 @@ import { IconWidget } from './IconWidgetClass'
 Scrivito.provideEditingConfig(IconWidget, {
   title: 'Icon',
   attributes: {
-    size: {
-      title: 'Size',
-    },
     alignment: {
       title: 'Alignment',
       description: 'A icon list widget ignores this setting. Default: Left',
@@ -16,9 +13,17 @@ Scrivito.provideEditingConfig(IconWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    icon: {
+      title: 'Icon',
+      description:
+        'Default: "bi-box". The full list of names can be found at https://icons.getbootstrap.com/',
+    },
     link: {
       title: 'Link (optional)',
       description: 'The link where this icon should lead.',
+    },
+    size: {
+      title: 'Size',
     },
   },
   properties: ['icon', 'size', 'alignment', 'link'],
