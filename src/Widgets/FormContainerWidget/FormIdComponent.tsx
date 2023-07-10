@@ -1,11 +1,10 @@
-import * as React from 'react'
 import * as Scrivito from 'scrivito'
 import { ContentProperty } from '../../Components/ScrivitoExtensions/ContentProperty'
 
 export const FormIdComponent = Scrivito.connect(({ widget }) => {
   const formSubmissionsHref = widget.get('formId')
     ? `https://edit.neoletter.com/i/${
-        process.env.SCRIVITO_TENANT
+        import.meta.env.SCRIVITO_TENANT
       }/forms/${widget.get('formId')}`
     : undefined
   const uiContext = Scrivito.uiContext()
