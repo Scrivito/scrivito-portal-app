@@ -59,7 +59,7 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
   page: Scrivito.Obj
 }) {
   return (
-    <Navbar expand="lg" collapseOnSelect={true}>
+    <Navbar expand="lg" collapseOnSelect>
       <div>
         <Navbar.Toggle className="btn mb-3 w-100">
           <span className="d-flex px-2 justify-content-between align-items-center w-100">
