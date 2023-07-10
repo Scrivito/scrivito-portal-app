@@ -1,4 +1,5 @@
 import * as Scrivito from 'scrivito'
+import Nav from 'react-bootstrap/Nav'
 import { NavItem as NavItem } from './NavItem'
 
 export const MainNavigation = Scrivito.connect(function MainNavigation({
@@ -7,13 +8,13 @@ export const MainNavigation = Scrivito.connect(function MainNavigation({
   root: Scrivito.Obj
 }) {
   return (
-    <div className="navbar-main">
+    <Nav className="navbar-main">
       <Scrivito.ChildListTag
         className="navbar-nav me-auto mb-2 mb-md-0"
         tag="div"
         parent={root}
         renderChild={(child) => <NavItem obj={child} />}
       />
-    </div>
+    </Nav>
   )
 })

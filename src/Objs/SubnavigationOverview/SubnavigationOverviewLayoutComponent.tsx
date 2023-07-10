@@ -14,11 +14,11 @@ Scrivito.provideLayoutComponent(SubnavigationOverview, ({ page }) => {
       <section className="py-4">
         <div className="container">
           <div className="row">
-            <div className="col-md-2">
+            <div className="col-lg-2">
               <Subnavigation page={page} />
             </div>
 
-            <div className="col-md-10">
+            <div className="col-lg-10">
               <Scrivito.CurrentPage />
             </div>
           </div>
@@ -59,7 +59,7 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
   page: Scrivito.Obj
 }) {
   return (
-    <Navbar expand="lg" collapseOnSelect={true}>
+    <Navbar expand="lg" collapseOnSelect>
       <div>
         <Navbar.Toggle className="btn mb-3 w-100">
           <span className="d-flex px-2 justify-content-between align-items-center w-100">
@@ -74,13 +74,32 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
         </Navbar.Toggle>
       </div>
       <Navbar.Collapse id="nav-sidebar">
+        <ul
+          className="nav-bordered"
+          // TODO: Make official styling & make it work in mobile as well
+          style={{ margin: '0', borderBottom: '1px solid var(--border)' }}
+        >
+          <li className={Scrivito.isCurrentPage(page) ? 'active' : ''}>
+            <Nav.Link
+              as={Scrivito.LinkTag}
+              href={Scrivito.urlFor(page)} // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
+              to={page}
+            >
+              {objIconAndTitle(page)}
+            </Nav.Link>
+          </li>
+        </ul>
         <Scrivito.ChildListTag
           className="nav-bordered"
           tag="ul"
           parent={page}
           renderChild={(child) => (
             <li className={Scrivito.isOnCurrentPath(child) ? 'active' : ''}>
-              <Nav.Link as={Scrivito.LinkTag} to={child}>
+              <Nav.Link
+                as={Scrivito.LinkTag}
+                href={Scrivito.urlFor(child)} // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
+                to={child}
+              >
                 {objIconAndTitle(child)}
               </Nav.Link>
             </li>

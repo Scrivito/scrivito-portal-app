@@ -4,6 +4,9 @@ import { Page } from './PageObjClass'
 Scrivito.provideEditingConfig(Page, {
   title: 'Page',
   attributes: {
+    dataClass: {
+      title: 'Data class',
+    },
     hideInNavigation: {
       title: 'Hide in navigation?',
       description: 'Default: No',
@@ -22,6 +25,7 @@ Scrivito.provideEditingConfig(Page, {
   },
   properties: [
     'title',
+    'dataClass',
     'hideInNavigation',
     'linkIcon',
     'showTopContentSection',

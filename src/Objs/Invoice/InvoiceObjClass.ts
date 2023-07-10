@@ -1,17 +1,16 @@
 import * as Scrivito from 'scrivito'
 
-export const Quote = Scrivito.provideObjClass('Quote', {
+export const Invoice = Scrivito.provideObjClass('Invoice', {
   attributes: {
-    comments: 'string',
     content: 'string',
     createdAt: 'string',
+    customerAddress: 'string',
     customerId: 'string',
+    invoiceId: 'string',
+    issuerAddress: 'string',
+    orderId: 'string',
     payment: 'string',
     pdfDownloadUrl: 'string',
-    quoteId: 'string',
-    status: 'string',
-    termsAndConditions: 'string',
     total: 'string',
-    validUntil: 'string',
   },
 })

@@ -13,6 +13,7 @@ Scrivito.provideEditingConfig(Quote, {
       title: 'Payment',
       description: '"advance payment", "cash", "credit card" or "invoice"',
     },
+    pdfDownloadUrl: { title: 'PDF download URL' },
     quoteId: { title: 'Quote ID' },
     status: {
       title: 'Status',
@@ -34,8 +35,9 @@ Scrivito.provideEditingConfig(Quote, {
     'payment',
     'total',
     'status',
-    'comment',
+    'comments',
     'termsAndConditions',
+    'pdfDownloadUrl',
   ],
   propertiesGroups: [
     {
