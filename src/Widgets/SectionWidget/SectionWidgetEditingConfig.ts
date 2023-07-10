@@ -5,7 +5,8 @@ Scrivito.provideEditingConfig(SectionWidget, {
   title: 'Section',
   attributes: {
     backgroundAnimateOnHover: {
-      title: 'Animate background on hover',
+      title: 'Animate background on hover?',
+      description: 'Default: No',
     },
     backgroundColor: {
       title: 'Background color',
