@@ -29,6 +29,7 @@ function itemProps(obj: Scrivito.Obj) {
   return {
     active: Scrivito.isOnCurrentPath(obj),
     as: Scrivito.LinkTag,
+    href: Scrivito.urlFor(obj), // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
     to: obj,
   }
 }

@@ -38,6 +38,7 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                 <Nav.Link
                   active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
                   as={Scrivito.LinkTag}
+                  href={Scrivito.urlFor(metaNavigationPortalOverview)} // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
                   to={metaNavigationPortalOverview}
                 >
                   {objIconAndTitle(metaNavigationPortalOverview)}
@@ -96,6 +97,7 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
               <Nav.Link
                 active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
                 as={Scrivito.LinkTag}
+                href={Scrivito.urlFor(metaNavigationPortalOverview)} // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
                 to={metaNavigationPortalOverview}
                 onClick={() => {
                   setLoggedIn(true)

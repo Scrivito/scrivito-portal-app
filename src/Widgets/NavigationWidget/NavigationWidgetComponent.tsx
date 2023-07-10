@@ -11,7 +11,7 @@ Scrivito.provideComponent(NavigationWidget, ({ widget }) => {
   if (!root) return null
 
   return (
-    <Navbar expand="lg" collapseOnSelect={true}>
+    <Navbar expand="lg" collapseOnSelect>
       <Brand root={root} />
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
