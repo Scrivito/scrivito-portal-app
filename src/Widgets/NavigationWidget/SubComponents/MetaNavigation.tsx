@@ -26,7 +26,11 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
     <div className="navbar-meta">
       <Nav className="me-auto">
         {widget.get('metaNavigationObjs').map((metaObj, index) => (
-          <NavItem obj={metaObj} key={`${metaObj.id()}${index}`} />
+          <NavItem
+            obj={metaObj}
+            eventKey={`${metaObj.id()}${index}`}
+            key={`${metaObj.id()}${index}`}
+          />
         ))}
       </Nav>
 
@@ -38,7 +42,8 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                 <Nav.Link
                   active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
                   as={Scrivito.LinkTag}
-                  href={Scrivito.urlFor(metaNavigationPortalOverview)} // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
+                  eventKey={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
+                  key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                   to={metaNavigationPortalOverview}
                 >
                   {objIconAndTitle(metaNavigationPortalOverview)}
@@ -70,6 +75,8 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                     <NavDropdown.Item
                       active={Scrivito.isCurrentPage(metaNavigationUserProfile)}
                       as={Scrivito.LinkTag}
+                      eventKey={`MetaNavigation-${metaNavigationUserProfile.id()}`}
+                      key={`MetaNavigation-${metaNavigationUserProfile.id()}`}
                       to={metaNavigationUserProfile}
                     >
                       {objIconAndTitle(metaNavigationUserProfile)}
@@ -83,10 +90,12 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                 )}
                 <NavDropdown.Item
                   as={Scrivito.LinkTag}
-                  to={Scrivito.Obj.root()}
+                  eventKey="MetaNavigation-LogOut"
+                  key="MetaNavigation-LogOut"
                   onClick={() => {
                     setLoggedIn(false)
                   }}
+                  to={Scrivito.Obj.root()}
                 >
                   <i className={`bi bi-box-arrow-right`}></i> Log out
                 </NavDropdown.Item>
@@ -97,11 +106,12 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
               <Nav.Link
                 active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
                 as={Scrivito.LinkTag}
-                href={Scrivito.urlFor(metaNavigationPortalOverview)} // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
-                to={metaNavigationPortalOverview}
+                eventKey={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
+                key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                 onClick={() => {
                   setLoggedIn(true)
                 }}
+                to={metaNavigationPortalOverview}
               >
                 {objIconAndTitle(metaNavigationPortalOverview)}
               </Nav.Link>
