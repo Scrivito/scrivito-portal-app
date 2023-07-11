@@ -82,7 +82,8 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
           <li className={Scrivito.isCurrentPage(page) ? 'active' : ''}>
             <Nav.Link
               as={Scrivito.LinkTag}
-              href={Scrivito.urlFor(page)} // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
+              eventKey={`Subnavigation-${page.id()}`}
+              key={`Subnavigation-${page.id()}`}
               to={page}
             >
               {objIconAndTitle(page)}
@@ -97,7 +98,8 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
             <li className={Scrivito.isOnCurrentPath(child) ? 'active' : ''}>
               <Nav.Link
                 as={Scrivito.LinkTag}
-                href={Scrivito.urlFor(child)} // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
+                eventKey={`Subnavigation-${page.id()}-${child.id()}`}
+                key={`Subnavigation-${page.id()}-${child.id()}`}
                 to={child}
               >
                 {objIconAndTitle(child)}

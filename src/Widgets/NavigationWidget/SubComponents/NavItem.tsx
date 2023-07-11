@@ -4,8 +4,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import { objIconAndTitle, objTitle } from './objTitle'
 
 export const NavItem = Scrivito.connect(function ScrivitoNavItem({
+  eventKey,
   obj,
 }: {
+  eventKey: string
   obj: Scrivito.Obj
 }) {
   if (obj.get('hideInNavigation') === true) return null
@@ -14,7 +16,11 @@ export const NavItem = Scrivito.connect(function ScrivitoNavItem({
     return (
       <NavDropdown title={objTitle(obj)} active={Scrivito.isOnCurrentPath(obj)}>
         {obj.orderedChildren().map((child) => (
-          <NavDropdown.Item {...itemProps(child)} key={child.id()}>
+          <NavDropdown.Item
+            {...itemProps(child)}
+            eventKey={`NavItem-${eventKey}-${child.id()}`}
+            key={`NavItem-${eventKey}-${child.id()}`}
+          >
             {objIconAndTitle(child)}
           </NavDropdown.Item>
         ))}
@@ -22,14 +28,21 @@ export const NavItem = Scrivito.connect(function ScrivitoNavItem({
     )
   }
 
-  return <Nav.Link {...itemProps(obj)}>{objIconAndTitle(obj)}</Nav.Link>
+  return (
+    <Nav.Link
+      {...itemProps(obj)}
+      eventKey={`NavItem-${eventKey}`}
+      key={`NavItem-${eventKey}`}
+    >
+      {objIconAndTitle(obj)}
+    </Nav.Link>
+  )
 })
 
 function itemProps(obj: Scrivito.Obj) {
   return {
     active: Scrivito.isOnCurrentPath(obj),
     as: Scrivito.LinkTag,
-    href: Scrivito.urlFor(obj), // Workaround, until https://github.com/react-bootstrap/react-bootstrap/issues/6654 is fixed
     to: obj,
   }
 }

@@ -13,7 +13,13 @@ export const MainNavigation = Scrivito.connect(function MainNavigation({
         className="navbar-nav me-auto mb-2 mb-md-0"
         tag="div"
         parent={root}
-        renderChild={(child) => <NavItem obj={child} />}
+        renderChild={(child) => (
+          <NavItem
+            obj={child}
+            eventKey={`MainNavigation-${root.id()}-${child.id()}`}
+            key={`MainNavigation-${root.id()}-${child.id()}`}
+          />
+        )}
       />
     </Nav>
   )
