@@ -1,3 +1,4 @@
+import { configureHistory } from './history'
 import { configureObjClassForContentType } from './objClassForContentType'
 import { configureScrivito } from './scrivito'
 import { configureScrivitoContentBrowser } from './scrivitoContentBrowser'
@@ -8,5 +9,6 @@ export function configure() {
 
   configureObjClassForContentType()
   configureScrivitoContentBrowser()
+  configureHistory()
   configureWindowScrivito()
 }
