@@ -74,6 +74,13 @@ const LinkOrNotTag = Scrivito.connect(
   }) => {
     if (!link) return <>{children}</>
 
-    return <Scrivito.LinkTag to={link}>{children}</Scrivito.LinkTag>
+    return (
+      <Scrivito.LinkTag
+        to={link}
+        draggable={!Scrivito.isInPlaceEditingActive()} // Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1177704
+      >
+        {children}
+      </Scrivito.LinkTag>
+    )
   }
 )
