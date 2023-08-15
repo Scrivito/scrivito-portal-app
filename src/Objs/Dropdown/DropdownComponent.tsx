@@ -20,7 +20,7 @@ Scrivito.provideComponent(Dropdown, ({ page }) => {
       const url = await Scrivito.load(() => Scrivito.urlFor(destination))
       window.location.replace(url)
     }
-  }, [])
+  }, [page])
 
   if (Scrivito.isEditorLoggedIn()) {
     return (
