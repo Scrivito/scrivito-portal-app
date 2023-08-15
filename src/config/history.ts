@@ -1,12 +1,12 @@
 import { createBrowserHistory, BrowserHistory } from 'history'
-import * as Scrivito from 'scrivito'
+import { useHistory as scrivitoUseHistory } from 'scrivito'
 import { scrollToFragment } from 'scroll-to-fragment'
 
 export function configureHistory(): void {
   const history = getHistory()
   if (!history) return
 
-  Scrivito.useHistory(history)
+  scrivitoUseHistory(history)
 
   scrollToFragment({ history })
 }

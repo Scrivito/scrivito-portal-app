@@ -25,8 +25,8 @@ Scrivito.provideComponent(DataListWidget, ({ widget }) => {
         <div className="alert alert-warning d-flex m-auto">
           <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
           <div className="my-auto mx-2">
-            <b>Editor note:</b> The following is only visible if "data" does not
-            contains data.
+            <b>Editor note:</b> The following is only visible if
+            &quote;data&quote; does not contains data.
           </div>
         </div>
       )}
