@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 
-Scrivito.provideEditingConfig(SectionWidget, {
+provideEditingConfig(SectionWidget, {
   title: 'Section',
   attributes: {
     backgroundAnimateOnHover: {

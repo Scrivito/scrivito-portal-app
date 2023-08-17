@@ -1,7 +1,17 @@
-import * as Scrivito from 'scrivito'
+import {
+  provideComponent,
+  WidgetTag,
+  InPlaceEditingOff,
+  ImageTag,
+  ContentTag,
+  connect,
+  Link,
+  LinkTag,
+  isInPlaceEditingActive,
+} from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
 
-Scrivito.provideComponent(CardWidget, ({ widget }) => {
+provideComponent(CardWidget, ({ widget }) => {
   const cardBodyClassNames: string[] = ['card-body']
   const padding = widget.get('padding')
   cardBodyClassNames.push(padding ? padding : 'p-4')
@@ -27,60 +37,54 @@ Scrivito.provideComponent(CardWidget, ({ widget }) => {
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
 
   return (
-    <Scrivito.WidgetTag className={cardClassNames.join(' ')}>
+    <WidgetTag className={cardClassNames.join(' ')}>
       {backgroundImage && (
-        <Scrivito.InPlaceEditingOff>
-          <Scrivito.ImageTag
+        <InPlaceEditingOff>
+          <ImageTag
             content={widget}
             attribute="backgroundImage"
             className={backgroundImageClassNames.join(' ')}
           />
-        </Scrivito.InPlaceEditingOff>
+        </InPlaceEditingOff>
       )}
       <LinkOrNotTag link={widget.get('linkTo')}>
         {image && (
-          <Scrivito.InPlaceEditingOff>
-            <Scrivito.ImageTag
+          <InPlaceEditingOff>
+            <ImageTag
               content={widget}
               attribute="image"
               className="img-box img-h-200"
             />
-          </Scrivito.InPlaceEditingOff>
+          </InPlaceEditingOff>
         )}
-        <Scrivito.ContentTag
+        <ContentTag
           content={widget}
           attribute="cardBody"
           className={cardBodyClassNames.join(' ')}
         />
         {widget.get('showFooter') && (
-          <Scrivito.ContentTag
+          <ContentTag
             content={widget}
             attribute="cardFooter"
             className="card-footer"
           />
         )}
       </LinkOrNotTag>
-    </Scrivito.WidgetTag>
+    </WidgetTag>
   )
 })
 
-const LinkOrNotTag = Scrivito.connect(
-  ({
-    children,
-    link,
-  }: {
-    children: React.ReactNode
-    link: Scrivito.Link | null
-  }) => {
+const LinkOrNotTag = connect(
+  ({ children, link }: { children: React.ReactNode; link: Link | null }) => {
     if (!link) return <>{children}</>
 
     return (
-      <Scrivito.LinkTag
+      <LinkTag
         to={link}
-        draggable={!Scrivito.isInPlaceEditingActive()} // Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1177704
+        draggable={!isInPlaceEditingActive()} // Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1177704
       >
         {children}
-      </Scrivito.LinkTag>
+      </LinkTag>
     )
   }
 )

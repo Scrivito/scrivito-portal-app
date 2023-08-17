@@ -1,8 +1,8 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Notification } from './NotificationObjClass'
 import { MultilineStringEditor } from '../../Components/MultilineStringEditor'
 
-Scrivito.provideEditingConfig(Notification, {
+provideEditingConfig(Notification, {
   title: 'Notification',
   attributes: {
     createdAt: { title: 'Created at', description: 'Format: YYYY-MM-DD' },

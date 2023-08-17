@@ -1,9 +1,19 @@
-import * as Scrivito from 'scrivito'
+import {
+  ChildListTag,
+  connect,
+  CurrentPage,
+  currentPage,
+  isCurrentPage,
+  isOnCurrentPath,
+  LinkTag,
+  Obj,
+  provideLayoutComponent,
+} from 'scrivito'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
 
-Scrivito.provideLayoutComponent(SubnavigationOverview, ({ page }) => {
+provideLayoutComponent(SubnavigationOverview, ({ page }) => {
   return (
     <>
       <section className="bg-light-grey py-2 hidden-xs">
@@ -19,7 +29,7 @@ Scrivito.provideLayoutComponent(SubnavigationOverview, ({ page }) => {
             </div>
 
             <div className="col-lg-10">
-              <Scrivito.CurrentPage />
+              <CurrentPage />
             </div>
           </div>
         </div>
@@ -28,12 +38,12 @@ Scrivito.provideLayoutComponent(SubnavigationOverview, ({ page }) => {
   )
 })
 
-const Breadcrumb = Scrivito.connect(function Breadcrumb() {
-  const currentPage = Scrivito.currentPage()
-  if (!currentPage) return <nav aria-label="breadcrumb" />
+const Breadcrumb = connect(function Breadcrumb() {
+  const currentPageObj = currentPage()
+  if (!currentPageObj) return <nav aria-label="breadcrumb" />
 
-  const breadcrumbItems: Scrivito.Obj[] = []
-  let item = currentPage.parent()
+  const breadcrumbItems: Obj[] = []
+  let item = currentPageObj.parent()
   while (item) {
     if (!item.get('hideInNavigation')) breadcrumbItems.unshift(item)
     item = item.parent()
@@ -44,20 +54,16 @@ const Breadcrumb = Scrivito.connect(function Breadcrumb() {
       <ol className="breadcrumb m-1">
         {breadcrumbItems.map((obj) => (
           <li className="breadcrumb-item" key={obj.id()}>
-            <Scrivito.LinkTag to={obj}>{objTitle(obj)}</Scrivito.LinkTag>
+            <LinkTag to={obj}>{objTitle(obj)}</LinkTag>
           </li>
         ))}
-        <li className="breadcrumb-item active">{objTitle(currentPage)}</li>
+        <li className="breadcrumb-item active">{objTitle(currentPageObj)}</li>
       </ol>
     </nav>
   )
 })
 
-const Subnavigation = Scrivito.connect(function Subnavigation({
-  page,
-}: {
-  page: Scrivito.Obj
-}) {
+const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
   return (
     <Navbar expand="lg" collapseOnSelect>
       <div>
@@ -79,9 +85,9 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
           // TODO: Make official styling & make it work in mobile as well
           style={{ margin: '0', borderBottom: '1px solid var(--border)' }}
         >
-          <li className={Scrivito.isCurrentPage(page) ? 'active' : ''}>
+          <li className={isCurrentPage(page) ? 'active' : ''}>
             <Nav.Link
-              as={Scrivito.LinkTag}
+              as={LinkTag}
               eventKey={`Subnavigation-${page.id()}`}
               key={`Subnavigation-${page.id()}`}
               to={page}
@@ -90,14 +96,14 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
             </Nav.Link>
           </li>
         </ul>
-        <Scrivito.ChildListTag
+        <ChildListTag
           className="nav-bordered"
           tag="ul"
           parent={page}
           renderChild={(child) => (
-            <li className={Scrivito.isOnCurrentPath(child) ? 'active' : ''}>
+            <li className={isOnCurrentPath(child) ? 'active' : ''}>
               <Nav.Link
-                as={Scrivito.LinkTag}
+                as={LinkTag}
                 eventKey={`Subnavigation-${page.id()}-${child.id()}`}
                 key={`Subnavigation-${page.id()}-${child.id()}`}
                 to={child}
@@ -112,13 +118,13 @@ const Subnavigation = Scrivito.connect(function Subnavigation({
   )
 })
 
-function objTitle(obj: Scrivito.Obj) {
+function objTitle(obj: Obj) {
   const title = obj.get('title')
 
   return typeof title === 'string' && title ? title : '<untitled>'
 }
 
-export function objIconAndTitle(obj: Scrivito.Obj) {
+export function objIconAndTitle(obj: Obj) {
   const linkIcon = obj.get('linkIcon')
   const showLinkIcon = typeof linkIcon === 'string' && !!linkIcon
 

@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { configureContentBrowser, Obj } from 'scrivito'
 
 export function configureScrivitoContentBrowser() {
-  Scrivito.configureContentBrowser({
+  configureContentBrowser({
     filters: ({ _validObjClasses }) => {
       if (_validObjClasses) {
         switch (_validObjClasses.length) {
@@ -66,7 +66,7 @@ function defaultFilters() {
         All: {
           title: 'All',
           icon: 'folder',
-          query: Scrivito.Obj.all(),
+          query: Obj.all(),
           selected: true,
         },
         Image: filterOptionForObjClass('Image'),

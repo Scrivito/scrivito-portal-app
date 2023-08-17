@@ -1,25 +1,22 @@
-import * as Scrivito from 'scrivito'
+import { connect, currentPage, Obj, urlFor } from 'scrivito'
 import { Helmet, HelmetProps } from 'react-helmet-async'
 
-export const CurrentPageMetadata = Scrivito.connect(() => {
+export const CurrentPageMetadata = connect(() => {
   let lang = 'en'
   let title = ''
   const links: HelmetProps['link'] = []
 
-  const root = Scrivito.Obj.root()
+  const root = Obj.root()
   const favicon = root?.get('siteFavicon')
-  if (
-    favicon instanceof Scrivito.Obj &&
-    favicon.contentType().startsWith('image/')
-  ) {
+  if (favicon instanceof Obj && favicon.contentType().startsWith('image/')) {
     links.push({
       rel: 'shortcut icon',
       type: favicon.contentType(),
-      href: Scrivito.urlFor(favicon),
+      href: urlFor(favicon),
     })
   }
 
-  const page = Scrivito.currentPage()
+  const page = currentPage()
 
   if (page) {
     lang = page.language() || 'en'
@@ -27,7 +24,7 @@ export const CurrentPageMetadata = Scrivito.connect(() => {
     const pageTitle = page.get('title')
     title = typeof pageTitle === 'string' ? pageTitle : ''
 
-    links.push({ rel: 'canonical', href: Scrivito.urlFor(page) })
+    links.push({ rel: 'canonical', href: urlFor(page) })
   }
 
   return <Helmet htmlAttributes={{ lang }} title={title} link={links} />

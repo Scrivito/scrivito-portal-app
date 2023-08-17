@@ -1,15 +1,15 @@
-import * as Scrivito from 'scrivito'
+import { connect, Obj, ChildListTag } from 'scrivito'
 import Nav from 'react-bootstrap/Nav'
 import { NavItem as NavItem } from './NavItem'
 
-export const MainNavigation = Scrivito.connect(function MainNavigation({
+export const MainNavigation = connect(function MainNavigation({
   root,
 }: {
-  root: Scrivito.Obj
+  root: Obj
 }) {
   return (
     <Nav className="navbar-main">
-      <Scrivito.ChildListTag
+      <ChildListTag
         className="navbar-nav me-auto mb-2 mb-md-0"
         tag="div"
         parent={root}

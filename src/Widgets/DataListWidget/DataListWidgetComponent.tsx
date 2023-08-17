@@ -1,9 +1,14 @@
-import * as Scrivito from 'scrivito'
+import {
+  ContentTag,
+  isInPlaceEditingActive,
+  provideComponent,
+  useDataLocator,
+} from 'scrivito'
 import { DataListWidget } from './DataListWidgetClass'
 
-Scrivito.provideComponent(DataListWidget, ({ widget }) => {
+provideComponent(DataListWidget, ({ widget }) => {
   const data = widget.get('data')
-  const dataScope = Scrivito.useDataLocator(data)
+  const dataScope = useDataLocator(data)
 
   const nrOfColumns = widget.get('nrOfColumns') || '1'
 
@@ -11,7 +16,7 @@ Scrivito.provideComponent(DataListWidget, ({ widget }) => {
     <>
       <div className={`row row-cols-1 row-cols-md-${nrOfColumns}`}>
         {dataScope.take().map((order) => (
-          <Scrivito.ContentTag
+          <ContentTag
             content={widget}
             attribute="content"
             className="col"
@@ -21,7 +26,7 @@ Scrivito.provideComponent(DataListWidget, ({ widget }) => {
           />
         ))}
       </div>
-      {Scrivito.isInPlaceEditingActive() && (
+      {isInPlaceEditingActive() && (
         <div className="alert alert-warning d-flex m-auto">
           <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
           <div className="my-auto mx-2">
@@ -30,8 +35,8 @@ Scrivito.provideComponent(DataListWidget, ({ widget }) => {
           </div>
         </div>
       )}
-      {(dataScope.isEmpty() || Scrivito.isInPlaceEditingActive()) && (
-        <Scrivito.ContentTag content={widget} attribute="nothingFound" />
+      {(dataScope.isEmpty() || isInPlaceEditingActive()) && (
+        <ContentTag content={widget} attribute="nothingFound" />
       )}
     </>
   )

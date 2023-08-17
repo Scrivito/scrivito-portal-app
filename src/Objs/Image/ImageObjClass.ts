@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideObjClass } from 'scrivito'
 
-export const Image = Scrivito.provideObjClass('Image', {
+export const Image = provideObjClass('Image', {
   attributes: {
     alternativeText: 'string',
     blob: 'binary',

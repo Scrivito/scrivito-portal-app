@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 
-Scrivito.provideEditingConfig(BannerHeadlineWidget, {
+provideEditingConfig(BannerHeadlineWidget, {
   title: 'Banner headline',
   attributes: {
     backgroundColor: {

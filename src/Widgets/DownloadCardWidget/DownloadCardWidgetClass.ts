@@ -1,14 +1,11 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const DownloadCardWidget = Scrivito.provideWidgetClass(
-  'DownloadCardWidget',
-  {
-    attributes: {
-      details: 'string',
-      icon: 'string',
-      link: 'link',
-      subTitle: 'string',
-      title: 'string',
-    },
-  }
-)
+export const DownloadCardWidget = provideWidgetClass('DownloadCardWidget', {
+  attributes: {
+    details: 'string',
+    icon: 'string',
+    link: 'link',
+    subTitle: 'string',
+    title: 'string',
+  },
+})

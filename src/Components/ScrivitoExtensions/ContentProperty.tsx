@@ -1,18 +1,24 @@
-import * as Scrivito from 'scrivito'
+import {
+  connect,
+  Obj,
+  Widget,
+  validationResultsFor,
+  ContentTag,
+} from 'scrivito'
 
-export const ContentProperty = Scrivito.connect(
+export const ContentProperty = connect(
   ({
     content,
     attribute,
     title,
     description,
   }: {
-    content: Scrivito.Obj | Scrivito.Widget
+    content: Obj | Widget
     attribute: string
     title: string
     description: string
   }) => {
-    const validationResults = Scrivito.validationResultsFor(content, attribute)
+    const validationResults = validationResultsFor(content, attribute)
     const highestSeverity = findHighestSeverity(validationResults)
     const severityClass = highestSeverity && `scrivito_${highestSeverity}`
 
@@ -25,7 +31,7 @@ export const ContentProperty = Scrivito.connect(
           <span>{title}</span>
         </div>
         <div className={`content_property_input ${severityClass}`}>
-          <Scrivito.ContentTag content={content} attribute={attribute} />
+          <ContentTag content={content} attribute={attribute} />
         </div>
         <div>
           {validationResults.map((v) => (

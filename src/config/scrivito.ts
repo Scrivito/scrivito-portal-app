@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { configure } from 'scrivito'
 
 export function configureScrivito() {
-  const config: Parameters<typeof Scrivito.configure>[0] = {
+  const config: Parameters<typeof configure>[0] = {
     adoptUi: true,
     optimizedWidgetLoading: true,
     strictSearchOperators: true,
@@ -43,5 +43,5 @@ export function configureScrivito() {
     config.routingBasePath = `/${tenantFromUrl}`
   }
 
-  Scrivito.configure(config)
+  configure(config)
 }

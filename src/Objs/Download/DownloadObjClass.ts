@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideObjClass } from 'scrivito'
 
-export const Download = Scrivito.provideObjClass('Download', {
+export const Download = provideObjClass('Download', {
   attributes: {
     blob: 'binary',
     tags: 'stringlist',

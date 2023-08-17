@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Download } from './DownloadObjClass'
 
-Scrivito.provideEditingConfig(Download, {
+provideEditingConfig(Download, {
   attributes: {
     tags: {
       title: 'Tags',

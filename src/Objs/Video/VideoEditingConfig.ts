@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Video } from './VideoObjClass'
 
-Scrivito.provideEditingConfig(Video, {
+provideEditingConfig(Video, {
   title: 'Video',
   attributes: {
     tags: {

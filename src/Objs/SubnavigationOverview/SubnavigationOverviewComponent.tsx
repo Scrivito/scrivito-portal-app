@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { ContentTag, provideComponent } from 'scrivito'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
 
-Scrivito.provideComponent(SubnavigationOverview, ({ page }) => (
-  <Scrivito.ContentTag content={page} attribute="body" />
+provideComponent(SubnavigationOverview, ({ page }) => (
+  <ContentTag content={page} attribute="body" />
 ))

@@ -1,8 +1,8 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineContainerWidget } from './BannerHeadlineContainerWidgetClass'
 import { BannerHeadlineWidget } from '../BannerHeadlineWidget/BannerHeadlineWidgetClass'
 
-Scrivito.provideEditingConfig(BannerHeadlineContainerWidget, {
+provideEditingConfig(BannerHeadlineContainerWidget, {
   title: 'Banner headlines',
   initialContent: {
     headlines: [

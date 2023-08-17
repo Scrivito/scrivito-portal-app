@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { DownloadCardWidget } from './DownloadCardWidgetClass'
 
-Scrivito.provideEditingConfig(DownloadCardWidget, {
+provideEditingConfig(DownloadCardWidget, {
   title: 'Download card',
   attributes: {
     icon: {

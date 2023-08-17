@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const ButtonWidget = Scrivito.provideWidgetClass('ButtonWidget', {
+export const ButtonWidget = provideWidgetClass('ButtonWidget', {
   attributes: {
     alignment: ['enum', { values: ['left', 'center', 'right', 'block'] }],
     buttonColor: [

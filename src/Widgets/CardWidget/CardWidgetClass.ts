@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const CardWidget = Scrivito.provideWidgetClass('CardWidget', {
+export const CardWidget = provideWidgetClass('CardWidget', {
   attributes: {
     backgroundAnimateOnHover: 'boolean',
     backgroundColor: [

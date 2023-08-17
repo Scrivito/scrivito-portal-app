@@ -1,10 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const PersonCardWidget = Scrivito.provideWidgetClass(
-  'PersonCardWidget',
-  {
-    attributes: {
-      person: ['reference', { only: ['Person'] }],
-    },
-  }
-)
+export const PersonCardWidget = provideWidgetClass('PersonCardWidget', {
+  attributes: {
+    person: ['reference', { only: ['Person'] }],
+  },
+})

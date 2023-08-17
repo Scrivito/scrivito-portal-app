@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { Widget } from 'scrivito'
 import { isCustomType } from './isCustomType'
 
-export function getFieldName(widget: Scrivito.Widget): string {
+export function getFieldName(widget: Widget): string {
   const fieldName = isCustomType(widget)
     ? widget.get('customFieldName')
     : widget.get('type')

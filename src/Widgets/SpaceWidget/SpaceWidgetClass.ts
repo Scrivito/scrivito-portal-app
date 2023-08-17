@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const SpaceWidget = Scrivito.provideWidgetClass('SpaceWidget', {
+export const SpaceWidget = provideWidgetClass('SpaceWidget', {
   attributes: {
     size: 'float',
   },
