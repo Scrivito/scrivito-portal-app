@@ -7,11 +7,11 @@ export const FormIdComponent = connect(({ widget }) => {
         import.meta.env.SCRIVITO_TENANT
       }/forms/${widget.get('formId')}`
     : undefined
-  const uiContextObj = uiContext()
-  if (!uiContextObj) return null
+  const { theme } = uiContext() || { theme: null }
+  if (!theme) return null
 
   return (
-    <div className={`scrivito_${uiContextObj.theme}`}>
+    <div className={`scrivito_${theme}`}>
       <div className="scrivito_detail_content">
         <div className="attribute_form_id_item">
           <ContentProperty

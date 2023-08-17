@@ -15,11 +15,11 @@ export function ColumnsEditorTab({
   widget: ColumnContainerInstance
 }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget))
-  const uiContextObj = uiContext()
-  if (!uiContextObj) return null
+  const { theme } = uiContext() || { theme: null }
+  if (!theme) return null
 
   return (
-    <div className={`scrivito_${uiContextObj.theme}`}>
+    <div className={`scrivito_${theme}`}>
       <ColumnsEditor
         // reset component whenever a concurrent widget addition/deletion happened
         key={includedWidgetIds.join('-')}
