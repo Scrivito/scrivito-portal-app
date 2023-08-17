@@ -1,12 +1,12 @@
 import * as React from 'react'
-import * as Scrivito from 'scrivito'
+import { provideComponent, urlFor, ContentTag, connect, Widget } from 'scrivito'
 import { scrollIntoView } from './utils/scrollIntoView'
 import { getHistory } from '../../config/history'
 
 import './FormContainerWidget.scss'
 import { FormContainerWidget } from './FormContainerWidgetClass'
 
-Scrivito.provideComponent(FormContainerWidget, ({ widget }) => {
+provideComponent(FormContainerWidget, ({ widget }) => {
   const formEndpoint = `https://api.justrelate.com/neoletter/instances/${
     import.meta.env.SCRIVITO_TENANT
   }/form_submissions`
@@ -62,7 +62,7 @@ Scrivito.provideComponent(FormContainerWidget, ({ widget }) => {
         <input
           type="hidden"
           name="url"
-          value={browserLocation || Scrivito.urlFor(widget.obj())}
+          value={browserLocation || urlFor(widget.obj())}
         />
         {widget.get('hiddenFields').map((hiddenField) => (
           <HiddenField key={hiddenField.id()} widget={hiddenField} />
@@ -70,7 +70,7 @@ Scrivito.provideComponent(FormContainerWidget, ({ widget }) => {
 
         <HoneypotField />
 
-        <Scrivito.ContentTag content={widget} attribute="content" />
+        <ContentTag content={widget} attribute="content" />
       </form>
     </div>
   )
@@ -127,9 +127,9 @@ async function submit(formElement: unknown, formEndpoint: string) {
   }
 }
 
-const HiddenField = Scrivito.connect(
+const HiddenField = connect(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ widget }: { widget: Scrivito.Widget }) => {
+  ({ widget }: { widget: Widget }) => {
     return null
     // TODO: Implement once FormHiddenFieldWidget is available.
     // const name = getFieldName(widget)

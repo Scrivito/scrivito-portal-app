@@ -1,4 +1,4 @@
-import * as Scrivito from 'scrivito'
+import { connect, isCurrentPage, LinkTag, ContentTag, Obj } from 'scrivito'
 import React from 'react'
 import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { objIconAndTitle } from './objTitle'
 
-export const MetaNavigation = Scrivito.connect(function MetaNavigation({
+export const MetaNavigation = connect(function MetaNavigation({
   widget,
 }: {
   widget: InstanceType<typeof NavigationWidget>
@@ -40,8 +40,8 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
             <>
               <Nav.Item>
                 <Nav.Link
-                  active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
-                  as={Scrivito.LinkTag}
+                  active={isCurrentPage(metaNavigationPortalOverview)}
+                  as={LinkTag}
                   eventKey={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                   key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                   to={metaNavigationPortalOverview}
@@ -54,13 +54,13 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                   <>
                     <i className="bi bi-person-circle" aria-hidden="true"></i>
                     <span className="nav-link-extended">
-                      <Scrivito.ContentTag
+                      <ContentTag
                         content={widget}
                         attribute="metaNavigationUserTitle"
                         tag="span"
                       />
 
-                      <Scrivito.ContentTag
+                      <ContentTag
                         content={widget}
                         attribute="metaNavigationUserDescription"
                         tag="span"
@@ -73,8 +73,8 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                 {showUserProfileLink ? (
                   <>
                     <NavDropdown.Item
-                      active={Scrivito.isCurrentPage(metaNavigationUserProfile)}
-                      as={Scrivito.LinkTag}
+                      active={isCurrentPage(metaNavigationUserProfile)}
+                      as={LinkTag}
                       eventKey={`MetaNavigation-${metaNavigationUserProfile.id()}`}
                       key={`MetaNavigation-${metaNavigationUserProfile.id()}`}
                       to={metaNavigationUserProfile}
@@ -89,13 +89,13 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
                   <></>
                 )}
                 <NavDropdown.Item
-                  as={Scrivito.LinkTag}
+                  as={LinkTag}
                   eventKey="MetaNavigation-LogOut"
                   key="MetaNavigation-LogOut"
                   onClick={() => {
                     setLoggedIn(false)
                   }}
-                  to={Scrivito.Obj.root()}
+                  to={Obj.root()}
                 >
                   <i className={`bi bi-box-arrow-right`}></i> Log out
                 </NavDropdown.Item>
@@ -104,8 +104,8 @@ export const MetaNavigation = Scrivito.connect(function MetaNavigation({
           ) : (
             <Nav.Item>
               <Nav.Link
-                active={Scrivito.isCurrentPage(metaNavigationPortalOverview)}
-                as={Scrivito.LinkTag}
+                active={isCurrentPage(metaNavigationPortalOverview)}
+                as={LinkTag}
                 eventKey={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                 key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                 onClick={() => {

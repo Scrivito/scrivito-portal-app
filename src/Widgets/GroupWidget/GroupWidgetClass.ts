@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const GroupWidget = Scrivito.provideWidgetClass('GroupWidget', {
+export const GroupWidget = provideWidgetClass('GroupWidget', {
   attributes: {
     content: 'widgetlist',
   },

@@ -1,4 +1,4 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent } from 'scrivito'
 import { Notification } from './NotificationObjClass'
 
-Scrivito.provideComponent(Notification, () => null)
+provideComponent(Notification, () => null)

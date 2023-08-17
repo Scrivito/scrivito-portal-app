@@ -1,8 +1,8 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { MultilineStringEditor } from '../../Components/MultilineStringEditor'
 import { Quote } from './QuoteObjClass'
 
-Scrivito.provideEditingConfig(Quote, {
+provideEditingConfig(Quote, {
   title: 'Quote',
   attributes: {
     comments: { title: 'Comments' },

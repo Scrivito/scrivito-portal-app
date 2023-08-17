@@ -1,14 +1,11 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const NavigationWidget = Scrivito.provideWidgetClass(
-  'NavigationWidget',
-  {
-    attributes: {
-      metaNavigationObjs: 'referencelist',
-      metaNavigationPortalOverview: 'reference',
-      metaNavigationUserDescription: 'string',
-      metaNavigationUserProfile: 'reference',
-      metaNavigationUserTitle: 'string',
-    },
-  }
-)
+export const NavigationWidget = provideWidgetClass('NavigationWidget', {
+  attributes: {
+    metaNavigationObjs: 'referencelist',
+    metaNavigationPortalOverview: 'reference',
+    metaNavigationUserDescription: 'string',
+    metaNavigationUserProfile: 'reference',
+    metaNavigationUserTitle: 'string',
+  },
+})

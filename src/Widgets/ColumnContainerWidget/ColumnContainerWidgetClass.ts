@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const ColumnContainerWidget = Scrivito.provideWidgetClass(
+export const ColumnContainerWidget = provideWidgetClass(
   'ColumnContainerWidget',
   {
     attributes: {

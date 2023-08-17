@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent, ContentTag } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 
-Scrivito.provideComponent(ColumnContainerWidget, ({ widget }) => {
+provideComponent(ColumnContainerWidget, ({ widget }) => {
   const columns = widget.get('columns')
   if (!columns.length) return null
 
@@ -12,7 +12,7 @@ Scrivito.provideComponent(ColumnContainerWidget, ({ widget }) => {
       : `col-md-${colSize}`
     return (
       <div key={index} className={className}>
-        <Scrivito.ContentTag
+        <ContentTag
           content={columnWidget}
           attribute="content"
           className="h-100"

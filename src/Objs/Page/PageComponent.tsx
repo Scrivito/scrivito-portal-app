@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent, ContentTag } from 'scrivito'
 import { Page } from './PageObjClass'
 
-Scrivito.provideComponent(Page, ({ page }) => (
-  <Scrivito.ContentTag tag="div" content={page} attribute="body" />
+provideComponent(Page, ({ page }) => (
+  <ContentTag tag="div" content={page} attribute="body" />
 ))

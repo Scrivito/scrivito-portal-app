@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as Scrivito from 'scrivito'
+import { uiContext, canWrite, connect, Widget } from 'scrivito'
 import Draggable from 'react-draggable'
 import { isEqual, take, takeRight, times } from 'lodash-es'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
@@ -15,23 +15,23 @@ export function ColumnsEditorTab({
   widget: ColumnContainerInstance
 }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget))
-  const uiContext = Scrivito.uiContext()
-  if (!uiContext) return null
+  const { theme } = uiContext() || { theme: null }
+  if (!theme) return null
 
   return (
-    <div className={`scrivito_${uiContext.theme}`}>
+    <div className={`scrivito_${theme}`}>
       <ColumnsEditor
         // reset component whenever a concurrent widget addition/deletion happened
         key={includedWidgetIds.join('-')}
         widget={widget}
-        readOnly={!Scrivito.canWrite()}
+        readOnly={!canWrite()}
         currentGrid={gridOfWidget(widget)}
       />
     </div>
   )
 }
 
-const ColumnsEditor = Scrivito.connect(
+const ColumnsEditor = connect(
   ({
     widget,
     readOnly,
@@ -185,7 +185,7 @@ function calculateContents(widget: ColumnContainerInstance) {
     .map((column) => (column as ColumnInstance).get('content'))
 }
 
-function calculateContentIds(contents: Scrivito.Widget[][]) {
+function calculateContentIds(contents: Widget[][]) {
   return contents.map((content) => content.map((o) => o.id())).flat()
 }
 
@@ -490,10 +490,7 @@ function adjustNumberOfColumns(
   containerWidget.update({ columns: newColumns })
 }
 
-function distributeContents(
-  columns: Scrivito.Widget[],
-  originalContents: Scrivito.Widget[][]
-) {
+function distributeContents(columns: Widget[], originalContents: Widget[][]) {
   const splitIndexAt = columns.length - 1
 
   // copy first n -1 elements
@@ -509,7 +506,7 @@ function distributeContents(
   columns[columns.length - 1].update({ content: colsToMerge.flat() })
 }
 
-function adjustColSize(columns: Scrivito.Widget[], newGrid: number[]) {
+function adjustColSize(columns: Widget[], newGrid: number[]) {
   newGrid.forEach((colSize, index) => {
     columns[index].update({ colSize })
   })

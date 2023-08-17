@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent, ContentTag } from 'scrivito'
 import { GroupWidget } from './GroupWidgetClass'
 
-Scrivito.provideComponent(GroupWidget, ({ widget }) => (
-  <Scrivito.ContentTag content={widget} attribute="content" />
+provideComponent(GroupWidget, ({ widget }) => (
+  <ContentTag content={widget} attribute="content" />
 ))

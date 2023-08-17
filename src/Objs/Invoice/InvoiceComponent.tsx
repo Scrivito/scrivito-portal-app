@@ -1,4 +1,4 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent } from 'scrivito'
 import { Invoice } from './InvoiceObjClass'
 
-Scrivito.provideComponent(Invoice, () => null)
+provideComponent(Invoice, () => null)

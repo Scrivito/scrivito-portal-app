@@ -1,12 +1,12 @@
-import * as Scrivito from 'scrivito'
+import { Obj } from 'scrivito'
 
-export function objTitle(obj: Scrivito.Obj) {
+export function objTitle(obj: Obj) {
   const title = obj.get('title')
 
   return typeof title === 'string' && title ? title : '<untitled>'
 }
 
-export function objIconAndTitle(obj: Scrivito.Obj) {
+export function objIconAndTitle(obj: Obj) {
   const linkIcon = obj.get('linkIcon')
   const showLinkIcon = typeof linkIcon === 'string' && !!linkIcon
 

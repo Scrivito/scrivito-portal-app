@@ -1,11 +1,18 @@
-import * as Scrivito from 'scrivito'
+import {
+  provideComponent,
+  isInPlaceEditingActive,
+  WidgetTag,
+  InPlaceEditingOff,
+  ImageTag,
+  ContentTag,
+} from 'scrivito'
 import { PersonCardWidget } from './PersonCardWidgetClass'
 import { Person } from '../../Objs/Person/PersonObjClass'
 
-Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
+provideComponent(PersonCardWidget, ({ widget }) => {
   const person: InstanceType<typeof Person> | unknown = widget.get('person')
   if (!(person instanceof Person)) {
-    if (Scrivito.isInPlaceEditingActive()) {
+    if (isInPlaceEditingActive()) {
       return (
         <div className="alert alert-warning d-flex m-auto">
           <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
@@ -20,24 +27,24 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
   }
 
   return (
-    <Scrivito.WidgetTag className="card mb-2 bg-secondary max-width-350">
-      <Scrivito.InPlaceEditingOff>
+    <WidgetTag className="card mb-2 bg-secondary max-width-350">
+      <InPlaceEditingOff>
         <div className="card-body p-3">
           <div className="row">
             <div className="col-3">
-              <Scrivito.ImageTag
+              <ImageTag
                 content={person}
                 attribute="image"
                 className="editor-img"
               />
             </div>
             <div className="col-9">
-              <Scrivito.ContentTag
+              <ContentTag
                 content={person}
                 attribute="name"
                 className="h5 text-break"
               />
-              <Scrivito.ContentTag
+              <ContentTag
                 content={person}
                 attribute="jobTitle"
                 className="text-bold opacity-60 text-extra-small text-uppercase"
@@ -48,7 +55,7 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
                     <th className="align-top">Tel:</th>
                     <td>
                       <a href={`tel:${person.get('telephone')}`}>
-                        <Scrivito.ContentTag
+                        <ContentTag
                           content={person}
                           attribute="telephone"
                           className="text-break"
@@ -60,7 +67,7 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
                     <th className="align-top">Fax:</th>
                     <td>
                       <a href={`tel:${person.get('fax')}`}>
-                        <Scrivito.ContentTag
+                        <ContentTag
                           content={person}
                           attribute="fax"
                           className="text-break"
@@ -72,7 +79,7 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
                     <th className="align-top">eMail:</th>
                     <td>
                       <a href={`mailto:${person.get('email')}`}>
-                        <Scrivito.ContentTag
+                        <ContentTag
                           content={person}
                           attribute="email"
                           className="text-break"
@@ -85,7 +92,7 @@ Scrivito.provideComponent(PersonCardWidget, ({ widget }) => {
             </div>
           </div>
         </div>
-      </Scrivito.InPlaceEditingOff>
-    </Scrivito.WidgetTag>
+      </InPlaceEditingOff>
+    </WidgetTag>
   )
 })

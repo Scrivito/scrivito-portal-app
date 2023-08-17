@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const LabelWidget = Scrivito.provideWidgetClass('LabelWidget', {
+export const LabelWidget = provideWidgetClass('LabelWidget', {
   attributes: {
     label: 'string',
     valueSize: [

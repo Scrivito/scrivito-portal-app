@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { NavigationWidget } from './NavigationWidgetClass'
 
-Scrivito.provideEditingConfig(NavigationWidget, {
+provideEditingConfig(NavigationWidget, {
   title: 'Navigation',
   properties: [
     'metaNavigationObjs',

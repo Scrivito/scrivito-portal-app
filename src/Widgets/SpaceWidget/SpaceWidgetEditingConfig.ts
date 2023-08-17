@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { SpaceWidget } from './SpaceWidgetClass'
 
-Scrivito.provideEditingConfig(SpaceWidget, {
+provideEditingConfig(SpaceWidget, {
   title: 'Space',
   attributes: {
     size: {

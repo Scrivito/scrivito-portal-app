@@ -1,9 +1,9 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnsEditorTab } from './ColumnsEditorTab'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 
-Scrivito.provideEditingConfig(ColumnContainerWidget, {
+provideEditingConfig(ColumnContainerWidget, {
   title: 'Columns',
   attributes: {
     disableResponsiveAdaption: {

@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 
-Scrivito.provideEditingConfig(Homepage, {
+provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
     contentTitle: {

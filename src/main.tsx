@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import * as Scrivito from 'scrivito'
+import { isEditorLoggedIn } from 'scrivito'
 
 import './Data'
 import './Objs'
@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   </React.StrictMode>
 )
 
-if (Scrivito.isEditorLoggedIn()) {
+if (isEditorLoggedIn()) {
   import('./Data/editingConfigs')
   import('./Objs/editingConfigs')
   import('./Widgets/editingConfigs')

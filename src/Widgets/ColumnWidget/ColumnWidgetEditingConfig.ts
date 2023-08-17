@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { ColumnWidget } from './ColumnWidgetClass'
 
-Scrivito.provideEditingConfig(ColumnWidget, {
+provideEditingConfig(ColumnWidget, {
   title: 'Column',
   hideInSelectionDialogs: true,
 })

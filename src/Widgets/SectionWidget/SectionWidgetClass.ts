@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const SectionWidget = Scrivito.provideWidgetClass('SectionWidget', {
+export const SectionWidget = provideWidgetClass('SectionWidget', {
   attributes: {
     backgroundAnimateOnHover: 'boolean',
     backgroundColor: [

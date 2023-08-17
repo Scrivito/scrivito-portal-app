@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideObjClass } from 'scrivito'
 
-export const Person = Scrivito.provideObjClass('Person', {
+export const Person = provideObjClass('Person', {
   attributes: {
     email: 'string',
     employeeId: 'string',

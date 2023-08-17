@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Person } from './PersonObjClass'
 
-Scrivito.provideEditingConfig(Person, {
+provideEditingConfig(Person, {
   title: 'Person',
   attributes: {
     email: { title: 'Email' },

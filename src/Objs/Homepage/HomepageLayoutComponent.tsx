@@ -1,27 +1,29 @@
-import * as Scrivito from 'scrivito'
+import {
+  provideLayoutComponent,
+  ContentTag,
+  CurrentPage,
+  currentPage,
+} from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 
-Scrivito.provideLayoutComponent(Homepage, ({ page }) => {
-  const currentPage = Scrivito.currentPage()
+provideLayoutComponent(Homepage, ({ page }) => {
+  const currentPageObj = currentPage()
   const showTopContentSection =
-    currentPage?.get('showTopContentSection') === true
+    currentPageObj?.get('showTopContentSection') === true
 
   return (
     <>
       <a href="#main" className="btn skip-to-content">
         Skip to Content
       </a>
-      <Scrivito.ContentTag tag="header" content={page} attribute="siteHeader" />
+      <ContentTag tag="header" content={page} attribute="siteHeader" />
       <main id="main">
         {showTopContentSection && (
-          <Scrivito.ContentTag
-            content={currentPage}
-            attribute="topContentSection"
-          />
+          <ContentTag content={currentPageObj} attribute="topContentSection" />
         )}
-        <Scrivito.CurrentPage />
+        <CurrentPage />
       </main>
-      <Scrivito.ContentTag
+      <ContentTag
         tag="footer"
         content={page}
         attribute="siteFooter"

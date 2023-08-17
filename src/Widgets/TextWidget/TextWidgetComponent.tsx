@@ -1,8 +1,8 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent, ContentTag } from 'scrivito'
 import { TextWidget } from './TextWidgetClass'
 
-Scrivito.provideComponent(TextWidget, ({ widget }) => (
-  <Scrivito.ContentTag
+provideComponent(TextWidget, ({ widget }) => (
+  <ContentTag
     attribute="text"
     className={alignmentClassName(widget.get('alignment'))}
     content={widget}

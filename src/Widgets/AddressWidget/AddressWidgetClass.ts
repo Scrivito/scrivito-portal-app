@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const AddressWidget = Scrivito.provideWidgetClass('AddressWidget', {
+export const AddressWidget = provideWidgetClass('AddressWidget', {
   attributes: {
     showLogo: 'boolean',
 

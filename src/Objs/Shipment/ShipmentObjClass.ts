@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideObjClass } from 'scrivito'
 
-export const Shipment = Scrivito.provideObjClass('Shipment', {
+export const Shipment = provideObjClass('Shipment', {
   attributes: {
     carrier: 'string',
     carrierTrackingNumber: 'string',

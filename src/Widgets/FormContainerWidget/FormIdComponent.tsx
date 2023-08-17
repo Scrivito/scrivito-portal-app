@@ -1,17 +1,17 @@
-import * as Scrivito from 'scrivito'
+import { connect, uiContext } from 'scrivito'
 import { ContentProperty } from '../../Components/ScrivitoExtensions/ContentProperty'
 
-export const FormIdComponent = Scrivito.connect(({ widget }) => {
+export const FormIdComponent = connect(({ widget }) => {
   const formSubmissionsHref = widget.get('formId')
     ? `https://edit.neoletter.com/i/${
         import.meta.env.SCRIVITO_TENANT
       }/forms/${widget.get('formId')}`
     : undefined
-  const uiContext = Scrivito.uiContext()
-  if (!uiContext) return null
+  const { theme } = uiContext() || { theme: null }
+  if (!theme) return null
 
   return (
-    <div className={`scrivito_${uiContext.theme}`}>
+    <div className={`scrivito_${theme}`}>
       <div className="scrivito_detail_content">
         <div className="attribute_form_id_item">
           <ContentProperty

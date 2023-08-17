@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { CurrentUserDataItem } from './CurrentUserDataItem'
 
-Scrivito.provideEditingConfig(CurrentUserDataItem, {
+provideEditingConfig(CurrentUserDataItem, {
   title: 'Current user',
   attributes: {
     name: { title: 'Name' },

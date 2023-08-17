@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideObjClass } from 'scrivito'
 
-export const Homepage = Scrivito.provideObjClass('Homepage', {
+export const Homepage = provideObjClass('Homepage', {
   attributes: {
     body: 'widgetlist',
     childOrder: 'referencelist',
