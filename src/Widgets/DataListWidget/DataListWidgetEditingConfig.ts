@@ -9,7 +9,7 @@ provideEditingConfig(DataListWidget, {
       description: 'Default: 1',
     },
   },
-  properties: ['data', 'nrOfColumns'],
+  properties: ['nrOfColumns'],
   initialContent: {
     nrOfColumns: '1',
   },
