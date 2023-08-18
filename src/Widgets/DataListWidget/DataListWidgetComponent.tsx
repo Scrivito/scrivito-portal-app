@@ -15,14 +15,14 @@ provideComponent(DataListWidget, ({ widget }) => {
   return (
     <>
       <div className={`row row-cols-1 row-cols-md-${nrOfColumns}`}>
-        {dataScope.take().map((order) => (
+        {dataScope.take().map((dataItem) => (
           <ContentTag
             content={widget}
             attribute="content"
             className="col"
-            dataContext={order}
+            dataContext={dataItem}
             // @ts-expect-error Not yet public, but in a later release
-            key={order.id()}
+            key={dataItem.id()}
           />
         ))}
       </div>
