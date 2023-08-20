@@ -1,6 +1,9 @@
 import * as Scrivito from 'scrivito'
 import { Page } from './PageObjClass'
 
+// @ts-expect-error scrivito-sam
+import { assistPopertiesGroup } from 'scrivito-sam'
+
 Scrivito.provideEditingConfig(Page, {
   title: 'Page',
   attributes: {
@@ -30,4 +33,5 @@ Scrivito.provideEditingConfig(Page, {
     'linkIcon',
     'showTopContentSection',
   ],
+  propertiesGroups: [assistPopertiesGroup],
 })

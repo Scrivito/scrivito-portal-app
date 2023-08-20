@@ -1,6 +1,9 @@
 import * as Scrivito from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 
+// @ts-expect-error scrivito-sam
+import { assistPopertiesGroup } from 'scrivito-sam'
+
 Scrivito.provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
@@ -31,6 +34,7 @@ Scrivito.provideEditingConfig(Homepage, {
       ],
       key: 'site-settings-group',
     },
+    assistPopertiesGroup,
   ],
   properties: ['title'],
 })
