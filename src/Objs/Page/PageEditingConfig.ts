@@ -1,3 +1,5 @@
+// @ts-expect-error scrivito-sam
+import { assistPopertiesGroup } from 'scrivito-sam'
 import { provideEditingConfig } from 'scrivito'
 import { Page } from './PageObjClass'
 import Thumbnail from './thumbnail.svg'
@@ -39,4 +41,5 @@ provideEditingConfig(Page, {
     'excludeFromSearch',
     'showAsLandingPage',
   ],
+  propertiesGroups: [assistPopertiesGroup],
 })

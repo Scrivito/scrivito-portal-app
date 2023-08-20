@@ -1,3 +1,5 @@
+// @ts-expect-error scrivito-sam
+import { assistPopertiesGroup } from 'scrivito-sam'
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 
@@ -55,6 +57,7 @@ provideEditingConfig(Homepage, {
       ],
       key: 'site-settings-group',
     },
+    assistPopertiesGroup,
   ],
   properties: ['title', 'metaDataDescription'],
 })
