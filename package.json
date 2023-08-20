@@ -19,6 +19,7 @@
     "react-draggable": "^4.4.5",
     "react-helmet-async": "^1.3.0",
     "scrivito": "^1.34.0-rc1",
+    "scrivito-sam": "git+https://git@github.com/dcsaszar/scrivito-sam.git",
     "speakingurl": "^14.0.1"
   },
   "devDependencies": {
