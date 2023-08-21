@@ -1,10 +1,16 @@
-import { provideComponent, WidgetTag, LinkTag, ContentTag } from 'scrivito'
+import {
+  provideComponent,
+  WidgetTag,
+  LinkTag,
+  ContentTag,
+  isInPlaceEditingActive,
+} from 'scrivito'
 import { DownloadCardWidget } from './DownloadCardWidgetClass'
 
 provideComponent(DownloadCardWidget, ({ widget }) => {
   return (
     <WidgetTag className="card mb-4 bg-white max-width-350">
-      <LinkTag to={widget.get('link')}>
+      <LinkTag to={widget.get('link')} draggable={!isInPlaceEditingActive()}>
         <div className="card-body p-2">
           <div className="row">
             <div className="col-3">
