@@ -1,28 +1,28 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent, isEditorLoggedIn, load, Obj, urlFor } from 'scrivito'
 import { Dropdown } from './DropdownObjClass'
 import { useEffect } from 'react'
 import '../../assets/stylesheets/bootstrap-icons.scss'
 
-Scrivito.provideComponent(Dropdown, ({ page }) => {
+provideComponent(Dropdown, ({ page }) => {
   useEffect(() => {
     navigateAway()
 
     async function navigateAway() {
-      if (Scrivito.isEditorLoggedIn()) return
+      if (isEditorLoggedIn()) return
 
       const destination =
-        (await Scrivito.load(() => page.orderedChildren()[0])) ||
-        (await Scrivito.load(() => page.parent())) ||
-        (await Scrivito.load(() => Scrivito.Obj.root()))
+        (await load(() => page.orderedChildren()[0])) ||
+        (await load(() => page.parent())) ||
+        (await load(() => Obj.root()))
 
       if (!destination) return
 
-      const url = await Scrivito.load(() => Scrivito.urlFor(destination))
+      const url = await load(() => urlFor(destination))
       window.location.replace(url)
     }
   }, [page])
 
-  if (Scrivito.isEditorLoggedIn()) {
+  if (isEditorLoggedIn()) {
     return (
       <div className="container d-flex h-100">
         <div className="alert alert-warning d-flex m-auto">

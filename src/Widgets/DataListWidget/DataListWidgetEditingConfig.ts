@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { DataListWidget } from './DataListWidgetClass'
 
-Scrivito.provideEditingConfig(DataListWidget, {
+provideEditingConfig(DataListWidget, {
   title: 'Data list',
   attributes: {
     nrOfColumns: {
@@ -9,7 +9,7 @@ Scrivito.provideEditingConfig(DataListWidget, {
       description: 'Default: 1',
     },
   },
-  properties: ['data', 'nrOfColumns'],
+  properties: ['nrOfColumns'],
   initialContent: {
     nrOfColumns: '1',
   },

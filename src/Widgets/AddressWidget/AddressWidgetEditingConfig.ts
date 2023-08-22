@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { AddressWidget } from './AddressWidgetClass'
 
-Scrivito.provideEditingConfig(AddressWidget, {
+provideEditingConfig(AddressWidget, {
   title: 'Address',
   attributes: {
     showLogo: {

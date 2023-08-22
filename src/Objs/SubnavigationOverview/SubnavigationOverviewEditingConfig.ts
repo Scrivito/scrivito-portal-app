@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
 
-Scrivito.provideEditingConfig(SubnavigationOverview, {
+provideEditingConfig(SubnavigationOverview, {
   title: 'Subnavigation overview',
   attributes: {
     hideInNavigation: {

@@ -1,7 +1,12 @@
-import * as Scrivito from 'scrivito'
+import {
+  provideComponent,
+  InPlaceEditingOff,
+  ImageTag,
+  ContentTag,
+} from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 
-Scrivito.provideComponent(SectionWidget, ({ widget }) => {
+provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
 
   const backgroundColor = widget.get('backgroundColor')
@@ -28,15 +33,15 @@ Scrivito.provideComponent(SectionWidget, ({ widget }) => {
   return (
     <section className={sectionClassNames.join(' ')}>
       {backgroundImage && (
-        <Scrivito.InPlaceEditingOff>
-          <Scrivito.ImageTag
+        <InPlaceEditingOff>
+          <ImageTag
             content={widget}
             attribute="backgroundImage"
             className={backgroundImageClassNames.join(' ')}
           />
-        </Scrivito.InPlaceEditingOff>
+        </InPlaceEditingOff>
       )}
-      <Scrivito.ContentTag
+      <ContentTag
         tag="div"
         content={widget}
         className={contentClassName}

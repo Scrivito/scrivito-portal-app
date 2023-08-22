@@ -1,19 +1,15 @@
-import * as Scrivito from 'scrivito'
+import { connect, Obj, InPlaceEditingOff, LinkTag, ImageTag } from 'scrivito'
 
-export const Brand = Scrivito.connect(function Brand({
-  root,
-}: {
-  root: Scrivito.Obj
-}) {
+export const Brand = connect(function Brand({ root }: { root: Obj }) {
   return (
-    <Scrivito.InPlaceEditingOff>
-      <Scrivito.LinkTag to={root} className="navbar-brand">
-        <Scrivito.ImageTag
+    <InPlaceEditingOff>
+      <LinkTag to={root} className="navbar-brand">
+        <ImageTag
           content={root}
           attribute="siteLogoDark"
           className="navbar-brand-logo"
         />
-      </Scrivito.LinkTag>
-    </Scrivito.InPlaceEditingOff>
+      </LinkTag>
+    </InPlaceEditingOff>
   )
 })

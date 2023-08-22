@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideObjClass } from 'scrivito'
 
-export const Notification = Scrivito.provideObjClass('Notification', {
+export const Notification = provideObjClass('Notification', {
   attributes: {
     createdAt: 'string',
     details: 'string',

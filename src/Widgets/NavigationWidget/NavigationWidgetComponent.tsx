@@ -1,4 +1,4 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent, Obj } from 'scrivito'
 import Navbar from 'react-bootstrap/Navbar'
 
 import { NavigationWidget } from './NavigationWidgetClass'
@@ -6,8 +6,8 @@ import { Brand } from './SubComponents/Brand'
 import { MainNavigation } from './SubComponents/MainNavigation'
 import { MetaNavigation } from './SubComponents/MetaNavigation'
 
-Scrivito.provideComponent(NavigationWidget, ({ widget }) => {
-  const root = Scrivito.Obj.root()
+provideComponent(NavigationWidget, ({ widget }) => {
+  const root = Obj.root()
   if (!root) return null
 
   return (

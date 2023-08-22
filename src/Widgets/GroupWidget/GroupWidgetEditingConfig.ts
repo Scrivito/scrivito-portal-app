@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { GroupWidget } from './GroupWidgetClass'
 
-Scrivito.provideEditingConfig(GroupWidget, {
+provideEditingConfig(GroupWidget, {
   title: 'Group',
 })

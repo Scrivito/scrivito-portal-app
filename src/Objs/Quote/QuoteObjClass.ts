@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideObjClass } from 'scrivito'
 
-export const Quote = Scrivito.provideObjClass('Quote', {
+export const Quote = provideObjClass('Quote', {
   attributes: {
     comments: 'string',
     content: 'string',

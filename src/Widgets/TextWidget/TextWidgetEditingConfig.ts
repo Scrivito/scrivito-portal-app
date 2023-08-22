@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { TextWidget } from './TextWidgetClass'
 
-Scrivito.provideEditingConfig(TextWidget, {
+provideEditingConfig(TextWidget, {
   title: 'Text',
   attributes: {
     alignment: {

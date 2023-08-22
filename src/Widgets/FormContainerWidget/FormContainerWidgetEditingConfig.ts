@@ -1,9 +1,10 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig, Widget } from 'scrivito'
 import { FormIdComponent } from './FormIdComponent'
 import { getFormContainer } from './utils/getFormContainer'
 import { pseudoRandom32CharHex } from './utils/pseudoRandom32CharHex'
+import { FormContainerWidget } from './FormContainerWidgetClass'
 
-Scrivito.provideEditingConfig('FormContainerWidget', {
+provideEditingConfig(FormContainerWidget, {
   title: 'Form',
   attributes: {
     formId: {
@@ -46,7 +47,7 @@ Scrivito.provideEditingConfig('FormContainerWidget', {
       'We are sorry, your request could not be completed. Please try again later.',
   },
   validations: [
-    (widget: Scrivito.Widget) => {
+    (widget: Widget) => {
       if (getFormContainer(widget)) {
         return 'Needs to be outside of a form.'
       }

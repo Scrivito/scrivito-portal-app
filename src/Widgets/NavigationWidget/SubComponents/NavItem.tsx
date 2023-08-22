@@ -1,20 +1,20 @@
-import * as Scrivito from 'scrivito'
+import { connect, Obj, isOnCurrentPath, LinkTag } from 'scrivito'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { objIconAndTitle, objTitle } from './objTitle'
 
-export const NavItem = Scrivito.connect(function ScrivitoNavItem({
+export const NavItem = connect(function ScrivitoNavItem({
   eventKey,
   obj,
 }: {
   eventKey: string
-  obj: Scrivito.Obj
+  obj: Obj
 }) {
   if (obj.get('hideInNavigation') === true) return null
 
   if (obj.objClass() === 'Dropdown') {
     return (
-      <NavDropdown title={objTitle(obj)} active={Scrivito.isOnCurrentPath(obj)}>
+      <NavDropdown title={objTitle(obj)} active={isOnCurrentPath(obj)}>
         {obj.orderedChildren().map((child) => (
           <NavDropdown.Item
             {...itemProps(child)}
@@ -39,10 +39,10 @@ export const NavItem = Scrivito.connect(function ScrivitoNavItem({
   )
 })
 
-function itemProps(obj: Scrivito.Obj) {
+function itemProps(obj: Obj) {
   return {
-    active: Scrivito.isOnCurrentPath(obj),
-    as: Scrivito.LinkTag,
+    active: isOnCurrentPath(obj),
+    as: LinkTag,
     to: obj,
   }
 }

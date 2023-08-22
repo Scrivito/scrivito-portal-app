@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { LabelWidget } from './LabelWidgetClass'
 
-Scrivito.provideEditingConfig(LabelWidget, {
+provideEditingConfig(LabelWidget, {
   title: 'Label',
   properties: ['valueSize'],
   initialContent: {

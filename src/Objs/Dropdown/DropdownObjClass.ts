@@ -1,6 +1,6 @@
-import * as Scrivito from 'scrivito'
+import { provideObjClass } from 'scrivito'
 
-export const Dropdown = Scrivito.provideObjClass('Dropdown', {
+export const Dropdown = provideObjClass('Dropdown', {
   attributes: {
     childOrder: 'referencelist',
     hideInNavigation: 'boolean',

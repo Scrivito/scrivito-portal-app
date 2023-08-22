@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig, Link } from 'scrivito'
 import { ButtonWidget } from './ButtonWidgetClass'
 
-Scrivito.provideEditingConfig(ButtonWidget, {
+provideEditingConfig(ButtonWidget, {
   title: 'Button',
   attributes: {
     alignment: {
@@ -43,7 +43,7 @@ Scrivito.provideEditingConfig(ButtonWidget, {
     [
       'target',
 
-      (target: Scrivito.Link | null) => {
+      (target: Link | null) => {
         if (!target) {
           return {
             message: 'The button target should be set.',

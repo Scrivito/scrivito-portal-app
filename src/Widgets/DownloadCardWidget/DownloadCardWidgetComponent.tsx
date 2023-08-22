@@ -1,10 +1,16 @@
-import * as Scrivito from 'scrivito'
+import {
+  provideComponent,
+  WidgetTag,
+  LinkTag,
+  ContentTag,
+  isInPlaceEditingActive,
+} from 'scrivito'
 import { DownloadCardWidget } from './DownloadCardWidgetClass'
 
-Scrivito.provideComponent(DownloadCardWidget, ({ widget }) => {
+provideComponent(DownloadCardWidget, ({ widget }) => {
   return (
-    <Scrivito.WidgetTag className="card mb-4 bg-white max-width-350">
-      <Scrivito.LinkTag to={widget.get('link')}>
+    <WidgetTag className="card mb-4 bg-white max-width-350">
+      <LinkTag to={widget.get('link')} draggable={!isInPlaceEditingActive()}>
         <div className="card-body p-2">
           <div className="row">
             <div className="col-3">
@@ -18,17 +24,17 @@ Scrivito.provideComponent(DownloadCardWidget, ({ widget }) => {
               </div>
             </div>
             <div className="col-9">
-              <Scrivito.ContentTag
+              <ContentTag
                 content={widget}
                 attribute="title"
                 className="text-bold h6"
               />
-              <Scrivito.ContentTag
+              <ContentTag
                 content={widget}
                 attribute="subTitle"
                 className="text-bold opacity-60 text-small text-uppercase"
               />
-              <Scrivito.ContentTag
+              <ContentTag
                 content={widget}
                 attribute="details"
                 className="text-bold opacity-40 text-extra-small text-uppercase"
@@ -36,7 +42,7 @@ Scrivito.provideComponent(DownloadCardWidget, ({ widget }) => {
             </div>
           </div>
         </div>
-      </Scrivito.LinkTag>
-    </Scrivito.WidgetTag>
+      </LinkTag>
+    </WidgetTag>
   )
 })

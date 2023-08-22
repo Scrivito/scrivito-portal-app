@@ -1,9 +1,9 @@
-import * as Scrivito from 'scrivito'
+import { Link, LinkTag, provideComponent } from 'scrivito'
 import { WrapIfClassName } from '../../Components/WrapIfClassName'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { IconWidget } from './IconWidgetClass'
 
-Scrivito.provideComponent(IconWidget, ({ widget }) => {
+provideComponent(IconWidget, ({ widget }) => {
   return (
     <WrapIfClassName
       className={alignmentClassNameWithBlock(widget.get('alignment'))}
@@ -43,15 +43,15 @@ export function IconComponent({
 }: {
   icon: string
   size: string | null
-  link: Scrivito.Link | null
+  link: Link | null
 }) {
   if (!link) return <Icon icon={icon} size={size} />
 
   const title = link.title() || ''
 
   return (
-    <Scrivito.LinkTag to={link} aria-label={title}>
+    <LinkTag to={link} aria-label={title}>
       <Icon icon={icon} size={size} title={title} />
-    </Scrivito.LinkTag>
+    </LinkTag>
   )
 }

@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { IconWidget } from './IconWidgetClass'
 
-Scrivito.provideEditingConfig(IconWidget, {
+provideEditingConfig(IconWidget, {
   title: 'Icon',
   attributes: {
     alignment: {

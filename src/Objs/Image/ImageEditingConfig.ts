@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Image } from './ImageObjClass'
 
-Scrivito.provideEditingConfig(Image, {
+provideEditingConfig(Image, {
   title: 'Image',
   attributes: {
     alternativeText: {

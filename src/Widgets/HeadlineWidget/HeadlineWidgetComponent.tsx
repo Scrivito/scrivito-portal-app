@@ -1,9 +1,9 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent, ContentTag } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
 import speakingUrl from 'speakingurl'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 
-Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
+provideComponent(HeadlineWidget, ({ widget }) => {
   const style = widget.get('style') || 'h2'
   const level = widget.get('level') || style
   const classNames = [style]
@@ -14,7 +14,7 @@ Scrivito.provideComponent(HeadlineWidget, ({ widget }) => {
   if (widget.get('uppercase')) classNames.push('text-uppercase')
 
   return (
-    <Scrivito.ContentTag
+    <ContentTag
       content={widget}
       attribute="headline"
       className={classNames.join(' ')}

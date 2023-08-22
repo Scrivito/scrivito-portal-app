@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { connect, ContentTag, Obj } from 'scrivito'
 
-export const NotFoundErrorPage = Scrivito.connect(function NotFoundErrorPage() {
-  const root = Scrivito.Obj.root()
+export const NotFoundErrorPage = connect(function NotFoundErrorPage() {
+  const root = Obj.root()
 
   if (!root) {
     return <div>Page not found.</div>
@@ -14,15 +14,11 @@ export const NotFoundErrorPage = Scrivito.connect(function NotFoundErrorPage() {
       <a href="#main" className="btn skip-to-content">
         Skip to Content
       </a>
-      <Scrivito.ContentTag tag="header" content={root} attribute="siteHeader" />
+      <ContentTag tag="header" content={root} attribute="siteHeader" />
       <main id="main">
-        <Scrivito.ContentTag
-          tag="div"
-          content={root}
-          attribute="siteNotFound"
-        />
+        <ContentTag tag="div" content={root} attribute="siteNotFound" />
       </main>
-      <Scrivito.ContentTag
+      <ContentTag
         tag="footer"
         content={root}
         attribute="siteFooter"

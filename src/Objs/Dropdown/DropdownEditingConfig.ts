@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Dropdown } from './DropdownObjClass'
 
-Scrivito.provideEditingConfig(Dropdown, {
+provideEditingConfig(Dropdown, {
   title: 'Dropdown',
   attributes: {
     hideInNavigation: {

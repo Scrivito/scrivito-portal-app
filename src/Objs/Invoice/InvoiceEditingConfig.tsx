@@ -1,8 +1,8 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Invoice } from './InvoiceObjClass'
 import { MultilineStringEditor } from '../../Components/MultilineStringEditor'
 
-Scrivito.provideEditingConfig(Invoice, {
+provideEditingConfig(Invoice, {
   title: 'Invoice',
   attributes: {
     content: { title: 'Content' },

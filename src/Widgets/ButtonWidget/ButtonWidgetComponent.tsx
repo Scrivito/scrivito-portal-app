@@ -1,9 +1,9 @@
-import * as Scrivito from 'scrivito'
+import { provideComponent, LinkTag } from 'scrivito'
 import { WrapIfClassName } from '../../Components/WrapIfClassName'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { ButtonWidget } from './ButtonWidgetClass'
 
-Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
+provideComponent(ButtonWidget, ({ widget }) => {
   const target = widget.get('target')
   let text = target && target.title()
   if (!text) {
@@ -20,9 +20,9 @@ Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
     <WrapIfClassName
       className={alignmentClassNameWithBlock(widget.get('alignment'))}
     >
-      <Scrivito.LinkTag to={target} className={buttonClassNames.join(' ')}>
+      <LinkTag to={target} className={buttonClassNames.join(' ')}>
         {text}
-      </Scrivito.LinkTag>
+      </LinkTag>
     </WrapIfClassName>
   )
 })

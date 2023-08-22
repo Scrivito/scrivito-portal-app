@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { configureObjClassForContentType as scrivitoConfigureObjClassForContentType } from 'scrivito'
 
 export function configureObjClassForContentType() {
-  Scrivito.configureObjClassForContentType({
+  scrivitoConfigureObjClassForContentType({
     'image/*': 'Image',
     'video/*': 'Video',
     '*/*': 'Download',

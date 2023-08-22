@@ -1,7 +1,7 @@
-import * as Scrivito from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
 
-Scrivito.provideEditingConfig(HeadlineWidget, {
+provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
   attributes: {
     style: {

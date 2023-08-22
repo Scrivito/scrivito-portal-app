@@ -1,10 +1,18 @@
 import { Fragment } from 'react'
-import * as Scrivito from 'scrivito'
+import {
+  provideComponent,
+  WidgetTag,
+  connect,
+  Obj,
+  LinkTag,
+  ImageTag,
+  isInPlaceEditingActive,
+} from 'scrivito'
 import { AddressWidget } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 
-Scrivito.provideComponent(AddressWidget, ({ widget }) => (
-  <Scrivito.WidgetTag>
+provideComponent(AddressWidget, ({ widget }) => (
+  <WidgetTag>
     {widget.get('showLogo') && <Logo />}
     <address>
       <Address addressWidget={widget} />
@@ -14,11 +22,11 @@ Scrivito.provideComponent(AddressWidget, ({ widget }) => (
         email={widget.get('email')}
       />
     </address>
-  </Scrivito.WidgetTag>
+  </WidgetTag>
 ))
 
-const Logo = Scrivito.connect(() => {
-  const root: unknown = Scrivito.Obj.root()
+const Logo = connect(() => {
+  const root: unknown = Obj.root()
   if (!(root instanceof Homepage)) return null
 
   const logo = root.get('siteLogoDark')
@@ -26,18 +34,14 @@ const Logo = Scrivito.connect(() => {
 
   return (
     <div className="mb-2">
-      <Scrivito.LinkTag to={root} className="navbar-brand" aria-label="Logo">
-        <Scrivito.ImageTag
-          content={logo}
-          className="navbar-brand-logo"
-          alt="Logo"
-        />
-      </Scrivito.LinkTag>
+      <LinkTag to={root} className="navbar-brand" aria-label="Logo">
+        <ImageTag content={logo} className="navbar-brand-logo" alt="Logo" />
+      </LinkTag>
     </div>
   )
 })
 
-const Address = Scrivito.connect(
+const Address = connect(
   ({
     addressWidget,
   }: {
@@ -67,7 +71,7 @@ const Address = Scrivito.connect(
     ].filter((n) => n)
 
     if (!lines.length) {
-      if (Scrivito.isInPlaceEditingActive()) {
+      if (isInPlaceEditingActive()) {
         return <>Provide the location in the address widget properties.</>
       }
 
