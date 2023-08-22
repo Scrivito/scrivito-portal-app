@@ -1,9 +1,12 @@
 import * as Scrivito from 'scrivito'
+import { WrapIfClassName } from '../../Components/WrapIfClassName'
 import { IconWidget } from './IconWidgetClass'
 
 Scrivito.provideComponent(IconWidget, ({ widget }) => {
   return (
-    <WrapIfClassName className={alignmentClassName(widget.get('alignment'))}>
+    <WrapIfClassName
+      className={alignmentClassNameWithBlock(widget.get('alignment'))}
+    >
       <IconComponent
         icon={widget.get('icon')}
         size={widget.get('size')}
@@ -49,20 +52,6 @@ export function IconComponent({
     <Scrivito.LinkTag to={link} aria-label={title}>
       <Icon icon={icon} size={size} title={title} />
     </Scrivito.LinkTag>
-  )
-}
-
-function WrapIfClassName({
-  className,
-  children,
-}: {
-  className?: string
-  children: React.ReactNode
-}) {
-  return className ? (
-    <div className={className}>{children}</div>
-  ) : (
-    <>{children}</>
   )
 }
 

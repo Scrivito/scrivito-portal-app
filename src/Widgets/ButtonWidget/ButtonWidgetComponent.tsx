@@ -1,4 +1,5 @@
 import * as Scrivito from 'scrivito'
+import { WrapIfClassName } from '../../Components/WrapIfClassName'
 import { ButtonWidget } from './ButtonWidgetClass'
 
 Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
@@ -15,27 +16,15 @@ Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
   if (buttonSize) buttonClassNames.push(buttonSize)
 
   return (
-    <WrapIfClassName className={alignmentClassName(widget.get('alignment'))}>
+    <WrapIfClassName
+      className={alignmentClassNameWithBlock(widget.get('alignment'))}
+    >
       <Scrivito.LinkTag to={target} className={buttonClassNames.join(' ')}>
         {text}
       </Scrivito.LinkTag>
     </WrapIfClassName>
   )
 })
-
-function WrapIfClassName({
-  className,
-  children,
-}: {
-  className?: string
-  children: React.ReactNode
-}) {
-  return className ? (
-    <div className={className}>{children}</div>
-  ) : (
-    <>{children}</>
-  )
-}
 
 function alignmentClassName(
   widgetAlignment: string | null
