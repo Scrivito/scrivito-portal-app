@@ -1,6 +1,6 @@
 import { provideComponent } from 'scrivito'
 import { FormButtonWidget } from './FormButtonWidgetClass'
-import { alignmentClassName } from '../FormContainerWidget/utils/alignmentClassName'
+import { alignmentClassName } from '../../utils/alignmentClassName'
 import { WrapIfClassName } from '../../Components/WrapIfClassName'
 
 provideComponent(FormButtonWidget, ({ widget }) => {

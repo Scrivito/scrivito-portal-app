@@ -1,5 +1,6 @@
 import * as Scrivito from 'scrivito'
 import { WrapIfClassName } from '../../Components/WrapIfClassName'
+import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { ButtonWidget } from './ButtonWidgetClass'
 
 Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
@@ -25,14 +26,6 @@ Scrivito.provideComponent(ButtonWidget, ({ widget }) => {
     </WrapIfClassName>
   )
 })
-
-function alignmentClassName(
-  widgetAlignment: string | null
-): string | undefined {
-  if (widgetAlignment === 'center') return 'text-center'
-  if (widgetAlignment === 'right') return 'text-end'
-  if (widgetAlignment === 'block') return 'btn-block'
-}
 
 function buttonSizeClassName(buttonSize: string | null) {
   if (buttonSize === 'small') return 'btn-sm'

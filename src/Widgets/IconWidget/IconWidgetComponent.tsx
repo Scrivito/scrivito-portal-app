@@ -1,5 +1,6 @@
 import * as Scrivito from 'scrivito'
 import { WrapIfClassName } from '../../Components/WrapIfClassName'
+import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { IconWidget } from './IconWidgetClass'
 
 Scrivito.provideComponent(IconWidget, ({ widget }) => {
@@ -53,12 +54,4 @@ export function IconComponent({
       <Icon icon={icon} size={size} title={title} />
     </Scrivito.LinkTag>
   )
-}
-
-function alignmentClassName(
-  widgetAlignment: string | null
-): string | undefined {
-  if (widgetAlignment === 'center') return 'text-center'
-  if (widgetAlignment === 'right') return 'text-end'
-  if (widgetAlignment === 'block') return 'btn-block'
 }
