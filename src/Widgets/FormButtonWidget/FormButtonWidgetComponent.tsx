@@ -6,13 +6,11 @@ interface WrapIfClassNameProps {
   className?: string
   children: React.ReactNode
 }
+import { alignmentClassName } from '../FormContainerWidget/utils/alignmentClassName'
 
 provideComponent(FormButtonWidget, ({ widget }) => {
   const alignment = widget.get('alignment')
-  const className =
-    alignment && ['center', 'right'].includes(alignment)
-      ? `text-${widget.get('alignment')}`
-      : undefined
+  const className = alignmentClassName(alignment)
 
   return (
     <WrapIfClassName className={className}>
