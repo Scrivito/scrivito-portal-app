@@ -1,11 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
-import formButtonWidgetIcon from '../../assets/images/form_button_widget.svg'
 import { insideFormContainerValidation } from '../FormContainerWidget/utils/validations/insideFormContainerValidation'
 import { FormButtonWidget } from './FormButtonWidgetClass'
 
 provideEditingConfig(FormButtonWidget, {
   title: 'Form Button',
-  thumbnail: formButtonWidgetIcon,
   attributes: {
     buttonText: {
       title: 'Button Text',
