@@ -2,8 +2,9 @@ import { provideEditingConfig, Widget } from 'scrivito'
 import { FormIdComponent } from './FormIdComponent'
 import { getFormContainer } from './utils/getFormContainer'
 import { pseudoRandom32CharHex } from './utils/pseudoRandom32CharHex'
+import { FormContainerWidget } from './FormContainerWidgetClass'
 
-provideEditingConfig('FormContainerWidget', {
+provideEditingConfig(FormContainerWidget, {
   title: 'Form',
   attributes: {
     formId: {
