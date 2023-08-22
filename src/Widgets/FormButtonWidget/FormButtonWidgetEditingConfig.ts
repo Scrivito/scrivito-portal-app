@@ -30,9 +30,7 @@ provideEditingConfig(FormButtonWidget, {
     [
       'alignment',
       (alignment) => {
-        if (!alignment) {
-          return 'Select the alignment.'
-        }
+        if (!alignment) return 'Select the alignment.'
       },
     ],
   ],
