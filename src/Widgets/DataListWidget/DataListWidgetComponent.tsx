@@ -21,7 +21,6 @@ provideComponent(DataListWidget, ({ widget }) => {
             attribute="content"
             className="col"
             dataContext={dataItem}
-            // @ts-expect-error Not yet public, but in a later release
             key={dataItem.id()}
           />
         ))}
