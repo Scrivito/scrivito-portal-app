@@ -1,6 +1,5 @@
 import { provideEditingConfig } from 'scrivito'
 import { Shipment } from './ShipmentObjClass'
-import { MultilineStringEditor } from '../../Components/MultilineStringEditor'
 
 provideEditingConfig(Shipment, {
   title: 'Shipment',
@@ -21,7 +20,11 @@ provideEditingConfig(Shipment, {
       title: 'Dimensions',
       description: 'E.g. "15 x 8.5 x 6 cm"',
     },
-    from: { title: 'Ship from', description: 'Location of sender' },
+    from: {
+      title: 'Ship from',
+      description: 'Location of sender',
+      options: { multiLine: true },
+    },
     orderId: { title: 'Order ID' },
     pdfDownloadUrl: { title: 'PDF download URL' },
     scheduledDate: {
@@ -35,7 +38,11 @@ provideEditingConfig(Shipment, {
       description:
         '"logged", "booked", "in transit", "delivered", "delayed" or "cancelled"',
     },
-    to: { title: 'Ship to', description: 'Location of receiver' },
+    to: {
+      title: 'Ship to',
+      description: 'Location of receiver',
+      options: { multiLine: true },
+    },
     weight: {
       title: 'Weight',
       description: 'E.g. "25.6 kg"',
@@ -45,6 +52,8 @@ provideEditingConfig(Shipment, {
     'shipmentId',
     'customerId',
     'orderId',
+    'from',
+    'to',
     'scheduledDate',
     'status',
     'deliveryConfirmation',
@@ -53,31 +62,6 @@ provideEditingConfig(Shipment, {
     'dimensions',
     'weight',
     'pdfDownloadUrl',
-  ],
-  propertiesGroups: [
-    {
-      title: 'Multiline attributes',
-      key: 'shipment-multiline-attributes',
-
-      // Cast is a working around for issue #9925
-      // TODO: remove work around
-      component: (({ obj }: { obj: InstanceType<typeof Shipment> }) => (
-        <>
-          <MultilineStringEditor
-            content={obj}
-            attribute="from"
-            title="Ship from"
-            description="Location of sender"
-          />
-          <MultilineStringEditor
-            content={obj}
-            attribute="to"
-            title="Ship to"
-            description="Location of receiver"
-          />
-        </>
-      )) as unknown as null,
-    },
   ],
   titleForContent: (obj) => `#${obj.get('shipmentId')}: ${obj.get('status')}`,
   hideInSelectionDialogs: true,

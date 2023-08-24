@@ -1,12 +1,14 @@
 import { provideEditingConfig } from 'scrivito'
-import { MultilineStringEditor } from '../../Components/MultilineStringEditor'
 import { Quote } from './QuoteObjClass'
 
 provideEditingConfig(Quote, {
   title: 'Quote',
   attributes: {
     comments: { title: 'Comments' },
-    content: { title: 'Content' },
+    content: {
+      title: 'Content',
+      options: { multiLine: true },
+    },
     createdAt: { title: 'Quote created at', description: 'Format: YYYY-MM-DD' },
     customerId: { title: 'Customer ID' },
     payment: {
@@ -32,6 +34,7 @@ provideEditingConfig(Quote, {
     'customerId',
     'createdAt',
     'validUntil',
+    'content',
     'payment',
     'total',
     'status',
@@ -39,25 +42,6 @@ provideEditingConfig(Quote, {
     'termsAndConditions',
     'pdfDownloadUrl',
   ],
-  propertiesGroups: [
-    {
-      title: 'Multiline attributes',
-      key: 'quote-multiline-attributes',
-
-      // Cast is a working around for issue #9925
-      // TODO: remove work around
-      component: (({ obj }: { obj: InstanceType<typeof Quote> }) => (
-        <>
-          <MultilineStringEditor
-            content={obj}
-            attribute="content"
-            title="Content"
-          />
-        </>
-      )) as unknown as null,
-    },
-  ],
-
   titleForContent: (obj) => `#${obj.get('quoteId')}: ${obj.get('content')}`,
   hideInSelectionDialogs: true,
 })

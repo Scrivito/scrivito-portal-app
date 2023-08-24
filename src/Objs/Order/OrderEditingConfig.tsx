@@ -1,14 +1,19 @@
 import { provideEditingConfig } from 'scrivito'
 import { Order } from './OrderObjClass'
-import { MultilineStringEditor } from '../../Components/MultilineStringEditor'
 
 provideEditingConfig(Order, {
   title: 'Order',
   attributes: {
-    billingAddress: { title: 'Billing address' },
+    billingAddress: {
+      title: 'Billing address',
+      options: { multiLine: true },
+    },
     createdAt: { title: 'Order created at', description: 'Format: YYYY-MM-DD' },
     customerId: { title: 'Customer ID' },
-    items: { title: 'Items' },
+    items: {
+      title: 'Items',
+      options: { multiLine: true },
+    },
     orderId: { title: 'Order ID' },
     payment: {
       title: 'Payment',
@@ -22,35 +27,13 @@ provideEditingConfig(Order, {
     'orderId',
     'customerId',
     'createdAt',
+    'items',
+    'billingAddress',
     'total',
     'payment',
     'shippingId',
     'pdfDownloadUrl',
   ],
-  propertiesGroups: [
-    {
-      title: 'Multiline attributes',
-      key: 'order-multiline-attributes',
-
-      // Cast is a working around for issue #9925
-      // TODO: remove work around
-      component: (({ obj }: { obj: InstanceType<typeof Order> }) => (
-        <>
-          <MultilineStringEditor
-            content={obj}
-            attribute="items"
-            title="Items"
-          />
-          <MultilineStringEditor
-            content={obj}
-            attribute="billingAddress"
-            title="Billing address"
-          />
-        </>
-      )) as unknown as null,
-    },
-  ],
-
   titleForContent: (obj) => `#${obj.get('orderId')}: ${obj.get('items')}`,
   hideInSelectionDialogs: true,
 })
