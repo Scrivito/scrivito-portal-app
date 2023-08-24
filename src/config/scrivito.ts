@@ -30,7 +30,7 @@ export function configureScrivito() {
           fallbackScrivitoTenant.match(/^[0-9a-f]{32}$/)
         ) {
           window.location.replace(
-            `${window.location.origin}/${fallbackScrivitoTenant}`
+            `${window.location.origin}/${fallbackScrivitoTenant}`,
           )
           return
         }

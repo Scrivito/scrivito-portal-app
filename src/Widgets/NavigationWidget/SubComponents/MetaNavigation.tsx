@@ -15,7 +15,7 @@ export const MetaNavigation = connect(function MetaNavigation({
   const [loggedIn, setLoggedIn] = React.useState(false)
 
   const metaNavigationPortalOverview = widget.get(
-    'metaNavigationPortalOverview'
+    'metaNavigationPortalOverview',
   )
   const showPortalNav = !!metaNavigationPortalOverview
 

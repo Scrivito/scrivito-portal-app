@@ -61,7 +61,9 @@ textarea.form-control {
 }
 .form-check-input:focus {
   border-color: $jr-darkgrey;
-  box-shadow: 0 0 4px 1px $jr-yellow, 0 0 0.25rem rgba(227, 194, 13, 0.4);
+  box-shadow:
+    0 0 4px 1px $jr-yellow,
+    0 0 0.25rem rgba(227, 194, 13, 0.4);
 }
 .form-control-plaintext {
   color: $jr-middlegrey;
@@ -136,7 +138,9 @@ textarea.form-control {
 .was-validated .form-control:invalid:focus,
 .form-control.is-invalid:focus {
   border-color: $jr-red;
-  box-shadow: 0 0 4px 0 $jr-red, 0 0 0.25rem rgba(246, 79, 79, 0.2);
+  box-shadow:
+    0 0 4px 0 $jr-red,
+    0 0 0.25rem rgba(246, 79, 79, 0.2);
 }
 
 .readonly-mode {

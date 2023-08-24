@@ -7,5 +7,5 @@ export const BannerHeadlineContainerWidget = provideWidgetClass(
       headlines: ['widgetlist', { only: 'BannerHeadlineWidget' }],
     },
     extractTextAttributes: ['headlines'],
-  }
+  },
 )

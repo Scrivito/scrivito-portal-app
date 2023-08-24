@@ -249,21 +249,27 @@ main {
 .jr-topbar {
   .jr-buttonbar:hover,
   .jr-buttonbar.active {
-    box-shadow: 0 3px 0 $jr-yellow inset, 0 1px 0 $jr-lightgrey inset,
+    box-shadow:
+      0 3px 0 $jr-yellow inset,
+      0 1px 0 $jr-lightgrey inset,
       0 -1px 0 $jr-lightgrey inset;
   }
 }
 .jr-sidebar-left {
   .jr-buttonbar:hover,
   .jr-buttonbar.active {
-    box-shadow: 3px 0 0 $jr-yellow inset, 0 1px 0 $jr-lightgrey inset,
+    box-shadow:
+      3px 0 0 $jr-yellow inset,
+      0 1px 0 $jr-lightgrey inset,
       0 -1px 0 $jr-lightgrey inset;
   }
 }
 .jr-sidebar-right {
   .jr-buttonbar:hover,
   .jr-buttonbar.active {
-    box-shadow: -3px 0 0 $jr-yellow inset, 0 1px 0 $jr-lightgrey inset,
+    box-shadow:
+      -3px 0 0 $jr-yellow inset,
+      0 1px 0 $jr-lightgrey inset,
       0 -1px 0 $jr-lightgrey inset;
   }
 }
@@ -301,7 +307,9 @@ main {
   }
   &.open {
     background: rgba(0, 0, 0, 0.02);
-    box-shadow: 0 3px 0 $jr-yellow inset, 0 1px 0 $jr-lightgrey inset,
+    box-shadow:
+      0 3px 0 $jr-yellow inset,
+      0 1px 0 $jr-lightgrey inset,
       0 -1px 0 $jr-lightgrey inset;
   }
   &.open .lines {
@@ -328,7 +336,9 @@ main {
 
   &.open {
     background: rgba(0, 0, 0, 0.02);
-    box-shadow: 0 3px 0 $jr-yellow inset, 0 1px 0 $jr-lightgrey inset,
+    box-shadow:
+      0 3px 0 $jr-yellow inset,
+      0 1px 0 $jr-lightgrey inset,
       0 -1px 0 $jr-lightgrey inset;
   }
 

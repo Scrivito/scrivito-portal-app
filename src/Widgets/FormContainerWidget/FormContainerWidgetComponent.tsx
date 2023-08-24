@@ -12,7 +12,7 @@ provideComponent(FormContainerWidget, ({ widget }) => {
   }/form_submissions`
 
   const [browserLocation, setBrowserLocation] = React.useState<string | null>(
-    null
+    null,
   )
   React.useEffect(() => {
     const history = getHistory()
@@ -20,7 +20,7 @@ provideComponent(FormContainerWidget, ({ widget }) => {
     setBrowserLocation(locationToUrl(history.location))
 
     return history.listen(({ location }) =>
-      setBrowserLocation(locationToUrl(location))
+      setBrowserLocation(locationToUrl(location)),
     )
   }, [])
 
@@ -122,7 +122,7 @@ async function submit(formElement: unknown, formEndpoint: string) {
   const response = await fetch(formEndpoint, { method: 'post', body })
   if (!response.ok) {
     throw new Error(
-      `Response was not successful. Status code: ${response.status}.`
+      `Response was not successful. Status code: ${response.status}.`,
     )
   }
 }
@@ -138,7 +138,7 @@ const HiddenField = connect(
     // }
 
     // return <input type="hidden" name={name} value={widget.get('hiddenValue')} />
-  }
+  },
 )
 
 const HoneypotField = () => (

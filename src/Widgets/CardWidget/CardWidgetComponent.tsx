@@ -86,5 +86,5 @@ const LinkOrNotTag = connect(
         {children}
       </LinkTag>
     )
-  }
+  },
 )

@@ -43,7 +43,7 @@ const ColumnsEditor = connect(
   }) => {
     const originalContents = React.useMemo(
       () => calculateContents(widget),
-      [widget]
+      [widget],
     )
 
     return (
@@ -51,7 +51,7 @@ const ColumnsEditor = connect(
         <Alignment
           alignment={widget.get('alignment')}
           setAlignment={(
-            alignment?: 'start' | 'center' | 'end' | 'stretch'
+            alignment?: 'start' | 'center' | 'end' | 'stretch',
           ) => {
             if (!readOnly) widget.update({ alignment })
           }}
@@ -176,7 +176,7 @@ const ColumnsEditor = connect(
       distributeContents(widget.get('columns'), originalContents)
       adjustColSize(widget.get('columns'), newGrid)
     }
-  }
+  },
 )
 
 function calculateContents(widget: ColumnContainerInstance) {
@@ -414,7 +414,7 @@ class GridLayoutEditor extends React.Component<
             }
           >
             <div className={this.props.readOnly ? '' : 'grid-handle'} />
-          </Draggable>
+          </Draggable>,
         )
       } else if (colIndex < 5 && !this.props.readOnly) {
         innerContent.unshift(
@@ -425,7 +425,7 @@ class GridLayoutEditor extends React.Component<
             onClick={() =>
               this.adjustNumberOfColumns(this.props.currentGrid.length + 1)
             }
-          />
+          />,
         )
       }
 
@@ -438,7 +438,7 @@ class GridLayoutEditor extends React.Component<
             onClick={() =>
               this.adjustNumberOfColumns(this.props.currentGrid.length - 1)
             }
-          />
+          />,
         )
       }
 
@@ -477,13 +477,13 @@ function gridOfWidget(containerWidget: ColumnContainerInstance) {
 
 function adjustNumberOfColumns(
   containerWidget: ColumnContainerInstance,
-  desiredLength: number
+  desiredLength: number,
 ) {
   const columns = containerWidget.get('columns')
   if (columns.length === desiredLength) return
 
   const newColumns = times(desiredLength).map(
-    (index) => columns[index] || new ColumnWidget({})
+    (index) => columns[index] || new ColumnWidget({}),
   )
 
   // store results, to receive IDs for new ColumnWidgets
@@ -501,7 +501,7 @@ function distributeContents(columns: Widget[], originalContents: Widget[][]) {
   // merge last columns into one
   const colsToMerge = takeRight(
     originalContents,
-    originalContents.length - splitIndexAt
+    originalContents.length - splitIndexAt,
   )
   columns[columns.length - 1].update({ content: colsToMerge.flat() })
 }

@@ -9,5 +9,5 @@ export const ColumnContainerWidget = provideWidgetClass(
       disableResponsiveAdaption: 'boolean',
     },
     extractTextAttributes: ['columns'],
-  }
+  },
 )
