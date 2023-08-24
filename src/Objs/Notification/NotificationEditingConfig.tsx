@@ -1,34 +1,18 @@
 import { provideEditingConfig } from 'scrivito'
 import { Notification } from './NotificationObjClass'
-import { MultilineStringEditor } from '../../Components/MultilineStringEditor'
 
 provideEditingConfig(Notification, {
   title: 'Notification',
   attributes: {
     createdAt: { title: 'Created at', description: 'Format: YYYY-MM-DD' },
-    details: { title: 'Details' },
+    details: {
+      title: 'Details',
+      options: { multiLine: true },
+    },
     title: { title: 'Title' },
   },
   titleForContent: (obj) => obj.get('title'),
-  properties: ['title', 'createdAt'],
-  propertiesGroups: [
-    {
-      title: 'Multiline attributes',
-      key: 'multiline-attributes',
-
-      // Cast is a working around for issue #9925
-      // TODO: remove work around
-      component: (({ obj }: { obj: InstanceType<typeof Notification> }) => (
-        <>
-          <MultilineStringEditor
-            content={obj}
-            attribute="details"
-            title="Details"
-          />
-        </>
-      )) as unknown as null,
-    },
-  ],
+  properties: ['title', 'details', 'createdAt'],
   initialContent: {
     icon: 'bi-info-circle',
     createdAt: () => new Date().toLocaleDateString('en-CA'),
