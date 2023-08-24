@@ -10,7 +10,9 @@
   background-image: radial-gradient(#e3e3e3 2px, transparent 2px),
     radial-gradient(#e3e3e3 2px, transparent 2px);
   background-size: calc(10 * 3px) calc(10 * 3px);
-  background-position: 0 0, calc(5 * 3px) calc(5 * 3px);
+  background-position:
+    0 0,
+    calc(5 * 3px) calc(5 * 3px);
 }
 .preview-iframe-wrapper.small {
   width: 250px;

@@ -31,7 +31,8 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   color: $jr-darkgrey;
-  box-shadow: 0 8px 26px -4px hsla(0, 0%, 8%, 0.15),
+  box-shadow:
+    0 8px 26px -4px hsla(0, 0%, 8%, 0.15),
     0 8px 9px -5px hsla(0, 0%, 8%, 0.06);
 }
 
@@ -48,7 +49,9 @@
   color: $jr-black;
   background: #e9ecef;
   text-shadow: 0 0 3px #fff;
-  box-shadow: 0 1px 0 $jr-lightgrey inset, 0 -1px 0 $jr-lightgrey inset;
+  box-shadow:
+    0 1px 0 $jr-lightgrey inset,
+    0 -1px 0 $jr-lightgrey inset;
 }
 .dropdown-item:focus {
   background: transparent;

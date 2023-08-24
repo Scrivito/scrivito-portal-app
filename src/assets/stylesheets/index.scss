@@ -339,7 +339,8 @@ main {
   color: var(--dark-grey);
   border: none;
   border-radius: 5px;
-  box-shadow: 0 8px 26px -4px rgba(20, 20, 20, 0.15),
+  box-shadow:
+    0 8px 26px -4px rgba(20, 20, 20, 0.15),
     0 8px 9px -5px rgba(20, 20, 20, 0.06);
   font-size: 14px;
   font-weight: 800;

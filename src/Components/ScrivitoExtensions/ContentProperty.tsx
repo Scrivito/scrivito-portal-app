@@ -48,14 +48,14 @@ export const ContentProperty = connect(
         )}
       </>
     )
-  }
+  },
 )
 
 function findHighestSeverity(
   validationResults: {
     message: string
     severity?: 'error' | 'warning' | 'info'
-  }[]
+  }[],
 ) {
   const highestSeverityValidation =
     validationResults.find((v) => v.severity === 'error') ||

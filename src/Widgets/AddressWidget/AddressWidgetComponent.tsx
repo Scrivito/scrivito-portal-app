@@ -88,7 +88,7 @@ const Address = connect(
         ))}
       </p>
     )
-  }
+  },
 )
 
 function Table({

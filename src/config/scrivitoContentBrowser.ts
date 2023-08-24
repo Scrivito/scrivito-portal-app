@@ -50,10 +50,13 @@ function filtersForObjClasses(objClasses: string[]) {
           value: objClasses,
           selected: true,
         },
-        ...objClasses.reduce((result, value) => {
-          result[value] = filterOptionForObjClass(value)
-          return result
-        }, {} as { [key: string]: FilterOption }),
+        ...objClasses.reduce(
+          (result, value) => {
+            result[value] = filterOptionForObjClass(value)
+            return result
+          },
+          {} as { [key: string]: FilterOption },
+        ),
       },
     },
   }
@@ -75,10 +78,13 @@ function defaultFilters() {
           icon: 'sheet',
           field: '_objClass',
           value: PAGES,
-          options: PAGES.reduce((result, value) => {
-            result[value] = filterOptionForObjClass(value)
-            return result
-          }, {} as { [key: string]: FilterOption }),
+          options: PAGES.reduce(
+            (result, value) => {
+              result[value] = filterOptionForObjClass(value)
+              return result
+            },
+            {} as { [key: string]: FilterOption },
+          ),
         },
         Download: filterOptionForObjClass('Download'),
         Video: filterOptionForObjClass('Video'),
@@ -86,10 +92,13 @@ function defaultFilters() {
           title: 'Data',
           field: '_objClass',
           value: DATA,
-          options: DATA.reduce((result, value) => {
-            result[value] = filterOptionForObjClass(value)
-            return result
-          }, {} as { [key: string]: FilterOption }),
+          options: DATA.reduce(
+            (result, value) => {
+              result[value] = filterOptionForObjClass(value)
+              return result
+            },
+            {} as { [key: string]: FilterOption },
+          ),
         },
       },
     },
@@ -111,7 +120,7 @@ function defaultFilters() {
 }
 
 function filterOptionForObjClass(
-  objClass: keyof typeof FILTER_PRESENTATIONS | string
+  objClass: keyof typeof FILTER_PRESENTATIONS | string,
 ): FilterOption {
   const filterPresentation = isFilterPresentationsKey(objClass)
     ? FILTER_PRESENTATIONS[objClass]
@@ -124,7 +133,7 @@ function filterOptionForObjClass(
 }
 
 function isFilterPresentationsKey(
-  objClass: string
+  objClass: string,
 ): objClass is keyof typeof FILTER_PRESENTATIONS {
   return Object.keys(FILTER_PRESENTATIONS).includes(objClass)
 }
