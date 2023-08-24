@@ -6,6 +6,7 @@ import {
   Widget,
   Obj,
 } from 'scrivito'
+import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget } from './ImageWidgetClass'
 
 provideComponent(ImageWidget, ({ widget }) => {
@@ -40,11 +41,4 @@ function alternativeText(widget: Widget): string {
   }
 
   return ''
-}
-
-function alignmentClassName(
-  widgetAlignment: string | null
-): string | undefined {
-  if (widgetAlignment === 'center') return 'text-center'
-  if (widgetAlignment === 'right') return 'text-end'
 }

@@ -1,9 +1,13 @@
 import { Link, LinkTag, provideComponent } from 'scrivito'
+import { WrapIfClassName } from '../../Components/WrapIfClassName'
+import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { IconWidget } from './IconWidgetClass'
 
 provideComponent(IconWidget, ({ widget }) => {
   return (
-    <WrapIfClassName className={alignmentClassName(widget.get('alignment'))}>
+    <WrapIfClassName
+      className={alignmentClassNameWithBlock(widget.get('alignment'))}
+    >
       <IconComponent
         icon={widget.get('icon')}
         size={widget.get('size')}
@@ -50,26 +54,4 @@ export function IconComponent({
       <Icon icon={icon} size={size} title={title} />
     </LinkTag>
   )
-}
-
-function WrapIfClassName({
-  className,
-  children,
-}: {
-  className?: string
-  children: React.ReactNode
-}) {
-  return className ? (
-    <div className={className}>{children}</div>
-  ) : (
-    <>{children}</>
-  )
-}
-
-function alignmentClassName(
-  widgetAlignment: string | null
-): string | undefined {
-  if (widgetAlignment === 'center') return 'text-center'
-  if (widgetAlignment === 'right') return 'text-end'
-  if (widgetAlignment === 'block') return 'btn-block'
 }

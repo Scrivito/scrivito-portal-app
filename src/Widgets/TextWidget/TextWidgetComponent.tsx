@@ -1,4 +1,5 @@
 import { provideComponent, ContentTag } from 'scrivito'
+import { alignmentClassName } from '../../utils/alignmentClassName'
 import { TextWidget } from './TextWidgetClass'
 
 provideComponent(TextWidget, ({ widget }) => (
@@ -9,10 +10,3 @@ provideComponent(TextWidget, ({ widget }) => (
     tag="div"
   />
 ))
-
-function alignmentClassName(
-  widgetAlignment: string | null
-): string | undefined {
-  if (widgetAlignment === 'center') return 'text-center'
-  if (widgetAlignment === 'right') return 'text-end'
-}
