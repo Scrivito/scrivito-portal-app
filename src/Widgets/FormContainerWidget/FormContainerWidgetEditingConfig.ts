@@ -3,6 +3,11 @@ import { FormIdComponent } from './FormIdComponent'
 import { getFormContainer } from './utils/getFormContainer'
 import { pseudoRandom32CharHex } from './utils/pseudoRandom32CharHex'
 import { FormContainerWidget } from './FormContainerWidgetClass'
+import { ColumnContainerWidget } from '../ColumnContainerWidget/ColumnContainerWidgetClass'
+import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
+import { FormInputFieldWidget } from '../FormInputFieldWidget/FormInputFieldWidgetClass'
+import { TextWidget } from '../TextWidget/TextWidgetClass'
+import { FormButtonWidget } from '../FormButtonWidget/FormButtonWidgetClass'
 
 provideEditingConfig(FormContainerWidget, {
   title: 'Form',
@@ -45,6 +50,58 @@ provideEditingConfig(FormContainerWidget, {
       'Your message has been successfully sent. Thank you for your request. We will get back to you as soon as possible.',
     failedMessage:
       'We are sorry, your request could not be completed. Please try again later.',
+    content: () => [
+      new ColumnContainerWidget({
+        columns: [
+          new ColumnWidget({
+            colSize: 6,
+            content: [
+              new FormInputFieldWidget({
+                type: 'given_name',
+                label: 'First name',
+                placeholder: 'Your first name',
+                required: true,
+              }),
+            ],
+          }),
+          new ColumnWidget({
+            colSize: 6,
+            content: [
+              new FormInputFieldWidget({
+                type: 'family_name',
+                label: 'Last name',
+                placeholder: 'Your last name',
+                required: true,
+              }),
+            ],
+          }),
+        ],
+      }),
+      new FormInputFieldWidget({
+        label: 'Email',
+        placeholder: 'Your email address',
+        type: 'email',
+        required: true,
+      }),
+      new FormInputFieldWidget({
+        type: 'company',
+        label: 'Company',
+        placeholder: 'Your company',
+      }),
+
+      new FormInputFieldWidget({
+        type: 'custom',
+        customType: 'multi_line',
+        customFieldName: 'custom_message',
+        label: 'Message',
+        placeholder: 'Your message',
+        required: true,
+      }),
+      new TextWidget({
+        text: '<p>By submitting, you agree to the terms and conditions of our privacy policy.</p>',
+      }),
+      new FormButtonWidget(),
+    ],
   },
   validations: [
     (widget: Widget) => {
