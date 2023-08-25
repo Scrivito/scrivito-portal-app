@@ -39,7 +39,7 @@ provideEditingConfig(FormInputFieldWidget, {
     customType: 'single_line',
     customFieldName: 'custom_field_name',
   },
-  properties: (widget: Widget) => {
+  properties: (widget) => {
     if (widget.get('type') === 'custom') {
       return [
         'type',
