@@ -12,6 +12,8 @@ import {
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
+import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
+import { objTitle } from '../../utils/objTitle'
 
 provideLayoutComponent(SubnavigationOverview, ({ page }) => {
   return (
@@ -92,7 +94,7 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
               key={`Subnavigation-${page.id()}`}
               to={page}
             >
-              {objIconAndTitle(page)}
+              <ObjIconAndTitle obj={page} />
             </Nav.Link>
           </li>
         </ul>
@@ -108,7 +110,7 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
                 key={`Subnavigation-${page.id()}-${child.id()}`}
                 to={child}
               >
-                {objIconAndTitle(child)}
+                <ObjIconAndTitle obj={child} />
               </Nav.Link>
             </li>
           )}
@@ -117,25 +119,3 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
     </Navbar>
   )
 })
-
-function objTitle(obj: Obj) {
-  const title = obj.get('title')
-
-  return typeof title === 'string' && title ? title : '<untitled>'
-}
-
-export function objIconAndTitle(obj: Obj) {
-  const linkIcon = obj.get('linkIcon')
-  const showLinkIcon = typeof linkIcon === 'string' && !!linkIcon
-
-  return (
-    <>
-      {showLinkIcon && (
-        <>
-          <i className={`bi ${linkIcon}`}></i>
-        </>
-      )}
-      {objTitle(obj)}
-    </>
-  )
-}

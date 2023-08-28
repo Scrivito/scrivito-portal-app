@@ -1,12 +1,11 @@
-import { Obj } from 'scrivito'
+import { Obj, connect } from 'scrivito'
+import { objTitle } from '../utils/objTitle'
 
-export function objTitle(obj: Obj) {
-  const title = obj.get('title')
-
-  return typeof title === 'string' && title ? title : '<untitled>'
-}
-
-export function objIconAndTitle(obj: Obj) {
+export const ObjIconAndTitle = connect(function ObjIconAndTitle({
+  obj,
+}: {
+  obj: Obj
+}) {
   const linkIcon = obj.get('linkIcon')
   const showLinkIcon = typeof linkIcon === 'string' && !!linkIcon
 
@@ -20,4 +19,4 @@ export function objIconAndTitle(obj: Obj) {
       {objTitle(obj)}
     </>
   )
-}
+})

@@ -1,7 +1,8 @@
 import { connect, Obj, isOnCurrentPath, LinkTag } from 'scrivito'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import { objIconAndTitle, objTitle } from './objTitle'
+import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
+import { objTitle } from '../../../utils/objTitle'
 
 export const NavItem = connect(function ScrivitoNavItem({
   eventKey,
@@ -21,7 +22,7 @@ export const NavItem = connect(function ScrivitoNavItem({
             eventKey={`NavItem-${eventKey}-${child.id()}`}
             key={`NavItem-${eventKey}-${child.id()}`}
           >
-            {objIconAndTitle(child)}
+            <ObjIconAndTitle obj={child} />
           </NavDropdown.Item>
         ))}
       </NavDropdown>
@@ -34,7 +35,7 @@ export const NavItem = connect(function ScrivitoNavItem({
       eventKey={`NavItem-${eventKey}`}
       key={`NavItem-${eventKey}`}
     >
-      {objIconAndTitle(obj)}
+      <ObjIconAndTitle obj={obj} />
     </Nav.Link>
   )
 })

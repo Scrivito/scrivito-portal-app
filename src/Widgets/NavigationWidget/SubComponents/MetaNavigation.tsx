@@ -4,7 +4,7 @@ import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import { objIconAndTitle } from './objTitle'
+import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 
 export const MetaNavigation = connect(function MetaNavigation({
   widget,
@@ -46,7 +46,7 @@ export const MetaNavigation = connect(function MetaNavigation({
                   key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                   to={metaNavigationPortalOverview}
                 >
-                  {objIconAndTitle(metaNavigationPortalOverview)}
+                  <ObjIconAndTitle obj={metaNavigationPortalOverview} />
                 </Nav.Link>
               </Nav.Item>
               <NavDropdown
@@ -79,7 +79,7 @@ export const MetaNavigation = connect(function MetaNavigation({
                       key={`MetaNavigation-${metaNavigationUserProfile.id()}`}
                       to={metaNavigationUserProfile}
                     >
-                      {objIconAndTitle(metaNavigationUserProfile)}
+                      <ObjIconAndTitle obj={metaNavigationUserProfile} />
                     </NavDropdown.Item>
                     <li>
                       <hr className="dropdown-divider" />
@@ -113,7 +113,7 @@ export const MetaNavigation = connect(function MetaNavigation({
                 }}
                 to={metaNavigationPortalOverview}
               >
-                {objIconAndTitle(metaNavigationPortalOverview)}
+                <ObjIconAndTitle obj={metaNavigationPortalOverview} />
               </Nav.Link>
             </Nav.Item>
           )}
