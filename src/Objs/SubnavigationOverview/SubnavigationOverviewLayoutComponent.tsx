@@ -13,7 +13,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
 import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
-import { objTitle } from '../../utils/objTitle'
+import { Breadcrumb } from '../../Components/Breadcrumb'
 
 provideLayoutComponent(SubnavigationOverview, ({ page }) => {
   return (
@@ -37,31 +37,6 @@ provideLayoutComponent(SubnavigationOverview, ({ page }) => {
         </div>
       </section>
     </>
-  )
-})
-
-const Breadcrumb = connect(function Breadcrumb() {
-  const currentPageObj = currentPage()
-  if (!currentPageObj) return <nav aria-label="breadcrumb" />
-
-  const breadcrumbItems: Obj[] = []
-  let item = currentPageObj.parent()
-  while (item) {
-    if (!item.get('hideInNavigation')) breadcrumbItems.unshift(item)
-    item = item.parent()
-  }
-
-  return (
-    <nav aria-label="breadcrumb">
-      <ol className="breadcrumb m-1">
-        {breadcrumbItems.map((obj) => (
-          <li className="breadcrumb-item" key={obj.id()}>
-            <LinkTag to={obj}>{objTitle(obj)}</LinkTag>
-          </li>
-        ))}
-        <li className="breadcrumb-item active">{objTitle(currentPageObj)}</li>
-      </ol>
-    </nav>
   )
 })
 
