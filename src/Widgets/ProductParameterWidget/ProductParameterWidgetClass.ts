@@ -19,3 +19,17 @@ export function isProductParameterWidget(
 ): input is ProductParameterWidgetInstance {
   return input instanceof ProductParameterWidget
 }
+
+export interface PlainParameter {
+  parameter: string
+  values: string[]
+}
+
+export function toPlainParameter(
+  input: ProductParameterWidgetInstance,
+): PlainParameter {
+  return {
+    parameter: input.get('parameter'),
+    values: input.get('values'),
+  }
+}
