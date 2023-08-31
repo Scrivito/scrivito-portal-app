@@ -3,8 +3,9 @@ import { isCustomType } from '../FormContainerWidget/utils/isCustomType'
 import { customFieldNameValidation } from '../FormContainerWidget/utils/validations/customFieldNameValidation'
 import { insideFormContainerValidation } from '../FormContainerWidget/utils/validations/insideFormContainerValidation'
 import { typeValidation } from '../FormContainerWidget/utils/validations/typeValidation'
+import { FormCheckboxWidget } from './FormCheckboxWidgetClass'
 
-provideEditingConfig('FormCheckboxWidget', {
+provideEditingConfig(FormCheckboxWidget, {
   title: 'Form Checkbox',
   attributes: {
     required: { title: 'Mandatory' },
