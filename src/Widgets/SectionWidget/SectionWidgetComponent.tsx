@@ -5,6 +5,7 @@ import {
   ContentTag,
 } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
+import { isVideoObj } from './utils/isVideoObj'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
@@ -32,15 +33,28 @@ provideComponent(SectionWidget, ({ widget }) => {
 
   return (
     <section className={sectionClassNames.join(' ')}>
-      {backgroundImage && (
-        <InPlaceEditingOff>
-          <ImageTag
-            content={widget}
-            attribute="backgroundImage"
-            className={backgroundImageClassNames.join(' ')}
-          />
-        </InPlaceEditingOff>
-      )}
+      {backgroundImage &&
+        (isVideoObj(backgroundImage) &&
+        backgroundImage.contentUrl().startsWith('https://') ? (
+          <InPlaceEditingOff>
+            <video className="img-background" autoPlay loop muted>
+              <>
+                <source
+                  src={`${backgroundImage.contentUrl()}`}
+                  type="video/mp4"
+                />
+              </>
+            </video>
+          </InPlaceEditingOff>
+        ) : (
+          <InPlaceEditingOff>
+            <ImageTag
+              content={widget}
+              attribute="backgroundImage"
+              className={backgroundImageClassNames.join(' ')}
+            />
+          </InPlaceEditingOff>
+        ))}
       <ContentTag
         tag="div"
         content={widget}
