@@ -22,6 +22,8 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
+      'import.meta.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE':
+        JSON.stringify(env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE),
     },
     plugins: [react()],
     preview: {
