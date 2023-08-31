@@ -12,6 +12,8 @@ import {
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
+import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
+import { Breadcrumb } from '../../Components/Breadcrumb'
 
 provideLayoutComponent(SubnavigationOverview, ({ page }) => {
   return (
@@ -35,31 +37,6 @@ provideLayoutComponent(SubnavigationOverview, ({ page }) => {
         </div>
       </section>
     </>
-  )
-})
-
-const Breadcrumb = connect(function Breadcrumb() {
-  const currentPageObj = currentPage()
-  if (!currentPageObj) return <nav aria-label="breadcrumb" />
-
-  const breadcrumbItems: Obj[] = []
-  let item = currentPageObj.parent()
-  while (item) {
-    if (!item.get('hideInNavigation')) breadcrumbItems.unshift(item)
-    item = item.parent()
-  }
-
-  return (
-    <nav aria-label="breadcrumb">
-      <ol className="breadcrumb m-1">
-        {breadcrumbItems.map((obj) => (
-          <li className="breadcrumb-item" key={obj.id()}>
-            <LinkTag to={obj}>{objTitle(obj)}</LinkTag>
-          </li>
-        ))}
-        <li className="breadcrumb-item active">{objTitle(currentPageObj)}</li>
-      </ol>
-    </nav>
   )
 })
 
@@ -92,7 +69,7 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
               key={`Subnavigation-${page.id()}`}
               to={page}
             >
-              {objIconAndTitle(page)}
+              <ObjIconAndTitle obj={page} />
             </Nav.Link>
           </li>
         </ul>
@@ -108,7 +85,7 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
                 key={`Subnavigation-${page.id()}-${child.id()}`}
                 to={child}
               >
-                {objIconAndTitle(child)}
+                <ObjIconAndTitle obj={child} />
               </Nav.Link>
             </li>
           )}
@@ -117,25 +94,3 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
     </Navbar>
   )
 })
-
-function objTitle(obj: Obj) {
-  const title = obj.get('title')
-
-  return typeof title === 'string' && title ? title : '<untitled>'
-}
-
-export function objIconAndTitle(obj: Obj) {
-  const linkIcon = obj.get('linkIcon')
-  const showLinkIcon = typeof linkIcon === 'string' && !!linkIcon
-
-  return (
-    <>
-      {showLinkIcon && (
-        <>
-          <i className={`bi ${linkIcon}`}></i>
-        </>
-      )}
-      {objTitle(obj)}
-    </>
-  )
-}
