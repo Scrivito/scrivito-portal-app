@@ -12,6 +12,12 @@ export const Product = provideObjClass('Product', {
     suitableAccessories: ['referencelist', { only: 'Product' }],
     title: 'string',
   },
+  extractTextAttributes: [
+    'subTitle',
+    'descriptionSection',
+    'dataSection',
+    'downloadsSection',
+  ],
 })
 
 export type ProductInstance = InstanceType<typeof Product>
