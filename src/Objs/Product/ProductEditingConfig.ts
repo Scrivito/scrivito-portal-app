@@ -4,4 +4,5 @@ import { Product } from './ProductObjClass'
 provideEditingConfig(Product, {
   title: 'Product',
   properties: ['title', 'image', 'parameters', 'suitableAccessories'],
+  thumbnailForContent: (obj) => obj.get('image'),
 })

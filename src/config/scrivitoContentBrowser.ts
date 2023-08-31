@@ -148,10 +148,19 @@ const FILTER_PRESENTATIONS = {
   Order: { title: 'Orders', icon: 'inbox' },
   Page: { title: 'Standard pages', icon: 'sheet' },
   Person: { title: 'People', icon: 'users' },
+  Product: { title: 'Products', icon: 'suitcase' },
+  ProductCategory: { title: 'Product categories', icon: 'relation' },
+  ProductsOverview: { title: 'Products overviews', icon: 'relation' },
   Quote: { title: 'Quotes', icon: 'sheet' },
   Shipment: { title: 'Shipments', icon: 'globe' },
   Video: { title: 'Videos', icon: 'video' },
 }
 
-const PAGES = ['Page', 'Homepage']
+const PAGES = [
+  'Page',
+  'Homepage',
+  'Product',
+  'ProductCategory',
+  'ProductsOverview',
+]
 const DATA = ['Notification', 'Person', 'Quote', 'Order', 'Shipment', 'Invoice']

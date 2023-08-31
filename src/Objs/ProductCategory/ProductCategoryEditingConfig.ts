@@ -12,4 +12,5 @@ provideEditingConfig(ProductCategory, {
     title: { title: 'Title' },
   },
   properties: ['title', 'description', 'image', 'showTopContentSection'],
+  thumbnailForContent: (obj) => obj.get('image'),
 })
