@@ -4,7 +4,7 @@ export const Page = provideObjClass('Page', {
   attributes: {
     body: 'widgetlist',
     childOrder: 'referencelist',
-    dataClass: 'string',
+    data: 'datalocator',
     hideInNavigation: 'boolean',
     linkIcon: 'string',
     showTopContentSection: 'boolean',
