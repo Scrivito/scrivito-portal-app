@@ -1,11 +1,6 @@
-import {
-  provideComponent,
-  InPlaceEditingOff,
-  ImageTag,
-  ContentTag,
-} from 'scrivito'
+import { provideComponent, ContentTag } from 'scrivito'
+import { ImageOrVideo } from '../../Components/ImageOrVideo'
 import { SectionWidget } from './SectionWidgetClass'
-import { isVideoObj } from './utils/isVideoObj'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
@@ -33,28 +28,11 @@ provideComponent(SectionWidget, ({ widget }) => {
 
   return (
     <section className={sectionClassNames.join(' ')}>
-      {backgroundImage &&
-        (isVideoObj(backgroundImage) &&
-        backgroundImage.contentUrl().startsWith('https://') ? (
-          <InPlaceEditingOff>
-            <video className="img-background" autoPlay loop muted>
-              <>
-                <source
-                  src={`${backgroundImage.contentUrl()}`}
-                  type="video/mp4"
-                />
-              </>
-            </video>
-          </InPlaceEditingOff>
-        ) : (
-          <InPlaceEditingOff>
-            <ImageTag
-              content={widget}
-              attribute="backgroundImage"
-              className={backgroundImageClassNames.join(' ')}
-            />
-          </InPlaceEditingOff>
-        ))}
+      <ImageOrVideo
+        widget={widget}
+        backgroundImage={backgroundImage}
+        backgroundImageClassNames={backgroundImageClassNames}
+      />
       <ContentTag
         tag="div"
         content={widget}
