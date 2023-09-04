@@ -1,5 +1,10 @@
 import * as React from 'react'
-import { provideComponent, urlFor, ContentTag, connect, Widget } from 'scrivito'
+import {
+  provideComponent,
+  urlFor,
+  ContentTag,
+  InPlaceEditingOff,
+} from 'scrivito'
 import { scrollIntoView } from './utils/scrollIntoView'
 import { getHistory } from '../../config/history'
 
@@ -64,9 +69,9 @@ provideComponent(FormContainerWidget, ({ widget }) => {
           name="url"
           value={browserLocation || urlFor(widget.obj())}
         />
-        {widget.get('hiddenFields').map((hiddenField) => (
-          <HiddenField key={hiddenField.id()} widget={hiddenField} />
-        ))}
+        <InPlaceEditingOff>
+          <ContentTag content={widget} attribute="hiddenFields" />
+        </InPlaceEditingOff>
 
         <HoneypotField />
 
@@ -126,20 +131,6 @@ async function submit(formElement: unknown, formEndpoint: string) {
     )
   }
 }
-
-const HiddenField = connect(
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  ({ widget }: { widget: Widget }) => {
-    return null
-    // TODO: Implement once FormHiddenFieldWidget is available.
-    // const name = getFieldName(widget)
-    // if (!name) {
-    //   return null
-    // }
-
-    // return <input type="hidden" name={name} value={widget.get('hiddenValue')} />
-  },
-)
 
 const HoneypotField = () => (
   <div aria-hidden="true" className="winnie-the-pooh">

@@ -22,7 +22,7 @@ provideEditingConfig(FormHiddenFieldWidget, {
       if (
         !isWidgetArray(hiddenFields) ||
         hiddenFields
-          ?.map((hiddenField) => hiddenField.id())
+          .map((hiddenField) => hiddenField.id())
           .includes(widget.id())
       ) {
         return
