@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useEffect, useState } from 'react'
 import {
   provideComponent,
   urlFor,
@@ -16,10 +16,8 @@ provideComponent(FormContainerWidget, ({ widget }) => {
     import.meta.env.SCRIVITO_TENANT
   }/form_submissions`
 
-  const [browserLocation, setBrowserLocation] = React.useState<string | null>(
-    null,
-  )
-  React.useEffect(() => {
+  const [browserLocation, setBrowserLocation] = useState<string | null>(null)
+  useEffect(() => {
     const history = getHistory()
     if (!history) return
     setBrowserLocation(locationToUrl(history.location))
@@ -29,9 +27,9 @@ provideComponent(FormContainerWidget, ({ widget }) => {
     )
   }, [])
 
-  const [isSubmitting, setIsSubmitting] = React.useState(false)
-  const [successfullySent, setSuccessfullySent] = React.useState(false)
-  const [submissionFailed, setSubmissionFailed] = React.useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [successfullySent, setSuccessfullySent] = useState(false)
+  const [submissionFailed, setSubmissionFailed] = useState(false)
 
   if (isSubmitting) {
     return (
