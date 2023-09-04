@@ -1,4 +1,4 @@
-import { provideEditingConfig, Widget } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { FormIdComponent } from './FormIdComponent'
 import { getFormContainer } from './utils/getFormContainer'
 import { pseudoRandom32CharHex } from './utils/pseudoRandom32CharHex'
@@ -104,7 +104,7 @@ provideEditingConfig(FormContainerWidget, {
     ],
   },
   validations: [
-    (widget: Widget) => {
+    (widget) => {
       if (getFormContainer(widget)) {
         return 'Needs to be outside of a form.'
       }
@@ -116,8 +116,8 @@ provideEditingConfig(FormContainerWidget, {
 
     [
       'submittingMessage',
-      (submittingMessage: string) => {
-        if (!submittingMessage) {
+      (submittingMessage) => {
+        if (!submittingMessage || typeof submittingMessage !== 'string') {
           return 'Specify the message to be displayed during form submission.'
         }
       },
@@ -125,8 +125,8 @@ provideEditingConfig(FormContainerWidget, {
 
     [
       'submittedMessage',
-      (submittedMessage: string) => {
-        if (!submittedMessage) {
+      (submittedMessage) => {
+        if (!submittedMessage || typeof submittedMessage !== 'string') {
           return 'Specify the message to be displayed after successful form submission.'
         }
       },
@@ -134,8 +134,8 @@ provideEditingConfig(FormContainerWidget, {
 
     [
       'failedMessage',
-      (failedMessage: string) => {
-        if (!failedMessage) {
+      (failedMessage) => {
+        if (!failedMessage || typeof failedMessage !== 'string') {
           return 'Specify the message to be displayed after form submission failed.'
         }
       },
@@ -143,8 +143,8 @@ provideEditingConfig(FormContainerWidget, {
 
     [
       'formId',
-      (formId: string) => {
-        if (!formId) {
+      (formId) => {
+        if (!formId || typeof formId !== 'string') {
           return 'Specify the form ID.'
         }
 

@@ -1,4 +1,4 @@
-import { provideComponent } from 'scrivito'
+import { provideComponent, ContentTag } from 'scrivito'
 import { FormButtonWidget } from './FormButtonWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { WrapIfClassName } from '../../Components/WrapIfClassName'
@@ -15,7 +15,7 @@ provideComponent(FormButtonWidget, ({ widget }) => {
         }`}
         type="submit"
       >
-        {widget.get('buttonText')}
+        <ContentTag tag="span" content={widget} attribute="buttonText" />
       </button>
     </WrapIfClassName>
   )
