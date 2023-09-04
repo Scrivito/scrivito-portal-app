@@ -1,15 +1,8 @@
-// TODO: Implement it some time later.
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
-export function scrollIntoView(element: unknown): void {}
+export function scrollIntoView(element: unknown): void {
+  if (!(element instanceof HTMLElement)) return
 
-// export function scrollIntoView(element) {
-//   window.scrollTo({
-//     top: getTop(element) - 95,
-//     behavior: 'smooth',
-//   })
-// }
+  const rect = element.getBoundingClientRect()
+  const top = rect.top + window.pageYOffset
 
-// function getTop(element) {
-//   const rect = element.getBoundingClientRect()
-//   return rect.top + window.pageYOffset
-// }
+  window.scrollTo({ top, behavior: 'smooth' })
+}
