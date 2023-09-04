@@ -1,4 +1,4 @@
-import { provideEditingConfig, Widget } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { isCustomType } from '../FormContainerWidget/utils/isCustomType'
 import { customFieldNameValidation } from '../FormContainerWidget/utils/validations/customFieldNameValidation'
 import { insideFormContainerValidation } from '../FormContainerWidget/utils/validations/insideFormContainerValidation'
