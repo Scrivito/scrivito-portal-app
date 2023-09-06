@@ -337,12 +337,14 @@ export class BasicObj implements ContentValueProvider {
     const children = this.children();
     if (children.length === 0) return [];
 
+    const objId = (obj: BasicObj) => obj.id();
+    const validIds = new Set(children.map(objId));
+
     const childOrder = this.get('childOrder', 'referencelist').filter(
-      (item): item is BasicObj =>
-        item instanceof BasicObj && item.parentPath() === this.path()
+      (item): item is BasicObj => validIds.has(item.id())
     );
 
-    return uniqBy(childOrder.concat(children), (child) => child.id());
+    return uniqBy(childOrder.concat(children), objId);
   }
 
   backlinks(): BasicObj[] {

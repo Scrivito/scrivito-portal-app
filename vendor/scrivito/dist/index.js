@@ -67,7 +67,7 @@ const checkProvideAuthGroups = (0,scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_0
 /* harmony import */ var scrivito_sdk_app_support_routing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5079);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_loadable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7975);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5932);
 /* harmony import */ var scrivito_sdk_state__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(9541);
 
@@ -161,7 +161,7 @@ function navigateCrossSiteTo(url) {
 /* harmony export */ });
 /* harmony import */ var scrivito_sdk_app_support_routing__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5079);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9802);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5932);
 var __defProp = Object.defineProperty;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
@@ -378,7 +378,7 @@ function isHistoryV4(historyToCheck) {
 /* harmony import */ var scrivito_sdk_app_support_ui_adapter__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9470);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_loadable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7975);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5932);
 
 
@@ -460,7 +460,7 @@ function convertToAbsoluteLocalUrl(url) {
 /* harmony import */ var scrivito_sdk_app_support_ui_adapter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9470);
 /* harmony import */ var scrivito_sdk_app_support_ui_adapter_compatible_value__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3409);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9802);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(506);
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __propIsEnum = Object.prototype.propertyIsEnumerable;
@@ -758,7 +758,7 @@ function shouldContentTagsForEmptyAttributesBeSkipped() {
 /* harmony export */   "q": () => (/* binding */ currentAppSpace)
 /* harmony export */ });
 /* harmony import */ var scrivito_sdk_app_support_editing_context__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8084);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(506);
 
 
 function currentAppSpace() {
@@ -807,7 +807,7 @@ function setOriginProvider(provider) {
 /* harmony import */ var scrivito_sdk_app_support_current_page_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4077);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9241);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5932);
 
 
@@ -867,7 +867,7 @@ function withForbiddenSiteContext(message, fn) {
 /* harmony import */ var scrivito_sdk_app_support_routing__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5079);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_loadable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7975);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(506);
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
 var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
@@ -1059,7 +1059,7 @@ function resetEditingConfigStore() {
 /* harmony export */   "rl": () => (/* binding */ isComparisonActive)
 /* harmony export */ });
 /* unused harmony exports initializeEditingContextFromBrowsingContext, setIsInPlaceEditingActive, setIsComparisonActive, resetEditingContext */
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(506);
 
 let inPlaceEditingActive = false;
 let comparisonActive = false;
@@ -1191,7 +1191,7 @@ function getClassName(subject) {
 /* harmony export */ });
 /* harmony import */ var scrivito_sdk_app_support_ui_adapter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9470);
 /* harmony import */ var scrivito_sdk_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6310);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(506);
 
 
 
@@ -1216,7 +1216,7 @@ function getComparisonRange() {
 /* harmony import */ var scrivito_sdk_app_support_editing_config_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8611);
 /* harmony import */ var scrivito_sdk_app_support_present_ui_adapter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(7515);
 /* harmony import */ var scrivito_sdk_loadable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7975);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5932);
 
 
@@ -1611,7 +1611,7 @@ function resetMenuRegistry() {
 /* harmony import */ var scrivito_sdk_app_support_basic_navigate_to__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7700);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_loadable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7975);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(5932);
 /* harmony import */ var scrivito_sdk_state__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9541);
 var __defProp = Object.defineProperty;
@@ -1770,7 +1770,7 @@ const checkEvaluatedTarget = (0,scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_2__
 /* harmony import */ var scrivito_sdk_app_support_routing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5079);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_loadable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(7975);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(5932);
 /* harmony import */ var scrivito_sdk_state__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(9541);
 var __defProp = Object.defineProperty;
@@ -1996,7 +1996,7 @@ const checkConfigurePreviewSizes = (0,scrivito_sdk_common__WEBPACK_IMPORTED_MODU
 /* harmony import */ var scrivito_sdk_app_support_validations_config__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6666);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_data_integration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9145);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(5932);
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
@@ -2232,7 +2232,7 @@ function haveGroupsUniqueKey(groups) {
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_data_integration__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9145);
 /* harmony import */ var scrivito_sdk_link_resolution__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4076);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(506);
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
 var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
@@ -2325,8 +2325,8 @@ var common = __webpack_require__(9802);
 var data = __webpack_require__(9241);
 // EXTERNAL MODULE: ./scrivito_sdk/loadable/index.ts + 24 modules
 var loadable = __webpack_require__(7975);
-// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 35 modules
-var models = __webpack_require__(2731);
+// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 36 modules
+var models = __webpack_require__(506);
 ;// CONCATENATED MODULE: ./scrivito_sdk/app_support/permalink_cache.ts
 
 
@@ -3020,7 +3020,7 @@ function setUiAdapter(newUiAdapter) {
 /* harmony export */ });
 /* harmony import */ var lodash_es_isDate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3178);
 /* harmony import */ var lodash_es_isDate__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_es_isDate__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(506);
 var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
 var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
@@ -3123,7 +3123,7 @@ function isSiteRelated(field) {
 /* unused harmony exports UnstableMultiSiteModeOperationError, resetUnstableMultiSiteMode */
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_loadable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(7975);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5932);
 
 
@@ -3231,7 +3231,7 @@ function getSiteIdAssumingSelected() {
 /* harmony import */ var scrivito_sdk_app_support_basic_url_for__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2225);
 /* harmony import */ var scrivito_sdk_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9802);
 /* harmony import */ var scrivito_sdk_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9241);
-/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(2731);
+/* harmony import */ var scrivito_sdk_models__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(506);
 /* harmony import */ var scrivito_sdk_realm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5932);
 
 
@@ -3980,7 +3980,7 @@ class ClientError extends common/* ScrivitoError */.Ix {
 ;// CONCATENATED MODULE: ./scrivito_sdk/client/get_client_version.ts
 
 function getClientVersion() {
-  const clientVersion = "jssdk/1.29.0.dev-1-g4c45c54994df";
+  const clientVersion = "jssdk/1.29.0.dev-1-g803f3f8762d0";
   if (!clientVersion)
     throw new common/* InternalError */.AQ();
   return clientVersion;
@@ -5673,7 +5673,7 @@ function runAndCatchException(fn) {
 ;// CONCATENATED MODULE: ./scrivito_sdk/common/get_scrivito_version.ts
 
 function getScrivitoVersion() {
-  const version = "1.29.0.dev-1-g4c45c54994df";
+  const version = "1.29.0.dev-1-g803f3f8762d0";
   if (!version) {
     throw new InternalError();
   }
@@ -9217,8 +9217,8 @@ function getConnection(dataClassName) {
   return connection;
 }
 
-// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 35 modules
-var models = __webpack_require__(2731);
+// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 36 modules
+var models = __webpack_require__(506);
 ;// CONCATENATED MODULE: ./scrivito_sdk/data_integration/obj_data_class.ts
 var obj_data_class_defProp = Object.defineProperty;
 var obj_data_class_getOwnPropSymbols = Object.getOwnPropertySymbols;
@@ -10209,8 +10209,8 @@ function replaceQualifiedPlaceholder(dataClassName, attributeName, placeholder, 
 
 
 const moduleLoaders = {
-  reactEditing: () => __webpack_require__.e(/* import() */ 226).then(__webpack_require__.bind(__webpack_require__, 2028)),
-  editingSupport: () => __webpack_require__.e(/* import() */ 226).then(__webpack_require__.bind(__webpack_require__, 1328))
+  reactEditing: () => __webpack_require__.e(/* import() */ 28).then(__webpack_require__.bind(__webpack_require__, 2028)),
+  editingSupport: () => __webpack_require__.e(/* import() */ 461).then(__webpack_require__.bind(__webpack_require__, 1328))
 };
 const loadableModules = new scrivito_sdk_loadable__WEBPACK_IMPORTED_MODULE_0__/* .LoadableCollection */ .X2({
   loadElement: (moduleName) => ({ loader: moduleLoaders[moduleName] })
@@ -11427,7 +11427,7 @@ function resetCurrentWorkspaceId() {
 
 /***/ }),
 
-/***/ 2731:
+/***/ 506:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 
@@ -11457,6 +11457,7 @@ __webpack_require__.d(__webpack_exports__, {
   "GD": () => (/* reexport */ current_workspace_id/* currentObjSpaceId */.GD),
   "tV": () => (/* reexport */ current_workspace_id/* currentWorkspaceId */.tV),
   "Ti": () => (/* reexport */ emptyScope),
+  "Lr": () => (/* reexport */ enableAutoConvertAttributes),
   "E2": () => (/* reexport */ excludeDeletedObjs),
   "U2": () => (/* reexport */ excludeGlobal),
   "TW": () => (/* reexport */ getAllObjsByValueFrom),
@@ -11494,6 +11495,125 @@ var pick_ = __webpack_require__(1147);
 var pick_default = /*#__PURE__*/__webpack_require__.n(pick_);
 // EXTERNAL MODULE: ./scrivito_sdk/data_integration/index.ts + 24 modules
 var data_integration = __webpack_require__(9145);
+;// CONCATENATED MODULE: ./scrivito_sdk/models/auto_convert.ts
+let autoConvert = false;
+function enableAutoConvertAttributes() {
+  autoConvert = true;
+}
+function resetAutoConvertAttributes() {
+  autoConvert = false;
+}
+function autoConvertToReference(value) {
+  if (!autoConvert)
+    return value;
+  const singleValue = autoConvertToSingle(value);
+  if (backendValueType(singleValue) !== "link")
+    return singleValue;
+  const objId = singleValue[1].obj_id;
+  if (!objId)
+    return singleValue;
+  const result = ["reference", objId];
+  return result;
+}
+function autoConvertToReferencelist(value) {
+  var _a;
+  if (!autoConvert)
+    return value;
+  const listValue = autoConvertToList(value);
+  if (backendValueType(listValue) !== "linklist")
+    return listValue;
+  const objId = (_a = listValue[1][0]) == null ? void 0 : _a.obj_id;
+  if (!objId)
+    return listValue;
+  const result = [
+    "referencelist",
+    [objId]
+  ];
+  return result;
+}
+function autoConvertToLink(value) {
+  if (!autoConvert)
+    return value;
+  const singleValue = autoConvertToSingle(value);
+  if (backendValueType(singleValue) !== "reference")
+    return singleValue;
+  const result = [
+    "link",
+    linkForReference(
+      singleValue[1]
+    )
+  ];
+  return result;
+}
+function autoConvertToLinklist(value) {
+  if (!autoConvert)
+    return value;
+  const listValue = autoConvertToList(value);
+  if (backendValueType(listValue) !== "referencelist")
+    return listValue;
+  const result = [
+    "linklist",
+    [
+      linkForReference(
+        listValue[1][0]
+      )
+    ]
+  ];
+  return result;
+}
+function linkForReference(objId) {
+  return {
+    fragment: null,
+    obj_id: objId,
+    query: null,
+    target: null,
+    title: null,
+    url: null
+  };
+}
+const SINGLE_TYPE_FOR = {
+  linklist: "link",
+  referencelist: "reference",
+  stringlist: "string"
+};
+function autoConvertToSingle(value) {
+  const type = autoConvert && backendValueType(value);
+  if (type === "html") {
+    return ["string", value[1]];
+  }
+  if (type === "number") {
+    return [
+      "string",
+      value[1].toString()
+    ];
+  }
+  const targetType = type && SINGLE_TYPE_FOR[type];
+  if (!targetType)
+    return value;
+  const listValue = value[1];
+  return listValue.length ? [targetType, listValue[0]] : value;
+}
+const LIST_TYPE_FOR = {
+  html: "stringlist",
+  link: "linklist",
+  number: "stringlist",
+  reference: "referencelist",
+  string: "stringlist"
+};
+function autoConvertToList(value) {
+  const type = autoConvert && backendValueType(value);
+  const targetType = type && LIST_TYPE_FOR[type];
+  if (!targetType)
+    return value;
+  const singleValue = value[1];
+  if (type === "number")
+    return [targetType, [singleValue.toString()]];
+  return singleValue ? [targetType, [singleValue]] : value;
+}
+function backendValueType(value) {
+  return Array.isArray(value) ? value[0] : void 0;
+}
+
 ;// CONCATENATED MODULE: ./scrivito_sdk/models/exclude_deleted_objs.ts
 const excludeDeletedObjs = {
   isInScope(obj) {
@@ -11640,6 +11760,7 @@ function objSpaceScopeExcludingDeleted(objSpaceId) {
 
 
 
+
 function deserialize(model, value, typeInfo) {
   switch (typeInfo[0]) {
     case "binary":
@@ -11653,27 +11774,30 @@ function deserialize(model, value, typeInfo) {
     case "datetime":
       return deserializeDateValue(value);
     case "float":
-      return deserializeFloatValue(value);
+      return deserializeFloatValue(autoConvertToSingle(value));
     case "enum":
-      return deserializeEnumValue(value, typeInfo);
+      return deserializeEnumValue(autoConvertToSingle(value), typeInfo);
     case "html":
-      return deserializeHtmlOrStringValue(value);
+      return deserializeHtmlOrStringValue(autoConvertToSingle(value));
     case "integer":
-      return deserializeIntegerValue(value);
+      return deserializeIntegerValue(autoConvertToSingle(value));
     case "link":
-      return deserializeLinkValue(value);
+      return deserializeLinkValue(autoConvertToLink(value));
     case "linklist":
-      return deserializeLinklistValue(value);
+      return deserializeLinklistValue(autoConvertToLinklist(value));
     case "multienum":
-      return deserializeMultienumValue(value, typeInfo);
+      return deserializeMultienumValue(autoConvertToList(value), typeInfo);
     case "reference":
-      return deserializeReferenceValue(value, model);
+      return deserializeReferenceValue(autoConvertToReference(value), model);
     case "referencelist":
-      return deserializeReferencelistValue(value, model);
+      return deserializeReferencelistValue(
+        autoConvertToReferencelist(value),
+        model
+      );
     case "string":
-      return deserializeHtmlOrStringValue(value);
+      return deserializeHtmlOrStringValue(autoConvertToSingle(value));
     case "stringlist":
-      return deserializeStringlistValue(value);
+      return deserializeStringlistValue(autoConvertToList(value));
     case "widget":
       return deserializeWidgetValue(value, model);
     case "widgetlist":
@@ -13018,10 +13142,12 @@ class BasicObj {
     const children = this.children();
     if (children.length === 0)
       return [];
+    const objId = (obj) => obj.id();
+    const validIds = new Set(children.map(objId));
     const childOrder = this.get("childOrder", "referencelist").filter(
-      (item) => item instanceof BasicObj && item.parentPath() === this.path()
+      (item) => validIds.has(item.id())
     );
-    return uniqBy_default()(childOrder.concat(children), (child) => child.id());
+    return uniqBy_default()(childOrder.concat(children), objId);
   }
   backlinks() {
     return objSpaceScopeExcludingDeleted(this.objSpaceId()).search().and("*", "linksTo", this).dangerouslyUnboundedTake();
@@ -14522,6 +14648,7 @@ class Workspace {
 
 
 
+
 /***/ }),
 
 /***/ 1637:
@@ -15543,8 +15670,8 @@ class BackgroundImageDecoder {
 
 // EXTERNAL MODULE: ./scrivito_sdk/app_support/scale_down_binary.ts
 var scale_down_binary = __webpack_require__(9479);
-// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 35 modules
-var models = __webpack_require__(2731);
+// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 36 modules
+var models = __webpack_require__(506);
 ;// CONCATENATED MODULE: external "tcomb-react"
 const external_tcomb_react_namespaceObject = require("tcomb-react");
 ;// CONCATENATED MODULE: ./scrivito_sdk/react/tcomb.ts
@@ -17288,8 +17415,12 @@ var ui_adapter = __webpack_require__(9470);
 ;// CONCATENATED MODULE: ./scrivito_sdk/app_support/layout_editing.ts
 
 function isLayoutEditingActive() {
-  var _a;
-  return !!((_a = ui_adapter/* uiAdapter */.k) == null ? void 0 : _a.isLayoutEditingActive());
+  if (!ui_adapter/* uiAdapter */.k)
+    return false;
+  const isActive = ui_adapter/* uiAdapter.isLayoutEditingActive */.k.isLayoutEditingActive();
+  if (isActive === void 0)
+    return false;
+  return isActive;
 }
 
 // EXTERNAL MODULE: ./scrivito_sdk/react/in_place_editing_enabled_context.ts
@@ -17304,7 +17435,7 @@ var is_inside_layout_context = __webpack_require__(9909);
 function useLayoutAwareInPlaceEditing() {
   const inPlaceEditingEnabled = external_react_.useContext(in_place_editing_enabled_context/* InPlaceEditingEnabledContext */.q);
   const isInsideLayoutContext = external_react_.useContext(is_inside_layout_context/* IsInsideLayoutContext */.d);
-  return inPlaceEditingEnabled && isInsideLayoutContext === isLayoutEditingActive();
+  return inPlaceEditingEnabled && (isLayoutEditingActive() === null || isInsideLayoutContext === isLayoutEditingActive());
 }
 
 
@@ -17348,8 +17479,8 @@ __webpack_require__.d(__webpack_exports__, {
 
 // EXTERNAL MODULE: ./scrivito_sdk/common/index.ts + 48 modules
 var common = __webpack_require__(9802);
-// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 35 modules
-var models = __webpack_require__(2731);
+// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 36 modules
+var models = __webpack_require__(506);
 // EXTERNAL MODULE: external "lodash-es/mapValues"
 var mapValues_ = __webpack_require__(9636);
 var mapValues_default = /*#__PURE__*/__webpack_require__.n(mapValues_);
@@ -19748,7 +19879,7 @@ module.exports = require("urijs");
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + "scrivito_editing" + ".js";
+/******/ 			return "" + chunkId + ".js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -20418,7 +20549,7 @@ function loadEditingCss() {
   (0,common/* loadCss */.Yc)(`${getAssetUrlBase()}/scrivito_editing.css`, (0,common/* getDocument */.Me)());
 }
 function importEditors() {
-  return __webpack_require__.e(/* import() */ 226).then(__webpack_require__.bind(__webpack_require__, 6255));
+  return __webpack_require__.e(/* import() */ 255).then(__webpack_require__.bind(__webpack_require__, 6255));
 }
 
 // EXTERNAL MODULE: ./scrivito_sdk/app_support/routing.ts + 2 modules
@@ -20486,8 +20617,8 @@ function resetVisitorAuthentication() {
 var bridge = __webpack_require__(3332);
 // EXTERNAL MODULE: ./scrivito_sdk/data/index.ts + 28 modules
 var data = __webpack_require__(9241);
-// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 35 modules
-var models = __webpack_require__(2731);
+// EXTERNAL MODULE: ./scrivito_sdk/models/index.ts + 36 modules
+var models = __webpack_require__(506);
 // EXTERNAL MODULE: ./scrivito_sdk/realm/index.ts + 22 modules
 var realm = __webpack_require__(5932);
 // EXTERNAL MODULE: ./scrivito_sdk/app_support/constraints_validation_callback.ts
@@ -20526,6 +20657,7 @@ const OriginValue = common/* tcomb.refinement */.pC.refinement(
 const AllowedConfiguration = common/* tcomb.interface */.pC["interface"]({
   tenant: common/* tcomb.String */.pC.String,
   adoptUi: common/* tcomb.maybe */.pC.maybe(common/* tcomb.union */.pC.union([common/* tcomb.Boolean */.pC.Boolean, OriginValue])),
+  autoConvertAttributes: common/* tcomb.maybe */.pC.maybe(common/* tcomb.Boolean */.pC.Boolean),
   baseUrlForSite: common/* tcomb.maybe */.pC.maybe(common/* tcomb.Function */.pC.Function),
   constraintsValidation: common/* tcomb.maybe */.pC.maybe(common/* tcomb.Function */.pC.Function),
   endpoint: common/* tcomb.maybe */.pC.maybe(common/* tcomb.String */.pC.String),
@@ -20615,6 +20747,8 @@ function configure(configuration, ...excessArgs) {
   }
   if (configuration.strictSearchOperators)
     (0,realm/* enableStrictSearchOperators */.pw)();
+  if (configuration.autoConvertAttributes)
+    (0,models/* enableAutoConvertAttributes */.Lr)();
   (0,forced_editor_language/* setForcedEditorLanguage */.n)(configuration.editorLanguage || null);
   (0,extensions_url/* setExtensionsUrl */.W)(configuration.extensionsUrl || void 0);
 }
@@ -20749,7 +20883,7 @@ function setApiKeyAuthorizationProviderClass(input) {
   ApiKeyAuthorizationProviderClass = input;
 }
 function importUiInterface() {
-  return __webpack_require__.e(/* import() */ 226).then(__webpack_require__.bind(__webpack_require__, 4997));
+  return __webpack_require__.e(/* import() */ 997).then(__webpack_require__.bind(__webpack_require__, 4997));
 }
 function warnIfNoSiteIdSelection() {
   const timeout = setTimeout(

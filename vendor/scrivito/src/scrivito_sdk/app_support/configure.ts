@@ -55,7 +55,11 @@ import {
   useInMemoryTenant,
 } from 'scrivito_sdk/data';
 import { load } from 'scrivito_sdk/loadable';
-import { getRootObjFrom, restrictToSite } from 'scrivito_sdk/models';
+import {
+  enableAutoConvertAttributes,
+  getRootObjFrom,
+  restrictToSite,
+} from 'scrivito_sdk/models';
 import type { ApiKeyAuthorizationProvider } from 'scrivito_sdk/node_support/api_key_authorization_provider';
 import {
   Obj,
@@ -77,6 +81,7 @@ export interface IamApiKey {
 export interface Configuration {
   tenant: string;
   adoptUi?: boolean | string;
+  autoConvertAttributes?: boolean;
   baseUrlForSite?: SiteMappingConfiguration['baseUrlForSite'];
   endpoint?: string;
   constraintsValidation?: ConstraintsValidationCallback;
@@ -113,6 +118,7 @@ const OriginValue = t.refinement(
 const AllowedConfiguration = t.interface({
   tenant: t.String,
   adoptUi: t.maybe(t.union([t.Boolean, OriginValue])),
+  autoConvertAttributes: t.maybe(t.Boolean),
   baseUrlForSite: t.maybe(t.Function),
   constraintsValidation: t.maybe(t.Function),
   endpoint: t.maybe(t.String),
@@ -228,6 +234,7 @@ export function configure(
   }
 
   if (configuration.strictSearchOperators) enableStrictSearchOperators();
+  if (configuration.autoConvertAttributes) enableAutoConvertAttributes();
   setForcedEditorLanguage(configuration.editorLanguage || null);
   setExtensionsUrl(configuration.extensionsUrl || undefined);
 }

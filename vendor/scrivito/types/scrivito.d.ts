@@ -247,6 +247,7 @@ declare type ComponentGroupDescription = LivingComponentGroupDescriptionForUi | 
 declare interface Configuration {
     tenant: string;
     adoptUi?: boolean | string;
+    autoConvertAttributes?: boolean;
     baseUrlForSite?: SiteMappingConfiguration['baseUrlForSite'];
     endpoint?: string;
     constraintsValidation?: ConstraintsValidationCallback;

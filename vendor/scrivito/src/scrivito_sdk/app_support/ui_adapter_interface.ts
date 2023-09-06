@@ -131,7 +131,7 @@ export interface UiAdapterInterface
   currentWorkspace(): WorkspaceData;
   getUiContext(): UiContext;
   getUiLanguage(): Locale | null;
-  isLayoutEditingActive(): boolean;
+  isLayoutEditingActive(): boolean | null;
 }
 
 export interface TenantConfiguration {
