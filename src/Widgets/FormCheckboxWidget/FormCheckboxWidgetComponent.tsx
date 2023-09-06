@@ -34,7 +34,6 @@ provideComponent(FormCheckboxWidget, ({ widget }) => {
       {widget.get('required') ? (
         <OverlayTrigger
           placement="top"
-          trigger="hover"
           overlay={
             <Popover>
               <Popover.Body>mandatory</Popover.Body>
@@ -48,7 +47,6 @@ provideComponent(FormCheckboxWidget, ({ widget }) => {
       {widget.get('helpText') ? (
         <OverlayTrigger
           placement="top"
-          trigger="hover"
           overlay={
             <Popover>
               <Popover.Body>
