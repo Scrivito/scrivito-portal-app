@@ -1,10 +1,17 @@
-import { ContentTag, provideComponent, useDataItem } from 'scrivito'
+import {
+  ContentTag,
+  provideComponent,
+  useDataItem,
+  // @ts-expect-error TODO: remove once officially released
+  useDataScope,
+} from 'scrivito'
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
+  const dataScope = useDataScope()
   const formRef = useRef() as React.MutableRefObject<HTMLFormElement>
 
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -27,7 +34,6 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
     e.stopPropagation()
-    if (!dataItem) return
 
     setIsSubmitting(true)
 
@@ -36,7 +42,11 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     )
 
     try {
-      await dataItem.update(attributes)
+      if (dataItem) {
+        await dataItem.update(attributes)
+      } else {
+        await dataScope.create(attributes)
+      }
     } catch (error) {
       if (!(error instanceof Error)) return
 
