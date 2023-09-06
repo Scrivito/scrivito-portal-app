@@ -25,7 +25,7 @@ provideEditingConfig(SectionWidget, {
         { value: 'danger', title: 'Danger' },
       ],
     },
-    backgroundImage: {
+    background: {
       title: 'Background',
     },
     containerWidth: {
@@ -44,8 +44,8 @@ provideEditingConfig(SectionWidget, {
   },
   properties: (widget) => [
     'backgroundColor',
-    'backgroundImage',
-    ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
+    'background',
+    ['backgroundAnimateOnHover', { enabled: !!widget.get('background') }],
     'containerWidth',
     'showPadding',
   ],

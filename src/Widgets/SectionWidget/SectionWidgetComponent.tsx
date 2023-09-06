@@ -45,34 +45,31 @@ const ImageOrVideo = connect(function ImageOrVideo({
 }: {
   widget: InstanceType<typeof SectionWidget>
 }) {
-  const backgroundImage = widget.get('backgroundImage')
+  const background = widget.get('background')
   const backgroundImageClassNames = ['img-background']
   if (widget.get('backgroundAnimateOnHover')) {
     backgroundImageClassNames.push('img-zoom')
   }
 
   return (
-    backgroundImage &&
+    background &&
     // Check is a working around for issue #4767
     // TODO: remove work around
-    (backgroundImage.contentType().startsWith('video/') &&
-    backgroundImage.contentUrl().startsWith('https://') ? (
+    (background.contentType().startsWith('video/') &&
+    background.contentUrl().startsWith('https://') ? (
       <video
         className={backgroundImageClassNames.join(' ')}
         autoPlay
         loop
         muted
       >
-        <source
-          src={backgroundImage.contentUrl()}
-          type={backgroundImage.contentType()}
-        />
+        <source src={background.contentUrl()} type={background.contentType()} />
       </video>
     ) : (
       <InPlaceEditingOff>
         <ImageTag
           content={widget}
-          attribute="backgroundImage"
+          attribute="background"
           className={backgroundImageClassNames.join(' ')}
         />
       </InPlaceEditingOff>
