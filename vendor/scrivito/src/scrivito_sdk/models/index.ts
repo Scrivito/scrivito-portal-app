@@ -99,3 +99,4 @@ export {
 } from 'scrivito_sdk/models/content_versions';
 export { restrictToContent } from 'scrivito_sdk/models/restrict_to_content';
 export { Workspace } from 'scrivito_sdk/models/workspace';
+export { enableAutoConvertAttributes } from 'scrivito_sdk/models/auto_convert';

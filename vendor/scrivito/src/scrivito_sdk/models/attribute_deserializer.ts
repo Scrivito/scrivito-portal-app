@@ -20,6 +20,14 @@ import {
   Binary,
   getObjIncludingUnavailableFrom,
 } from 'scrivito_sdk/models';
+import {
+  autoConvertToLink,
+  autoConvertToLinklist,
+  autoConvertToList,
+  autoConvertToReference,
+  autoConvertToReferencelist,
+  autoConvertToSingle,
+} from 'scrivito_sdk/models/auto_convert';
 import { ContentValueProvider } from 'scrivito_sdk/models/basic_attribute_content';
 import { BasicAttributeValue } from 'scrivito_sdk/models/basic_attribute_types';
 import { objSpaceScopeExcludingDeleted } from 'scrivito_sdk/models/obj_space_scope_excluding_deleted';
@@ -50,27 +58,30 @@ export function deserialize(
     case 'datetime':
       return deserializeDateValue(value);
     case 'float':
-      return deserializeFloatValue(value);
+      return deserializeFloatValue(autoConvertToSingle(value));
     case 'enum':
-      return deserializeEnumValue(value, typeInfo);
+      return deserializeEnumValue(autoConvertToSingle(value), typeInfo);
     case 'html':
-      return deserializeHtmlOrStringValue(value);
+      return deserializeHtmlOrStringValue(autoConvertToSingle(value));
     case 'integer':
-      return deserializeIntegerValue(value);
+      return deserializeIntegerValue(autoConvertToSingle(value));
     case 'link':
-      return deserializeLinkValue(value);
+      return deserializeLinkValue(autoConvertToLink(value));
     case 'linklist':
-      return deserializeLinklistValue(value);
+      return deserializeLinklistValue(autoConvertToLinklist(value));
     case 'multienum':
-      return deserializeMultienumValue(value, typeInfo);
+      return deserializeMultienumValue(autoConvertToList(value), typeInfo);
     case 'reference':
-      return deserializeReferenceValue(value, model);
+      return deserializeReferenceValue(autoConvertToReference(value), model);
     case 'referencelist':
-      return deserializeReferencelistValue(value, model);
+      return deserializeReferencelistValue(
+        autoConvertToReferencelist(value),
+        model
+      );
     case 'string':
-      return deserializeHtmlOrStringValue(value);
+      return deserializeHtmlOrStringValue(autoConvertToSingle(value));
     case 'stringlist':
-      return deserializeStringlistValue(value);
+      return deserializeStringlistValue(autoConvertToList(value));
     case 'widget':
       return deserializeWidgetValue(value, model);
     case 'widgetlist':

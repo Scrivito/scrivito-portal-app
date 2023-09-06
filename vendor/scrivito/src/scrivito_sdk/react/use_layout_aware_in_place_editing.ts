@@ -9,6 +9,8 @@ export function useLayoutAwareInPlaceEditing(): boolean {
   const isInsideLayoutContext = React.useContext(IsInsideLayoutContext);
 
   return (
-    inPlaceEditingEnabled && isInsideLayoutContext === isLayoutEditingActive()
+    inPlaceEditingEnabled &&
+    (isLayoutEditingActive() === null ||
+      isInsideLayoutContext === isLayoutEditingActive())
   );
 }
