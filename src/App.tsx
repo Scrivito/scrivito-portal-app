@@ -7,6 +7,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
 import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
+import { Toasts } from './Components/Toasts'
 
 export const helmetContext = {}
 
@@ -19,6 +20,7 @@ export function App() {
           <NotFoundErrorPage />
         </ScrivitoNotFoundErrorPage>
         <CurrentPageMetadata />
+        <Toasts />
       </ErrorBoundary>
     </HelmetProvider>
   )
