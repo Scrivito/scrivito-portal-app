@@ -5,6 +5,13 @@ import { DataFormSubmitButtonWidget } from '../DataFormSubmitButtonWidget/DataFo
 
 provideEditingConfig(DataFormContainerWidget, {
   title: 'Data Form',
+  attributes: {
+    redirectAfterCreate: {
+      title: 'Redirect after create',
+      description: 'If no item is set, the parent of the current obj is used.',
+    },
+  },
+  properties: ['redirectAfterCreate'],
   initialContent: {
     content: [
       new DataFormInputFieldWidget({}),

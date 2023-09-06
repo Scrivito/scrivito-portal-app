@@ -1,5 +1,6 @@
 import {
   ContentTag,
+  navigateTo,
   provideComponent,
   useDataItem,
   // @ts-expect-error TODO: remove once officially released
@@ -17,6 +18,8 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [keyCounter, setKeyCounter] = useState(0)
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
+  const redirectAfterCreate =
+    widget.get('redirectAfterCreate') || widget.obj().parent()
 
   return (
     <form
@@ -46,6 +49,8 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
         await dataItem.update(attributes)
       } else {
         await dataScope.create(attributes)
+
+        if (redirectAfterCreate) navigateTo(redirectAfterCreate)
       }
     } catch (error) {
       if (!(error instanceof Error)) return
