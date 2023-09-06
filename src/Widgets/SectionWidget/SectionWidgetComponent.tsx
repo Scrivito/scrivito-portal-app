@@ -53,6 +53,8 @@ const ImageOrVideo = connect(function ImageOrVideo({
 
   return (
     backgroundImage &&
+    // Check is a working around for issue #4767
+    // TODO: remove work around
     (backgroundImage.contentType().startsWith('video/') &&
     backgroundImage.contentUrl().startsWith('https://') ? (
       <video
