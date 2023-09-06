@@ -28,7 +28,7 @@ provideComponent(FormInputFieldWidget, ({ widget }) => {
       {widget.get('required') ? (
         <OverlayTrigger
           placement="top"
-          trigger="hover"
+          trigger={['hover', 'focus']}
           overlay={
             <Popover>
               <Popover.Body>mandatory</Popover.Body>
@@ -42,7 +42,7 @@ provideComponent(FormInputFieldWidget, ({ widget }) => {
       {widget.get('helpText') ? (
         <OverlayTrigger
           placement="top"
-          trigger="hover"
+          trigger={['hover', 'focus']}
           overlay={
             <Popover>
               <Popover.Body>
