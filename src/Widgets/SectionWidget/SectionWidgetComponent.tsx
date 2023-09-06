@@ -46,9 +46,9 @@ const ImageOrVideo = connect(function ImageOrVideo({
   widget: InstanceType<typeof SectionWidget>
 }) {
   const background = widget.get('background')
-  const backgroundImageClassNames = ['img-background']
+  const classNames = ['img-background']
   if (widget.get('backgroundAnimateOnHover')) {
-    backgroundImageClassNames.push('img-zoom')
+    classNames.push('img-zoom')
   }
 
   return (
@@ -57,12 +57,7 @@ const ImageOrVideo = connect(function ImageOrVideo({
     // TODO: remove work around
     (background.contentType().startsWith('video/') &&
     background.contentUrl().startsWith('https://') ? (
-      <video
-        className={backgroundImageClassNames.join(' ')}
-        autoPlay
-        loop
-        muted
-      >
+      <video className={classNames.join(' ')} autoPlay loop muted>
         <source src={background.contentUrl()} type={background.contentType()} />
       </video>
     ) : (
@@ -70,7 +65,7 @@ const ImageOrVideo = connect(function ImageOrVideo({
         <ImageTag
           content={widget}
           attribute="background"
-          className={backgroundImageClassNames.join(' ')}
+          className={classNames.join(' ')}
         />
       </InPlaceEditingOff>
     ))
