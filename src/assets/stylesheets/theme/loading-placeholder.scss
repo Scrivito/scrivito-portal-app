@@ -161,3 +161,11 @@ $loading-placeholder-delay: 1s;
 .btn .loading-placeholder {
   min-height: 21px;
 }
+
+/* loading */
+.form-loading,
+.btn-loading {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
