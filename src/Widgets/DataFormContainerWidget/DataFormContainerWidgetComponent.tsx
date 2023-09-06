@@ -1,5 +1,6 @@
 import { ContentTag, provideComponent, useDataItem } from 'scrivito'
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
+import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
@@ -34,8 +35,20 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       new FormData(formRef.current).entries(),
     )
 
-    await dataItem.update(attributes)
-    setIsSubmitting(false)
+    try {
+      await dataItem.update(attributes)
+    } catch (error) {
+      if (!(error instanceof Error)) return
+
+      toast.error(
+        <div>
+          <h6>{error.message}</h6>
+          <p>We&apos;re sorry for the inconvenience.</p>
+        </div>,
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   function onReset(e: React.FormEvent) {
