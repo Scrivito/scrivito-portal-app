@@ -9,6 +9,7 @@ import {
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
+import { snakeCase } from 'lodash-es'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -18,8 +19,10 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [keyCounter, setKeyCounter] = useState(0)
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
+
   const redirectAfterCreate =
     widget.get('redirectAfterCreate') || widget.obj().parent()
+  const createdMessage = widget.get('createdMessage')
 
   return (
     <form
@@ -48,9 +51,18 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       if (dataItem) {
         await dataItem.update(attributes)
       } else {
-        await dataScope.create(attributes)
+        const createdItem = await dataScope.create(attributes)
 
-        if (redirectAfterCreate) navigateTo(redirectAfterCreate)
+        if (createdMessage) toast.success(createdMessage)
+
+        if (redirectAfterCreate)
+          // TODO: Remove this work around once #10212 is resolved
+          navigateTo(redirectAfterCreate, {
+            params: {
+              [`${snakeCase(createdItem.dataClass().name())}_id`]:
+                createdItem.id(),
+            },
+          })
       }
     } catch (error) {
       if (!(error instanceof Error)) return

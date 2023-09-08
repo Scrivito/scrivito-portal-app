@@ -6,6 +6,7 @@ export const DataFormContainerWidget = provideWidgetClass(
     attributes: {
       content: 'widgetlist',
       redirectAfterCreate: 'reference',
+      createdMessage: 'string',
     },
   },
 )
