@@ -10,8 +10,13 @@ provideEditingConfig(DataFormContainerWidget, {
       title: 'Redirect after create',
       description: 'If no item is set, the parent of the current obj is used.',
     },
+    createdMessage: {
+      title: 'Created message',
+      description:
+        'This message is shown in a toast, once the user submitted a new item.',
+    },
   },
-  properties: ['redirectAfterCreate'],
+  properties: ['redirectAfterCreate', 'createdMessage'],
   initialContent: {
     content: [
       new DataFormInputFieldWidget({}),
