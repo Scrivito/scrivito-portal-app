@@ -68,6 +68,7 @@ import {
   unwrapAppClass,
 } from 'scrivito_sdk/realm';
 import type { ForcedEditorLanguage } from 'scrivito_sdk/ui_interface/app_adapter';
+import { setConfiguredTenant } from './configured_tenant';
 import {
   ConstraintsValidationCallback,
   setConstraintsValidationCallback,
@@ -287,6 +288,8 @@ function configureWithoutUi(
   }: Configuration
 ) {
   if (optimizedWidgetLoading) configureForLazyWidgets(true);
+
+  setConfiguredTenant(tenant);
 
   configureCmsRestApi({
     endpoint,

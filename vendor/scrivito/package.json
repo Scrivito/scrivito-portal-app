@@ -28,5 +28,5 @@
   "repository": "github:Scrivito/scrivito_sdk_js",
   "license": "LGPL-3.0",
   "types": "types/scrivito.d.ts",
-  "version": "1.29.0.dev-1-g803f3f8762d0"
+  "version": "1.29.0.dev-1-g089fb9d5c503"
 }
