@@ -4021,7 +4021,7 @@ class ClientError extends common/* ScrivitoError */.Ix {
 ;// CONCATENATED MODULE: ./scrivito_sdk/client/get_client_version.ts
 
 function getClientVersion() {
-  const clientVersion = "jssdk/1.29.0.dev-1-g803f3f8762d0";
+  const clientVersion = "jssdk/1.29.0.dev-1-g089fb9d5c503";
   if (!clientVersion)
     throw new common/* InternalError */.AQ();
   return clientVersion;
@@ -5718,7 +5718,7 @@ function runAndCatchException(fn) {
 ;// CONCATENATED MODULE: ./scrivito_sdk/common/get_scrivito_version.ts
 
 function getScrivitoVersion() {
-  const version = "1.29.0.dev-1-g803f3f8762d0";
+  const version = "1.29.0.dev-1-g089fb9d5c503";
   if (!version) {
     throw new InternalError();
   }
@@ -20431,7 +20431,7 @@ function getConfiguredTenant() {
 }
 function setConfiguredTenant(tenant) {
   if (tenantStored)
-    throw new InternalError();
+    throw new common/* InternalError */.AQ();
   configuredTenant = tenant;
   tenantStored = true;
 }
@@ -20809,6 +20809,7 @@ var constraints_validation_callback = __webpack_require__(8138);
 
 
 
+
 const OriginValue = common/* tcomb.refinement */.pC.refinement(
   common/* tcomb.String */.pC.String,
   (v) => external_urijs_(v).origin() === v,
@@ -20950,6 +20951,7 @@ function configureWithoutUi(endpoint, tenant, {
 }) {
   if (optimizedWidgetLoading)
     (0,data/* configureForLazyWidgets */.gU)(true);
+  setConfiguredTenant(tenant);
   configureCmsRestApi({
     endpoint,
     tenant,
