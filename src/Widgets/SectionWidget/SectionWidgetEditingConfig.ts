@@ -26,7 +26,7 @@ provideEditingConfig(SectionWidget, {
       ],
     },
     backgroundImage: {
-      title: 'Background',
+      title: 'Background image or video',
     },
     containerWidth: {
       title: 'Container width',
