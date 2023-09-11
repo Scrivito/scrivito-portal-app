@@ -45,13 +45,11 @@ const ImageOrVideo = connect(function ImageOrVideo({
 }: {
   widget: InstanceType<typeof SectionWidget>
 }) {
-  const background = widget.get('background')
+  const background = widget.get('backgroundImage')
   if (!background) return null
 
   const classNames = ['img-background']
-  if (widget.get('backgroundAnimateOnHover')) {
-    classNames.push('img-zoom')
-  }
+  if (widget.get('backgroundAnimateOnHover')) classNames.push('img-zoom')
 
   return (
     // Check is a working around for issue #4767
@@ -65,7 +63,7 @@ const ImageOrVideo = connect(function ImageOrVideo({
       <InPlaceEditingOff>
         <ImageTag
           content={widget}
-          attribute="background"
+          attribute="backgroundImage"
           className={classNames.join(' ')}
         />
       </InPlaceEditingOff>
