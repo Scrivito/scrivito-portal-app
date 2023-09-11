@@ -25,6 +25,7 @@
     "speakingurl": "^14.0.1"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230904.0",
     "@types/lodash-es": "^4.17.8",
     "@types/node": "^20.5.4",
     "@types/react": "^18.2.21",

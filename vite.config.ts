@@ -36,6 +36,14 @@ export default defineConfig(({ mode }) => {
     server: {
       port: 8080,
       strictPort: true,
+      proxy: {
+        '/jr-api': {
+          target: 'https://api.justrelate.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/jr-api/, ''),
+          headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
+        },
+      },
     },
     optimizeDeps: {
       include: ['scrivito'],
