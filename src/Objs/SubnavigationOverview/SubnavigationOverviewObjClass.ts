@@ -9,6 +9,7 @@ export const SubnavigationOverview = provideObjClass('SubnavigationOverview', {
     showTopContentSection: 'boolean',
     title: 'string',
     topContentSection: 'widgetlist',
+    requireUserLogin: 'boolean',
   },
   extractTextAttributes: ['body'],
 })
