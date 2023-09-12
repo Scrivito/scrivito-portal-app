@@ -1,5 +1,3 @@
-import { InternalError } from 'scrivito_sdk/common';
-
 let tenantStored = false;
 let configuredTenant: string | undefined;
 
@@ -10,7 +8,6 @@ export function getConfiguredTenant(): string | undefined {
 export function setConfiguredTenant(tenant: string | undefined): void {
   /* in a multi-tenancy application like the Scrivito UI,
   this could even be a security-critical error, so take care! */
-  if (tenantStored) throw new InternalError();
 
   configuredTenant = tenant;
   tenantStored = true;
