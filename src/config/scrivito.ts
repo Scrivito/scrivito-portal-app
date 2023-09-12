@@ -10,7 +10,6 @@ export function configureScrivito() {
     jrRestApiEndpoint: `${window.location.origin}/jr-api`,
     // @ts-expect-error // TODO: Remove later on
     unstable: {
-      assetUrlBase: '/scrivito',
       trustedUiOrigins: [
         'http://localhost:8090',
         'https://*.netlify.app',

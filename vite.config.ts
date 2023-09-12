@@ -13,9 +13,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     build: {
-      commonjsOptions: {
-        include: [/scrivito/, /node_modules/],
-      },
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
@@ -44,9 +41,6 @@ export default defineConfig(({ mode }) => {
           headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
         },
       },
-    },
-    optimizeDeps: {
-      include: ['scrivito'],
     },
   }
 })
