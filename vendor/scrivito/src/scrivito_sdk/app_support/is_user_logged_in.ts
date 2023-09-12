@@ -24,6 +24,8 @@ let isUserLoggedInCache: boolean | undefined;
 
 /** @public */
 export function isUserLoggedIn(): boolean {
+  if (uiAdapter) return true;
+
   const isLoggedIn = checkIsUserLoggedIn();
   if (isLoggedIn) startPollingLoggedUser();
 
@@ -31,7 +33,6 @@ export function isUserLoggedIn(): boolean {
 }
 
 function checkIsUserLoggedIn() {
-  if (uiAdapter) return true;
   if (!isUserLoggedInCached()) return false;
 
   verifyUserIsLoggedIn();

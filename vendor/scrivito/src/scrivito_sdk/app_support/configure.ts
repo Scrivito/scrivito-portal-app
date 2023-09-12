@@ -14,6 +14,7 @@ import {
 } from 'scrivito_sdk/app_support/default_cms_endpoint';
 import { setExtensionsUrl } from 'scrivito_sdk/app_support/extensions_url';
 import { setForcedEditorLanguage } from 'scrivito_sdk/app_support/forced_editor_language';
+import { enableLayoutEditing } from 'scrivito_sdk/app_support/layout_editing';
 import { loadEditingAssets } from 'scrivito_sdk/app_support/load_editing_assets';
 import { initRouting } from 'scrivito_sdk/app_support/routing';
 import { SiteMappingConfiguration } from 'scrivito_sdk/app_support/site_mapping';
@@ -107,6 +108,7 @@ export interface Configuration {
     getSiteIdForObj?: SiteIdForObjCallback;
     useRailsAuth?: boolean;
     trustedUiOrigins?: string[];
+    layoutEditing?: true;
   };
 }
 
@@ -179,9 +181,9 @@ export function configure(
 
   setConfiguration(configuration);
 
-  const inofficialConfiguration = configuration.unstable;
+  const unofficialConfiguration = configuration.unstable;
 
-  const getUnstableSiteIdForObj = inofficialConfiguration?.getSiteIdForObj;
+  const getUnstableSiteIdForObj = unofficialConfiguration?.getSiteIdForObj;
   if (getUnstableSiteIdForObj) {
     setUnstableMultiSiteMode(getUnstableSiteIdForObj);
   }
@@ -192,6 +194,7 @@ export function configure(
     disableObjReplication();
   } else {
     const tenant = configuration.tenant;
+    setConfiguredTenant(tenant);
 
     const {
       jrRestApiEndpoint: configuredJrRestApiEndpoint,
@@ -204,7 +207,7 @@ export function configure(
     });
 
     configureAssetUrlBase(
-      inofficialConfiguration?.assetUrlBase ?? cdnAssetUrlBase()
+      unofficialConfiguration?.assetUrlBase ?? cdnAssetUrlBase()
     );
 
     setJrRestApiEndpoint(
@@ -238,6 +241,8 @@ export function configure(
   if (configuration.autoConvertAttributes) enableAutoConvertAttributes();
   setForcedEditorLanguage(configuration.editorLanguage || null);
   setExtensionsUrl(configuration.extensionsUrl || undefined);
+
+  if (unofficialConfiguration?.layoutEditing) enableLayoutEditing();
 }
 
 export function getConfiguration(): Promise<Configuration> {
@@ -288,8 +293,6 @@ function configureWithoutUi(
   }: Configuration
 ) {
   if (optimizedWidgetLoading) configureForLazyWidgets(true);
-
-  setConfiguredTenant(tenant);
 
   configureCmsRestApi({
     endpoint,

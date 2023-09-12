@@ -1341,6 +1341,40 @@ function initializeContentFromHook(content) {
 
 /***/ }),
 
+/***/ 8471:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Jc": () => (/* binding */ isPageEditable),
+/* harmony export */   "TP": () => (/* binding */ isLayoutEditable),
+/* harmony export */   "q6": () => (/* binding */ enableLayoutEditing)
+/* harmony export */ });
+/* unused harmony export resetLayoutEditing */
+/* harmony import */ var scrivito_sdk_app_support_ui_adapter__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9470);
+
+let isEnabled = false;
+function enableLayoutEditing() {
+  isEnabled = true;
+}
+function resetLayoutEditing() {
+  isEnabled = false;
+}
+function isLayoutEditable() {
+  var _a;
+  if (!isEnabled)
+    return true;
+  return !!((_a = scrivito_sdk_app_support_ui_adapter__WEBPACK_IMPORTED_MODULE_0__/* .uiAdapter */ .k) == null ? void 0 : _a.isLayoutEditable());
+}
+function isPageEditable() {
+  var _a;
+  if (!isEnabled)
+    return true;
+  return !!((_a = scrivito_sdk_app_support_ui_adapter__WEBPACK_IMPORTED_MODULE_0__/* .uiAdapter */ .k) == null ? void 0 : _a.isPageEditable());
+}
+
+
+/***/ }),
+
 /***/ 1320:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -4021,7 +4055,7 @@ class ClientError extends common/* ScrivitoError */.Ix {
 ;// CONCATENATED MODULE: ./scrivito_sdk/client/get_client_version.ts
 
 function getClientVersion() {
-  const clientVersion = "jssdk/1.29.0.dev-1-g089fb9d5c503";
+  const clientVersion = "jssdk/1.29.0.dev-1-g044488b051f8";
   if (!clientVersion)
     throw new common/* InternalError */.AQ();
   return clientVersion;
@@ -5718,7 +5752,7 @@ function runAndCatchException(fn) {
 ;// CONCATENATED MODULE: ./scrivito_sdk/common/get_scrivito_version.ts
 
 function getScrivitoVersion() {
-  const version = "1.29.0.dev-1-g089fb9d5c503";
+  const version = "1.29.0.dev-1-g044488b051f8";
   if (!version) {
     throw new InternalError();
   }
@@ -16316,8 +16350,8 @@ var scroll_into_view = __webpack_require__(180);
 var can_edit = __webpack_require__(7007);
 // EXTERNAL MODULE: ./scrivito_sdk/react/components/content_tag/widget_content.tsx
 var widget_content = __webpack_require__(630);
-// EXTERNAL MODULE: ./scrivito_sdk/react/use_layout_aware_in_place_editing.ts + 1 modules
-var use_layout_aware_in_place_editing = __webpack_require__(6375);
+// EXTERNAL MODULE: ./scrivito_sdk/react/use_layout_aware_in_place_editing.ts
+var use_layout_aware_in_place_editing = __webpack_require__(9765);
 ;// CONCATENATED MODULE: ./scrivito_sdk/react/components/content_tag/widget_value.tsx
 
 
@@ -17451,43 +17485,25 @@ function useDataLocator(dataLocator) {
 
 /***/ }),
 
-/***/ 6375:
+/***/ 9765:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "M": () => (/* binding */ useLayoutAwareInPlaceEditing)
-});
-
-// EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(9849);
-// EXTERNAL MODULE: ./scrivito_sdk/app_support/ui_adapter.ts
-var ui_adapter = __webpack_require__(9470);
-;// CONCATENATED MODULE: ./scrivito_sdk/app_support/layout_editing.ts
-
-function isLayoutEditingActive() {
-  if (!ui_adapter/* uiAdapter */.k)
-    return false;
-  const isActive = ui_adapter/* uiAdapter.isLayoutEditingActive */.k.isLayoutEditingActive();
-  if (isActive === void 0)
-    return false;
-  return isActive;
-}
-
-// EXTERNAL MODULE: ./scrivito_sdk/react/in_place_editing_enabled_context.ts
-var in_place_editing_enabled_context = __webpack_require__(6168);
-// EXTERNAL MODULE: ./scrivito_sdk/react/is_inside_layout_context.tsx
-var is_inside_layout_context = __webpack_require__(9909);
-;// CONCATENATED MODULE: ./scrivito_sdk/react/use_layout_aware_in_place_editing.ts
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "M": () => (/* binding */ useLayoutAwareInPlaceEditing)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9849);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var scrivito_sdk_app_support_layout_editing__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(8471);
+/* harmony import */ var scrivito_sdk_react_in_place_editing_enabled_context__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6168);
+/* harmony import */ var scrivito_sdk_react_is_inside_layout_context__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(9909);
 
 
 
 
 function useLayoutAwareInPlaceEditing() {
-  const inPlaceEditingEnabled = external_react_.useContext(in_place_editing_enabled_context/* InPlaceEditingEnabledContext */.q);
-  const isInsideLayoutContext = external_react_.useContext(is_inside_layout_context/* IsInsideLayoutContext */.d);
-  return inPlaceEditingEnabled && (isLayoutEditingActive() === null || isInsideLayoutContext === isLayoutEditingActive());
+  const inPlaceEditingEnabled = react__WEBPACK_IMPORTED_MODULE_0__.useContext(scrivito_sdk_react_in_place_editing_enabled_context__WEBPACK_IMPORTED_MODULE_1__/* .InPlaceEditingEnabledContext */ .q);
+  const isInsideLayoutContext = react__WEBPACK_IMPORTED_MODULE_0__.useContext(scrivito_sdk_react_is_inside_layout_context__WEBPACK_IMPORTED_MODULE_2__/* .IsInsideLayoutContext */ .d);
+  return inPlaceEditingEnabled && (isInsideLayoutContext && (0,scrivito_sdk_app_support_layout_editing__WEBPACK_IMPORTED_MODULE_3__/* .isLayoutEditable */ .TP)() || !isInsideLayoutContext && (0,scrivito_sdk_app_support_layout_editing__WEBPACK_IMPORTED_MODULE_3__/* .isPageEditable */ .Jc)());
 }
 
 
@@ -20423,15 +20439,12 @@ function currentEditor() {
 // EXTERNAL MODULE: ./scrivito_sdk/app_support/user.ts
 var user = __webpack_require__(1425);
 ;// CONCATENATED MODULE: ./scrivito_sdk/app_support/configured_tenant.ts
-
 let tenantStored = false;
 let configuredTenant;
 function getConfiguredTenant() {
   return configuredTenant;
 }
 function setConfiguredTenant(tenant) {
-  if (tenantStored)
-    throw new common/* InternalError */.AQ();
   configuredTenant = tenant;
   tenantStored = true;
 }
@@ -20577,14 +20590,14 @@ var is_user_logged_in_async = (__this, __arguments, generator) => {
 const IS_USER_LOGGED_IN_STORAGE_KEY = "SCRIVITO_IS_USER_LOGGED_IN";
 let isUserLoggedInCache;
 function isUserLoggedIn() {
+  if (ui_adapter/* uiAdapter */.k)
+    return true;
   const isLoggedIn = checkIsUserLoggedIn();
   if (isLoggedIn)
     startPollingLoggedUser();
   return isLoggedIn;
 }
 function checkIsUserLoggedIn() {
-  if (ui_adapter/* uiAdapter */.k)
-    return true;
   if (!isUserLoggedInCached())
     return false;
   verifyUserIsLoggedIn();
@@ -20697,6 +20710,8 @@ function getJrRestApiDefaultEndpoint() {
 var extensions_url = __webpack_require__(7651);
 // EXTERNAL MODULE: ./scrivito_sdk/app_support/forced_editor_language.ts
 var forced_editor_language = __webpack_require__(5893);
+// EXTERNAL MODULE: ./scrivito_sdk/app_support/layout_editing.ts
+var layout_editing = __webpack_require__(8471);
 ;// CONCATENATED MODULE: ./scrivito_sdk/app_support/load_editing_assets.ts
 
 
@@ -20810,6 +20825,7 @@ var constraints_validation_callback = __webpack_require__(8138);
 
 
 
+
 const OriginValue = common/* tcomb.refinement */.pC.refinement(
   common/* tcomb.String */.pC.String,
   (v) => external_urijs_(v).origin() === v,
@@ -20866,8 +20882,8 @@ function configure(configuration, ...excessArgs) {
   }
   const routingConfiguration = getCheckedRoutingConfiguration(configuration);
   setConfiguration(configuration);
-  const inofficialConfiguration = configuration.unstable;
-  const getUnstableSiteIdForObj = inofficialConfiguration == null ? void 0 : inofficialConfiguration.getSiteIdForObj;
+  const unofficialConfiguration = configuration.unstable;
+  const getUnstableSiteIdForObj = unofficialConfiguration == null ? void 0 : unofficialConfiguration.getSiteIdForObj;
   if (getUnstableSiteIdForObj) {
     (0,unstable_multi_site_mode/* setUnstableMultiSiteMode */.NV)(getUnstableSiteIdForObj);
   }
@@ -20877,6 +20893,7 @@ function configure(configuration, ...excessArgs) {
     (0,data/* disableObjReplication */.Qc)();
   } else {
     const tenant = configuration.tenant;
+    setConfiguredTenant(tenant);
     const {
       jrRestApiEndpoint: configuredJrRestApiEndpoint,
       endpoint: configuredEndpoint
@@ -20886,7 +20903,7 @@ function configure(configuration, ...excessArgs) {
       configuredEndpoint
     });
     configureAssetUrlBase(
-      (_a = inofficialConfiguration == null ? void 0 : inofficialConfiguration.assetUrlBase) != null ? _a : cdnAssetUrlBase()
+      (_a = unofficialConfiguration == null ? void 0 : unofficialConfiguration.assetUrlBase) != null ? _a : cdnAssetUrlBase()
     );
     (0,client.setJrRestApiEndpoint)(
       configuration.jrRestApiEndpoint || getJrRestApiDefaultEndpoint()
@@ -20912,6 +20929,8 @@ function configure(configuration, ...excessArgs) {
     (0,models/* enableAutoConvertAttributes */.Lr)();
   (0,forced_editor_language/* setForcedEditorLanguage */.n)(configuration.editorLanguage || null);
   (0,extensions_url/* setExtensionsUrl */.W)(configuration.extensionsUrl || void 0);
+  if (unofficialConfiguration == null ? void 0 : unofficialConfiguration.layoutEditing)
+    (0,layout_editing/* enableLayoutEditing */.q6)();
 }
 function getConfiguration() {
   return configDeferred.promise;
@@ -20951,7 +20970,6 @@ function configureWithoutUi(endpoint, tenant, {
 }) {
   if (optimizedWidgetLoading)
     (0,data/* configureForLazyWidgets */.gU)(true);
-  setConfiguredTenant(tenant);
   configureCmsRestApi({
     endpoint,
     tenant,
@@ -21121,7 +21139,8 @@ const uiAdapterDescription = {
   currentEditingContext: bridge/* GET */.HT,
   getUiContext: bridge/* GET */.HT,
   getUiLanguage: bridge/* GET */.HT,
-  isLayoutEditingActive: bridge/* GET */.HT,
+  isLayoutEditable: bridge/* GET */.HT,
+  isPageEditable: bridge/* GET */.HT,
   getResolvedUrl: bridge/* GET */.HT,
   retrieveObjQuery: bridge/* SEND */.H8,
   retrieveFacetQuery: bridge/* SEND */.H8,

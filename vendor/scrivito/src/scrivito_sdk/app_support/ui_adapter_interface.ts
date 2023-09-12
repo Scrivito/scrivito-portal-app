@@ -31,7 +31,8 @@ export const uiAdapterDescription = {
   currentEditingContext: GET,
   getUiContext: GET,
   getUiLanguage: GET,
-  isLayoutEditingActive: GET,
+  isLayoutEditable: GET,
+  isPageEditable: GET,
 
   // LinkResolution methods
   getResolvedUrl: GET,
@@ -131,7 +132,8 @@ export interface UiAdapterInterface
   currentWorkspace(): WorkspaceData;
   getUiContext(): UiContext;
   getUiLanguage(): Locale | null;
-  isLayoutEditingActive(): boolean | null;
+  isLayoutEditable(): boolean;
+  isPageEditable(): boolean;
 }
 
 export interface TenantConfiguration {

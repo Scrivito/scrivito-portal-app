@@ -1,10 +1,24 @@
-import { uiAdapter } from './ui_adapter';
+import { uiAdapter } from 'scrivito_sdk/app_support/ui_adapter';
 
-export function isLayoutEditingActive(): boolean | null {
-  if (!uiAdapter) return false;
+// Since the layout editing feature is an experimental one, it is important to be able to remove the
+// corresponding UI adapter API at any point if we decide that we don't want this feature anymore.
+let isEnabled = false;
 
-  const isActive = uiAdapter.isLayoutEditingActive();
-  if (isActive === undefined) return false;
+export function enableLayoutEditing(): void {
+  isEnabled = true;
+}
 
-  return isActive;
+// For test purpose only
+export function resetLayoutEditing(): void {
+  isEnabled = false;
+}
+
+export function isLayoutEditable(): boolean {
+  if (!isEnabled) return true;
+  return !!uiAdapter?.isLayoutEditable();
+}
+
+export function isPageEditable(): boolean {
+  if (!isEnabled) return true;
+  return !!uiAdapter?.isPageEditable();
 }
