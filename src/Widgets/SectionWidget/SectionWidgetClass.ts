@@ -21,7 +21,7 @@ export const SectionWidget = provideWidgetClass('SectionWidget', {
         ],
       },
     ],
-    backgroundImage: ['reference', { only: ['Image'] }],
+    backgroundImage: ['reference', { only: ['Image', 'Video'] }],
     content: 'widgetlist',
     showPadding: 'boolean',
     containerWidth: [
