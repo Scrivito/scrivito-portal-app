@@ -1,5 +1,13 @@
-import { connect, isCurrentPage, LinkTag, ContentTag, Obj } from 'scrivito'
-import React from 'react'
+import {
+  connect,
+  isCurrentPage,
+  LinkTag,
+  ContentTag,
+  Obj,
+  isUserLoggedIn,
+  logout,
+  ensureUserIsLoggedIn,
+} from 'scrivito'
 import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
@@ -11,9 +19,6 @@ export const MetaNavigation = connect(function MetaNavigation({
 }: {
   widget: InstanceType<typeof NavigationWidget>
 }) {
-  // TODO: Use CurrentUserDataItem once available
-  const [loggedIn, setLoggedIn] = React.useState(false)
-
   const metaNavigationPortalOverview = widget.get(
     'metaNavigationPortalOverview',
   )
@@ -36,7 +41,7 @@ export const MetaNavigation = connect(function MetaNavigation({
 
       {showPortalNav && (
         <Nav className="border-left ms-auto">
-          {loggedIn ? (
+          {isUserLoggedIn() ? (
             <>
               <Nav.Item>
                 <Nav.Link
@@ -93,7 +98,7 @@ export const MetaNavigation = connect(function MetaNavigation({
                   eventKey="MetaNavigation-LogOut"
                   key="MetaNavigation-LogOut"
                   onClick={() => {
-                    setLoggedIn(false)
+                    logout()
                   }}
                   to={Obj.root()}
                 >
@@ -109,7 +114,7 @@ export const MetaNavigation = connect(function MetaNavigation({
                 eventKey={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                 key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                 onClick={() => {
-                  setLoggedIn(true)
+                  ensureUserIsLoggedIn()
                 }}
                 to={metaNavigationPortalOverview}
               >
