@@ -2,7 +2,7 @@ import {
   ChildListTag,
   connect,
   CurrentPage,
-  currentPage,
+  ensureUserIsLoggedIn,
   isCurrentPage,
   isOnCurrentPath,
   LinkTag,
@@ -16,6 +16,8 @@ import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
 import { Breadcrumb } from '../../Components/Breadcrumb'
 
 provideLayoutComponent(SubnavigationOverview, ({ page }) => {
+  if (page.get('requireUserLogin')) ensureUserIsLoggedIn()
+
   return (
     <>
       <section className="bg-light-grey py-2 hidden-xs">

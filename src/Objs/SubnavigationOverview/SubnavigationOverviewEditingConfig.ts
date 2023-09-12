@@ -19,11 +19,17 @@ provideEditingConfig(SubnavigationOverview, {
       description:
         'This section will be visible before the regular content and a potential sub-navigation',
     },
+    requireUserLogin: {
+      title: 'Require user login?',
+      description:
+        'Requires a user to be logged in for this page and all sub-pages',
+    },
   },
   properties: [
     'title',
     'hideInNavigation',
     'linkIcon',
     'showTopContentSection',
+    'requireUserLogin',
   ],
 })

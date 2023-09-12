@@ -1,12 +1,12 @@
-import { provideDataItem } from 'scrivito'
+import { currentUser, load, provideDataItem } from 'scrivito'
 
-export const CurrentUserDataItem = provideDataItem('CurrentUser', async () => ({
-  address: `Gartenstraße 10
-39104 Magdeburg
-Germany`,
-  customerId: '6504',
-  email: 'jane.smith@example.com',
-  jobTitle: 'CNC Machinist',
-  name: 'Jane Smith',
-  telephone: '+49 391 5976405',
-}))
+export const CurrentUserDataItem = provideDataItem('CurrentUser', async () => {
+  const user = await load(currentUser)
+  if (!user) return {}
+
+  return {
+    jrUserId: user.id(),
+    name: user.name(),
+    email: user.email(),
+  }
+})
