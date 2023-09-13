@@ -24,6 +24,20 @@
     width: 0;
     z-index: -1;
   }
+
+  @keyframes rotate-icon {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .rotate-icon {
+    display: inline-block;
+    animation: rotate-icon 2s linear 0s infinite;
+  }
 }
 
 .bg-dark-image,
