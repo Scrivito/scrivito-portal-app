@@ -5,6 +5,7 @@ import {
   ensureUserIsLoggedIn,
   isCurrentPage,
   isOnCurrentPath,
+  isUserLoggedIn,
   LinkTag,
   Obj,
   provideLayoutComponent,
@@ -16,7 +17,17 @@ import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
 import { Breadcrumb } from '../../Components/Breadcrumb'
 
 provideLayoutComponent(SubnavigationOverview, ({ page }) => {
-  if (page.get('requireUserLogin')) ensureUserIsLoggedIn()
+  if (page.get('requireUserLogin')) {
+    ensureUserIsLoggedIn()
+
+    if (!isUserLoggedIn()) {
+      return (
+        <div className="text-center">
+          <div className="loading-placeholder" />
+        </div>
+      )
+    }
+  }
 
   return (
     <>
