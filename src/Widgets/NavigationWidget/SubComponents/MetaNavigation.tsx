@@ -6,7 +6,6 @@ import {
   Obj,
   isUserLoggedIn,
   logout,
-  ensureUserIsLoggedIn,
 } from 'scrivito'
 import { NavigationWidget } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
@@ -114,9 +113,6 @@ export const MetaNavigation = connect(function MetaNavigation({
                 as={LinkTag}
                 eventKey={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
                 key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
-                onClick={() => {
-                  ensureUserIsLoggedIn()
-                }}
                 to={metaNavigationPortalOverview}
               >
                 <ObjIconAndTitle obj={metaNavigationPortalOverview} />
