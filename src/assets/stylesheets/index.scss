@@ -1072,11 +1072,13 @@ section:focus >,
   height: 36px;
   overflow: hidden;
   margin: -16px 0;
-  span {
+  span.user-title {
     display: block;
     line-height: 18px;
   }
   span.text-meta {
+    display: block;
+    line-height: 18px;
     color: var(--bs-primary);
     font-size: 9px;
     line-height: 12px;
