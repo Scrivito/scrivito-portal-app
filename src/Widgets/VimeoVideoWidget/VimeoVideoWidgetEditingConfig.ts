@@ -1,9 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
-import vimeoVideoWidgetIcon from '../../assets/images/vimeo_video_widget.svg'
 
 provideEditingConfig('VimeoVideoWidget', {
   title: 'Vimeo Video',
-  thumbnail: vimeoVideoWidgetIcon,
   attributes: {
     vimeoVideoId: {
       title: 'Vimeo video ID',
