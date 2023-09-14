@@ -57,7 +57,7 @@ provideComponent(FormCheckboxWidget, ({ widget }) => {
             </Popover>
           }
         >
-          <i className="fa fa-question-circle-o fa-1x ml-1"></i>
+          <i className="bi bi-question-circle"></i>
         </OverlayTrigger>
       ) : null}
     </div>

@@ -34,7 +34,10 @@ provideComponent(FormContainerWidget, ({ widget }) => {
   if (isSubmitting) {
     return (
       <div className="form-container-widget text-center">
-        <i className="fa fa-spin fa-spinner fa-2x" aria-hidden="true"></i>{' '}
+        <i
+          className="bi bi-arrow-repeat bi-2x rotate-icon"
+          aria-hidden="true"
+        ></i>{' '}
         <span className="text-super">{widget.get('submittingMessage')}</span>
       </div>
     )
@@ -43,7 +46,7 @@ provideComponent(FormContainerWidget, ({ widget }) => {
   if (successfullySent) {
     return (
       <div className="form-container-widget text-center">
-        <i className="fa fa-check fa-2x" aria-hidden="true"></i>{' '}
+        <i className="bi bi-check-lg bi-2x" aria-hidden="true"></i>{' '}
         <span className="text-super">{widget.get('submittedMessage')}</span>
       </div>
     )
@@ -52,7 +55,10 @@ provideComponent(FormContainerWidget, ({ widget }) => {
   if (submissionFailed) {
     return (
       <div className="form-container-widget text-center">
-        <i className="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>{' '}
+        <i
+          className="bi bi-exclamation-triangle-fill bi-2x"
+          aria-hidden="true"
+        ></i>{' '}
         <span className="text-super">{widget.get('failedMessage')}</span>
       </div>
     )
