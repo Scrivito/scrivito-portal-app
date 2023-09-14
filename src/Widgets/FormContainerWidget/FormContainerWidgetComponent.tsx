@@ -34,9 +34,10 @@ provideComponent(FormContainerWidget, ({ widget }) => {
   if (isSubmitting) {
     return (
       <div className="form-container-widget text-center">
-        <div className="rotate-icon">
-          <i className="bi bi-arrow-repeat bi-2x" aria-hidden="true"></i>
-        </div>{' '}
+        <i
+          className="bi bi-arrow-repeat bi-2x rotate-icon"
+          aria-hidden="true"
+        ></i>{' '}
         <span className="text-super">{widget.get('submittingMessage')}</span>
       </div>
     )
