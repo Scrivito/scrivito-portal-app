@@ -5,7 +5,7 @@ import { VimeoVideoWidget } from './VimeoVideoWidgetClass'
 
 provideComponent(VimeoVideoWidget, ({ widget }) => {
   const vimeoVideoId = widget.get('vimeoVideoId')
-  const aspectRatio = aspectRatioToFloat(widget.get('aspectRatio'))
+  const aspectRatioValue = widget.get('aspectRatio')
 
   if (!vimeoVideoId) {
     return (
@@ -16,12 +16,7 @@ provideComponent(VimeoVideoWidget, ({ widget }) => {
   }
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        paddingTop: `${100 / aspectRatio}%`,
-      }}
-    >
+    <div className={`aspect-ratio-${aspectRatioValue}`}>
       <iframe
         title="Vimeo Video Widget"
         src={`https://player.vimeo.com/video/${vimeoVideoId}?dnt=1`}
@@ -34,22 +29,3 @@ provideComponent(VimeoVideoWidget, ({ widget }) => {
     </div>
   )
 })
-
-function aspectRatioToFloat(aspectRatio: string | null) {
-  switch (aspectRatio) {
-    case '21:9':
-      return 21 / 9
-    case '16:9':
-      return 16 / 9
-    case '4:3':
-      return 4 / 3
-    case '1:1':
-      return 1
-    case '3:4':
-      return 3 / 4
-    case '9:16':
-      return 9 / 16
-    default:
-      return 16 / 9
-  }
-}
