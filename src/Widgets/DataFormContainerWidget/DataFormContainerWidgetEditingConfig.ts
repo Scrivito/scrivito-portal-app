@@ -6,17 +6,16 @@ import { DataFormSubmitButtonWidget } from '../DataFormSubmitButtonWidget/DataFo
 provideEditingConfig(DataFormContainerWidget, {
   title: 'Data Form',
   attributes: {
-    redirectAfterCreate: {
-      title: 'Redirect after create',
+    redirectAfterSubmit: {
+      title: 'Redirect after submit',
       description: 'If no item is set, the parent of the current obj is used.',
     },
-    createdMessage: {
-      title: 'Created message',
-      description:
-        'This message is shown in a toast, once the user submitted a new item.',
+    submittedMessage: {
+      title: 'Submitted message',
+      description: 'After submitting the form, the user will see this message.',
     },
   },
-  properties: ['redirectAfterCreate', 'createdMessage'],
+  properties: ['redirectAfterSubmit', 'submittedMessage'],
   initialContent: {
     content: [
       new DataFormInputFieldWidget({}),
