@@ -10,9 +10,7 @@ import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import { snakeCase } from 'lodash-es'
-
-// TODO: Remove once #10258 is resolved
-type DataItem = NonNullable<ReturnType<typeof useDataItem>>
+import type { DataItem } from '../../utils/additionalTypes'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
