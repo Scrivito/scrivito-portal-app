@@ -11,6 +11,9 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import { snakeCase } from 'lodash-es'
 
+// TODO: Remove once #10258 is resolved
+type DataItem = NonNullable<ReturnType<typeof useDataItem>>
+
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
   const dataScope = useDataScope()
@@ -20,9 +23,9 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const [keyCounter, setKeyCounter] = useState(0)
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
 
-  const redirectAfterCreate =
-    widget.get('redirectAfterCreate') || widget.obj().parent()
-  const createdMessage = widget.get('createdMessage')
+  const redirectAfterSubmit =
+    widget.get('redirectAfterSubmit') || widget.obj().parent()
+  const submittedMessage = widget.get('submittedMessage')
 
   return (
     <form
@@ -50,19 +53,10 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     try {
       if (dataItem) {
         await dataItem.update(attributes)
+        toastAndRedirect(dataItem)
       } else {
         const createdItem = await dataScope.create(attributes)
-
-        if (createdMessage) toast.success(createdMessage)
-
-        if (redirectAfterCreate)
-          // TODO: Remove this work around once #10212 is resolved
-          navigateTo(redirectAfterCreate, {
-            params: {
-              [`${snakeCase(createdItem.dataClass().name())}_id`]:
-                createdItem.id(),
-            },
-          })
+        toastAndRedirect(createdItem)
       }
     } catch (error) {
       if (!(error instanceof Error)) return
@@ -83,5 +77,18 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     e.stopPropagation()
 
     setKeyCounter((k) => k + 1)
+  }
+
+  function toastAndRedirect(targetDataItem: DataItem) {
+    if (submittedMessage) toast.success(submittedMessage)
+
+    if (redirectAfterSubmit)
+      // TODO: Remove this work around once #10212 is resolved
+      navigateTo(redirectAfterSubmit, {
+        params: {
+          [`${snakeCase(targetDataItem.dataClass().name())}_id`]:
+            targetDataItem.id(),
+        },
+      })
   }
 })
