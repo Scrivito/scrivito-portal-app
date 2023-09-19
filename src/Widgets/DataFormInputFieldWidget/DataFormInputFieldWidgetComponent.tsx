@@ -1,6 +1,7 @@
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   ContentTag,
+  InPlaceEditingOff,
   isInPlaceEditingActive,
   provideComponent,
   useDataItem,
@@ -32,6 +33,23 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           }
         >
           <span className="text-mandatory">*</span>
+        </OverlayTrigger>
+      ) : null}
+
+      {widget.get('helpText') ? (
+        <OverlayTrigger
+          placement="top"
+          overlay={
+            <Popover>
+              <Popover.Body>
+                <InPlaceEditingOff>
+                  <ContentTag content={widget} attribute="helpText" />
+                </InPlaceEditingOff>
+              </Popover.Body>
+            </Popover>
+          }
+        >
+          <i className="bi bi-question-circle"></i>
         </OverlayTrigger>
       ) : null}
 

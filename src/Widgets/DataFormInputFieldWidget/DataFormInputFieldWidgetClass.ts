@@ -7,6 +7,7 @@ export const DataFormInputFieldWidget = provideWidgetClass(
       attributeName: 'string',
       label: 'string',
       required: 'boolean',
+      helpText: 'html',
       type: ['enum', { values: ['single_line', 'multi_line'] }],
     },
   },

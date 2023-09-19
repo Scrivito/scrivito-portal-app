@@ -15,8 +15,9 @@ provideEditingConfig(DataFormInputFieldWidget, {
         { value: 'multi_line', title: 'Multi line' },
       ],
     },
+    helpText: { title: 'Help text' },
   },
-  properties: ['attributeName', 'type', 'required'],
+  properties: ['attributeName', 'type', 'required', 'helpText'],
   initialContent: {
     type: 'single_line',
   },
