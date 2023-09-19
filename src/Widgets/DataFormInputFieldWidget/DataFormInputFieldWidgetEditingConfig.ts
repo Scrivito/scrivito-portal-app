@@ -7,6 +7,7 @@ provideEditingConfig(DataFormInputFieldWidget, {
     attributeName: {
       title: 'Name of the data attribute in question',
     },
+    required: { title: 'Mandatory' },
     type: {
       title: 'Type of the input',
       values: [

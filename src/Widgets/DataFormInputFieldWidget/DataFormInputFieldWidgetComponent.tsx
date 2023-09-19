@@ -1,3 +1,4 @@
+import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   ContentTag,
   isInPlaceEditingActive,
@@ -21,6 +22,19 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
         className="form-label"
         htmlFor={isInPlaceEditingActive() ? undefined : key}
       />
+      {widget.get('required') ? (
+        <OverlayTrigger
+          placement="top"
+          overlay={
+            <Popover>
+              <Popover.Body>mandatory</Popover.Body>
+            </Popover>
+          }
+        >
+          <span className="text-mandatory">*</span>
+        </OverlayTrigger>
+      ) : null}
+
       {widget.get('type') === 'multi_line' ? (
         <textarea
           className="form-control"
@@ -28,6 +42,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           name={attributeName}
           rows={3}
           defaultValue={getDefaultValue()}
+          required={widget.get('required')}
         />
       ) : (
         <input
@@ -37,6 +52,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           defaultValue={getDefaultValue()}
           maxLength={250}
           type="text"
+          required={widget.get('required')}
         />
       )}
     </div>
