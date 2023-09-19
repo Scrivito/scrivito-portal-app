@@ -17,8 +17,16 @@ provideEditingConfig(DataFormInputFieldWidget, {
     },
     helpText: { title: 'Help text' },
   },
-  properties: ['attributeName', 'type', 'placeholder', 'required', 'helpText'],
+  properties: [
+    'attributeName',
+    'type',
+    'label',
+    'placeholder',
+    'required',
+    'helpText',
+  ],
   initialContent: {
+    label: 'Custom field',
     placeholder: 'Your custom field',
     type: 'single_line',
   },
