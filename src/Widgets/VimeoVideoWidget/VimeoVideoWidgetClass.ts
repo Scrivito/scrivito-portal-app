@@ -5,7 +5,7 @@ export const VimeoVideoWidget = provideWidgetClass('VimeoVideoWidget', {
     vimeoVideoId: 'string',
     aspectRatio: [
       'enum',
-      { values: ['2to9', '16to9', '4to3', '1to1', '3to4', '9to16'] },
+      { values: ['21to9', '16to9', '4to3', '1to1', '3to4', '9to16'] },
     ],
   },
 })
