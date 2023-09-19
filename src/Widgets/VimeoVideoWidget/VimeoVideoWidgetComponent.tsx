@@ -5,7 +5,7 @@ import { VimeoVideoWidget } from './VimeoVideoWidgetClass'
 
 provideComponent(VimeoVideoWidget, ({ widget }) => {
   const vimeoVideoId = widget.get('vimeoVideoId')
-  const aspectRatioValue = widget.get('aspectRatio')
+  const aspectRatioValue = widget.get('aspectRatio') || '16to9'
 
   if (!vimeoVideoId) {
     return (
