@@ -16,7 +16,7 @@ provideComponent(VimeoVideoWidget, ({ widget }) => {
   }
 
   return (
-    <div className={`aspect-ratio-${aspectRatioValue}`}>
+    <div className={`vimeo-video-widget aspect-ratio-${aspectRatioValue}`}>
       <iframe
         title="Vimeo Video Widget"
         src={`https://player.vimeo.com/video/${vimeoVideoId}?dnt=1`}
