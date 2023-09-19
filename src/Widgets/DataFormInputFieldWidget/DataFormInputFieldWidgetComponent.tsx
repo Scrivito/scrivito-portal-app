@@ -60,6 +60,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           name={attributeName}
           rows={3}
           defaultValue={getDefaultValue()}
+          placeholder={widget.get('placeholder')}
           required={widget.get('required')}
         />
       ) : (
@@ -69,6 +70,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           name={attributeName}
           defaultValue={getDefaultValue()}
           maxLength={250}
+          placeholder={widget.get('placeholder')}
           type="text"
           required={widget.get('required')}
         />
