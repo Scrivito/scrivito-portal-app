@@ -8,28 +8,43 @@ import {
   connect,
   Link,
   useDataItem,
+  WidgetTag,
 } from 'scrivito'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget } from './ImageWidgetClass'
+import './ImageWidget.scss'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const dataItem = useDataItem()
   let image: JSX.Element | null = null
   const alt = alternativeText(widget)
 
+  const imgClassName = widget.get('roundCorners')
+    ? 'rounded-corners'
+    : undefined
+
   if (widget.get('imageFromDataItem')) {
     const src = dataItem?.get(widget.get('dataItemAttributeName'))
     if (typeof src === 'string' && !!src) {
-      image = <img src={src} alt={alt} />
+      image = <img src={src} alt={alt} className={imgClassName} />
     }
   } else {
-    image = <ImageTag alt={alt} attribute="image" content={widget} />
+    image = (
+      <ImageTag
+        alt={alt}
+        className={imgClassName}
+        attribute="image"
+        content={widget}
+      />
+    )
   }
 
   return (
-    <div className={alignmentClassName(widget.get('alignment'))}>
+    <WidgetTag
+      className={`image-widget ${alignmentClassName(widget.get('alignment'))}`}
+    >
       <LinkWrapper link={widget.get('link')}>{image}</LinkWrapper>
-    </div>
+    </WidgetTag>
   )
 })
 
