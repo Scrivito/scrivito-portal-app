@@ -5,12 +5,14 @@ import {
   LinkTag,
   Widget,
   Obj,
+  connect,
+  Link,
 } from 'scrivito'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget } from './ImageWidgetClass'
 
 provideComponent(ImageWidget, ({ widget }) => {
-  let image = (
+  const image = (
     <ImageTag
       alt={alternativeText(widget)}
       attribute="image"
@@ -18,13 +20,10 @@ provideComponent(ImageWidget, ({ widget }) => {
     />
   )
 
-  const link = widget.get('link')
-  if (link && !isInPlaceEditingActive()) {
-    image = <LinkTag to={link}>{image}</LinkTag>
-  }
-
   return (
-    <div className={alignmentClassName(widget.get('alignment'))}>{image}</div>
+    <div className={alignmentClassName(widget.get('alignment'))}>
+      <LinkWrapper link={widget.get('link')}>{image}</LinkWrapper>
+    </div>
   )
 })
 
@@ -42,3 +41,16 @@ function alternativeText(widget: Widget): string {
 
   return ''
 }
+
+const LinkWrapper = connect(function LinkWrapper({
+  link,
+  children,
+}: {
+  link: Link | null
+  children: React.ReactNode
+}) {
+  if (isInPlaceEditingActive()) return children
+  if (!link) return children
+
+  return <LinkTag to={link}>{children}</LinkTag>
+})
