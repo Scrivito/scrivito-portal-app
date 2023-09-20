@@ -1,5 +1,6 @@
 import {
   ContentTag,
+  WidgetTag,
   navigateTo,
   provideComponent,
   useDataItem,
@@ -11,6 +12,7 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import { snakeCase } from 'lodash-es'
 import type { DataItem } from '../../utils/additionalTypes'
+import './DataFormContainerWidget.scss'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -26,16 +28,18 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const submittedMessage = widget.get('submittedMessage')
 
   return (
-    <form
-      ref={formRef}
-      key={key}
-      onSubmit={onSubmit}
-      onReset={onReset}
-      className={isSubmitting ? 'form-loading' : ''}
-    >
-      <ContentTag content={widget} attribute="content" />
-      {isSubmitting && <div className="loader" />}
-    </form>
+    <WidgetTag className="data-form-container-widget">
+      <form
+        ref={formRef}
+        key={key}
+        onSubmit={onSubmit}
+        onReset={onReset}
+        className={isSubmitting ? 'form-loading' : ''}
+      >
+        <ContentTag content={widget} attribute="content" />
+        {isSubmitting && <div className="loader" />}
+      </form>
+    </WidgetTag>
   )
 
   async function onSubmit(e: React.FormEvent) {
