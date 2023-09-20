@@ -37,20 +37,23 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
       ) : null}
 
       {widget.get('helpText') ? (
-        <OverlayTrigger
-          placement="top"
-          overlay={
-            <Popover>
-              <Popover.Body>
-                <InPlaceEditingOff>
-                  <ContentTag content={widget} attribute="helpText" />
-                </InPlaceEditingOff>
-              </Popover.Body>
-            </Popover>
-          }
-        >
-          <i className="bi bi-question-circle"></i>
-        </OverlayTrigger>
+        <>
+          {' '}
+          <OverlayTrigger
+            placement="top"
+            overlay={
+              <Popover>
+                <Popover.Body>
+                  <InPlaceEditingOff>
+                    <ContentTag content={widget} attribute="helpText" />
+                  </InPlaceEditingOff>
+                </Popover.Body>
+              </Popover>
+            }
+          >
+            <i className="bi bi-question-circle"></i>
+          </OverlayTrigger>
+        </>
       ) : null}
 
       {widget.get('type') === 'multi_line' ? (
