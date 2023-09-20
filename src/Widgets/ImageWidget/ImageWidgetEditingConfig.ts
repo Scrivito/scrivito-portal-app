@@ -29,11 +29,15 @@ provideEditingConfig(ImageWidget, {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
     },
+    roundCorners: {
+      title: 'Round corners?',
+    },
   },
   properties: (widget) => [
     'alignment',
     'alternativeText',
     'link',
+    'roundCorners',
     'imageFromDataItem',
     ['dataItemAttributeName', { enabled: widget.get('imageFromDataItem') }],
   ],
