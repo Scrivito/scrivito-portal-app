@@ -1,14 +1,10 @@
-// Styles for FormContainerWidget
-@import '../../assets/stylesheets/bs5/functions';
-@import '../../assets/stylesheets/bs5/variables';
-
 .form-container-widget {
   .text-super {
     vertical-align: super;
   }
   .text-mandatory {
     font-weight: 700;
-    color: $secondary;
+    color: var(--bs-danger);
     cursor: default;
   }
   .bi {
@@ -61,7 +57,7 @@
   //   color: $theme-grey !important;
   // }
   .card .form-container-widget .text-mandatory {
-    color: red !important;
+    color: var(--bs-danger) !important;
   }
   .card .form-container-widget .bi {
     color: #ccc !important;
