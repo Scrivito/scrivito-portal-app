@@ -1,5 +1,6 @@
 import {
   ContentTag,
+  InPlaceEditingOff,
   navigateTo,
   provideComponent,
   useDataItem,
@@ -33,6 +34,10 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       onReset={onReset}
       className={isSubmitting ? 'form-loading' : ''}
     >
+      <InPlaceEditingOff>
+        <ContentTag content={widget} attribute="hiddenFields" />
+      </InPlaceEditingOff>
+
       <ContentTag content={widget} attribute="content" />
       {isSubmitting && <div className="loader" />}
     </form>

@@ -14,8 +14,18 @@ provideEditingConfig(DataFormContainerWidget, {
       title: 'Submitted message',
       description: 'After submitting the form, the user will see this message.',
     },
+    hiddenFields: {
+      title: 'Hidden fields',
+    },
   },
   properties: ['redirectAfterSubmit', 'submittedMessage'],
+  propertiesGroups: [
+    {
+      title: 'Hidden fields',
+      key: 'DataFormContainerWidgetHiddenFields',
+      properties: ['hiddenFields'],
+    },
+  ],
   initialContent: {
     content: [
       new DataFormInputFieldWidget({}),
