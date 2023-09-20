@@ -7,6 +7,7 @@ provideEditingConfig(DataFormInputFieldWidget, {
     attributeName: {
       title: 'Name of the data attribute in question',
     },
+    required: { title: 'Mandatory' },
     type: {
       title: 'Type of the input',
       values: [
@@ -14,9 +15,18 @@ provideEditingConfig(DataFormInputFieldWidget, {
         { value: 'multi_line', title: 'Multi line' },
       ],
     },
+    helpText: { title: 'Help text' },
   },
-  properties: ['attributeName', 'type', 'required'],
+  properties: [
+    'attributeName',
+    'type',
+    'label',
+    'placeholder',
+    'required',
+    'helpText',
+  ],
   initialContent: {
+    label: 'Custom field',
     type: 'single_line',
   },
 })
