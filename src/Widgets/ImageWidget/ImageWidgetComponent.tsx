@@ -7,18 +7,24 @@ import {
   Obj,
   connect,
   Link,
+  useDataItem,
 } from 'scrivito'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget } from './ImageWidgetClass'
 
 provideComponent(ImageWidget, ({ widget }) => {
-  const image = (
-    <ImageTag
-      alt={alternativeText(widget)}
-      attribute="image"
-      content={widget}
-    />
-  )
+  const dataItem = useDataItem()
+  let image: JSX.Element | null = null
+  const alt = alternativeText(widget)
+
+  if (widget.get('imageFromDataItem')) {
+    const src = dataItem?.get(widget.get('dataItemAttributeName'))
+    if (typeof src === 'string' && !!src) {
+      image = <img src={src} alt={alt} />
+    }
+  } else {
+    image = <ImageTag alt={alt} attribute="image" content={widget} />
+  }
 
   return (
     <div className={alignmentClassName(widget.get('alignment'))}>

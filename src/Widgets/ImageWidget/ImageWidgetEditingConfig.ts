@@ -19,12 +19,24 @@ provideEditingConfig(ImageWidget, {
         'Brief description of what the image is about.' +
         ' If empty, the alternative text of the image is used.',
     },
+    dataItemAttributeName: {
+      title: 'Data item attribute name',
+    },
+    imageFromDataItem: {
+      title: 'Show image from data item?',
+    },
     link: {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
     },
   },
-  properties: ['alignment', 'alternativeText', 'link'],
+  properties: (widget) => [
+    'alignment',
+    'alternativeText',
+    'link',
+    'imageFromDataItem',
+    ['dataItemAttributeName', { enabled: widget.get('imageFromDataItem') }],
+  ],
   initialContent: {
     alignment: 'left',
   },
@@ -32,8 +44,8 @@ provideEditingConfig(ImageWidget, {
     [
       'image',
 
-      (image) => {
-        if (!image) {
+      (image, { widget }) => {
+        if (!widget.get('imageFromDataItem') && !image) {
           return {
             message: 'The image should be set.',
             severity: 'warning',
