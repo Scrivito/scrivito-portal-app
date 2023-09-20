@@ -3,7 +3,19 @@ import { DataFormDeleteButtonWidget } from './DataFormDeleteButtonWidgetClass'
 
 provideEditingConfig(DataFormDeleteButtonWidget, {
   title: 'Data Form Delete Button',
-  properties: ['title', 'confirmTitle', 'cancelTitle', 'deletedMessage'],
+  attributes: {
+    redirectToAfterDelete: {
+      title: 'Redirect to after delete',
+      description: 'If no item is set, the parent of the current obj is used.',
+    },
+  },
+  properties: [
+    'title',
+    'confirmTitle',
+    'cancelTitle',
+    'deletedMessage',
+    'redirectToAfterDelete',
+  ],
   initialContent: {
     title: 'Delete item',
     confirmTitle: 'Confirm delete',

@@ -13,6 +13,8 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
   const dataItem = useDataItem()
   const deletedMessage = widget.get('deletedMessage')
+  const redirectToAfterDelete =
+    widget.get('redirectToAfterDelete') || currentPage()?.parent()
 
   if (!dataItem) return null
 
@@ -62,15 +64,14 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
     setShowConfirmation(false)
   }
 
-  function onDeleteConfirmed(e: React.MouseEvent) {
+  async function onDeleteConfirmed(e: React.MouseEvent) {
     e.preventDefault()
     e.stopPropagation()
 
-    dataItem?.destroy()
+    await dataItem?.destroy()
 
     if (deletedMessage) toast.success(deletedMessage)
 
-    const parent = currentPage()?.parent()
-    if (parent) navigateTo(parent)
+    if (redirectToAfterDelete) navigateTo(redirectToAfterDelete)
   }
 })
