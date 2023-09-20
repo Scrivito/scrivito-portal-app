@@ -13,6 +13,8 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
   const dataItem = useDataItem()
   const deletedMessage = widget.get('deletedMessage')
+  const redirectToAfterDelete =
+    widget.get('redirectToAfterDelete') || currentPage()?.parent()
 
   if (!dataItem) return null
 
@@ -70,7 +72,6 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
 
     if (deletedMessage) toast.success(deletedMessage)
 
-    const parent = currentPage()?.parent()
-    if (parent) navigateTo(parent)
+    if (redirectToAfterDelete) navigateTo(redirectToAfterDelete)
   }
 })
