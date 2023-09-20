@@ -27,7 +27,6 @@ provideEditingConfig(DataFormInputFieldWidget, {
   ],
   initialContent: {
     label: 'Custom field',
-    placeholder: 'Your custom field',
     type: 'single_line',
   },
 })
