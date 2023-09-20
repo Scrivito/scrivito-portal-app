@@ -1,30 +1,30 @@
 .vimeo-video-widget {
-  .aspect-ratio-21to9 {
+  &.aspect-ratio-21to9 {
     position: relative;
     padding-top: calc(100% / (21 / 9));
   }
 
-  .aspect-ratio-16to9 {
+  &.aspect-ratio-16to9 {
     position: relative;
     padding-top: calc(100% / (16 / 9));
   }
 
-  .aspect-ratio-4to3 {
+  &.aspect-ratio-4to3 {
     position: relative;
     padding-top: calc(100% / (4 / 3));
   }
 
-  .aspect-ratio-1to1 {
+  &.aspect-ratio-1to1 {
     position: relative;
     padding-top: calc(100% / (1 / 1));
   }
 
-  .aspect-ratio-3to4 {
+  &.aspect-ratio-3to4 {
     position: relative;
     padding-top: calc(100% / (3 / 4));
   }
 
-  .aspect-ratio-9to16 {
+  &.aspect-ratio-9to16 {
     position: relative;
     padding-top: calc(100% / (9 / 16));
   }
