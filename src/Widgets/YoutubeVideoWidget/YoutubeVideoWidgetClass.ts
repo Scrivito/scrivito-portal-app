@@ -5,7 +5,7 @@ export const YoutubeVideoWidget = provideWidgetClass('YoutubeVideoWidget', {
     youtubeVideoId: 'string',
     aspectRatio: [
       'enum',
-      { values: ['21:9', '16:9', '4:3', '1:1', '3:4', '9:16'] },
+      { values: ['21to9', '16to9', '4to3', '1to1', '3to4', '9to16'] },
     ],
   },
 })
