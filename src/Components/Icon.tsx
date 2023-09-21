@@ -6,10 +6,11 @@ function Icon({
   title,
 }: {
   icon: string
-  size: string
+  size: string | null
   title?: string
 }) {
-  const actualIcon = icon || 'bi bi-cup-hot'
+  const actualIcon = icon || 'bi-box'
+
   return (
     <i
       className={['bi', actualIcon, size].join(' ')}
@@ -25,7 +26,7 @@ export function IconComponent({
   link,
 }: {
   icon: string
-  size: string
+  size: string | null
   link: Link | null
 }) {
   if (!link) return <Icon icon={icon} size={size} />
