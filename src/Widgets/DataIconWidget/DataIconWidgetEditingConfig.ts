@@ -6,7 +6,7 @@ provideEditingConfig(DataIconWidget, {
   attributes: {
     alignment: {
       title: 'Alignment',
-      description: 'Default: Center',
+      description: 'Default: Left',
       values: [
         { value: 'left', title: 'Left' },
         { value: 'center', title: 'Center' },
@@ -27,11 +27,11 @@ provideEditingConfig(DataIconWidget, {
     'dataItemAttributeName',
     'size',
     'alignment',
-    'conditions',
     'fallbackIcon',
+    'conditions',
   ],
   initialContent: {
-    alignment: 'center',
+    alignment: 'left',
     size: 'bi-2x',
     fallbackIcon: 'bi-question-octagon',
   },
