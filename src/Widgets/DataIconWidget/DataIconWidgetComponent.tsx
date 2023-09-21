@@ -9,6 +9,8 @@ provideComponent(DataIconWidget, ({ widget }) => {
   if (!dataItem) return null
 
   const attributeValue = dataItem.get(widget.get('dataItemAttributeName'))
+  if (typeof attributeValue !== 'string') return null
+
   const size = widget.get('size') || 'bi-2x'
 
   const conditions = widget.get('conditions').filter(isDataIconConditionWidget)
@@ -37,7 +39,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
             size={size}
             link={null}
           />
-          <ContentTag content={widget} attribute="fallbackHumanReadableValue" />
+          <div>{attributeValue}</div>
         </>
       )}
     </WidgetTag>
