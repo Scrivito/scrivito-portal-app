@@ -22,11 +22,6 @@ provideEditingConfig(DataIconWidget, {
       description:
         'This icon is used, if no condition matches. Default: "bi-question-octagon". The full list of names can be found at https://icons.getbootstrap.com/',
     },
-    fallbackHumanReadableValue: {
-      title: 'Fallback human readable value',
-      description:
-        'This is used, if no condition matches. Can also contain placeholders.',
-    },
   },
   properties: [
     'dataItemAttributeName',
@@ -34,7 +29,6 @@ provideEditingConfig(DataIconWidget, {
     'alignment',
     'conditions',
     'fallbackIcon',
-    'fallbackHumanReadableValue',
   ],
   initialContent: {
     alignment: 'center',
