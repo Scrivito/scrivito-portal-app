@@ -12,6 +12,7 @@ import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
+import { CurrentUserDataItem } from '../../../Data/CurrentUser/CurrentUserDataItem'
 
 export const MetaNavigation = connect(function MetaNavigation({
   widget,
@@ -56,7 +57,7 @@ export const MetaNavigation = connect(function MetaNavigation({
               <NavDropdown
                 title={
                   <>
-                    <i className="bi bi-person-circle" aria-hidden="true"></i>
+                    <ProfileImg />
                     <span className="nav-link-extended">
                       <ContentTag
                         content={widget}
@@ -122,5 +123,19 @@ export const MetaNavigation = connect(function MetaNavigation({
         </Nav>
       )}
     </div>
+  )
+})
+
+const ProfileImg = connect(function ProfileImg() {
+  const picture = CurrentUserDataItem.get('picture')
+
+  if (!picture || typeof picture !== 'string') {
+    return <i className="bi bi-person-circle" aria-hidden="true"></i>
+  }
+
+  return (
+    <>
+      <img className="profile-img" src={picture} aria-hidden="true" />{' '}
+    </>
   )
 })
