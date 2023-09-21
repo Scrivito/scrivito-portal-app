@@ -1,10 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
-import youtubeVideoWidgetIcon from '../../assets/images/youtube_video_widget.svg'
 import { YoutubeVideoWidget } from './YoutubeVideoWidgetClass'
 
 provideEditingConfig(YoutubeVideoWidget, {
   title: 'YouTube Video',
-  thumbnail: youtubeVideoWidgetIcon,
   attributes: {
     youtubeVideoId: {
       title: 'YouTube video ID',
