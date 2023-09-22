@@ -63,7 +63,6 @@ export const MetaNavigation = connect(function MetaNavigation({
                         content={widget}
                         attribute="metaNavigationUserTitle"
                         tag="span"
-                        className="user-title"
                       />
 
                       <ContentTag
