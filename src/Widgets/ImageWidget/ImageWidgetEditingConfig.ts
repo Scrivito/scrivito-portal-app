@@ -19,7 +19,7 @@ provideEditingConfig(ImageWidget, {
         'Brief description of what the image is about.' +
         ' If empty, the alternative text of the image is used.',
     },
-    dataItemAttributeName: {
+    attributeName: {
       title: 'Data item attribute name',
     },
     imageFromDataItem: {
@@ -39,7 +39,7 @@ provideEditingConfig(ImageWidget, {
     'link',
     'roundCorners',
     'imageFromDataItem',
-    ['dataItemAttributeName', { enabled: widget.get('imageFromDataItem') }],
+    ['attributeName', { enabled: widget.get('imageFromDataItem') }],
   ],
   initialContent: {
     alignment: 'left',
