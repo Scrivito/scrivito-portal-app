@@ -24,7 +24,7 @@ provideComponent(ImageWidget, ({ widget }) => {
     : undefined
 
   if (widget.get('imageFromDataItem')) {
-    const src = dataItem?.get(widget.get('dataItemAttributeName'))
+    const src = dataItem?.get(widget.get('attributeName'))
     if (typeof src === 'string' && !!src) {
       image = <img src={src} alt={alt} className={imgClassName} />
     }
