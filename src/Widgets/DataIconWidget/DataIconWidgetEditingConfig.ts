@@ -24,7 +24,7 @@ provideEditingConfig(DataIconWidget, {
     },
   },
   properties: [
-    'dataItemAttributeName',
+    'attributeName',
     'size',
     'alignment',
     'fallbackIcon',
