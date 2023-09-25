@@ -11,7 +11,7 @@ import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
-  const id = `data_form_options_widget_${widget.id()}`
+  const id = ['DataFormOptionsWidget', widget.id()].join('-')
   const labelOptions: { htmlFor?: string } = {}
   if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
@@ -24,7 +24,7 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const options = [...optionsSet]
 
   return (
-    <div className="mb-3">
+    <div className="mb-3" key={[id, attributeName].join('-')}>
       <ContentTag
         content={widget}
         attribute="label"
@@ -83,7 +83,7 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
           {options.map((option, index) => (
             <option
               value={option}
-              key={`DataFormOptionsWidget-options-${option}-${index}`}
+              key={[id, 'option', option, index].join('-')}
             >
               {option}
             </option>
