@@ -1,4 +1,4 @@
-import { ContentTag, WidgetTag, provideComponent, useDataItem } from 'scrivito'
+import { WidgetTag, provideComponent, useDataItem } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { DataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
@@ -27,10 +27,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
             size={size}
             link={null}
           />
-          <ContentTag
-            content={matchingCondition}
-            attribute="humanReadableValue"
-          />
+          <div>{attributeValue}</div>
         </>
       ) : (
         <>
