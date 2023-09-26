@@ -11,9 +11,9 @@ provideEditingConfig('IconContainerWidget', {
   properties: ['iconList'],
   initialContent: {
     iconList: [
-      new IconWidget({ icon: 'bi bi-check2-square bi-3x' }),
-      new IconWidget({ icon: 'bi bi-check2-square bi-3x' }),
-      new IconWidget({ icon: 'bi bi-check2-square bi-3x' }),
+      new IconWidget({ icon: 'bi-check2-square' }),
+      new IconWidget({ icon: 'bi-check2-square' }),
+      new IconWidget({ icon: 'bi-check2-square' }),
     ],
   },
 })
