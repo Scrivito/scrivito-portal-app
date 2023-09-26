@@ -1,9 +1,11 @@
 import { Widget } from 'scrivito'
-import { getAttributeName } from './getAttributeName'
 import { getDataFormContainer } from './getDataFormContainer'
 
 export function isAttributeNameUnique(widget: Widget) {
-  const attributeName = getAttributeName(widget)
+  const attributeName =
+    typeof widget.get('attributeName') === 'string'
+      ? widget.get('attributeName')
+      : ''
   if (!attributeName) return true
 
   const dataFormContainer = getDataFormContainer(widget)
@@ -13,7 +15,8 @@ export function isAttributeNameUnique(widget: Widget) {
     .widgets()
     .find(
       (child) =>
-        getAttributeName(child) === attributeName && child.id() !== widget.id(),
+        child.get('attributeName') === attributeName &&
+        child.id() !== widget.id(),
     )
 
   return !otherWidget
