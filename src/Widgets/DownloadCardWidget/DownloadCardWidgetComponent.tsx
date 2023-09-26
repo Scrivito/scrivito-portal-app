@@ -1,26 +1,16 @@
 import {
   provideComponent,
   WidgetTag,
+  LinkTag,
   ContentTag,
   isInPlaceEditingActive,
-  urlFor,
-  useDataItem,
 } from 'scrivito'
 import { DownloadCardWidget } from './DownloadCardWidgetClass'
-import type { DataItem } from '../../utils/additionalTypes'
 
 provideComponent(DownloadCardWidget, ({ widget }) => {
-  const dataItem = useDataItem()
-  const href = calculateHref(dataItem)
-
   return (
     <WidgetTag className="card mb-4 bg-white max-width-350">
-      <a
-        href={href}
-        target="_blank"
-        rel="noreferrer"
-        draggable={!isInPlaceEditingActive()}
-      >
+      <LinkTag to={widget.get('link')} draggable={!isInPlaceEditingActive()}>
         <div className="card-body p-2">
           <div className="row">
             <div className="col-3">
@@ -52,26 +42,7 @@ provideComponent(DownloadCardWidget, ({ widget }) => {
             </div>
           </div>
         </div>
-      </a>
+      </LinkTag>
     </WidgetTag>
   )
-
-  function calculateHref(dataItem?: DataItem): string | undefined {
-    if (widget.get('linkFromDataItem')) {
-      if (!dataItem) return
-
-      const attributeName = widget.get('dataItemAttributeName')
-      if (!attributeName) return
-
-      const attributeValue = dataItem.get(attributeName)
-      if (typeof attributeValue !== 'string') return
-
-      return attributeValue
-    }
-
-    const link = widget.get('link')
-    if (!link) return
-
-    return urlFor(link)
-  }
 })
