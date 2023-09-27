@@ -1,19 +1,16 @@
-import { Link, LinkTag, provideComponent } from 'scrivito'
-import { WrapIfClassName } from '../../Components/WrapIfClassName'
+import { Link, LinkTag, provideComponent, WidgetTag } from 'scrivito'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { IconWidget } from './IconWidgetClass'
 
 provideComponent(IconWidget, ({ widget }) => {
   return (
-    <WrapIfClassName
-      className={alignmentClassNameWithBlock(widget.get('alignment'))}
-    >
+    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <IconComponent
         icon={widget.get('icon')}
         size={widget.get('size')}
         link={widget.get('link')}
       />
-    </WrapIfClassName>
+    </WidgetTag>
   )
 })
 
