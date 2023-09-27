@@ -35,11 +35,7 @@ export function IconComponent({
 
   return (
     <LinkTag to={link} aria-label={title}>
-      <li className="list-inline-item">
-        <a className="btn btn-soft-secondary btn-xs btn-icon" href="#">
-          <Icon icon={icon} size={size} title={title} />
-        </a>
-      </li>
+      <Icon icon={icon} size={size} title={title} />
     </LinkTag>
   )
 }
