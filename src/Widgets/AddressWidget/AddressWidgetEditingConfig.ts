@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { AddressWidget } from './AddressWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(AddressWidget, {
   title: 'Address',
+  thumbnail: classNameToThumbnail('AddressWidget'),
   attributes: {
     showLogo: {
       title: 'Show brand logo?',

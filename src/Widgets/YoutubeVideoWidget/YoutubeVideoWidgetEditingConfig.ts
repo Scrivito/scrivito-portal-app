@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { YoutubeVideoWidget } from './YoutubeVideoWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(YoutubeVideoWidget, {
   title: 'YouTube Video',
+  thumbnail: classNameToThumbnail('YoutubeVideoWidget'),
   attributes: {
     youtubeVideoId: {
       title: 'YouTube video ID',

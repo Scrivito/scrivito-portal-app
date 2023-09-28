@@ -1,7 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig('VimeoVideoWidget', {
   title: 'Vimeo Video',
+  thumbnail: classNameToThumbnail('VimeoVideoWidget'),
   attributes: {
     vimeoVideoId: {
       title: 'Vimeo video ID',

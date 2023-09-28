@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(SectionWidget, {
   title: 'Section',
+  thumbnail: classNameToThumbnail('SectionWidget'),
   attributes: {
     backgroundAnimateOnHover: {
       title: 'Animate background on hover?',
