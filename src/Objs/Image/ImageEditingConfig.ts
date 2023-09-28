@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { Image } from './ImageObjClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Image, {
   title: 'Image',
+  thumbnail: classNameToThumbnail('Image'),
   attributes: {
     alternativeText: {
       title: 'Alternative text',

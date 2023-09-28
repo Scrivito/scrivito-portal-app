@@ -1,9 +1,11 @@
 import { provideEditingConfig, Widget } from 'scrivito'
 import { customFieldNameValidation } from '../FormContainerWidget/utils/validations/customFieldNameValidation'
 import { FormHiddenFieldWidget } from './FormHiddenFieldWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(FormHiddenFieldWidget, {
   title: 'Hidden Form Field',
+  thumbnail: classNameToThumbnail('FormHiddenFieldWidget'),
   attributes: {
     customFieldName: { title: 'Field name' },
     hiddenValue: {

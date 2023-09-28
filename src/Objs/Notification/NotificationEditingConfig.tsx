@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { Notification } from './NotificationObjClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Notification, {
   title: 'Notification',
+  thumbnail: classNameToThumbnail('Notification'),
   attributes: {
     createdAt: { title: 'Created at', description: 'Format: YYYY-MM-DD' },
     details: {

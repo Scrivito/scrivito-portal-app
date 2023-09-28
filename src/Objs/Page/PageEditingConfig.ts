@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { Page } from './PageObjClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Page, {
   title: 'Page',
+  thumbnail: classNameToThumbnail('Page'),
   attributes: {
     hideInNavigation: {
       title: 'Hide in navigation?',

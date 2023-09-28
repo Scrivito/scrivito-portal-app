@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(SubnavigationOverview, {
   title: 'Subnavigation overview',
+  thumbnail: classNameToThumbnail('SubnavigationOverview'),
   attributes: {
     hideInNavigation: {
       title: 'Hide in navigation?',

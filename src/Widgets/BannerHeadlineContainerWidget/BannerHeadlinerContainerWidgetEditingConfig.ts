@@ -1,9 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineContainerWidget } from './BannerHeadlineContainerWidgetClass'
 import { BannerHeadlineWidget } from '../BannerHeadlineWidget/BannerHeadlineWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(BannerHeadlineContainerWidget, {
   title: 'Banner headlines',
+  thumbnail: classNameToThumbnail('BannerHeadlineContainerWidget'),
   initialContent: {
     headlines: [
       new BannerHeadlineWidget({

@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormDeleteButtonWidget } from './DataFormDeleteButtonWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(DataFormDeleteButtonWidget, {
   title: 'Data Form Delete Button',
+  thumbnail: classNameToThumbnail('DataFormDeleteButtonWidget'),
   attributes: {
     redirectToAfterDelete: {
       title: 'Redirect to after delete',
