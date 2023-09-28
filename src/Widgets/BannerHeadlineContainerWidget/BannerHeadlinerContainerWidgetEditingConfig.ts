@@ -4,7 +4,7 @@ import { BannerHeadlineWidget } from '../BannerHeadlineWidget/BannerHeadlineWidg
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(BannerHeadlineContainerWidget, {
-  title: 'Banner headlines',
+  title: 'Banner Headlines',
   thumbnail: classNameToThumbnail('BannerHeadlineContainerWidget'),
   initialContent: {
     headlines: [

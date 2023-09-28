@@ -3,7 +3,7 @@ import { ProductsOverview } from './ProductsOverviewObjClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(ProductsOverview, {
-  title: 'Products overview',
+  title: 'Products Overview',
   thumbnail: classNameToThumbnail('ProductsOverview'),
   attributes: {
     showTopContentSection: {

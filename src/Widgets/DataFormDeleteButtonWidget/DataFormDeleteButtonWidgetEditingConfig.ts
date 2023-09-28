@@ -3,7 +3,7 @@ import { DataFormDeleteButtonWidget } from './DataFormDeleteButtonWidgetClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(DataFormDeleteButtonWidget, {
-  title: 'Data Form Delete Button',
+  title: 'Data Delete Button',
   thumbnail: classNameToThumbnail('DataFormDeleteButtonWidget'),
   attributes: {
     redirectToAfterDelete: {

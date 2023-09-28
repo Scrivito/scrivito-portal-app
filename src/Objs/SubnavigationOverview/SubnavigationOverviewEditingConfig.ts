@@ -3,7 +3,7 @@ import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(SubnavigationOverview, {
-  title: 'Subnavigation overview',
+  title: 'Subnavigation Overview',
   thumbnail: classNameToThumbnail('SubnavigationOverview'),
   attributes: {
     hideInNavigation: {
