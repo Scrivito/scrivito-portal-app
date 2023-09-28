@@ -3,7 +3,7 @@ import { DownloadCardWidget } from './DownloadCardWidgetClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(DownloadCardWidget, {
-  title: 'Download card',
+  title: 'Download Card',
   thumbnail: classNameToThumbnail('DownloadCardWidget'),
   attributes: {
     icon: {

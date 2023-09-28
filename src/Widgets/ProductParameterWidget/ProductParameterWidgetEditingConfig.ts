@@ -3,7 +3,7 @@ import { ProductParameterWidget } from './ProductParameterWidgetClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(ProductParameterWidget, {
-  title: 'Product parameter',
+  title: 'Product Parameter',
   thumbnail: classNameToThumbnail('ProductParameterWidget'),
   properties: ['parameter', 'values'],
   titleForContent: (widget) =>
