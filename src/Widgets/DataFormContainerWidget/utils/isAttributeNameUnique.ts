@@ -2,10 +2,8 @@ import { Widget } from 'scrivito'
 import { getDataFormContainer } from './getDataFormContainer'
 
 export function isAttributeNameUnique(widget: Widget) {
-  const attributeName =
-    typeof widget.get('attributeName') === 'string'
-      ? widget.get('attributeName')
-      : ''
+  const attributeName = widget.get('attributeName')
+  if (typeof widget.get('attributeName') !== 'string') return true
   if (!attributeName) return true
 
   const dataFormContainer = getDataFormContainer(widget)
