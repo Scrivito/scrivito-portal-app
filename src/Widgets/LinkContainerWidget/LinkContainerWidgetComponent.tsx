@@ -11,7 +11,7 @@ provideComponent(LinkContainerWidget, ({ widget }) => (
       attribute="headline"
     />
     <ContentTag
-      className="link-container-widget"
+      className="list-unstyled list-py-1 mb-0"
       tag="ul"
       content={widget}
       attribute="links"
