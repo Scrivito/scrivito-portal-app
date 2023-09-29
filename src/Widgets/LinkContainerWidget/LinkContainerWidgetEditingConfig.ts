@@ -7,6 +7,7 @@ provideEditingConfig(LinkContainerWidget, {
   title: 'Link List',
   thumbnail: classNameToThumbnail('LinkContainerWidget'),
   initialContent: {
+    headline: 'Links headline',
     links: ['Link 1', 'Link 2', 'Link 3'].map(
       (title) =>
         new LinkWidget({
