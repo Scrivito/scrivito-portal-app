@@ -1,7 +1,6 @@
 import { Fragment } from 'react'
 import { connect, ContentTag, provideComponent } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
-import './LinkContainerWidget.scss'
 import { LinkContainerWidget } from './LinkContainerWidgetClass'
 
 provideComponent(LinkContainerWidget, ({ widget }) => (
