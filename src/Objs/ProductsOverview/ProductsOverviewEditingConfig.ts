@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { ProductsOverview } from './ProductsOverviewObjClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(ProductsOverview, {
-  title: 'Products overview',
+  title: 'Products Overview',
+  thumbnail: classNameToThumbnail('ProductsOverview'),
   attributes: {
     showTopContentSection: {
       title: 'Show top content section?',

@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
+  thumbnail: classNameToThumbnail('HeadlineWidget'),
   attributes: {
     style: {
       title: 'Style',

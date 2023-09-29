@@ -1,5 +1,4 @@
-import { provideComponent, LinkTag } from 'scrivito'
-import { WrapIfClassName } from '../../Components/WrapIfClassName'
+import { provideComponent, LinkTag, WidgetTag } from 'scrivito'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { ButtonWidget } from './ButtonWidgetClass'
 
@@ -17,13 +16,11 @@ provideComponent(ButtonWidget, ({ widget }) => {
   if (buttonSize) buttonClassNames.push(buttonSize)
 
   return (
-    <WrapIfClassName
-      className={alignmentClassNameWithBlock(widget.get('alignment'))}
-    >
+    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <LinkTag to={target} className={buttonClassNames.join(' ')}>
         {text}
       </LinkTag>
-    </WrapIfClassName>
+    </WidgetTag>
   )
 })
 

@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
+  thumbnail: classNameToThumbnail('Homepage'),
   attributes: {
     contentTitle: {
       title: 'Site name',
