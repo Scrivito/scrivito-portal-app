@@ -1,11 +1,12 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataIconConditionWidget } from './DataIconConditionWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(DataIconConditionWidget, {
   title: 'Data Icon Condition',
+  thumbnail: classNameToThumbnail('DataIconConditionWidget'),
   attributes: {
     attributeValue: { title: 'Attribute value' },
-    humanReadableValue: { title: 'Human readable value' },
     icon: {
       title: 'Icon',
       description:
@@ -14,7 +15,7 @@ provideEditingConfig(DataIconConditionWidget, {
   },
   titleForContent: (content) =>
     `${content.get('attributeValue')} => ${content.get('icon')}`,
-  properties: ['attributeValue', 'humanReadableValue', 'icon'],
+  properties: ['attributeValue', 'icon'],
   initialContent: {
     icon: 'bi-box',
   },

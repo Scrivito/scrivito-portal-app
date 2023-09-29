@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(DataFormSubmitButtonWidget, {
   title: 'Data Form Submit Button',
+  thumbnail: classNameToThumbnail('DataFormSubmitButtonWidget'),
 
   attributes: {
     submitTitle: {

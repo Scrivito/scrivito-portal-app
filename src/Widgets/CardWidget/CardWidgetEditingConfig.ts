@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(CardWidget, {
   title: 'Card',
+  thumbnail: classNameToThumbnail('CardWidget'),
   attributes: {
     image: { title: 'Top image' },
     cardExtended: {

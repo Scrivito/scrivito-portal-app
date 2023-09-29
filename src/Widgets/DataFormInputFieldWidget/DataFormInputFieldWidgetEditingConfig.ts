@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormInputFieldWidget } from './DataFormInputFieldWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(DataFormInputFieldWidget, {
   title: 'Data Form Input Field',
+  thumbnail: classNameToThumbnail('DataFormInputFieldWidget'),
   attributes: {
     attributeName: {
       title: 'Name of the data attribute in question',

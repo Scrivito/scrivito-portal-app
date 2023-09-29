@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { Video } from './VideoObjClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Video, {
   title: 'Video',
+  thumbnail: classNameToThumbnail('Video'),
   attributes: {
     tags: {
       title: 'Tags',

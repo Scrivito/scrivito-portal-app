@@ -5,7 +5,6 @@ export const DataIconConditionWidget = provideWidgetClass(
   {
     attributes: {
       attributeValue: 'string',
-      humanReadableValue: 'string',
       icon: 'string',
     },
     onlyInside: ['DataIconWidget'],

@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
+  thumbnail: classNameToThumbnail('ImageWidget'),
   attributes: {
     alignment: {
       title: 'Alignment',
@@ -19,7 +21,7 @@ provideEditingConfig(ImageWidget, {
         'Brief description of what the image is about.' +
         ' If empty, the alternative text of the image is used.',
     },
-    dataItemAttributeName: {
+    attributeName: {
       title: 'Data item attribute name',
     },
     imageFromDataItem: {
@@ -39,7 +41,7 @@ provideEditingConfig(ImageWidget, {
     'link',
     'roundCorners',
     'imageFromDataItem',
-    ['dataItemAttributeName', { enabled: widget.get('imageFromDataItem') }],
+    ['attributeName', { enabled: widget.get('imageFromDataItem') }],
   ],
   initialContent: {
     alignment: 'left',
