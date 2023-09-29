@@ -1,4 +1,4 @@
-import { connect, LinkTag, provideComponent, WidgetTag } from 'scrivito'
+import { connect, Link, LinkTag, provideComponent, WidgetTag } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import { LinkWidget } from './LinkWidgetClass'
 
@@ -17,16 +17,17 @@ provideComponent(LinkWidget, ({ widget }) => {
 
   return (
     <WidgetTag tag="li">
-      <LinkTag to={link}>
-        <LinkTitle link={link} />
-      </LinkTag>
+      <LinkTag to={link}>{linkTitle(link)}</LinkTag>
     </WidgetTag>
   )
 })
 
-const LinkTitle = connect(({ link }) => {
-  if (link.title()) return link.title()
-  if (link.isInternal()) return link.obj().get('title')
+function linkTitle(link: Link) {
+  const linkTitle = link.title()
+  if (linkTitle) return linkTitle
+
+  const objTitle = link.isInternal() && link.obj()?.get('title')
+  if (typeof objTitle === 'string') return objTitle
 
   return link.url()
-})
+}
