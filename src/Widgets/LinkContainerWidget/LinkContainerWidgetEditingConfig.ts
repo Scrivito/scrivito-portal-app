@@ -21,7 +21,7 @@ provideEditingConfig(LinkContainerWidget, {
       'links',
 
       (links) => {
-        if (typeof links === 'string' && links.length < 1) {
+        if (Array.isArray(links) && links.length < 1) {
           return {
             message: 'The link list should contain at least one link.',
             severity: 'warning',
