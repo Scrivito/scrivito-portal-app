@@ -4,7 +4,12 @@ import { LinkContainerWidget } from './LinkContainerWidgetClass'
 
 provideComponent(LinkContainerWidget, ({ widget }) => (
   <WidgetTag className="mb-7 mb-sm-0">
-    <Headline widget={widget} />
+    <ContentTag
+      tag="h5"
+      className="mb-3"
+      content={widget}
+      attribute="headline"
+    />
     <ContentTag
       className="link-container-widget"
       tag="ul"
@@ -13,21 +18,3 @@ provideComponent(LinkContainerWidget, ({ widget }) => (
     />
   </WidgetTag>
 ))
-
-const Headline = connect(({ widget }) => {
-  const headline = widget.get('headline')
-
-  if (!headline) {
-    return (
-      <InPlaceEditingPlaceholder>
-        Optional: Provide a headline in the widget properties.
-      </InPlaceEditingPlaceholder>
-    )
-  }
-
-  return (
-    <div className="link-container-widget--headline b-bottom">
-      {widget.get('headline')}
-    </div>
-  )
-})
