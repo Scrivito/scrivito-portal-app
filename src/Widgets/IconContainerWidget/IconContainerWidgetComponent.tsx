@@ -30,13 +30,8 @@ provideComponent(IconContainerWidget, ({ widget }) => {
         }
 
         return (
-          <li className="list-inline-item btn">
-            <IconComponent
-              icon={icon}
-              size={size}
-              link={link}
-              key={iconListItem.id()}
-            />
+          <li className="list-inline-item btn" key={iconListItem.id()}>
+            <IconComponent icon={icon} size={size} link={link} />
           </li>
         )
       })}
