@@ -1,9 +1,11 @@
 import { Link, provideEditingConfig } from 'scrivito'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import { LinkWidget } from '../LinkWidget/LinkWidgetClass'
 import { LinkContainerWidget } from './LinkContainerWidgetClass'
 
 provideEditingConfig(LinkContainerWidget, {
   title: 'Link List',
+  thumbnail: classNameToThumbnail('LinkContainerWidget'),
   initialContent: {
     links: ['Link 1', 'Link 2', 'Link 3'].map(
       (title) =>

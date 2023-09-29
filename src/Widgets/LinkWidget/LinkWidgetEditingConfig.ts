@@ -1,7 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig('LinkWidget', {
   title: 'Link List item',
+  thumbnail: classNameToThumbnail('LinkWidget'),
   attributes: {
     link: {
       title: 'Link',
