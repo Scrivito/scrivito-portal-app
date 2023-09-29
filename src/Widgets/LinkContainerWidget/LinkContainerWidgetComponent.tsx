@@ -1,10 +1,9 @@
-import { Fragment } from 'react'
-import { connect, ContentTag, provideComponent } from 'scrivito'
+import { connect, ContentTag, provideComponent, WidgetTag } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import { LinkContainerWidget } from './LinkContainerWidgetClass'
 
 provideComponent(LinkContainerWidget, ({ widget }) => (
-  <Fragment>
+  <WidgetTag className="mb-7 mb-sm-0">
     <Headline widget={widget} />
     <ContentTag
       className="link-container-widget"
@@ -12,7 +11,7 @@ provideComponent(LinkContainerWidget, ({ widget }) => (
       content={widget}
       attribute="links"
     />
-  </Fragment>
+  </WidgetTag>
 ))
 
 const Headline = connect(({ widget }) => {
