@@ -70,6 +70,17 @@ const ImageComponent = connect(function ImageComponent({
   const attributeName = widget.get('attributeName')
   if (!attributeName) return null
 
+  const objValue = dataItem.obj()?.get(attributeName)
+  if (objValue instanceof Obj) {
+    return (
+      <ImageTag
+        content={objValue}
+        alt={widgetAlternativeText || alternativeTextFromObj(objValue)}
+        className={className}
+      />
+    )
+  }
+
   const attributeValue = dataItem.get(attributeName)
   if (!attributeValue) return null
   if (typeof attributeValue !== 'string') return null
