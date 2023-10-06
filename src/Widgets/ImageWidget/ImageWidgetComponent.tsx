@@ -67,8 +67,10 @@ const ImageComponent = connect(function ImageComponent({
   }
 
   if (!dataItem) return null
+  const attributeName = widget.get('attributeName')
+  if (!attributeName) return null
 
-  const attributeValue = dataItem.get(widget.get('attributeName'))
+  const attributeValue = dataItem.get(attributeName)
   if (!attributeValue) return null
   if (typeof attributeValue !== 'string') return null
 
