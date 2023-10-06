@@ -32,7 +32,7 @@ export const ProductPreview = connect(function ProductPreview({
                 tag="h3"
               />
               <ContentTag
-                attribute="subTitle"
+                attribute="subtitle"
                 className="mb-1 text-muted text-uppercase"
                 content={product}
                 tag="p"

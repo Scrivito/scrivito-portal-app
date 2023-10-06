@@ -40,7 +40,7 @@ provideComponent(Product, ({ page }) => {
 
                   <ContentTag
                     content={page}
-                    attribute="subTitle"
+                    attribute="subtitle"
                     className="mb-1 text-muted text-uppercase"
                     tag="p"
                   />

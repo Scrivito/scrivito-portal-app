@@ -5,6 +5,12 @@ import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 provideEditingConfig(Product, {
   title: 'Product',
   thumbnail: classNameToThumbnail('Product'),
-  properties: ['title', 'image', 'parameters', 'suitableAccessories'],
+  properties: [
+    'title',
+    'subtitle',
+    'image',
+    'parameters',
+    'suitableAccessories',
+  ],
   thumbnailForContent: (obj) => obj.get('image'),
 })
