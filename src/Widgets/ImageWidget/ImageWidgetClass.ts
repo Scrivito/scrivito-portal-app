@@ -11,3 +11,5 @@ export const ImageWidget = provideWidgetClass('ImageWidget', {
     link: 'link',
   },
 })
+
+export type ImageWidgetInstance = InstanceType<typeof ImageWidget>
