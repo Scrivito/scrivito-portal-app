@@ -39,10 +39,12 @@ provideComponent(ImageWidget, ({ widget }) => {
     )
   }
 
+  const classNames = ['image-widget']
+  const alignment = alignmentClassName(widget.get('alignment'))
+  if (alignment) classNames.push(alignment)
+
   return (
-    <WidgetTag
-      className={`image-widget ${alignmentClassName(widget.get('alignment'))}`}
-    >
+    <WidgetTag className={classNames.join(' ')}>
       <LinkWrapper link={widget.get('link')}>{image}</LinkWrapper>
     </WidgetTag>
   )

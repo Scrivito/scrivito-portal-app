@@ -3,14 +3,12 @@ import { alignmentClassName } from '../../utils/alignmentClassName'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
 
 provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
-  const className = alignmentClassName(widget.get('alignment'))
-
   const baseButtonStyle = `btn ${
     widget.get('size') === 'small' ? 'btn-sm' : 'btn-md'
   }`
 
   return (
-    <WidgetTag className={className}>
+    <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
       <ContentTag
         tag="button"
         content={widget}

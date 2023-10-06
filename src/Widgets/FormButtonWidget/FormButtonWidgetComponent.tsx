@@ -4,13 +4,12 @@ import { alignmentClassName } from '../../utils/alignmentClassName'
 
 provideComponent(FormButtonWidget, ({ widget }) => {
   const alignment = widget.get('alignment')
-  const className = alignmentClassName(alignment)
 
   return (
-    <WidgetTag className={className}>
+    <WidgetTag className={alignmentClassName(alignment)}>
       <button
         className={`btn btn-primary${
-          widget.get('alignment') === 'block' ? ' btn-block' : ''
+          alignment === 'block' ? ' btn-block' : ''
         }`}
         type="submit"
       >
