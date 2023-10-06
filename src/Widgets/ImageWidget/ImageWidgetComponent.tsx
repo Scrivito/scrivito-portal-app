@@ -3,7 +3,6 @@ import {
   ImageTag,
   isInPlaceEditingActive,
   LinkTag,
-  Widget,
   Obj,
   connect,
   Link,
@@ -17,7 +16,7 @@ import './ImageWidget.scss'
 provideComponent(ImageWidget, ({ widget }) => {
   const dataItem = useDataItem()
   let image: JSX.Element | null = null
-  const alt = alternativeText(widget)
+  const widgetAlternativeText = widget.get('alternativeText')
 
   const imgClassName = widget.get('roundCorners')
     ? 'rounded-corners'
@@ -26,12 +25,16 @@ provideComponent(ImageWidget, ({ widget }) => {
   if (widget.get('imageFromDataItem')) {
     const src = dataItem?.get(widget.get('attributeName'))
     if (typeof src === 'string' && !!src) {
-      image = <img src={src} alt={alt} className={imgClassName} />
+      image = (
+        <img src={src} alt={widgetAlternativeText} className={imgClassName} />
+      )
     }
   } else {
     image = (
       <ImageTag
-        alt={alt}
+        alt={
+          widgetAlternativeText || alternativeTextFromObj(widget.get('image'))
+        }
         className={imgClassName}
         attribute="image"
         content={widget}
@@ -50,19 +53,13 @@ provideComponent(ImageWidget, ({ widget }) => {
   )
 })
 
-function alternativeText(widget: Widget): string {
-  const widgetAlternativeText = widget.get('alternativeText')
-  if (typeof widgetAlternativeText === 'string' && widgetAlternativeText) {
-    return widgetAlternativeText
-  }
+function alternativeTextFromObj(image: Obj | null): string {
+  if (!image) return ''
 
-  const image = widget.get('image')
-  if (image instanceof Obj) {
-    const imageAlternativeText = image.get('alternativeText')
-    if (typeof imageAlternativeText === 'string') return imageAlternativeText
-  }
+  const alternativeText = image.get('alternativeText')
+  if (typeof alternativeText !== 'string') return ''
 
-  return ''
+  return alternativeText
 }
 
 const LinkWrapper = connect(function LinkWrapper({
