@@ -31,7 +31,7 @@ provideComponent(DownloadCardWidget, ({ widget }) => {
               />
               <ContentTag
                 content={widget}
-                attribute="subTitle"
+                attribute="subtitle"
                 className="text-bold opacity-60 text-small text-uppercase"
               />
               <ContentTag
