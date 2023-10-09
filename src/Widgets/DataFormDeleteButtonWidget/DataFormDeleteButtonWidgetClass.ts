@@ -8,6 +8,7 @@ export const DataFormDeleteButtonWidget = provideWidgetClass(
       cancelTitle: 'string',
       confirmTitle: 'string',
       deletedMessage: 'string',
+      redirectAfterDelete: 'boolean',
       redirectToAfterDelete: 'reference',
       requireConfirmation: 'boolean',
       title: 'string',

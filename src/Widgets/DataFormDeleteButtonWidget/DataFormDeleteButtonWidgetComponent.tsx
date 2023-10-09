@@ -15,7 +15,8 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   const dataItem = useDataItem()
   const deletedMessage = widget.get('deletedMessage')
   const redirectToAfterDelete =
-    widget.get('redirectToAfterDelete') || currentPage()?.parent()
+    widget.get('redirectAfterDelete') &&
+    (widget.get('redirectToAfterDelete') || currentPage()?.parent())
   const buttonStyle =
     widget.get('buttonStyle') === 'btn-outline-primary'
       ? 'btn-outline-primary'
