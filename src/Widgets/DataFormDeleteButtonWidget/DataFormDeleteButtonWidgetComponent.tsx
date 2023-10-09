@@ -46,7 +46,7 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
       attribute="title"
       tag="button"
       className="btn btn-sm btn-danger"
-      onClick={onDelete}
+      onClick={widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed}
     />
   )
 

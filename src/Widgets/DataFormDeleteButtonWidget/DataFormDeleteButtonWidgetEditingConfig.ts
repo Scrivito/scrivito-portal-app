@@ -11,15 +11,17 @@ provideEditingConfig(DataFormDeleteButtonWidget, {
       description: 'If no item is set, the parent of the current obj is used.',
     },
   },
-  properties: [
+  properties: (widget) => [
     'title',
-    'confirmTitle',
-    'cancelTitle',
+    'requireConfirmation',
+    ['confirmTitle', { enabled: widget.get('requireConfirmation') }],
+    ['cancelTitle', { enabled: widget.get('requireConfirmation') }],
     'deletedMessage',
     'redirectToAfterDelete',
   ],
   initialContent: {
     title: 'Delete item',
+    requireConfirmation: true,
     confirmTitle: 'Confirm delete',
     cancelTitle: 'Cancel',
     deletedMessage: 'Deleted item',
