@@ -1,6 +1,7 @@
 import {
   ContentTag,
   currentPage,
+  isInPlaceEditingActive,
   navigateTo,
   provideComponent,
   useDataItem,
@@ -45,13 +46,25 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   }
 
   return (
-    <ContentTag
-      content={widget}
-      attribute="title"
-      tag="button"
-      className={`btn btn-sm ${buttonStyle}`}
-      onClick={widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed}
-    />
+    <>
+      {isInPlaceEditingActive() && (
+        <div className="alert alert-warning d-flex m-auto">
+          <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
+          <div className="my-auto mx-2">
+            <b>Editor note:</b> Deletes {dataItem.dataClass().name()}.
+          </div>
+        </div>
+      )}
+      <ContentTag
+        content={widget}
+        attribute="title"
+        tag="button"
+        className={`btn btn-sm ${buttonStyle}`}
+        onClick={
+          widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed
+        }
+      />
+    </>
   )
 
   function onDelete(e: React.MouseEvent) {
