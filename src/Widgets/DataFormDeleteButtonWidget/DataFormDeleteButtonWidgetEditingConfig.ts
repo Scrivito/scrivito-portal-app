@@ -14,6 +14,9 @@ provideEditingConfig(DataFormDeleteButtonWidget, {
       title: 'Button style',
       description: 'Default: btn-danger',
     },
+    requireConfirmation: {
+      title: 'Require confirmation?',
+    },
     redirectAfterDelete: {
       title: 'Redirect after delete?',
     },
