@@ -4,11 +4,12 @@ export const DataFormDeleteButtonWidget = provideWidgetClass(
   'DataFormDeleteButton',
   {
     attributes: {
+      buttonStyle: ['enum', { values: ['btn-danger', 'btn-outline-primary'] }],
       cancelTitle: 'string',
-      requireConfirmation: 'boolean',
       confirmTitle: 'string',
       deletedMessage: 'string',
       redirectToAfterDelete: 'reference',
+      requireConfirmation: 'boolean',
       title: 'string',
     },
   },

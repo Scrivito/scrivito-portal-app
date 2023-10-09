@@ -15,6 +15,10 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   const deletedMessage = widget.get('deletedMessage')
   const redirectToAfterDelete =
     widget.get('redirectToAfterDelete') || currentPage()?.parent()
+  const buttonStyle =
+    widget.get('buttonStyle') === 'btn-outline-primary'
+      ? 'btn-outline-primary'
+      : 'btn-danger'
 
   if (!dataItem) return null
 
@@ -33,7 +37,7 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
           content={widget}
           attribute="confirmTitle"
           tag="button"
-          className="btn btn-sm btn-danger"
+          className={`btn btn-sm ${buttonStyle}`}
           onClick={onDeleteConfirmed}
         />
       </div>
@@ -45,7 +49,7 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
       content={widget}
       attribute="title"
       tag="button"
-      className="btn btn-sm btn-danger"
+      className={`btn btn-sm ${buttonStyle}`}
       onClick={widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed}
     />
   )
