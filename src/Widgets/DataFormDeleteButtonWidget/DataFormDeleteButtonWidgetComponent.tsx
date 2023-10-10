@@ -1,6 +1,7 @@
 import {
   ContentTag,
   currentPage,
+  isInPlaceEditingActive,
   navigateTo,
   provideComponent,
   useDataItem,
@@ -14,7 +15,12 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   const dataItem = useDataItem()
   const deletedMessage = widget.get('deletedMessage')
   const redirectToAfterDelete =
-    widget.get('redirectToAfterDelete') || currentPage()?.parent()
+    widget.get('redirectAfterDelete') &&
+    (widget.get('redirectToAfterDelete') || currentPage()?.parent())
+  const buttonStyle =
+    widget.get('buttonStyle') === 'btn-outline-primary'
+      ? 'btn-outline-primary'
+      : 'btn-danger'
 
   if (!dataItem) return null
 
@@ -33,7 +39,7 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
           content={widget}
           attribute="confirmTitle"
           tag="button"
-          className="btn btn-sm btn-danger"
+          className={`btn btn-sm ${buttonStyle}`}
           onClick={onDeleteConfirmed}
         />
       </div>
@@ -41,13 +47,25 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   }
 
   return (
-    <ContentTag
-      content={widget}
-      attribute="title"
-      tag="button"
-      className="btn btn-sm btn-danger"
-      onClick={onDelete}
-    />
+    <>
+      {isInPlaceEditingActive() && (
+        <div className="alert alert-warning d-flex m-auto">
+          <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
+          <div className="my-auto mx-2">
+            <b>Editor note:</b> Deletes {dataItem.dataClass().name()}.
+          </div>
+        </div>
+      )}
+      <ContentTag
+        content={widget}
+        attribute="title"
+        tag="button"
+        className={`btn btn-sm ${buttonStyle}`}
+        onClick={
+          widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed
+        }
+      />
+    </>
   )
 
   function onDelete(e: React.MouseEvent) {

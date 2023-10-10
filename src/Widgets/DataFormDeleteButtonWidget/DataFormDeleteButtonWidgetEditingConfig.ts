@@ -10,19 +10,32 @@ provideEditingConfig(DataFormDeleteButtonWidget, {
       title: 'Redirect to after delete',
       description: 'If no item is set, the parent of the current obj is used.',
     },
+    buttonStyle: {
+      title: 'Button style',
+      description: 'Default: btn-danger',
+    },
+    redirectAfterDelete: {
+      title: 'Redirect after delete?',
+    },
   },
-  properties: [
+  properties: (widget) => [
     'title',
-    'confirmTitle',
-    'cancelTitle',
+    'requireConfirmation',
+    ['confirmTitle', { enabled: widget.get('requireConfirmation') }],
+    ['cancelTitle', { enabled: widget.get('requireConfirmation') }],
     'deletedMessage',
-    'redirectToAfterDelete',
+    'redirectAfterDelete',
+    ['redirectToAfterDelete', { enabled: widget.get('redirectAfterDelete') }],
+    'buttonStyle',
   ],
   initialContent: {
     title: 'Delete item',
+    requireConfirmation: true,
     confirmTitle: 'Confirm delete',
     cancelTitle: 'Cancel',
     deletedMessage: 'Deleted item',
+    buttonStyle: 'btn-danger',
+    redirectAfterDelete: true,
   },
   validations: [
     [
