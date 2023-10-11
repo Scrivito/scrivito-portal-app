@@ -13,6 +13,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { CurrentUserDataItem } from '../../../Data/CurrentUser/CurrentUserDataItem'
+import { containsItems } from '../../../Data/CartItem/Cart'
 
 export const MetaNavigation = connect(function MetaNavigation({
   widget,
@@ -26,6 +27,9 @@ export const MetaNavigation = connect(function MetaNavigation({
 
   const metaNavigationUserProfile = widget.get('metaNavigationUserProfile')
   const showUserProfileLink = !!metaNavigationUserProfile
+
+  const metaNavigationCart = widget.get('metaNavigationCart')
+  const showCart = !!metaNavigationCart && containsItems()
 
   return (
     <div className="navbar-meta">
@@ -41,6 +45,18 @@ export const MetaNavigation = connect(function MetaNavigation({
 
       {showPortalNav && (
         <Nav className="border-left ms-auto">
+          {showCart && (
+            <Nav.Item>
+              <Nav.Link
+                as={LinkTag}
+                eventKey={`MetaNavigation-${metaNavigationCart.id()}`}
+                key={`MetaNavigation-${metaNavigationCart.id()}`}
+                to={metaNavigationCart}
+              >
+                <ObjIconAndTitle obj={metaNavigationCart} />
+              </Nav.Link>
+            </Nav.Item>
+          )}
           {isUserLoggedIn() ? (
             <>
               <Nav.Item>
