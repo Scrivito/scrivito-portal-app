@@ -1,10 +1,12 @@
 import { ContentTag, ImageTag, provideComponent } from 'scrivito'
+import { toast } from 'react-toastify'
 import { Product, isProduct } from './ProductObjClass'
 import {
   isProductParameterWidget,
   toPlainParameter,
 } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
 import { ProductPreview } from './ProductPreviewComponent'
+import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -44,6 +46,27 @@ provideComponent(Product, ({ page }) => {
                     className="mb-1 text-muted text-uppercase"
                     tag="p"
                   />
+                  {isInCart(page) ? (
+                    <div
+                      className="btn btn-sm btn-primary"
+                      onClick={() => {
+                        removeFromCart(page)
+                        toast.info(`Removed "${page.get('title')}" from cart.`)
+                      }}
+                    >
+                      Remove from cart
+                    </div>
+                  ) : (
+                    <button
+                      className="btn btn-sm btn-primary"
+                      onClick={() => {
+                        addToCart(page)
+                        toast.success(`Added "${page.get('title')}" to cart.`)
+                      }}
+                    >
+                      Add to cart
+                    </button>
+                  )}
 
                   <ul className="nav nav-pills">
                     <li className="nav-item">
