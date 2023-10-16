@@ -1,4 +1,10 @@
-import { ContentTag, ImageTag, connect, provideComponent } from 'scrivito'
+import {
+  ContentTag,
+  ImageTag,
+  connect,
+  isUserLoggedIn,
+  provideComponent,
+} from 'scrivito'
 import { toast } from 'react-toastify'
 import { Product, ProductInstance, isProduct } from './ProductObjClass'
 import {
@@ -174,6 +180,18 @@ const CartActionButton = connect(function CartActionButton({
   product: ProductInstance
 }) {
   const productTitle = product.get('title')
+
+  if (!isUserLoggedIn()) {
+    return (
+      <button
+        className="btn btn-sm btn-primary disabled"
+        style={{ pointerEvents: 'auto' }}
+        title="Please log in first"
+      >
+        Add to cart
+      </button>
+    )
+  }
 
   if (isInCart(product)) {
     return (
