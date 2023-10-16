@@ -1,6 +1,12 @@
-import { ContentTag, ImageTag, provideComponent } from 'scrivito'
+import {
+  ContentTag,
+  ImageTag,
+  connect,
+  isUserLoggedIn,
+  provideComponent,
+} from 'scrivito'
 import { toast } from 'react-toastify'
-import { Product, isProduct } from './ProductObjClass'
+import { Product, ProductInstance, isProduct } from './ProductObjClass'
 import {
   isProductParameterWidget,
   toPlainParameter,
@@ -46,27 +52,8 @@ provideComponent(Product, ({ page }) => {
                     className="mb-1 text-muted text-uppercase"
                     tag="p"
                   />
-                  {isInCart(page) ? (
-                    <div
-                      className="btn btn-sm btn-primary"
-                      onClick={() => {
-                        removeFromCart(page)
-                        toast.info(`Removed "${page.get('title')}" from cart.`)
-                      }}
-                    >
-                      Remove from cart
-                    </div>
-                  ) : (
-                    <button
-                      className="btn btn-sm btn-primary"
-                      onClick={() => {
-                        addToCart(page)
-                        toast.success(`Added "${page.get('title')}" to cart.`)
-                      }}
-                    >
-                      Add to cart
-                    </button>
-                  )}
+
+                  <CartActionButton product={page} />
 
                   <ul className="nav nav-pills">
                     <li className="nav-item">
@@ -184,5 +171,51 @@ provideComponent(Product, ({ page }) => {
         </div>
       </section>
     </>
+  )
+})
+
+const CartActionButton = connect(function CartActionButton({
+  product,
+}: {
+  product: ProductInstance
+}) {
+  const productTitle = product.get('title')
+
+  if (!isUserLoggedIn()) {
+    return (
+      <button
+        className="btn btn-sm btn-primary disabled"
+        style={{ pointerEvents: 'auto' }}
+        title={`Please log in to add "${productTitle}" to cart.`}
+      >
+        Add to cart
+      </button>
+    )
+  }
+
+  if (isInCart(product)) {
+    return (
+      <button
+        className="btn btn-sm btn-primary"
+        onClick={() => {
+          removeFromCart(product)
+          toast.info(`Removed "${productTitle}" from cart.`)
+        }}
+      >
+        Remove from cart
+      </button>
+    )
+  }
+
+  return (
+    <button
+      className="btn btn-sm btn-primary"
+      onClick={() => {
+        addToCart(product)
+        toast.success(`Added "${productTitle}" to cart.`)
+      }}
+    >
+      Add to cart
+    </button>
   )
 })
