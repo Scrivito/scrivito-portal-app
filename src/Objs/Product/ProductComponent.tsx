@@ -173,22 +173,28 @@ const CartActionButton = connect(function CartActionButton({
 }: {
   product: ProductInstance
 }) {
-  return isInCart(product) ? (
-    <div
-      className="btn btn-sm btn-primary"
-      onClick={() => {
-        removeFromCart(product)
-        toast.info(`Removed "${product.get('title')}" from cart.`)
-      }}
-    >
-      Remove from cart
-    </div>
-  ) : (
+  const productTitle = product.get('title')
+
+  if (isInCart(product)) {
+    return (
+      <button
+        className="btn btn-sm btn-primary"
+        onClick={() => {
+          removeFromCart(product)
+          toast.info(`Removed "${productTitle}" from cart.`)
+        }}
+      >
+        Remove from cart
+      </button>
+    )
+  }
+
+  return (
     <button
       className="btn btn-sm btn-primary"
       onClick={() => {
         addToCart(product)
-        toast.success(`Added "${product.get('title')}" to cart.`)
+        toast.success(`Added "${productTitle}" to cart.`)
       }}
     >
       Add to cart
