@@ -186,7 +186,7 @@ const CartActionButton = connect(function CartActionButton({
       <button
         className="btn btn-sm btn-primary disabled"
         style={{ pointerEvents: 'auto' }}
-        title="Please log in first"
+        title={`Please log in to add "${productTitle}" to cart.`}
       >
         Add to cart
       </button>
