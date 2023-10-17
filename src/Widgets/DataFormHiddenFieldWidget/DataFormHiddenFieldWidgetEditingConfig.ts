@@ -1,9 +1,11 @@
 import { provideEditingConfig, Widget } from 'scrivito'
 import { attributeNameValidation } from '../DataFormContainerWidget/utils/validations/attributeNameValidation'
 import { DataFormHiddenFieldWidget } from './DataFormHiddenFieldWidgetClass'
+import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(DataFormHiddenFieldWidget, {
   title: 'Hidden Data Form Field',
+  thumbnail: classNameToThumbnail('DataFormHiddenFieldWidget'),
   attributes: {
     attributeName: { title: 'Attribute name' },
     hiddenValue: {
