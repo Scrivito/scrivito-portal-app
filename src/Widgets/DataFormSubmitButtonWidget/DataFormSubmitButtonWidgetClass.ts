@@ -7,8 +7,8 @@ export const DataFormSubmitButtonWidget = provideWidgetClass(
       submitTitle: 'string',
       hasReset: 'boolean',
       resetTitle: 'string',
-      size: ['enum', { values: ['small', 'medium'] }],
-      alignment: ['enum', { values: ['left', 'center', 'right'] }],
+      size: ['enum', { values: ['small', 'medium', 'large'] }],
+      alignment: ['enum', { values: ['left', 'center', 'right', 'block'] }],
     },
   },
 )
