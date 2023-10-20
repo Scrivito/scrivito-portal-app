@@ -14,6 +14,8 @@ provideEditingConfig(DataFormInputFieldWidget, {
       title: 'Type of the input',
       values: [
         { value: 'single_line', title: 'Single line' },
+        { value: 'email', title: 'Email' },
+        { value: 'phone_number', title: 'Phone number' },
         { value: 'multi_line', title: 'Multi line' },
       ],
     },

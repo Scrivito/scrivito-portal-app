@@ -74,7 +74,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           defaultValue={getDefaultValue()}
           maxLength={250}
           placeholder={widget.get('placeholder')}
-          type="text"
+          type={calculateType(widget.get('type'))}
           required={widget.get('required')}
         />
       )}
@@ -87,3 +87,10 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
     if (value) return `${value}`
   }
 })
+
+function calculateType(type: string | null): string {
+  if (type === 'email') return 'email'
+  if (type === 'phone_number') return 'tel'
+
+  return 'text'
+}

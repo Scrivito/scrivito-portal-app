@@ -9,7 +9,10 @@ export const DataFormInputFieldWidget = provideWidgetClass(
       placeholder: 'string',
       required: 'boolean',
       helpText: 'html',
-      type: ['enum', { values: ['single_line', 'multi_line'] }],
+      type: [
+        'enum',
+        { values: ['single_line', 'email', 'phone_number', 'multi_line'] },
+      ],
     },
   },
 )
