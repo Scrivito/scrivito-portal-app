@@ -1,20 +1,20 @@
 import { ContentTag, WidgetTag, provideComponent } from 'scrivito'
-import { alignmentClassName } from '../../utils/alignmentClassName'
+import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
 
 provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
-  const baseButtonStyle = `btn ${
-    widget.get('size') === 'small' ? 'btn-sm' : 'btn-md'
-  }`
+  const baseButtonStyles = ['btn']
+  const size = buttonSizeClassName(widget.get('size'))
+  if (size) baseButtonStyles.push(size)
 
   return (
-    <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
+    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <ContentTag
         tag="button"
         content={widget}
         attribute="submitTitle"
         type="submit"
-        className={`${baseButtonStyle} btn-primary`}
+        className={`${baseButtonStyles.join(' ')} btn-primary`}
       ></ContentTag>{' '}
       {widget.get('hasReset') && (
         <ContentTag
@@ -22,7 +22,7 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
           content={widget}
           attribute="resetTitle"
           type="reset"
-          className={`${baseButtonStyle} btn-danger`}
+          className={`${baseButtonStyles.join(' ')} btn-danger`}
         >
           {widget.get('resetTitle')}
         </ContentTag>
@@ -30,3 +30,8 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
     </WidgetTag>
   )
 })
+
+function buttonSizeClassName(buttonSize: string | null) {
+  if (buttonSize === 'small') return 'btn-sm'
+  if (buttonSize === 'large') return 'btn-lg'
+}

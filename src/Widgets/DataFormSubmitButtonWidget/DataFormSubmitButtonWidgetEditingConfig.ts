@@ -7,6 +7,17 @@ provideEditingConfig(DataFormSubmitButtonWidget, {
   thumbnail: classNameToThumbnail('DataFormSubmitButtonWidget'),
 
   attributes: {
+    alignment: {
+      title: 'Alignment',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+        { value: 'block', title: 'Full width' },
+      ],
+    },
+
     submitTitle: {
       title: 'Title of the submit button',
     },
@@ -21,6 +32,7 @@ provideEditingConfig(DataFormSubmitButtonWidget, {
 
     size: {
       title: 'Button size',
+      description: 'Default: medium',
     },
   },
 
@@ -35,7 +47,7 @@ provideEditingConfig(DataFormSubmitButtonWidget, {
     submitTitle: 'submit',
     hasReset: true,
     resetTitle: 'reset',
-    alignment: 'center',
-    size: 'small',
+    alignment: 'left',
+    size: 'medium',
   },
 })
