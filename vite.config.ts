@@ -40,6 +40,18 @@ export default defineConfig(({ mode }) => {
           rewrite: (path) => path.replace(/^\/jr-api/, ''),
           headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
         },
+
+        // // # Example Proxy
+        // // Please also add a Cloudflare function under `functions/example-proxy-prefix/[[catchall]].ts`.
+        // //   See `functions/jr-api/[[catchall]].ts` as an inspiration.
+        // // Example usage: `Scrivito.unstable_JrRestApi.fetch('../example-proxy-prefix/package.json')`
+        // '/example-proxy-prefix': {
+        //   target:
+        //     'https://raw.githubusercontent.com/Scrivito/scrivito-portal-app/main',
+        //   changeOrigin: true,
+        //   rewrite: (path) => path.replace(/^\/example-proxy-prefix/, ''),
+        //   headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
+        // },
       },
     },
   }
