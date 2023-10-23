@@ -1,6 +1,5 @@
-import { load } from 'scrivito'
+import { DataItem, load } from 'scrivito'
 import { ProductInstance } from '../../Objs/Product/ProductObjClass'
-import type { DataItem } from '../../utils/additionalTypes'
 import { CartItem } from './CartItemDataClass'
 
 export function addToCart(product: ProductInstance): void {

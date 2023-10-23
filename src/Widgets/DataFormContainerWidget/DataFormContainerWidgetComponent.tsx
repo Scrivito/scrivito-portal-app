@@ -1,5 +1,6 @@
 import {
   ContentTag,
+  DataItem,
   InPlaceEditingOff,
   WidgetTag,
   navigateTo,
@@ -12,7 +13,6 @@ import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import { snakeCase } from 'lodash-es'
-import type { DataItem } from '../../utils/additionalTypes'
 import './DataFormContainerWidget.scss'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
