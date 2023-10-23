@@ -6,14 +6,16 @@ import {
   unstable_JrRestApi,
 } from 'scrivito'
 
+const NEOLETTER_PROFILE_URL = `neoletter/instances/${
+  import.meta.env.SCRIVITO_TENANT
+}/my/profile`
+
 export const CurrentUserDataItem = provideDataItem('CurrentUser', {
   async get() {
     const user = await load(currentUser)
     if (!user) return {}
 
-    const rawNeoletterData = await unstable_JrRestApi.get(
-      `neoletter/instances/${import.meta.env.SCRIVITO_TENANT}/my/profile`,
-    )
+    const rawNeoletterData = await unstable_JrRestApi.get(NEOLETTER_PROFILE_URL)
 
     let company: string | undefined
     let phoneNumber: string | undefined
@@ -33,6 +35,16 @@ export const CurrentUserDataItem = provideDataItem('CurrentUser', {
       phoneNumber,
       salutation,
     }
+  },
+  async update(params) {
+    const { company, phoneNumber, salutation, ...otherArgs } = params
+    if (Object.keys(otherArgs).length > 0) {
+      throw new Error(`Unknown keys - ${Object.keys(otherArgs)}`)
+    }
+
+    await unstable_JrRestApi.put(NEOLETTER_PROFILE_URL, {
+      data: { company, phone_number: phoneNumber, salutation },
+    })
   },
 })
 
