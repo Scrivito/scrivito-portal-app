@@ -8,10 +8,10 @@ import {
   Link,
   useDataItem,
   WidgetTag,
+  DataItem,
 } from 'scrivito'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget, ImageWidgetInstance } from './ImageWidgetClass'
-import type { DataItem } from '../../utils/additionalTypes'
 import './ImageWidget.scss'
 
 provideComponent(ImageWidget, ({ widget }) => {

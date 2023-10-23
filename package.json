@@ -20,7 +20,7 @@
     "react-draggable": "^4.4.6",
     "react-helmet-async": "^1.3.0",
     "react-toastify": "^9.1.3",
-    "scrivito": "^1.36.1",
+    "scrivito": "^1.37.0-rc1",
     "scroll-to-fragment": "^1.0.12",
     "speakingurl": "^14.0.1"
   },
