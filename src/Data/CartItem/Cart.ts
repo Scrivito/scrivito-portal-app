@@ -18,7 +18,7 @@ export async function removeFromCart(product: ProductInstance): Promise<void> {
     CartItem.all().transform({ filters: { productId } }).take(),
   )
 
-  items.forEach((item) => item.destroy())
+  items.forEach((item) => item.delete())
 }
 
 export function isInCart(product: ProductInstance): boolean {
@@ -43,6 +43,6 @@ export async function checkoutCart(): Promise<void> {
   // push checkedOutItems to your favorite backend
   console.log('Checked out', checkedOutItems)
 
-  const destroyPromises = cartItems.map((item) => item.destroy())
-  await Promise.all(destroyPromises)
+  const deletePromises = cartItems.map((item) => item.delete())
+  await Promise.all(deletePromises)
 }

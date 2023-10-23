@@ -86,7 +86,7 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
     e.preventDefault()
     e.stopPropagation()
 
-    await dataItem?.destroy()
+    await dataItem?.delete()
 
     if (deletedMessage) toast.success(deletedMessage)
 
