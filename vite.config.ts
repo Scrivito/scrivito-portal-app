@@ -46,6 +46,7 @@ export default defineConfig(({ mode }) => {
          *
          * This is the configuration for localhost/127.0.0.1.
          * For Cloudflare Pages see `/functions/example-proxy/[[catchall]].ts`.
+         * Please also adjust `const RELOAD_SUBPATHS` in `NotFoundErrorPage.tsx`.
          *
          * Example usage: `Scrivito.unstable_JrRestApi.fetch('../example-proxy/some.json')`
          */
