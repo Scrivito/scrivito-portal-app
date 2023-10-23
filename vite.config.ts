@@ -41,17 +41,27 @@ export default defineConfig(({ mode }) => {
           headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
         },
 
-        // // # Example Proxy
-        // // Please also add a Cloudflare function under `functions/example-proxy-prefix/[[catchall]].ts`.
-        // //   See `functions/jr-api/[[catchall]].ts` as an inspiration.
-        // // Example usage: `Scrivito.unstable_JrRestApi.fetch('../example-proxy-prefix/package.json')`
-        // '/example-proxy-prefix': {
-        //   target:
-        //     'https://raw.githubusercontent.com/Scrivito/scrivito-portal-app/main',
-        //   changeOrigin: true,
-        //   rewrite: (path) => path.replace(/^\/example-proxy-prefix/, ''),
-        //   headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
-        // },
+        /**
+         * Example Proxy
+         *
+         * This is the configuration for localhost/127.0.0.1.
+         *
+         * Example usage: `Scrivito.unstable_JrRestApi.fetch('../example-proxy/some.json')`
+         */
+        '/example-proxy': {
+          target: 'https://myservice.example.com/api',
+          rewrite: (path) => {
+            // TODO: 🛑🚧🛑 Remove the following Error, once target and
+            // the `/example-proxy` prefix are adjusted to your needs.
+            throw new Error(
+              'Incomplete example-proxy configuration! See `vite.config.ts` for details.',
+            )
+
+            return path.replace(/^\/example-proxy/, '')
+          },
+
+          changeOrigin: true,
+        },
       },
     },
   }
