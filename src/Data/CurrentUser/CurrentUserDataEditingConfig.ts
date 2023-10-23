@@ -7,5 +7,8 @@ provideEditingConfig(CurrentUserDataItem, {
     name: { title: 'Name' },
     email: { title: 'Email' },
     jrUserId: { title: 'JustRelate user ID' },
+    company: { title: 'Company' },
+    phoneNumber: { title: 'Phone number' },
+    salutation: { title: 'Salutation' },
   },
 })
