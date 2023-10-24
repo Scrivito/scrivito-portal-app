@@ -10,6 +10,7 @@ export const Page = provideObjClass('Page', {
     showTopContentSection: 'boolean',
     title: 'string',
     topContentSection: 'widgetlist',
+    requireUserLogin: 'boolean',
   },
   extractTextAttributes: ['body'],
 })
