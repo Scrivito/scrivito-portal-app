@@ -1,4 +1,4 @@
-import { DataItem, load } from 'scrivito'
+import { DataItem, isUserLoggedIn, load } from 'scrivito'
 import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 
@@ -21,6 +21,8 @@ export async function removeFromCart(product: ProductInstance): Promise<void> {
 }
 
 export function isInCart(product: ProductInstance): boolean {
+  if (!isUserLoggedIn()) return false // TODO: remove, once CartItem itself requires a login
+
   const productId = product.id()
 
   // @ts-expect-error until out of private beta
@@ -28,6 +30,8 @@ export function isInCart(product: ProductInstance): boolean {
 }
 
 export function containsItems(): boolean {
+  if (!isUserLoggedIn()) return false // TODO: remove, once CartItem itself requires a login
+
   // @ts-expect-error until out of private beta
   return CartItem.all().containsData()
 }
