@@ -23,11 +23,11 @@ provideEditingConfig(DataFormSubmitButtonWidget, {
     },
 
     hasReset: {
-      title: 'Should a reset button appear?',
+      title: 'Should a cancel button appear?',
     },
 
     resetTitle: {
-      title: 'Title of the reset button',
+      title: 'Title of the cancel button',
     },
 
     size: {
@@ -46,7 +46,7 @@ provideEditingConfig(DataFormSubmitButtonWidget, {
   initialContent: {
     submitTitle: 'submit',
     hasReset: true,
-    resetTitle: 'reset',
+    resetTitle: 'cancel',
     alignment: 'left',
     size: 'medium',
   },
