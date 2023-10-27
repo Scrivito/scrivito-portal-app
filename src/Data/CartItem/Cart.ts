@@ -2,11 +2,11 @@ import { DataItem, isUserLoggedIn, load } from 'scrivito'
 import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 
-export function addToCart(product: ProductInstance): void {
+export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
 
   // @ts-expect-error until out of private beta
-  CartItem.create({ productId })
+  await CartItem.create({ productId })
 }
 
 export async function removeFromCart(product: ProductInstance): Promise<void> {

@@ -210,8 +210,8 @@ const CartActionButton = connect(function CartActionButton({
   return (
     <button
       className="btn btn-sm btn-primary"
-      onClick={() => {
-        addToCart(product)
+      onClick={async () => {
+        await addToCart(product)
         toast.success(`Added "${productTitle}" to cart.`)
       }}
     >
