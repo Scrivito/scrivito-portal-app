@@ -62,8 +62,14 @@ export function provideLocalStorageDataClass(className: string) {
   })
 
   function restoreRecord(): Record<string, unknown> {
-    const item = localStorage.getItem(localStorageKey)
-    if (item === null) return {}
+    let item: string | null | undefined
+    try {
+      item = localStorage.getItem(localStorageKey)
+    } catch {
+      return {}
+    }
+
+    if (!item) return {}
 
     try {
       const parsed = JSON.parse(item)
