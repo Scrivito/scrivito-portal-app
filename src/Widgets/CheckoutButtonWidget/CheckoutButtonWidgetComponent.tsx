@@ -1,5 +1,6 @@
 import {
   ContentTag,
+  InPlaceEditingOff,
   WidgetTag,
   isInPlaceEditingActive,
   provideComponent,
@@ -33,13 +34,15 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
-      <ContentTag
-        content={widget}
-        attribute="buttonText"
-        tag="button"
-        className={buttonClassNames.join(' ')}
-        onClick={onClick}
-      />
+      <InPlaceEditingOff>
+        <ContentTag
+          content={widget}
+          attribute="buttonText"
+          tag="button"
+          className={buttonClassNames.join(' ')}
+          onClick={onClick}
+        />
+      </InPlaceEditingOff>
     </WidgetTag>
   )
 

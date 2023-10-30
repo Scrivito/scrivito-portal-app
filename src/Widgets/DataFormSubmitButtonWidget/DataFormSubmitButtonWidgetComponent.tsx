@@ -1,4 +1,9 @@
-import { ContentTag, WidgetTag, provideComponent } from 'scrivito'
+import {
+  ContentTag,
+  InPlaceEditingOff,
+  WidgetTag,
+  provideComponent,
+} from 'scrivito'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
 
@@ -9,24 +14,26 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
-      <ContentTag
-        tag="button"
-        content={widget}
-        attribute="submitTitle"
-        type="submit"
-        className={`${baseButtonStyles.join(' ')} btn-primary`}
-      ></ContentTag>{' '}
-      {widget.get('hasReset') && (
+      <InPlaceEditingOff>
         <ContentTag
           tag="button"
           content={widget}
-          attribute="resetTitle"
-          type="reset"
-          className={`${baseButtonStyles.join(' ')} btn-danger`}
-        >
-          {widget.get('resetTitle')}
-        </ContentTag>
-      )}
+          attribute="submitTitle"
+          type="submit"
+          className={`${baseButtonStyles.join(' ')} btn-primary`}
+        ></ContentTag>{' '}
+        {widget.get('hasReset') && (
+          <ContentTag
+            tag="button"
+            content={widget}
+            attribute="resetTitle"
+            type="reset"
+            className={`${baseButtonStyles.join(' ')} btn-danger`}
+          >
+            {widget.get('resetTitle')}
+          </ContentTag>
+        )}
+      </InPlaceEditingOff>
     </WidgetTag>
   )
 })

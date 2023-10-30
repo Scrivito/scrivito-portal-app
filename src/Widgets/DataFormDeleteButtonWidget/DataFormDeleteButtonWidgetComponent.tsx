@@ -1,5 +1,6 @@
 import {
   ContentTag,
+  InPlaceEditingOff,
   currentPage,
   isInPlaceEditingActive,
   navigateTo,
@@ -27,21 +28,23 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   if (showConfirmation) {
     return (
       <div>
-        <ContentTag
-          content={widget}
-          attribute="cancelTitle"
-          tag="button"
-          className="btn btn-sm"
-          onClick={onDeleteRejected}
-        />
+        <InPlaceEditingOff>
+          <ContentTag
+            content={widget}
+            attribute="cancelTitle"
+            tag="button"
+            className="btn btn-sm"
+            onClick={onDeleteRejected}
+          />
 
-        <ContentTag
-          content={widget}
-          attribute="confirmTitle"
-          tag="button"
-          className={`btn btn-sm ${buttonStyle}`}
-          onClick={onDeleteConfirmed}
-        />
+          <ContentTag
+            content={widget}
+            attribute="confirmTitle"
+            tag="button"
+            className={`btn btn-sm ${buttonStyle}`}
+            onClick={onDeleteConfirmed}
+          />
+        </InPlaceEditingOff>
       </div>
     )
   }
@@ -56,15 +59,17 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
           </div>
         </div>
       )}
-      <ContentTag
-        content={widget}
-        attribute="title"
-        tag="button"
-        className={`btn btn-sm ${buttonStyle}`}
-        onClick={
-          widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed
-        }
-      />
+      <InPlaceEditingOff>
+        <ContentTag
+          content={widget}
+          attribute="title"
+          tag="button"
+          className={`btn btn-sm ${buttonStyle}`}
+          onClick={
+            widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed
+          }
+        />
+      </InPlaceEditingOff>
     </>
   )
 
