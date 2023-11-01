@@ -6,13 +6,8 @@ provideEditingConfig(ProductCategory, {
   title: 'Product Category',
   thumbnail: classNameToThumbnail('ProductCategory'),
   attributes: {
-    showTopContentSection: {
-      title: 'Show top content section?',
-      description:
-        'This section will be visible before the regular content and a potential sub-navigation',
-    },
     title: { title: 'Title' },
   },
-  properties: ['title', 'description', 'image', 'showTopContentSection'],
+  properties: ['title', 'description', 'image'],
   thumbnailForContent: (obj) => obj.get('image'),
 })

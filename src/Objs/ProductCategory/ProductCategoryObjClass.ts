@@ -5,9 +5,7 @@ export const ProductCategory = provideObjClass('ProductCategory', {
     childOrder: 'referencelist',
     description: 'string',
     image: ['reference', { only: ['Image'] }],
-    showTopContentSection: 'boolean',
     title: 'string',
-    topContentSection: 'widgetlist',
   },
 })
 

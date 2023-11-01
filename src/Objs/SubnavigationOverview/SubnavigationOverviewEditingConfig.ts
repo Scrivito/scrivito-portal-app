@@ -16,11 +16,6 @@ provideEditingConfig(SubnavigationOverview, {
         'This icon is shown e.g. when linked from the "portal" section of the navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
     },
     title: { title: 'Title' },
-    showTopContentSection: {
-      title: 'Show top content section?',
-      description:
-        'This section will be visible before the regular content and a potential sub-navigation',
-    },
     requireUserLogin: {
       title: 'Require user login?',
       description:
@@ -37,7 +32,6 @@ provideEditingConfig(SubnavigationOverview, {
     'hideInNavigation',
     'linkIcon',
     'topBannerBackground',
-    'showTopContentSection',
     'requireUserLogin',
   ],
 })
