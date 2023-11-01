@@ -4,9 +4,8 @@ export const ProductsOverview = provideObjClass('ProductsOverview', {
   attributes: {
     body: 'widgetlist',
     childOrder: 'referencelist',
-    showTopContentSection: 'boolean',
     title: 'string',
-    topContentSection: 'widgetlist',
+    topBannerBackground: ['reference', { only: ['Image'] }],
   },
   extractTextAttributes: ['body'],
 })

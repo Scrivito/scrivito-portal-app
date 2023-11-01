@@ -6,10 +6,9 @@ export const SubnavigationOverview = provideObjClass('SubnavigationOverview', {
     childOrder: 'referencelist',
     hideInNavigation: 'boolean',
     linkIcon: 'string',
-    showTopContentSection: 'boolean',
-    title: 'string',
-    topContentSection: 'widgetlist',
     requireUserLogin: 'boolean',
+    title: 'string',
+    topBannerBackground: ['reference', { only: ['Image'] }],
   },
   extractTextAttributes: ['body'],
 })
