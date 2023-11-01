@@ -1,8 +1,12 @@
 import {
   ChildListTag,
   connect,
+  ContentTag,
+  currentPage,
   CurrentPage,
   ensureUserIsLoggedIn,
+  ImageTag,
+  InPlaceEditingOff,
   isCurrentPage,
   isOnCurrentPath,
   isUserLoggedIn,
@@ -31,6 +35,30 @@ provideLayoutComponent(SubnavigationOverview, ({ page }) => {
 
   return (
     <>
+      <section
+        className="bg-secondary py-4"
+        style={{ minHeight: '119px' }} // TODO: Add official styling
+      >
+        <InPlaceEditingOff>
+          <ImageTag
+            content={page}
+            attribute="topBannerBackground"
+            className="img-background"
+          />
+        </InPlaceEditingOff>
+        <div className="container">
+          <div className="header-caption">
+            <h3 className="h3">
+              <ContentTag
+                content={currentPage()}
+                attribute="title"
+                tag="span"
+                className="bg-primary"
+              />
+            </h3>
+          </div>
+        </div>
+      </section>
       <section className="bg-light-grey py-2 hidden-xs">
         <div className="container">
           <Breadcrumb />

@@ -26,11 +26,17 @@ provideEditingConfig(SubnavigationOverview, {
       description:
         'Requires a user to be logged in for this page and all sub-pages',
     },
+    topBannerBackground: {
+      title: 'Top banner background',
+      description:
+        'This background will be shown on this page and all sub-pages',
+    },
   },
   properties: [
     'title',
     'hideInNavigation',
     'linkIcon',
+    'topBannerBackground',
     'showTopContentSection',
     'requireUserLogin',
   ],
