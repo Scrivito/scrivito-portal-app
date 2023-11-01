@@ -6,6 +6,7 @@ export const ProductsOverview = provideObjClass('ProductsOverview', {
     childOrder: 'referencelist',
     showTopContentSection: 'boolean',
     title: 'string',
+    topBannerBackground: ['reference', { only: ['Image'] }],
     topContentSection: 'widgetlist',
   },
   extractTextAttributes: ['body'],
