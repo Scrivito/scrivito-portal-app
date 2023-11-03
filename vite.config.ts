@@ -25,6 +25,10 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE':
         JSON.stringify(env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE),
     },
+    optimizeDeps: {
+      include: ['scrivito'],
+      force: true,
+    },
     plugins: [react()],
     preview: {
       port: 8080,
