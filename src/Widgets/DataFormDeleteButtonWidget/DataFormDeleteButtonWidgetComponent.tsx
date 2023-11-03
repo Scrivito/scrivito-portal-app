@@ -1,7 +1,6 @@
 import {
   ContentTag,
   InPlaceEditingOff,
-  currentPage,
   isInPlaceEditingActive,
   navigateTo,
   provideComponent,
