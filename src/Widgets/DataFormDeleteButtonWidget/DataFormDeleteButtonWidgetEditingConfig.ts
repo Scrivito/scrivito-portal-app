@@ -6,10 +6,6 @@ provideEditingConfig(DataFormDeleteButtonWidget, {
   title: 'Data Delete Button',
   thumbnail: classNameToThumbnail('DataFormDeleteButtonWidget'),
   attributes: {
-    redirectToAfterDelete: {
-      title: 'Redirect to after delete',
-      description: 'If no item is set, the parent of the current obj is used.',
-    },
     buttonStyle: {
       title: 'Button style',
       description: 'Default: btn-danger',
@@ -18,7 +14,8 @@ provideEditingConfig(DataFormDeleteButtonWidget, {
       title: 'Require confirmation?',
     },
     redirectAfterDelete: {
-      title: 'Redirect after delete?',
+      title: 'Redirect after delete',
+      description: 'Leave the attribute empty for no redirection.',
     },
   },
   properties: (widget) => [
@@ -28,7 +25,6 @@ provideEditingConfig(DataFormDeleteButtonWidget, {
     ['cancelTitle', { enabled: widget.get('requireConfirmation') }],
     'deletedMessage',
     'redirectAfterDelete',
-    ['redirectToAfterDelete', { enabled: widget.get('redirectAfterDelete') }],
     'buttonStyle',
   ],
   initialContent: {
