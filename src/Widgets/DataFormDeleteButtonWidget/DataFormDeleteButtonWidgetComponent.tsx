@@ -1,7 +1,6 @@
 import {
   ContentTag,
   InPlaceEditingOff,
-  currentPage,
   isInPlaceEditingActive,
   navigateTo,
   provideComponent,
@@ -15,9 +14,7 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
   const dataItem = useDataItem()
   const deletedMessage = widget.get('deletedMessage')
-  const redirectToAfterDelete =
-    widget.get('redirectAfterDelete') &&
-    (widget.get('redirectToAfterDelete') || currentPage()?.parent())
+  const redirectAfterDelete = widget.get('redirectAfterDelete')
   const buttonStyle =
     widget.get('buttonStyle') === 'btn-outline-primary'
       ? 'btn-outline-primary'
@@ -95,6 +92,6 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
 
     if (deletedMessage) toast.success(deletedMessage)
 
-    if (redirectToAfterDelete) navigateTo(redirectToAfterDelete)
+    if (redirectAfterDelete) navigateTo(redirectAfterDelete)
   }
 })

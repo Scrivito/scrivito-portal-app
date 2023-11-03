@@ -10,7 +10,7 @@ provideEditingConfig(DataFormContainerWidget, {
   attributes: {
     redirectAfterSubmit: {
       title: 'Redirect after submit',
-      description: 'If no item is set, the parent of the current obj is used.',
+      description: 'Leave the attribute empty for no redirection.',
     },
     submittedMessage: {
       title: 'Submitted message',

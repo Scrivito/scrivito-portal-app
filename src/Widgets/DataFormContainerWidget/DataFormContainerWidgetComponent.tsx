@@ -24,8 +24,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const [keyCounter, setKeyCounter] = useState(0)
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
 
-  const redirectAfterSubmit =
-    widget.get('redirectAfterSubmit') || widget.obj().parent()
+  const redirectAfterSubmit = widget.get('redirectAfterSubmit')
   const submittedMessage = widget.get('submittedMessage')
 
   return (
