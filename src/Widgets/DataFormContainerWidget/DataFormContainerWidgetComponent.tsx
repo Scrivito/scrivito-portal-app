@@ -52,9 +52,17 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
     setIsSubmitting(true)
 
-    const attributes = Object.fromEntries(
-      new FormData(formRef.current).entries(),
-    )
+    const attributes: { [key: string]: string | File | boolean } =
+      Object.fromEntries(new FormData(formRef.current).entries())
+
+    formRef.current
+      .querySelectorAll<HTMLInputElement>('input[type="checkbox"]')
+      .forEach((checkboxInput) => {
+        const key = checkboxInput.getAttribute('name')
+        if (typeof key !== 'string') return
+
+        attributes[key] = checkboxInput.checked
+      })
 
     try {
       if (dataItem) {
