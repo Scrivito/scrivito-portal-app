@@ -11,7 +11,7 @@ provideEditingConfig(BannerHeadlineContainerWidget, {
       new BannerHeadlineWidget({
         style: 'h2',
         backgroundColor: 'white',
-        headline: 'Lorem ipsum',
+        headline: 'Headline',
       }),
     ],
   },

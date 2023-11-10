@@ -46,7 +46,7 @@ provideEditingConfig(HeadlineWidget, {
   properties: ['style', 'level', 'alignment', 'uppercase'],
   initialContent: {
     alignment: 'left',
-    headline: 'Lorem Ipsum',
+    headline: 'Headline',
     style: 'h2',
   },
   validations: [

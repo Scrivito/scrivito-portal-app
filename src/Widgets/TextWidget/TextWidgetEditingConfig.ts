@@ -22,5 +22,6 @@ provideEditingConfig(TextWidget, {
   properties: ['alignment', 'text'],
   initialContent: {
     alignment: 'left',
+    text: 'Text',
   },
 })
