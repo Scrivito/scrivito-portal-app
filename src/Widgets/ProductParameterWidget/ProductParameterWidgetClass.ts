@@ -7,6 +7,7 @@ export const ProductParameterWidget = provideWidgetClass(
       parameter: 'string', // e.g. "Color"
       values: 'stringlist', // e.g. ["red", "blue"]
     },
+    onlyInside: ['Product'],
   },
 )
 
