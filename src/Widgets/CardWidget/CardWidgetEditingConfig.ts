@@ -6,6 +6,23 @@ provideEditingConfig(CardWidget, {
   title: 'Card',
   thumbnail: classNameToThumbnail('CardWidget'),
   attributes: {
+    backgroundColor: {
+      title: 'Background color',
+      description: 'Default: Light grey',
+      values: [
+        { value: 'transparent', title: 'Transparent' },
+        { value: 'white', title: 'White' },
+        { value: 'primary', title: 'Primary color' },
+        { value: 'secondary', title: 'Secondary color' },
+        { value: 'light-grey', title: 'Light grey' },
+        { value: 'middle-grey', title: 'Grey' },
+        { value: 'dark-grey', title: 'Dark grey' },
+        { value: 'success', title: 'Success' },
+        { value: 'info', title: 'Info' },
+        { value: 'warning', title: 'Warning' },
+        { value: 'danger', title: 'Danger' },
+      ],
+    },
     image: { title: 'Top image' },
     cardExtended: {
       title: 'Card extended',
@@ -32,7 +49,7 @@ provideEditingConfig(CardWidget, {
     'showFooter',
   ],
   initialContent: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'light-grey',
     margin: 'mb-4',
     padding: 'p-4',
   },
