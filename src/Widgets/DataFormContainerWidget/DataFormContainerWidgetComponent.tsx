@@ -52,9 +52,9 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
     setIsSubmitting(true)
 
-    const attributes = attributesFromForm(formRef.current)
-
     try {
+      const attributes = attributesFromForm(formRef.current)
+
       if (dataItem) {
         await dataItem.update(attributes)
         toastAndRedirect(dataItem)
@@ -99,17 +99,27 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
 function attributesFromForm(formElement: HTMLFormElement) {
   const attributes: {
-    [key: string]: string | File | boolean
-  } = Object.fromEntries(new FormData(formElement).entries())
+    [key: string]: string | boolean
+  } = {}
 
-  formElement
-    .querySelectorAll<HTMLInputElement>('input[type="checkbox"]')
-    .forEach((checkboxInput) => {
-      const key = checkboxInput.getAttribute('name')
-      if (typeof key !== 'string') return
+  for (const element of formElement.elements) {
+    if (
+      !(element instanceof HTMLInputElement) &&
+      !(element instanceof HTMLSelectElement) &&
+      !(element instanceof HTMLTextAreaElement)
+    ) {
+      continue
+    }
 
-      attributes[key] = checkboxInput.checked
-    })
+    const name = element.getAttribute('name')
+    if (!name) throw new Error('No name given!')
+
+    if (element instanceof HTMLInputElement && element.type === 'checkbox') {
+      attributes[name] = element.checked
+    } else {
+      attributes[name] = element.value
+    }
+  }
 
   return attributes
 }
