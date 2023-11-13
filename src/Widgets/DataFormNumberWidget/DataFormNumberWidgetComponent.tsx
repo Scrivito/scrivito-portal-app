@@ -5,32 +5,24 @@ import {
   provideComponent,
   useDataItem,
 } from 'scrivito'
-import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
-import { OverlayTrigger, Popover } from 'react-bootstrap'
 
-provideComponent(DataFormBooleanWidget, ({ widget }) => {
+import { OverlayTrigger, Popover } from 'react-bootstrap'
+import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
+
+provideComponent(DataFormNumberWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
-  const id = ['DataFormBooleanWidget', widget.id()].join('-')
+  const id = ['DataFormNumberWidget', widget.id()].join('-')
   const labelOptions: { htmlFor?: string } = {}
   if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)
-  const defaultChecked =
-    typeof attributeValue === 'boolean'
-      ? attributeValue
-      : widget.get('defaultValue')
+  const defaultValue =
+    typeof attributeValue === 'number' ? attributeValue : undefined
 
   return (
-    <div className="mb-3" key={[id, attributeName, defaultChecked].join('-')}>
-      <input
-        id={id}
-        name={attributeName}
-        type="checkbox"
-        required={widget.get('required')}
-        defaultChecked={defaultChecked}
-      />{' '}
+    <div className="mb-3" key={[id, attributeName, defaultValue].join('-')}>
       <ContentTag
         content={widget}
         attribute="label"
@@ -69,6 +61,18 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
           </OverlayTrigger>
         </>
       ) : null}
+      <br />
+      <input
+        defaultValue={defaultValue}
+        id={id}
+        name={attributeName}
+        placeholder={widget.get('placeholder')}
+        required={widget.get('required')}
+        type="number"
+        min={widget.get('minValue') ?? undefined}
+        max={widget.get('maxValue') ?? undefined}
+        step={widget.get('stepValue') ?? undefined}
+      />
     </div>
   )
 })

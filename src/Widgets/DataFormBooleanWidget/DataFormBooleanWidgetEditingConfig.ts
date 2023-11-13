@@ -1,7 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
 
-provideEditingConfig('DataFormBooleanWidget', {
+provideEditingConfig(DataFormBooleanWidget, {
   title: 'Data Form Boolean',
   thumbnail: classNameToThumbnail('DataFormBooleanWidget'),
   attributes: {

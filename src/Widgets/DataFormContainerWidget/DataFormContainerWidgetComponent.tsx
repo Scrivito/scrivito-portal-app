@@ -52,19 +52,9 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
     setIsSubmitting(true)
 
-    const attributes: { [key: string]: string | File | boolean } =
-      Object.fromEntries(new FormData(formRef.current).entries())
-
-    formRef.current
-      .querySelectorAll<HTMLInputElement>('input[type="checkbox"]')
-      .forEach((checkboxInput) => {
-        const key = checkboxInput.getAttribute('name')
-        if (typeof key !== 'string') return
-
-        attributes[key] = checkboxInput.checked
-      })
-
     try {
+      const attributes = attributesFromForm(formRef.current)
+
       if (dataItem) {
         await dataItem.update(attributes)
         toastAndRedirect(dataItem)
@@ -106,3 +96,41 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       })
   }
 })
+
+function attributesFromForm(formElement: HTMLFormElement) {
+  const attributes: {
+    [key: string]: string | boolean | number | null
+  } = {}
+
+  for (const element of formElement.elements) {
+    if (
+      !(element instanceof HTMLInputElement) &&
+      !(element instanceof HTMLSelectElement) &&
+      !(element instanceof HTMLTextAreaElement)
+    ) {
+      continue
+    }
+
+    const name = element.getAttribute('name')
+    if (!name) throw new Error('No name given!')
+
+    attributes[name] = valueFromElement(element)
+  }
+
+  return attributes
+}
+
+function valueFromElement(
+  element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
+) {
+  if (element instanceof HTMLSelectElement) return element.value
+  if (element instanceof HTMLTextAreaElement) return element.value
+  if (element.type === 'checkbox') return element.checked
+
+  if (element.type === 'number') {
+    const numberValue = element.valueAsNumber
+    return Number.isFinite(numberValue) ? numberValue : null
+  }
+
+  return element.value
+}
