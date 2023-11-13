@@ -99,7 +99,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
 function attributesFromForm(formElement: HTMLFormElement) {
   const attributes: {
-    [key: string]: string | boolean
+    [key: string]: string | boolean | number | null
   } = {}
 
   for (const element of formElement.elements) {
@@ -114,12 +114,23 @@ function attributesFromForm(formElement: HTMLFormElement) {
     const name = element.getAttribute('name')
     if (!name) throw new Error('No name given!')
 
-    if (element instanceof HTMLInputElement && element.type === 'checkbox') {
-      attributes[name] = element.checked
-    } else {
-      attributes[name] = element.value
-    }
+    attributes[name] = valueFromElement(element)
   }
 
   return attributes
+}
+
+function valueFromElement(
+  element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
+) {
+  if (element instanceof HTMLSelectElement) return element.value
+  if (element instanceof HTMLTextAreaElement) return element.value
+  if (element.type === 'checkbox') return element.checked
+
+  if (element.type === 'number') {
+    const numberValue = element.valueAsNumber
+    return Number.isFinite(numberValue) ? numberValue : null
+  }
+
+  return element.value
 }
