@@ -11,7 +11,7 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
-  const id = ['DataFormOptionsWidget', widget.id()].join('-')
+  const id = ['DataFormBooleanWidget', widget.id()].join('-')
   const labelOptions: { htmlFor?: string } = {}
   if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
