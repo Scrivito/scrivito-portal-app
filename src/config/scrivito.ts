@@ -15,6 +15,7 @@ export function configureScrivito() {
         'https://*.netlify.app',
         'https://*.pages.dev',
       ],
+      assetUrlBase: '/scrivito',
     },
   }
 

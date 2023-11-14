@@ -18,12 +18,18 @@ export default defineConfig(({ mode }) => {
   return {
     build: {
       outDir,
+      commonjsOptions: {
+        include: [/scrivito/, /node_modules/],
+      },
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
           _scrivito_extensions: resolve(__dirname, '_scrivito_extensions.html'),
         },
       },
+    },
+    optimizeDeps: {
+      include: ['scrivito'],
     },
     define: {
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),

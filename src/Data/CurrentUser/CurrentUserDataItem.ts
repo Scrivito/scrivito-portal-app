@@ -33,6 +33,7 @@ export const CurrentUserDataItem = provideDataItem('CurrentUser', {
       jrUserId: user.id(),
       name: user.name(),
       phoneNumber,
+      picture: user.picture(),
       salutation,
     }
   },
