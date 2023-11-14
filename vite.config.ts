@@ -1,4 +1,5 @@
 import dns from 'dns'
+import fs from 'fs'
 import cspBuilder from 'content-security-policy-builder'
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
@@ -12,9 +13,11 @@ dns.setDefaultResultOrder('verbatim')
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
+  const outDir = 'dist'
 
   return {
     build: {
+      outDir,
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
@@ -27,7 +30,7 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE':
         JSON.stringify(env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE),
     },
-    plugins: [react()],
+    plugins: [react(), writeProductionHeaders(outDir)],
     preview: {
       port: 8080,
       strictPort: true,
@@ -73,6 +76,29 @@ export default defineConfig(({ mode }) => {
     },
   }
 })
+
+function writeProductionHeaders(outDir: string) {
+  return {
+    name: 'write-production-headers',
+    apply: 'build' as const,
+    async writeBundle() {
+      const unprocessedHeaders = await fs.promises.readFile(
+        resolve(__dirname, 'src', '_headers'),
+        'utf-8',
+      )
+
+      const headers = unprocessedHeaders.replace(
+        /CSP-DIRECTIVES-PLACEHOLDER/g,
+        cspBuilder({ directives: headersCsp }),
+      )
+
+      await fs.promises.writeFile(
+        resolve(__dirname, outDir, '_headers'),
+        headers,
+      )
+    },
+  }
+}
 
 function devServerCspHeader() {
   const directives = JSON.parse(JSON.stringify(headersCsp))
