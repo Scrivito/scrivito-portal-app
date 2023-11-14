@@ -16,7 +16,7 @@ provideEditingConfig(DataFormNumberWidget, {
     stepValue: {
       title: 'Step value',
       description:
-        "Granularity of up and down buttons. Use '1' for integer input. To allow decimal entries, change this value; e.g. a value of '0.01' supports inputs with up to two decimal places.",
+        "Granularity of up and down buttons. Use '1' for integer input. To allow decimal entries, change this value; e.g. a value of '0.01' supports inputs with up to two decimal places. Default: 1",
     },
   },
   properties: [
