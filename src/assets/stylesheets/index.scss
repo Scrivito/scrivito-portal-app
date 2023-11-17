@@ -361,7 +361,7 @@ main {
  ================================================== */
 
 .text-muted {
-  opacity: 0.5;
+  opacity: 0.8;
   color: inherit !important;
 }
 .text-bold {
@@ -417,9 +417,15 @@ main {
 
 .bg-light-grey {
   background: var(--light-grey) !important;
+  .form-control {
+    border: 1px solid #33333389 !important;
+  }
 }
 .bg-middle-grey {
   background: var(--middle-grey) !important;
+  .form-control {
+    border: 1px solid #33333389 !important;
+  }
 }
 
 // -- color content adaptions -- //
