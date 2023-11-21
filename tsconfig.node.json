@@ -3,8 +3,7 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true
+    "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts", "src/_headersCsp.json"]
+  "include": ["vite.config.ts", "headers.config.ts"]
 }
