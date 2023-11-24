@@ -9,5 +9,6 @@ export const DataFormContainerWidget = provideWidgetClass(
       submittedMessage: 'string',
       hiddenFields: ['widgetlist', { only: 'DataFormHiddenFieldWidget' }],
     },
+    extractTextAttributes: ['content'],
   },
 )

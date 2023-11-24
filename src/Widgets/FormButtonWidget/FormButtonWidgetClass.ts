@@ -5,5 +5,4 @@ export const FormButtonWidget = provideWidgetClass('FormButtonWidget', {
     buttonText: 'string',
     alignment: ['enum', { values: ['left', 'center', 'right', 'block'] }],
   },
-  extractTextAttributes: ['buttonText'],
 })
