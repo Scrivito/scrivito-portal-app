@@ -11,3 +11,9 @@ export const Person = provideObjClass('Person', {
     telephone: 'string',
   },
 })
+
+export type PersonInstance = InstanceType<typeof Person>
+
+export function isPerson(input: unknown): input is PersonInstance {
+  return input instanceof Person
+}

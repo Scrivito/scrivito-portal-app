@@ -31,3 +31,5 @@ export const SectionWidget = provideWidgetClass('SectionWidget', {
   },
   extractTextAttributes: ['content'],
 })
+
+export type SectionWidgetInstance = InstanceType<typeof SectionWidget>

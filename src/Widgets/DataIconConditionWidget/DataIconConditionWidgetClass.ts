@@ -10,3 +10,13 @@ export const DataIconConditionWidget = provideWidgetClass(
     onlyInside: ['DataIconWidget'],
   },
 )
+
+export type DataIconConditionWidgetInstance = InstanceType<
+  typeof DataIconConditionWidget
+>
+
+export function isDataIconConditionWidget(
+  item: unknown,
+): item is DataIconConditionWidgetInstance {
+  return item instanceof DataIconConditionWidget
+}

@@ -4,10 +4,8 @@ import {
   connect,
   ImageTag,
   InPlaceEditingOff,
-  Obj,
-  Widget,
 } from 'scrivito'
-import { SectionWidget } from './SectionWidgetClass'
+import { SectionWidget, SectionWidgetInstance } from './SectionWidgetClass'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
@@ -43,7 +41,7 @@ provideComponent(SectionWidget, ({ widget }) => {
 const ImageOrVideo = connect(function ImageOrVideo({
   widget,
 }: {
-  widget: InstanceType<typeof SectionWidget>
+  widget: SectionWidgetInstance
 }) {
   const background = widget.get('backgroundImage')
   if (!background) return null

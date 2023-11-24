@@ -7,7 +7,7 @@ import {
   isUserLoggedIn,
   logout,
 } from 'scrivito'
-import { NavigationWidget } from '../NavigationWidgetClass'
+import { NavigationWidgetInstance } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -19,7 +19,7 @@ import { ensureString } from '../../../utils/ensureString'
 export const MetaNavigation = connect(function MetaNavigation({
   widget,
 }: {
-  widget: InstanceType<typeof NavigationWidget>
+  widget: NavigationWidgetInstance
 }) {
   const metaNavigationPortalOverview = widget.get(
     'metaNavigationPortalOverview',

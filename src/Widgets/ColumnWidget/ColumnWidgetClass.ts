@@ -8,3 +8,5 @@ export const ColumnWidget = provideWidgetClass('ColumnWidget', {
   },
   extractTextAttributes: ['content'],
 })
+
+export type ColumnWidgetInstance = InstanceType<typeof ColumnWidget>

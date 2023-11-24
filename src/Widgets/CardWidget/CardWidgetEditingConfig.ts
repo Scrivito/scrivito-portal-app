@@ -37,7 +37,7 @@ provideEditingConfig(CardWidget, {
       description: 'Outer space to next item (bottom). Default: "mb-4"',
     },
   },
-  properties: (widget: InstanceType<typeof CardWidget>) => [
+  properties: (widget) => [
     'linkTo',
     'image',
     'backgroundColor',
