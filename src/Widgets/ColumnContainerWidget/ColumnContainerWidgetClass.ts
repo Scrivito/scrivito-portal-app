@@ -11,3 +11,7 @@ export const ColumnContainerWidget = provideWidgetClass(
     extractTextAttributes: ['columns'],
   },
 )
+
+export type ColumnContainerWidgetInstance = InstanceType<
+  typeof ColumnContainerWidget
+>

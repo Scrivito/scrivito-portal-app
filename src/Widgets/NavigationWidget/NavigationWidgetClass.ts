@@ -10,3 +10,5 @@ export const NavigationWidget = provideWidgetClass('NavigationWidget', {
     metaNavigationUserTitle: 'string',
   },
 })
+
+export type NavigationWidgetInstance = InstanceType<typeof NavigationWidget>

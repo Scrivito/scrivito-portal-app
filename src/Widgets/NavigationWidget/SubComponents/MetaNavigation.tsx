@@ -7,18 +7,19 @@ import {
   isUserLoggedIn,
   logout,
 } from 'scrivito'
-import { NavigationWidget } from '../NavigationWidgetClass'
+import { NavigationWidgetInstance } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { CurrentUserDataItem } from '../../../Data/CurrentUser/CurrentUserDataItem'
 import { containsItems } from '../../../Data/CartItem/Cart'
+import { ensureString } from '../../../utils/ensureString'
 
 export const MetaNavigation = connect(function MetaNavigation({
   widget,
 }: {
-  widget: InstanceType<typeof NavigationWidget>
+  widget: NavigationWidgetInstance
 }) {
   const metaNavigationPortalOverview = widget.get(
     'metaNavigationPortalOverview',
@@ -142,9 +143,9 @@ export const MetaNavigation = connect(function MetaNavigation({
 })
 
 const ProfileImg = connect(function ProfileImg() {
-  const picture = CurrentUserDataItem.get('picture')
+  const picture = ensureString(CurrentUserDataItem.get('picture'))
 
-  if (!picture || typeof picture !== 'string') {
+  if (!picture) {
     return <i className="bi bi-person-circle" aria-hidden="true"></i>
   }
 

@@ -2,17 +2,17 @@ import * as React from 'react'
 import { uiContext, canWrite, connect, Widget } from 'scrivito'
 import Draggable from 'react-draggable'
 import { isEqual, take, takeRight, times } from 'lodash-es'
-import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
-import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
+import {
+  ColumnWidget,
+  ColumnWidgetInstance,
+} from '../ColumnWidget/ColumnWidgetClass'
+import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
-
-type ColumnContainerInstance = InstanceType<typeof ColumnContainerWidget>
-type ColumnInstance = InstanceType<typeof ColumnWidget>
 
 export function ColumnsEditorTab({
   widget,
 }: {
-  widget: ColumnContainerInstance
+  widget: ColumnContainerWidgetInstance
 }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget))
   const { theme } = uiContext() || { theme: null }
@@ -37,7 +37,7 @@ const ColumnsEditor = connect(
     readOnly,
     currentGrid,
   }: {
-    widget: ColumnContainerInstance
+    widget: ColumnContainerWidgetInstance
     readOnly: boolean
     currentGrid: number[]
   }) => {
@@ -179,10 +179,10 @@ const ColumnsEditor = connect(
   },
 )
 
-function calculateContents(widget: ColumnContainerInstance) {
+function calculateContents(widget: ColumnContainerWidgetInstance) {
   return widget
     .get('columns')
-    .map((column) => (column as ColumnInstance).get('content'))
+    .map((column) => (column as ColumnWidgetInstance).get('content'))
 }
 
 function calculateContentIds(contents: Widget[][]) {
@@ -469,14 +469,14 @@ class GridLayoutEditor extends React.Component<
   }
 }
 
-function gridOfWidget(containerWidget: ColumnContainerInstance) {
+function gridOfWidget(containerWidget: ColumnContainerWidgetInstance) {
   return containerWidget
     .get('columns')
-    .map((column) => (column as ColumnInstance).get('colSize') || 1)
+    .map((column) => (column as ColumnWidgetInstance).get('colSize') || 1)
 }
 
 function adjustNumberOfColumns(
-  containerWidget: ColumnContainerInstance,
+  containerWidget: ColumnContainerWidgetInstance,
   desiredLength: number,
 ) {
   const columns = containerWidget.get('columns')

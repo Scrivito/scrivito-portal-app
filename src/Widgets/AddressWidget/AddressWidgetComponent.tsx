@@ -8,7 +8,7 @@ import {
   ImageTag,
   isInPlaceEditingActive,
 } from 'scrivito'
-import { AddressWidget } from './AddressWidgetClass'
+import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 
 provideComponent(AddressWidget, ({ widget }) => (
@@ -42,11 +42,7 @@ const Logo = connect(() => {
 })
 
 const Address = connect(
-  ({
-    addressWidget,
-  }: {
-    addressWidget: InstanceType<typeof AddressWidget>
-  }) => {
+  ({ addressWidget }: { addressWidget: AddressWidgetInstance }) => {
     let localityRegionPostalCode: string[]
 
     if (addressWidget.get('addressFormat') === 'GER') {

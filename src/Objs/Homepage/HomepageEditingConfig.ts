@@ -9,6 +9,10 @@ provideEditingConfig(Homepage, {
     contentTitle: {
       title: 'Site name',
     },
+    metaDataDescription: {
+      title: 'Page description',
+      description: 'Limit to 175, ideally 150 characters.',
+    },
     siteLogoDark: {
       title: 'Dark logo',
       description: 'Used with light backgrounds',
@@ -34,5 +38,5 @@ provideEditingConfig(Homepage, {
       key: 'site-settings-group',
     },
   ],
-  properties: ['title'],
+  properties: ['title', 'metaDataDescription'],
 })

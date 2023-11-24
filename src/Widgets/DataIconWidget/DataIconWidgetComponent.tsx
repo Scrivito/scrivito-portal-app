@@ -1,7 +1,7 @@
 import { WidgetTag, provideComponent, useDataItem } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
-import { DataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
+import { isDataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
 import { IconComponent } from '../../Components/Icon'
 
 provideComponent(DataIconWidget, ({ widget }) => {
@@ -42,9 +42,3 @@ provideComponent(DataIconWidget, ({ widget }) => {
     </WidgetTag>
   )
 })
-
-function isDataIconConditionWidget(
-  item: unknown,
-): item is InstanceType<typeof DataIconConditionWidget> {
-  return item instanceof DataIconConditionWidget
-}

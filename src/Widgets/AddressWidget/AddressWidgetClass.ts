@@ -28,3 +28,5 @@ export const AddressWidget = provideWidgetClass('AddressWidget', {
     'email',
   ],
 })
+
+export type AddressWidgetInstance = InstanceType<typeof AddressWidget>

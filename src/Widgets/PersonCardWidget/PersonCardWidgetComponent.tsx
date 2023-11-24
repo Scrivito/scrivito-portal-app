@@ -7,11 +7,11 @@ import {
   ContentTag,
 } from 'scrivito'
 import { PersonCardWidget } from './PersonCardWidgetClass'
-import { Person } from '../../Objs/Person/PersonObjClass'
+import { isPerson } from '../../Objs/Person/PersonObjClass'
 
 provideComponent(PersonCardWidget, ({ widget }) => {
-  const person: InstanceType<typeof Person> | unknown = widget.get('person')
-  if (!(person instanceof Person)) {
+  const person = widget.get('person')
+  if (!isPerson(person)) {
     if (isInPlaceEditingActive()) {
       return (
         <div className="alert alert-warning d-flex m-auto">
