@@ -14,6 +14,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { CurrentUserDataItem } from '../../../Data/CurrentUser/CurrentUserDataItem'
 import { containsItems } from '../../../Data/CartItem/Cart'
+import { ensureString } from '../../../utils/ensureString'
 
 export const MetaNavigation = connect(function MetaNavigation({
   widget,
@@ -142,9 +143,9 @@ export const MetaNavigation = connect(function MetaNavigation({
 })
 
 const ProfileImg = connect(function ProfileImg() {
-  const picture = CurrentUserDataItem.get('picture')
+  const picture = ensureString(CurrentUserDataItem.get('picture'))
 
-  if (!picture || typeof picture !== 'string') {
+  if (!picture) {
     return <i className="bi bi-person-circle" aria-hidden="true"></i>
   }
 

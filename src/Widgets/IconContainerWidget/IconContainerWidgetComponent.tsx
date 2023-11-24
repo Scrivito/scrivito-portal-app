@@ -2,6 +2,7 @@ import { Link, provideComponent } from 'scrivito'
 import { IconComponent } from '../../Components/Icon'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import { IconContainerWidget } from './IconContainerWidgetClass'
+import { ensureString } from '../../utils/ensureString'
 
 provideComponent(IconContainerWidget, ({ widget }) => {
   const icons = widget.get('iconList')
@@ -17,21 +18,16 @@ provideComponent(IconContainerWidget, ({ widget }) => {
   return (
     <ul className="list-inline mb-0">
       {icons.map((iconListItem) => {
-        const icon = iconListItem.get('icon')
-        const size = iconListItem.get('size')
         const link = iconListItem.get('link')
-
-        if (
-          typeof icon !== 'string' ||
-          typeof size !== 'string' ||
-          !isLinkOrNull(link)
-        ) {
-          return
-        }
+        if (!isLinkOrNull(link)) return null
 
         return (
           <li className="list-inline-item btn" key={iconListItem.id()}>
-            <IconComponent icon={icon} size={size} link={link} />
+            <IconComponent
+              icon={ensureString(iconListItem.get('icon'))}
+              size={ensureString(iconListItem.get('size'))}
+              link={link}
+            />
           </li>
         )
       })}

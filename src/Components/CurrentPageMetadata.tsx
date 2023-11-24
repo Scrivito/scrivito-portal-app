@@ -1,5 +1,6 @@
 import { connect, currentPage, Obj, urlFor } from 'scrivito'
 import { Helmet, HelmetProps } from 'react-helmet-async'
+import { ensureString } from '../utils/ensureString'
 
 export const CurrentPageMetadata = connect(() => {
   let lang = 'en'
@@ -20,10 +21,7 @@ export const CurrentPageMetadata = connect(() => {
 
   if (page) {
     lang = page.language() || 'en'
-
-    const pageTitle = page.get('title')
-    title = typeof pageTitle === 'string' ? pageTitle : ''
-
+    title = ensureString(page.get('title'))
     links.push({ rel: 'canonical', href: urlFor(page) })
   }
 

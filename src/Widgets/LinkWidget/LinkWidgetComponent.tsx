@@ -1,6 +1,7 @@
-import { connect, Link, LinkTag, provideComponent, WidgetTag } from 'scrivito'
+import { Link, LinkTag, provideComponent, WidgetTag } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import { LinkWidget } from './LinkWidgetClass'
+import { ensureString } from '../../utils/ensureString'
 
 provideComponent(LinkWidget, ({ widget }) => {
   const link = widget.get('link')
@@ -26,8 +27,8 @@ function linkTitle(link: Link) {
   const linkTitle = link.title()
   if (linkTitle) return linkTitle
 
-  const objTitle = link.isInternal() && link.obj()?.get('title')
-  if (typeof objTitle === 'string') return objTitle
+  const objTitle = ensureString(link.obj()?.get('title'))
+  if (objTitle) return objTitle
 
   return link.url()
 }

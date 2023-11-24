@@ -13,6 +13,7 @@ import {
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget, ImageWidgetInstance } from './ImageWidgetClass'
 import './ImageWidget.scss'
+import { ensureString } from '../../utils/ensureString'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -81,9 +82,8 @@ const ImageComponent = connect(function ImageComponent({
     )
   }
 
-  const attributeValue = dataItem.get(attributeName)
+  const attributeValue = ensureString(dataItem.get(attributeName))
   if (!attributeValue) return null
-  if (typeof attributeValue !== 'string') return null
 
   return (
     <img
@@ -95,10 +95,5 @@ const ImageComponent = connect(function ImageComponent({
 })
 
 function alternativeTextFromObj(image: Obj | null): string {
-  if (!image) return ''
-
-  const alternativeText = image.get('alternativeText')
-  if (typeof alternativeText !== 'string') return ''
-
-  return alternativeText
+  return ensureString(image?.get('alternativeText'))
 }
