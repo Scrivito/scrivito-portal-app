@@ -5,6 +5,7 @@ export const Page = provideObjClass('Page', {
     body: 'widgetlist',
     childOrder: 'referencelist',
     data: 'datalocator',
+    excludeFromSearch: 'boolean',
     hideInNavigation: 'boolean',
     linkIcon: 'string',
     metaDataDescription: 'string',

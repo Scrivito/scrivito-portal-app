@@ -41,6 +41,7 @@ provideComponent(SearchResults, ({ page, params }) => {
     const search = Obj.whereFullTextOf('*', 'matches', query)
       .andNot('_objClass', 'equals', BLACKLIST_OBJ_CLASSES)
       .and('_dataParam', 'equals', null) // Ignore data details pages
+      .andNot('excludeFromSearch', 'equals', true)
 
     load(() => [search.take(maxItems), search.count()] as const).then(
       ([searchResults, totalCount]) => {

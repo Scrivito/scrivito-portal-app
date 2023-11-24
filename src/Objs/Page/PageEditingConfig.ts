@@ -6,6 +6,11 @@ provideEditingConfig(Page, {
   title: 'Page',
   thumbnail: classNameToThumbnail('Page'),
   attributes: {
+    excludeFromSearch: {
+      title: 'Exclude from search results?',
+      description:
+        'If checked, this download will not be included in search results.',
+    },
     hideInNavigation: {
       title: 'Hide in navigation?',
       description: 'Default: No',
@@ -31,6 +36,7 @@ provideEditingConfig(Page, {
     'metaDataDescription',
     'hideInNavigation',
     'linkIcon',
+    'excludeFromSearch',
     'requireUserLogin',
   ],
 })
