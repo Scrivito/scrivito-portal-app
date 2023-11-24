@@ -91,8 +91,8 @@ function defaultFilters() {
         Data: {
           title: 'Data',
           field: '_objClass',
-          value: DATA,
-          options: DATA.reduce(
+          value: DATA_OBJ_CLASSES,
+          options: DATA_OBJ_CLASSES.reduce(
             (result, value) => {
               result[value] = filterOptionForObjClass(value)
               return result
@@ -164,7 +164,7 @@ const PAGES = [
   'ProductCategory',
   'ProductsOverview',
 ]
-const DATA = [
+export const DATA_OBJ_CLASSES = [
   'Notification',
   'Person',
   'Quote',
