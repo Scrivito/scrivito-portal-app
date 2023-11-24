@@ -16,7 +16,10 @@ provideComponent(NavigationWidget, ({ widget }) => {
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <MetaNavigation widget={widget} />
-        <MainNavigation root={root} />
+        <MainNavigation
+          root={root}
+          searchResultsPage={widget.get('metaNavigationSearchResultsPage')}
+        />
       </Navbar.Collapse>
     </Navbar>
   )
