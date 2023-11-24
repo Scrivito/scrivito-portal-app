@@ -3,9 +3,10 @@ import { Helmet, HelmetProps } from 'react-helmet-async'
 import { ensureString } from '../utils/ensureString'
 
 export const CurrentPageMetadata = connect(() => {
+  const links: HelmetProps['link'] = []
+  const meta: HelmetProps['meta'] = []
   let lang = 'en'
   let title = ''
-  const links: HelmetProps['link'] = []
 
   const root = Obj.root()
   const favicon = root?.get('siteFavicon')
@@ -23,7 +24,12 @@ export const CurrentPageMetadata = connect(() => {
     lang = page.language() || 'en'
     title = ensureString(page.get('title'))
     links.push({ rel: 'canonical', href: urlFor(page) })
+
+    const description = ensureString(page.get('metaDataDescription'))
+    if (description) meta.push({ name: 'description', content: description })
   }
 
-  return <Helmet htmlAttributes={{ lang }} title={title} link={links} />
+  return (
+    <Helmet htmlAttributes={{ lang }} link={links} meta={meta} title={title} />
+  )
 })

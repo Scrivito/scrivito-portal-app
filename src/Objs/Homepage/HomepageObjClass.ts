@@ -5,6 +5,7 @@ export const Homepage = provideObjClass('Homepage', {
     body: 'widgetlist',
     childOrder: 'referencelist',
     contentTitle: 'string',
+    metaDataDescription: 'string',
     siteFavicon: ['reference', { only: 'Image' }],
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],
     siteHeader: ['widgetlist', { only: 'SectionWidget' }],
