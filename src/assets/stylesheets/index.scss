@@ -16,11 +16,15 @@
 
   --border: rgba(0, 0, 0, 0.1);
 
+  // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-primary: #5c9dcd;
+
   --bs-primary-lighten: #6bb0e0;
   --bs-primary-darken: #5088b0;
 
+  // The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-secondary: #495054;
+
   --bs-secondary-lighten: #5f676c;
   --bs-secondary-darken: #363c3f;
 
