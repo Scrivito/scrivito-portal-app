@@ -25,4 +25,5 @@ provideEditingConfig(Person, {
     'employeeId',
   ],
   titleForContent: (obj) => obj.get('name'),
+  hideInSelectionDialogs: true,
 })

@@ -8,10 +8,10 @@ import {
   provideComponent,
 } from 'scrivito'
 import { useEffect, useRef, useState } from 'react'
-import { DATA_OBJ_CLASSES } from '../../config/scrivitoContentBrowser'
 import { ensureString } from '../../utils/ensureString'
 import { SearchResult, SearchResultLoadingPlaceholder } from './SearchResult'
 import { SearchResults } from './SearchResultsObjClass'
+import { DATA_OBJ_CLASSES } from '../dataObjClasses'
 
 const BLACKLIST_OBJ_CLASSES = [
   'Image',

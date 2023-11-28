@@ -1,4 +1,5 @@
 import { configureContentBrowser, Obj } from 'scrivito'
+import { DATA_OBJ_CLASSES } from '../Objs/dataObjClasses'
 
 export function configureScrivitoContentBrowser() {
   configureContentBrowser({
@@ -163,13 +164,4 @@ const PAGES = [
   'Product',
   'ProductCategory',
   'ProductsOverview',
-]
-export const DATA_OBJ_CLASSES = [
-  'Notification',
-  'Person',
-  'Quote',
-  'Order',
-  'Shipment',
-  'Invoice',
-  'DeliveryAddress',
 ]
