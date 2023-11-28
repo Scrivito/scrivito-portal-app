@@ -42,7 +42,6 @@ export const SearchResult = connect(function SearchResult({
                 <ImageTag
                   content={searchResult}
                   attribute="image"
-                  // TODO: Remove "z-0" className once a Designer is available
                   className="img-box z-0"
                 />
               </LinkTag>
