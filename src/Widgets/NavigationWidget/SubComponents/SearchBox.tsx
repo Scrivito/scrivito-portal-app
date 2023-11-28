@@ -1,4 +1,4 @@
-import { connect, currentPage, navigateTo, Obj } from 'scrivito'
+import { connect, navigateTo, Obj } from 'scrivito'
 import { useRef } from 'react'
 
 export const SearchBox = connect(function SearchBox({
@@ -7,19 +7,18 @@ export const SearchBox = connect(function SearchBox({
   searchResultsPage: Obj | null
 }) {
   const inputRef = useRef<HTMLInputElement>(null)
-
   if (!searchResultsPage) return null
-  const disabled = searchResultsPage.id() === currentPage()?.id()
 
   return (
     <form
       role="search"
       onSubmit={(event) => {
         event.preventDefault()
+        if (!inputRef.current) return
 
-        const q = inputRef.current?.value
-        if (!q) return
+        const q = inputRef.current.value
         inputRef.current.value = ''
+        inputRef.current.blur()
 
         navigateTo(searchResultsPage, { q })
       }}
@@ -31,10 +30,9 @@ export const SearchBox = connect(function SearchBox({
           placeholder="Search"
           aria-label="Search"
           ref={inputRef}
-          disabled={disabled}
         />
 
-        <button type="submit" className="btn btn-primary" disabled={disabled}>
+        <button type="submit" className="btn btn-primary">
           <i className="bi bi-search"></i>
         </button>
       </div>
