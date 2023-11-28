@@ -83,7 +83,6 @@ const TextDescription = connect(function TextResult({
     <div className="card-body">
       <LinkTag to={searchResult}>
         <Highlighter
-          autoEscape
           outerTag="h3"
           searchWords={searchWords}
           textToHighlight={objTitle(searchResult)}
@@ -91,7 +90,6 @@ const TextDescription = connect(function TextResult({
       </LinkTag>
 
       <Highlighter
-        autoEscape
         outerTag="p"
         searchWords={searchWords}
         textToHighlight={shortDescription}

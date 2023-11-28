@@ -3,26 +3,21 @@ import { Fragment } from 'react'
 
 /** This is a much slimmer implementation of the `react-highlight-words` package. */
 export function Highlighter({
-  autoEscape,
-  highlightTag,
   outerTag,
   searchWords,
   textToHighlight,
 }: {
-  autoEscape?: boolean
-  highlightTag?: React.ElementType
   outerTag?: React.ElementType
   searchWords: string[]
   textToHighlight: string
 }): JSX.Element {
-  const HighlightTag = highlightTag || 'mark'
   const OuterTag = outerTag || 'span'
 
   return (
     <OuterTag>
-      {findAll({ autoEscape, searchWords, textToHighlight }).map(
+      {findAll({ searchWords, textToHighlight, autoEscape: true }).map(
         (chunk, index) => {
-          const InnerTag = chunk.highlight ? HighlightTag : Fragment
+          const InnerTag = chunk.highlight ? 'mark' : Fragment
 
           return (
             <InnerTag key={`${chunk.start}-${chunk.end}-${index}`}>
