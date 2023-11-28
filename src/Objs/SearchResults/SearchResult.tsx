@@ -34,28 +34,28 @@ export const SearchResult = connect(function SearchResult({
 }) {
   return (
     <div className="card bg-light-grey my-4">
-      <div className="row g-0">
-        {searchResult.get('image') ? (
-          <>
-            <div className="col-md-3">
-              <LinkTag to={searchResult}>
+      <LinkTag to={searchResult}>
+        <div className="row g-0">
+          {searchResult.get('image') ? (
+            <>
+              <div className="col-md-3">
                 <ImageTag
                   content={searchResult}
                   attribute="image"
                   className="img-box z-0"
                 />
-              </LinkTag>
-            </div>
-            <div className="col-md-9">
+              </div>
+              <div className="col-md-9">
+                <TextDescription searchResult={searchResult} query={query} />
+              </div>
+            </>
+          ) : (
+            <div className="col">
               <TextDescription searchResult={searchResult} query={query} />
             </div>
-          </>
-        ) : (
-          <div className="col">
-            <TextDescription searchResult={searchResult} query={query} />
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      </LinkTag>
     </div>
   )
 })
@@ -80,13 +80,11 @@ const TextDescription = connect(function TextResult({
 
   return (
     <div className="card-body">
-      <LinkTag to={searchResult}>
-        <Highlighter
-          outerTag="h3"
-          searchWords={searchWords}
-          textToHighlight={objTitle(searchResult)}
-        />
-      </LinkTag>
+      <Highlighter
+        outerTag="h3"
+        searchWords={searchWords}
+        textToHighlight={objTitle(searchResult)}
+      />
 
       <Highlighter
         outerTag="p"
@@ -94,10 +92,10 @@ const TextDescription = connect(function TextResult({
         textToHighlight={shortDescription}
       />
 
-      <LinkTag to={searchResult} className="btn btn-sm btn-outline-secondary">
+      <button className="btn btn-sm btn-outline-secondary">
         Read more
         <i className="bi bi-chevron-right" aria-hidden="true"></i>
-      </LinkTag>
+      </button>
     </div>
   )
 })
