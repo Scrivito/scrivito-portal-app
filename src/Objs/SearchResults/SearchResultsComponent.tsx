@@ -24,18 +24,15 @@ provideComponent(SearchResults, ({ page, params }) => {
   const query = ensureString(params?.q).trim()
 
   const inputRef = useRef<HTMLInputElement>(null)
-  const [{ maxItems, searchResults, totalCount, updateCounter }, setState] =
-    useState<{
-      maxItems: number
-      searchResults: Array<Obj> | null
-      totalCount: number | null
-      updateCounter: number
-    }>({
-      maxItems: 10,
-      searchResults: null,
-      totalCount: null,
-      updateCounter: 0,
-    })
+  const [{ maxItems, searchResults, totalCount }, setState] = useState<{
+    maxItems: number
+    searchResults: Array<Obj> | null
+    totalCount: number | null
+  }>({
+    maxItems: 10,
+    searchResults: null,
+    totalCount: null,
+  })
 
   useEffect(() => {
     const search = Obj.whereFullTextOf('*', 'matches', query)
@@ -43,21 +40,20 @@ provideComponent(SearchResults, ({ page, params }) => {
       .and('_dataParam', 'equals', null) // Ignore data details pages
       .andNot('excludeFromSearch', 'equals', true)
 
+    let ignoreResults = false
+
     load(() => [search.take(maxItems), search.count()] as const).then(
       ([searchResults, totalCount]) => {
-        setState((prevState) => {
-          if (prevState.updateCounter !== updateCounter) return prevState
+        if (ignoreResults) return
 
-          return {
-            ...prevState,
-            searchResults,
-            totalCount,
-            updateCounter: prevState.updateCounter + 1,
-          }
-        })
+        setState({ maxItems, searchResults, totalCount })
       },
     )
-  }, [query, maxItems, updateCounter])
+
+    return () => {
+      ignoreResults = true
+    }
+  }, [query, maxItems])
 
   return (
     <InPlaceEditingOff>
@@ -72,12 +68,7 @@ provideComponent(SearchResults, ({ page, params }) => {
             onSubmit={(e) => {
               e.preventDefault()
 
-              setState((previousState) => ({
-                maxItems: 10,
-                searchResults: null,
-                totalCount: null,
-                updateCounter: previousState.updateCounter + 1,
-              }))
+              setState({ maxItems: 10, searchResults: null, totalCount: null })
 
               const q = ensureString(inputRef.current?.value)
               navigateTo(currentPage(), { q })
