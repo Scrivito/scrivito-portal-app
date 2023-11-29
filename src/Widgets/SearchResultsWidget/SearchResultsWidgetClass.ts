@@ -1,9 +1,7 @@
-import { provideObjClass } from 'scrivito'
+import { provideWidgetClass } from 'scrivito'
 
-export const SearchResults = provideObjClass('SearchResults', {
+export const SearchResultsWidget = provideWidgetClass('SearchResultsWidget', {
   attributes: {
-    title: 'string',
-    hideInNavigation: 'boolean',
     topBannerBackground: ['reference', { only: ['Image'] }],
   },
 })

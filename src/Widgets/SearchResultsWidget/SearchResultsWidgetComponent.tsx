@@ -1,5 +1,5 @@
 import {
-  currentPage,
+  currentPageParams,
   ImageTag,
   InPlaceEditingOff,
   load,
@@ -10,18 +10,13 @@ import {
 import { useEffect, useRef, useState } from 'react'
 import { ensureString } from '../../utils/ensureString'
 import { SearchResult, SearchResultLoadingPlaceholder } from './SearchResult'
-import { SearchResults } from './SearchResultsObjClass'
-import { DATA_OBJ_CLASSES } from '../dataObjClasses'
+import { SearchResultsWidget } from './SearchResultsWidgetClass'
+import { DATA_OBJ_CLASSES } from '../../Objs/dataObjClasses'
 
-const BLACKLIST_OBJ_CLASSES = [
-  'Image',
-  'SearchResults',
-  'Video',
-  ...DATA_OBJ_CLASSES,
-]
+const BLACKLIST_OBJ_CLASSES = ['Image', 'Video', ...DATA_OBJ_CLASSES]
 
-provideComponent(SearchResults, ({ page, params }) => {
-  const query = ensureString(params?.q).trim()
+provideComponent(SearchResultsWidget, ({ widget }) => {
+  const query = ensureString(currentPageParams().q).trim()
 
   const inputRef = useRef<HTMLInputElement>(null)
   const [{ maxItems, searchResults, totalCount }, setState] = useState<{
@@ -59,7 +54,7 @@ provideComponent(SearchResults, ({ page, params }) => {
     <InPlaceEditingOff>
       <section className="bg-primary py-4">
         <ImageTag
-          content={page}
+          content={widget}
           attribute="topBannerBackground"
           className="img-background"
         />
@@ -71,7 +66,7 @@ provideComponent(SearchResults, ({ page, params }) => {
               setState({ maxItems: 10, searchResults: null, totalCount: null })
 
               const q = ensureString(inputRef.current?.value)
-              navigateTo(currentPage(), { q })
+              navigateTo(widget.obj(), { q })
             }}
           >
             <div className="input-group">

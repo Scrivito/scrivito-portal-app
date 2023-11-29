@@ -1,20 +1,15 @@
 import { provideEditingConfig } from 'scrivito'
-import { SearchResults } from './SearchResultsObjClass'
+import { SearchResultsWidget } from './SearchResultsWidgetClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
-provideEditingConfig(SearchResults, {
+provideEditingConfig(SearchResultsWidget, {
   title: 'Search Results',
-  thumbnail: classNameToThumbnail('SearchResults'),
+  thumbnail: classNameToThumbnail('SearchResultsWidget'),
   attributes: {
     topBannerBackground: {
       title: 'Top banner background',
-      description: 'This background will be shown on this page.',
+      description: 'This background will be shown beneath the search input.',
     },
   },
-  properties: ['title', 'topBannerBackground'],
-  initialContent: {
-    title: 'Search Results',
-    hideInNavigation: true,
-  },
-  hideInSelectionDialogs: true,
+  properties: ['topBannerBackground'],
 })

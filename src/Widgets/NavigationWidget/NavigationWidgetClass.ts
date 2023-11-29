@@ -5,7 +5,7 @@ export const NavigationWidget = provideWidgetClass('NavigationWidget', {
     metaNavigationCart: 'reference',
     metaNavigationObjs: 'referencelist',
     metaNavigationPortalOverview: 'reference',
-    metaNavigationSearchResultsPage: ['reference', { only: 'SearchResults' }],
+    metaNavigationSearchResultsPage: 'reference',
     metaNavigationUserDescription: 'string',
     metaNavigationUserProfile: 'reference',
     metaNavigationUserTitle: 'string',
