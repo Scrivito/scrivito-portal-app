@@ -20,11 +20,11 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
 
   const inputRef = useRef<HTMLInputElement>(null)
   const [{ maxItems, searchResults, totalCount }, setState] = useState<{
-    maxItems: number
+    maxItems: number | null
     searchResults: Array<Obj> | null
     totalCount: number | null
   }>({
-    maxItems: 10,
+    maxItems: null,
     searchResults: null,
     totalCount: null,
   })
@@ -36,12 +36,17 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
       .andNot('excludeFromSearch', 'equals', true)
 
     let ignoreResults = false
+    const newMaxItems = maxItems ?? 10
 
-    load(() => [search.take(maxItems), search.count()] as const).then(
+    load(() => [search.take(newMaxItems), search.count()] as const).then(
       ([searchResults, totalCount]) => {
         if (ignoreResults) return
 
-        setState({ maxItems, searchResults, totalCount })
+        setState({
+          maxItems: newMaxItems,
+          searchResults,
+          totalCount,
+        })
       },
     )
 
@@ -63,7 +68,11 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
             onSubmit={(e) => {
               e.preventDefault()
 
-              setState({ maxItems: 10, searchResults: null, totalCount: null })
+              setState({
+                maxItems: null,
+                searchResults: null,
+                totalCount: null,
+              })
 
               const q = ensureString(inputRef.current?.value)
               navigateTo(widget.obj(), { q })
@@ -104,7 +113,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
           ) : (
             <SearchResultLoadingPlaceholder />
           )}
-          {totalCount !== null && totalCount > maxItems ? (
+          {totalCount !== null && maxItems !== null && totalCount > maxItems ? (
             <div className="text-center">
               <button
                 className="btn btn-outline-secondary"
@@ -113,7 +122,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
 
                   setState((prevState) => ({
                     ...prevState,
-                    maxItems: prevState.maxItems + 10,
+                    maxItems: maxItems + 10,
                   }))
                 }}
               >
