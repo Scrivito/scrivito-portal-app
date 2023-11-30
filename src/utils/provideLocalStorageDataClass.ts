@@ -1,5 +1,5 @@
 import { provideDataClass } from 'scrivito'
-import { pseudoRandom32CharHex } from '../Widgets/FormContainerWidget/utils/pseudoRandom32CharHex'
+import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
 import { isObject } from 'lodash-es'
 
 export function provideLocalStorageDataClass(className: string) {
