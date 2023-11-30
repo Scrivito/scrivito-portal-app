@@ -13,7 +13,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { CurrentUserDataItem } from '../../../Data/CurrentUser/CurrentUserDataItem'
-import { containsItems } from '../../../Data/CartItem/Cart'
+import { containsItems, numberOfCartItems } from '../../../Data/CartItem/Cart'
 import { ensureString } from '../../../utils/ensureString'
 
 export const MetaNavigation = connect(function MetaNavigation({
@@ -54,7 +54,10 @@ export const MetaNavigation = connect(function MetaNavigation({
                 key={`MetaNavigation-${metaNavigationCart.id()}`}
                 to={metaNavigationCart}
               >
-                <ObjIconAndTitle obj={metaNavigationCart} />
+                <ObjIconAndTitle obj={metaNavigationCart} />{' '}
+                <span className="badge rounded-pill text-bg-secondary">
+                  {numberOfCartItems()}
+                </span>
               </Nav.Link>
             </Nav.Item>
           )}

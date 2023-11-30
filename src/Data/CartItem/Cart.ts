@@ -36,6 +36,13 @@ export function containsItems(): boolean {
   return CartItem.all().containsData()
 }
 
+export function numberOfCartItems(): number {
+  if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
+
+  // @ts-expect-error until out of private beta
+  return CartItem.all().take().length
+}
+
 export async function checkoutCart(): Promise<void> {
   // @ts-expect-error until out of private beta
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
