@@ -1,7 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { FormIdComponent } from './FormIdComponent'
 import { getFormContainer } from './utils/getFormContainer'
-import { pseudoRandom32CharHex } from './utils/pseudoRandom32CharHex'
+import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 import { FormContainerWidget } from './FormContainerWidgetClass'
 import { ColumnContainerWidget } from '../ColumnContainerWidget/ColumnContainerWidgetClass'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
