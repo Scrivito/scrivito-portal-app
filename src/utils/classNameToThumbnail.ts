@@ -6,6 +6,7 @@ const thumbnails = Object.values(
 )
 
 export function classNameToThumbnail(className: string) {
+  return undefined
   if (thumbnails.length === 0) return undefined
 
   const pointer = basicHash(className) % thumbnails.length
