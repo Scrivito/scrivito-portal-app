@@ -84,6 +84,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
                 placeholder="Search"
                 defaultValue={query}
                 ref={inputRef}
+                key={`search-results-widget-input-${query}`}
               />
               <span className="input-group-btn">
                 <button className="btn btn-primary" type="submit">
