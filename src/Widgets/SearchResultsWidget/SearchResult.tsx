@@ -11,20 +11,6 @@ import { ensureString } from '../../utils/ensureString'
 import { Highlighter } from '../../Components/Highlighter'
 import { objTitle } from '../../utils/objTitle'
 
-export function SearchResultLoadingPlaceholder() {
-  return (
-    <div className="card bg-light-grey my-4" style={{ minHeight: '150px' }}>
-      <div className="row g-0">
-        <div className="col">
-          <div className="text-center">
-            <div className="loading-placeholder" />
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
 export const SearchResult = connect(function SearchResult({
   query,
   searchResult,

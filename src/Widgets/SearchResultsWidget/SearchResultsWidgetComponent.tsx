@@ -2,58 +2,32 @@ import {
   currentPageParams,
   ImageTag,
   InPlaceEditingOff,
-  load,
   navigateTo,
   Obj,
   provideComponent,
 } from 'scrivito'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { ensureString } from '../../utils/ensureString'
-import { SearchResult, SearchResultLoadingPlaceholder } from './SearchResult'
+import { SearchResult } from './SearchResult'
 import { SearchResultsWidget } from './SearchResultsWidgetClass'
 import { DATA_OBJ_CLASSES } from '../../Objs/dataObjClasses'
 
 const BLACKLIST_OBJ_CLASSES = ['Image', 'Video', ...DATA_OBJ_CLASSES]
 
+// TODO: Add "loading" state, once #7242 is available
 provideComponent(SearchResultsWidget, ({ widget }) => {
   const query = ensureString(currentPageParams().q).trim()
 
   const inputRef = useRef<HTMLInputElement>(null)
-  const [{ maxItems, searchResults, totalCount }, setState] = useState<{
-    maxItems: number | null
-    searchResults: Array<Obj> | null
-    totalCount: number | null
-  }>({
-    maxItems: null,
-    searchResults: null,
-    totalCount: null,
-  })
+  const [maxItems, setMaxItems] = useState<number>(10)
 
-  useEffect(() => {
-    const search = Obj.whereFullTextOf('*', 'matches', query)
-      .andNot('_objClass', 'equals', BLACKLIST_OBJ_CLASSES)
-      .and('_dataParam', 'equals', null) // Ignore data details pages
-      .andNot('excludeFromSearch', 'equals', true)
+  const search = Obj.whereFullTextOf('*', 'matches', query)
+    .andNot('_objClass', 'equals', BLACKLIST_OBJ_CLASSES)
+    .and('_dataParam', 'equals', null) // Ignore data details pages
+    .andNot('excludeFromSearch', 'equals', true)
 
-    let ignoreResults = false
-    const newMaxItems = maxItems ?? 10
-
-    load(() => [search.take(newMaxItems), search.count()] as const).then(
-      ([searchResults, totalCount]) => {
-        if (ignoreResults) return
-
-        setState({
-          maxItems: newMaxItems,
-          searchResults,
-          totalCount,
-        })
-      },
-    )
-
-    return () => {
-      ignoreResults = true
-    }
-  }, [query, maxItems])
+  const searchResults = search.take(maxItems)
+  const totalCount = search.count()
 
   return (
     <InPlaceEditingOff>
@@ -67,12 +41,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
           <form
             onSubmit={(e) => {
               e.preventDefault()
-
-              setState({
-                maxItems: null,
-                searchResults: null,
-                totalCount: null,
-              })
+              setMaxItems(10)
 
               const q = ensureString(inputRef.current?.value)
               navigateTo(widget.obj(), { q })
@@ -103,28 +72,20 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
 
       <section className="bg-white py-3">
         <div className="container">
-          {searchResults ? (
-            searchResults.map((searchResult) => (
-              <SearchResult
-                key={`search-result-${searchResult.id()}`}
-                query={query}
-                searchResult={searchResult}
-              />
-            ))
-          ) : (
-            <SearchResultLoadingPlaceholder />
-          )}
-          {totalCount !== null && maxItems !== null && totalCount > maxItems ? (
+          {searchResults.map((searchResult) => (
+            <SearchResult
+              key={`search-result-${searchResult.id()}`}
+              query={query}
+              searchResult={searchResult}
+            />
+          ))}
+          {totalCount > maxItems ? (
             <div className="text-center">
               <button
                 className="btn btn-outline-secondary"
                 onClick={(e) => {
                   e.preventDefault()
-
-                  setState((prevState) => ({
-                    ...prevState,
-                    maxItems: maxItems + 10,
-                  }))
+                  setMaxItems((maxItems) => maxItems + 10)
                 }}
               >
                 Load more
@@ -137,8 +98,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
   )
 })
 
-function TotalCountSummary({ totalCount }: { totalCount: number | null }) {
-  if (totalCount === null) return <div className="loading-placeholder" />
+function TotalCountSummary({ totalCount }: { totalCount: number }) {
   if (totalCount === 0) return 'No search results'
   if (totalCount === 1) return '1 search result'
 
