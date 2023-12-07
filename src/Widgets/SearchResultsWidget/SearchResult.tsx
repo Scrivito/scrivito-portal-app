@@ -83,7 +83,7 @@ const TextDescription = connect(function TextResult({
       <Highlighter
         outerTag="h3"
         searchWords={searchWords}
-        textToHighlight={objTitle(searchResult)}
+        textToHighlight={useResolvedStringValue(objTitle(searchResult))}
       />
 
       <Highlighter
