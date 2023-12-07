@@ -8,7 +8,7 @@ provideEditingConfig(SearchResultsWidget, {
   attributes: {
     topBannerBackground: {
       title: 'Top banner background',
-      description: 'This background will be shown beneath the search input.',
+      description: 'This background will be shown behind the search input.',
     },
   },
   properties: ['topBannerBackground'],
