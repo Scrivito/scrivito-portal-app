@@ -96,7 +96,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
           </form>
 
           <h1 className="h3 b-bottom text-center mt-3">
-            {totalCountSummary(totalCount)}
+            <TotalCountSummary totalCount={totalCount} />
           </h1>
         </div>
       </section>
@@ -137,7 +137,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
   )
 })
 
-function totalCountSummary(totalCount: number | null) {
+function TotalCountSummary({ totalCount }: { totalCount: number | null }) {
   if (totalCount === null) return <div className="loading-placeholder" />
   if (totalCount === 0) return 'No search results'
   if (totalCount === 1) return '1 search result'
