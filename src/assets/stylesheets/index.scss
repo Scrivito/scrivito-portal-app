@@ -167,6 +167,11 @@ body {
   margin: 0;
 }
 
+// TODO: Remove "z-0" once a Designer is available
+.z-0 {
+  z-index: 0 !important;
+}
+
 .z-1021 {
   z-index: 1021;
 }

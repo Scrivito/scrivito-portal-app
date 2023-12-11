@@ -1,4 +1,5 @@
 import { configureContentBrowser, Obj } from 'scrivito'
+import { DATA_OBJ_CLASSES } from '../Objs/dataObjClasses'
 
 export function configureScrivitoContentBrowser() {
   configureContentBrowser({
@@ -91,8 +92,8 @@ function defaultFilters() {
         Data: {
           title: 'Data',
           field: '_objClass',
-          value: DATA,
-          options: DATA.reduce(
+          value: DATA_OBJ_CLASSES,
+          options: DATA_OBJ_CLASSES.reduce(
             (result, value) => {
               result[value] = filterOptionForObjClass(value)
               return result
@@ -163,13 +164,4 @@ const PAGES = [
   'Product',
   'ProductCategory',
   'ProductsOverview',
-]
-const DATA = [
-  'Notification',
-  'Person',
-  'Quote',
-  'Order',
-  'Shipment',
-  'Invoice',
-  'DeliveryAddress',
 ]

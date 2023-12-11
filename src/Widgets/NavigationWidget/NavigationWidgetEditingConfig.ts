@@ -10,5 +10,6 @@ provideEditingConfig(NavigationWidget, {
     'metaNavigationPortalOverview',
     'metaNavigationUserProfile',
     'metaNavigationCart',
+    'metaNavigationSearchResultsPage',
   ],
 })

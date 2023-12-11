@@ -19,4 +19,5 @@ provideEditingConfig(Notification, {
     icon: 'bi-info-circle',
     createdAt: () => new Date().toLocaleDateString('en-CA'),
   },
+  hideInSelectionDialogs: true,
 })

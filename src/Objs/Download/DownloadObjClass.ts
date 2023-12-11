@@ -5,6 +5,7 @@ export const Download = provideObjClass('Download', {
     blob: 'binary',
     tags: 'stringlist',
     title: 'string',
+    excludeFromSearch: 'boolean',
   },
   extractTextAttributes: ['blob:text'],
 })
