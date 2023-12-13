@@ -1,10 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
+
 
 provideEditingConfig(DataIconWidget, {
   title: 'Data Icon',
-  thumbnail: classNameToThumbnail('DataIconWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     alignment: {
       title: 'Alignment',

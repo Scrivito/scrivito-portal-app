@@ -1,11 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { insideFormContainerValidation } from '../FormContainerWidget/utils/validations/insideFormContainerValidation'
 import { FormButtonWidget } from './FormButtonWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(FormButtonWidget, {
   title: 'Form Button',
-  thumbnail: classNameToThumbnail('FormButtonWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     buttonText: {
       title: 'Button Text',

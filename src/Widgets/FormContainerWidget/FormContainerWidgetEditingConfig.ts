@@ -8,11 +8,11 @@ import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 import { FormInputFieldWidget } from '../FormInputFieldWidget/FormInputFieldWidgetClass'
 import { TextWidget } from '../TextWidget/TextWidgetClass'
 import { FormButtonWidget } from '../FormButtonWidget/FormButtonWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(FormContainerWidget, {
   title: 'Form',
-  thumbnail: classNameToThumbnail('FormContainerWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     formId: {
       title: 'Form ID',

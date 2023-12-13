@@ -1,10 +1,10 @@
 import { provideEditingConfig, Link } from 'scrivito'
 import { ButtonWidget } from './ButtonWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(ButtonWidget, {
   title: 'Button',
-  thumbnail: classNameToThumbnail('ButtonWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     alignment: {
       title: 'Alignment',

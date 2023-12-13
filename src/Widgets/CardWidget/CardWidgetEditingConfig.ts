@@ -1,10 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(CardWidget, {
   title: 'Card',
-  thumbnail: classNameToThumbnail('CardWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     backgroundColor: {
       title: 'Background color',

@@ -2,11 +2,11 @@ import { provideEditingConfig } from 'scrivito'
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { DataFormInputFieldWidget } from '../DataFormInputFieldWidget/DataFormInputFieldWidgetClass'
 import { DataFormSubmitButtonWidget } from '../DataFormSubmitButtonWidget/DataFormSubmitButtonWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(DataFormContainerWidget, {
   title: 'Data Form',
-  thumbnail: classNameToThumbnail('DataFormContainerWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     redirectAfterSubmit: {
       title: 'Redirect after submit',

@@ -31,14 +31,14 @@ provideComponent(PersonCardWidget, ({ widget }) => {
       <InPlaceEditingOff>
         <div className="card-body p-3">
           <div className="row">
-            <div className="col-3">
+            <div className="col-3 d-none d-xl-block">
               <ImageTag
                 content={person}
                 attribute="image"
                 className="editor-img"
               />
             </div>
-            <div className="col-9">
+            <div className="col">
               <ContentTag
                 content={person}
                 attribute="name"
@@ -52,7 +52,7 @@ provideComponent(PersonCardWidget, ({ widget }) => {
               <table className="table-extra-small">
                 <tbody>
                   <tr>
-                    <th className="align-top">Tel:</th>
+                    <th className="align-top"><i className="bi bi-telephone"></i></th>
                     <td>
                       <a href={`tel:${person.get('telephone')}`}>
                         <ContentTag
@@ -64,7 +64,7 @@ provideComponent(PersonCardWidget, ({ widget }) => {
                     </td>
                   </tr>
                   <tr>
-                    <th className="align-top">Fax:</th>
+                    <th className="align-top"><i className="bi bi-printer"></i></th>
                     <td>
                       <a href={`tel:${person.get('fax')}`}>
                         <ContentTag
@@ -76,7 +76,7 @@ provideComponent(PersonCardWidget, ({ widget }) => {
                     </td>
                   </tr>
                   <tr>
-                    <th className="align-top">eMail:</th>
+                    <th className="align-top"><i className="bi bi-envelope"></i></th>
                     <td>
                       <a href={`mailto:${person.get('email')}`}>
                         <ContentTag

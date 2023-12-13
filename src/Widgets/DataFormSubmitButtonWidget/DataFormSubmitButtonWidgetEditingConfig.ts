@@ -1,10 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
+
 
 provideEditingConfig(DataFormSubmitButtonWidget, {
   title: 'Data Form Submit Button',
-  thumbnail: classNameToThumbnail('DataFormSubmitButtonWidget'),
+  thumbnail: Thumbnail,
 
   attributes: {
     alignment: {

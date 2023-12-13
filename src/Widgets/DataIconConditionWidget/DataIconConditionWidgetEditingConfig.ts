@@ -1,10 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataIconConditionWidget } from './DataIconConditionWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
+
 
 provideEditingConfig(DataIconConditionWidget, {
   title: 'Data Icon Condition',
-  thumbnail: classNameToThumbnail('DataIconConditionWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     attributeValue: { title: 'Attribute value' },
     icon: {

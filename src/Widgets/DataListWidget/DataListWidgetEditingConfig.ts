@@ -1,10 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataListWidget } from './DataListWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
+
 
 provideEditingConfig(DataListWidget, {
   title: 'Data List',
-  thumbnail: classNameToThumbnail('DataListWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     nrOfColumns: {
       title: 'Number of columns',
