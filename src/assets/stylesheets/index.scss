@@ -292,12 +292,12 @@ button:focus {
 }
 
 ::selection {
-  color: #fff;
-  background: var(--bs-primary);
+  color: #333;
+  background: var(--bs-warning);
 }
 ::-moz-selection {
-  color: #fff;
-  background: var(--bs-primary);
+  color: #333;
+  background: var(--bs-warning);
 }
 
 .text-clamp {
@@ -366,7 +366,7 @@ main {
  ================================================== */
 
 .text-muted {
-  opacity: 0.5;
+  opacity: 0.7;
   color: inherit !important;
 }
 .text-bold {
