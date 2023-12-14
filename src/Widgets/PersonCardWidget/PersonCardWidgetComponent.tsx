@@ -52,7 +52,9 @@ provideComponent(PersonCardWidget, ({ widget }) => {
               <table className="table-extra-small">
                 <tbody>
                   <tr>
-                    <th className="align-top"><i className="bi bi-telephone"></i></th>
+                    <th className="align-top">
+                      <i className="bi bi-telephone"></i>
+                    </th>
                     <td>
                       <a href={`tel:${person.get('telephone')}`}>
                         <ContentTag
@@ -64,7 +66,9 @@ provideComponent(PersonCardWidget, ({ widget }) => {
                     </td>
                   </tr>
                   <tr>
-                    <th className="align-top"><i className="bi bi-printer"></i></th>
+                    <th className="align-top">
+                      <i className="bi bi-printer"></i>
+                    </th>
                     <td>
                       <a href={`tel:${person.get('fax')}`}>
                         <ContentTag
@@ -76,7 +80,9 @@ provideComponent(PersonCardWidget, ({ widget }) => {
                     </td>
                   </tr>
                   <tr>
-                    <th className="align-top"><i className="bi bi-envelope"></i></th>
+                    <th className="align-top">
+                      <i className="bi bi-envelope"></i>
+                    </th>
                     <td>
                       <a href={`mailto:${person.get('email')}`}>
                         <ContentTag

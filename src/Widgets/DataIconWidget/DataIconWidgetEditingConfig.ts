@@ -2,7 +2,6 @@ import { provideEditingConfig } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
-
 provideEditingConfig(DataIconWidget, {
   title: 'Data Icon',
   thumbnail: Thumbnail,

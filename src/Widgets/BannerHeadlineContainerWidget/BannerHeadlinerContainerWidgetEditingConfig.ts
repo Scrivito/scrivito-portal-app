@@ -6,7 +6,7 @@ import Thumbnail from './thumbnail.svg'
 provideEditingConfig(BannerHeadlineContainerWidget, {
   title: 'Banner Headlines',
   thumbnail: Thumbnail,
-    initialContent: {
+  initialContent: {
     headlines: [
       new BannerHeadlineWidget({
         style: 'h2',

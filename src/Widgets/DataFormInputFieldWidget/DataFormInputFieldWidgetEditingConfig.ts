@@ -2,7 +2,6 @@ import { provideEditingConfig } from 'scrivito'
 import { DataFormInputFieldWidget } from './DataFormInputFieldWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
-
 provideEditingConfig(DataFormInputFieldWidget, {
   title: 'Data Form Input Field',
   thumbnail: Thumbnail,
