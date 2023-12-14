@@ -25,7 +25,10 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
+      // TODO: REMOVE HARDCODED TENANT ID! Currently "Scrivito Schulung 23.6.22 (Pisa Demo-Slot 102)"
+      'import.meta.env.SCRIVITO_TENANT': JSON.stringify(
+        'f126cd9eb345055fcc42bd029b7a5954',
+      ),
       'import.meta.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE':
         JSON.stringify(env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE),
     },
@@ -44,6 +47,12 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/jr-api/, ''),
           headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
+        },
+
+        '/pisa-api': {
+          target: 'https://web102.crm.pisasales.de/portal',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/pisa-api/, ''),
         },
 
         /**
