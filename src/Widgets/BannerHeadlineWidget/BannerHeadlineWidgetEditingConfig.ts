@@ -2,7 +2,6 @@ import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
-
 provideEditingConfig(BannerHeadlineWidget, {
   title: 'Banner Headline',
   thumbnail: Thumbnail,
