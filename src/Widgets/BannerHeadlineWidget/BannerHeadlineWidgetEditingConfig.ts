@@ -1,10 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
+
 
 provideEditingConfig(BannerHeadlineWidget, {
   title: 'Banner Headline',
-  thumbnail: classNameToThumbnail('BannerHeadlineWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     backgroundColor: {
       title: 'Background color',

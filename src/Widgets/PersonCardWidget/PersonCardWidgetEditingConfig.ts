@@ -1,9 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
 import { PersonCardWidget } from './PersonCardWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(PersonCardWidget, {
   title: 'Person Card',
-  thumbnail: classNameToThumbnail('PersonCardWidget'),
+  thumbnail: Thumbnail,
   properties: ['person'],
 })

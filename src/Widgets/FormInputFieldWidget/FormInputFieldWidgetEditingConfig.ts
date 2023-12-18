@@ -4,11 +4,11 @@ import { customFieldNameValidation } from '../FormContainerWidget/utils/validati
 import { insideFormContainerValidation } from '../FormContainerWidget/utils/validations/insideFormContainerValidation'
 import { typeValidation } from '../FormContainerWidget/utils/validations/typeValidation'
 import { FormInputFieldWidget } from './FormInputFieldWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(FormInputFieldWidget, {
   title: 'Form Input Field',
-  thumbnail: classNameToThumbnail('FormInputFieldWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     required: { title: 'Mandatory' },
     type: {

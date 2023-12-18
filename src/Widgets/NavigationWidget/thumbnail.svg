@@ -1,0 +1,24 @@
+<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="nav">
+<g id="Ebene_1" clip-path="url(#clip0_6_625)">
+<g id="Group" opacity="0.55">
+<path id="Vector" d="M129.8 20H19.98C18.8865 20 18 20.8865 18 21.98V31.7C18 32.7935 18.8865 33.68 19.98 33.68H129.8C130.894 33.68 131.78 32.7935 131.78 31.7V21.98C131.78 20.8865 130.894 20 129.8 20Z" fill="#AAAAAA"/>
+</g>
+<path id="Vector_2" d="M25.82 26.84H49.1" stroke="#AAAAAA" stroke-width="5.14" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_3" d="M63.25 26.84H86.53" stroke="#AAAAAA" stroke-width="5.14" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_4" d="M100.68 26.84H123.96" stroke="#AAAAAA" stroke-width="5.14" stroke-linecap="round" stroke-linejoin="bevel"/>
+<g id="Group_2" opacity="0.55">
+<path id="Vector_5" d="M91.44 36.79H58.34C57.241 36.79 56.35 37.681 56.35 38.78V77.17C56.35 78.269 57.241 79.16 58.34 79.16H91.44C92.5391 79.16 93.43 78.269 93.43 77.17V38.78C93.43 37.681 92.5391 36.79 91.44 36.79Z" fill="#AAAAAA"/>
+</g>
+<path id="Vector_6" d="M62.2 43.51H87.58" stroke="#AAAAAA" stroke-width="3.91" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_7" d="M62.2 53.15H82.33" stroke="#AAAAAA" stroke-width="3.91" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_8" d="M62.2 62.79H87.58" stroke="#AAAAAA" stroke-width="3.91" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_9" d="M62.2 72.42H82.33" stroke="#AAAAAA" stroke-width="3.91" stroke-linecap="round" stroke-linejoin="bevel"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_6_625">
+<rect width="113.78" height="59.15" fill="white" transform="translate(18 20)"/>
+</clipPath>
+</defs>
+</svg>

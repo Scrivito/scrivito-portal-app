@@ -1,1 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 100"><defs><style>.cls-1{opacity:.55;}.cls-2{opacity:.75;}.cls-3{fill:#aaa;}.cls-3,.cls-4{stroke-width:0px;}.cls-4{fill:#fff;}</style></defs><g class="cls-1"><rect class="cls-3" x="16.98" y="15.24" width="32.53" height="69.52" rx="2.38" ry="2.38"/></g><g class="cls-1"><rect class="cls-3" x="55.59" y="15.24" width="32.53" height="69.52" rx="2.38" ry="2.38"/></g><g class="cls-2"><rect class="cls-3" x="94.2" y="8.52" width="38.82" height="82.96" rx="2.84" ry="2.84"/></g><g class="cls-2"><path class="cls-4" d="m115.85,59h-4.52v-6.68h-6.72v-4.6h6.72v-6.72h4.52v6.72h6.75v4.6h-6.75v6.68Z"/></g></svg>
+<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="columns">
+<g id="Ebene_1" clip-path="url(#clip0_5_276)">
+<g id="Group" opacity="0.55">
+<path id="Vector" d="M47.15 15.72H19.38C18.0656 15.72 17 16.7856 17 18.1V82.86C17 84.1744 18.0656 85.24 19.38 85.24H47.15C48.4644 85.24 49.53 84.1744 49.53 82.86V18.1C49.53 16.7856 48.4644 15.72 47.15 15.72Z" fill="#AAAAAA"/>
+</g>
+<g id="Group_2" opacity="0.55">
+<path id="Vector_2" d="M85.76 15.72H57.99C56.6756 15.72 55.61 16.7856 55.61 18.1V82.86C55.61 84.1744 56.6756 85.24 57.99 85.24H85.76C87.0744 85.24 88.14 84.1744 88.14 82.86V18.1C88.14 16.7856 87.0744 15.72 85.76 15.72Z" fill="#AAAAAA"/>
+</g>
+<g id="Group_3" opacity="0.75">
+<path id="Vector_3" d="M130.2 9H97.06C95.4915 9 94.22 10.2715 94.22 11.84V89.12C94.22 90.6885 95.4915 91.96 97.06 91.96H130.2C131.768 91.96 133.04 90.6885 133.04 89.12V11.84C133.04 10.2715 131.768 9 130.2 9Z" fill="#AAAAAA"/>
+</g>
+<g id="Group_4" opacity="0.75">
+<path id="Vector_4" d="M115.87 59.48H111.35V52.8H104.63V48.2H111.35V41.48H115.87V48.2H122.62V52.8H115.87V59.48Z" fill="white"/>
+</g>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_5_276">
+<rect width="116.04" height="82.96" fill="white" transform="translate(17 9)"/>
+</clipPath>
+</defs>
+</svg>

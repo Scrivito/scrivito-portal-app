@@ -1,1 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?><svg id="Ebene_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 100"><defs><style>.cls-1{stroke-width:3.75px;}.cls-1,.cls-2{fill:none;stroke:#aaa;stroke-linecap:round;stroke-linejoin:bevel;}.cls-2{stroke-width:5.63px;}.cls-3{opacity:.55;}.cls-4{fill:#aaa;}.cls-4,.cls-5{stroke-width:0px;}.cls-5{fill:#fff;opacity:.66;}</style></defs><g class="cls-3"><rect class="cls-4" x="37.09" y="32.91" width="75.82" height="34.18" rx="2.55" ry="2.55"/></g><ellipse class="cls-5" cx="50.89" cy="48.02" rx="6.66" ry="6.76"/><line class="cls-2" x1="66.2" y1="43.64" x2="100.99" y2="43.64"/><line class="cls-1" x1="65.2" y1="52.16" x2="91.34" y2="52.16"/><line class="cls-1" x1="65.2" y1="58.98" x2="85.93" y2="58.98"/></svg>
+<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="card-download">
+<g id="Ebene_1" clip-path="url(#clip0_6_577)">
+<g id="Group" opacity="0.55">
+<path id="Vector" d="M110.27 33H39.55C38.1417 33 37 34.1417 37 35.55V64.63C37 66.0383 38.1417 67.18 39.55 67.18H110.27C111.678 67.18 112.82 66.0383 112.82 64.63V35.55C112.82 34.1417 111.678 33 110.27 33Z" fill="#AAAAAA"/>
+</g>
+<path id="Vector_2" d="M66.11 43.73H100.91" stroke="#AAAAAA" stroke-width="5.63" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_3" d="M65.11 52.25H91.25" stroke="#AAAAAA" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_4" d="M65.11 59.07H85.84" stroke="#AAAAAA" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_5" d="M51 42L51 52" stroke="#AAAAAA" stroke-width="3.49" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M55 50L51 54L47 50" stroke="#AAAAAA" stroke-width="3.49" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_6_577">
+<rect width="75.82" height="34.18" fill="white" transform="translate(37 33)"/>
+</clipPath>
+</defs>
+</svg>
