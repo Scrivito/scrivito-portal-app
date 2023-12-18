@@ -1,6 +1,7 @@
 import { Link, provideEditingConfig } from 'scrivito'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import { LinkWidget } from '../LinkWidget/LinkWidgetClass'
+import { LinkContainerWidget } from './LinkContainerWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(LinkContainerWidget, {
