@@ -1,0 +1,31 @@
+<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="dropdown-page">
+<g id="Group 11">
+<g id="Group" opacity="0.55">
+<path id="Vector" d="M129.8 34H19.98C18.8865 34 18 34.8865 18 35.98V45.7C18 46.7935 18.8865 47.68 19.98 47.68H129.8C130.894 47.68 131.78 46.7935 131.78 45.7V35.98C131.78 34.8865 130.894 34 129.8 34Z" fill="#AAAAAA"/>
+</g>
+<path id="Vector_2" d="M26 41H44" stroke="#AAAAAA" stroke-width="5.14" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_3" d="M63.25 40.84H86.53" stroke="#AAAAAA" stroke-width="5.14" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_4" d="M104 41L124 41" stroke="#AAAAAA" stroke-width="5.14" stroke-linecap="round" stroke-linejoin="bevel"/>
+<g id="Group_2" filter="url(#filter0_d_12_76)">
+<path id="Vector_5" d="M94.6268 28H55.1532C53.8425 28 52.78 28.9463 52.78 30.1135V70.8865C52.78 72.0537 53.8425 73 55.1532 73H94.6268C95.9375 73 97 72.0537 97 70.8865V30.1135C97 28.9463 95.9375 28 94.6268 28Z" fill="#D0D0D0"/>
+</g>
+<path id="Vector_6" d="M60 35.72H85.38" stroke="#888888" stroke-width="3.91" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_7" opacity="0.75" d="M60 46H84" stroke="#AAAAAA" stroke-width="3.91" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_8" opacity="0.75" d="M60 56H90" stroke="#AAAAAA" stroke-width="3.91" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_9" opacity="0.75" d="M60 66H84" stroke="#AAAAAA" stroke-width="3.91" stroke-linecap="round" stroke-linejoin="bevel"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_d_12_76" x="50.78" y="26" width="48.22" height="49" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_12_76"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_12_76" result="shape"/>
+</filter>
+</defs>
+</svg>

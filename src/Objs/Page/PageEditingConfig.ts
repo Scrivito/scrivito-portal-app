@@ -1,10 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { Page } from './PageObjClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(Page, {
   title: 'Page',
-  thumbnail: classNameToThumbnail('Page'),
+  thumbnail: Thumbnail,
   attributes: {
     excludeFromSearch: {
       title: 'Exclude from search results?',

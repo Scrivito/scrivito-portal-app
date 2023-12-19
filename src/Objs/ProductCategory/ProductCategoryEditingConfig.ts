@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { ProductCategory } from './ProductCategoryObjClass'
 import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
-
+import Thumbnail from './thumbnail.svg'
 provideEditingConfig(ProductCategory, {
   title: 'Product Category',
-  thumbnail: classNameToThumbnail('ProductCategory'),
+  thumbnail: Thumbnail,
   attributes: {
     title: { title: 'Title' },
   },
