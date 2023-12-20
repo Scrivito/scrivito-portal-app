@@ -1,5 +1,4 @@
 import { provideEditingConfig } from 'scrivito'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import { LinkWidget } from './LinkWidgetClass'
 import Thumbnail from './thumbnail.svg'
 

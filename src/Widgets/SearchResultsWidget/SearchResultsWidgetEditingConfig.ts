@@ -1,6 +1,5 @@
 import { provideEditingConfig } from 'scrivito'
 import { SearchResultsWidget } from './SearchResultsWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SearchResultsWidget, {

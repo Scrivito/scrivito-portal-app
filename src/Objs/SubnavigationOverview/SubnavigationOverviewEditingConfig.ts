@@ -1,6 +1,5 @@
 import { provideEditingConfig } from 'scrivito'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SubnavigationOverview, {

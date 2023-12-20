@@ -1,6 +1,5 @@
 import { provideEditingConfig } from 'scrivito'
 import { Dropdown } from './DropdownObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(Dropdown, {

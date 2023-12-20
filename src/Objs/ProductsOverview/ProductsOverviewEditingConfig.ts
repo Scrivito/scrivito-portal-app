@@ -1,6 +1,5 @@
 import { provideEditingConfig } from 'scrivito'
 import { ProductsOverview } from './ProductsOverviewObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(ProductsOverview, {

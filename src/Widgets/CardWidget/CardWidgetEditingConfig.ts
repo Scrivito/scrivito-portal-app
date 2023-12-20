@@ -1,6 +1,5 @@
 import { provideEditingConfig } from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(CardWidget, {
