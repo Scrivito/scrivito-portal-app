@@ -17,3 +17,9 @@ export const Homepage = provideObjClass('Homepage', {
   extractTextAttributes: ['body'],
   onlyAsRoot: true,
 })
+
+export type HomepageInstance = InstanceType<typeof Homepage>
+
+export function isHomepage(input: unknown): input is HomepageInstance {
+  return input instanceof Homepage
+}

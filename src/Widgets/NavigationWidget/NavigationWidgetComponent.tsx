@@ -5,10 +5,11 @@ import { NavigationWidget } from './NavigationWidgetClass'
 import { Brand } from './SubComponents/Brand'
 import { MainNavigation } from './SubComponents/MainNavigation'
 import { MetaNavigation } from './SubComponents/MetaNavigation'
+import { isHomepage } from '../../Objs/Homepage/HomepageObjClass'
 
 provideComponent(NavigationWidget, ({ widget }) => {
   const root = Obj.root()
-  if (!root) return null
+  if (!isHomepage(root)) return null
 
   return (
     <Navbar expand="lg" collapseOnSelect>
