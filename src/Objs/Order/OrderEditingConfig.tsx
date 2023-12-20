@@ -1,10 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
 import { Order } from './OrderObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Order, {
   title: 'Order',
-  thumbnail: classNameToThumbnail('Order'),
   attributes: {
     billingAddress: {
       title: 'Billing address',
