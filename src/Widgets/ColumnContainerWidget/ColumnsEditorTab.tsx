@@ -166,9 +166,8 @@ const ColumnsEditor = connect(
           />
         </div>
 
-
         <div className="scrivito_detail_label">
-          <span style={{fontSize: "11px"}}>Disable responsive adaption?</span>
+          <span style={{ fontSize: '11px' }}>Disable responsive adaption?</span>
         </div>
 
         <div className="item_content">
@@ -193,8 +192,6 @@ const ColumnsEditor = connect(
             </div>
           </div>
         </div>
-
-
       </div>
     )
 
