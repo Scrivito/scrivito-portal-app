@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormDeleteButtonWidget } from './DataFormDeleteButtonWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(DataFormDeleteButtonWidget, {
   title: 'Data Delete Button',
-  thumbnail: classNameToThumbnail('DataFormDeleteButtonWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     buttonStyle: {
       title: 'Button style',

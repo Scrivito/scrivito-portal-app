@@ -1,0 +1,16 @@
+<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="space">
+<g id="Ebene_1" clip-path="url(#clip0_5_362)">
+<path id="Vector" opacity="0.75" d="M26.5 16.5H123.24" stroke="#AAAAAA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" opacity="0.75" d="M26.5 82.75H123.24" stroke="#AAAAAA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M74.87 31.17V65.46" stroke="#AAAAAA" stroke-width="3.49" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M67.77 38.77L74.87 31.17L81.97 38.77" stroke="#AAAAAA" stroke-width="3.49" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M81.97 60.47L74.87 68.07L67.77 60.47" stroke="#AAAAAA" stroke-width="3.49" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_5_362">
+<rect width="101.74" height="71.25" fill="white" transform="translate(24 14)"/>
+</clipPath>
+</defs>
+</svg>

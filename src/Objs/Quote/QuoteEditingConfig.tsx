@@ -1,10 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
 import { Quote } from './QuoteObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Quote, {
   title: 'Quote',
-  thumbnail: classNameToThumbnail('Quote'),
   attributes: {
     comments: { title: 'Comments' },
     content: {

@@ -1,10 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
 import { Shipment } from './ShipmentObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Shipment, {
   title: 'Shipment',
-  thumbnail: classNameToThumbnail('Shipment'),
   attributes: {
     carrier: {
       title: 'Carrier',

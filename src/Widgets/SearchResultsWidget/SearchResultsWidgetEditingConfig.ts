@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { SearchResultsWidget } from './SearchResultsWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SearchResultsWidget, {
   title: 'Search Results',
-  thumbnail: classNameToThumbnail('SearchResultsWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     topBannerBackground: {
       title: 'Top banner background',

@@ -1,6 +1,6 @@
 import { provideEditingConfig } from 'scrivito'
 import { CheckoutButtonWidget } from './CheckoutButtonWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(CheckoutButtonWidget, {
   title: 'Checkout Button',
@@ -32,7 +32,7 @@ provideEditingConfig(CheckoutButtonWidget, {
       description: 'Default: medium',
     },
   },
-  thumbnail: classNameToThumbnail('CheckoutButtonWidget'),
+  thumbnail: Thumbnail,
   properties: [
     'buttonText',
     'successMessage',

@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { ProductParameterWidget } from './ProductParameterWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(ProductParameterWidget, {
   title: 'Product Parameter',
-  thumbnail: classNameToThumbnail('ProductParameterWidget'),
+  thumbnail: Thumbnail,
   properties: ['parameter', 'values'],
   titleForContent: (widget) =>
     `${widget.get('parameter')}: ${widget.get('values').join(', ')}`,

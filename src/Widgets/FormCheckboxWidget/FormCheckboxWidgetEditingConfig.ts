@@ -4,11 +4,11 @@ import { customFieldNameValidation } from '../FormContainerWidget/utils/validati
 import { insideFormContainerValidation } from '../FormContainerWidget/utils/validations/insideFormContainerValidation'
 import { typeValidation } from '../FormContainerWidget/utils/validations/typeValidation'
 import { FormCheckboxWidget } from './FormCheckboxWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(FormCheckboxWidget, {
   title: 'Form Checkbox',
-  thumbnail: classNameToThumbnail('FormCheckboxWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     required: { title: 'Mandatory' },
     type: {

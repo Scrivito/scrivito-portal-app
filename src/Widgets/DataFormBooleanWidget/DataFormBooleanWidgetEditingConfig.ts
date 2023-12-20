@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(DataFormBooleanWidget, {
   title: 'Data Form Boolean',
-  thumbnail: classNameToThumbnail('DataFormBooleanWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     attributeName: {
       title: 'Name of the data attribute in question',

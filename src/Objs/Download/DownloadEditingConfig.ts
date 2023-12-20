@@ -1,9 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { Download } from './DownloadObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(Download, {
-  thumbnail: classNameToThumbnail('Download'),
   attributes: {
     excludeFromSearch: {
       title: 'Exclude from search results?',

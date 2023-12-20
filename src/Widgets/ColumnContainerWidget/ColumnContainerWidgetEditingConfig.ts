@@ -2,11 +2,11 @@ import { provideEditingConfig } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnsEditorTab } from './ColumnsEditorTab'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(ColumnContainerWidget, {
   title: 'Columns',
-  thumbnail: classNameToThumbnail('ColumnContainerWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     disableResponsiveAdaption: {
       title: 'Disable responsive adaption?',
