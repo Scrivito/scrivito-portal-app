@@ -15,22 +15,23 @@ import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { CurrentUserDataItem } from '../../../Data/CurrentUser/CurrentUserDataItem'
 import { containsItems, numberOfCartItems } from '../../../Data/CartItem/Cart'
 import { ensureString } from '../../../utils/ensureString'
+import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
 export const MetaNavigation = connect(function MetaNavigation({
+  root,
   widget,
 }: {
+  root: HomepageInstance
   widget: NavigationWidgetInstance
 }) {
-  const metaNavigationPortalOverview = widget.get(
-    'metaNavigationPortalOverview',
-  )
-  const showPortalNav = !!metaNavigationPortalOverview
+  const sitePortalOverviewPage = root.get('sitePortalOverviewPage')
+  const showPortalNav = !!sitePortalOverviewPage
 
-  const metaNavigationUserProfile = widget.get('metaNavigationUserProfile')
-  const showUserProfileLink = !!metaNavigationUserProfile
+  const siteUserProfilePage = root.get('siteUserProfilePage')
+  const showUserProfileLink = !!siteUserProfilePage
 
-  const metaNavigationCart = widget.get('metaNavigationCart')
-  const showCart = !!metaNavigationCart && containsItems()
+  const siteCartPage = root.get('siteCartPage')
+  const showCart = !!siteCartPage && containsItems()
 
   return (
     <div className="navbar-meta">
@@ -50,11 +51,11 @@ export const MetaNavigation = connect(function MetaNavigation({
             <Nav.Item>
               <Nav.Link
                 as={LinkTag}
-                eventKey={`MetaNavigation-${metaNavigationCart.id()}`}
-                key={`MetaNavigation-${metaNavigationCart.id()}`}
-                to={metaNavigationCart}
+                eventKey={`MetaNavigation-${siteCartPage.id()}`}
+                key={`MetaNavigation-${siteCartPage.id()}`}
+                to={siteCartPage}
               >
-                <ObjIconAndTitle obj={metaNavigationCart} />{' '}
+                <ObjIconAndTitle obj={siteCartPage} />{' '}
                 <span className="badge rounded-pill text-bg-secondary">
                   {numberOfCartItems()}
                 </span>
@@ -65,13 +66,13 @@ export const MetaNavigation = connect(function MetaNavigation({
             <>
               <Nav.Item>
                 <Nav.Link
-                  active={isCurrentPage(metaNavigationPortalOverview)}
+                  active={isCurrentPage(sitePortalOverviewPage)}
                   as={LinkTag}
-                  eventKey={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
-                  key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
-                  to={metaNavigationPortalOverview}
+                  eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+                  key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+                  to={sitePortalOverviewPage}
                 >
-                  <ObjIconAndTitle obj={metaNavigationPortalOverview} />
+                  <ObjIconAndTitle obj={sitePortalOverviewPage} />
                 </Nav.Link>
               </Nav.Item>
               <NavDropdown
@@ -98,13 +99,13 @@ export const MetaNavigation = connect(function MetaNavigation({
                 {showUserProfileLink ? (
                   <>
                     <NavDropdown.Item
-                      active={isCurrentPage(metaNavigationUserProfile)}
+                      active={isCurrentPage(siteUserProfilePage)}
                       as={LinkTag}
-                      eventKey={`MetaNavigation-${metaNavigationUserProfile.id()}`}
-                      key={`MetaNavigation-${metaNavigationUserProfile.id()}`}
-                      to={metaNavigationUserProfile}
+                      eventKey={`MetaNavigation-${siteUserProfilePage.id()}`}
+                      key={`MetaNavigation-${siteUserProfilePage.id()}`}
+                      to={siteUserProfilePage}
                     >
-                      <ObjIconAndTitle obj={metaNavigationUserProfile} />
+                      <ObjIconAndTitle obj={siteUserProfilePage} />
                     </NavDropdown.Item>
                     <li>
                       <hr className="dropdown-divider" />
@@ -129,13 +130,13 @@ export const MetaNavigation = connect(function MetaNavigation({
           ) : (
             <Nav.Item>
               <Nav.Link
-                active={isCurrentPage(metaNavigationPortalOverview)}
+                active={isCurrentPage(sitePortalOverviewPage)}
                 as={LinkTag}
-                eventKey={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
-                key={`MetaNavigation-${metaNavigationPortalOverview.id()}`}
-                to={metaNavigationPortalOverview}
+                eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+                key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+                to={sitePortalOverviewPage}
               >
-                <ObjIconAndTitle obj={metaNavigationPortalOverview} />
+                <ObjIconAndTitle obj={sitePortalOverviewPage} />
               </Nav.Link>
             </Nav.Item>
           )}
