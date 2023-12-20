@@ -172,23 +172,30 @@ const ColumnsEditor = connect(
 
         <div className="item_content">
           <div className="boolean_attribute_component">
-            <div className="scrivito_switch">
+            <div
+              className={`scrivito_switch${
+                widget.get('disableResponsiveAdaption') ? ' active' : ''
+              }`}
+            >
               <div className="pill-wrapper">
                 <div className="cell pill"></div>
               </div>
-              <div className="cell left">No</div>
-              <div className="cell right">Yes</div>
-            </div>
-          </div>
-        </div>
-        <div className="item_content">
-          <div className="boolean_attribute_component">
-            <div className="scrivito_switch active">
-              <div className="pill-wrapper">
-                <div className="cell pill"></div>
+              <div
+                className="cell left"
+                onClick={() =>
+                  widget.update({ disableResponsiveAdaption: false })
+                }
+              >
+                No
               </div>
-              <div className="cell left">No</div>
-              <div className="cell right">Yes</div>
+              <div
+                className="cell right"
+                onClick={() =>
+                  widget.update({ disableResponsiveAdaption: true })
+                }
+              >
+                Yes
+              </div>
             </div>
           </div>
         </div>
