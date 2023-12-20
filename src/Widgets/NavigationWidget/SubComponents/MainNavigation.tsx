@@ -1,14 +1,13 @@
-import { connect, Obj, ChildListTag } from 'scrivito'
+import { connect, ChildListTag } from 'scrivito'
 import Nav from 'react-bootstrap/Nav'
 import { NavItem as NavItem } from './NavItem'
 import { SearchBox } from './SearchBox'
+import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
 export const MainNavigation = connect(function MainNavigation({
   root,
-  searchResultsPage,
 }: {
-  root: Obj
-  searchResultsPage: Obj | null
+  root: HomepageInstance
 }) {
   return (
     <Nav className="navbar-main">
@@ -24,7 +23,7 @@ export const MainNavigation = connect(function MainNavigation({
           />
         )}
       />
-      <SearchBox searchResultsPage={searchResultsPage} />
+      <SearchBox searchResultsPage={root.get('siteSearchResultsPage')} />
     </Nav>
   )
 })

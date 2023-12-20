@@ -5,11 +5,5 @@ import Thumbnail from './thumbnail.svg'
 provideEditingConfig(NavigationWidget, {
   title: 'Navigation',
   thumbnail: Thumbnail,
-  properties: [
-    'metaNavigationObjs',
-    'metaNavigationPortalOverview',
-    'metaNavigationUserProfile',
-    'metaNavigationCart',
-    'metaNavigationSearchResultsPage',
-  ],
+  properties: ['metaNavigationObjs'],
 })
