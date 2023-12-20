@@ -176,8 +176,8 @@ const ColumnsEditor = connect(
               <div className="pill-wrapper">
                 <div className="cell pill"></div>
               </div>
-              <div className="cell left">Nein</div>
-              <div className="cell right">Ja</div>
+              <div className="cell left">No</div>
+              <div className="cell right">Yes</div>
             </div>
           </div>
         </div>
@@ -187,8 +187,8 @@ const ColumnsEditor = connect(
               <div className="pill-wrapper">
                 <div className="cell pill"></div>
               </div>
-              <div className="cell left">Nein</div>
-              <div className="cell right">Ja</div>
+              <div className="cell left">No</div>
+              <div className="cell right">Yes</div>
             </div>
           </div>
         </div>
