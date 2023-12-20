@@ -165,6 +165,40 @@ const ColumnsEditor = connect(
             readOnly={readOnly}
           />
         </div>
+
+        <div className="scrivito_detail_label">
+          <span style={{ fontSize: '11px' }}>Disable responsive adaption?</span>
+        </div>
+
+        <div className="item_content">
+          <div className="boolean_attribute_component">
+            <div
+              className={`scrivito_switch${
+                widget.get('disableResponsiveAdaption') ? ' active' : ''
+              }`}
+            >
+              <div className="pill-wrapper">
+                <div className="cell pill"></div>
+              </div>
+              <div
+                className="cell left"
+                onClick={() =>
+                  widget.update({ disableResponsiveAdaption: false })
+                }
+              >
+                No
+              </div>
+              <div
+                className="cell right"
+                onClick={() =>
+                  widget.update({ disableResponsiveAdaption: true })
+                }
+              >
+                Yes
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
 
