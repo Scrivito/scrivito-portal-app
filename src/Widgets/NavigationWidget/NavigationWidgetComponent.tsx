@@ -12,13 +12,17 @@ provideComponent(NavigationWidget, ({ widget }) => {
   if (!isHomepage(root)) return null
 
   return (
-    <Navbar expand="lg" collapseOnSelect>
-      <Brand root={root} />
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <MetaNavigation widget={widget} root={root} />
-        <MainNavigation root={root} />
-      </Navbar.Collapse>
-    </Navbar>
+    <section>
+      <div className="container">
+        <Navbar expand="lg" collapseOnSelect>
+          <Brand root={root} />
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <MetaNavigation widget={widget} root={root} />
+            <MainNavigation root={root} />
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
+    </section>
   )
 })

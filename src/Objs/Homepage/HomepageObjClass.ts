@@ -9,7 +9,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteCartPage: 'reference',
     siteFavicon: ['reference', { only: 'Image' }],
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],
-    siteHeader: ['widgetlist', { only: 'SectionWidget' }],
+    siteHeader: 'widgetlist',
     siteLogoDark: ['reference', { only: 'Image' }],
     siteLogoLight: ['reference', { only: 'Image' }],
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
