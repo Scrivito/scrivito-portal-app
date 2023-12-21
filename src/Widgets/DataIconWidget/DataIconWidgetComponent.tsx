@@ -1,4 +1,4 @@
-import { WidgetTag, provideComponent, useDataItem } from 'scrivito'
+import { ContentTag, WidgetTag, provideComponent, useDataItem } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { isDataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
@@ -20,6 +20,11 @@ provideComponent(DataIconWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
+      <ContentTag
+        content={widget}
+        attribute="label"
+        className="text-bold opacity-60 text-extra-small text-uppercase"
+      />
       {matchingCondition ? (
         <>
           <IconComponent
