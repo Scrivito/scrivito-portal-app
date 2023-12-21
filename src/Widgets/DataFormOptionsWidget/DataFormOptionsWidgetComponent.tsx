@@ -18,6 +18,7 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
 
   const attributeName = widget.get('attributeName')
   const attributeValue = ensureString(dataItem?.get(attributeName))
+  const defaultValue = dataItem ? attributeValue : widget.get('defaultValue')
 
   const optionsSet = new Set(widget.get('options'))
   if (attributeValue) optionsSet.add(attributeValue)
@@ -67,7 +68,7 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
 
       <div>
         <select
-          defaultValue={attributeValue}
+          defaultValue={defaultValue}
           id={id}
           name={attributeName}
           required={widget.get('required')}

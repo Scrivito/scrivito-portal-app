@@ -5,6 +5,7 @@ export const DataFormOptionsWidget = provideWidgetClass(
   {
     attributes: {
       attributeName: 'string',
+      defaultValue: 'string',
       helpText: 'html',
       label: 'string',
       options: 'stringlist',
