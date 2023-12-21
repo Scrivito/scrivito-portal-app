@@ -34,7 +34,8 @@ provideEditingConfig(DataIconWidget, {
   ],
   initialContent: {
     alignment: 'left',
-    size: 'bi-2x',
     fallbackIcon: 'bi-question-octagon',
+    label: 'Label',
+    size: 'bi-2x',
   },
 })
