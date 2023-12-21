@@ -6,10 +6,8 @@ import { IconComponent } from '../../Components/Icon'
 
 provideComponent(DataIconWidget, ({ widget }) => {
   const dataItem = useDataItem()
-  if (!dataItem) return null
 
-  const attributeValue = dataItem.get(widget.get('attributeName'))
-  if (typeof attributeValue !== 'string') return null
+  const attributeValue = dataItem?.get(widget.get('attributeName'))
 
   const size = widget.get('size') || 'bi-2x'
 
@@ -32,7 +30,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
             size={size}
             link={null}
           />
-          <div>{attributeValue}</div>
+          <div>{`${attributeValue}`}</div>
         </>
       ) : (
         <>
@@ -41,7 +39,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
             size={size}
             link={null}
           />
-          <div>{attributeValue}</div>
+          <div>{`${attributeValue}` || 'N/A'}</div>
         </>
       )}
     </WidgetTag>

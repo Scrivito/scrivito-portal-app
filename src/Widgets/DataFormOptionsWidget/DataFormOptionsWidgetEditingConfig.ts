@@ -12,7 +12,25 @@ provideEditingConfig(DataFormOptionsWidget, {
     required: { title: 'Mandatory' },
     helpText: { title: 'Help text' },
   },
-  properties: ['attributeName', 'options', 'label', 'required', 'helpText'],
+  properties: [
+    'attributeName',
+    'options',
+    'defaultValue',
+    'label',
+    'required',
+    'helpText',
+  ],
+  validations: [
+    [
+      'defaultValue',
+      (defaultValue, { widget }) => {
+        if (!defaultValue) return
+        if (widget.get('options').includes(defaultValue.toString())) return
+
+        return `Value not included in the options.`
+      },
+    ],
+  ],
   initialContent: {
     label: 'Custom field',
   },
