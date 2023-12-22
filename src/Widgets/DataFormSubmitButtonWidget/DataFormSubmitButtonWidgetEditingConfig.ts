@@ -45,7 +45,7 @@ provideEditingConfig(DataFormSubmitButtonWidget, {
 
   initialContent: {
     submitTitle: 'submit',
-    hasReset: true,
+    hasReset: false,
     resetTitle: 'cancel',
     alignment: 'left',
     size: 'medium',

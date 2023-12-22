@@ -29,8 +29,8 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={matchingCondition.get('icon') || 'bi-box'}
             size={size}
             link={null}
+            title={`${attributeValue}`}
           />
-          <div>{`${attributeValue}`}</div>
         </>
       ) : (
         <>
@@ -38,8 +38,8 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={widget.get('fallbackIcon') || 'bi-question-octagon'}
             size={size}
             link={null}
+            title={`${attributeValue}` || 'N/A'}
           />
-          <div>{`${attributeValue}` || 'N/A'}</div>
         </>
       )}
     </WidgetTag>
