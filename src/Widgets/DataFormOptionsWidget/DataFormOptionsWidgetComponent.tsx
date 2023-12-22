@@ -68,6 +68,7 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
 
       <div>
         <select
+          className="form-select"
           defaultValue={defaultValue}
           id={id}
           name={attributeName}
