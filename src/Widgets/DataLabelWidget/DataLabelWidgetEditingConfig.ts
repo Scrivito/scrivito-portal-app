@@ -24,17 +24,22 @@ provideEditingConfig(DataLabelWidget, {
         { value: 'PLN', title: 'Polish złoty (zł)' },
       ],
     },
+    marginBottom: {
+      title: 'Add margin bottom?',
+    },
   },
   properties: (widget) => [
     'attributeName',
     'showAs',
     ['currency', { enabled: widget.get('showAs') === 'currency' }],
     'valueSize',
+    'marginBottom',
   ],
   initialContent: {
     label: 'Label',
     showAs: 'text',
     currency: 'EUR',
     valueSize: 'body-font-size',
+    marginBottom: true,
   },
 })

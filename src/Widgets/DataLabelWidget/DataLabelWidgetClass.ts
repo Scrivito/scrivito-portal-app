@@ -11,5 +11,6 @@ export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
       'enum',
       { values: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body-font-size'] },
     ],
+    marginBottom: 'boolean',
   },
 })
