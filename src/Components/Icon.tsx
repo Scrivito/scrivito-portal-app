@@ -24,18 +24,20 @@ export function IconComponent({
   icon,
   size,
   link,
+  title,
 }: {
   icon: string
   size: string | null
   link: Link | null
+  title?: string
 }) {
-  if (!link) return <Icon icon={icon} size={size} />
+  if (!link) return <Icon icon={icon} size={size} title={title} />
 
-  const title = link.title() || ''
+  const linkTitle = title || link.title() || ''
 
   return (
-    <LinkTag to={link} aria-label={title}>
-      <Icon icon={icon} size={size} title={title} />
+    <LinkTag to={link} aria-label={linkTitle}>
+      <Icon icon={icon} size={size} title={linkTitle} />
     </LinkTag>
   )
 }
