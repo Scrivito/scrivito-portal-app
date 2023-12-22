@@ -18,7 +18,7 @@ provideComponent(DataLabelWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag>
+    <WidgetTag className={widget.get('marginBottom') ? 'mb-3' : ''}>
       <ContentTag
         content={widget}
         attribute="label"
