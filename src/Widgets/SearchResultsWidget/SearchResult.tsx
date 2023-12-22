@@ -28,7 +28,7 @@ export const SearchResult = connect(function SearchResult({
                 <ImageTag
                   content={searchResult}
                   attribute="image"
-                  className="img-box z-0"
+                  className="img-box"
                 />
               </div>
               <div className="col-md-9">

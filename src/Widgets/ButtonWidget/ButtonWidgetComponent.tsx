@@ -23,7 +23,6 @@ provideComponent(ButtonWidget, ({ widget }) => {
       <LinkTag
         to={target}
         className={buttonClassNames.join(' ')}
-        style={{ minHeight: '40px', minWidth: '35px' }} // TODO: Check this by a designer
       >
         {!title && isInPlaceEditingActive()
           ? 'Provide the button link and text in the widget properties.'

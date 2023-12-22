@@ -167,11 +167,6 @@ body {
   margin: 0;
 }
 
-// TODO: Remove "z-0" once a Designer is available
-.z-0 {
-  z-index: 0 !important;
-}
-
 .z-1021 {
   z-index: 1021;
 }
@@ -487,6 +482,7 @@ section {
 }
 
 section {
+  min-height: 30px;
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -981,6 +977,14 @@ section:focus >,
 
 /* btn + alignment
  =================================================================== */
+
+.btn:empty {
+  min-height: 30px;
+  min-width: 50px;
+}
+.btn:empty:after {
+  content: 'TITLE MISSING';
+}
 
 .btn-block .btn {
   width: 100%;

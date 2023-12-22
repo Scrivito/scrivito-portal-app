@@ -13,7 +13,6 @@ provideLayoutComponent(ProductsOverview, ({ page }) => (
   <>
     <section
       className="bg-primary py-4"
-      style={{ minHeight: '119px' }} // TODO: Add official styling
     >
       <InPlaceEditingOff>
         <ImageTag

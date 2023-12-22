@@ -37,7 +37,6 @@ provideLayoutComponent(SubnavigationOverview, ({ page }) => {
     <>
       <section
         className="bg-secondary py-4"
-        style={{ minHeight: '119px' }} // TODO: Add official styling
       >
         <InPlaceEditingOff>
           <ImageTag
