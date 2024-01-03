@@ -9,7 +9,7 @@ type BlobsData = { private_access: { get: { url: string } } }
 const DIRECTORY = 'contentDump'
 
 const API_KEY = process.env.SCRIVITO_API_KEY
-const INSTANCE_ID = process.env.SCRIVITO_TENANT || ''
+const INSTANCE_ID = process.env.SCRIVITO_TENANT
 
 if (INSTANCE_ID && API_KEY) {
   clearDump()
@@ -29,7 +29,7 @@ function clearDump() {
 }
 
 async function dumpContent() {
-  let continuation
+  let continuation: string | undefined
 
   do {
     const data: SearchData = await fetchJson<SearchData>(
