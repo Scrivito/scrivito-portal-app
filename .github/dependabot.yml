@@ -5,5 +5,8 @@ updates:
     groups:
       update:
         patterns: ['*']
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
     schedule:
       interval: 'weekly'
