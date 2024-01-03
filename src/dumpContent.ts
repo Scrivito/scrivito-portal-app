@@ -19,6 +19,7 @@ if (INSTANCE_ID && API_KEY) {
   console.error(
     'Please provide SCRIVITO_TENANT and SCRIVITO_API_KEY of the instance to dump.',
   )
+  process.exitCode = -1
 }
 
 function clearDump() {
