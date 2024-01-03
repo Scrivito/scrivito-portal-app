@@ -49,17 +49,14 @@ async function dumpContent() {
 }
 
 async function dumpObjAndBinaries(objData: ObjData) {
-  await forEachBinaryId(objData, dumpBinary)
+  await dumpBinaries(objData)
   dumpObj(objData)
 }
 
-async function forEachBinaryId(
-  data: unknown,
-  handler: (binaryId: string) => Promise<void>,
-) {
+async function dumpBinaries(data: unknown) {
   if (!data || typeof data !== 'object') return
-  if (isBinaryData(data)) await handler(data[1].id)
-  else for (const d of Object.values(data)) await forEachBinaryId(d, handler)
+  if (isBinaryData(data)) await dumpBinary(data[1].id)
+  else for (const d of Object.values(data)) await dumpBinaries(d)
 }
 
 function isBinaryData(data: unknown): data is ['binary', { id: string }] {
