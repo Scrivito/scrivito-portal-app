@@ -24,8 +24,8 @@ if (INSTANCE_ID && API_KEY) {
 
 function clearDump() {
   fs.rmSync(DIRECTORY, { force: true, recursive: true })
-  fs.mkdirSync(`${DIRECTORY}/json`, { recursive: true })
-  fs.mkdirSync(`${DIRECTORY}/binary`, { recursive: true })
+  fs.mkdirSync(`${DIRECTORY}/objs`, { recursive: true })
+  fs.mkdirSync(`${DIRECTORY}/binaries`, { recursive: true })
 }
 
 async function dumpContent() {
@@ -79,14 +79,14 @@ async function dumpBinary(id: string) {
   if (response.status !== 200) throw new Error(`Failed to fetch ${url}`)
   const blob = await response.blob()
   fs.writeFileSync(
-    `${DIRECTORY}/binary/${encodeURIComponent(id)}`,
+    `${DIRECTORY}/binaries/${encodeURIComponent(id)}`,
     Buffer.from(await blob.arrayBuffer()),
   )
 }
 
 function dumpObj(objData: ObjData) {
   fs.writeFileSync(
-    `${DIRECTORY}/json/${objData._id}.json`,
+    `${DIRECTORY}/objs/${objData._id}.json`,
     JSON.stringify(objData, null, 2),
   )
 }
