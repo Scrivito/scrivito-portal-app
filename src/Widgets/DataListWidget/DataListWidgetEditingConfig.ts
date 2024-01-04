@@ -10,8 +10,9 @@ provideEditingConfig(DataListWidget, {
       title: 'Number of columns',
       description: 'Default: 1',
     },
+    showFooter: { title: 'Show footer?' },
   },
-  properties: ['nrOfColumns'],
+  properties: ['showFooter', 'nrOfColumns'],
   initialContent: {
     nrOfColumns: '1',
   },
