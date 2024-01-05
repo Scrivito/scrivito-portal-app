@@ -55,11 +55,11 @@ async function dumpObjAndBinaries(objData: ObjData) {
 
 async function dumpBinaries(data: unknown) {
   if (!data || typeof data !== 'object') return
-  if (isBinaryData(data)) await dumpBinary(data[1].id)
+  if (isBinaryAttribute(data)) await dumpBinary(data[1].id)
   else for (const d of Object.values(data)) await dumpBinaries(d)
 }
 
-function isBinaryData(data: unknown): data is ['binary', { id: string }] {
+function isBinaryAttribute(data: unknown): data is ['binary', { id: string }] {
   return (
     Array.isArray(data) &&
     data.length === 2 &&
@@ -69,14 +69,16 @@ function isBinaryData(data: unknown): data is ['binary', { id: string }] {
   )
 }
 
-async function dumpBinary(id: string) {
-  const binary = await fetchJson<BlobsData>(`blobs/${encodeURIComponent(id)}`)
+async function dumpBinary(binaryId: string) {
+  const binary = await fetchJson<BlobsData>(
+    `blobs/${encodeURIComponent(binaryId)}`,
+  )
   const url = binary.private_access.get.url
   const response = await fetch(url)
   if (response.status !== 200) throw new Error(`Failed to fetch ${url}`)
   const blob = await response.blob()
   fs.writeFileSync(
-    `${DIRECTORY}/binaries/${encodeURIComponent(id)}`,
+    `${DIRECTORY}/binaries/${encodeURIComponent(binaryId)}`,
     Buffer.from(await blob.arrayBuffer()),
   )
 }
