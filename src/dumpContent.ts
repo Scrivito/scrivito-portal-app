@@ -60,12 +60,13 @@ async function dumpBinaries(data: unknown) {
 }
 
 function isBinaryAttribute(data: unknown): data is ['binary', { id: string }] {
+  if (!Array.isArray(data)) return false
+  const [attributeType, attributeValue] = data
   return (
-    Array.isArray(data) &&
-    data.length === 2 &&
-    data[0] === 'binary' &&
-    typeof data[1] === 'object' &&
-    data[1].id
+    attributeType === 'binary' &&
+    !!attributeValue &&
+    typeof attributeValue === 'object' &&
+    typeof attributeValue.id === 'string'
   )
 }
 
