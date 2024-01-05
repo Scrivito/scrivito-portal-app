@@ -46,12 +46,15 @@ async function dumpContent() {
   do {
     const data: SearchData = await fetchJson<SearchData>(
       `workspaces/published/objs/search`,
-      JSON.stringify({
-        continuation,
-        include_objs: true,
-        options: { site_aware: true },
-        size: 10,
-      }),
+      {
+        data: {
+          continuation,
+          include_objs: true,
+          options: { site_aware: true },
+          size: 10,
+        },
+        method: 'put',
+      },
     )
 
     for (const objData of data.objs) await dumpObjAndBinaries(objData)
@@ -105,23 +108,29 @@ function dumpObj(objData: ObjData) {
   )
 }
 
-async function fetchJson<T>(apiPath: string, body?: string): Promise<T> {
+async function fetchJson<T>(
+  apiPath: string,
+  options: { data?: Record<string, unknown>; method?: string } = {},
+): Promise<T> {
   process.stdout.write('.')
 
-  const headers = {
-    'Content-Type': 'application/json',
-    Authorization: `Basic ${Buffer.from(`api_token:${API_KEY}`).toString(
-      'base64',
-    )}`,
-  }
   const response = await fetch(
     `https://api.scrivito.com/tenants/${INSTANCE_ID}/${apiPath}`,
-    { body, headers, method: body ? 'put' : 'get' },
+    {
+      body: options.data ? JSON.stringify(options.data) : undefined,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Basic ${Buffer.from(`api_token:${API_KEY}`).toString(
+          'base64',
+        )}`,
+      },
+      method: options.method,
+    },
   )
   if (response.status === 200) return response.json()
 
   console.log(`\nHTTP status ${response.status}, retrying...\n`)
   const sleep = promisify(setTimeout)
   await sleep(2000)
-  return fetchJson(apiPath, body)
+  return fetchJson(apiPath, options)
 }
