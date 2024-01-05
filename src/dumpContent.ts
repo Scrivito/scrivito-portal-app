@@ -6,7 +6,9 @@ type ObjData = { _id: string }
 type SearchData = { continuation?: string; objs: ObjData[] }
 type BlobsData = { private_access: { get: { url: string } } }
 
-const DIRECTORY = 'contentDump'
+const DUMP_PATH = 'contentDump'
+const BINARIES_PATH = `${DUMP_PATH}/binaries`
+const OBJS_PATH = `${DUMP_PATH}/objs`
 
 const API_KEY = process.env.SCRIVITO_API_KEY
 const INSTANCE_ID = process.env.SCRIVITO_TENANT
@@ -23,9 +25,9 @@ if (INSTANCE_ID && API_KEY) {
 }
 
 function clearDump() {
-  fs.rmSync(DIRECTORY, { force: true, recursive: true })
-  fs.mkdirSync(`${DIRECTORY}/objs`, { recursive: true })
-  fs.mkdirSync(`${DIRECTORY}/binaries`, { recursive: true })
+  fs.rmSync(DUMP_PATH, { force: true, recursive: true })
+  fs.mkdirSync(OBJS_PATH, { recursive: true })
+  fs.mkdirSync(BINARIES_PATH, { recursive: true })
 }
 
 async function dumpContent() {
@@ -79,14 +81,14 @@ async function dumpBinary(binaryId: string) {
   if (response.status !== 200) throw new Error(`Failed to fetch ${url}`)
   const blob = await response.blob()
   fs.writeFileSync(
-    `${DIRECTORY}/binaries/${encodeURIComponent(binaryId)}`,
+    `${BINARIES_PATH}/${encodeURIComponent(binaryId)}`,
     Buffer.from(await blob.arrayBuffer()),
   )
 }
 
 function dumpObj(objData: ObjData) {
   fs.writeFileSync(
-    `${DIRECTORY}/objs/${objData._id}.json`,
+    `${OBJS_PATH}/${objData._id}.json`,
     JSON.stringify(objData, null, 2),
   )
 }
