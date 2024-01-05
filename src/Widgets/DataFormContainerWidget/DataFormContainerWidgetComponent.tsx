@@ -61,6 +61,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       } else {
         const createdItem = await dataScope.create(attributes)
         toastAndRedirect(createdItem)
+        formRef.current.reset()
       }
     } catch (error) {
       if (!(error instanceof Error)) return
