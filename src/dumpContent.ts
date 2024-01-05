@@ -14,16 +14,20 @@ const OBJS_PATH = `${DUMP_PATH}/objs`
 
 const env = loadEnv('development', process.cwd(), '')
 
-const API_KEY = env.CONTENT_MASTER_SCRIVITO_API_KEY
+const API_CLIENT_ID = env.CONTENT_MASTER_API_CLIENT_ID
+const API_CLIENT_SECRET = env.CONTENT_MASTER_API_CLIENT_SECRET
 const INSTANCE_ID = env.CONTENT_MASTER_SCRIVITO_TENANT
 
-if (INSTANCE_ID && API_KEY) {
+let apiToken: string | undefined = undefined
+
+if (API_CLIENT_ID && API_CLIENT_SECRET && INSTANCE_ID) {
   clearDump()
   await dumpContent()
   console.log(`\n✅ Dump complete (${fileStats()}).`)
 } else {
   console.error(
-    'Please provide CONTENT_MASTER_SCRIVITO_TENANT and CONTENT_MASTER_SCRIVITO_API_KEY.',
+    'Please provide CONTENT_MASTER_SCRIVITO_TENANT and credentials:',
+    'CONTENT_MASTER_API_CLIENT_ID, CONTENT_MASTER_API_CLIENT_SECRET.',
   )
   process.exitCode = -1
 }
@@ -114,15 +118,16 @@ async function fetchJson<T>(
 ): Promise<T> {
   process.stdout.write('.')
 
+  if (!apiToken) apiToken = await fetchIamToken()
+
   const response = await fetch(
     `https://api.scrivito.com/tenants/${INSTANCE_ID}/${apiPath}`,
     {
       body: options.data ? JSON.stringify(options.data) : undefined,
       headers: {
+        Authorization: `Bearer ${apiToken}`,
         'Content-Type': 'application/json',
-        Authorization: `Basic ${Buffer.from(`api_token:${API_KEY}`).toString(
-          'base64',
-        )}`,
+        'Scrivito-Access-As': 'editor',
       },
       method: options.method,
     },
@@ -130,7 +135,27 @@ async function fetchJson<T>(
   if (response.status === 200) return response.json()
 
   console.log(`\nHTTP status ${response.status}, retrying...\n`)
+  apiToken = undefined
   const sleep = promisify(setTimeout)
   await sleep(2000)
   return fetchJson(apiPath, options)
+}
+
+async function fetchIamToken(): Promise<string> {
+  const response = await fetch('https://api.justrelate.com/iam/token', {
+    method: 'POST',
+    headers: {
+      Authorization: `Basic ${Buffer.from(
+        `${encodeURIComponent(API_CLIENT_ID)}:${encodeURIComponent(
+          API_CLIENT_SECRET,
+        )}`,
+      ).toString('base64')}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: 'grant_type=client_credentials',
+  })
+
+  if (response.status !== 200) throw new Error('Failed to get API access.')
+
+  return (await response.json()).access_token
 }
