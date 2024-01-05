@@ -6,6 +6,7 @@ import {
   WidgetTag,
 } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
+import { RelativeDate } from './RelativeDate'
 
 provideComponent(DataLabelWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -52,6 +53,7 @@ const AttributeValue = connect(function AttributeValue({
   showAs: string | null
 }) {
   if (showAs === 'currency') return formatCurrency(attributeValue, currency)
+  if (showAs === 'datetime') return formatDatetime(attributeValue)
 
   return formatText(attributeValue)
 })
@@ -72,4 +74,13 @@ function formatCurrency(value: unknown, currency: string | null) {
   })
 
   return formatter.format(number)
+}
+
+function formatDatetime(value: unknown) {
+  if (value === null) return 'N/A'
+
+  const date = new Date(value as string)
+  if (Number.isNaN(date.getTime())) return 'N/A'
+
+  return <RelativeDate date={date} />
 }

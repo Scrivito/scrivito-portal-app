@@ -5,7 +5,7 @@ export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
     label: 'string',
     attributeName: 'string',
     details: 'string',
-    showAs: ['enum', { values: ['text', 'currency'] }],
+    showAs: ['enum', { values: ['text', 'currency', 'datetime'] }],
     currency: ['enum', { values: ['EUR', 'USD', 'PLN'] }], // ISO 4217 codes
     valueSize: [
       'enum',
