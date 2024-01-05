@@ -2,7 +2,8 @@
 import fs from 'fs'
 import { promisify } from 'util'
 
-type ObjData = { _id: string }
+type ObjData = { _id: string; _widget_pool?: Record<string, WidgetData> }
+type WidgetData = Record<string, unknown>
 type SearchData = { continuation?: string; objs: ObjData[] }
 type BlobsData = { private_access: { get: { url: string } } }
 
@@ -61,10 +62,12 @@ async function dumpObjAndBinaries(objData: ObjData) {
   dumpObj(objData)
 }
 
-async function dumpBinaries(data: unknown) {
-  if (!data || typeof data !== 'object') return
-  if (isBinaryAttribute(data)) await dumpBinary(data[1].id)
-  else for (const d of Object.values(data)) await dumpBinaries(d)
+async function dumpBinaries(data: ObjData | WidgetData) {
+  for (const value of Object.values(data))
+    if (isBinaryAttribute(value)) await dumpBinary(value[1].id)
+
+  const widgetPool = data._widget_pool || {}
+  for (const widget of Object.values(widgetPool)) await dumpBinaries(widget)
 }
 
 function isBinaryAttribute(data: unknown): data is ['binary', { id: string }] {
