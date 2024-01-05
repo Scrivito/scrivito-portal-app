@@ -1,6 +1,7 @@
 #!npx vite-node
 import fs from 'fs'
 import { promisify } from 'util'
+import { loadEnv } from 'vite'
 
 type ObjData = { _id: string; _widget_pool?: Record<string, WidgetData> }
 type WidgetData = Record<string, unknown>
@@ -11,8 +12,10 @@ const DUMP_PATH = 'contentDump'
 const BINARIES_PATH = `${DUMP_PATH}/binaries`
 const OBJS_PATH = `${DUMP_PATH}/objs`
 
-const API_KEY = process.env.SCRIVITO_API_KEY
-const INSTANCE_ID = process.env.SCRIVITO_TENANT
+const env = loadEnv('development', process.cwd(), '')
+
+const API_KEY = env.CONTENT_MASTER_SCRIVITO_API_KEY
+const INSTANCE_ID = env.CONTENT_MASTER_SCRIVITO_TENANT
 
 if (INSTANCE_ID && API_KEY) {
   clearDump()
@@ -20,7 +23,7 @@ if (INSTANCE_ID && API_KEY) {
   console.log(`\n✅ Dump complete (${fileStats()}).`)
 } else {
   console.error(
-    'Please provide SCRIVITO_TENANT and SCRIVITO_API_KEY of the instance to dump.',
+    'Please provide CONTENT_MASTER_SCRIVITO_TENANT and CONTENT_MASTER_SCRIVITO_API_KEY.',
   )
   process.exitCode = -1
 }
