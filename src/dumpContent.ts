@@ -16,7 +16,7 @@ const INSTANCE_ID = process.env.SCRIVITO_TENANT
 if (INSTANCE_ID && API_KEY) {
   clearDump()
   await dumpContent()
-  console.log('\n✅ Dump complete.')
+  console.log(`\n✅ Dump complete (${fileStats()}).`)
 } else {
   console.error(
     'Please provide SCRIVITO_TENANT and SCRIVITO_API_KEY of the instance to dump.',
@@ -28,6 +28,12 @@ function clearDump() {
   fs.rmSync(DUMP_PATH, { force: true, recursive: true })
   fs.mkdirSync(OBJS_PATH, { recursive: true })
   fs.mkdirSync(BINARIES_PATH, { recursive: true })
+}
+
+function fileStats() {
+  const objs = fs.readdirSync(OBJS_PATH)
+  const binaries = fs.readdirSync(BINARIES_PATH)
+  return `${objs.length} objs and ${binaries.length} binaries`
 }
 
 async function dumpContent() {
