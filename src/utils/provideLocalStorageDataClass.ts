@@ -1,9 +1,17 @@
 import { provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
 import { isObject } from 'lodash-es'
+import { sha1 } from './sha1'
 
-export function provideLocalStorageDataClass(className: string) {
-  const localStorageKey = `localDataClass-${className}`
+export function provideLocalStorageDataClass(
+  className: string,
+  {
+    initialContent,
+  }: { initialContent?: { _id: string; [key: string]: unknown }[] } = {},
+) {
+  const recordKey = `localDataClass-${className}`
+
+  if (initialContent) initializeContent(initialContent)
 
   return provideDataClass(className, {
     connection: {
@@ -61,10 +69,38 @@ export function provideLocalStorageDataClass(className: string) {
     },
   })
 
+  async function initializeContent(
+    initialContent: { _id: string; [key: string]: unknown }[],
+  ) {
+    const initializedKey = `${recordKey}-initialized`
+    const initializedValue = `yes - already initialized with ${await sha1(
+      JSON.stringify(initialContent),
+    )}`
+
+    try {
+      if (localStorage.getItem(initializedKey) !== initializedValue) {
+        const initialRecord: Record<string, Record<string, unknown>> = {}
+        initialContent.forEach((item) => {
+          const id = item._id
+
+          if (Object.keys(initialRecord).includes(id)) {
+            throw new Error(`Duplicate _id ${id} in initialContent!`)
+          }
+
+          initialRecord[id] = item
+        })
+        persistRecord(initialRecord)
+        localStorage.setItem(initializedKey, initializedValue)
+      }
+    } catch (e) {
+      console.log('An error occurred during initializing', e)
+    }
+  }
+
   function restoreRecord(): Record<string, unknown> {
     let item: string | null | undefined
     try {
-      item = localStorage.getItem(localStorageKey)
+      item = localStorage.getItem(recordKey)
     } catch {
       return {}
     }
@@ -82,7 +118,7 @@ export function provideLocalStorageDataClass(className: string) {
   }
 
   function persistRecord(record: Record<string, unknown>): void {
-    localStorage.setItem(localStorageKey, JSON.stringify(record))
+    localStorage.setItem(recordKey, JSON.stringify(record))
   }
 }
 
