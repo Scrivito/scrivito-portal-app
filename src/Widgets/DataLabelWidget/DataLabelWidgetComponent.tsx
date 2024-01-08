@@ -78,8 +78,9 @@ function formatCurrency(value: unknown, currency: string | null) {
 
 function formatDatetime(value: unknown) {
   if (value === null) return 'N/A'
+  if (typeof value !== 'string') return 'N/A'
 
-  const date = new Date(value as string)
+  const date = new Date(value)
   if (Number.isNaN(date.getTime())) return 'N/A'
 
   return <RelativeDate date={date} />
