@@ -979,11 +979,10 @@ section:focus >,
  =================================================================== */
 
 .btn:empty {
-  min-height: 30px;
   min-width: 50px;
 }
 .btn:empty:after {
-  content: 'TITLE MISSING';
+  content: ' ';
 }
 
 .btn-block .btn {

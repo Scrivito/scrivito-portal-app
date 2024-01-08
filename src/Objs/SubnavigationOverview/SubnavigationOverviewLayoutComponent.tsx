@@ -35,9 +35,7 @@ provideLayoutComponent(SubnavigationOverview, ({ page }) => {
 
   return (
     <>
-      <section
-        className="bg-secondary py-4"
-      >
+      <section className="bg-secondary py-4">
         <InPlaceEditingOff>
           <ImageTag
             content={page}

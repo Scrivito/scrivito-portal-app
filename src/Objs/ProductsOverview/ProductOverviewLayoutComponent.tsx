@@ -11,9 +11,7 @@ import { Breadcrumb } from '../../Components/Breadcrumb'
 
 provideLayoutComponent(ProductsOverview, ({ page }) => (
   <>
-    <section
-      className="bg-primary py-4"
-    >
+    <section className="bg-primary py-4">
       <InPlaceEditingOff>
         <ImageTag
           content={page}
