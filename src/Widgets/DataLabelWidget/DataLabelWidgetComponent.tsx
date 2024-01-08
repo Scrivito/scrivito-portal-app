@@ -52,17 +52,26 @@ const AttributeValue = connect(function AttributeValue({
   attributeValue: unknown
   showAs: string | null
 }) {
-  if (showAs === 'currency') return formatCurrency(attributeValue, currency)
-  if (showAs === 'datetime') return formatDatetime(attributeValue)
+  if (showAs === 'currency') {
+    return <Currency value={attributeValue} currency={currency} />
+  }
 
-  return formatText(attributeValue)
+  if (showAs === 'datetime') return <Datetime value={attributeValue} />
+
+  return <Text value={attributeValue} />
 })
 
-function formatText(value: unknown) {
+function Text({ value }: { value: unknown }) {
   return value ? value.toString() : 'N/A'
 }
 
-function formatCurrency(value: unknown, currency: string | null) {
+function Currency({
+  value,
+  currency,
+}: {
+  value: unknown
+  currency: string | null
+}) {
   if (value === null) return 'N/A'
 
   const number = Number(value)
@@ -76,7 +85,7 @@ function formatCurrency(value: unknown, currency: string | null) {
   return formatter.format(number)
 }
 
-function formatDatetime(value: unknown) {
+function Datetime({ value }: { value: unknown }) {
   if (value === null) return 'N/A'
   if (typeof value !== 'string') return 'N/A'
 
