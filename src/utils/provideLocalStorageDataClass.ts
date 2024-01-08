@@ -11,9 +11,6 @@ export function provideLocalStorageDataClass(className: string) {
         const record = restoreRecord()
         const items = Object.entries(record)
 
-        if (params.order().length > 0) throw new Error('order not implemented!')
-        if (params.search()) throw new Error('search not implemented!')
-
         const filters = params.filters()
         const filteredItems =
           Object.keys(filters).length === 0
@@ -27,7 +24,10 @@ export function provideLocalStorageDataClass(className: string) {
                   ),
               )
 
-        return { results: filteredItems.map(([id, _item]) => id) }
+        if (params.search()) throw new Error('search not implemented!')
+        const sortedItems = sortItems(filteredItems, params.order())
+
+        return { results: sortedItems.map(([id, _item]) => id) }
       },
 
       async get(id: string): Promise<unknown | null> {
@@ -90,4 +90,34 @@ function isStringObject(item: unknown): item is Record<string, unknown> {
   if (!item) return false
   if (!isObject(item)) return false
   return Object.keys(item).every((key) => typeof key === 'string')
+}
+
+function sortItems(
+  items: [string, unknown][],
+  order: Array<[string, 'asc' | 'desc']>,
+): [string, unknown][] {
+  if (order.length === 0) return items
+
+  return [...items].sort((a, b) => {
+    const itemA = a[1]
+    const itemB = b[1]
+    if (!isObject(itemA) || !isObject(itemB)) return 0
+
+    for (const [attr, ascOrDesc] of order) {
+      const valueA = (itemA as Record<string, unknown>)[attr]
+      const valueB = (itemB as Record<string, unknown>)[attr]
+
+      const comparison =
+        typeof valueA === 'string' && typeof valueB === 'string'
+          ? valueA.localeCompare(valueB)
+          : typeof valueA === 'number' && typeof valueB === 'number'
+            ? valueA - valueB
+            : 0
+
+      if (comparison === 0) continue
+      return ascOrDesc === 'asc' ? comparison : -comparison
+    }
+
+    return 0
+  })
 }
