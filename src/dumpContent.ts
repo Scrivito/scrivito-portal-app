@@ -73,8 +73,9 @@ async function dumpObjAndBinaries(objData: ObjData) {
 }
 
 async function dumpBinaries(data: ObjData | WidgetData) {
-  for (const value of Object.values(data))
+  for (const value of Object.values(data)) {
     if (isBinaryAttribute(value)) await dumpBinary(value[1].id)
+  }
 
   const widgetPool = data._widget_pool || {}
   for (const widget of Object.values(widgetPool)) await dumpBinaries(widget)
