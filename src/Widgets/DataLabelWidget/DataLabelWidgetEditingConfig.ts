@@ -13,7 +13,7 @@ provideEditingConfig(DataLabelWidget, {
       values: [
         { value: 'text', title: 'Text' },
         { value: 'currency', title: 'Currency' },
-        { value: 'datetime', title: 'Date time' },
+        { value: 'datetime', title: 'Date' },
       ],
     },
     currency: {
