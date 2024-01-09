@@ -1,5 +1,4 @@
-import { connect, ContentTag, provideComponent, WidgetTag } from 'scrivito'
-import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
+import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
 import { LinkContainerWidget } from './LinkContainerWidgetClass'
 
 provideComponent(LinkContainerWidget, ({ widget }) => (
