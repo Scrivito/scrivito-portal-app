@@ -16,30 +16,14 @@ provideEditingConfig(DataLabelWidget, {
         { value: 'datetime', title: 'Date' },
       ],
     },
-    currency: {
-      title: 'Currency format',
-      description: 'Default: Euro (€)',
-      values: [
-        { value: 'EUR', title: 'Euro (€)' },
-        { value: 'USD', title: 'U.S. dollar ($)' },
-        { value: 'PLN', title: 'Polish złoty (zł)' },
-      ],
-    },
     marginBottom: {
       title: 'Add margin bottom?',
     },
   },
-  properties: (widget) => [
-    'attributeName',
-    'showAs',
-    ['currency', { enabled: widget.get('showAs') === 'currency' }],
-    'valueSize',
-    'marginBottom',
-  ],
+  properties: ['attributeName', 'showAs', 'valueSize', 'marginBottom'],
   initialContent: {
     label: 'Label',
     showAs: 'text',
-    currency: 'EUR',
     valueSize: 'body-font-size',
     marginBottom: true,
   },

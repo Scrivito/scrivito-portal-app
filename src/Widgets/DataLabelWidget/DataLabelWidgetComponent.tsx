@@ -8,6 +8,8 @@ import {
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import { RelativeDate } from './RelativeDate'
 
+const CURRENCY = 'EUR' // ISO 4217 Code
+
 provideComponent(DataLabelWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
@@ -29,7 +31,6 @@ provideComponent(DataLabelWidget, ({ widget }) => {
         <AttributeValue
           attributeValue={dataItem?.get(widget.get('attributeName'))}
           showAs={widget.get('showAs')}
-          currency={widget.get('currency')}
         />
       </div>
 
@@ -44,18 +45,13 @@ provideComponent(DataLabelWidget, ({ widget }) => {
 })
 
 const AttributeValue = connect(function AttributeValue({
-  currency,
   attributeValue,
   showAs,
 }: {
-  currency: string | null
   attributeValue: unknown
   showAs: string | null
 }) {
-  if (showAs === 'currency') {
-    return <Currency value={attributeValue} currency={currency} />
-  }
-
+  if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') return <Datetime value={attributeValue} />
 
   return <Text value={attributeValue} />
@@ -65,13 +61,7 @@ function Text({ value }: { value: unknown }) {
   return value ? value.toString() : 'N/A'
 }
 
-function Currency({
-  value,
-  currency,
-}: {
-  value: unknown
-  currency: string | null
-}) {
+function Currency({ value }: { value: unknown }) {
   if (value === null) return 'N/A'
 
   const number = Number(value)
@@ -79,7 +69,7 @@ function Currency({
 
   const formatter = new Intl.NumberFormat('en', {
     style: 'currency',
-    currency: currency || 'EUR',
+    currency: CURRENCY,
   })
 
   return formatter.format(number)
