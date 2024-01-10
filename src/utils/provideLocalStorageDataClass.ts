@@ -1,13 +1,16 @@
 import { provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
-import { isObject } from 'lodash-es'
+import { isObject, orderBy } from 'lodash-es'
 import { sha1 } from './sha1'
+
+interface DataItem {
+  _id: string
+  [key: string]: unknown
+}
 
 export function provideLocalStorageDataClass(
   className: string,
-  {
-    initialContent,
-  }: { initialContent?: { _id: string; [key: string]: unknown }[] } = {},
+  { initialContent }: { initialContent?: DataItem[] } = {},
 ) {
   const recordKey = `localDataClass-${className}`
 
@@ -15,48 +18,48 @@ export function provideLocalStorageDataClass(
 
   return provideDataClass(className, {
     connection: {
-      async index(params): Promise<{ results: string[] }> {
+      async index(params): Promise<{ results: DataItem[] }> {
         const record = restoreRecord()
-        const items = Object.entries(record)
+        const items = Object.values(record)
 
         const filters = params.filters()
         const filteredItems =
           Object.keys(filters).length === 0
             ? items
-            : items.filter(
-                ([_id, item]) =>
-                  isStringObject(item) &&
-                  Object.entries(filters).every(
-                    ([filterAttribute, filterValue]) =>
-                      item[filterAttribute] === filterValue,
-                  ),
+            : items.filter((item) =>
+                Object.entries(filters).every(
+                  ([filterAttribute, filterValue]) =>
+                    item[filterAttribute] === filterValue,
+                ),
               )
 
         if (params.search()) throw new Error('search not implemented!')
-        const sortedItems = sortItems(filteredItems, params.order())
+        const orderedItems = orderItems(filteredItems, params.order())
 
-        return { results: sortedItems.map(([id, _item]) => id) }
+        return { results: orderedItems }
       },
 
-      async get(id: string): Promise<unknown | null> {
+      async get(id: string): Promise<DataItem | null> {
         const record = restoreRecord()
 
         return id in record ? record[id] : null
       },
 
-      async create(data: unknown): Promise<{ _id: string }> {
+      async create(data: Record<string, unknown>): Promise<{ _id: string }> {
         const record = restoreRecord()
 
         const _id = pseudoRandom32CharHex()
-        record[_id] = data
+        const storedData: DataItem = { ...data, _id }
+        record[_id] = storedData
 
         persistRecord(record)
         return { _id }
       },
 
-      async update(id: string, data: unknown): Promise<void> {
+      async update(id: string, data: Record<string, unknown>): Promise<void> {
         const record = restoreRecord()
-        record[id] = data
+        const storedData: DataItem = { ...data, _id: id }
+        record[id] = storedData
 
         persistRecord(record)
       },
@@ -69,9 +72,7 @@ export function provideLocalStorageDataClass(
     },
   })
 
-  async function initializeContent(
-    initialContent: { _id: string; [key: string]: unknown }[],
-  ) {
+  async function initializeContent(initialContent: DataItem[]) {
     const initializedKey = `${recordKey}-initialized`
     const initializedValue = `yes - already initialized with ${await sha1(
       JSON.stringify(initialContent),
@@ -79,7 +80,7 @@ export function provideLocalStorageDataClass(
 
     try {
       if (localStorage.getItem(initializedKey) !== initializedValue) {
-        const initialRecord: Record<string, Record<string, unknown>> = {}
+        const initialRecord: Record<string, DataItem> = {}
         initialContent.forEach((item) => {
           const id = item._id
 
@@ -97,7 +98,7 @@ export function provideLocalStorageDataClass(
     }
   }
 
-  function restoreRecord(): Record<string, unknown> {
+  function restoreRecord(): Record<string, DataItem> {
     let item: string | null | undefined
     try {
       item = localStorage.getItem(recordKey)
@@ -109,7 +110,7 @@ export function provideLocalStorageDataClass(
 
     try {
       const parsed = JSON.parse(item)
-      if (!isStringObject(parsed)) return {}
+      if (!isDataItemRecord(parsed)) return {}
 
       return parsed
     } catch (e) {
@@ -117,43 +118,32 @@ export function provideLocalStorageDataClass(
     }
   }
 
-  function persistRecord(record: Record<string, unknown>): void {
+  function persistRecord(record: Record<string, DataItem>): void {
     localStorage.setItem(recordKey, JSON.stringify(record))
   }
 }
 
-function isStringObject(item: unknown): item is Record<string, unknown> {
-  if (!item) return false
-  if (!isObject(item)) return false
-  return Object.keys(item).every((key) => typeof key === 'string')
+function isDataItemRecord(input: unknown): input is Record<string, DataItem> {
+  if (!input) return false
+  if (typeof input !== 'object') return false
+  return Object.values(input).every((item) => isDataItem(item))
 }
 
-function sortItems(
-  items: [string, unknown][],
+function isDataItem(item: unknown): item is DataItem {
+  if (!item) return false
+  if (!isObject(item)) return false
+  return typeof (item as DataItem)._id === 'string'
+}
+
+function orderItems(
+  items: DataItem[],
   order: Array<[string, 'asc' | 'desc']>,
-): [string, unknown][] {
+): DataItem[] {
   if (order.length === 0) return items
 
-  return [...items].sort((a, b) => {
-    const itemA = a[1]
-    const itemB = b[1]
-    if (!isObject(itemA) || !isObject(itemB)) return 0
-
-    for (const [attr, ascOrDesc] of order) {
-      const valueA = (itemA as Record<string, unknown>)[attr]
-      const valueB = (itemB as Record<string, unknown>)[attr]
-
-      const comparison =
-        typeof valueA === 'string' && typeof valueB === 'string'
-          ? valueA.localeCompare(valueB)
-          : typeof valueA === 'number' && typeof valueB === 'number'
-            ? valueA - valueB
-            : 0
-
-      if (comparison === 0) continue
-      return ascOrDesc === 'asc' ? comparison : -comparison
-    }
-
-    return 0
-  })
+  return orderBy(
+    items,
+    order.map(([attr]) => attr),
+    order.map(([_, ascOrDesc]) => ascOrDesc),
+  )
 }
