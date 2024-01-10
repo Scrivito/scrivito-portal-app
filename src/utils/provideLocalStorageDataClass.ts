@@ -1,7 +1,6 @@
 import { provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
 import { isObject, orderBy } from 'lodash-es'
-import { sha1 } from './sha1'
 
 interface DataItem {
   _id: string
@@ -73,10 +72,8 @@ export function provideLocalStorageDataClass(
   })
 
   async function initializeContent(initialContent: DataItem[]) {
-    const initializedKey = `${recordKey}-initialized`
-    const initializedValue = `yes - already initialized with ${await sha1(
-      JSON.stringify(initialContent),
-    )}`
+    const initializedKey = `${recordKey}-initialized-with`
+    const initializedValue = JSON.stringify(initialContent)
 
     try {
       if (localStorage.getItem(initializedKey) !== initializedValue) {
