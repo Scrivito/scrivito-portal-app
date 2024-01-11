@@ -3,6 +3,5 @@ export const DATA_OBJ_CLASSES = [
   'Invoice',
   'Notification',
   'Person',
-  'Quote',
   'Shipment',
 ]
