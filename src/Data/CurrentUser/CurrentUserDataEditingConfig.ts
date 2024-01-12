@@ -4,12 +4,12 @@ import { CurrentUser } from './CurrentUserDataItem'
 provideEditingConfig(CurrentUser, {
   title: 'Current user',
   attributes: {
-    company: { title: 'Company' },
-    email: { title: 'Email' },
-    jrUserId: { title: 'JustRelate user ID' },
     name: { title: 'Name' },
-    phoneNumber: { title: 'Phone number' },
+    email: { title: 'Email' },
     picture: { title: 'Picture' },
+    jrUserId: { title: 'JustRelate user ID' },
+    company: { title: 'Company' },
+    phoneNumber: { title: 'Phone number' },
     salutation: { title: 'Salutation' },
   },
 })
