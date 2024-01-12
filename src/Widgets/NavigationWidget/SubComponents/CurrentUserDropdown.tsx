@@ -10,7 +10,7 @@ import {
 import { NavigationWidgetInstance } from '../NavigationWidgetClass'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
-import { CurrentUserDataItem } from '../../../Data/CurrentUser/CurrentUserDataItem'
+import { CurrentUser } from '../../../Data/CurrentUser/CurrentUserDataItem'
 import { ensureString } from '../../../utils/ensureString'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
@@ -81,7 +81,7 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
 })
 
 const ProfileImg = connect(function ProfileImg() {
-  const picture = ensureString(CurrentUserDataItem.get('picture'))
+  const picture = ensureString(CurrentUser.get('picture'))
 
   if (!picture) {
     return <i className="bi bi-person-circle" aria-hidden="true"></i>
