@@ -49,6 +49,12 @@ export default defineConfig(({ mode }) => {
           headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
         },
 
+        '/pisa-api': {
+          target: 'https://web102.crm.pisasales.de/portal',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/pisa-api/, ''),
+        },
+
         /**
          * Example Proxy
          *
