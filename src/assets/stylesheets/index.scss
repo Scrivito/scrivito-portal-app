@@ -1204,6 +1204,7 @@ section:focus >,
   #basic-navbar-nav.navbar-collapse {
     flex-flow: column-reverse;
   }
+
   .navbar-meta,
   .navbar-main {
     flex-flow: column;
@@ -1211,6 +1212,10 @@ section:focus >,
     .navbar-nav {
       margin: 0 !important;
     }
+    &.navbar-nav {
+      flex-flow: column-reverse;
+    }
+
     .navbar-nav.border-left {
       .nav-item {
         border: none !important;
