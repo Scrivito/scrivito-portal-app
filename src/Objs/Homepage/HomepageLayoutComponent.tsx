@@ -7,7 +7,12 @@ provideLayoutComponent(Homepage, ({ page }) => {
       <a href="#main" className="btn skip-to-content">
         Skip to Content
       </a>
-      <ContentTag tag="header" content={page} attribute="siteHeader" />
+      <ContentTag
+        tag="header"
+        content={page}
+        attribute="siteHeader"
+        className={page.get('sitePortalOnlyMode') ? 'portal-only' : null}
+      />
       <main id="main">
         <CurrentPage />
       </main>
