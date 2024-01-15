@@ -20,11 +20,7 @@ provideComponent(ButtonWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
-      <LinkTag
-        to={target}
-        className={buttonClassNames.join(' ')}
-        style={{ minHeight: '40px', minWidth: '35px' }} // TODO: Check this by a designer
-      >
+      <LinkTag to={target} className={buttonClassNames.join(' ')}>
         {!title && isInPlaceEditingActive()
           ? 'Provide the button link and text in the widget properties.'
           : title}

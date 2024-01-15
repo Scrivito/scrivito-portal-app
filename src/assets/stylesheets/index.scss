@@ -167,11 +167,6 @@ body {
   margin: 0;
 }
 
-// TODO: Remove "z-0" once a Designer is available
-.z-0 {
-  z-index: 0 !important;
-}
-
 .z-1021 {
   z-index: 1021;
 }
@@ -487,6 +482,7 @@ section {
 }
 
 section {
+  min-height: 30px;
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -973,6 +969,7 @@ section:focus >,
 .form-control {
   border: none;
   border-radius: unset;
+  background: #fff !important;
 }
 .form-control:disabled {
   background: rgba(255, 255, 255, 0.65);
@@ -981,6 +978,14 @@ section:focus >,
 
 /* btn + alignment
  =================================================================== */
+
+.btn:empty {
+  min-width: 50px;
+}
+.btn:empty:after {
+  content: '______';
+  color: transparent;
+}
 
 .btn-block .btn {
   width: 100%;
