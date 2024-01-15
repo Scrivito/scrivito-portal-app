@@ -48,6 +48,23 @@ const ColumnsEditor = connect(
 
     return (
       <div className="scrivito_detail_content">
+        {/* Static prepare START */}
+        <div className="scrivito_detail_label">
+          <span>Layout Option</span>
+        </div>
+        <div className="item_content">
+          <div className="boolean_attribute_component">
+            <div className="scrivito_switch two_valued">
+              <div className="pill-wrapper">
+                <div className="cell pill"></div>
+              </div>
+              <div className="cell left">Fixed Layout</div>
+              <div className="cell right">Flex Layout</div>
+            </div>
+          </div>
+        </div>
+        {/* Static prepare END */}
+
         <Alignment
           alignment={widget.get('alignment')}
           setAlignment={(
@@ -165,11 +182,9 @@ const ColumnsEditor = connect(
             readOnly={readOnly}
           />
         </div>
-
         <div className="scrivito_detail_label">
-          <span style={{ fontSize: '11px' }}>Disable responsive adaption?</span>
+          <span>Disable responsive adaption?</span>
         </div>
-
         <div className="item_content">
           <div className="boolean_attribute_component">
             <div
@@ -199,6 +214,45 @@ const ColumnsEditor = connect(
             </div>
           </div>
         </div>
+
+        {/* Static prepare START */}
+
+        <div className="scrivito_detail_label">
+          <span>Flex Layout Setup</span>
+        </div>
+
+        <div className="gle flex-layout">
+          <div className="grid-columns clickable">
+            <div
+              className="grid-col"
+              onClick={(e) => e.target.classList.toggle('grid-col-grow')}
+            >
+              <div className="grid-del" title="delete column"></div>
+              <div className="grid-button"></div>
+            </div>
+            <div
+              className="grid-col"
+              onClick={(e) => e.target.classList.toggle('grid-col-grow')}
+            >
+              <div className="grid-del" title="delete column"></div>
+              <div className="grid-button"></div>
+            </div>
+
+            <div
+              className="grid-col"
+              onClick={(e) => e.target.classList.toggle('grid-col-grow')}
+            >
+              <div className="grid-del" title="delete column"></div>
+              <div className="grid-button"></div>
+            </div>
+            <div
+              className="grid-handle grid-handle-plus"
+              title="add a column"
+            ></div>
+          </div>
+        </div>
+
+        {/* Static prepare END */}
       </div>
     )
 

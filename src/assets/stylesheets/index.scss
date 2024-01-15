@@ -991,6 +991,32 @@ section:focus >,
   --bs-nav-link-hover-color: var(--bs-dark);
 }
 
+/* portal-only adaptions
+ =================================================================== */
+
+.portal-only {
+  .navbar-brand {
+    margin: 0 0 -10px 0;
+    padding: 5px 15px;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@media (max-width: 991px) {
+  .portal-only {
+    .navbar-brand {
+      margin: 0;
+      padding: 5px;
+      background: #fff;
+      box-shadow: none;
+    }
+  }
+  .navbar-nav {
+    flex-direction: column-reverse;
+  }
+}
+
 /* navbar
  =================================================================== */
 
@@ -1075,6 +1101,19 @@ section:focus >,
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
+
+.navbar-meta {
+  .form-control {
+    font-size: 0.8rem;
+    height: 100%;
+    height: 37px;
+  }
+  .form-control:focus {
+    background-color: var(--light-grey);
+    box-shadow: 0 0 0 1px var(--bs-primary) inset;
+  }
+}
+
 .navbar-landing {
   .nav-link {
     font-size: 1rem;
