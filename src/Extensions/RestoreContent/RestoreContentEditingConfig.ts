@@ -5,7 +5,6 @@ extendMenu((menu) => {
 
   menu.insert({
     enabled: canWrite(),
-    icon: 'https://cdn.jsdelivr.net/npm/bootstrap-icons/icons/stars.svg',
     id: 'restoreContent',
     onClick: () => openDialog('RestoreContent'),
     position: { before: 'system.create' },
