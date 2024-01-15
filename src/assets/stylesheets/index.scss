@@ -982,7 +982,8 @@ section:focus >,
   min-width: 50px;
 }
 .btn:empty:after {
-  content: ' ';
+  content: '______';
+  color: transparent;
 }
 
 .btn-block .btn {
