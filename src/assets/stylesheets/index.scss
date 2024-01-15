@@ -1201,7 +1201,7 @@ section:focus >,
 /* ============ mobile view ============ */
 
 @media (max-width: 991px) {
-  .navbar-collapse {
+  #basic-navbar-nav.navbar-collapse {
     flex-flow: column-reverse;
   }
   .navbar-meta,
@@ -1232,14 +1232,14 @@ section:focus >,
         color: #fff;
       }
     }
+    .form-control {
+      background-color: var(--light-grey) !important;
+      padding: 0.75rem 0.375rem;
+    }
   }
 
   .mega-menu.dropdown-menu.show {
     display: block;
-  }
-
-  .form-control {
-    background-color: var(--light-grey);
   }
 }
 
