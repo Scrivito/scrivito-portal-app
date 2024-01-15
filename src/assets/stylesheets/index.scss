@@ -969,6 +969,7 @@ section:focus >,
 .form-control {
   border: none;
   border-radius: unset;
+  background: #fff !important;
 }
 .form-control:disabled {
   background: rgba(255, 255, 255, 0.65);
