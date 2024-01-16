@@ -5,6 +5,7 @@ export const DownloadCardWidget = provideWidgetClass('DownloadCardWidget', {
     details: 'string',
     icon: 'string',
     link: 'link',
+    label: 'string',
     subtitle: 'string',
     title: 'string',
   },
