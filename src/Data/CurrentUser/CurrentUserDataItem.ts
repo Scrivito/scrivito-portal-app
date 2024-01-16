@@ -10,7 +10,7 @@ const NEOLETTER_PROFILE_URL = `neoletter/instances/${
   import.meta.env.SCRIVITO_TENANT
 }/my/profile`
 
-export const CurrentUserDataItem = provideDataItem('CurrentUser', {
+export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
     const user = await load(currentUser)
     if (!user) return {}
@@ -33,6 +33,7 @@ export const CurrentUserDataItem = provideDataItem('CurrentUser', {
       jrUserId: user.id(),
       name: user.name(),
       phoneNumber,
+      picture: user.picture(),
       salutation,
     }
   },

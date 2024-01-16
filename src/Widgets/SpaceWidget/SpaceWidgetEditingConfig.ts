@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { SpaceWidget } from './SpaceWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SpaceWidget, {
   title: 'Space',
-  thumbnail: classNameToThumbnail('SpaceWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     size: {
       title: 'Choose size',

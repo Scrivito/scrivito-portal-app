@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { Dropdown } from './DropdownObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(Dropdown, {
   title: 'Dropdown',
-  thumbnail: classNameToThumbnail('Dropdown'),
+  thumbnail: Thumbnail,
   attributes: {
     hideInNavigation: {
       title: 'Hide in navigation?',

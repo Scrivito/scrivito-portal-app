@@ -1,13 +1,16 @@
-import { provideComponent, LinkTag, WidgetTag } from 'scrivito'
+import {
+  isInPlaceEditingActive,
+  LinkTag,
+  provideComponent,
+  WidgetTag,
+} from 'scrivito'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { ButtonWidget } from './ButtonWidgetClass'
+import { ensureString } from '../../utils/ensureString'
 
 provideComponent(ButtonWidget, ({ widget }) => {
   const target = widget.get('target')
-  let text = target && target.title()
-  if (!text) {
-    text = 'Provide the button link and text in the widget properties.'
-  }
+  const title = ensureString(target?.title())
 
   const buttonClassNames = ['btn']
   buttonClassNames.push(widget.get('buttonColor') || 'btn-primary')
@@ -18,7 +21,9 @@ provideComponent(ButtonWidget, ({ widget }) => {
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <LinkTag to={target} className={buttonClassNames.join(' ')}>
-        {text}
+        {!title && isInPlaceEditingActive()
+          ? 'Provide the button link and text in the widget properties.'
+          : title}
       </LinkTag>
     </WidgetTag>
   )

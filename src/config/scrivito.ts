@@ -3,6 +3,7 @@ import { configure } from 'scrivito'
 export function configureScrivito() {
   const config: Parameters<typeof configure>[0] = {
     adoptUi: true,
+    autoConvertAttributes: true,
     optimizedWidgetLoading: true,
     strictSearchOperators: true,
     contentTagsForEmptyAttributes: false,

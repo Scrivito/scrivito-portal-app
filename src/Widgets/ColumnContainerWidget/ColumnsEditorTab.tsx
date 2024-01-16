@@ -2,17 +2,17 @@ import * as React from 'react'
 import { uiContext, canWrite, connect, Widget } from 'scrivito'
 import Draggable from 'react-draggable'
 import { isEqual, take, takeRight, times } from 'lodash-es'
-import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
-import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
+import {
+  ColumnWidget,
+  ColumnWidgetInstance,
+} from '../ColumnWidget/ColumnWidgetClass'
+import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
-
-type ColumnContainerInstance = InstanceType<typeof ColumnContainerWidget>
-type ColumnInstance = InstanceType<typeof ColumnWidget>
 
 export function ColumnsEditorTab({
   widget,
 }: {
-  widget: ColumnContainerInstance
+  widget: ColumnContainerWidgetInstance
 }) {
   const includedWidgetIds = calculateContentIds(calculateContents(widget))
   const { theme } = uiContext() || { theme: null }
@@ -37,7 +37,7 @@ const ColumnsEditor = connect(
     readOnly,
     currentGrid,
   }: {
-    widget: ColumnContainerInstance
+    widget: ColumnContainerWidgetInstance
     readOnly: boolean
     currentGrid: number[]
   }) => {
@@ -165,6 +165,40 @@ const ColumnsEditor = connect(
             readOnly={readOnly}
           />
         </div>
+
+        <div className="scrivito_detail_label">
+          <span style={{ fontSize: '11px' }}>Disable responsive adaption?</span>
+        </div>
+
+        <div className="item_content">
+          <div className="boolean_attribute_component">
+            <div
+              className={`scrivito_switch${
+                widget.get('disableResponsiveAdaption') ? ' active' : ''
+              }`}
+            >
+              <div className="pill-wrapper">
+                <div className="cell pill"></div>
+              </div>
+              <div
+                className="cell left"
+                onClick={() =>
+                  widget.update({ disableResponsiveAdaption: false })
+                }
+              >
+                No
+              </div>
+              <div
+                className="cell right"
+                onClick={() =>
+                  widget.update({ disableResponsiveAdaption: true })
+                }
+              >
+                Yes
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     )
 
@@ -179,10 +213,10 @@ const ColumnsEditor = connect(
   },
 )
 
-function calculateContents(widget: ColumnContainerInstance) {
+function calculateContents(widget: ColumnContainerWidgetInstance) {
   return widget
     .get('columns')
-    .map((column) => (column as ColumnInstance).get('content'))
+    .map((column) => (column as ColumnWidgetInstance).get('content'))
 }
 
 function calculateContentIds(contents: Widget[][]) {
@@ -469,14 +503,14 @@ class GridLayoutEditor extends React.Component<
   }
 }
 
-function gridOfWidget(containerWidget: ColumnContainerInstance) {
+function gridOfWidget(containerWidget: ColumnContainerWidgetInstance) {
   return containerWidget
     .get('columns')
-    .map((column) => (column as ColumnInstance).get('colSize') || 1)
+    .map((column) => (column as ColumnWidgetInstance).get('colSize') || 1)
 }
 
 function adjustNumberOfColumns(
-  containerWidget: ColumnContainerInstance,
+  containerWidget: ColumnContainerWidgetInstance,
   desiredLength: number,
 ) {
   const columns = containerWidget.get('columns')

@@ -24,8 +24,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const [keyCounter, setKeyCounter] = useState(0)
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
 
-  const redirectAfterSubmit =
-    widget.get('redirectAfterSubmit') || widget.obj().parent()
+  const redirectAfterSubmit = widget.get('redirectAfterSubmit')
   const submittedMessage = widget.get('submittedMessage')
 
   return (
@@ -53,17 +52,16 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
     setIsSubmitting(true)
 
-    const attributes = Object.fromEntries(
-      new FormData(formRef.current).entries(),
-    )
-
     try {
+      const attributes = attributesFromForm(formRef.current)
+
       if (dataItem) {
         await dataItem.update(attributes)
         toastAndRedirect(dataItem)
       } else {
         const createdItem = await dataScope.create(attributes)
         toastAndRedirect(createdItem)
+        formRef.current.reset()
       }
     } catch (error) {
       if (!(error instanceof Error)) return
@@ -89,7 +87,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   function toastAndRedirect(targetDataItem: DataItem) {
     if (submittedMessage) toast.success(submittedMessage)
 
-    if (redirectAfterSubmit)
+    if (redirectAfterSubmit) {
       // TODO: Remove this work around once #10212 is resolved
       navigateTo(redirectAfterSubmit, {
         params: {
@@ -97,5 +95,44 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
             targetDataItem.id(),
         },
       })
+    }
   }
 })
+
+function attributesFromForm(formElement: HTMLFormElement) {
+  const attributes: {
+    [key: string]: string | boolean | number | null
+  } = {}
+
+  for (const element of formElement.elements) {
+    if (
+      !(element instanceof HTMLInputElement) &&
+      !(element instanceof HTMLSelectElement) &&
+      !(element instanceof HTMLTextAreaElement)
+    ) {
+      continue
+    }
+
+    const name = element.getAttribute('name')
+    if (!name) throw new Error('No name given!')
+
+    attributes[name] = valueFromElement(element)
+  }
+
+  return attributes
+}
+
+function valueFromElement(
+  element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
+) {
+  if (element instanceof HTMLSelectElement) return element.value
+  if (element instanceof HTMLTextAreaElement) return element.value
+  if (element.type === 'checkbox') return element.checked
+
+  if (element.type === 'number') {
+    const numberValue = element.valueAsNumber
+    return Number.isFinite(numberValue) ? numberValue : null
+  }
+
+  return element.value
+}

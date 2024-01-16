@@ -1,18 +1,18 @@
 import { provideEditingConfig } from 'scrivito'
 import { FormIdComponent } from './FormIdComponent'
 import { getFormContainer } from './utils/getFormContainer'
-import { pseudoRandom32CharHex } from './utils/pseudoRandom32CharHex'
+import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 import { FormContainerWidget } from './FormContainerWidgetClass'
 import { ColumnContainerWidget } from '../ColumnContainerWidget/ColumnContainerWidgetClass'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 import { FormInputFieldWidget } from '../FormInputFieldWidget/FormInputFieldWidgetClass'
 import { TextWidget } from '../TextWidget/TextWidgetClass'
 import { FormButtonWidget } from '../FormButtonWidget/FormButtonWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(FormContainerWidget, {
   title: 'Form',
-  thumbnail: classNameToThumbnail('FormContainerWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     formId: {
       title: 'Form ID',

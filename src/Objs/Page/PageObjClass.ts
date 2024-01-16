@@ -5,10 +5,12 @@ export const Page = provideObjClass('Page', {
     body: 'widgetlist',
     childOrder: 'referencelist',
     data: 'datalocator',
+    excludeFromSearch: 'boolean',
     hideInNavigation: 'boolean',
     linkIcon: 'string',
-    title: 'string',
+    metaDataDescription: 'string',
     requireUserLogin: 'boolean',
+    title: 'string',
   },
   extractTextAttributes: ['body'],
 })

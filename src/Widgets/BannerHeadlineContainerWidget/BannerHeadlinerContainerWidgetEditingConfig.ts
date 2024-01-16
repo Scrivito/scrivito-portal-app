@@ -1,17 +1,17 @@
 import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineContainerWidget } from './BannerHeadlineContainerWidgetClass'
 import { BannerHeadlineWidget } from '../BannerHeadlineWidget/BannerHeadlineWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(BannerHeadlineContainerWidget, {
   title: 'Banner Headlines',
-  thumbnail: classNameToThumbnail('BannerHeadlineContainerWidget'),
+  thumbnail: Thumbnail,
   initialContent: {
     headlines: [
       new BannerHeadlineWidget({
         style: 'h2',
         backgroundColor: 'white',
-        headline: 'Lorem ipsum',
+        headline: 'Headline',
       }),
     ],
   },

@@ -2,16 +2,11 @@ import { provideEditingConfig } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnsEditorTab } from './ColumnsEditorTab'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(ColumnContainerWidget, {
   title: 'Columns',
-  thumbnail: classNameToThumbnail('ColumnContainerWidget'),
-  attributes: {
-    disableResponsiveAdaption: {
-      title: 'Disable responsive adaption?',
-    },
-  },
+  thumbnail: Thumbnail,
   propertiesGroups: [
     {
       title: 'Columns layout',
@@ -20,12 +15,6 @@ provideEditingConfig(ColumnContainerWidget, {
       // Cast is a working around for issue #9925
       // TODO: remove work around
       component: ColumnsEditorTab as unknown as null,
-    },
-
-    {
-      title: 'Responsive Adaptions',
-      key: 'responsive-adaptions',
-      properties: ['disableResponsiveAdaption'],
     },
   ],
   initialContent: {

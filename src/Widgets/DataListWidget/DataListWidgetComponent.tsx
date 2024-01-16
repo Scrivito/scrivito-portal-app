@@ -37,6 +37,24 @@ provideComponent(DataListWidget, ({ widget }) => {
       {(dataScope.isEmpty() || isInPlaceEditingActive()) && (
         <ContentTag content={widget} attribute="nothingFound" />
       )}
+      {widget.get('showFooter') ? (
+        <>
+          {isInPlaceEditingActive() && (
+            <div className="alert alert-warning d-flex m-auto">
+              <i
+                className="bi bi-exclamation-circle bi-2x"
+                aria-hidden="true"
+              ></i>
+              <div className="my-auto mx-2">
+                <b>Editor note:</b> The following is the data list footer and is
+                always visible - regardless of the number of items in
+                &quot;data&quot;.
+              </div>
+            </div>
+          )}
+          <ContentTag content={widget} attribute="footer" />
+        </>
+      ) : null}
     </>
   )
 })

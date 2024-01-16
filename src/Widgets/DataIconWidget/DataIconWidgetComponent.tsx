@@ -1,15 +1,13 @@
-import { WidgetTag, provideComponent, useDataItem } from 'scrivito'
+import { ContentTag, WidgetTag, provideComponent, useDataItem } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
-import { DataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
+import { isDataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
 import { IconComponent } from '../../Components/Icon'
 
 provideComponent(DataIconWidget, ({ widget }) => {
   const dataItem = useDataItem()
-  if (!dataItem) return null
 
-  const attributeValue = dataItem.get(widget.get('attributeName'))
-  if (typeof attributeValue !== 'string') return null
+  const attributeValue = dataItem?.get(widget.get('attributeName'))
 
   const size = widget.get('size') || 'bi-2x'
 
@@ -20,14 +18,19 @@ provideComponent(DataIconWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
+      <ContentTag
+        content={widget}
+        attribute="label"
+        className="text-bold opacity-60 text-extra-small text-uppercase"
+      />
       {matchingCondition ? (
         <>
           <IconComponent
             icon={matchingCondition.get('icon') || 'bi-box'}
             size={size}
             link={null}
+            title={`${attributeValue}`}
           />
-          <div>{attributeValue}</div>
         </>
       ) : (
         <>
@@ -35,16 +38,10 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={widget.get('fallbackIcon') || 'bi-question-octagon'}
             size={size}
             link={null}
+            title={`${attributeValue}` || 'N/A'}
           />
-          <div>{attributeValue}</div>
         </>
       )}
     </WidgetTag>
   )
 })
-
-function isDataIconConditionWidget(
-  item: unknown,
-): item is InstanceType<typeof DataIconConditionWidget> {
-  return item instanceof DataIconConditionWidget
-}

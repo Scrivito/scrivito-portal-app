@@ -1,11 +1,12 @@
 import { provideEditingConfig } from 'scrivito'
-import { CurrentUserDataItem } from './CurrentUserDataItem'
+import { CurrentUser } from './CurrentUserDataItem'
 
-provideEditingConfig(CurrentUserDataItem, {
+provideEditingConfig(CurrentUser, {
   title: 'Current user',
   attributes: {
     name: { title: 'Name' },
     email: { title: 'Email' },
+    picture: { title: 'Picture' },
     jrUserId: { title: 'JustRelate user ID' },
     company: { title: 'Company' },
     phoneNumber: { title: 'Phone number' },

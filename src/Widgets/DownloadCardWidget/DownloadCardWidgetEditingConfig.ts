@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { DownloadCardWidget } from './DownloadCardWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(DownloadCardWidget, {
   title: 'Download Card',
-  thumbnail: classNameToThumbnail('DownloadCardWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     icon: {
       title: 'Icon',

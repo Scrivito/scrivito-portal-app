@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
-  thumbnail: classNameToThumbnail('HeadlineWidget'),
+  thumbnail: Thumbnail,
   attributes: {
     style: {
       title: 'Style',
@@ -46,7 +46,7 @@ provideEditingConfig(HeadlineWidget, {
   properties: ['style', 'level', 'alignment', 'uppercase'],
   initialContent: {
     alignment: 'left',
-    headline: 'Lorem Ipsum',
+    headline: 'Headline',
     style: 'h2',
   },
   validations: [

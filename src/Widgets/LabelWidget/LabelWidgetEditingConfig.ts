@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { LabelWidget } from './LabelWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(LabelWidget, {
   title: 'Label',
-  thumbnail: classNameToThumbnail('LabelWidget'),
+  thumbnail: Thumbnail,
   properties: ['valueSize'],
   initialContent: {
     label: 'Label',

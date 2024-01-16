@@ -8,4 +8,5 @@ export const DownloadCardWidget = provideWidgetClass('DownloadCardWidget', {
     subtitle: 'string',
     title: 'string',
   },
+  extractTextAttributes: ['title', 'subtitle', 'details'],
 })

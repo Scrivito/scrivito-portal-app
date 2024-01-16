@@ -1,0 +1,25 @@
+<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="card">
+<g id="Ebene_1" clip-path="url(#clip0_5_292)">
+<g id="Group" opacity="0.55">
+<path id="Vector" d="M103.75 9H45.65C43.6342 9 42 10.6342 42 12.65V86.54C42 88.5558 43.6342 90.19 45.65 90.19H103.75C105.766 90.19 107.4 88.5558 107.4 86.54V12.65C107.4 10.6342 105.766 9 103.75 9Z" fill="#AAAAAA"/>
+</g>
+<g id="Group_2" opacity="0.75">
+<path id="Vector_2" d="M97.96 15.96H50.42C49.2547 15.96 48.31 16.9047 48.31 18.07V48.11C48.31 49.2753 49.2547 50.22 50.42 50.22H97.96C99.1253 50.22 100.07 49.2753 100.07 48.11V18.07C100.07 16.9047 99.1253 15.96 97.96 15.96Z" fill="white"/>
+<path id="Vector_3" opacity="0.66" d="M81.16 32.36C83.463 32.36 85.33 30.493 85.33 28.19C85.33 25.887 83.463 24.02 81.16 24.02C78.857 24.02 76.99 25.887 76.99 28.19C76.99 30.493 78.857 32.36 81.16 32.36Z" fill="#AAAAAA"/>
+<path id="Vector_4" opacity="0.65" d="M72.83 50.22L84.05 38.94C85.56 37.42 88.02 37.42 89.53 38.94L97.53 46.98L99.8 49.17C99.44 49.79 98.76 50.21 97.99 50.21H72.81" fill="#AAAAAA"/>
+<path id="Vector_5" d="M83.61 50.22H50.53C49.3 50.22 48.31 49.22 48.31 48V45.11C48.31 45.11 48.32 45.05 48.34 45.03L48.76 44.62L60.42 32.96C62.13 31.25 64.9 31.25 66.61 32.96L83.86 50.21H83.6L83.61 50.22Z" fill="#AAAAAA"/>
+</g>
+<path id="Vector_6" d="M51.31 59.76H96.11" stroke="#AAAAAA" stroke-width="6" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_7" d="M80.02 71.69H89.99" stroke="#AAAAAA" stroke-width="4" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_8" d="M50.31 71.69H72.45" stroke="#AAAAAA" stroke-width="4" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_9" d="M68.37 79.43H86.6" stroke="#AAAAAA" stroke-width="4" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_10" d="M50.31 79.43H61.04" stroke="#AAAAAA" stroke-width="4" stroke-linecap="round" stroke-linejoin="bevel"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_5_292">
+<rect width="65.4" height="81.19" fill="white" transform="translate(42 9)"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,21 @@
+<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="card-peron">
+<g id="Ebene_1" clip-path="url(#clip0_6_606)">
+<g id="Group" opacity="0.55">
+<path id="Vector" d="M118.04 33H32.79C31.2491 33 30 34.2491 30 35.79V64.39C30 65.9309 31.2491 67.18 32.79 67.18H118.04C119.581 67.18 120.83 65.9309 120.83 64.39V35.79C120.83 34.2491 119.581 33 118.04 33Z" fill="#AAAAAA"/>
+</g>
+<path id="Vector_2" opacity="0.66" d="M45.67 53.48C50.276 53.48 54.01 49.6879 54.01 45.01C54.01 40.3321 50.276 36.54 45.67 36.54C41.0639 36.54 37.33 40.3321 37.33 45.01C37.33 49.6879 41.0639 53.48 45.67 53.48Z" fill="white"/>
+<path id="Vector_3" d="M62.66 42.34H77.11" stroke="#AAAAAA" stroke-width="5.63" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_4" d="M86.68 42.34H113.42" stroke="#AAAAAA" stroke-width="5.63" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_5" d="M61.66 50.85H87.8" stroke="#AAAAAA" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Vector_6" d="M61.66 57.67H82.39" stroke="#AAAAAA" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="bevel"/>
+<path id="Combined-Shape" d="M50.88 51.62C49.66 50.16 47.84 49.23 45.82 49.23C43.8 49.23 41.84 50.23 40.62 51.78L39.54 50.74C41.03 48.89 43.29 47.71 45.82 47.71C48.35 47.71 50.46 48.82 51.95 50.57L50.88 51.62Z" fill="#AAAAAA"/>
+<path id="Oval" d="M45.75 47.72C47.5504 47.72 49.01 46.2604 49.01 44.46C49.01 42.6595 47.5504 41.2 45.75 41.2C43.9495 41.2 42.49 42.6595 42.49 44.46C42.49 46.2604 43.9495 47.72 45.75 47.72Z" stroke="#AAAAAA" stroke-width="1.63"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_6_606">
+<rect width="90.83" height="34.18" fill="white" transform="translate(30 33)"/>
+</clipPath>
+</defs>
+</svg>

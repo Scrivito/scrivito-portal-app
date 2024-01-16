@@ -16,11 +16,15 @@
 
   --border: rgba(0, 0, 0, 0.1);
 
+  // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-primary: #5c9dcd;
+
   --bs-primary-lighten: #6bb0e0;
   --bs-primary-darken: #5088b0;
 
+  // The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-secondary: #495054;
+
   --bs-secondary-lighten: #5f676c;
   --bs-secondary-darken: #363c3f;
 
@@ -283,12 +287,12 @@ button:focus {
 }
 
 ::selection {
-  color: #fff;
-  background: var(--bs-primary);
+  color: #333;
+  background: var(--bs-warning);
 }
 ::-moz-selection {
-  color: #fff;
-  background: var(--bs-primary);
+  color: #333;
+  background: var(--bs-warning);
 }
 
 .text-clamp {
@@ -357,7 +361,7 @@ main {
  ================================================== */
 
 .text-muted {
-  opacity: 0.5;
+  opacity: 0.7;
   color: inherit !important;
 }
 .text-bold {
@@ -478,6 +482,7 @@ section {
 }
 
 section {
+  min-height: 30px;
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -964,6 +969,7 @@ section:focus >,
 .form-control {
   border: none;
   border-radius: unset;
+  background: #fff !important;
 }
 .form-control:disabled {
   background: rgba(255, 255, 255, 0.65);
@@ -972,6 +978,14 @@ section:focus >,
 
 /* btn + alignment
  =================================================================== */
+
+.btn:empty {
+  min-width: 50px;
+}
+.btn:empty:after {
+  content: '______';
+  color: transparent;
+}
 
 .btn-block .btn {
   width: 100%;

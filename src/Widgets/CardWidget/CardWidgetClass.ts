@@ -34,4 +34,5 @@ export const CardWidget = provideWidgetClass('CardWidget', {
     ],
     showFooter: 'boolean',
   },
+  extractTextAttributes: ['cardBody', 'cardFooter'],
 })

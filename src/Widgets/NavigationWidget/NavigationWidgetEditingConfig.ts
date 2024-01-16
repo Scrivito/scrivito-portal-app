@@ -1,14 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
 import { NavigationWidget } from './NavigationWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(NavigationWidget, {
   title: 'Navigation',
-  thumbnail: classNameToThumbnail('NavigationWidget'),
-  properties: [
-    'metaNavigationObjs',
-    'metaNavigationPortalOverview',
-    'metaNavigationUserProfile',
-    'metaNavigationCart',
-  ],
+  thumbnail: Thumbnail,
+  properties: ['metaNavigationObjs'],
 })

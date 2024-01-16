@@ -1,10 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
 import { DeliveryAddress } from './DeliveryAddressObjClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
 
 provideEditingConfig(DeliveryAddress, {
   title: 'Delivery Address',
-  thumbnail: classNameToThumbnail('DeliveryAddress'),
   attributes: {
     recipientName: { title: 'Recipient name' },
     streetAddress: { title: 'Street address' },

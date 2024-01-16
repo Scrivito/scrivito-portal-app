@@ -1,8 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
 import { GroupWidget } from './GroupWidgetClass'
-import { classNameToThumbnail } from '../../utils/classNameToThumbnail'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(GroupWidget, {
   title: 'Group',
-  thumbnail: classNameToThumbnail('GroupWidget'),
+  thumbnail: Thumbnail,
 })

@@ -7,6 +7,7 @@ import {
   useDataItem,
 } from 'scrivito'
 import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
+import { ensureString } from '../../utils/ensureString'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -16,8 +17,8 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
   const attributeName = widget.get('attributeName')
-  const attributeValue = dataItem?.get(attributeName) || ''
-  if (typeof attributeValue !== 'string') return null
+  const attributeValue = ensureString(dataItem?.get(attributeName))
+  const defaultValue = dataItem ? attributeValue : widget.get('defaultValue')
 
   const optionsSet = new Set(widget.get('options'))
   if (attributeValue) optionsSet.add(attributeValue)
@@ -67,7 +68,8 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
 
       <div>
         <select
-          defaultValue={attributeValue}
+          className="form-select"
+          defaultValue={defaultValue}
           id={id}
           name={attributeName}
           required={widget.get('required')}
