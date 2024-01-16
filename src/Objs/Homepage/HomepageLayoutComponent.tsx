@@ -1,12 +1,12 @@
 import {
-  provideLayoutComponent,
-  ContentTag,
-  CurrentPage,
-  currentPage,
-  isInPlaceEditingActive,
-  load,
-  urlFor,
   connect,
+  ContentTag,
+  currentPage,
+  CurrentPage,
+  isEditorLoggedIn,
+  load,
+  provideLayoutComponent,
+  urlFor,
 } from 'scrivito'
 import { Homepage, HomepageInstance } from './HomepageObjClass'
 import { useEffect } from 'react'
@@ -60,7 +60,7 @@ const EditorNoteOrRedirectAwayIfNeeded = connect(
 
       async function redirectIfNeeded() {
         if (!redirectNeeded) return
-        if (isInPlaceEditingActive()) return
+        if (isEditorLoggedIn()) return
 
         const url = await load(() => urlFor(portalOverviewPage))
         window.location.replace(url)
