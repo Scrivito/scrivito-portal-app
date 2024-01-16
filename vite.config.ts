@@ -30,7 +30,6 @@ export default defineConfig(({ mode }) => {
         JSON.stringify(env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE),
     },
     optimizeDeps: {
-      include: ['scrivito'],
       force: true,
     },
     plugins: [react(), writeProductionHeaders(outDir)],
