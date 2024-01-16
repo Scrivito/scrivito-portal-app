@@ -4,6 +4,7 @@ import {
   currentPage,
   CurrentPage,
   isEditorLoggedIn,
+  LinkTag,
   load,
   provideLayoutComponent,
   urlFor,
@@ -74,8 +75,8 @@ const EditorNoteOrRedirectAwayIfNeeded = connect(
         <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
         <div className="my-auto mx-2">
           <b>Editor note:</b> This page is not part of the portal section.
-          Regular visitors will be automatically redirected to the portal
-          section.
+          Regular visitors will be automatically redirected to the{' '}
+          <LinkTag to={portalOverviewPage}>portal section.</LinkTag>
         </div>
       </div>
     )
