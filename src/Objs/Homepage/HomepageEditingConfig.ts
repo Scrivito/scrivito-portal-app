@@ -23,7 +23,7 @@ provideEditingConfig(Homepage, {
       title: 'Favicon',
     },
     title: { title: 'Title' },
-    sitePortalOnlyMode: { title: 'Use portal only mode?' },
+    sitePortalOnlyMode: { title: 'Use portal-only mode?' },
     siteCartPage: { title: 'Location of cart page' },
     sitePortalOverviewPage: { title: 'Location of portal overview page' },
     siteSearchResultsPage: {
