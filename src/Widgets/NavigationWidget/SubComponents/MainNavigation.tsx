@@ -9,6 +9,8 @@ export const MainNavigation = connect(function MainNavigation({
 }: {
   root: HomepageInstance
 }) {
+  if (root.get('sitePortalOnlyMode')) return null
+
   return (
     <Nav className="navbar-main">
       <ChildListTag

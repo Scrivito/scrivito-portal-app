@@ -13,6 +13,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteLogoDark: ['reference', { only: 'Image' }],
     siteLogoLight: ['reference', { only: 'Image' }],
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
+    sitePortalOnlyMode: 'boolean',
     sitePortalOverviewPage: 'reference',
     siteSearchResultsPage: 'reference',
     siteUserProfilePage: 'reference',
