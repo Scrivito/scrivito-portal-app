@@ -63,6 +63,6 @@ provideEditingConfig(Shipment, {
     'weight',
     'pdfDownloadUrl',
   ],
-  titleForContent: (obj) => `#${obj.get('shipmentId')}: ${obj.get('status')}`,
+  titleForContent: (obj) => `${obj.get('shipmentId')}: ${obj.get('status')}`,
   hideInSelectionDialogs: true,
 })
