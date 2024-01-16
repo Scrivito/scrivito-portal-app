@@ -65,11 +65,7 @@ const EditorNoteOrRedirectAwayIfNeeded = connect(
         const url = await load(() => urlFor(portalOverviewPage))
         window.location.replace(url)
       }
-    }, [
-      redirectNeeded,
-      portalOverviewPage,
-      currentPageObjPath, // added, so that useEffect is triggered when currentPageObjPath changes
-    ])
+    }, [redirectNeeded, portalOverviewPage])
 
     if (!redirectNeeded) return
 
