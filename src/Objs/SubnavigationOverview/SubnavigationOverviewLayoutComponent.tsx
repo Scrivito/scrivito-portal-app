@@ -95,11 +95,7 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
         </Navbar.Toggle>
       </div>
       <Navbar.Collapse id="nav-sidebar">
-        <ul
-          className="nav-bordered"
-          // TODO: Make official styling & make it work in mobile as well
-          style={{ margin: '0', borderBottom: '1px solid var(--border)' }}
-        >
+        <ul className="nav-bordered m-0 border-bottom">
           <li className={isCurrentPage(page) ? 'active' : ''}>
             <Nav.Link
               as={LinkTag}
@@ -112,7 +108,7 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
           </li>
         </ul>
         <ChildListTag
-          className="nav-bordered"
+          className="nav-bordered m-0"
           tag="ul"
           parent={page}
           renderChild={(child) => (
