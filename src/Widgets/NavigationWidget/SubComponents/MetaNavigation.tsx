@@ -6,6 +6,7 @@ import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { containsItems, numberOfCartItems } from '../../../Data/CartItem/Cart'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import { CurrentUserDropdown } from './CurrentUserDropdown'
+import { SearchBox } from './SearchBox'
 
 export const MetaNavigation = connect(function MetaNavigation({
   root,
@@ -64,6 +65,7 @@ export const MetaNavigation = connect(function MetaNavigation({
           <CurrentUserDropdown widget={widget} root={root} />
         </Nav>
       )}
+      <SearchBox searchResultsPage={root.get('siteSearchResultsPage')} />
     </div>
   )
 })

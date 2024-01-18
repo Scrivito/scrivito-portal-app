@@ -1198,9 +1198,23 @@ section:focus >,
   }
 }
 
+.navbar-main form {
+  display: block;
+}
+.navbar-meta form {
+  display: none;
+}
+
 /* ============ mobile view ============ */
 
 @media (max-width: 991px) {
+  .navbar-main form {
+    display: none;
+  }
+  .navbar-meta form {
+    display: block;
+  }
+
   #basic-navbar-nav.navbar-collapse {
     flex-flow: column-reverse;
   }
