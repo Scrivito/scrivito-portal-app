@@ -2,9 +2,12 @@ import {
   ContentTag,
   DataItem,
   InPlaceEditingOff,
+  Link,
   WidgetTag,
+  load,
   navigateTo,
   provideComponent,
+  urlForDataItem,
   useDataItem,
   // @ts-expect-error TODO: remove once officially released
   useDataScope,
@@ -12,7 +15,6 @@ import {
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
-import { snakeCase } from 'lodash-es'
 import './DataFormContainerWidget.scss'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
@@ -57,10 +59,10 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
       if (dataItem) {
         await dataItem.update(attributes)
-        toastAndRedirect(dataItem)
+        await toastAndRedirect(dataItem)
       } else {
         const createdItem = await dataScope.create(attributes)
-        toastAndRedirect(createdItem)
+        await toastAndRedirect(createdItem)
         formRef.current.reset()
       }
     } catch (error) {
@@ -84,17 +86,12 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     setKeyCounter((k) => k + 1)
   }
 
-  function toastAndRedirect(targetDataItem: DataItem) {
+  async function toastAndRedirect(targetDataItem: DataItem) {
     if (submittedMessage) toast.success(submittedMessage)
 
     if (redirectAfterSubmit) {
-      // TODO: Remove this work around once #10212 is resolved
-      navigateTo(redirectAfterSubmit, {
-        params: {
-          [`${snakeCase(targetDataItem.dataClass().name())}_id`]:
-            targetDataItem.id(),
-        },
-      })
+      const url = await load(() => urlForDataItem(targetDataItem))
+      if (url) navigateTo(new Link({ url }))
     }
   }
 })

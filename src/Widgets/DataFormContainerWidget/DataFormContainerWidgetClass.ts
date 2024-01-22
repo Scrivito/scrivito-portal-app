@@ -5,7 +5,7 @@ export const DataFormContainerWidget = provideWidgetClass(
   {
     attributes: {
       content: 'widgetlist',
-      redirectAfterSubmit: 'reference',
+      redirectAfterSubmit: 'boolean',
       submittedMessage: 'string',
       hiddenFields: ['widgetlist', { only: 'DataFormHiddenFieldWidget' }],
     },
