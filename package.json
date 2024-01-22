@@ -22,7 +22,7 @@
     "react-draggable": "^4.4.6",
     "react-helmet-async": "^2.0.4",
     "react-toastify": "^10.0.1",
-    "scrivito": "^1.38.0",
+    "scrivito": "^1.39.0-rc1",
     "scroll-to-fragment": "^1.0.12",
     "speakingurl": "^14.0.1",
     "vite-node": "^1.2.0"
