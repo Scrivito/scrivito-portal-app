@@ -32,6 +32,7 @@ provideEditingConfig(DataFormNumberWidget, {
   ],
   initialContent: {
     label: 'Custom field',
+    minValue: 0,
     stepValue: 1.0,
   },
 })
