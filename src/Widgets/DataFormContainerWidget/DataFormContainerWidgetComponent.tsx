@@ -101,7 +101,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
 function attributesFromForm(formElement: HTMLFormElement) {
   const attributes: {
-    [key: string]: string | boolean | number | null
+    [key: string]: string | boolean | number | null | File | File[]
   } = {}
 
   for (const element of formElement.elements) {
@@ -132,6 +132,13 @@ function valueFromElement(
   if (element.type === 'number') {
     const numberValue = element.valueAsNumber
     return Number.isFinite(numberValue) ? numberValue : null
+  }
+
+  if (element.type === 'file') {
+    const files = element.files
+    if (element.multiple) return files ? [...files] : []
+
+    return files?.length === 1 ? files[0] : null
   }
 
   return element.value
