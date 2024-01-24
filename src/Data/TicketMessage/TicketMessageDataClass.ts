@@ -1,4 +1,5 @@
 import { provideDataClass, unstable_JrRestApi } from 'scrivito'
+import { convertBlobAttributes } from '../../utils/convertBlobAttributes'
 
 const apiPath = '../pisa-api/ticket-message'
 
@@ -21,8 +22,11 @@ export const TicketMessage = provideDataClass('TicketMessage', {
       }) as Promise<{ results: Array<{ _id: string }>; continuation?: string }>,
 
     get: (id) => unstable_JrRestApi.fetch(`${apiPath}/${id}`),
-    create: (data) =>
-      unstable_JrRestApi.fetch(apiPath, { method: 'post', data }) as Promise<{
+    create: async (data) =>
+      unstable_JrRestApi.fetch(apiPath, {
+        method: 'post',
+        data: await convertBlobAttributes(data),
+      }) as Promise<{
         _id: string
       }>,
     update: (id, data) =>
