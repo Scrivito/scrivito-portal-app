@@ -11,4 +11,7 @@ provideEditingConfig(DataAttachmentsWidget, {
     },
   },
   properties: ['attributeName'],
+  initialContent: {
+    label: 'Label',
+  },
 })
