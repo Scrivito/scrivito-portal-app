@@ -151,7 +151,6 @@ const FILTER_PRESENTATIONS = {
   ProductCategory: { title: 'Product categories', icon: 'relation' },
   ProductsOverview: { title: 'Products overviews', icon: 'relation' },
   Quote: { title: 'Quotes', icon: 'sheet' },
-  Shipment: { title: 'Shipments', icon: 'globe' },
   Video: { title: 'Videos', icon: 'video' },
 }
 
