@@ -141,7 +141,6 @@ function isFilterPresentationsKey(
 
 // Icons are listed at https://www.scrivito.com/js-sdk/configureContentBrowser#filter-definition
 const FILTER_PRESENTATIONS = {
-  DeliveryAddress: { title: 'Delivery address', icon: 'paste' },
   Download: { title: 'Downloads', icon: 'pdf' },
   Homepage: { title: 'Homepage', icon: 'inbox' },
   Image: { title: 'Images', icon: 'image' },
