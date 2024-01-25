@@ -7,7 +7,6 @@ import {
 } from '../../utils/pisaBinaryToUrl'
 import { useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
-import { last } from 'lodash-es'
 
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -17,16 +16,17 @@ provideComponent(DataAttachmentsWidget, ({ widget }) => {
 
   return (
     <div>
-      <br />
       <ContentTag
         content={widget}
         attribute="label"
         tag="label"
-        className="text-bold opacity-60 text-extra-small text-uppercase"
+        className="mt-2 text-bold opacity-60 text-extra-small text-uppercase"
       />
-      {attachments.map((attachment) => (
-        <Attachment attachment={attachment} key={attachment._id} />
-      ))}
+      <div className="d-flex flex-wrap mt-2 gap-1">
+        {attachments.map((attachment) => (
+          <Attachment attachment={attachment} key={attachment._id} />
+        ))}
+      </div>
     </div>
   )
 })
@@ -38,13 +38,25 @@ function Attachment({ attachment }: { attachment: PisaBinary }) {
   }, [attachment])
 
   return (
-    <div key={attachment._id}>
-      <a href={binaryUrl}>{attachment.filename}</a>
-      <span className="list-value text-muted text-small text-multiline">
-        {last(attachment.contentType.split('/'))?.toUpperCase()},{' '}
-        {prettyBytes(attachment.contentLength, { locale: 'en' })}
-      </span>
-    </div>
+    <a
+      href={binaryUrl}
+      className="box-attachment"
+      title={`Download ${attachment.filename}`}
+    >
+      <div className="box-preview">
+        {binaryUrl && attachment.contentType.startsWith('image/') ? (
+          <img src={binaryUrl} />
+        ) : (
+          <i className="bi bi-file-earmark"></i>
+        )}
+      </div>
+      <div className="box-meta">
+        <span className="box-name">{attachment.filename}</span>
+        <span className="box-size">
+          {prettyBytes(attachment.contentLength, { locale: 'en' })}
+        </span>
+      </div>
+    </a>
   )
 }
 
