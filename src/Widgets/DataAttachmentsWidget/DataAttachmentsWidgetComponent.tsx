@@ -34,7 +34,8 @@ provideComponent(DataAttachmentsWidget, ({ widget }) => {
 function Attachment({ attachment }: { attachment: PisaBinary }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
   useEffect(() => {
-    pisaBinaryToUrl(attachment).then(setBinaryUrl)
+    pisaBinaryToUrl(attachment).then(({ url }) => setBinaryUrl(url))
+    // TODO implement "maxAge"
   }, [attachment])
 
   return (

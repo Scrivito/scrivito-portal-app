@@ -82,6 +82,8 @@ const ImageComponent = connect(function ImageComponent({
     )
   }
 
+  // TODO Can handle pisa binaries
+
   const attributeValue = ensureString(dataItem.get(attributeName))
   if (!attributeValue) return null
 

@@ -3,6 +3,8 @@ import { provideDataClass, unstable_JrRestApi } from 'scrivito'
 
 const apiPath = '../pisa-api/user'
 
+// TODO: Replace empty picture with { url: svn_fo_foo }
+
 // TODO: use `provideDataClass('User', { apiPath })` once available (with 1.39.0?)
 export const User = provideDataClass('User', {
   connection: {
