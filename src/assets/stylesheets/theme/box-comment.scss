@@ -1,0 +1,26 @@
+.box-comment {
+  display: flex;
+
+  .avatar {
+    padding: 0 1rem 0 0;
+  }
+
+  &.staff,
+  &.colleague {
+    flex-flow: row-reverse;
+
+    .avatar {
+      padding: 0 0 0 1rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .box-comment .avatar {
+    width: 40px;
+
+    .bi {
+      font-size: 29px;
+    }
+  }
+}
