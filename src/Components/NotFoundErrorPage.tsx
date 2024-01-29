@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { connect, ContentTag, Obj } from 'scrivito'
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
-const RELOAD_SUBPATHS = ['/jr-api', '/example-proxy']
+const RELOAD_SUBPATHS = ['/jr-api', '/example-proxy', '/pisa-api']
 
 export const NotFoundErrorPage = connect(function NotFoundErrorPage() {
   const root = Obj.root()
