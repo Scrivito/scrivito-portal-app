@@ -9,7 +9,15 @@ interface DataItem {
 
 export function provideLocalStorageDataClass(
   className: string,
-  { initialContent }: { initialContent?: DataItem[] } = {},
+  {
+    initialContent,
+    prepareData,
+  }: {
+    initialContent?: DataItem[]
+    prepareData?: (
+      data: Record<string, unknown>,
+    ) => Promise<Record<string, unknown>>
+  } = {},
 ) {
   const recordKey = `localDataClass-${className}`
 
@@ -48,7 +56,8 @@ export function provideLocalStorageDataClass(
         const record = restoreRecord()
 
         const _id = pseudoRandom32CharHex()
-        const storedData: DataItem = { ...data, _id }
+        const newData = prepareData ? await prepareData(data) : data
+        const storedData: DataItem = { ...newData, _id }
         record[_id] = storedData
 
         persistRecord(record)
@@ -57,7 +66,8 @@ export function provideLocalStorageDataClass(
 
       async update(id: string, data: Record<string, unknown>): Promise<void> {
         const record = restoreRecord()
-        const storedData: DataItem = { ...data, _id: id }
+        const newData = prepareData ? await prepareData(data) : data
+        const storedData: DataItem = { ...newData, _id: id }
         record[id] = storedData
 
         persistRecord(record)
