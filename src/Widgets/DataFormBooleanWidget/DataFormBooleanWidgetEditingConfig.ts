@@ -9,7 +9,7 @@ provideEditingConfig(DataFormBooleanWidget, {
     attributeName: {
       title: 'Name of the data attribute in question',
     },
-    required: { title: 'Mandatory' },
+    required: { title: 'Mandatory?' },
     defaultValue: {
       title: 'Default value',
       description:
