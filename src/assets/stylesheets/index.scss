@@ -1058,6 +1058,8 @@ section:focus >,
 // -- general form-control -- //
 
 .form-label {
+  font-family: 'Fira Sans', sans-serif;
+  color: var(--headline);
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
 }
@@ -1119,22 +1121,11 @@ section:focus >,
 
 .portal-only {
   .navbar-brand {
-    margin: 0 0 -10px 0;
     padding: 5px 15px;
-    background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   }
 }
 
 @media (max-width: 991px) {
-  .portal-only {
-    .navbar-brand {
-      margin: 0;
-      padding: 5px;
-      background: #fff;
-      box-shadow: none;
-    }
-  }
   .navbar-nav {
     flex-direction: column-reverse;
   }
@@ -1149,7 +1140,18 @@ section:focus >,
   font-weight: 500;
 }
 
+.navbar-brand {
+  margin: 0 5px -10px 0;
+  padding: 5px 15px;
+  background: #fff;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0.375rem 2.5rem 0 rgba(140, 152, 164, 0.3);
+  align-self: stretch;
+  display: flex;
+}
+
 .navbar-brand-logo {
+  margin: auto;
   max-width: 135px;
 }
 .navbar {
@@ -1173,7 +1175,7 @@ section:focus >,
   width: 100%;
 }
 .navbar-meta {
-  border-bottom: 1px solid var(--border);
+  position: relative;
   .dropdown-menu {
     right: 0;
     left: auto;
@@ -1598,4 +1600,24 @@ header .navbar.navbar-expand-lg {
 .list-value {
   display: block;
   margin: 0;
+}
+
+/* two color top navbar
+ =================================================================== */
+
+header section:after {
+  background: var(--middle-grey);
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  height: 38px;
+  z-index: -1;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+header.portal-only section:after {
+  display: none;
 }

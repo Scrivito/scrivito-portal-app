@@ -44,7 +44,7 @@ provideComponent(PersonCardWidget, ({ widget }) => {
             </div>
             <div className="col">
               <div className="h5 text-break">{name}</div>
-              <div className="text-bold opacity-60 text-extra-small text-uppercase">
+              <div className="text-bold text-extra-small text-uppercase">
                 {position}
               </div>
               <table className="table-extra-small">
