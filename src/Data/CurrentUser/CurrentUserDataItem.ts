@@ -34,7 +34,9 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       name: user.name(),
       phoneNumber,
       picture: user.picture(),
+      salesUserId: '052601BEBCEC39C8E040A8C00D0107AC', // TODO: replace with real Pisa data
       salutation,
+      serviceUserId: 'D456ACF6FF405922E030A8C02A010C68', // TODO: replace with real Pisa data
     }
   },
   async update(params) {
