@@ -34,7 +34,7 @@ const Logo = connect(() => {
 
   return (
     <div className="mb-2">
-      <LinkTag to={root} className="navbar-brand" aria-label="Logo">
+      <LinkTag to={root} aria-label="Logo">
         <ImageTag content={logo} className="navbar-brand-logo" alt="Logo" />
       </LinkTag>
     </div>
