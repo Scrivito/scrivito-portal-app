@@ -1,1 +1,1 @@
-export const DATA_OBJ_CLASSES = ['Invoice', 'Person']
+export const DATA_OBJ_CLASSES = ['Invoice']

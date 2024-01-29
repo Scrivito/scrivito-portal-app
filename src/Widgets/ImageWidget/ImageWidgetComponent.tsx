@@ -14,12 +14,8 @@ import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget, ImageWidgetInstance } from './ImageWidgetClass'
 import './ImageWidget.scss'
 import { ensureString } from '../../utils/ensureString'
-import {
-  DataBinary,
-  dataBinaryToUrl,
-  isDataBinary,
-} from '../../utils/dataBinaryToUrl'
-import { useEffect, useState } from 'react'
+import { isDataBinary } from '../../utils/dataBinaryToUrl'
+import { DataBinaryImage } from '../../Components/DataBinaryImage'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -112,22 +108,4 @@ const ImageComponent = connect(function ImageComponent({
 
 function alternativeTextFromObj(image: Obj | null): string {
   return ensureString(image?.get('alternativeText'))
-}
-
-function DataBinaryImage({
-  dataBinary,
-  alt,
-  className,
-}: {
-  dataBinary: DataBinary
-  alt?: string
-  className?: string
-}) {
-  const [src, setSrc] = useState<string | undefined>(undefined)
-  useEffect(() => {
-    dataBinaryToUrl(dataBinary).then(({ url }) => setSrc(url))
-  })
-
-  if (!src) return null
-  return <img src={src} alt={alt} className={className} />
 }
