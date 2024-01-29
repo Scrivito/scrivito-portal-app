@@ -1,6 +1,20 @@
 import { provideLocalStorageDataClass } from '../../utils/provideLocalStorageDataClass'
+import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 
 export const Ticket = provideLocalStorageDataClass('Ticket', {
+  prepareData: async (data) => {
+    return {
+      ...data,
+      status: data.status || 'captured',
+      referenceNumber: data.referenceNumber || '',
+      responsibleAgent:
+        data.responsibleAgent || '4668C6ADEF0443BE80FB4049097A901A',
+      number: data.number || pseudoRandom32CharHex(),
+      updatedAt: new Date().toISOString(),
+      createdBy: data.createdBy || 'F87BDC400E41D630E030A8C00D01158A',
+      createdAt: data.createdAt || new Date().toISOString(),
+    }
+  },
   initialContent: [
     {
       _id: '581BDB4B108D45579E7D3DE087C13D65',

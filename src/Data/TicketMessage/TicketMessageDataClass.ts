@@ -1,6 +1,13 @@
 import { provideLocalStorageDataClass } from '../../utils/provideLocalStorageDataClass'
 
 export const TicketMessage = provideLocalStorageDataClass('TicketMessage', {
+  prepareData: async (data) => {
+    return {
+      ...data,
+      createdBy: data.createdBy || 'F87BDC400E41D630E030A8C00D01158A',
+      createdAt: data.createdAt || new Date().toISOString(),
+    }
+  },
   initialContent: [
     {
       _id: '5095866DEFF74DCDBE56B016898137491',
