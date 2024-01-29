@@ -47,7 +47,7 @@ provideComponent(PersonCardWidget, ({ widget }) => {
               <ContentTag
                 content={person}
                 attribute="jobTitle"
-                className="text-bold opacity-60 text-extra-small text-uppercase"
+                className="text-bold text-extra-small text-uppercase"
               />
               <table className="table-extra-small">
                 <tbody>
