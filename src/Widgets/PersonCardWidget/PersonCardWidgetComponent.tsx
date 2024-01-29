@@ -27,7 +27,7 @@ provideComponent(PersonCardWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag className="card mb-2 bg-secondary max-width-350">
+    <WidgetTag className="card mb-2 bg-white max-width-350">
       <InPlaceEditingOff>
         <div className="card-body p-3">
           <div className="row">

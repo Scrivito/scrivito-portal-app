@@ -8,7 +8,7 @@ provideComponent(ProductCategory, ({ page }) => {
   const products = page.orderedChildren().filter(isProduct)
 
   return (
-    <section className="py-4">
+    <section className="bg-light-grey py-4">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">

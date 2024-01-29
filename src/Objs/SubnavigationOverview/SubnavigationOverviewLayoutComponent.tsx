@@ -61,7 +61,7 @@ provideLayoutComponent(SubnavigationOverview, ({ page }) => {
           <Breadcrumb />
         </div>
       </section>
-      <section className="py-4">
+      <section className="py-4 bg-light-grey">
         <div className="container">
           <div className="row">
             <div className="col-lg-2">
@@ -94,7 +94,7 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
           </span>
         </Navbar.Toggle>
       </div>
-      <Navbar.Collapse id="nav-sidebar">
+      <Navbar.Collapse id="nav-sidebar" className="card mb-3">
         <ul
           className="nav-bordered"
           // TODO: Make official styling & make it work in mobile as well
