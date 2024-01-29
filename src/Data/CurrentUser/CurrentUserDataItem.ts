@@ -7,24 +7,42 @@ import {
   unstable_JrRestApi,
 } from 'scrivito'
 import personCircle from '../../assets/images/person-circle.svg'
+import { ensureString } from '../../utils/ensureString'
+import { dataBinaryToUrl, isDataBinary } from '../../utils/dataBinaryToUrl'
 
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
     const user = await load(currentUser)
     if (!user) return {}
 
-    const rawNeoletterData = await unstable_JrRestApi.get(neoletterProfileUrl())
+    const neoletterData = await unstable_JrRestApi.fetch(neoletterProfileUrl())
 
-    let company: string | undefined
-    let phoneNumber: string | undefined
-    let salutation: string | undefined
-    const pisaUserId: string | undefined = 'F87BDC400E41D630E030A8C00D01158A'
-    const picture: string = user.picture() || personCircle
+    let company: string = ''
+    let name: string = user.name()
+    let phoneNumber: string = ''
+    let picture: string = user.picture() || personCircle
+    let pisaUserId: string = ''
+    let salutation: string = ''
+    let salesUserId: string = ''
+    let serviceUserId: string = ''
 
-    if (isNeoletterData(rawNeoletterData)) {
-      company = rawNeoletterData.company || ''
-      phoneNumber = rawNeoletterData.phone_number || ''
-      salutation = rawNeoletterData.salutation || ''
+    if (isNeoletterData(neoletterData)) {
+      company = neoletterData.company || ''
+      phoneNumber = neoletterData.phone_number || ''
+      salutation = neoletterData.salutation || ''
+    }
+
+    const whoAmI = await unstable_JrRestApi.fetch('../pisa-api/whoami')
+
+    if (isWhoAmI(whoAmI)) {
+      name = whoAmI.name
+      salesUserId = ensureString(whoAmI.salesUserId) // TODO: Remove "ensureString" once datalocator filter can handle "null"
+      serviceUserId = ensureString(whoAmI.serviceUserId) // TODO: Remove "ensureString" once datalocator filter can handle "null"
+      pisaUserId = ensureString(whoAmI._id)
+      if (isDataBinary(whoAmI.image)) {
+        const { url } = await dataBinaryToUrl(whoAmI.image)
+        picture = url
+      }
     }
 
     return {
@@ -32,12 +50,12 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       email: user.email(),
       jrUserId: user.id(),
       pisaUserId,
-      name: user.name(),
+      name,
       phoneNumber,
       picture,
-      salesUserId: '052601BEBCEC39C8E040A8C00D0107AC', // TODO: replace with real Pisa data
+      salesUserId,
       salutation,
-      serviceUserId: 'D456ACF6FF405922E030A8C02A010C68', // TODO: replace with real Pisa data
+      serviceUserId,
     }
   },
   async update(params) {
@@ -73,4 +91,55 @@ function isOptionalString(input: unknown): input is undefined | string {
 
 function neoletterProfileUrl() {
   return `neoletter/instances/${getInstanceId()}/my/profile`
+}
+
+interface WhoAmI {
+  _id: string
+  name: string
+  salutation: string
+  givenName: string
+  familyName: string
+  email: string
+  position: string
+  staff: boolean
+  image: {
+    _id: string
+    filename: string
+    contentType: string
+    contentLength: number
+  } | null
+  salesUserId: string | null
+  serviceUserId: string | null
+}
+
+function isWhoAmI(item: unknown): item is WhoAmI {
+  if (!item) return false
+  if (typeof item !== 'object') return false
+
+  const {
+    _id,
+    name,
+    salutation,
+    givenName,
+    familyName,
+    email,
+    position,
+    staff,
+    // image, // TODO: Check image as well
+    salesUserId,
+    serviceUserId,
+  } = item as WhoAmI
+
+  return (
+    typeof _id === 'string' &&
+    typeof name === 'string' &&
+    typeof salutation === 'string' &&
+    typeof givenName === 'string' &&
+    typeof familyName === 'string' &&
+    typeof email === 'string' &&
+    typeof position === 'string' &&
+    typeof staff === 'boolean' &&
+    (salesUserId === null || typeof salesUserId === 'string') &&
+    (serviceUserId === null || typeof serviceUserId === 'string')
+  )
 }

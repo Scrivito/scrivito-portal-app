@@ -1,3 +1,4 @@
+import { isObject } from 'lodash-es'
 import { provideDataClass, unstable_JrRestApi } from 'scrivito'
 
 const apiPath = '../pisa-api/user'
@@ -22,3 +23,20 @@ export const User = provideDataClass('User', {
     get: (id) => unstable_JrRestApi.fetch(`${apiPath}/${id}`),
   },
 })
+
+interface UserData {
+  name: string
+  givenName: string
+  familyName: string
+  salutation: string
+}
+
+export function isUserData(input: unknown): input is UserData {
+  return (
+    isObject(input) &&
+    typeof (input as UserData).name === 'string' &&
+    typeof (input as UserData).givenName === 'string' &&
+    typeof (input as UserData).familyName === 'string' &&
+    typeof (input as UserData).salutation === 'string'
+  )
+}
