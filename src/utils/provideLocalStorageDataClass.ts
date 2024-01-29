@@ -61,16 +61,20 @@ export function provideLocalStorageDataClass(
         record[_id] = storedData
 
         persistRecord(record)
-        return { _id }
+        return { ...newData, _id }
       },
 
-      async update(id: string, data: Record<string, unknown>): Promise<void> {
+      async update(
+        id: string,
+        data: Record<string, unknown>,
+      ): Promise<unknown> {
         const record = restoreRecord()
         const newData = prepareData ? await prepareData(data) : data
         const storedData: DataItem = { ...newData, _id: id }
         record[id] = storedData
 
         persistRecord(record)
+        return { ...newData, _id: id }
       },
 
       async delete(id: string): Promise<void> {
