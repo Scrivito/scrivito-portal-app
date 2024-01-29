@@ -15,7 +15,7 @@ export const ProductPreview = connect(function ProductPreview({
 }) {
   return (
     <div className="col">
-      <div className="card mb-4 bg-light-grey">
+      <div className="card mb-4 bg-white">
         <LinkTag to={product}>
           <InPlaceEditingOff>
             <ImageTag

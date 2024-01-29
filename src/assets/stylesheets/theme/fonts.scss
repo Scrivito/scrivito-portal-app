@@ -1,6 +1,18 @@
 /* fonts
 ================================================== */
 
+/* FiraSans Medium 500 */
+@font-face {
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500;
+  src:
+    local(''),
+    url('../fonts/FiraSans-Medium-500.woff2') format('woff2');
+}
+
+/* OLD */
+
 /* manrope-medium 500 */
 @font-face {
   font-family: 'Manrope';
