@@ -20,6 +20,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     let company: string | undefined
     let phoneNumber: string | undefined
     let salutation: string | undefined
+    const pisaUserId: string | undefined = 'F87BDC400E41D630E030A8C00D01158A'
 
     if (isNeoletterData(rawNeoletterData)) {
       company = rawNeoletterData.company || ''
@@ -31,6 +32,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       company,
       email: user.email(),
       jrUserId: user.id(),
+      pisaUserId,
       name: user.name(),
       phoneNumber,
       picture: user.picture(),
