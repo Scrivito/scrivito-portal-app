@@ -94,7 +94,7 @@ const Subnavigation = connect(function Subnavigation({ page }: { page: Obj }) {
           </span>
         </Navbar.Toggle>
       </div>
-      <Navbar.Collapse id="nav-sidebar">
+      <Navbar.Collapse id="nav-sidebar" className="card mb-3">
         <ul
           className="nav-bordered"
           // TODO: Make official styling & make it work in mobile as well
