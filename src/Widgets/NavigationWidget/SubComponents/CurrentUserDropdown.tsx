@@ -83,10 +83,6 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
 const ProfileImg = connect(function ProfileImg() {
   const picture = ensureString(CurrentUser.get('picture'))
 
-  if (!picture) {
-    return <i className="bi bi-person-circle" aria-hidden="true"></i>
-  }
-
   return (
     <>
       <img className="profile-img" src={picture} aria-hidden="true" />{' '}

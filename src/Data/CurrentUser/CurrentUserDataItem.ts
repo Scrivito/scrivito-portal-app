@@ -5,6 +5,7 @@ import {
   provideDataItem,
   unstable_JrRestApi,
 } from 'scrivito'
+import personCircle from 'bootstrap-icons/icons/person-circle.svg'
 
 const NEOLETTER_PROFILE_URL = `neoletter/instances/${
   import.meta.env.SCRIVITO_TENANT
@@ -21,6 +22,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     let phoneNumber: string | undefined
     let salutation: string | undefined
     const pisaUserId: string | undefined = 'F87BDC400E41D630E030A8C00D01158A'
+    const picture: string = user.picture() || personCircle
 
     if (isNeoletterData(rawNeoletterData)) {
       company = rawNeoletterData.company || ''
@@ -35,7 +37,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       pisaUserId,
       name: user.name(),
       phoneNumber,
-      picture: user.picture(),
+      picture,
       salesUserId: '052601BEBCEC39C8E040A8C00D0107AC', // TODO: replace with real Pisa data
       salutation,
       serviceUserId: 'D456ACF6FF405922E030A8C02A010C68', // TODO: replace with real Pisa data
