@@ -1001,7 +1001,8 @@ section:focus >,
 .editor-img {
   max-width: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 3px rgba(140, 152, 164, 0.15);
 }
 
 .box-date {
@@ -1211,7 +1212,7 @@ section:focus >,
   }
   .profile-img {
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 5px;
     width: 30px;
     height: 30px;
     margin: -5px 0 -5px -5px;
