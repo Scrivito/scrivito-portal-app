@@ -1,10 +1,8 @@
 :root {
-
   --toastify-color-info: var(--bs-info);
   --toastify-color-success: var(--bs-success);
-  --toastify-color-warning:var(--bs-warning);
+  --toastify-color-warning: var(--bs-warning);
   --toastify-color-error: var(--bs-danger);
 
   --toastify-font-family: 'Fira Sans';
 }
-
