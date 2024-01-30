@@ -8,6 +8,7 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Thomas',
       familyName: 'Richter',
+      staff: true,
       position: 'Vertriebsmanager',
       email: 't.richter@example.com',
       image: {
@@ -25,6 +26,7 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Adrian',
       familyName: 'Schärli',
+      staff: false,
     },
     {
       _id: '228C5C6067EF486FB72F8D4BAAE6AB08',
@@ -32,6 +34,7 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Olaf',
       familyName: 'Behrends',
+      staff: false,
     },
     {
       _id: 'D38D7FBFA277856DE030A8C02A010460',
@@ -39,6 +42,7 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Frank',
       familyName: 'Goosens',
+      staff: false,
     },
     {
       _id: 'D456ACF6FF405922E030A8C02A010C68',
@@ -46,6 +50,7 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Benjamin',
       familyName: 'Braschau',
+      staff: true,
       position: 'Serviceleiter',
       email: 'b.braschau@example.com',
       image: {
@@ -71,6 +76,7 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Markus',
       familyName: 'Neumann',
+      staff: false,
     },
     {
       _id: 'F9E1B255870E5EEEE030A8C00D012D39',
@@ -78,6 +84,7 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Heinrich',
       familyName: 'Siebert',
+      staff: false,
     },
     {
       _id: '4668C6ADEF0443BE80FB4049097A901A',
@@ -85,6 +92,7 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: '',
       givenName: '',
       familyName: 'Administrator',
+      staff: true,
     },
   ],
 })
