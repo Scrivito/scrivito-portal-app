@@ -34,7 +34,7 @@ provideComponent(PersonCardWidget, ({ widget }) => {
         tag="h6"
         className="h6 text-uppercase"
       />
-      <div className="card mb-2 bg-secondary max-width-350">
+      <div className="card mb-2 bg-white max-width-350">
         <div className="card-body p-3">
           <div className="row">
             <div className="col-3 d-none d-xl-block">
@@ -44,7 +44,7 @@ provideComponent(PersonCardWidget, ({ widget }) => {
             </div>
             <div className="col">
               <div className="h5 text-break">{name}</div>
-              <div className="text-bold opacity-60 text-extra-small text-uppercase">
+              <div className="text-bold text-extra-small text-uppercase">
                 {position}
               </div>
               <table className="table-extra-small">

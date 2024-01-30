@@ -22,7 +22,7 @@ provideComponent(Product, ({ page }) => {
 
   return (
     <>
-      <section className="py-4">
+      <section className="bg-light-grey py-4">
         <div className="container">
           <div className="row align-items-stretch">
             <div className="col-md-4 mb-4">
@@ -149,7 +149,7 @@ provideComponent(Product, ({ page }) => {
           <ContentTag content={page} attribute="downloadsSection" />
         </div>
       </section>
-      <section className="py-4">
+      <section className="bg-primary py-4">
         <div className="container">
           <h3 className="h4" id="accessories">
             Suitable accessories

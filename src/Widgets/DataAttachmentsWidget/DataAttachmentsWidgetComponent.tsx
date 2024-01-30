@@ -22,7 +22,7 @@ provideComponent(DataAttachmentsWidget, ({ widget }) => {
         tag="label"
         className="mt-2 text-bold opacity-60 text-extra-small text-uppercase"
       />
-      <div className="d-flex flex-wrap mt-2 gap-1">
+      <div className="d-flex flex-wrap mt-2 gap-2">
         {attachments.map((attachment) => (
           <Attachment attachment={attachment} key={attachment._id} />
         ))}
