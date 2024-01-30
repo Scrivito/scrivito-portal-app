@@ -10,7 +10,8 @@ import prettyBytes from 'pretty-bytes'
 
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
   const dataItem = useDataItem()
-  const attachments = dataItem?.get(widget.get('attributeName'))
+  const value = dataItem?.get(widget.get('attributeName'))
+  const attachments = isDataBinary(value) ? [value] : value
   if (!isBinaryArray(attachments)) return null
   if (attachments.length === 0) return null
 
