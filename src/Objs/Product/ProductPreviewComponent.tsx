@@ -33,7 +33,7 @@ export const ProductPreview = connect(function ProductPreview({
               />
               <ContentTag
                 attribute="subtitle"
-                className="mb-1 text-muted text-uppercase"
+                className="mb-1 text-muted text-uppercase text-small"
                 content={product}
                 tag="p"
               />
