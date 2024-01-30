@@ -1,16 +1,24 @@
 import {
   provideComponent,
   WidgetTag,
-  InPlaceEditingOff,
-  useDataItem,
+  ContentTag,
+  isUserLoggedIn,
 } from 'scrivito'
+import { CurrentUser } from '../../Data/CurrentUser/CurrentUserDataItem'
 import { PersonCardWidget } from './PersonCardWidgetClass'
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
 import { ensureString } from '../../utils/ensureString'
 import { isDataBinary } from '../../utils/dataBinaryToUrl'
+import { User } from '../../Data/User/UserDataClass'
 
-provideComponent(PersonCardWidget, () => {
-  const userItem = useDataItem()
+provideComponent(PersonCardWidget, ({ widget }) => {
+  if (!isUserLoggedIn()) return null
+
+  const userId = CurrentUser.get(widget.get('attributeName') || 'salesUserId')
+  if (!userId) return null
+
+  // @ts-expect-error until out of private beta
+  const userItem = User.get(userId)
   if (!userItem) return null
 
   const name = ensureString(userItem.get('name'))
@@ -19,8 +27,14 @@ provideComponent(PersonCardWidget, () => {
   const image = userItem.get('image')
 
   return (
-    <WidgetTag className="card mb-2 bg-secondary max-width-350">
-      <InPlaceEditingOff>
+    <WidgetTag>
+      <ContentTag
+        content={widget}
+        attribute="headline"
+        tag="h6"
+        className="h6 text-uppercase"
+      />
+      <div className="card mb-2 bg-secondary max-width-350">
         <div className="card-body p-3">
           <div className="row">
             <div className="col-3 d-none d-xl-block">
@@ -50,7 +64,7 @@ provideComponent(PersonCardWidget, () => {
             </div>
           </div>
         </div>
-      </InPlaceEditingOff>
+      </div>
     </WidgetTag>
   )
 })
