@@ -26,7 +26,7 @@ provideComponent(Product, ({ page }) => {
         <div className="container">
           <div className="row align-items-stretch">
             <div className="col-md-4 mb-4">
-              <div className="card h-100 py-5">
+              <div className="card h-100">
                 <ImageTag
                   content={page}
                   attribute="image"
