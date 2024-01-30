@@ -1,9 +1,13 @@
 import {
   ContentTag,
   InPlaceEditingOff,
+  Link,
   WidgetTag,
   isInPlaceEditingActive,
+  load,
+  navigateTo,
   provideComponent,
+  urlForDataItem,
 } from 'scrivito'
 import { toast } from 'react-toastify'
 import { CheckoutButtonWidget } from './CheckoutButtonWidgetClass'
@@ -50,9 +54,11 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
     e.preventDefault()
     e.stopPropagation()
 
-    await checkoutCart()
+    const result = await checkoutCart()
+    const resultUrl = await load(() => urlForDataItem(result))
 
     if (successMessage) toast.success(successMessage)
+    if (resultUrl) navigateTo(new Link({ url: resultUrl }))
   }
 })
 

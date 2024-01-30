@@ -44,7 +44,7 @@ export function numberOfCartItems(): number {
   return CartItem.all().take().length
 }
 
-export async function checkoutCart(): Promise<void> {
+export async function checkoutCart(): Promise<DataItem> {
   // @ts-expect-error until out of private beta
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
 
@@ -75,11 +75,13 @@ Please send me a quote.
 `
 
   // @ts-expect-error until out of private beta
-  await Ticket.create({
+  const ticket = await Ticket.create({
     title: 'Quote request',
     description: ticketMessage,
   })
 
   const deletePromises = cartItems.map((item) => item.delete())
   await Promise.all(deletePromises)
+
+  return ticket
 }
