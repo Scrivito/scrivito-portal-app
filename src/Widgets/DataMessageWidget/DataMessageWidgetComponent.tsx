@@ -64,7 +64,7 @@ function getImage({
   if (!dataItem) {
     return {
       _id: '321',
-      url: ensureString(CurrentUser.get('picture')),
+      url: ensureString(CurrentUser.get('picture')) || personCircle,
       contentLength: 123,
       contentType: 'image/jpeg',
       filename: 'profile.jpg',
