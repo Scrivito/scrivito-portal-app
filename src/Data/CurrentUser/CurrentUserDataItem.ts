@@ -1,22 +1,19 @@
 import { isObject } from 'lodash-es'
 import {
   currentUser,
+  getInstanceId,
   load,
   provideDataItem,
   unstable_JrRestApi,
 } from 'scrivito'
 import personCircle from '../../assets/images/person-circle.svg'
 
-const NEOLETTER_PROFILE_URL = `neoletter/instances/${
-  import.meta.env.SCRIVITO_TENANT
-}/my/profile`
-
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
     const user = await load(currentUser)
     if (!user) return {}
 
-    const rawNeoletterData = await unstable_JrRestApi.get(NEOLETTER_PROFILE_URL)
+    const rawNeoletterData = await unstable_JrRestApi.get(neoletterProfileUrl())
 
     let company: string | undefined
     let phoneNumber: string | undefined
@@ -49,7 +46,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       throw new Error(`Unknown keys - ${Object.keys(otherArgs)}`)
     }
 
-    await unstable_JrRestApi.put(NEOLETTER_PROFILE_URL, {
+    await unstable_JrRestApi.put(neoletterProfileUrl(), {
       data: { company, phone_number: phoneNumber, salutation },
     })
   },
@@ -72,4 +69,8 @@ function isNeoletterData(input: unknown): input is NeoletterData {
 
 function isOptionalString(input: unknown): input is undefined | string {
   return typeof input === 'undefined' || typeof input === 'string'
+}
+
+function neoletterProfileUrl() {
+  return `neoletter/instances/${getInstanceId()}/my/profile`
 }
