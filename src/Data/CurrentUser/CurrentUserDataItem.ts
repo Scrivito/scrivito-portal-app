@@ -5,7 +5,7 @@ import {
   provideDataItem,
   unstable_JrRestApi,
 } from 'scrivito'
-import personCircle from 'bootstrap-icons/icons/person-circle.svg'
+import personCircle from '../../assets/images/person-circle.svg'
 
 const NEOLETTER_PROFILE_URL = `neoletter/instances/${
   import.meta.env.SCRIVITO_TENANT
