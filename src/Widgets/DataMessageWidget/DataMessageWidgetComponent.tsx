@@ -12,6 +12,7 @@ import { DataBinary, isDataBinary } from '../../utils/dataBinaryToUrl'
 
 import personCircle from '../../assets/images/person-circle.svg'
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
+import { ensureString } from '../../utils/ensureString'
 
 provideComponent(DataMessageWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -33,16 +34,7 @@ provideComponent(DataMessageWidget, ({ widget }) => {
     !staff && !!currenUserPisaId && user?.get('_id') == currenUserPisaId
   if (colleague) classNames.push('colleague')
 
-  const userImage = user?.get('image')
-  const image: DataBinary = isDataBinary(userImage)
-    ? userImage
-    : {
-        _id: '123321',
-        url: personCircle,
-        contentLength: 123,
-        contentType: 'image/svg+xml',
-        filename: 'personCircle.svg',
-      }
+  const image = getImage({ dataItem, user })
 
   return (
     <WidgetTag className={classNames.join(' ')}>
@@ -61,3 +53,32 @@ provideComponent(DataMessageWidget, ({ widget }) => {
     </WidgetTag>
   )
 })
+
+function getImage({
+  dataItem,
+  user,
+}: {
+  dataItem?: DataItem
+  user?: DataItem | null
+}): DataBinary {
+  if (!dataItem) {
+    return {
+      _id: '321',
+      url: ensureString(CurrentUser.get('picture')),
+      contentLength: 123,
+      contentType: 'image/jpeg',
+      filename: 'profile.jpg',
+    }
+  }
+
+  const userImage = user?.get('image')
+  if (isDataBinary(userImage)) return userImage
+
+  return {
+    _id: '1223',
+    url: personCircle,
+    contentLength: 123,
+    contentType: 'image/svg+xml',
+    filename: 'personCircle.svg',
+  }
+}
