@@ -55,11 +55,7 @@ function Attachment({ attachment }: { attachment: DataBinary }) {
       title={`Download ${attachment.filename}`}
     >
       <div className="box-preview">
-        {binaryUrl && attachment.contentType.startsWith('image/') ? (
-          <img src={binaryUrl} />
-        ) : (
-          <i className="bi bi-file-earmark"></i>
-        )}
+        <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
       </div>
       <div className="box-meta">
         <span className="box-name">{attachment.filename}</span>
@@ -69,6 +65,31 @@ function Attachment({ attachment }: { attachment: DataBinary }) {
       </div>
     </a>
   )
+}
+
+function BoxPreviewContent({
+  binaryUrl,
+  attachment,
+}: {
+  binaryUrl?: string
+  attachment: DataBinary
+}) {
+  if (binaryUrl && attachment.contentType.startsWith('image/')) {
+    return <img src={binaryUrl} />
+  }
+
+  let iconName = 'bi-file-earmark'
+  const filename = attachment.filename
+  if (filename.endsWith('.pdf')) iconName = 'bi-filetype-pdf'
+  if (filename.endsWith('.docx')) iconName = 'bi-filetype-docx'
+  if (filename.endsWith('.doc')) iconName = 'bi-filetype-doc'
+  if (filename.endsWith('.csv')) iconName = 'bi-filetype-csv'
+  if (filename.endsWith('.json')) iconName = 'bi-filetype-json'
+  if (filename.endsWith('.xml')) iconName = 'bi-filetype-xml'
+  if (filename.endsWith('.txt')) iconName = 'bi-filetype-txt'
+  if (filename.endsWith('.md')) iconName = 'bi-filetype-md'
+
+  return <i className={`bi ${iconName}`}></i>
 }
 
 function isBinaryArray(input: unknown): input is DataBinary[] {
