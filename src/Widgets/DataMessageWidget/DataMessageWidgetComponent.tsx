@@ -10,7 +10,7 @@ import { User } from '../../Data/User/UserDataClass'
 import { CurrentUser } from '../../Data/CurrentUser/CurrentUserDataItem'
 import { DataBinary, isDataBinary } from '../../utils/dataBinaryToUrl'
 
-import personCircle from 'bootstrap-icons/icons/person-circle.svg'
+import personCircle from '../../assets/images/person-circle.svg'
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
 
 provideComponent(DataMessageWidget, ({ widget }) => {
