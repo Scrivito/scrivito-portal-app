@@ -55,11 +55,7 @@ function Attachment({ attachment }: { attachment: DataBinary }) {
       title={`Download ${attachment.filename}`}
     >
       <div className="box-preview">
-        {binaryUrl && attachment.contentType.startsWith('image/') ? (
-          <img src={binaryUrl} />
-        ) : (
-          <i className="bi bi-file-earmark"></i>
-        )}
+        <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
       </div>
       <div className="box-meta">
         <span className="box-name">{attachment.filename}</span>
@@ -69,6 +65,20 @@ function Attachment({ attachment }: { attachment: DataBinary }) {
       </div>
     </a>
   )
+}
+
+function BoxPreviewContent({
+  binaryUrl,
+  attachment,
+}: {
+  binaryUrl?: string
+  attachment: DataBinary
+}) {
+  if (binaryUrl && attachment.contentType.startsWith('image/')) {
+    return <img src={binaryUrl} />
+  }
+
+  return <i className="bi bi-file-earmark"></i>
 }
 
 function isBinaryArray(input: unknown): input is DataBinary[] {
