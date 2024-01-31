@@ -3,3 +3,4 @@ dist/*
 public/scrivito/*
 src/assets/stylesheets/bs5/*
 vendor/*
+contentDump/*
