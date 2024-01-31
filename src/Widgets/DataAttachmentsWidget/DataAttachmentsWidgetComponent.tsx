@@ -78,7 +78,18 @@ function BoxPreviewContent({
     return <img src={binaryUrl} />
   }
 
-  return <i className="bi bi-file-earmark"></i>
+  let iconName = 'bi-file-earmark'
+  const filename = attachment.filename
+  if (filename.endsWith('.pdf')) iconName = 'bi-filetype-pdf'
+  if (filename.endsWith('.docx')) iconName = 'bi-filetype-docx'
+  if (filename.endsWith('.doc')) iconName = 'bi-filetype-doc'
+  if (filename.endsWith('.csv')) iconName = 'bi-filetype-csv'
+  if (filename.endsWith('.json')) iconName = 'bi-filetype-json'
+  if (filename.endsWith('.xml')) iconName = 'bi-filetype-xml'
+  if (filename.endsWith('.txt')) iconName = 'bi-filetype-txt'
+  if (filename.endsWith('.md')) iconName = 'bi-filetype-md'
+
+  return <i className={`bi ${iconName}`}></i>
 }
 
 function isBinaryArray(input: unknown): input is DataBinary[] {
