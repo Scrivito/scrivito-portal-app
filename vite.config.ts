@@ -51,10 +51,46 @@ export default defineConfig(({ mode }) => {
           headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
         },
 
-        '/pisa-api': {
+        '/pisa-api/2b61c29a17d9b157aa53316fdab7630b': {
+          target: 'https://web090.crm.pisasales.de/portal',
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(/^\/pisa-api\/2b61c29a17d9b157aa53316fdab7630b/, ''),
+        },
+
+        '/pisa-api/55cbd01f732b7fd2f63713e33e043c0b': {
+          target: 'https://web085.crm.pisasales.de/portal',
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(/^\/pisa-api\/55cbd01f732b7fd2f63713e33e043c0b/, ''),
+        },
+
+        '/pisa-api/6f92d14ea3cff045e90ac77ea98e7848': {
+          target: 'https://web082.crm.pisasales.de/portal',
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(/^\/pisa-api\/6f92d14ea3cff045e90ac77ea98e7848/, ''),
+        },
+
+        '/pisa-api/b74df6074bfe11bf857a233c4be21103': {
+          target: 'https://web100.crm.pisasales.de/portal',
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(/^\/pisa-api\/b74df6074bfe11bf857a233c4be21103/, ''),
+        },
+
+        '/pisa-api/e65cc230584e1891af58692a44ff5482': {
+          target: 'https://web087.crm.pisasales.de/portal',
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(/^\/pisa-api\/e65cc230584e1891af58692a44ff5482/, ''),
+        },
+
+        '/pisa-api/d0a154d76edf2a7bd991fc658e700a1d': {
           target: 'https://web102.crm.pisasales.de/portal',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/pisa-api/, ''),
+          rewrite: (path) =>
+            path.replace(/^\/pisa-api\/d0a154d76edf2a7bd991fc658e700a1d/, ''),
         },
 
         /**
