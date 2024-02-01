@@ -1,0 +1,474 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Services"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "6fed6c50",
+      "00179d0d",
+      "0d6840af",
+      "bf1100fb"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "f5993d6de3609ac0",
+  "_created_at": "20230511084339",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230511084702",
+  "_id": "f5993d6de3609ac0",
+  "_language": "en",
+  "_last_changed": "20240131102803",
+  "_modification": null,
+  "_path": "/35aa421c76a38f87",
+  "_permalink": null,
+  "_published_at": "20240131103416",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202401311034160000000000000000a49e6b8728f3da23",
+  "_widget_pool": {
+    "00179d0d": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d7e590f8",
+          "956d7f74"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "956d7f74": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p id=\"isPasted\">At Tynacoon, our mission has always been focused on bringing openness and transparency to the design process. We've always believed that by providing a space where designers can share ongoing work not only empowers them to make better products, it also helps them grow. We're proud to be a part of creating a more open culture and to continue building a product that supports this vision.</p><p>As we've grown, we've seen how Tynacoon has helped companies such as Lorem, Morel, Airpumpe, GermanAir, and Interpumpe bring their designers closer together to create amazing things. We've also learned that when the culture of sharing is brought in earlier, the better teams adapt and communicate with one another.</p><p>That's why we are excited to share that we now have a free whitepape of Tynacoon, which will allow individual designers, startups and other small teams a chance to create a culture of openness early on. </p>"
+      ]
+    },
+    "6fed6c50": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "43e41e93"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "efb46cb2c7fa3cb5"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "d7e590f8": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "How Product Assistant now helps you record functions for\n employees"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "0d6840af": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "container_width": [
+        "string",
+        "95-percent"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ba401aed"
+        ]
+      ]
+    },
+    "ba401aed": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "6bc1f056",
+          "3bd5f47d",
+          "1c45b019"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "6bc1f056": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e28f19f5"
+        ]
+      ]
+    },
+    "3bd5f47d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8f85ae8f"
+        ]
+      ]
+    },
+    "1c45b019": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6b3d3a67"
+        ]
+      ]
+    },
+    "e28f19f5": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "ab2921d83b66edb5"
+      ]
+    },
+    "8f85ae8f": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "1409db9bede134fb"
+      ]
+    },
+    "6b3d3a67": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "518864722dad1deb"
+      ]
+    },
+    "80e367b1": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Bringing the culture of airpower to everyone"
+      ]
+    },
+    "e901deb4": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>We know the power of sharing is real, and we want to create an opportunity for everyone to try Tynacoon and explore how transformative open communication can be. Now you can have a team of one or two designers and unlimited spectators (think PMs, management, marketing, etc.) share work and explore the design process earlier.&nbsp;</p><ul id=\"isPasted\"><li>Airpower allows us to collaborate in real time and is a really &nbsp;great way for leadership on the team to stay up-to-date with &nbsp;what everybody is working on,\" &nbsp;<a href=\"http://localhost:9000/newsroom-detail.html#\">Interpumpe24</a> Stewart &nbsp;Scott-Curran, Interpumpe24's Director of Engeneering. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</li><li>Tynacoon opened a new way of sharing. It's a persistent way &nbsp;for everyone to see and absorb each other's work,\" said David &nbsp;Scott, CEO at <a href=\"http://localhost:9000/newsroom-detail.html#\">Airpower</a>.</li></ul><p>Small teams and individual designers need a space where they can watch the design process unfold, both for themselves and for the people they work with – no matter if it's a fellow designer, product manager, developer or client. Front allows you to invite more people into the process, creating a central place for conversation around design. As those teams grow, transparency and collaboration becomes integrated in how they communicate and work together. We will continue to update Tynacoon - if you have any questions or suggestions, please contact us!</p><p><br></p>"
+      ]
+    },
+    "bf1100fb": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "fe23dc5b",
+          "e40cefc1",
+          "80e367b1",
+          "e901deb4",
+          "726ad0df"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "0c6c58ba": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "EXPO 2024"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "e9e30dd3": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much lorem ipsum you get here</p>"
+      ]
+    },
+    "7f3f9fe2": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "ae5bca21": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "0c6c58ba",
+          "e9e30dd3",
+          "7f3f9fe2"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "background_color": [
+        "string",
+        "success"
+      ]
+    },
+    "206d314f": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ae5bca21"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "a0d82327": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hannover Industry Exibition 2024"
+      ]
+    },
+    "19f23465": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much lorem ipsum you get here</p>"
+      ]
+    },
+    "f6818772": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "c1dc6cb9": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "a0d82327",
+          "19f23465",
+          "f6818772"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "91c8192c": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c1dc6cb9"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "726ad0df": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "206d314f",
+          "91c8192c"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "43e41e93": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "7eeb594a"
+        ]
+      ]
+    },
+    "7eeb594a": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "headline": [
+        "string",
+        "Services"
+      ]
+    },
+    "fe23dc5b": {
+      "_obj_class": "YoutubeVideoWidget",
+      "youtube_video_id": [
+        "string",
+        "O_f7U7DpvSM"
+      ],
+      "aspect_ratio": [
+        "string",
+        "16to9"
+      ]
+    },
+    "e40cefc1": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:1ba850ffc8fb4adda8b34c00ca2b88af",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

@@ -1,0 +1,246 @@
+{
+  "_obj_class": "Product",
+  "title": [
+    "string",
+    "Basket filter"
+  ],
+  "image": [
+    "reference",
+    "66e88191d1265340"
+  ],
+  "parameters": [
+    "widgetlist",
+    [
+      "015f7354",
+      "cec0c513",
+      "bf3456e0"
+    ]
+  ],
+  "description_section": [
+    "widgetlist",
+    [
+      "d026b110"
+    ]
+  ],
+  "data_section": [
+    "widgetlist",
+    [
+      "dc6f8da8"
+    ]
+  ],
+  "downloads_section": [
+    "widgetlist",
+    [
+      "cdc68992"
+    ]
+  ],
+  "suitable_accessories": [
+    "referencelist",
+    [
+      "6eff94f91196a7d4",
+      "70774feb6aba40dc",
+      "162a0a7e8f6d87d1",
+      "7524eb15818546b7",
+      "f35e3741a5662ea5"
+    ]
+  ],
+  "subtitle": [
+    "string",
+    "Efficient Fluid Filtration"
+  ],
+  "_conflicts": null,
+  "_content_id": "7aa779f9fcf90589",
+  "_created_at": "20230824120934",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230831080316",
+  "_id": "7aa779f9fcf90589",
+  "_language": "en",
+  "_last_changed": "20231006063058",
+  "_modification": null,
+  "_path": "/587d96465c3c69c4/fa725f0b47fdc408/c4d5dd0a42e3f118",
+  "_permalink": null,
+  "_published_at": "20231006064235",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202310060642350000000000000000e5173cd54d6fea40",
+  "_widget_pool": {
+    "81830723": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "details": [
+        "string",
+        "​PDF"
+      ],
+      "title": [
+        "string",
+        "Basket filter"
+      ],
+      "subtitle": [
+        "string",
+        "Certificates"
+      ]
+    },
+    "cec0c513": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Selling unit"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "5 pieces"
+        ]
+      ]
+    },
+    "bf3456e0": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Weight"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "0.5 kg"
+        ]
+      ]
+    },
+    "d026b110": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Discover the perfect filtration solution for your fluid delivery system with our Basket Filter. Crafted to provide exceptional performance, this filter ensures that your nozzles receive only the cleanest fluids, promoting consistent and efficient operation.</p>"
+      ]
+    },
+    "dc6f8da8": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c3570e788bbaf414"
+      ]
+    },
+    "b6288b74": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "title": [
+        "string",
+        "Basket filter"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "subtitle": [
+        "string",
+        "Technical Data"
+      ]
+    },
+    "a637a798": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "b6288b74"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "18ad347e": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "81830723"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "d0558e92": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "title": [
+        "string",
+        "Basket filter"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "subtitle": [
+        "string",
+        "Scientific Efficiency Report"
+      ]
+    },
+    "d4cef038": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d0558e92"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "cdc68992": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "a637a798",
+          "18ad347e",
+          "d4cef038"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "015f7354": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Material"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "Stainless steel",
+          "POM"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

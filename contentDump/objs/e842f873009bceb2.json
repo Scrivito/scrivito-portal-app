@@ -1,0 +1,214 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Edit my profile"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "e35c5731"
+    ]
+  ],
+  "exclude_from_search": [
+    "boolean",
+    true
+  ],
+  "_conflicts": null,
+  "_content_id": "e842f873009bceb2",
+  "_created_at": "20231020085515",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20231023100253",
+  "_id": "e842f873009bceb2",
+  "_language": "en",
+  "_last_changed": "20240129102757",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/4df09188b1541b70/606699b3b1e3d6ae",
+  "_permalink": null,
+  "_published_at": "20240130125549",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "2024013012554900000000000000001ac304538c2314fc",
+  "_widget_pool": {
+    "cdc93498": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "type": [
+        "string",
+        "single_line"
+      ],
+      "attribute_name": [
+        "string",
+        "company"
+      ],
+      "label": [
+        "string",
+        "Company"
+      ]
+    },
+    "551fcf52": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "type": [
+        "string",
+        "phone_number"
+      ],
+      "label": [
+        "string",
+        "Phone number"
+      ],
+      "attribute_name": [
+        "string",
+        "phoneNumber"
+      ]
+    },
+    "3fbc294e": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "type": [
+        "string",
+        "single_line"
+      ],
+      "label": [
+        "string",
+        "Salutation"
+      ],
+      "attribute_name": [
+        "string",
+        "salutation"
+      ]
+    },
+    "7aba7020": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "submit_title": [
+        "string",
+        "Save changes"
+      ],
+      "reset_title": [
+        "string",
+        "cancel"
+      ],
+      "size": [
+        "string",
+        "small"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "1c78f4b2": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3fbc294e",
+          "551fcf52",
+          "cdc93498",
+          "7aba7020"
+        ]
+      ],
+      "redirect_after_submit": [
+        "reference",
+        "0e84d1e469f7cfac"
+      ]
+    },
+    "572e3863": {
+      "_obj_class": "DataListWidget",
+      "content": [
+        "widgetlist",
+        [
+          "1c78f4b2"
+        ]
+      ],
+      "nr_of_columns": [
+        "string",
+        "1"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "CurrentUser"
+        }
+      ]
+    },
+    "4af5ac71": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-person-circle"
+      ],
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "bedcded8": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "4af5ac71"
+        ]
+      ],
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "c72096a2": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "572e3863"
+        ]
+      ]
+    },
+    "bcd7c905": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "bedcded8",
+          "c72096a2"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "e35c5731": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "bcd7c905"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:1ba850ffc8fb4adda8b34c00ca2b88af",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}
