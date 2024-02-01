@@ -1,7 +1,8 @@
 import { provideDataClass, unstable_JrRestApi } from 'scrivito'
 import { convertBlobAttributes } from '../../utils/convertBlobAttributes'
+import { scrivitoTenantId } from '../../config/scrivitoTenantId'
 
-const apiPath = '../pisa-api/document'
+const apiPath = `../pisa-api/${scrivitoTenantId().tenant}/document`
 
 export const Document = provideDataClass('Document', {
   connection: {

@@ -1,7 +1,8 @@
 import { provideDataClass, unstable_JrRestApi } from 'scrivito'
 import { convertBlobAttributes } from '../../utils/convertBlobAttributes'
+import { scrivitoTenantId } from '../../config/scrivitoTenantId'
 
-const apiPath = '../pisa-api/ticket-message'
+const apiPath = `../pisa-api/${scrivitoTenantId().tenant}/ticket-message`
 
 // TODO: use `provideDataClass('TicketMessage', { apiPath })` once available (with 1.39.0?)
 export const TicketMessage = provideDataClass('TicketMessage', {

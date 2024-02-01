@@ -9,6 +9,7 @@ import {
 import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
 import { dataBinaryToUrl, isDataBinary } from '../../utils/dataBinaryToUrl'
+import { scrivitoTenantId } from '../../config/scrivitoTenantId'
 
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
@@ -32,7 +33,9 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       salutation = neoletterData.salutation || ''
     }
 
-    const whoAmI = await unstable_JrRestApi.fetch('../pisa-api/whoami')
+    const whoAmI = await unstable_JrRestApi.fetch(
+      `../pisa-api/${scrivitoTenantId().tenant}/whoami`,
+    )
 
     if (isWhoAmI(whoAmI)) {
       name = whoAmI.name

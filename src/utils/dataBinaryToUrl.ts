@@ -1,4 +1,5 @@
 import { unstable_JrRestApi } from 'scrivito'
+import { scrivitoTenantId } from '../config/scrivitoTenantId'
 
 export async function dataBinaryToUrl(
   binary: DataBinary,
@@ -6,7 +7,7 @@ export async function dataBinaryToUrl(
   if (binary.url) return { url: binary.url, maxAge: Number.MAX_VALUE }
 
   const accessTokens = await unstable_JrRestApi.fetch(
-    `../pisa-api/binary-access-token/${binary._id}`,
+    `../pisa-api/${scrivitoTenantId().tenant}/binary-access-token/${binary._id}`,
   )
   if (!isAccessToken(accessTokens)) {
     throw new Error(`Unexpected result: ${accessTokens}`)
@@ -14,7 +15,7 @@ export async function dataBinaryToUrl(
 
   // TODO: Use pisa url directly - no proxy!
   return {
-    url: `${window.origin}/pisa-api${accessTokens.accessToken}`,
+    url: `${window.origin}/pisa-api/${scrivitoTenantId().tenant}${accessTokens.accessToken}`,
     maxAge: accessTokens.maxAge,
   }
 }

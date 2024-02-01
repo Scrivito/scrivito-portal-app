@@ -1,7 +1,8 @@
 import { isObject } from 'lodash-es'
 import { provideDataClass, unstable_JrRestApi } from 'scrivito'
+import { scrivitoTenantId } from '../../config/scrivitoTenantId'
 
-const apiPath = '../pisa-api/user'
+const apiPath = `../pisa-api/${scrivitoTenantId().tenant}/user`
 
 // TODO: use `provideDataClass('User', { apiPath })` once available (with 1.39.0?)
 export const User = provideDataClass('User', {
