@@ -9,7 +9,7 @@ provideEditingConfig(DataFormNumberWidget, {
     attributeName: {
       title: 'Name of the data attribute in question',
     },
-    required: { title: 'Mandatory' },
+    required: { title: 'Mandatory?' },
     helpText: { title: 'Help text' },
     minValue: { title: 'Minimum value' },
     maxValue: { title: 'Maximum value' },
@@ -32,6 +32,7 @@ provideEditingConfig(DataFormNumberWidget, {
   ],
   initialContent: {
     label: 'Custom field',
+    minValue: 0,
     stepValue: 1.0,
   },
 })

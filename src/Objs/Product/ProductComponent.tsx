@@ -22,23 +22,22 @@ provideComponent(Product, ({ page }) => {
 
   return (
     <>
-      <section className="py-4">
+      <section className="bg-light-grey py-4">
         <div className="container">
           <div className="row align-items-stretch">
-            <div className="col-md-4">
-              <div className="card h-100 py-5">
+            <div className="col-md-4 mb-4">
+              <div className="card h-100">
                 <ImageTag
                   content={page}
                   attribute="image"
                   className="img-background"
                 />
-                <div className="card-body p-5"></div>
               </div>
             </div>
 
-            <div className="col-md-8">
+            <div className="col-md-8 mb-4">
               <div className="card mb-4">
-                <div className="card-body p-2">
+                <div className="card-body p-4">
                   <ContentTag
                     content={page}
                     attribute="title"
@@ -107,8 +106,7 @@ provideComponent(Product, ({ page }) => {
             </div>
           </div>
         </div>
-      </section>
-      <section className="bg-light-grey py-4">
+
         <div className="container">
           <h3 className="h4" id="description">
             Description
@@ -151,7 +149,7 @@ provideComponent(Product, ({ page }) => {
           <ContentTag content={page} attribute="downloadsSection" />
         </div>
       </section>
-      <section className="py-4">
+      <section className="bg-primary py-4">
         <div className="container">
           <h3 className="h4" id="accessories">
             Suitable accessories

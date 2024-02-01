@@ -13,6 +13,7 @@ import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { CurrentUser } from '../../../Data/CurrentUser/CurrentUserDataItem'
 import { ensureString } from '../../../utils/ensureString'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
+import personCircle from '../../../assets/images/person-circle.svg'
 
 export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   root,
@@ -81,11 +82,7 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
 })
 
 const ProfileImg = connect(function ProfileImg() {
-  const picture = ensureString(CurrentUser.get('picture'))
-
-  if (!picture) {
-    return <i className="bi bi-person-circle" aria-hidden="true"></i>
-  }
+  const picture = ensureString(CurrentUser.get('picture')) || personCircle
 
   return (
     <>

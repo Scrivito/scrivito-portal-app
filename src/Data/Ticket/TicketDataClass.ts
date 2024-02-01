@@ -1,6 +1,23 @@
+import { convertBlobAttributes } from '../../utils/convertBlobAttributes'
 import { provideLocalStorageDataClass } from '../../utils/provideLocalStorageDataClass'
+import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 
 export const Ticket = provideLocalStorageDataClass('Ticket', {
+  prepareData: async (data) => {
+    const newData = await convertBlobAttributes(data)
+
+    return {
+      ...newData,
+      status: newData.status || 'captured',
+      referenceNumber: newData.referenceNumber || '',
+      responsibleAgent:
+        newData.responsibleAgent || '4668C6ADEF0443BE80FB4049097A901A',
+      number: newData.number || pseudoRandom32CharHex(),
+      updatedAt: new Date().toISOString(),
+      createdBy: newData.createdBy || 'F87BDC400E41D630E030A8C00D01158A',
+      createdAt: newData.createdAt || new Date().toISOString(),
+    }
+  },
   initialContent: [
     {
       _id: '581BDB4B108D45579E7D3DE087C13D65',

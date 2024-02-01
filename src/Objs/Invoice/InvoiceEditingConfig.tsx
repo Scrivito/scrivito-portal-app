@@ -42,6 +42,6 @@ provideEditingConfig(Invoice, {
     'payment',
     'pdfDownloadUrl',
   ],
-  titleForContent: (obj) => `#${obj.get('invoiceId')}: ${obj.get('content')}`,
+  titleForContent: (obj) => `${obj.get('invoiceId')}: ${obj.get('content')}`,
   hideInSelectionDialogs: true,
 })

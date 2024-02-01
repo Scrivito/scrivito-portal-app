@@ -56,7 +56,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
                 key={`search-results-widget-input-${query}`}
               />
               <span className="input-group-btn">
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-secondary" type="submit">
                   <i className="bi bi-search" aria-hidden="true"></i>
                   <span className="d-none d-sm-inline ps-1">Search again</span>
                 </button>

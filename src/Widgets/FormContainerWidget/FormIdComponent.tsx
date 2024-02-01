@@ -1,11 +1,9 @@
-import { connect, uiContext } from 'scrivito'
+import { connect, getInstanceId, uiContext } from 'scrivito'
 import { ContentProperty } from '../../Components/ScrivitoExtensions/ContentProperty'
 
 export const FormIdComponent = connect(({ widget }) => {
   const formSubmissionsHref = widget.get('formId')
-    ? `https://edit.neoletter.com/i/${
-        import.meta.env.SCRIVITO_TENANT
-      }/forms/${widget.get('formId')}`
+    ? `https://edit.neoletter.com/i/${getInstanceId()}/forms/${widget.get('formId')}`
     : undefined
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null

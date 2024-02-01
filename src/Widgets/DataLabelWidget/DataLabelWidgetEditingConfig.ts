@@ -25,6 +25,6 @@ provideEditingConfig(DataLabelWidget, {
     label: 'Label',
     showAs: 'text',
     valueSize: 'body-font-size',
-    marginBottom: true,
+    marginBottom: false,
   },
 })

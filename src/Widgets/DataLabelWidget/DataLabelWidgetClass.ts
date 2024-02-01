@@ -8,7 +8,18 @@ export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
     showAs: ['enum', { values: ['text', 'currency', 'datetime'] }],
     valueSize: [
       'enum',
-      { values: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body-font-size'] },
+      {
+        values: [
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'text-small',
+          'body-font-size',
+        ],
+      },
     ],
     marginBottom: 'boolean',
   },

@@ -1,6 +1,7 @@
 import { DataItem, isUserLoggedIn, load } from 'scrivito'
-import { ProductInstance } from '../../Objs/Product/ProductObjClass'
+import { Product, ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
+import { Ticket } from '../Ticket/TicketDataClass'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
@@ -43,16 +44,44 @@ export function numberOfCartItems(): number {
   return CartItem.all().take().length
 }
 
-export async function checkoutCart(): Promise<void> {
+export async function checkoutCart(): Promise<DataItem> {
   // @ts-expect-error until out of private beta
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
 
-  const checkedOutItems = cartItems.map((item) => ({
-    productId: item.get('productId'),
-  }))
-  // push checkedOutItems to your favorite backend
-  console.log('Checked out', checkedOutItems)
+  const products: ProductInstance[] = []
+  for (const item of cartItems) {
+    const productId = item.get('productId')
+    if (typeof productId !== 'string') continue
+
+    const product = await load(() => Product.get(productId))
+    if (product) products.push(product)
+  }
+
+  const ticketMessage = `This is an automatically generated message.
+
+I would like to request a quote with the following items:
+${products
+  .map(
+    (product) =>
+      '- ' +
+      [product.get('title'), product.get('subtitle')].join(' - ') +
+      ' (ID: ' +
+      product.id() +
+      ')',
+  )
+  .join('\n')}
+
+Please send me a quote.
+`
+
+  // @ts-expect-error until out of private beta
+  const ticket = await Ticket.create({
+    title: 'Quote request',
+    description: ticketMessage,
+  })
 
   const deletePromises = cartItems.map((item) => item.delete())
   await Promise.all(deletePromises)
+
+  return ticket
 }

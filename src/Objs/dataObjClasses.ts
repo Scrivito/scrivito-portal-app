@@ -1,7 +1,1 @@
-export const DATA_OBJ_CLASSES = [
-  'DeliveryAddress',
-  'Invoice',
-  'Notification',
-  'Person',
-  'Shipment',
-]
+export const DATA_OBJ_CLASSES = ['Invoice']
