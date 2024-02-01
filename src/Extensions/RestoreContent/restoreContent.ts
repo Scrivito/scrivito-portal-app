@@ -1,4 +1,4 @@
-import { Obj, currentWorkspaceId, load } from 'scrivito'
+import { Obj, currentWorkspaceId, getInstanceId, load } from 'scrivito'
 const json = import.meta.glob('../../../contentDump/objs/*', { as: 'raw' })
 const binaries = import.meta.glob('../../../contentDump/binaries/*', {
   as: 'url',
@@ -155,9 +155,7 @@ async function fetchJson<T>(
   if (!apiToken) apiToken = await fetchIamToken()
 
   const response = await fetch(
-    `https://api.justrelate.com/scrivito/tenants/${
-      import.meta.env.SCRIVITO_TENANT
-    }/${apiPath}`,
+    `https://api.justrelate.com/scrivito/tenants/${getInstanceId()}/${apiPath}`,
     {
       body: options.data ? JSON.stringify(options.data) : undefined,
       credentials: 'include',
