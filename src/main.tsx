@@ -20,4 +20,5 @@ if (isEditorLoggedIn()) {
   import('./Data/editingConfigs')
   import('./Objs/editingConfigs')
   import('./Widgets/editingConfigs')
+  import('./Extensions')
 }
