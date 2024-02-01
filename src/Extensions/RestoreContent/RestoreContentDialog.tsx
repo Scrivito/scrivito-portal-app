@@ -5,12 +5,8 @@ import { Log } from './SubComponents/Log'
 import { restoreContent } from './restoreContent'
 
 registerComponent('RestoreContent', () => {
-  const [apiClientId, setApiClientId] = useState(
-    '970c471327bb44e0a905207cf3ffd6f0',
-  )
-  const [apiClientSecret, setApiClientSecret] = useState(
-    'v+p2a/prEoulnTmVlokE4zw4XW0qkEXcNkeGGoXMlzGrs5RGgq94M7Hyf8nT10tQ',
-  )
+  const [apiClientId, setApiClientId] = useState('')
+  const [apiClientSecret, setApiClientSecret] = useState('')
   const [details, setDetails] = useState('')
   const [isRunning, setIsRunning] = useState(false)
   const [logText, setLogText] = useState('')
