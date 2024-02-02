@@ -155,7 +155,7 @@ async function fetchJson<T>(
   if (!apiToken) apiToken = await fetchIamToken()
 
   const response = await fetch(
-    `https://api.justrelate.com/scrivito/tenants/${getInstanceId()}/${apiPath}`,
+    `/jr-api/scrivito/tenants/${getInstanceId()}/${apiPath}`,
     {
       body: options.data ? JSON.stringify(options.data) : undefined,
       credentials: 'include',
@@ -176,7 +176,7 @@ async function fetchJson<T>(
 async function fetchIamToken(): Promise<string> {
   if (!credentials) throw new Error('Missing credentials.')
 
-  const response = await fetch('https://api.justrelate.com/iam/token', {
+  const response = await fetch('/jr-api/iam/token', {
     method: 'POST',
     headers: {
       Authorization: `Basic ${btoa(
