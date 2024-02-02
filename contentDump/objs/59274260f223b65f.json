@@ -41,14 +41,14 @@
   "_first_published_at": "20230609092828",
   "_id": "59274260f223b65f",
   "_language": "en",
-  "_last_changed": "20240131120044",
+  "_last_changed": "20240202075803",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89",
   "_permalink": null,
-  "_published_at": "20240131120105",
+  "_published_at": "20240202075822",
   "_restriction": null,
   "_site_id": "default",
-  "_version": "20240131120105000000000000000014de9b9c1e5fc4c7",
+  "_version": "202402020758220000000000000000997ec67a6dc87f1f",
   "_widget_pool": {
     "59469149": {
       "_obj_class": "SpaceWidget",
@@ -125,6 +125,12 @@
         "widgetlist",
         [
           "f6af6c89"
+        ]
+      ],
+      "nothing_found": [
+        "widgetlist",
+        [
+          "25d236b1"
         ]
       ]
     },
@@ -549,6 +555,12 @@
           ],
           "size": 2
         }
+      ],
+      "nothing_found": [
+        "widgetlist",
+        [
+          "3fc8b88e"
+        ]
       ]
     },
     "649b8c93": {
@@ -676,6 +688,12 @@
         "widgetlist",
         [
           "416d6782"
+        ]
+      ],
+      "nothing_found": [
+        "widgetlist",
+        [
+          "5d4a5e1b"
         ]
       ]
     },
@@ -1127,6 +1145,12 @@
           ],
           "size": 2
         }
+      ],
+      "nothing_found": [
+        "widgetlist",
+        [
+          "710d2ad6"
+        ]
       ]
     },
     "2153ce55": {
@@ -1209,6 +1233,50 @@
         [
           "e2382304"
         ]
+      ]
+    },
+    "5d4a5e1b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No tickets available.</p>"
+      ]
+    },
+    "25d236b1": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No quotes available.</p>"
+      ]
+    },
+    "3fc8b88e": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No orders available.</p>"
+      ]
+    },
+    "710d2ad6": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No documents available.</p>"
       ]
     }
   },

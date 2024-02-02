@@ -22,14 +22,14 @@
   "_first_published_at": "20240130134453",
   "_id": "78d1e6ccd971faf3",
   "_language": "en",
-  "_last_changed": "20240131083022",
+  "_last_changed": "20240201111216",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/c6db14f1d824259c",
   "_permalink": "documents",
-  "_published_at": "20240131083029",
+  "_published_at": "20240201120128",
   "_restriction": null,
   "_site_id": "default",
-  "_version": "202401310830290000000000000000703e6f56d6de51ae",
+  "_version": "2024020112012800000000000000007608273b42cb9489",
   "_widget_pool": {
     "ed8d9e2b": {
       "_obj_class": "DataListWidget",
@@ -53,6 +53,12 @@
         "widgetlist",
         [
           "d57772e8"
+        ]
+      ],
+      "nothing_found": [
+        "widgetlist",
+        [
+          "ffa34a78"
         ]
       ]
     },
@@ -352,6 +358,17 @@
       "attribute_value": [
         "string",
         "svg"
+      ]
+    },
+    "ffa34a78": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No documents available.</p>"
       ]
     }
   },

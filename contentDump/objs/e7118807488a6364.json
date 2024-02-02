@@ -22,14 +22,14 @@
   "_first_published_at": "20240112090022",
   "_id": "e7118807488a6364",
   "_language": "en",
-  "_last_changed": "20240131093625",
+  "_last_changed": "20240201120037",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/125f0003cf11c725/e7118807488a6364",
   "_permalink": null,
-  "_published_at": "20240131094806",
+  "_published_at": "20240201120128",
   "_restriction": null,
   "_site_id": "default",
-  "_version": "20240131094806000000000000000054fd0ed7678870e1",
+  "_version": "2024020112012800000000000000007608273b42cb9489",
   "_widget_pool": {
     "62381b16": {
       "_obj_class": "DataLabelWidget",
@@ -71,10 +71,6 @@
     },
     "dd35dc41": {
       "_obj_class": "DataFormContainerWidget",
-      "submitted_message": [
-        "string",
-        "Message received."
-      ],
       "content": [
         "widgetlist",
         [
