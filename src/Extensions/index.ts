@@ -1,3 +1,5 @@
-import.meta.glob(['./**/*.ts', './**/*.tsx'], { eager: true })
+import.meta.glob(['./**/*Dialog.tsx', './**/*EditingConfig.ts'], {
+  eager: true,
+})
 
 export {}
