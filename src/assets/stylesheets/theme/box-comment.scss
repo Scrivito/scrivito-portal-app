@@ -1,0 +1,95 @@
+.box-comment {
+  display: flex;
+
+  .avatar {
+    padding: 0 1rem 0 0;
+    img {
+      width: 60px;
+      border-radius: 5px;
+      box-shadow: 0 0.375rem 2rem 0 rgba(140, 152, 164, 0.3);
+    }
+    img[src*='.svg'] {
+      padding: 10px;
+      box-shadow: none;
+    }
+  }
+
+  .card {
+    position: relative;
+    overflow: visible;
+
+    &:after {
+      right: 100%;
+      top: 20px;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-color: rgba(255, 255, 255, 0);
+      border-right-color: #fff;
+      border-width: 10px;
+      margin-top: -10px;
+    }
+  }
+
+  &.staff .avatar:after {
+    content: 'Staff';
+    padding: 2px 0;
+    color: var(--bs-primary);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 9px;
+    font-weight: bold;
+    width: 60px;
+  }
+  &.colleague .avatar:after {
+    content: 'Colleague';
+    padding: 2px 0;
+    color: var(--bs-secondary);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 9px;
+    font-weight: bold;
+    width: 60px;
+  }
+
+  &.staff,
+  &.colleague {
+    flex-flow: row-reverse;
+
+    .avatar {
+      padding: 0 0 0 1rem;
+      display: flex;
+      flex-flow: column;
+    }
+    .card:after {
+      left: 100%;
+      border-right-color: transparent;
+      border-left-color: #fff;
+      border-width: 10px;
+      margin-top: -10px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .box-comment.staff .avatar:after,
+  .box-comment.colleague .avatar:after {
+    font-size: 8px;
+    width: 50px;
+  }
+  .box-comment .avatar {
+    img {
+      width: 50px;
+    }
+    img[src*='.svg'] {
+      padding: 4px;
+    }
+
+    .bi {
+      font-size: 29px;
+    }
+  }
+}

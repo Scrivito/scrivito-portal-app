@@ -14,6 +14,8 @@ import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget, ImageWidgetInstance } from './ImageWidgetClass'
 import './ImageWidget.scss'
 import { ensureString } from '../../utils/ensureString'
+import { isDataBinary } from '../../utils/dataBinaryToUrl'
+import { DataBinaryImage } from '../../Components/DataBinaryImage'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -82,8 +84,18 @@ const ImageComponent = connect(function ImageComponent({
     )
   }
 
-  const attributeValue = ensureString(dataItem.get(attributeName))
-  if (!attributeValue) return null
+  const attributeValue = dataItem.get(attributeName)
+  if (isDataBinary(attributeValue)) {
+    return (
+      <DataBinaryImage
+        dataBinary={attributeValue}
+        alt={widgetAlternativeText}
+        className={className}
+      />
+    )
+  }
+
+  if (typeof attributeValue !== 'string') return null
 
   return (
     <img

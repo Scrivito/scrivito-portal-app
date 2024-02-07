@@ -10,7 +10,7 @@ provideEditingConfig(FormInputFieldWidget, {
   title: 'Form Input Field',
   thumbnail: Thumbnail,
   attributes: {
-    required: { title: 'Mandatory' },
+    required: { title: 'Mandatory?' },
     type: {
       title: 'Input type',
       values: [

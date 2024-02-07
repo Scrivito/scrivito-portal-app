@@ -4,6 +4,7 @@ import {
   urlFor,
   ContentTag,
   InPlaceEditingOff,
+  getInstanceId,
 } from 'scrivito'
 import { scrollIntoView } from './utils/scrollIntoView'
 import { getHistory } from '../../config/history'
@@ -12,9 +13,7 @@ import './FormContainerWidget.scss'
 import { FormContainerWidget } from './FormContainerWidgetClass'
 
 provideComponent(FormContainerWidget, ({ widget }) => {
-  const formEndpoint = `https://api.justrelate.com/neoletter/instances/${
-    import.meta.env.SCRIVITO_TENANT
-  }/form_submissions`
+  const formEndpoint = `https://api.justrelate.com/neoletter/instances/${getInstanceId()}/form_submissions`
 
   const [browserLocation, setBrowserLocation] = useState<string | null>(null)
   useEffect(() => {
