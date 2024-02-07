@@ -2,10 +2,8 @@ import {
   ContentTag,
   DataItem,
   InPlaceEditingOff,
-  Link,
   WidgetTag,
   load,
-  navigateTo,
   provideComponent,
   urlForDataItem,
   useDataItem,
@@ -16,6 +14,7 @@ import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
+import { getHistory } from '../../config/history'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -90,8 +89,9 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     if (submittedMessage) toast.success(submittedMessage)
 
     if (redirectAfterSubmit) {
+      // TODO: Remove workaround once the issue #10629 is fixed
       const url = await load(() => urlForDataItem(targetDataItem))
-      if (url) navigateTo(new Link({ url }))
+      if (url) getHistory()?.push(url)
     }
   }
 })
