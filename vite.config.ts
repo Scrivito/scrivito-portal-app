@@ -72,6 +72,13 @@ export default defineConfig(({ mode }) => {
             path.replace(/^\/pisa-api\/6f92d14ea3cff045e90ac77ea98e7848/, ''),
         },
 
+        '/pisa-api/7a35854b3b22d155d4453ca01bc6f4b9': {
+          target: 'https://web079.crm.pisasales.de/portal',
+          changeOrigin: true,
+          rewrite: (path) =>
+            path.replace(/^\/pisa-api\/7a35854b3b22d155d4453ca01bc6f4b9/, ''),
+        },
+
         '/pisa-api/b74df6074bfe11bf857a233c4be21103': {
           target: 'https://web100.crm.pisasales.de/portal',
           changeOrigin: true,
