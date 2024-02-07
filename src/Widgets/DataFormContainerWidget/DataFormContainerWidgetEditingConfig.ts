@@ -9,8 +9,9 @@ provideEditingConfig(DataFormContainerWidget, {
   thumbnail: Thumbnail,
   attributes: {
     redirectAfterSubmit: {
-      title: 'Redirect after submit',
-      description: 'Leave the attribute empty for no redirection.',
+      title: 'Redirect after submit?',
+      description:
+        'Redirects to the details page of this data item after create/update.',
     },
     submittedMessage: {
       title: 'Submitted message',
@@ -33,5 +34,6 @@ provideEditingConfig(DataFormContainerWidget, {
       new DataFormInputFieldWidget({}),
       new DataFormSubmitButtonWidget({}),
     ],
+    redirectAfterSubmit: true,
   },
 })
