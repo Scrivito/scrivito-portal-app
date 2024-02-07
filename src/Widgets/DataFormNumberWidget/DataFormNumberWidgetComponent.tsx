@@ -1,7 +1,6 @@
 import {
   ContentTag,
   InPlaceEditingOff,
-  isInPlaceEditingActive,
   provideComponent,
   useDataItem,
 } from 'scrivito'
@@ -13,8 +12,6 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
   const id = ['DataFormNumberWidget', widget.id()].join('-')
-  const labelOptions: { htmlFor?: string } = {}
-  if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)
@@ -28,7 +25,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
         attribute="label"
         tag="label"
         className="form-label"
-        {...labelOptions}
+        htmlFor={id}
       />
       {widget.get('required') ? (
         <OverlayTrigger
