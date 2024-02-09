@@ -7,7 +7,8 @@ import { IconComponent } from '../../Components/Icon'
 provideComponent(DataIconWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
-  const attributeValue = dataItem?.get(widget.get('attributeName'))
+  const attributeValue =
+    dataItem?.get(widget.get('attributeName'))?.toString() || ''
 
   const size = widget.get('size') || 'bi-2x'
 
