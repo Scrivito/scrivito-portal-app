@@ -61,7 +61,7 @@ provideLayoutComponent(SubnavigationOverview, ({ page }) => {
           <Breadcrumb />
         </div>
       </section>
-      <section className="py-4 bg-light-grey">
+      <section className="py-2 bg-light-grey">
         <div className="container">
           <div className="row">
             <div className="col-lg-2">

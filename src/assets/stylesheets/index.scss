@@ -709,7 +709,9 @@ section .card {
     .h5,
     .h6,
     th,
-    td {
+    td,
+    .form-label,
+    .text-mandatory {
       color: rgba(255, 255, 255, 0.9) !important;
     }
     .btn-outline-primary,
@@ -828,7 +830,7 @@ header section {
   --bs-card-border-width: 0;
   --bs-card-border-color: rgba(108, 117, 140, 0.15);
   --bs-card-border-radius: 0.5rem;
-  --bs-card-box-shadow: 0 0.375rem 2.5rem 0 rgba(140, 152, 164, 0.3);
+  --bs-card-box-shadow: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
   --bs-card-inner-border-radius: 0.4375rem;
   --bs-card-cap-bg: transparent;
   box-shadow: var(--bs-card-box-shadow);
@@ -1443,6 +1445,7 @@ section:focus >,
   .navbar-meta,
   .navbar-main {
     flex-flow: column;
+    margin-top: 12px;
 
     .navbar-nav {
       margin: 0 !important;
@@ -1561,7 +1564,8 @@ header .navbar.navbar-expand-lg {
   font-size: 0.9rem;
   line-height: 1;
   color: var(--bs-navbar-color);
-  background: var(--light-grey);
+  background: #fff;
+  box-shadow: 0 0.375rem 2.5rem 0 rgba(140, 152, 164, 0.3);
 }
 .navbar-toggler .navbar-toggler-toggled {
   display: none;
@@ -1643,6 +1647,14 @@ header .navbar.navbar-expand-lg {
   display: block;
 }
 
+.navbar-toggler.collapsed .bi-list:before {
+  content: '\f479';
+}
+
+.navbar-toggler .bi-list:before {
+  content: '\f659';
+}
+
 /* .nav-pills
  =================================================================== */
 
@@ -1691,4 +1703,23 @@ header section:after {
 
 header.portal-only section:after {
   display: none;
+}
+
+/* breadcrumb
+ =================================================================== */
+
+.breadcrumb-item {
+  color: var(--headline);
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+
+  &.active {
+    color: var(--bs-primary);
+  }
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  font-family: bootstrap-icons !important;
+  content: '\f285';
 }
