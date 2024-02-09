@@ -27,13 +27,17 @@ export const GeneralMarketingConsent = provideDataItem(
         {
           data: {
             source: 'self-service portal',
-            state: isConsentGiven ? 'given' : 'revoked',
+            state: isTrue(isConsentGiven) ? 'given' : 'revoked',
           },
         },
       )
     },
   },
 )
+
+function isTrue(value: unknown) {
+  return value === true || value === 'true'
+}
 
 async function fetchMySubscribedTopicIds() {
   return (
