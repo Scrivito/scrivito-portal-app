@@ -22,6 +22,19 @@ export default defineConfig(({ mode }) => {
           main: resolve(__dirname, 'index.html'),
           _scrivito_extensions: resolve(__dirname, '_scrivito_extensions.html'),
         },
+        // Avoid "Failed to fetch dynamically imported module" error for assets filenames with "%"
+        output: {
+          assetFileNames: ({ name }) => {
+            return name.includes('%')
+              ? 'assets/[hash][extname]'
+              : 'assets/[name]-[hash][extname]'
+          },
+          chunkFileNames: ({ name }) => {
+            return name.includes('%')
+              ? 'assets/[hash].js'
+              : 'assets/[name]-[hash].js'
+          },
+        },
       },
     },
     define: {
