@@ -9,4 +9,4 @@ updates:
           - 'minor'
           - 'patch'
     schedule:
-      interval: 'weekly'
+      interval: 'monthly'
