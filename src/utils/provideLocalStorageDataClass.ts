@@ -36,7 +36,11 @@ export function provideLocalStorageDataClass(
             : items.filter((item) =>
                 Object.entries(filters).every(
                   ([filterAttribute, filterValue]) =>
-                    item[filterAttribute] === filterValue,
+                    item[filterAttribute] === filterValue ||
+                    (filterValue === 'true' &&
+                      item[filterAttribute] === true) ||
+                    (filterValue === 'false' &&
+                      item[filterAttribute] === false),
                 ),
               )
 

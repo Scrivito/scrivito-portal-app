@@ -8,5 +8,6 @@ provideEditingConfig(TicketMessage, {
     text: { title: 'Text' },
     createdBy: { title: 'Created by (ID)' },
     createdAt: { title: 'Created at' },
+    attachments: { title: 'Attachments' },
   },
 })
