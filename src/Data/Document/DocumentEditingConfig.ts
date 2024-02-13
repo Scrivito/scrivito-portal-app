@@ -6,9 +6,11 @@ provideEditingConfig(Document, {
   attributes: {
     title: { title: 'Title' },
     number: { title: 'Number' },
-    type: { title: 'Type' },
+    type: { title: 'Type (enum)' },
+    typeLocalized: { title: 'Type (localized)' },
     createdAt: { title: 'Created at' },
-    language: { title: 'Language' },
+    language: { title: 'Language (enum)' },
+    languageLocalized: { title: 'Language (localized)' },
     format: { title: 'Format' },
     size: { title: 'Size' },
     version: { title: 'Version' },
