@@ -4,8 +4,8 @@ import { Subscription } from './SubscriptionDataClass'
 provideEditingConfig(Subscription, {
   title: 'Subscription',
   attributes: {
+    consent: { title: 'Consent' },
     description: { title: 'Description' },
-    isConsentGiven: { title: 'Consent given?' },
     title: { title: 'Title' },
   },
 })

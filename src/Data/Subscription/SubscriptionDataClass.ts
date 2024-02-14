@@ -27,7 +27,7 @@ export const Subscription = provideDataClass('Subscription', {
       return {
         results: myTopics.map(({ id, description, title }) => ({
           id,
-          isConsentGiven: mySubscribedTopicIds.includes(id),
+          consent: mySubscribedTopicIds.includes(id) ? 'given' : 'notGiven',
           description,
           title,
         })),
@@ -42,27 +42,23 @@ export const Subscription = provideDataClass('Subscription', {
 
       return {
         ...topic,
-        isConsentGiven: mySubscribedTopicIds.includes(topic.id),
+        consent: mySubscribedTopicIds.includes(topic.id) ? 'given' : 'notGiven',
       }
     },
     async update(id: string, params) {
-      const { isConsentGiven } = params
+      const { consent } = params
       return unstable_JrRestApi.put(
         `neoletter/instances/${getInstanceId()}/my/consents/${id}`,
         {
           data: {
             source: 'self-service portal',
-            state: isTrue(isConsentGiven) ? 'given' : 'revoked',
+            state: consent === 'given' ? 'given' : 'revoked',
           },
         },
       )
     },
   },
 })
-
-function isTrue(value: unknown) {
-  return value === true || value === 'true'
-}
 
 async function fetchMySubscribedTopicIds() {
   return (
