@@ -124,7 +124,12 @@ function valueFromElement(
 ) {
   if (element instanceof HTMLSelectElement) return element.value
   if (element instanceof HTMLTextAreaElement) return element.value
-  if (element.type === 'checkbox') return element.checked
+
+  if (element.type === 'checkbox') {
+    return element.checked
+      ? element.value || true
+      : element.dataset.valueUnchecked || false
+  }
 
   if (element.type === 'number') {
     const numberValue = element.valueAsNumber

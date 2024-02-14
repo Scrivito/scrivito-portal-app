@@ -15,11 +15,13 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const labelOptions: { htmlFor?: string } = {}
   if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
+  const dataForNo = widget.get('dataForNo')
+  const dataForYes = widget.get('dataForYes')
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)
   const defaultChecked =
-    typeof attributeValue === 'boolean'
-      ? attributeValue
+    attributeValue !== null
+      ? (dataForYes || true) === attributeValue
       : widget.get('defaultValue')
 
   return (
@@ -30,6 +32,8 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
         type="checkbox"
         required={widget.get('required')}
         defaultChecked={defaultChecked}
+        value={dataForYes || undefined}
+        data-value-unchecked={dataForNo || undefined}
       />{' '}
       <ContentTag
         content={widget}
