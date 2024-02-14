@@ -11,13 +11,13 @@ export const GeneralMarketingConsent = provideDataItem(
     async get() {
       const mySubscribedTopicIds = await fetchMySubscribedTopicIds()
 
-      /**
-       * The ID `general` (`/my/consents/general`)
-       * is returned as an empty string in `/my/subscriptions`.
-       * */
-      const GENERAL_TOPIC_ID = ''
+      const GENERAL_TOPIC_ID = 'general'
+      /** Can be removed when the API returns `general` */
+      const LEGACY_GENERAL_TOPIC_ID = ''
 
-      const isConsentGiven = mySubscribedTopicIds.includes(GENERAL_TOPIC_ID)
+      const isConsentGiven =
+        mySubscribedTopicIds.includes(GENERAL_TOPIC_ID) ||
+        mySubscribedTopicIds.includes(LEGACY_GENERAL_TOPIC_ID)
 
       return { consent: isConsentGiven ? 'given' : 'notGiven' }
     },
