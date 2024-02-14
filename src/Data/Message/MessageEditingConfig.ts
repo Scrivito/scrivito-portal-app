@@ -1,10 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
-import { TicketMessage } from './TicketMessageDataClass'
+import { Message } from './MessageDataClass'
 
-provideEditingConfig(TicketMessage, {
-  title: 'Ticket Message',
+provideEditingConfig(Message, {
+  title: 'Message',
   attributes: {
-    ticketId: { title: 'Ticket ID' },
+    subjectId: { title: 'Subject ID' },
     text: { title: 'Text' },
     createdBy: { title: 'Created by (ID)' },
     createdAt: { title: 'Created at' },
