@@ -24,11 +24,13 @@ provideEditingConfig(DataFormBooleanWidget, {
         'Only relevant for a create form. An update form will utilize the existing boolean value.',
     },
     helpText: { title: 'Help text' },
+    submitOnChange: { title: 'Submit on change?' },
   },
   properties: [
     'attributeName',
     'label',
     'required',
+    'submitOnChange',
     'helpText',
     'defaultValue',
   ],

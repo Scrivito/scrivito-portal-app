@@ -15,6 +15,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const labelOptions: { htmlFor?: string } = {}
   if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
+  const submitOnChange = widget.get('submitOnChange')
   const dataForNo = widget.get('dataForNo')
   const dataForYes = widget.get('dataForYes')
   const attributeName = widget.get('attributeName')
@@ -34,6 +35,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
         defaultChecked={defaultChecked}
         value={dataForYes || undefined}
         data-value-unchecked={dataForNo || undefined}
+        onChange={submitOnChange ? submitForm : undefined}
       />{' '}
       <ContentTag
         content={widget}
@@ -76,3 +78,9 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
     </div>
   )
 })
+
+function submitForm(e: React.ChangeEvent<HTMLInputElement>) {
+  e.target
+    ?.closest('form')
+    ?.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }))
+}

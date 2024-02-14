@@ -11,6 +11,7 @@ export const DataFormBooleanWidget = provideWidgetClass(
       helpText: 'html',
       label: 'string',
       required: 'boolean',
+      submitOnChange: 'boolean',
     },
   },
 )
