@@ -15,6 +15,9 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const labelOptions: { htmlFor?: string } = {}
   if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
+  const className =
+    widget.get('style') === 'switch' ? 'form-check form-switch' : 'form-check'
+
   const submitOnChange = widget.get('submitOnChange')
   const dataForNo = widget.get('dataForNo')
   const dataForYes = widget.get('dataForYes')
@@ -26,9 +29,13 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
       : widget.get('defaultValue')
 
   return (
-    <div className="mb-3" key={[id, attributeName, defaultChecked].join('-')}>
+    <div
+      className={['mb-3', className].join(' ')}
+      key={[id, attributeName, defaultChecked].join('-')}
+    >
       <input
         id={id}
+        className="form-check-input"
         name={attributeName}
         type="checkbox"
         required={widget.get('required')}
@@ -41,7 +48,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
         content={widget}
         attribute="label"
         tag="label"
-        className="form-label"
+        className="form-label form-check-label"
         {...labelOptions}
       />
       {widget.get('required') ? (
