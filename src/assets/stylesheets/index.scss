@@ -100,6 +100,7 @@
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
+  text-decoration: none;
 }
 .btn-check + .btn:hover {
   color: var(--bs-btn-color);
@@ -405,26 +406,36 @@ div {
 
 a {
   color: var(--bs-primary);
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:hover,
 a:active,
 a:focus,
 a:visited {
-  text-decoration: none;
+  text-decoration: underline;
   outline: none !important;
 }
 button:focus {
   outline: none !important;
 }
 
+.box-attachment,
+footer a,
+nav a,
+.nav a,
+.navbar a,
+.nav-bordered a,
+.card a {
+  text-decoration: none !important;
+}
+
 ::selection {
-  color: #333;
-  background: var(--bs-warning);
+  background: var(--bs-secondary);
+  color: #fff;
 }
 ::-moz-selection {
-  color: #333;
-  background: var(--bs-warning);
+  background: var(--bs-secondary);
+  color: #fff;
 }
 
 .text-clamp {
@@ -439,7 +450,8 @@ button:focus {
 mark {
   padding: 0 3px;
   border-radius: 3px;
-  background: var(--bs-warning);
+  background: var(--bs-secondary);
+  color: #fff;
   display: inline-block;
 }
 
@@ -513,6 +525,7 @@ main {
 }
 .text-multiline {
   white-space: pre-line;
+  word-break: break-word;
 }
 .opacity-40 {
   opacity: 0.4;

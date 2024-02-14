@@ -3,6 +3,7 @@
 
   .avatar {
     padding: 0 1rem 0 0;
+    min-width: 76px;
     img {
       width: 60px;
       border-radius: 5px;
@@ -81,8 +82,9 @@
     width: 50px;
   }
   .box-comment .avatar {
+    min-width: 45px;
     img {
-      width: 50px;
+      width: 29px;
     }
     img[src*='.svg'] {
       padding: 4px;
