@@ -1,16 +1,9 @@
-import {
-  ContentTag,
-  InPlaceEditingOff,
-  isInPlaceEditingActive,
-  provideComponent,
-} from 'scrivito'
+import { ContentTag, InPlaceEditingOff, provideComponent } from 'scrivito'
 import { DataFormUploadWidget } from './DataFormUploadWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 
 provideComponent(DataFormUploadWidget, ({ widget }) => {
   const id = ['DataFormUploadWidget', widget.id()].join('-')
-  const labelOptions: { htmlFor?: string } = {}
-  if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
   const attributeName = widget.get('attributeName')
 
@@ -21,7 +14,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
         attribute="label"
         tag="label"
         className="form-label"
-        {...labelOptions}
+        htmlFor={id}
       />
 
       {widget.get('required') ? (

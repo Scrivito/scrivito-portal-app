@@ -1,7 +1,6 @@
 import {
   ContentTag,
   InPlaceEditingOff,
-  isInPlaceEditingActive,
   provideComponent,
   useDataItem,
 } from 'scrivito'
@@ -12,8 +11,6 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
   const id = ['DataFormBooleanWidget', widget.id()].join('-')
-  const labelOptions: { htmlFor?: string } = {}
-  if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
   const className =
     widget.get('style') === 'switch' ? 'form-check form-switch' : 'form-check'
@@ -49,7 +46,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
         attribute="label"
         tag="label"
         className="form-label form-check-label"
-        {...labelOptions}
+        htmlFor={id}
       />
       {widget.get('required') ? (
         <OverlayTrigger

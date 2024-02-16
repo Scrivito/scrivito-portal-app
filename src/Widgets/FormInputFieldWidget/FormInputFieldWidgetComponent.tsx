@@ -1,9 +1,4 @@
-import {
-  ContentTag,
-  InPlaceEditingOff,
-  isInPlaceEditingActive,
-  provideComponent,
-} from 'scrivito'
+import { ContentTag, InPlaceEditingOff, provideComponent } from 'scrivito'
 import { Popover, OverlayTrigger } from 'react-bootstrap'
 import { getFieldName } from '../FormContainerWidget/utils/getFieldName'
 import { isCustomType } from '../FormContainerWidget/utils/isCustomType'
@@ -13,8 +8,6 @@ provideComponent(FormInputFieldWidget, ({ widget }) => {
   const id = `form_text_input_widget_${widget.id()}`
 
   const fieldName = getFieldName(widget)
-  const labelOptions: { htmlFor?: string } = {}
-  if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
   return (
     <div className="mb-3">
@@ -23,7 +16,7 @@ provideComponent(FormInputFieldWidget, ({ widget }) => {
         attribute="label"
         tag="label"
         className="form-label"
-        {...labelOptions}
+        htmlFor={id}
       />
       {widget.get('required') ? (
         <OverlayTrigger

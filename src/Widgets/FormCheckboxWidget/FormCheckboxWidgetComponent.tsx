@@ -1,18 +1,10 @@
-import {
-  provideComponent,
-  isInPlaceEditingActive,
-  ContentTag,
-  InPlaceEditingOff,
-} from 'scrivito'
+import { provideComponent, ContentTag, InPlaceEditingOff } from 'scrivito'
 import { Popover, OverlayTrigger } from 'react-bootstrap'
 import { getFieldName } from '../FormContainerWidget/utils/getFieldName'
 import { FormCheckboxWidget } from './FormCheckboxWidgetClass'
 
 provideComponent(FormCheckboxWidget, ({ widget }) => {
   const id = `form_checkbox_widget_${widget.id()}`
-
-  const labelOptions: { htmlFor?: string } = {}
-  if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
   return (
     <div className="form-check mb-3">
@@ -29,7 +21,7 @@ provideComponent(FormCheckboxWidget, ({ widget }) => {
         content={widget}
         attribute="label"
         tag="label"
-        {...labelOptions}
+        htmlFor={id}
       />
       {widget.get('required') ? (
         <OverlayTrigger

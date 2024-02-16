@@ -2,7 +2,6 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   ContentTag,
   InPlaceEditingOff,
-  isInPlaceEditingActive,
   provideComponent,
   useDataItem,
 } from 'scrivito'
@@ -13,8 +12,6 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
   const id = ['DataFormOptionsWidget', widget.id()].join('-')
-  const labelOptions: { htmlFor?: string } = {}
-  if (!isInPlaceEditingActive()) labelOptions.htmlFor = id
 
   const attributeName = widget.get('attributeName')
   const attributeValue = ensureString(dataItem?.get(attributeName))
@@ -31,7 +28,7 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
         attribute="label"
         tag="label"
         className="form-label"
-        {...labelOptions}
+        htmlFor={id}
       />
       {widget.get('required') ? (
         <OverlayTrigger

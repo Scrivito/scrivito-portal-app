@@ -54,7 +54,7 @@ provideComponent(Product, ({ page }) => {
 
                   <CartActionButton product={page} />
 
-                  <ul className="nav nav-pills">
+                  <ul className="nav nav-underline">
                     <li className="nav-item">
                       <a className="nav-link" href="#description">
                         Description
@@ -186,7 +186,7 @@ const CartActionButton = connect(function CartActionButton({
         style={{ pointerEvents: 'auto' }}
         title={`Please log in to add "${productTitle}" to cart.`}
       >
-        Add to cart
+        <i className="bi bi-cart"></i>Add to cart
       </button>
     )
   }
@@ -200,7 +200,7 @@ const CartActionButton = connect(function CartActionButton({
           toast.info(`Removed "${productTitle}" from cart.`)
         }}
       >
-        Remove from cart
+        <i className="bi bi-x-lg"></i>Remove from cart
       </button>
     )
   }
@@ -213,7 +213,7 @@ const CartActionButton = connect(function CartActionButton({
         toast.success(`Added "${productTitle}" to cart.`)
       }}
     >
-      Add to cart
+      <i className="bi bi-cart"></i>Add to cart
     </button>
   )
 })
