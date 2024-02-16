@@ -12,9 +12,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
 
   const id = ['DataFormBooleanWidget', widget.id()].join('-')
 
-  const className =
-    widget.get('style') === 'switch' ? 'form-check form-switch' : 'form-check'
-
+  const style = widget.get('style')
   const submitOnChange = widget.get('submitOnChange')
   const dataForNo = widget.get('dataForNo')
   const dataForYes = widget.get('dataForYes')
@@ -27,7 +25,9 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
 
   return (
     <div
-      className={['mb-3', className].join(' ')}
+      className={['mb-3', 'form-check']
+        .concat(style === 'switch' ? 'form-switch' : [])
+        .join(' ')}
       key={[id, attributeName, defaultChecked].join('-')}
     >
       <input
