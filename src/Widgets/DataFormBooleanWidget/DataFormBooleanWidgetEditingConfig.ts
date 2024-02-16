@@ -26,6 +26,7 @@ provideEditingConfig(DataFormBooleanWidget, {
     helpText: { title: 'Help text' },
     style: {
       title: 'Style',
+      description: 'Default: Checkbox',
       values: [
         { value: 'check', title: 'Checkbox' },
         { value: 'switch', title: 'Switch' },
