@@ -2,7 +2,6 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   ContentTag,
   InPlaceEditingOff,
-  isInPlaceEditingActive,
   provideComponent,
   useDataItem,
 } from 'scrivito'
@@ -21,7 +20,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
         attribute="label"
         tag="label"
         className="form-label"
-        htmlFor={isInPlaceEditingActive() ? undefined : key}
+        htmlFor={key}
       />
       {widget.get('required') ? (
         <OverlayTrigger
