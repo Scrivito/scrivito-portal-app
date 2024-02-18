@@ -12,7 +12,6 @@ export const DataFormBooleanWidget = provideWidgetClass(
       label: 'string',
       required: 'boolean',
       style: ['enum', { values: ['check', 'switch'] }],
-      submitOnChange: 'boolean',
     },
   },
 )
