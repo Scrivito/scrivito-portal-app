@@ -14,54 +14,29 @@ interface Topic {
 export const Subscription = provideDataClass('Subscription', {
   connection: {
     async index() {
-      const myTopics = (
-        sanitizeResults(
-          await unstable_JrRestApi.fetch(
-            `neoletter/instances/${getInstanceId()}/my/topics`,
-          ),
-        ) as { results: Topic[] }
-      ).results
-
-      const mySubscribedTopicIds = await fetchMySubscribedTopicIds()
-
-      return {
-        results: myTopics.map(({ id, description, title }) => ({
-          id,
-          isConsentGiven: mySubscribedTopicIds.includes(id),
-          description,
-          title,
-        })),
-      }
+      return { results: await fetchSubscriptions() }
     },
     async get(id: string) {
-      const topic = (await unstable_JrRestApi.fetch(
-        `neoletter/instances/${getInstanceId()}/topics/${id}`,
-      )) as Topic
-
-      const mySubscribedTopicIds = await fetchMySubscribedTopicIds()
-
-      return {
-        ...topic,
-        isConsentGiven: mySubscribedTopicIds.includes(topic.id),
-      }
+      return (await fetchSubscriptions()).find((sub) => sub.id === id) || null
     },
     async update(id: string, params) {
-      const { isConsentGiven } = params
-      return unstable_JrRestApi.put(
+      await unstable_JrRestApi.put(
         `neoletter/instances/${getInstanceId()}/my/consents/${id}`,
         {
           data: {
             source: 'self-service portal',
-            state: isConsentGiven ? 'given' : 'revoked',
+            state: params.isConsentGiven ? 'given' : 'revoked',
           },
         },
       )
+
+      return params
     },
   },
 })
 
-async function fetchMySubscribedTopicIds() {
-  return (
+async function fetchSubscriptions() {
+  const subscribedTopicIds = (
     sanitizeResults(
       await sanitizeProfileNotFound(() =>
         unstable_JrRestApi.fetch(
@@ -70,6 +45,21 @@ async function fetchMySubscribedTopicIds() {
       ),
     ) as { results: { topic_id: string }[] }
   ).results.map(({ topic_id }) => topic_id)
+
+  const topics = (
+    sanitizeResults(
+      await unstable_JrRestApi.fetch(
+        `neoletter/instances/${getInstanceId()}/my/topics`,
+      ),
+    ) as { results: Topic[] }
+  ).results
+
+  return topics.map(({ id, description, title }) => ({
+    description,
+    id,
+    isConsentGiven: subscribedTopicIds.includes(id),
+    title,
+  }))
 }
 
 /** Can be removed when the API responds as documented */
