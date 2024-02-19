@@ -13,14 +13,9 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const id = ['DataFormBooleanWidget', widget.id()].join('-')
 
   const style = widget.get('style')
-  const dataForNo = widget.get('dataForNo')
-  const dataForYes = widget.get('dataForYes')
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)
-  const defaultChecked =
-    attributeValue !== null
-      ? (dataForYes || true) === attributeValue
-      : widget.get('defaultValue')
+  const defaultChecked = !!(attributeValue ?? widget.get('defaultValue'))
 
   return (
     <div
@@ -36,8 +31,6 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
         type="checkbox"
         required={widget.get('required')}
         defaultChecked={defaultChecked}
-        value={dataForYes || undefined}
-        data-value-unchecked={dataForNo || undefined}
       />{' '}
       <ContentTag
         content={widget}
