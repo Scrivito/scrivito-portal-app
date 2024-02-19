@@ -12,16 +12,16 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
 
   const id = ['DataFormBooleanWidget', widget.id()].join('-')
 
-  const style = widget.get('style')
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)
   const defaultChecked = !!(attributeValue ?? widget.get('defaultValue'))
 
+  const classNames = ['mb-3', 'form-check']
+  if (widget.get('style') === 'switch') classNames.push('form-switch')
+
   return (
     <div
-      className={['mb-3', 'form-check']
-        .concat(style === 'switch' ? 'form-switch' : [])
-        .join(' ')}
+      className={classNames.join(' ')}
       key={[id, attributeName, defaultChecked].join('-')}
     >
       <input
