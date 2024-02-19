@@ -1,7 +1,10 @@
 export async function dataBinaryToUrl(
   binary: DataBinary,
 ): Promise<{ url: string; maxAge: number }> {
-  if (binary.url) return { url: binary.url, maxAge: Number.MAX_VALUE }
+  if (isUrlDataBinary(binary)) {
+    return { url: binary.url, maxAge: Number.MAX_VALUE }
+  }
+
   if (binary.dataBase64) {
     const dataPrefix = `data:${binary.contentType};base64,`
     return {
@@ -13,7 +16,13 @@ export async function dataBinaryToUrl(
   throw new Error('Not yet implemented!')
 }
 
-export interface DataBinary {
+export type DataBinary = UrlDataBinary | FullDataBinary
+
+interface UrlDataBinary {
+  url: string
+}
+
+export interface FullDataBinary {
   _id: string
   contentLength: number
   contentType: string
@@ -23,18 +32,36 @@ export interface DataBinary {
 }
 
 export function isDataBinary(item: unknown): item is DataBinary {
+  return isUrlDataBinary(item) || isFullDataBinary(item)
+}
+
+function isUrlDataBinary(item: unknown): item is UrlDataBinary {
   if (!item) return false
   if (typeof item !== 'object') return false
 
-  const pisaBinary = item as DataBinary
-  if (pisaBinary.url !== undefined && typeof pisaBinary.url !== 'string') {
+  const urlOnly = item as UrlDataBinary
+  return typeof urlOnly.url === 'string'
+}
+
+export function isFullDataBinary(item: unknown): item is FullDataBinary {
+  if (!item) return false
+  if (typeof item !== 'object') return false
+
+  const binary = item as FullDataBinary
+  if (binary.url !== undefined && typeof binary.url !== 'string') {
+    return false
+  }
+  if (
+    binary.dataBase64 !== undefined &&
+    typeof binary.dataBase64 !== 'string'
+  ) {
     return false
   }
 
   return (
-    typeof pisaBinary._id === 'string' &&
-    typeof pisaBinary.filename === 'string' &&
-    typeof pisaBinary.contentType === 'string' &&
-    typeof pisaBinary.contentLength === 'number'
+    typeof binary._id === 'string' &&
+    typeof binary.filename === 'string' &&
+    typeof binary.contentType === 'string' &&
+    typeof binary.contentLength === 'number'
   )
 }

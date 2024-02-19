@@ -62,23 +62,11 @@ function getImage({
   user?: DataItem | null
 }): DataBinary {
   if (!dataItem) {
-    return {
-      _id: '321',
-      url: ensureString(CurrentUser.get('picture')) || personCircle,
-      contentLength: 123,
-      contentType: 'image/jpeg',
-      filename: 'profile.jpg',
-    }
+    return { url: ensureString(CurrentUser.get('picture')) || personCircle }
   }
 
   const userImage = user?.get('image')
   if (isDataBinary(userImage)) return userImage
 
-  return {
-    _id: '1223',
-    url: personCircle,
-    contentLength: 123,
-    contentType: 'image/svg+xml',
-    filename: 'personCircle.svg',
-  }
+  return { url: personCircle }
 }

@@ -1,9 +1,9 @@
 import { ContentTag, provideComponent, useDataItem } from 'scrivito'
 import { DataAttachmentsWidget } from './DataAttachmentsWidgetClass'
 import {
-  DataBinary,
-  isDataBinary,
   dataBinaryToUrl,
+  FullDataBinary,
+  isFullDataBinary,
 } from '../../utils/dataBinaryToUrl'
 import { useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
@@ -11,8 +11,8 @@ import prettyBytes from 'pretty-bytes'
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
   const dataItem = useDataItem()
   const value = dataItem?.get(widget.get('attributeName'))
-  const attachments = isDataBinary(value) ? [value] : value
-  if (!isBinaryArray(attachments)) return null
+  const attachments = isFullDataBinary(value) ? [value] : value
+  if (!isFullBinaryArray(attachments)) return null
   if (attachments.length === 0) return null
 
   return (
@@ -32,7 +32,7 @@ provideComponent(DataAttachmentsWidget, ({ widget }) => {
   )
 })
 
-function Attachment({ attachment }: { attachment: DataBinary }) {
+function Attachment({ attachment }: { attachment: FullDataBinary }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
   const [trigger, setTrigger] = useState<number>(0)
 
@@ -72,7 +72,7 @@ function BoxPreviewContent({
   attachment,
 }: {
   binaryUrl?: string
-  attachment: DataBinary
+  attachment: FullDataBinary
 }) {
   if (binaryUrl && attachment.contentType.startsWith('image/')) {
     return <img src={binaryUrl} />
@@ -92,6 +92,6 @@ function BoxPreviewContent({
   return <i className={`bi ${iconName}`}></i>
 }
 
-function isBinaryArray(input: unknown): input is DataBinary[] {
-  return Array.isArray(input) && input.every(isDataBinary)
+function isFullBinaryArray(input: unknown): input is FullDataBinary[] {
+  return Array.isArray(input) && input.every(isFullBinaryArray)
 }
