@@ -19,17 +19,17 @@ export const GeneralMarketingConsent = provideDataItem(
         mySubscribedTopicIds.includes(GENERAL_TOPIC_ID) ||
         mySubscribedTopicIds.includes(LEGACY_GENERAL_TOPIC_ID)
 
-      return { consent: isConsentGiven ? 'given' : 'notGiven' }
+      return { isConsentGiven }
     },
     async update(params) {
-      const { consent } = params
+      const { isConsentGiven } = params
 
       return unstable_JrRestApi.put(
         `neoletter/instances/${getInstanceId()}/my/consents/general`,
         {
           data: {
             source: 'self-service portal',
-            state: consent === 'given' ? 'given' : 'revoked',
+            state: isConsentGiven ? 'given' : 'revoked',
           },
         },
       )
