@@ -4,6 +4,6 @@ import { GeneralMarketingConsent } from './GeneralMarketingConsentDataItem'
 provideEditingConfig(GeneralMarketingConsent, {
   title: 'General marketing consent',
   attributes: {
-    consent: { title: 'Consent' },
+    isConsentGiven: { title: 'Is consent given?' },
   },
 })

@@ -6,6 +6,6 @@ provideEditingConfig(Subscription, {
   attributes: {
     title: { title: 'Title' },
     description: { title: 'Description' },
-    consent: { title: 'Consent' },
+    isConsentGiven: { title: 'Is consent given?' },
   },
 })
