@@ -1,6 +1,6 @@
 import { provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
-import { isObject, orderBy } from 'lodash-es'
+import { orderBy } from 'lodash-es'
 
 interface DataItem {
   _id: string
@@ -155,7 +155,7 @@ function isDataItemRecord(input: unknown): input is Record<string, DataItem> {
 
 function isDataItem(item: unknown): item is DataItem {
   if (!item) return false
-  if (!isObject(item)) return false
+  if (typeof item !== 'object') return false
   return typeof (item as DataItem)._id === 'string'
 }
 

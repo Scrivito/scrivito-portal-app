@@ -1,4 +1,3 @@
-import { isObject } from 'lodash-es'
 import {
   currentUser,
   getInstanceId,
@@ -59,12 +58,15 @@ interface NeoletterData {
 }
 
 function isNeoletterData(input: unknown): input is NeoletterData {
-  if (!isObject(input)) return false
-  if (!isOptionalString((input as NeoletterData).company)) return false
-  if (!isOptionalString((input as NeoletterData).phone_number)) return false
-  if (!isOptionalString((input as NeoletterData).salutation)) return false
+  if (!input) return false
+  if (typeof input !== 'object') return false
 
-  return true
+  const item = input as NeoletterData
+  return (
+    isOptionalString(item.company) &&
+    isOptionalString(item.phone_number) &&
+    isOptionalString(item.salutation)
+  )
 }
 
 function isOptionalString(input: unknown): input is undefined | string {
