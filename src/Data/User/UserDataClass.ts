@@ -1,8 +1,25 @@
 import { provideLocalStorageDataClass } from '../../utils/provideLocalStorageDataClass'
 import richterImage from './FakeBinaries/richter.jpg'
 import braschauImage from './FakeBinaries/braschau.jpg'
+import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
+import { load } from 'scrivito'
 
 export const User = provideLocalStorageDataClass('User', {
+  postProcessData: async (data) => {
+    const pisaUserId = await load(() => CurrentUser.get('pisaUserId'))
+    if (data._id !== pisaUserId) return data
+
+    return {
+      _id: data._id,
+      staff: false,
+      email: await load(() => CurrentUser.get('email')),
+      familyName: await load(() => CurrentUser.get('familyName')),
+      givenName: await load(() => CurrentUser.get('givenName')),
+      image: { url: await load(() => CurrentUser.get('picture')) },
+      name: await load(() => CurrentUser.get('name')),
+      salutation: await load(() => CurrentUser.get('salutation')),
+    }
+  },
   initialContent: [
     {
       _id: '052601BEBCEC39C8E040A8C00D0107AC',
