@@ -1,6 +1,6 @@
 import { provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
-import { isObject, orderBy } from 'lodash-es'
+import { orderBy } from 'lodash-es'
 
 interface DataItem {
   _id: string
@@ -12,11 +12,13 @@ export function provideLocalStorageDataClass(
   {
     initialContent,
     prepareData,
+    postProcessData,
   }: {
     initialContent?: DataItem[]
     prepareData?: (
       data: Record<string, unknown>,
     ) => Promise<Record<string, unknown>>
+    postProcessData?: (data: DataItem) => Promise<DataItem>
   } = {},
 ) {
   const recordKey = `localDataClass-${className}`
@@ -27,7 +29,10 @@ export function provideLocalStorageDataClass(
     connection: {
       async index(params): Promise<{ results: DataItem[] }> {
         const record = restoreRecord()
-        const items = Object.values(record)
+        const rawItems = Object.values(record)
+        const items = postProcessData
+          ? await Promise.all(rawItems.map((item) => postProcessData(item)))
+          : rawItems
 
         const filters = params.filters()
         const filteredItems =
@@ -52,8 +57,10 @@ export function provideLocalStorageDataClass(
 
       async get(id: string): Promise<DataItem | null> {
         const record = restoreRecord()
+        if (!(id in record)) return null
 
-        return id in record ? record[id] : null
+        const rawItem = record[id]
+        return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async create(data: Record<string, unknown>): Promise<{ _id: string }> {
@@ -65,7 +72,8 @@ export function provideLocalStorageDataClass(
         record[_id] = storedData
 
         persistRecord(record)
-        return { ...newData, _id }
+        const rawItem = { ...newData, _id }
+        return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async update(
@@ -78,7 +86,8 @@ export function provideLocalStorageDataClass(
         record[id] = storedData
 
         persistRecord(record)
-        return { ...newData, _id: id }
+        const rawItem = { ...newData, _id: id }
+        return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async delete(id: string): Promise<void> {
@@ -146,7 +155,7 @@ function isDataItemRecord(input: unknown): input is Record<string, DataItem> {
 
 function isDataItem(item: unknown): item is DataItem {
   if (!item) return false
-  if (!isObject(item)) return false
+  if (typeof item !== 'object') return false
   return typeof (item as DataItem)._id === 'string'
 }
 
