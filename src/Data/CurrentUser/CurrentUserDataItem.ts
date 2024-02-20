@@ -33,8 +33,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       salesUserId,
       serviceUserId,
 
-      // TODO: Remove user.name() fallback once the name is always available in Neoletter
-      name: ensureString(neoletterProfile.name) || user.name(),
+      name: ensureString(neoletterProfile.name),
       company: ensureString(neoletterProfile.company),
       familyName: ensureString(neoletterProfile.family_name),
       givenName: ensureString(neoletterProfile.given_name),
