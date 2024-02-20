@@ -6,6 +6,7 @@ import { load } from 'scrivito'
 
 export const User = provideLocalStorageDataClass('User', {
   postProcessData: async (data) => {
+    // Use the data item cached by Scrivito instead of connecting to the backend directly
     const pisaUserId = await load(() => CurrentUser.get('pisaUserId'))
     if (data._id !== pisaUserId) return data
 
