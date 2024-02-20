@@ -93,5 +93,5 @@ function BoxPreviewContent({
 }
 
 function isFullBinaryArray(input: unknown): input is FullDataBinary[] {
-  return Array.isArray(input) && input.every(isFullBinaryArray)
+  return Array.isArray(input) && input.every(isFullDataBinary)
 }
