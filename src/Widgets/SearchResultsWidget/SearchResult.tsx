@@ -78,9 +78,9 @@ const TextDescription = connect(function TextResult({
         textToHighlight={shortDescription}
       />
 
-      <button className="btn btn-sm btn-outline-secondary">
+      <button className="btn btn-sm btn-outline-primary">
         Read more
-        <i className="bi bi-chevron-right" aria-hidden="true"></i>
+        <i className="bi bi-chevron-right ps-2" aria-hidden="true"></i>
       </button>
     </div>
   )

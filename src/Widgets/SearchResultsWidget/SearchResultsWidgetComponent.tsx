@@ -82,7 +82,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
           {totalCount > maxItems ? (
             <div className="text-center">
               <button
-                className="btn btn-outline-secondary"
+                className="btn btn-outline-primary"
                 onClick={(e) => {
                   e.preventDefault()
                   setMaxItems((maxItems) => maxItems + 10)
