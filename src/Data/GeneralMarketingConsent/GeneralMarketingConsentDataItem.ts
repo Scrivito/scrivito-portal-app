@@ -1,9 +1,4 @@
-import {
-  ClientError,
-  getInstanceId,
-  provideDataItem,
-  unstable_JrRestApi,
-} from 'scrivito'
+import { getInstanceId, provideDataItem, unstable_JrRestApi } from 'scrivito'
 
 const GENERAL_TOPIC_ID = 'general'
 
@@ -35,32 +30,8 @@ export const GeneralMarketingConsent = provideDataItem(
 
 async function fetchMySubscribedTopicIds() {
   return (
-    sanitizeResults(
-      await sanitizeProfileNotFound(() =>
-        unstable_JrRestApi.fetch(
-          `neoletter/instances/${getInstanceId()}/my/subscriptions`,
-        ),
-      ),
-    ) as { results: { topic_id: string }[] }
+    (await unstable_JrRestApi.fetch(
+      `neoletter/instances/${getInstanceId()}/my/subscriptions`,
+    )) as { results: { topic_id: string }[] }
   ).results.map(({ topic_id }) => topic_id)
-}
-
-/** Can be removed when the API responds as documented */
-function sanitizeResults(data: unknown): { results: unknown[] } {
-  return { results: (data as { results: unknown[] | null }).results || [] }
-}
-
-/** Can be removed when the API responds with a proper fallback */
-function sanitizeProfileNotFound(callback: () => Promise<unknown>) {
-  try {
-    return callback()
-  } catch (e) {
-    if (
-      !(e instanceof ClientError) ||
-      e.code !== 'precondition_not_met.profile_not_found'
-    ) {
-      throw e
-    }
-  }
-  return { results: [] }
 }
