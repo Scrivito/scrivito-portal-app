@@ -7,6 +7,7 @@ import {
 } from 'scrivito'
 import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
+import { isOptionalString } from '../../utils/isOptionalString'
 
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
@@ -90,10 +91,6 @@ function isNeoletterData(input: unknown): input is NeoletterData {
     isOptionalString(item.phone_number) &&
     isOptionalString(item.salutation)
   )
-}
-
-function isOptionalString(input: unknown): input is undefined | string {
-  return typeof input === 'undefined' || typeof input === 'string'
 }
 
 function neoletterProfileUrl() {

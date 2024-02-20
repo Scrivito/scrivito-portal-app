@@ -1,3 +1,5 @@
+import { isOptionalString } from './isOptionalString'
+
 export async function dataBinaryToUrl(
   binary: DataBinary,
 ): Promise<{ url: string; maxAge: number }> {
@@ -48,17 +50,10 @@ export function isFullDataBinary(item: unknown): item is FullDataBinary {
   if (typeof item !== 'object') return false
 
   const binary = item as FullDataBinary
-  if (binary.url !== undefined && typeof binary.url !== 'string') {
-    return false
-  }
-  if (
-    binary.dataBase64 !== undefined &&
-    typeof binary.dataBase64 !== 'string'
-  ) {
-    return false
-  }
 
   return (
+    isOptionalString(binary.url) &&
+    isOptionalString(binary.dataBase64) &&
     typeof binary._id === 'string' &&
     typeof binary.filename === 'string' &&
     typeof binary.contentType === 'string' &&
