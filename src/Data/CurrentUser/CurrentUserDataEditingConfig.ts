@@ -6,10 +6,15 @@ provideEditingConfig(CurrentUser, {
   attributes: {
     name: { title: 'Name' },
     email: { title: 'Email' },
-    picture: { title: 'Picture' },
-    jrUserId: { title: 'JustRelate user ID' },
     company: { title: 'Company' },
     phoneNumber: { title: 'Phone number' },
     salutation: { title: 'Salutation' },
+    familyName: { title: 'Family name' },
+    givenName: { title: 'Given name' },
+    picture: { title: 'Picture' },
+    jrUserId: { title: 'JustRelate user ID' },
+    pisaUserId: { title: 'PisaSales user ID' },
+    salesUserId: { title: 'Sales representative (user ID)' },
+    serviceUserId: { title: 'Support contact (user ID)' },
   },
 })
