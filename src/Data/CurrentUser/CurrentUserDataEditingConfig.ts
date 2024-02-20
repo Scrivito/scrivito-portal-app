@@ -14,5 +14,7 @@ provideEditingConfig(CurrentUser, {
     picture: { title: 'Picture' },
     jrUserId: { title: 'JustRelate user ID' },
     pisaUserId: { title: 'PisaSales user ID' },
+    salesUserId: { title: 'Sales representative (user ID)' },
+    serviceUserId: { title: 'Support contact (user ID)' },
   },
 })
