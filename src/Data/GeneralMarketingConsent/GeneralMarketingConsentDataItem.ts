@@ -5,27 +5,21 @@ import {
   unstable_JrRestApi,
 } from 'scrivito'
 
+const GENERAL_TOPIC_ID = 'general'
+
 export const GeneralMarketingConsent = provideDataItem(
   'GeneralMarketingConsent',
   {
     async get() {
       const mySubscribedTopicIds = await fetchMySubscribedTopicIds()
 
-      const GENERAL_TOPIC_ID = 'general'
-      /** Can be removed when the API returns `general` */
-      const LEGACY_GENERAL_TOPIC_ID = ''
-
-      const isConsentGiven =
-        mySubscribedTopicIds.includes(GENERAL_TOPIC_ID) ||
-        mySubscribedTopicIds.includes(LEGACY_GENERAL_TOPIC_ID)
-
-      return { isConsentGiven }
+      return { isConsentGiven: mySubscribedTopicIds.includes(GENERAL_TOPIC_ID) }
     },
     async update(params) {
       const { isConsentGiven } = params
 
-      return unstable_JrRestApi.put(
-        `neoletter/instances/${getInstanceId()}/my/consents/general`,
+      await unstable_JrRestApi.put(
+        `neoletter/instances/${getInstanceId()}/my/consents/${GENERAL_TOPIC_ID}`,
         {
           data: {
             source: 'self-service portal',
@@ -33,6 +27,8 @@ export const GeneralMarketingConsent = provideDataItem(
           },
         },
       )
+
+      return params
     },
   },
 )
