@@ -7,6 +7,7 @@ import {
 } from 'scrivito'
 import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
+import { isOptionalString } from '../../utils/isOptionalString'
 
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
@@ -32,8 +33,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       salesUserId,
       serviceUserId,
 
-      // TODO: Remove user.name() fallback once the name is always available in Neoletter
-      name: ensureString(neoletterProfile.name) || user.name(),
+      name: ensureString(neoletterProfile.name),
       company: ensureString(neoletterProfile.company),
       familyName: ensureString(neoletterProfile.family_name),
       givenName: ensureString(neoletterProfile.given_name),
@@ -90,10 +90,6 @@ function isNeoletterData(input: unknown): input is NeoletterData {
     isOptionalString(item.phone_number) &&
     isOptionalString(item.salutation)
   )
-}
-
-function isOptionalString(input: unknown): input is undefined | string {
-  return typeof input === 'undefined' || typeof input === 'string'
 }
 
 function neoletterProfileUrl() {
