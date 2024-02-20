@@ -8,7 +8,7 @@ import { scrivitoTenantId } from './scrivitoTenants'
 
 export function configureScrivito() {
   configure({
-    adoptUi: true,
+    adoptUi: 'http://localhost:8090',
     autoConvertAttributes: true,
     baseUrlForSite,
     contentTagsForEmptyAttributes: false,
@@ -19,6 +19,7 @@ export function configureScrivito() {
     tenant: scrivitoTenantId(),
     // @ts-expect-error // TODO: Remove later on
     unstable: {
+      assetUrlBase: 'http://localhost:8091',
       trustedUiOrigins: [
         'http://localhost:8090',
         'https://*.netlify.app',
