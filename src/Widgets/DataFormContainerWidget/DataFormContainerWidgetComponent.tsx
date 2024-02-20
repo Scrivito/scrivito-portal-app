@@ -26,6 +26,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
 
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')
+  const submitOnChange = widget.get('submitOnChange')
   const submittedMessage = widget.get('submittedMessage')
 
   return (
@@ -33,6 +34,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       <form
         ref={formRef}
         key={key}
+        onChange={submitOnChange ? onSubmit : undefined}
         onSubmit={onSubmit}
         onReset={onReset}
         className={isSubmitting ? 'form-loading' : ''}
@@ -50,6 +52,8 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
     e.stopPropagation()
+
+    if (!formRef.current.checkValidity()) return
 
     setIsSubmitting(true)
 
@@ -124,6 +128,7 @@ function valueFromElement(
 ) {
   if (element instanceof HTMLSelectElement) return element.value
   if (element instanceof HTMLTextAreaElement) return element.value
+
   if (element.type === 'checkbox') return element.checked
 
   if (element.type === 'number') {

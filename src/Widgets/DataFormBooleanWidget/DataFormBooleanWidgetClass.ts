@@ -9,6 +9,7 @@ export const DataFormBooleanWidget = provideWidgetClass(
       helpText: 'html',
       label: 'string',
       required: 'boolean',
+      style: ['enum', { values: ['check', 'switch'] }],
     },
   },
 )

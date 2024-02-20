@@ -13,6 +13,10 @@ provideEditingConfig(DataFormContainerWidget, {
       description:
         'Redirects to the details page of this data item after create/update.',
     },
+    submitOnChange: {
+      title: 'Submit on change?',
+      description: 'Automatically submits the form when any input changes.',
+    },
     submittedMessage: {
       title: 'Submitted message',
       description: 'After submitting the form, the user will see this message.',
@@ -21,7 +25,7 @@ provideEditingConfig(DataFormContainerWidget, {
       title: 'Hidden fields',
     },
   },
-  properties: ['redirectAfterSubmit', 'submittedMessage'],
+  properties: ['redirectAfterSubmit', 'submittedMessage', 'submitOnChange'],
   propertiesGroups: [
     {
       title: 'Hidden fields',

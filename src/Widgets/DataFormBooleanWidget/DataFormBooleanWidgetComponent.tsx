@@ -14,15 +14,19 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
 
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)
-  const defaultChecked =
-    typeof attributeValue === 'boolean'
-      ? attributeValue
-      : widget.get('defaultValue')
+  const defaultChecked = !!(attributeValue ?? widget.get('defaultValue'))
+
+  const classNames = ['mb-3', 'form-check']
+  if (widget.get('style') === 'switch') classNames.push('form-switch')
 
   return (
-    <div className="mb-3" key={[id, attributeName, defaultChecked].join('-')}>
+    <div
+      className={classNames.join(' ')}
+      key={[id, attributeName, defaultChecked].join('-')}
+    >
       <input
         id={id}
+        className="form-check-input"
         name={attributeName}
         type="checkbox"
         required={widget.get('required')}
@@ -32,7 +36,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
         content={widget}
         attribute="label"
         tag="label"
-        className="form-label"
+        className="form-label form-check-label"
         htmlFor={id}
       />
       {widget.get('required') ? (
