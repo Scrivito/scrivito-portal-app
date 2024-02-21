@@ -12,7 +12,6 @@ import {
 } from 'scrivito'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget, ImageWidgetInstance } from './ImageWidgetClass'
-import './ImageWidget.scss'
 import { ensureString } from '../../utils/ensureString'
 import { isDataBinary } from '../../utils/dataBinaryToUrl'
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
@@ -54,7 +53,7 @@ const ImageComponent = connect(function ImageComponent({
   widget: ImageWidgetInstance
 }) {
   const widgetAlternativeText = widget.get('alternativeText')
-  const className = widget.get('roundCorners') ? 'rounded-corners' : undefined
+  const className = widget.get('roundCorners') ? 'rounded' : undefined
 
   if (!widget.get('imageFromDataItem')) {
     return (
