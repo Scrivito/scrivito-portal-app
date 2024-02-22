@@ -1,5 +1,3 @@
-import { useState } from 'react'
-import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   ContentTag,
   InPlaceEditingOff,
@@ -7,6 +5,7 @@ import {
   useDataItem,
 } from 'scrivito'
 import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
+import { OverlayTrigger, Popover } from 'react-bootstrap'
 
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -16,13 +15,9 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)
   const defaultChecked = !!(attributeValue ?? widget.get('defaultValue'))
-  const [selected, setSelected] = useState(defaultChecked)
 
   const classNames = ['mb-3', 'form-check']
-  if (widget.get('style') === 'switch') {
-    classNames.push('form-switch')
-    if (!selected) classNames.push('opacity-75')
-  }
+  if (widget.get('style') === 'switch') classNames.push('form-switch')
 
   return (
     <div
@@ -36,7 +31,6 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
         type="checkbox"
         required={widget.get('required')}
         defaultChecked={defaultChecked}
-        onChange={(event) => setSelected(event.target.checked)}
       />{' '}
       <ContentTag
         content={widget}
