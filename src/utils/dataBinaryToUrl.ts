@@ -1,4 +1,7 @@
 import { isOptionalString } from './isOptionalString'
+import { pisaClient, pisaUrl } from '../Data/pisaClient'
+
+const dataBinaryClient = pisaClient('binary-access-token')
 
 export async function dataBinaryToUrl(
   binary: DataBinary,
@@ -15,7 +18,15 @@ export async function dataBinaryToUrl(
     }
   }
 
-  throw new Error('Not yet implemented!')
+  const accessTokens = await dataBinaryClient.get(binary._id)
+  if (!isAccessToken(accessTokens)) {
+    throw new Error(`Unexpected result: ${accessTokens}`)
+  }
+
+  return {
+    url: pisaUrl() + accessTokens.accessToken,
+    maxAge: accessTokens.maxAge,
+  }
 }
 
 export type DataBinary = UrlDataBinary | FullDataBinary
@@ -58,5 +69,21 @@ export function isFullDataBinary(item: unknown): item is FullDataBinary {
     typeof binary.filename === 'string' &&
     typeof binary.contentType === 'string' &&
     typeof binary.contentLength === 'number'
+  )
+}
+
+interface AccessToken {
+  accessToken: string
+  maxAge: number
+}
+
+function isAccessToken(item: unknown): item is AccessToken {
+  if (!item) return false
+  if (typeof item !== 'object') return false
+
+  const accessToken = item as AccessToken
+  return (
+    typeof accessToken.accessToken === 'string' &&
+    typeof accessToken.maxAge === 'number'
   )
 }
