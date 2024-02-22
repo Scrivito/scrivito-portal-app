@@ -766,7 +766,8 @@ section .card.no-color-adaption {
   .h3,
   .h4,
   .h5,
-  .h6 {
+  .h6,
+  .form-label {
     color: var(--headline) !important;
   }
   a:not(.btn),
@@ -1183,6 +1184,17 @@ section:focus >,
   border-color: rgba(140, 152, 164, 0.25);
   outline: 0;
   box-shadow: 0 0 1rem 0 rgba(140, 152, 164, 0.25);
+}
+
+.form-switch {
+  padding-left: 3em;
+}
+.form-check-input {
+  margin-top: 0.4em;
+}
+.form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
 }
 
 /* btn + alignment
@@ -1622,6 +1634,7 @@ header .navbar.navbar-expand-lg {
   margin: 0;
   color: var(--bs-nav-link-color);
   display: flex;
+  word-break: break-all;
 }
 
 .nav-bordered li.active > a {
@@ -1670,7 +1683,11 @@ header .navbar.navbar-expand-lg {
 .navbar-toggler .bi-list:before {
   content: '\f659';
 }
-
+@media (min-width: 992px) and (max-width: 1199px) {
+  .nav-bordered li a .bi {
+    display: none;
+  }
+}
 /* .nav-pills
  =================================================================== */
 
