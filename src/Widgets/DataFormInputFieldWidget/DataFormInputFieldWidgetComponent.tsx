@@ -10,17 +10,18 @@ import { DataFormInputFieldWidget } from './DataFormInputFieldWidgetClass'
 provideComponent(DataFormInputFieldWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
+  const id = ['DataFormInputFieldWidget', widget.id()].join('-')
+
   const attributeName = widget.get('attributeName')
-  const key = `data_form_input_field_widget_${widget.id()}_${attributeName}`
 
   return (
-    <div className="mb-3" key={key}>
+    <div className="mb-3" key={[id, attributeName].join('-')}>
       <ContentTag
         content={widget}
         attribute="label"
         tag="label"
         className="form-label"
-        htmlFor={key}
+        htmlFor={id}
       />
       {widget.get('required') ? (
         <OverlayTrigger
@@ -58,7 +59,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
       {widget.get('type') === 'multi_line' ? (
         <textarea
           className="form-control"
-          id={key}
+          id={id}
           name={attributeName}
           rows={3}
           defaultValue={getDefaultValue()}
@@ -68,7 +69,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
       ) : (
         <input
           className="form-control"
-          id={key}
+          id={id}
           name={attributeName}
           defaultValue={getDefaultValue()}
           maxLength={250}
