@@ -11,7 +11,7 @@ import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
 provideComponent(DataFormNumberWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
-  const id = ['DataFormNumberWidget', widget.id()].join('-')
+  const id = ['DataFormNumberWidget', widget.id(), dataItem?.id()].join('-')
 
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)

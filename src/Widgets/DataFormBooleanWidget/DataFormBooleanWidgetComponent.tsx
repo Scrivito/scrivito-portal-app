@@ -11,7 +11,7 @@ import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
-  const id = ['DataFormBooleanWidget', widget.id()].join('-')
+  const id = ['DataFormBooleanWidget', widget.id(), dataItem?.id()].join('-')
 
   const attributeName = widget.get('attributeName')
   const attributeValue = dataItem?.get(attributeName)
