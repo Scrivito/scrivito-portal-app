@@ -22,7 +22,7 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const options = [...optionsSet]
 
   return (
-    <div className="mb-3" key={[id, attributeName].join('-')}>
+    <div className="mb-3" key={[id, attributeName, defaultValue].join('-')}>
       <ContentTag
         content={widget}
         attribute="label"
