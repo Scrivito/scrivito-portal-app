@@ -42,7 +42,7 @@ provideComponent(DataMessageWidget, ({ widget }) => {
         <DataBinaryImage dataBinary={image} />
       </div>
       <div className="flex-grow-1">
-        <div className="card mb-4 bg-white">
+        <div className="card mb-4 bg-white no-color-adaption">
           <ContentTag
             content={widget}
             attribute="content"
