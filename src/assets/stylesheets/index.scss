@@ -1622,6 +1622,7 @@ header .navbar.navbar-expand-lg {
   margin: 0;
   color: var(--bs-nav-link-color);
   display: flex;
+  word-break: break-all;
 }
 
 .nav-bordered li.active > a {
@@ -1670,7 +1671,11 @@ header .navbar.navbar-expand-lg {
 .navbar-toggler .bi-list:before {
   content: '\f659';
 }
-
+@media (min-width: 992px) and (max-width: 1199px) {
+  .nav-bordered li a .bi {
+    display: none;
+  }
+}
 /* .nav-pills
  =================================================================== */
 
