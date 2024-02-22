@@ -29,9 +29,9 @@ provideComponent(DataMessageWidget, ({ widget }) => {
   const staff = user?.get('staff') || false
   if (staff) classNames.push('staff')
 
-  const currenUserPisaId = CurrentUser.get('pisaId')
-  const colleague =
-    !staff && !!currenUserPisaId && user?.get('_id') == currenUserPisaId
+  const currenUserPisaId = CurrentUser.get('pisaUserId')
+  const userId = user?.id()
+  const colleague = !staff && !!userId && userId !== currenUserPisaId
   if (colleague) classNames.push('colleague')
 
   const image = getImage({ dataItem, user })
