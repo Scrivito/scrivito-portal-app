@@ -11,7 +11,7 @@ import { ensureString } from '../../utils/ensureString'
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
-  const id = ['DataFormOptionsWidget', widget.id()].join('-')
+  const id = ['DataFormOptionsWidget', widget.id(), dataItem?.id()].join('-')
 
   const attributeName = widget.get('attributeName')
   const attributeValue = ensureString(dataItem?.get(attributeName))
