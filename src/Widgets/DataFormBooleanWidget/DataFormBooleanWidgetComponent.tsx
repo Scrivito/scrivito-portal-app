@@ -6,6 +6,7 @@ import {
 } from 'scrivito'
 import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
+import './DataFormBooleanWidget.scss'
 
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -16,7 +17,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const attributeValue = dataItem?.get(attributeName)
   const defaultChecked = !!(attributeValue ?? widget.get('defaultValue'))
 
-  const classNames = ['mb-3', 'form-check']
+  const classNames = ['data-form-boolean-widget', 'mb-3', 'form-check']
   if (widget.get('style') === 'switch') classNames.push('form-switch')
 
   return (
