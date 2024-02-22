@@ -40,6 +40,9 @@ provideComponent(DataMessageWidget, ({ widget }) => {
     <WidgetTag className={classNames.join(' ')}>
       <div className="avatar">
         <DataBinaryImage dataBinary={image} />
+        <span className="avatar-text">
+          {staff ? 'Staff' : colleague ? 'Colleague' : undefined}
+        </span>
       </div>
       <div className="flex-grow-1">
         <div className="card mb-4 bg-white no-color-adaption">

@@ -35,8 +35,7 @@
     }
   }
 
-  &.staff .avatar:after {
-    content: 'Staff';
+  &.staff .avatar-text {
     padding: 2px 0;
     color: var(--bs-primary);
     text-align: center;
@@ -45,8 +44,7 @@
     font-weight: bold;
     width: 60px;
   }
-  &.colleague .avatar:after {
-    content: 'Colleague';
+  &.colleague .avatar-text {
     padding: 2px 0;
     color: var(--bs-secondary);
     text-align: center;
