@@ -1,0 +1,5 @@
+.data-form-boolean-widget {
+  &:has([type='checkbox']:not(:checked)) {
+    opacity: 0.75;
+  }
+}
