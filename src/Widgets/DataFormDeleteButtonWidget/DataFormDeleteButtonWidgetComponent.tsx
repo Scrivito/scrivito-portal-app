@@ -1,7 +1,6 @@
 import {
   ContentTag,
   InPlaceEditingOff,
-  isInPlaceEditingActive,
   navigateTo,
   provideComponent,
   useDataItem,
@@ -9,6 +8,7 @@ import {
 import { DataFormDeleteButtonWidget } from './DataFormDeleteButtonWidgetClass'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import { EditorNoteOrNull } from '../../Components/EditorNoteOrNull'
 
 provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
@@ -48,14 +48,9 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
 
   return (
     <>
-      {isInPlaceEditingActive() && (
-        <div className="alert alert-warning d-flex m-auto">
-          <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
-          <div className="my-auto mx-2">
-            <b>Editor note:</b> Deletes {dataItem.dataClass().name()}.
-          </div>
-        </div>
-      )}
+      <EditorNoteOrNull>
+        Deletes {dataItem.dataClass().name()}.
+      </EditorNoteOrNull>
       <InPlaceEditingOff>
         <ContentTag
           content={widget}

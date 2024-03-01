@@ -5,6 +5,7 @@ import {
   useDataLocator,
 } from 'scrivito'
 import { DataListWidget } from './DataListWidgetClass'
+import { EditorNoteOrNull } from '../../Components/EditorNoteOrNull'
 
 provideComponent(DataListWidget, ({ widget }) => {
   const data = widget.get('data')
@@ -25,15 +26,9 @@ provideComponent(DataListWidget, ({ widget }) => {
           />
         ))}
       </div>
-      {isInPlaceEditingActive() && (
-        <div className="alert alert-warning d-flex m-auto">
-          <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
-          <div className="my-auto mx-2">
-            <b>Editor note:</b> The following is only visible if
-            &quot;data&quot; is empty.
-          </div>
-        </div>
-      )}
+      <EditorNoteOrNull>
+        The following is only visible if &quot;data&quot; is empty.
+      </EditorNoteOrNull>
       {(dataScope.isEmpty() || isInPlaceEditingActive()) && (
         <ContentTag content={widget} attribute="nothingFound" />
       )}

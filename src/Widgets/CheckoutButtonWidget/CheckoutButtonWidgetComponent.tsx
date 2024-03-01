@@ -2,7 +2,6 @@ import {
   ContentTag,
   InPlaceEditingOff,
   WidgetTag,
-  isInPlaceEditingActive,
   load,
   provideComponent,
   urlForDataItem,
@@ -12,21 +11,15 @@ import { CheckoutButtonWidget } from './CheckoutButtonWidgetClass'
 import { checkoutCart, containsItems } from '../../Data/CartItem/Cart'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { getHistory } from '../../config/history'
+import { EditorNoteOrNull } from '../../Components/EditorNoteOrNull'
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
   if (!containsItems()) {
-    if (isInPlaceEditingActive()) {
-      return (
-        <div className="alert alert-warning d-flex m-auto">
-          <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
-          <div className="my-auto mx-2">
-            <b>Editor note:</b> The button is hidden if cart is empty.
-          </div>
-        </div>
-      )
-    }
-
-    return null
+    return (
+      <EditorNoteOrNull>
+        The button is hidden if cart is empty.
+      </EditorNoteOrNull>
+    )
   }
   const successMessage = widget.get('successMessage')
   const buttonClassNames = ['btn']
