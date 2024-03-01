@@ -1792,4 +1792,65 @@ header.portal-only section:after {
     --bs-btn-color: var(--bs-secondary-darken);
     --bs-btn-border-color: var(--bs-secondary-darken);
   }
+
+  .box-comment .card {
+    position: relative;
+    overflow: visible;
+
+    &:after,
+    &:before {
+      right: 100%;
+      top: 20px;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-right-color: #fff;
+      border-width: 10px;
+      margin-top: -10px;
+    }
+    &:before {
+      border-color: rgba(119, 119, 119, 0);
+      border-right-color: #777;
+      border-width: 11px;
+      margin-top: -11px;
+    }
+  }
+
+  .box-comment.staff .card,
+  .box-comment.colleague .card {
+    position: relative;
+    overflow: visible;
+
+    &:after,
+    &:before {
+      left: 100%;
+      top: 20px;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-left-color: #fff;
+      border-width: 10px;
+      margin-top: -10px;
+    }
+    &:before {
+      border-color: rgba(119, 119, 119, 0);
+      border-left-color: #777;
+      border-width: 11px;
+      margin-top: -11px;
+    }
+  }
 }
