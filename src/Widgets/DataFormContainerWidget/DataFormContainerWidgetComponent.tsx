@@ -28,7 +28,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
 
   if (!dataItem && !dataScope) {
-    return <EditorNote>No data item or scope found!</EditorNote>
+    return <EditorNote>No data found. Please select a data source.</EditorNote>
   }
 
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')

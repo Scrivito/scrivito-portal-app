@@ -15,7 +15,7 @@ provideComponent(DataEmptyWidget, ({ widget }) => {
   const [showAnyway, setShowAnyway] = useState(false)
 
   if (!dataScope) {
-    return <EditorNote>No data scope found!</EditorNote>
+    return <EditorNote>No data found. Please select a data source.</EditorNote>
   }
 
   if (dataScope.isEmpty()) {
