@@ -1756,3 +1756,101 @@ header.portal-only section:after {
   font-family: bootstrap-icons !important;
   content: '\f285';
 }
+
+/* contrast mode - CSS for more contrast
+ =================================================================== */
+@media (prefers-contrast: more) {
+  :root {
+    --light-grey: #eee;
+    --middle-grey: #e3e3e3;
+  }
+  main {
+    background: var(--light-grey);
+  }
+  .Toastify__toast,
+  .navbar-toggler.btn,
+  .form-control,
+  .form-select,
+  .card,
+  .editor-img,
+  .box-comment .avatar img,
+  .box-attachment {
+    border: 1px solid #777;
+  }
+  .form-control:focus {
+    border: 1px solid var(--bs-primary);
+  }
+
+  footer {
+    border-top: 1px solid #777;
+  }
+  .text-muted {
+    opacity: 0.9;
+  }
+
+  .btn-outline-secondary {
+    --bs-btn-color: var(--bs-secondary-darken);
+    --bs-btn-border-color: var(--bs-secondary-darken);
+  }
+
+  .box-comment .card {
+    position: relative;
+    overflow: visible;
+
+    &:after,
+    &:before {
+      right: 100%;
+      top: 20px;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-right-color: #fff;
+      border-width: 10px;
+      margin-top: -10px;
+    }
+    &:before {
+      border-color: rgba(119, 119, 119, 0);
+      border-right-color: #777;
+      border-width: 11px;
+      margin-top: -11px;
+    }
+  }
+
+  .box-comment.staff .card,
+  .box-comment.colleague .card {
+    position: relative;
+    overflow: visible;
+
+    &:after,
+    &:before {
+      left: 100%;
+      top: 20px;
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-left-color: #fff;
+      border-width: 10px;
+      margin-top: -10px;
+    }
+    &:before {
+      border-color: rgba(119, 119, 119, 0);
+      border-left-color: #777;
+      border-width: 11px;
+      margin-top: -11px;
+    }
+  }
+}
