@@ -69,8 +69,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       if (dataItem) {
         await dataItem.update(attributes)
         await toastAndRedirect(dataItem)
-      } else {
-        if (!dataScope) throw new Error('No data scope found!')
+      } else if (dataScope) {
         const createdItem = await dataScope.create(attributes)
         await toastAndRedirect(createdItem)
         formRef.current.reset()
