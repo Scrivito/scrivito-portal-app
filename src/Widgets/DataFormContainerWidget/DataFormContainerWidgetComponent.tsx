@@ -1,6 +1,7 @@
 import {
   ContentTag,
   DataItem,
+  DataScope,
   InPlaceEditingOff,
   WidgetTag,
   load,
@@ -15,15 +16,20 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { getHistory } from '../../config/history'
+import { EditorNoteOrNull } from '../../Components/EditorNoteOrNull'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
-  const dataScope = useDataScope()
+  const dataScope: DataScope | undefined = useDataScope()
   const formRef = useRef() as React.MutableRefObject<HTMLFormElement>
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [keyCounter, setKeyCounter] = useState(0)
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
+
+  if (!dataItem && !dataScope) {
+    return <EditorNoteOrNull>No data item or scope found!</EditorNoteOrNull>
+  }
 
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')
   const submitOnChange = widget.get('submitOnChange')
@@ -64,6 +70,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
         await dataItem.update(attributes)
         await toastAndRedirect(dataItem)
       } else {
+        if (!dataScope) throw new Error('No data scope found!')
         const createdItem = await dataScope.create(attributes)
         await toastAndRedirect(createdItem)
         formRef.current.reset()
