@@ -1,7 +1,7 @@
 import { isInPlaceEditingActive } from 'scrivito'
 
 /** Shows `children` nicely formatted in edit mode, `null` overwise */
-export function EditorNoteOrNull({ children }: { children: React.ReactNode }) {
+export function EditorNote({ children }: { children: React.ReactNode }) {
   if (!isInPlaceEditingActive()) return null
 
   return (

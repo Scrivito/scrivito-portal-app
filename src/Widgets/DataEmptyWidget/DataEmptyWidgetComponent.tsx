@@ -7,7 +7,7 @@ import {
   useDataScope,
 } from 'scrivito'
 import { DataEmptyWidget } from './DataEmptyWidgetClass'
-import { EditorNoteOrNull } from '../../Components/EditorNoteOrNull'
+import { EditorNote } from '../../Components/EditorNote'
 import { useState } from 'react'
 
 provideComponent(DataEmptyWidget, ({ widget }) => {
@@ -15,7 +15,7 @@ provideComponent(DataEmptyWidget, ({ widget }) => {
   const [showAnyway, setShowAnyway] = useState(false)
 
   if (!dataScope) {
-    return <EditorNoteOrNull>No data scope found!</EditorNoteOrNull>
+    return <EditorNote>No data scope found!</EditorNote>
   }
 
   if (dataScope.isEmpty()) {
@@ -26,7 +26,7 @@ provideComponent(DataEmptyWidget, ({ widget }) => {
 
   return (
     <>
-      <EditorNoteOrNull>
+      <EditorNote>
         The data scope is currently not empty.{' '}
         {showAnyway ? (
           <button
@@ -43,7 +43,7 @@ provideComponent(DataEmptyWidget, ({ widget }) => {
             Show content anyway
           </button>
         )}
-      </EditorNoteOrNull>
+      </EditorNote>
       {showAnyway ? <ContentTag content={widget} attribute="content" /> : null}
     </>
   )

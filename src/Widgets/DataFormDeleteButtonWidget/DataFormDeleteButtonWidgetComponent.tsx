@@ -8,7 +8,7 @@ import {
 import { DataFormDeleteButtonWidget } from './DataFormDeleteButtonWidgetClass'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
-import { EditorNoteOrNull } from '../../Components/EditorNoteOrNull'
+import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
@@ -48,9 +48,7 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
 
   return (
     <>
-      <EditorNoteOrNull>
-        Deletes {dataItem.dataClass().name()}.
-      </EditorNoteOrNull>
+      <EditorNote>Deletes {dataItem.dataClass().name()}.</EditorNote>
       <InPlaceEditingOff>
         <ContentTag
           content={widget}

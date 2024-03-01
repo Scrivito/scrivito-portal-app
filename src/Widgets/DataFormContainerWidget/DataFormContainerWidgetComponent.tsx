@@ -16,7 +16,7 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { getHistory } from '../../config/history'
-import { EditorNoteOrNull } from '../../Components/EditorNoteOrNull'
+import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -28,7 +28,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
 
   if (!dataItem && !dataScope) {
-    return <EditorNoteOrNull>No data item or scope found!</EditorNoteOrNull>
+    return <EditorNote>No data item or scope found!</EditorNote>
   }
 
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')
