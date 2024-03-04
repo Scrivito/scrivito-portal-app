@@ -21,6 +21,8 @@ export function provideLocalStorageDataClass(
     postProcessData?: (data: DataItem) => Promise<DataItem>
   } = {},
 ) {
+  const processData = postProcessData || (async (data) => data)
+
   const recordKey = `localDataClass-${className}`
 
   if (initialContent) initializeContent(initialContent)
@@ -30,9 +32,9 @@ export function provideLocalStorageDataClass(
       async index(params): Promise<{ results: DataItem[] }> {
         const record = restoreRecord()
         const rawItems = Object.values(record)
-        const items = postProcessData
-          ? await Promise.all(rawItems.map((item) => postProcessData(item)))
-          : rawItems
+        const items = await Promise.all(
+          rawItems.map((item) => processData(item)),
+        )
 
         const filters = params.filters()
         const filteredItems =
@@ -60,7 +62,7 @@ export function provideLocalStorageDataClass(
         if (!(id in record)) return null
 
         const rawItem = record[id]
-        return postProcessData ? postProcessData(rawItem) : rawItem
+        return processData(rawItem)
       },
 
       async create(data: Record<string, unknown>): Promise<{ _id: string }> {
@@ -73,7 +75,7 @@ export function provideLocalStorageDataClass(
 
         persistRecord(record)
         const rawItem = { ...newData, _id }
-        return postProcessData ? postProcessData(rawItem) : rawItem
+        return processData(rawItem)
       },
 
       async update(
@@ -87,7 +89,7 @@ export function provideLocalStorageDataClass(
 
         persistRecord(record)
         const rawItem = { ...newData, _id: id }
-        return postProcessData ? postProcessData(rawItem) : rawItem
+        return processData(rawItem)
       },
 
       async delete(id: string): Promise<void> {
