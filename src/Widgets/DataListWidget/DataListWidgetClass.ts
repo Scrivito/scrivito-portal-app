@@ -5,7 +5,6 @@ export const DataListWidget = provideWidgetClass('DataListWidget', {
     content: 'widgetlist',
     data: 'datalocator',
     footer: 'widgetlist',
-    nothingFound: 'widgetlist',
     nrOfColumns: ['enum', { values: ['1', '2', '3', '4', '5', '6'] }],
   },
 })
