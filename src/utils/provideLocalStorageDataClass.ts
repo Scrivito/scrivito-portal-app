@@ -1,4 +1,5 @@
 import { provideDataClass } from 'scrivito'
+import { localizeData } from './localizeData'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
 
@@ -11,17 +12,22 @@ export function provideLocalStorageDataClass(
   className: string,
   {
     initialContent,
+    localizers,
     prepareData,
     postProcessData,
   }: {
     initialContent?: DataItem[]
+    localizers?: Record<string, string>
     prepareData?: (
       data: Record<string, unknown>,
     ) => Promise<Record<string, unknown>>
     postProcessData?: (data: DataItem) => Promise<DataItem>
   } = {},
 ) {
-  const processData = postProcessData || (async (data) => data)
+  async function processData(data: DataItem) {
+    const localizedData = localizers ? localizeData(data, localizers) : data
+    return postProcessData ? postProcessData(localizedData) : localizedData
+  }
 
   const recordKey = `localDataClass-${className}`
 
