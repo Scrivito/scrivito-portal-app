@@ -11,6 +11,7 @@ import {
 } from 'scrivito'
 import { Homepage, HomepageInstance } from './HomepageObjClass'
 import { useEffect } from 'react'
+import { EditorNote } from '../../Components/EditorNote'
 
 provideLayoutComponent(Homepage, ({ page }) => {
   const portalOnlyMode = page.get('sitePortalOnlyMode')
@@ -71,14 +72,11 @@ const EditorNoteOrRedirectAwayIfNeeded = connect(
     if (!redirectNeeded) return
 
     return (
-      <div className="alert alert-warning d-flex m-auto my-lg-3">
-        <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
-        <div className="my-auto mx-2">
-          <b>Editor note:</b> This page is not part of the portal section.
-          Regular visitors will be automatically redirected to the{' '}
-          <LinkTag to={portalOverviewPage}>portal section.</LinkTag>
-        </div>
-      </div>
+      <EditorNote>
+        This page is not part of the portal section. Regular visitors will be
+        automatically redirected to the{' '}
+        <LinkTag to={portalOverviewPage}>portal section.</LinkTag>
+      </EditorNote>
     )
   },
 )
