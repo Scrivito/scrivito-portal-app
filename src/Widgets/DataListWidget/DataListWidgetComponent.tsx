@@ -16,7 +16,7 @@ provideComponent(DataListWidget, ({ widget }) => {
   }
 
   if (dataScope.isEmpty()) {
-    return <EditorNote>Data list is empty.</EditorNote>
+    return <EditorNote>The data list is empty.</EditorNote>
   }
 
   const nrOfColumns = widget.get('nrOfColumns') || '1'
