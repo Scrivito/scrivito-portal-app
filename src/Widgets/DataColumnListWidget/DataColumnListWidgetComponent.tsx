@@ -5,10 +5,10 @@ import {
   // @ts-expect-error TODO: remove once officially released
   useDataScope,
 } from 'scrivito'
-import { DataListWidget } from './DataListWidgetClass'
+import { DataColumnListWidget } from './DataColumnListWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 
-provideComponent(DataListWidget, ({ widget }) => {
+provideComponent(DataColumnListWidget, ({ widget }) => {
   const dataScope: DataScope | undefined = useDataScope()
 
   if (!dataScope) {
@@ -16,11 +16,13 @@ provideComponent(DataListWidget, ({ widget }) => {
   }
 
   if (dataScope.isEmpty()) {
-    return <EditorNote>The data list is empty.</EditorNote>
+    return <EditorNote>The data column list is empty.</EditorNote>
   }
 
+  const columnsCount = widget.get('columnsCount') || '2'
+
   return (
-    <>
+    <div className={`row row-cols-1 row-cols-md-${columnsCount}`}>
       {dataScope.take().map((dataItem) => (
         <ContentTag
           content={widget}
@@ -30,6 +32,6 @@ provideComponent(DataListWidget, ({ widget }) => {
           key={dataItem.id()}
         />
       ))}
-    </>
+    </div>
   )
 })
