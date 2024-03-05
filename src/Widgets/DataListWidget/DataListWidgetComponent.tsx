@@ -1,9 +1,23 @@
-import { ContentTag, provideComponent, useDataLocator } from 'scrivito'
+import {
+  ContentTag,
+  DataScope,
+  provideComponent,
+  // @ts-expect-error TODO: remove once officially released
+  useDataScope,
+} from 'scrivito'
 import { DataListWidget } from './DataListWidgetClass'
+import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataListWidget, ({ widget }) => {
-  const data = widget.get('data')
-  const dataScope = useDataLocator(data)
+  const dataScope: DataScope | undefined = useDataScope()
+
+  if (!dataScope) {
+    return <EditorNote>No data found. Please select a data source.</EditorNote>
+  }
+
+  if (dataScope.isEmpty()) {
+    return <EditorNote>Data list is empty.</EditorNote>
+  }
 
   const nrOfColumns = widget.get('nrOfColumns') || '1'
 
