@@ -1,6 +1,6 @@
 import { provideWidgetClass } from 'scrivito'
 
-export const DataListWidget = provideWidgetClass('DataListWidget', {
+export const DataWidget = provideWidgetClass('DataWidget', {
   attributes: {
     content: 'widgetlist',
   },

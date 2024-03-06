@@ -1,8 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
-import { DataListWidget } from './DataListWidgetClass'
+import { DataWidget } from './DataWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
-provideEditingConfig(DataListWidget, {
-  title: 'Data List',
+provideEditingConfig(DataWidget, {
+  title: 'Data',
   thumbnail: Thumbnail,
 })

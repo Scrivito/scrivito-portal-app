@@ -5,10 +5,10 @@ import {
   // @ts-expect-error TODO: remove once officially released
   useDataScope,
 } from 'scrivito'
-import { DataListWidget } from './DataListWidgetClass'
+import { DataWidget } from './DataWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 
-provideComponent(DataListWidget, ({ widget }) => {
+provideComponent(DataWidget, ({ widget }) => {
   const dataScope: DataScope | undefined = useDataScope()
 
   if (!dataScope) {
@@ -16,7 +16,7 @@ provideComponent(DataListWidget, ({ widget }) => {
   }
 
   if (dataScope.isEmpty()) {
-    return <EditorNote>The data list is empty.</EditorNote>
+    return <EditorNote>Data is empty.</EditorNote>
   }
 
   return (
