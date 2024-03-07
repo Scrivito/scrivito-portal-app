@@ -1,6 +1,9 @@
-import { provideLocalStorageDataClass } from '../../utils/provideLocalStorageDataClass'
+import { provideDataClass } from 'scrivito'
+import { pisaClient } from '../pisaClient'
 
-export const EventRegistration = provideLocalStorageDataClass(
-  'EventRegistration',
-  {},
-)
+const eventRegistrationClient = pisaClient('event-registration')
+
+export const EventRegistration = provideDataClass('EventRegistration', {
+  // @ts-expect-error until out of private beta
+  restApi: eventRegistrationClient,
+})
