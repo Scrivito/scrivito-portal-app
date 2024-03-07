@@ -3,6 +3,8 @@ import richterImage from './FakeBinaries/richter.jpg'
 import braschauImage from './FakeBinaries/braschau.jpg'
 import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
 import { load } from 'scrivito'
+import fuchsImage from './FakeBinaries/fuchs.jpg'
+import bachImage from './FakeBinaries/bach.jpg'
 
 export const User = provideLocalStorageDataClass('User', {
   postProcessData: async (data) => {
@@ -39,7 +41,9 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Adrian',
       familyName: 'Schärli',
-      staff: false,
+      email: 'asc@example.com',
+      position: '',
+      staff: true,
     },
     {
       _id: '228C5C6067EF486FB72F8D4BAAE6AB08',
@@ -47,7 +51,9 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Olaf',
       familyName: 'Behrends',
-      staff: false,
+      email: 'behrends@example.de',
+      position: 'Produktmanager',
+      staff: true,
     },
     {
       _id: 'D38D7FBFA277856DE030A8C02A010460',
@@ -55,7 +61,9 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Frank',
       familyName: 'Goosens',
-      staff: false,
+      email: 'goosens@example.de',
+      position: 'Leiter Wareneingang',
+      staff: true,
     },
     {
       _id: 'D456ACF6FF405922E030A8C02A010C68',
@@ -82,7 +90,9 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: 'Herr',
       givenName: 'Heinrich',
       familyName: 'Siebert',
-      staff: false,
+      email: 'siebert@example.com',
+      position: 'Servicemitarbeiter',
+      staff: true,
     },
     {
       _id: '4668C6ADEF0443BE80FB4049097A901A',
@@ -90,7 +100,31 @@ export const User = provideLocalStorageDataClass('User', {
       salutation: '',
       givenName: '',
       familyName: 'Administrator',
+      email: '',
+      position: '',
       staff: true,
+    },
+    {
+      _id: 'F203EF15869B46509B2BE0AB12D480D2',
+      name: 'Martin Fuchs',
+      salutation: 'Herr',
+      givenName: 'Martin',
+      familyName: 'Fuchs',
+      email: 'm.fuchs@tynacoon.com',
+      position: 'Leiter Einkauf',
+      staff: true,
+      image: { url: fuchsImage },
+    },
+    {
+      _id: '0BD5DC0F9DA442C5946FA7ECAF870D7B',
+      name: 'Irene Bach',
+      salutation: 'Frau',
+      givenName: 'Irene',
+      familyName: 'Bach',
+      email: 'bach@tynacoon.de',
+      position: 'Schulungsleiterin',
+      staff: true,
+      image: { url: bachImage },
     },
   ],
 })
