@@ -8,6 +8,7 @@ import {
 } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import { RelativeDate } from './RelativeDate'
+import { localizedAttributeValue } from '../../utils/valuesConfig'
 
 const CURRENCY = 'EUR' // ISO 4217 Code
 
@@ -60,7 +61,11 @@ const AttributeValue = connect(function AttributeValue({
   if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') return <Datetime value={attributeValue} />
 
-  return <Text value={attributeValue} />
+  if (!dataItem) return <Text value={attributeValue} />
+
+  const value = localizedAttributeValue(dataItem, attributeName)
+
+  return <Text value={value} />
 })
 
 function Text({ value }: { value: unknown }) {
