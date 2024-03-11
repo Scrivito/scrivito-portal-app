@@ -1,6 +1,7 @@
 import {
   connect,
   ContentTag,
+  DataItem,
   provideComponent,
   useDataItem,
   WidgetTag,
@@ -29,7 +30,8 @@ provideComponent(DataLabelWidget, ({ widget }) => {
       />
       <div className={valueCssClassNames.join(' ')}>
         <AttributeValue
-          attributeValue={dataItem?.get(widget.get('attributeName'))}
+          dataItem={dataItem}
+          attributeName={widget.get('attributeName')}
           showAs={widget.get('showAs')}
         />
       </div>
@@ -45,12 +47,16 @@ provideComponent(DataLabelWidget, ({ widget }) => {
 })
 
 const AttributeValue = connect(function AttributeValue({
-  attributeValue,
+  dataItem,
+  attributeName,
   showAs,
 }: {
-  attributeValue: unknown
+  dataItem?: DataItem
+  attributeName: string
   showAs: string | null
 }) {
+  const attributeValue = dataItem?.get(attributeName)
+
   if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') return <Datetime value={attributeValue} />
 
