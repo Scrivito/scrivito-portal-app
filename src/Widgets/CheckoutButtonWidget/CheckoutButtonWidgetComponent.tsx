@@ -12,6 +12,7 @@ import { checkoutCart, containsItems } from '../../Data/CartItem/Cart'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { getHistory } from '../../config/history'
 import { EditorNote } from '../../Components/EditorNote'
+import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
   if (!containsItems()) {
@@ -51,8 +52,3 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
     if (resultUrl) getHistory()?.push(resultUrl)
   }
 })
-
-function buttonSizeClassName(buttonSize: string | null) {
-  if (buttonSize === 'small') return 'btn-sm'
-  if (buttonSize === 'large') return 'btn-lg'
-}

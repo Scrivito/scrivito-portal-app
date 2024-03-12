@@ -6,6 +6,7 @@ import {
 } from 'scrivito'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
+import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 
 provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
   const baseButtonStyles = ['btn']
@@ -37,8 +38,3 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
     </WidgetTag>
   )
 })
-
-function buttonSizeClassName(buttonSize: string | null) {
-  if (buttonSize === 'small') return 'btn-sm'
-  if (buttonSize === 'large') return 'btn-lg'
-}
