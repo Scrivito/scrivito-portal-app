@@ -53,6 +53,7 @@ const AttributeValue = connect(function AttributeValue({
 }) {
   if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') return <Datetime value={attributeValue} />
+  if (showAs === 'link') return <Link value={attributeValue} />
 
   return <Text value={attributeValue} />
 })
@@ -83,4 +84,14 @@ function Datetime({ value }: { value: unknown }) {
   if (Number.isNaN(date.getTime())) return 'N/A'
 
   return <RelativeDate date={date} />
+}
+
+function Link({ value }: { value: unknown }) {
+  if (typeof value !== 'string') return 'N/A'
+
+  return (
+    <a href={value} target="_blank" rel="noreferrer">
+      {value}
+    </a>
+  )
 }
