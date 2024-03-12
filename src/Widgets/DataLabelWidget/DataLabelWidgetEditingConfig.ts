@@ -14,7 +14,7 @@ provideEditingConfig(DataLabelWidget, {
         { value: 'text', title: 'Text' },
         { value: 'currency', title: 'Currency' },
         { value: 'datetime', title: 'Date' },
-        { value: 'url', title: 'URL' },
+        { value: 'link', title: 'Link' },
       ],
     },
     marginBottom: {
