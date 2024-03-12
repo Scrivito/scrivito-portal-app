@@ -34,7 +34,6 @@ provideEditingConfig(DataDeleteButtonWidget, {
     cancelTitle: 'Cancel',
     deletedMessage: 'Deleted item',
     buttonStyle: 'btn-danger',
-    redirectAfterDelete: true,
   },
   validations: [
     [
