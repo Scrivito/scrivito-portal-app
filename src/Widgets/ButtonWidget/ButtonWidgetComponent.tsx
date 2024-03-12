@@ -7,6 +7,7 @@ import {
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { ButtonWidget } from './ButtonWidgetClass'
 import { ensureString } from '../../utils/ensureString'
+import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 
 provideComponent(ButtonWidget, ({ widget }) => {
   const target = widget.get('target')
@@ -28,8 +29,3 @@ provideComponent(ButtonWidget, ({ widget }) => {
     </WidgetTag>
   )
 })
-
-function buttonSizeClassName(buttonSize: string | null) {
-  if (buttonSize === 'small') return 'btn-sm'
-  if (buttonSize === 'large') return 'btn-lg'
-}
