@@ -45,14 +45,18 @@ provideEditingConfig(DataDeleteButtonWidget, {
     ],
     [
       'confirmTitle',
-      (confirmTitle) => {
-        if (!confirmTitle) return 'Please provide a confirm title'
+      (confirmTitle, { widget }) => {
+        if (!confirmTitle && widget.get('requireConfirmation')) {
+          return 'Please provide a confirm title'
+        }
       },
     ],
     [
       'cancelTitle',
-      (cancelTitle) => {
-        if (!cancelTitle) return 'Please provide a cancel title'
+      (cancelTitle, { widget }) => {
+        if (!cancelTitle && widget.get('requireConfirmation')) {
+          return 'Please provide a cancel title'
+        }
       },
     ],
   ],
