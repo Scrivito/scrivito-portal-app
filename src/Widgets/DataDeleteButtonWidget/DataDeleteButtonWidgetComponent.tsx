@@ -9,10 +9,16 @@ import { DataDeleteButtonWidget } from './DataDeleteButtonWidgetClass'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { EditorNote } from '../../Components/EditorNote'
+import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 
 provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
   const dataItem = useDataItem()
+
+  const buttonClassNames = ['btn']
+  const buttonSize = buttonSizeClassName(widget.get('buttonSize'))
+  if (buttonSize) buttonClassNames.push(buttonSize)
+
   const deletedMessage = widget.get('deletedMessage')
   const redirectAfterDelete = widget.get('redirectAfterDelete')
   const buttonColor = widget.get('buttonColor') || 'btn-danger'
@@ -27,7 +33,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
             content={widget}
             attribute="cancelTitle"
             tag="button"
-            className="btn btn-sm"
+            className={buttonClassNames.join(' ')}
             onClick={onDeleteRejected}
           />
 
@@ -35,7 +41,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
             content={widget}
             attribute="confirmTitle"
             tag="button"
-            className={`btn btn-sm ${buttonColor}`}
+            className={`${buttonClassNames.join(' ')} ${buttonColor}`}
             onClick={onDeleteConfirmed}
           />
         </InPlaceEditingOff>
@@ -51,7 +57,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
           content={widget}
           attribute="title"
           tag="button"
-          className={`btn btn-sm ${buttonColor}`}
+          className={`${buttonClassNames.join(' ')} ${buttonColor}`}
           onClick={
             widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed
           }

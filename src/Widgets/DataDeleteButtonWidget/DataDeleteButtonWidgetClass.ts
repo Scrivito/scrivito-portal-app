@@ -17,6 +17,7 @@ export const DataDeleteButtonWidget = provideWidgetClass(
           ],
         },
       ],
+      buttonSize: ['enum', { values: ['small', 'medium', 'large'] }],
       cancelTitle: 'string',
       confirmTitle: 'string',
       deletedMessage: 'string',

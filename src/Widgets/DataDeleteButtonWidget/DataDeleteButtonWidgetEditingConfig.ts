@@ -18,6 +18,10 @@ provideEditingConfig(DataDeleteButtonWidget, {
         { value: 'btn-outline-danger', title: 'Danger outline color' },
       ],
     },
+    buttonSize: {
+      title: 'Button size',
+      description: 'Default: medium',
+    },
     requireConfirmation: {
       title: 'Require confirmation?',
     },
@@ -29,6 +33,7 @@ provideEditingConfig(DataDeleteButtonWidget, {
   properties: (widget) => [
     'title',
     'buttonColor',
+    'buttonSize',
     'requireConfirmation',
     ['confirmTitle', { enabled: widget.get('requireConfirmation') }],
     ['cancelTitle', { enabled: widget.get('requireConfirmation') }],
@@ -42,6 +47,7 @@ provideEditingConfig(DataDeleteButtonWidget, {
     cancelTitle: 'Cancel',
     deletedMessage: 'Deleted item',
     buttonColor: 'btn-danger',
+    buttonSize: 'medium',
   },
   validations: [
     [
