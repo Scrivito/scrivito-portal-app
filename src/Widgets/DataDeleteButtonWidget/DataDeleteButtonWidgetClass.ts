@@ -4,6 +4,7 @@ export const DataDeleteButtonWidget = provideWidgetClass(
   'DataDeleteButtonWidget',
   {
     attributes: {
+      alignment: ['enum', { values: ['left', 'center', 'right', 'block'] }],
       buttonColor: [
         'enum',
         {

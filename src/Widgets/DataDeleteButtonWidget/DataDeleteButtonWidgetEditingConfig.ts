@@ -6,6 +6,16 @@ provideEditingConfig(DataDeleteButtonWidget, {
   title: 'Data Delete Button',
   thumbnail: Thumbnail,
   attributes: {
+    alignment: {
+      title: 'Alignment',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+        { value: 'block', title: 'Full width' },
+      ],
+    },
     buttonColor: {
       title: 'Button color',
       description: 'Default: Danger color',
@@ -32,6 +42,7 @@ provideEditingConfig(DataDeleteButtonWidget, {
   },
   properties: (widget) => [
     'title',
+    'alignment',
     'buttonColor',
     'buttonSize',
     'requireConfirmation',
@@ -41,6 +52,7 @@ provideEditingConfig(DataDeleteButtonWidget, {
     'redirectAfterDelete',
   ],
   initialContent: {
+    alignment: 'left',
     title: 'Delete item',
     requireConfirmation: true,
     confirmTitle: 'Confirm delete',

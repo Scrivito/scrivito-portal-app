@@ -1,6 +1,7 @@
 import {
   ContentTag,
   InPlaceEditingOff,
+  WidgetTag,
   navigateTo,
   provideComponent,
   useDataItem,
@@ -10,6 +11,7 @@ import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { EditorNote } from '../../Components/EditorNote'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
+import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 
 provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
@@ -23,11 +25,15 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const redirectAfterDelete = widget.get('redirectAfterDelete')
   const buttonColor = widget.get('buttonColor') || 'btn-danger'
 
+  const alignmentClassName = alignmentClassNameWithBlock(
+    widget.get('alignment'),
+  )
+
   if (!dataItem) return null
 
   if (showConfirmation) {
     return (
-      <div>
+      <WidgetTag className={alignmentClassName}>
         <InPlaceEditingOff>
           <ContentTag
             content={widget}
@@ -45,12 +51,12 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
             onClick={onDeleteConfirmed}
           />
         </InPlaceEditingOff>
-      </div>
+      </WidgetTag>
     )
   }
 
   return (
-    <>
+    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <EditorNote>Deletes {dataItem.dataClass().name()}.</EditorNote>
       <InPlaceEditingOff>
         <ContentTag
@@ -63,7 +69,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
           }
         />
       </InPlaceEditingOff>
-    </>
+    </WidgetTag>
   )
 
   function onDelete(e: React.MouseEvent) {
