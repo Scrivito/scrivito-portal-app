@@ -8,7 +8,15 @@ provideEditingConfig(DataDeleteButtonWidget, {
   attributes: {
     buttonColor: {
       title: 'Button color',
-      description: 'Default: btn-danger',
+      description: 'Default: Danger color',
+      values: [
+        { value: 'btn-primary', title: 'Primary color' },
+        { value: 'btn-secondary', title: 'Secondary color' },
+        { value: 'btn-danger', title: 'Danger color' },
+        { value: 'btn-outline-primary', title: 'Primary outline color' },
+        { value: 'btn-outline-secondary', title: 'Secondary outline color' },
+        { value: 'btn-outline-danger', title: 'Danger outline color' },
+      ],
     },
     requireConfirmation: {
       title: 'Require confirmation?',

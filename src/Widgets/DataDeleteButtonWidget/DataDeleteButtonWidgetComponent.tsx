@@ -15,10 +15,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const dataItem = useDataItem()
   const deletedMessage = widget.get('deletedMessage')
   const redirectAfterDelete = widget.get('redirectAfterDelete')
-  const buttonColor =
-    widget.get('buttonColor') === 'btn-outline-primary'
-      ? 'btn-outline-primary'
-      : 'btn-danger'
+  const buttonColor = widget.get('buttonColor') || 'btn-danger'
 
   if (!dataItem) return null
 
