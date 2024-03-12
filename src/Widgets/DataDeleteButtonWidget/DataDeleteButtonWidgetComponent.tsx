@@ -18,12 +18,17 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
   const buttonClassNames = ['btn']
+  const cancelButtonClassNames = ['btn']
   const buttonSize = buttonSizeClassName(widget.get('buttonSize'))
-  if (buttonSize) buttonClassNames.push(buttonSize)
+  if (buttonSize) {
+    buttonClassNames.push(buttonSize)
+    cancelButtonClassNames.push(buttonSize)
+  }
 
   const deletedMessage = widget.get('deletedMessage')
   const redirectAfterDelete = widget.get('redirectAfterDelete')
   const buttonColor = widget.get('buttonColor') || 'btn-danger'
+  if (buttonColor) buttonClassNames.push(buttonColor)
 
   const alignmentClassName = alignmentClassNameWithBlock(
     widget.get('alignment'),
@@ -39,7 +44,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
             content={widget}
             attribute="cancelTitle"
             tag="button"
-            className={buttonClassNames.join(' ')}
+            className={cancelButtonClassNames.join(' ')}
             onClick={onDeleteRejected}
           />
 
@@ -47,7 +52,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
             content={widget}
             attribute="confirmTitle"
             tag="button"
-            className={`${buttonClassNames.join(' ')} ${buttonColor}`}
+            className={buttonClassNames.join(' ')}
             onClick={onDeleteConfirmed}
           />
         </InPlaceEditingOff>
@@ -63,7 +68,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
           content={widget}
           attribute="title"
           tag="button"
-          className={`${buttonClassNames.join(' ')} ${buttonColor}`}
+          className={buttonClassNames.join(' ')}
           onClick={
             widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed
           }
