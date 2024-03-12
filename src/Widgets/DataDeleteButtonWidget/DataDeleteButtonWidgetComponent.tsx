@@ -15,8 +15,8 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const dataItem = useDataItem()
   const deletedMessage = widget.get('deletedMessage')
   const redirectAfterDelete = widget.get('redirectAfterDelete')
-  const buttonStyle =
-    widget.get('buttonStyle') === 'btn-outline-primary'
+  const buttonColor =
+    widget.get('buttonColor') === 'btn-outline-primary'
       ? 'btn-outline-primary'
       : 'btn-danger'
 
@@ -38,7 +38,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
             content={widget}
             attribute="confirmTitle"
             tag="button"
-            className={`btn btn-sm ${buttonStyle}`}
+            className={`btn btn-sm ${buttonColor}`}
             onClick={onDeleteConfirmed}
           />
         </InPlaceEditingOff>
@@ -54,7 +54,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
           content={widget}
           attribute="title"
           tag="button"
-          className={`btn btn-sm ${buttonStyle}`}
+          className={`btn btn-sm ${buttonColor}`}
           onClick={
             widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed
           }

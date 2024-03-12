@@ -6,8 +6,8 @@ provideEditingConfig(DataDeleteButtonWidget, {
   title: 'Data Delete Button',
   thumbnail: Thumbnail,
   attributes: {
-    buttonStyle: {
-      title: 'Button style',
+    buttonColor: {
+      title: 'Button color',
       description: 'Default: btn-danger',
     },
     requireConfirmation: {
@@ -20,12 +20,12 @@ provideEditingConfig(DataDeleteButtonWidget, {
   },
   properties: (widget) => [
     'title',
+    'buttonColor',
     'requireConfirmation',
     ['confirmTitle', { enabled: widget.get('requireConfirmation') }],
     ['cancelTitle', { enabled: widget.get('requireConfirmation') }],
     'deletedMessage',
     'redirectAfterDelete',
-    'buttonStyle',
   ],
   initialContent: {
     title: 'Delete item',
@@ -33,7 +33,7 @@ provideEditingConfig(DataDeleteButtonWidget, {
     confirmTitle: 'Confirm delete',
     cancelTitle: 'Cancel',
     deletedMessage: 'Deleted item',
-    buttonStyle: 'btn-danger',
+    buttonColor: 'btn-danger',
   },
   validations: [
     [
