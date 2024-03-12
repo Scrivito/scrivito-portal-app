@@ -36,7 +36,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
 
   if (!dataItem) return null
 
-  if (showConfirmation) {
+  if (showConfirmation && widget.get('requireConfirmation')) {
     return (
       <WidgetTag className={alignmentClassName}>
         <InPlaceEditingOff>
