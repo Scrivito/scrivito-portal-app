@@ -8,7 +8,7 @@ import {
 } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import { RelativeDate } from './RelativeDate'
-import { localizeAttributeValue } from '../../utils/valuesConfig'
+import { localizeAttributeValue } from '../../utils/dataValuesConfig'
 import { ensureString } from '../../utils/ensureString'
 
 const CURRENCY = 'EUR' // ISO 4217 Code

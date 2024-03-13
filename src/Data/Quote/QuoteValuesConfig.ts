@@ -1,7 +1,7 @@
 import {
   provideDataValues,
   provideAttributeLocalizers,
-} from '../../utils/valuesConfig'
+} from '../../utils/dataValuesConfig'
 import { Quote } from './QuoteDataClass'
 
 provideDataValues(Quote, {
