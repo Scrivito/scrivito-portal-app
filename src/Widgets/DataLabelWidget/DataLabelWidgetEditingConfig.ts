@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { isString } from 'lodash-es'
 
 provideEditingConfig(DataLabelWidget, {
   title: 'Data Label',
@@ -14,13 +15,30 @@ provideEditingConfig(DataLabelWidget, {
         { value: 'text', title: 'Text' },
         { value: 'currency', title: 'Currency' },
         { value: 'datetime', title: 'Date' },
+        { value: 'link', title: 'Link' },
+      ],
+    },
+    datetimeFormat: {
+      title: 'Date format',
+      description: 'Default: Relative',
+      values: [
+        { value: 'relative', title: 'Relative' },
+        { value: 'datetime', title: 'Date and time' },
+        { value: 'date', title: 'Only date' },
       ],
     },
     marginBottom: {
       title: 'Add margin bottom?',
     },
   },
-  properties: ['attributeName', 'showAs', 'valueSize', 'marginBottom'],
+  properties: (widget) =>
+    [
+      'attributeName',
+      'showAs',
+      widget.get('showAs') === 'datetime' ? 'datetimeFormat' : null,
+      'valueSize',
+      'marginBottom',
+    ].filter(isString),
   initialContent: {
     label: 'Label',
     showAs: 'text',

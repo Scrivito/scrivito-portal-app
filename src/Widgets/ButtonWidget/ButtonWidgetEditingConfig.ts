@@ -17,7 +17,7 @@ provideEditingConfig(ButtonWidget, {
       ],
     },
     buttonColor: {
-      title: 'Background color',
+      title: 'Button color',
       description: 'Default: Primary color',
       values: [
         { value: 'btn-primary', title: 'Primary color' },

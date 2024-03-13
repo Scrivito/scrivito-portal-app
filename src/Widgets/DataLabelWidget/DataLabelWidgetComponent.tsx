@@ -10,6 +10,12 @@ import { DataLabelWidget } from './DataLabelWidgetClass'
 import { RelativeDate } from './RelativeDate'
 import { localizeAttributeValue } from '../../utils/dataValuesConfig'
 import { ensureString } from '../../utils/ensureString'
+import {
+  formatDateMonthAndYear,
+  formatDateTime,
+  formatFullDateTime,
+  formatFullDayAndMonth,
+} from '../../utils/formatDate'
 
 const CURRENCY = 'EUR' // ISO 4217 Code
 
@@ -34,6 +40,7 @@ provideComponent(DataLabelWidget, ({ widget }) => {
         <AttributeValue
           dataItem={dataItem}
           attributeName={widget.get('attributeName')}
+          datetimeFormat={widget.get('datetimeFormat')}
           showAs={widget.get('showAs')}
         />
       </div>
@@ -51,10 +58,12 @@ provideComponent(DataLabelWidget, ({ widget }) => {
 const AttributeValue = connect(function AttributeValue({
   dataItem,
   attributeName,
+  datetimeFormat,
   showAs,
 }: {
   dataItem?: DataItem
   attributeName: string
+  datetimeFormat: string | null
   showAs: string | null
 }) {
   if (!dataItem) return 'N/A'
@@ -62,7 +71,10 @@ const AttributeValue = connect(function AttributeValue({
   const attributeValue = dataItem?.get(attributeName)
 
   if (showAs === 'currency') return <Currency value={attributeValue} />
-  if (showAs === 'datetime') return <Datetime value={attributeValue} />
+  if (showAs === 'datetime') {
+    return <Datetime value={attributeValue} datetimeFormat={datetimeFormat} />
+  }
+  if (showAs === 'link') return <Link value={attributeValue} />
 
   const value = localizeAttributeValue({
     dataClass: dataItem.dataClass(),
@@ -91,12 +103,40 @@ function Currency({ value }: { value: unknown }) {
   return formatter.format(number)
 }
 
-function Datetime({ value }: { value: unknown }) {
+function Datetime({
+  value,
+  datetimeFormat,
+}: {
+  value: unknown
+  datetimeFormat: string | null
+}) {
   if (value === null) return 'N/A'
   if (typeof value !== 'string') return 'N/A'
 
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return 'N/A'
 
+  if (datetimeFormat === 'date') {
+    return (
+      <span title={formatFullDayAndMonth(date)}>
+        {formatDateMonthAndYear(date)}
+      </span>
+    )
+  }
+
+  if (datetimeFormat === 'datetime') {
+    return <span title={formatFullDateTime(date)}>{formatDateTime(date)}</span>
+  }
+
   return <RelativeDate date={date} />
+}
+
+function Link({ value }: { value: unknown }) {
+  if (typeof value !== 'string') return 'N/A'
+
+  return (
+    <a href={value} target="_blank" rel="noreferrer">
+      {value}
+    </a>
+  )
 }

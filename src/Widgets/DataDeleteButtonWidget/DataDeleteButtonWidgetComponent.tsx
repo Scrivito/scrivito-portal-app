@@ -1,36 +1,50 @@
 import {
   ContentTag,
   InPlaceEditingOff,
+  WidgetTag,
   navigateTo,
   provideComponent,
   useDataItem,
 } from 'scrivito'
-import { DataFormDeleteButtonWidget } from './DataFormDeleteButtonWidgetClass'
+import { DataDeleteButtonWidget } from './DataDeleteButtonWidgetClass'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { EditorNote } from '../../Components/EditorNote'
+import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
+import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 
-provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
+provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const [showConfirmation, setShowConfirmation] = useState(false)
   const dataItem = useDataItem()
+
+  const buttonClassNames = ['btn']
+  const cancelButtonClassNames = ['btn']
+  const buttonSize = buttonSizeClassName(widget.get('buttonSize'))
+  if (buttonSize) {
+    buttonClassNames.push(buttonSize)
+    cancelButtonClassNames.push(buttonSize)
+  }
+
   const deletedMessage = widget.get('deletedMessage')
   const redirectAfterDelete = widget.get('redirectAfterDelete')
-  const buttonStyle =
-    widget.get('buttonStyle') === 'btn-outline-primary'
-      ? 'btn-outline-primary'
-      : 'btn-danger'
+  const buttonColor = widget.get('buttonColor') || 'btn-danger'
+  if (buttonColor) buttonClassNames.push(buttonColor)
+
+  const alignmentClassName = alignmentClassNameWithBlock(
+    widget.get('alignment'),
+  )
 
   if (!dataItem) return null
 
-  if (showConfirmation) {
+  if (showConfirmation && widget.get('requireConfirmation')) {
     return (
-      <div>
+      <WidgetTag className={alignmentClassName}>
         <InPlaceEditingOff>
           <ContentTag
             content={widget}
             attribute="cancelTitle"
             tag="button"
-            className="btn btn-sm"
+            className={cancelButtonClassNames.join(' ')}
             onClick={onDeleteRejected}
           />
 
@@ -38,29 +52,29 @@ provideComponent(DataFormDeleteButtonWidget, ({ widget }) => {
             content={widget}
             attribute="confirmTitle"
             tag="button"
-            className={`btn btn-sm ${buttonStyle}`}
+            className={buttonClassNames.join(' ')}
             onClick={onDeleteConfirmed}
           />
         </InPlaceEditingOff>
-      </div>
+      </WidgetTag>
     )
   }
 
   return (
-    <>
+    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <EditorNote>Deletes {dataItem.dataClass().name()}.</EditorNote>
       <InPlaceEditingOff>
         <ContentTag
           content={widget}
           attribute="title"
           tag="button"
-          className={`btn btn-sm ${buttonStyle}`}
+          className={buttonClassNames.join(' ')}
           onClick={
             widget.get('requireConfirmation') ? onDelete : onDeleteConfirmed
           }
         />
       </InPlaceEditingOff>
-    </>
+    </WidgetTag>
   )
 
   function onDelete(e: React.MouseEvent) {
