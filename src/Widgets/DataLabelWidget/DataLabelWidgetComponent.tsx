@@ -56,12 +56,12 @@ const AttributeValue = connect(function AttributeValue({
   attributeName: string
   showAs: string | null
 }) {
+  if (!dataItem) return 'N/A'
+
   const attributeValue = dataItem?.get(attributeName)
 
   if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') return <Datetime value={attributeValue} />
-
-  if (!dataItem) return <Text value={attributeValue} />
 
   const value = localizedAttributeValue(dataItem, attributeName)
 
