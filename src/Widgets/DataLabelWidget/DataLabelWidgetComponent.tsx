@@ -117,6 +117,7 @@ function Datetime({
 
 function Link({ value }: { value: unknown }) {
   if (typeof value !== 'string') return 'N/A'
+  if (!value) return 'N/A'
 
   return (
     <a href={value} target="_blank" rel="noreferrer">
