@@ -41,7 +41,7 @@ export function localizeAttributeValue({
   attributeValue: string
 }): string {
   return (
-    localizers[dataClass.name()]?.[attributeName]?.[attributeValue] ||
+    localizers[dataClass.name()]?.[attributeName]?.[attributeValue] ??
     attributeValue
   )
 }
