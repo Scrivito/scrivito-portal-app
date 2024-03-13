@@ -1,10 +1,15 @@
 import { DataClass, DataItem } from 'scrivito'
 import { ensureString } from './ensureString'
 
-const values: Partial<Record<string, Partial<Record<string, string[]>>>> = {}
-const localizers: Partial<
-  Record<string, Partial<Record<string, Partial<Record<string, string>>>>>
-> = {}
+type ValuesByAttribute = Partial<Record<string, string[]>>
+type ValuesByDataClass = Partial<Record<string, ValuesByAttribute>>
+
+type LocalizerByValue = Partial<Record<string, string>>
+type LocalizersByAttribute = Partial<Record<string, LocalizerByValue>>
+type LocalizersByDataClass = Partial<Record<string, LocalizersByAttribute>>
+
+const values: ValuesByDataClass = {}
+const localizers: LocalizersByDataClass = {}
 
 export function provideDataValues(
   dataClass: DataClass,
