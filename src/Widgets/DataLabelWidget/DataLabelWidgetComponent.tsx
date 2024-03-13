@@ -7,6 +7,12 @@ import {
 } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import { RelativeDate } from './RelativeDate'
+import {
+  formatDateMonthAndYear,
+  formatDateTime,
+  formatFullDateTime,
+  formatFullDayAndMonth,
+} from '../../utils/formatDate'
 
 const CURRENCY = 'EUR' // ISO 4217 Code
 
@@ -30,6 +36,7 @@ provideComponent(DataLabelWidget, ({ widget }) => {
       <div className={valueCssClassNames.join(' ')}>
         <AttributeValue
           attributeValue={dataItem?.get(widget.get('attributeName'))}
+          datetimeFormat={widget.get('datetimeFormat')}
           showAs={widget.get('showAs')}
         />
       </div>
@@ -46,13 +53,17 @@ provideComponent(DataLabelWidget, ({ widget }) => {
 
 const AttributeValue = connect(function AttributeValue({
   attributeValue,
+  datetimeFormat,
   showAs,
 }: {
   attributeValue: unknown
+  datetimeFormat: string | null
   showAs: string | null
 }) {
   if (showAs === 'currency') return <Currency value={attributeValue} />
-  if (showAs === 'datetime') return <Datetime value={attributeValue} />
+  if (showAs === 'datetime') {
+    return <Datetime value={attributeValue} datetimeFormat={datetimeFormat} />
+  }
   if (showAs === 'link') return <Link value={attributeValue} />
 
   return <Text value={attributeValue} />
@@ -76,12 +87,30 @@ function Currency({ value }: { value: unknown }) {
   return formatter.format(number)
 }
 
-function Datetime({ value }: { value: unknown }) {
+function Datetime({
+  value,
+  datetimeFormat,
+}: {
+  value: unknown
+  datetimeFormat: string | null
+}) {
   if (value === null) return 'N/A'
   if (typeof value !== 'string') return 'N/A'
 
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return 'N/A'
+
+  if (datetimeFormat === 'date') {
+    return (
+      <span title={formatFullDayAndMonth(date)}>
+        {formatDateMonthAndYear(date)}
+      </span>
+    )
+  }
+
+  if (datetimeFormat === 'datetime') {
+    return <span title={formatFullDateTime(date)}>{formatDateTime(date)}</span>
+  }
 
   return <RelativeDate date={date} />
 }
