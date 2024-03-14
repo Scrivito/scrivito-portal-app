@@ -1,7 +1,6 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { isString } from 'lodash-es'
 
 provideEditingConfig(DataLabelWidget, {
   title: 'Data Label',
@@ -38,7 +37,7 @@ provideEditingConfig(DataLabelWidget, {
       widget.get('showAs') === 'datetime' ? 'datetimeFormat' : null,
       'valueSize',
       'marginBottom',
-    ].filter(isString),
+    ].filter((p): p is string => typeof p === 'string'),
   initialContent: {
     label: 'Label',
     showAs: 'text',
