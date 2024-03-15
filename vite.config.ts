@@ -42,11 +42,11 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
       headers: developmentHeaders(),
       proxy: {
-        '/jr-api': {
-          target: 'https://api.justrelate.com',
+        '/auth': {
+          target: 'https://api.justrelate.com/iam/auth',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/jr-api/, ''),
-          headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
+          rewrite: (path) => path.replace(/^\/auth/, ''),
+          headers: { 'X-JR-Auth-Location': 'http://localhost:8080/auth' },
         },
 
         /**
