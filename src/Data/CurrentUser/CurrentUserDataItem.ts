@@ -1,20 +1,15 @@
-import {
-  currentUser,
-  getInstanceId,
-  load,
-  provideDataItem,
-  unstable_JrRestApi,
-} from 'scrivito'
+import { currentUser, load, provideDataItem } from 'scrivito'
 import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
+import { neoletterClient } from '../neoletterClient'
 
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
     const user = await load(currentUser)
     if (!user) return {}
 
-    const neoletterProfile = await unstable_JrRestApi.get(neoletterProfileUrl())
+    const neoletterProfile = await neoletterClient().get('my/profile')
     if (!isNeoletterData(neoletterProfile)) {
       throw new Error('Neoletter data is not in the expected format')
     }
@@ -55,7 +50,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       throw new Error(`Unknown keys - ${Object.keys(otherArgs)}`)
     }
 
-    await unstable_JrRestApi.put(neoletterProfileUrl(), {
+    await neoletterClient().put('my/profile', {
       data: {
         company,
         family_name: familyName,
@@ -90,8 +85,4 @@ function isNeoletterData(input: unknown): input is NeoletterData {
     isOptionalString(item.phone_number) &&
     isOptionalString(item.salutation)
   )
-}
-
-function neoletterProfileUrl() {
-  return `neoletter/instances/${getInstanceId()}/my/profile`
 }

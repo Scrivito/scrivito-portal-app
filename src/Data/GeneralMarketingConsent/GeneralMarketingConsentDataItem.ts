@@ -1,4 +1,5 @@
-import { getInstanceId, provideDataItem, unstable_JrRestApi } from 'scrivito'
+import { provideDataItem } from 'scrivito'
+import { neoletterClient } from '../neoletterClient'
 
 const GENERAL_TOPIC_ID = 'general'
 
@@ -13,15 +14,12 @@ export const GeneralMarketingConsent = provideDataItem(
     async update(params) {
       const { isConsentGiven } = params
 
-      await unstable_JrRestApi.put(
-        `neoletter/instances/${getInstanceId()}/my/consents/${GENERAL_TOPIC_ID}`,
-        {
-          data: {
-            source: 'self-service portal',
-            state: isConsentGiven ? 'given' : 'revoked',
-          },
+      await neoletterClient().put(`my/consents/${GENERAL_TOPIC_ID}`, {
+        data: {
+          source: 'self-service portal',
+          state: isConsentGiven ? 'given' : 'revoked',
         },
-      )
+      })
 
       return params
     },
@@ -30,8 +28,8 @@ export const GeneralMarketingConsent = provideDataItem(
 
 async function fetchMySubscribedTopicIds() {
   return (
-    (await unstable_JrRestApi.fetch(
-      `neoletter/instances/${getInstanceId()}/my/subscriptions`,
-    )) as { results: { topic_id: string }[] }
+    (await neoletterClient().get('my/subscriptions')) as {
+      results: { topic_id: string }[]
+    }
   ).results.map(({ topic_id }) => topic_id)
 }
