@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { uiContext, canWrite, connect, Widget } from 'scrivito'
 import Draggable from 'react-draggable'
-import { isEqual, take, takeRight, times } from 'lodash-es'
+import { isEqual, times } from 'lodash-es'
 import {
   ColumnWidget,
   ColumnWidgetInstance,
@@ -524,25 +524,23 @@ function adjustNumberOfColumns(
   containerWidget.update({ columns: newColumns })
 }
 
+/**
+ * Copy first n - 1 columns and merge last columns into one
+ */
 function distributeContents(columns: Widget[], originalContents: Widget[][]) {
-  const splitIndexAt = columns.length - 1
-
-  // copy first n -1 elements
-  take(originalContents, splitIndexAt).forEach((originalContent, index) => {
-    columns[index].update({ content: originalContent })
-  })
-
-  // merge last columns into one
-  const colsToMerge = takeRight(
-    originalContents,
-    originalContents.length - splitIndexAt,
+  columns.forEach((column, index) =>
+    column.update({
+      content:
+        index !== columns.length - 1
+          ? originalContents[index]
+          : originalContents.slice(index).flat(),
+    }),
   )
-  columns[columns.length - 1].update({ content: colsToMerge.flat() })
 }
 
 function adjustColSize(columns: Widget[], newGrid: number[]) {
-  newGrid.forEach((colSize, index) => {
-    columns[index].update({ colSize })
+  columns.forEach((column, index) => {
+    column.update({ colSize: newGrid[index] })
   })
 }
 
