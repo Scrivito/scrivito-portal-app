@@ -531,7 +531,7 @@ function distributeContents(columns: Widget[], originalContents: Widget[][]) {
   columns.forEach((column, index) =>
     column.update({
       content:
-        index !== columns.length - 1
+        index < columns.length - 1
           ? originalContents[index]
           : originalContents.slice(index).flat(),
     }),
