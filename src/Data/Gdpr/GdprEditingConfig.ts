@@ -2,7 +2,7 @@ import { provideEditingConfig } from 'scrivito'
 import { Gdpr } from './GdprDataClass'
 
 provideEditingConfig(Gdpr, {
-  title: 'GDPR',
+  title: 'GDPR consent',
   attributes: {
     name: { title: 'Name' },
     description: { title: 'Description' },
