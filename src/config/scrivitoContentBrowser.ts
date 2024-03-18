@@ -4,17 +4,8 @@ import { DATA_OBJ_CLASSES } from '../Objs/dataObjClasses'
 export function configureScrivitoContentBrowser() {
   configureContentBrowser({
     filters: ({ _validObjClasses }) => {
-      if (_validObjClasses) {
-        switch (_validObjClasses.length) {
-          case 0:
-            return defaultFilters()
-          case 1:
-            return filterForObjClass(_validObjClasses[0])
-          default:
-            return filtersForObjClasses(_validObjClasses)
-        }
-      }
-
+      if (_validObjClasses?.[1]) return filtersForObjClasses(_validObjClasses)
+      if (_validObjClasses?.[0]) return filterForObjClass(_validObjClasses[0])
       return defaultFilters()
     },
   })
