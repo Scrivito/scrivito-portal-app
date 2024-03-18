@@ -1,12 +1,15 @@
 import {
   connect,
   ContentTag,
+  DataItem,
   provideComponent,
   useDataItem,
   WidgetTag,
 } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import { RelativeDate } from './RelativeDate'
+import { localizeAttributeValue } from '../../utils/dataValuesConfig'
+import { ensureString } from '../../utils/ensureString'
 import {
   formatDateMonthAndYear,
   formatDateTime,
@@ -35,7 +38,8 @@ provideComponent(DataLabelWidget, ({ widget }) => {
       />
       <div className={valueCssClassNames.join(' ')}>
         <AttributeValue
-          attributeValue={dataItem?.get(widget.get('attributeName'))}
+          dataItem={dataItem}
+          attributeName={widget.get('attributeName')}
           datetimeFormat={widget.get('datetimeFormat')}
           showAs={widget.get('showAs')}
         />
@@ -52,21 +56,33 @@ provideComponent(DataLabelWidget, ({ widget }) => {
 })
 
 const AttributeValue = connect(function AttributeValue({
-  attributeValue,
+  dataItem,
+  attributeName,
   datetimeFormat,
   showAs,
 }: {
-  attributeValue: unknown
+  dataItem?: DataItem
+  attributeName: string
   datetimeFormat: string | null
   showAs: string | null
 }) {
+  if (!dataItem) return 'N/A'
+
+  const attributeValue = dataItem?.get(attributeName)
+
   if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') {
     return <Datetime value={attributeValue} datetimeFormat={datetimeFormat} />
   }
   if (showAs === 'link') return <Link value={attributeValue} />
 
-  return <Text value={attributeValue} />
+  const value = localizeAttributeValue({
+    dataClass: dataItem.dataClass(),
+    attributeName,
+    attributeValue: ensureString(attributeValue),
+  })
+
+  return <Text value={value} />
 })
 
 function Text({ value }: { value: unknown }) {
