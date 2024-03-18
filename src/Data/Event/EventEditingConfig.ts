@@ -13,7 +13,7 @@ provideEditingConfig(Event, {
     responsibleAgent: { title: 'Responsible agent (ID)' },
     status: { title: 'Status (code)' },
     statusLocalized: { title: 'Status (human readable)' },
-    url: { title: 'URL' },
+    url: { title: 'Website URL' },
     logo: { title: 'Logo' },
     language: { title: 'Language (code)' },
     languageLocalized: { title: 'Language (human readable)' },
