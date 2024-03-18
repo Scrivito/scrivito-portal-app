@@ -14,9 +14,9 @@ const OBJS_PATH = `${DUMP_PATH}/objs`
 
 const env = loadEnv('development', process.cwd(), '')
 
-const API_CLIENT_ID = env.CONTENT_MASTER_API_CLIENT_ID
-const API_CLIENT_SECRET = env.CONTENT_MASTER_API_CLIENT_SECRET
-const INSTANCE_ID = env.CONTENT_MASTER_SCRIVITO_TENANT
+const API_CLIENT_ID = env.CONTENT_MASTER_API_CLIENT_ID || ''
+const API_CLIENT_SECRET = env.CONTENT_MASTER_API_CLIENT_SECRET || ''
+const INSTANCE_ID = env.CONTENT_MASTER_SCRIVITO_TENANT || ''
 
 let apiToken: string | undefined = undefined
 
