@@ -1,5 +1,4 @@
-import { provideDataClass } from 'scrivito'
-import { neoletterClient } from '../neoletterClient'
+import { getInstanceId, provideDataClass, unstable_JrRestApi } from 'scrivito'
 
 interface Topic {
   id: string
@@ -16,12 +15,15 @@ export const Subscription = provideDataClass('Subscription', {
       return (await fetchSubscriptions()).find((sub) => sub.id === id) || null
     },
     async update(id: string, params) {
-      await neoletterClient().put(`my/consents/${id}`, {
-        data: {
-          source: 'self-service portal',
-          state: params.isConsentGiven ? 'given' : 'revoked',
+      await unstable_JrRestApi.put(
+        `neoletter/instances/${getInstanceId()}/my/consents/${id}`,
+        {
+          data: {
+            source: 'self-service portal',
+            state: params.isConsentGiven ? 'given' : 'revoked',
+          },
         },
-      })
+      )
 
       return params
     },
@@ -30,13 +32,15 @@ export const Subscription = provideDataClass('Subscription', {
 
 async function fetchSubscriptions() {
   const subscribedTopicIds = (
-    (await neoletterClient().get('my/subscriptions')) as {
-      results: { topic_id: string }[]
-    }
+    (await unstable_JrRestApi.fetch(
+      `neoletter/instances/${getInstanceId()}/my/subscriptions`,
+    )) as { results: { topic_id: string }[] }
   ).results.map(({ topic_id }) => topic_id)
 
   const topics = (
-    (await neoletterClient().get('my/topics')) as { results: Topic[] }
+    (await unstable_JrRestApi.fetch(
+      `neoletter/instances/${getInstanceId()}/my/topics`,
+    )) as { results: Topic[] }
   ).results
 
   return topics.map(({ id, description, title }) => ({
