@@ -145,7 +145,7 @@ function valueFromElement(
   if (element.type === 'file') {
     const files = element.files
     if (element.multiple) return files ? [...files] : []
-    if (files?.length === 1) return files[0] || null
+    if (files?.length === 1) return files[0]!
     return null
   }
 
