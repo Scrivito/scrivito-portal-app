@@ -6,11 +6,9 @@ provideEditingConfig(Document, {
   attributes: {
     title: { title: 'Title' },
     number: { title: 'Number' },
-    type: { title: 'Type (code)' },
-    typeLocalized: { title: 'Type (human readable)' },
+    type: { title: 'Type' },
     createdAt: { title: 'Created at' },
-    language: { title: 'Language (code)' },
-    languageLocalized: { title: 'Language (human readable)' },
+    language: { title: 'Language' },
     format: { title: 'Format' },
     size: { title: 'Size' },
     version: { title: 'Version' },
