@@ -44,9 +44,6 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
         onSubmit={onSubmit}
         onReset={onReset}
         className={isSubmitting ? 'form-loading' : ''}
-        onClick={(e) => {
-          e.stopPropagation()
-        }}
       >
         <InPlaceEditingOff>
           <ContentTag content={widget} attribute="hiddenFields" />
