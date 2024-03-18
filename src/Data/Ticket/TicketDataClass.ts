@@ -9,13 +9,12 @@ export const Ticket = provideLocalStorageDataClass('Ticket', {
     return {
       ...newData,
       type:
-        newData.type || newData.typeLocalized === 'Question'
+        newData.type === 'Question'
           ? 'PSA_SVC_CAL'
-          : newData.typeLocalized === 'Claim'
+          : newData.type === 'Claim'
             ? 'PSA_SVC_CPL'
             : 'PSA_SVC_TRB',
       status: newData.status || 'PSA_SVC_CAL_ACQ',
-      statusLocalized: newData.statusLocalized || 'captured',
       open: newData.open || true,
       referenceNumber: newData.referenceNumber || '',
       responsibleAgent:
@@ -31,12 +30,10 @@ export const Ticket = provideLocalStorageDataClass('Ticket', {
       _id: '581BDB4B108D45579E7D3DE087C13D65',
       title: 'This is a claim',
       type: 'PSA_SVC_CPL',
-      typeLocalized: 'Claim',
       description: 'Please send me a box, so I can return it to you.',
       referenceNumber: '',
       number: 'CP-24-001411',
       status: 'PSA_SVC_CPL_DCS',
-      statusLocalized: 'defined containment action',
       open: true,
       updatedAt: '2024-01-12T10:16:34Z',
       responsibleAgent: '4668C6ADEF0443BE80FB4049097A901A',
@@ -48,12 +45,10 @@ export const Ticket = provideLocalStorageDataClass('Ticket', {
       _id: '205D0CBE0B6B4DF088D12442A0B84428',
       title: 'This is a fault report',
       type: 'PSA_SVC_TRB',
-      typeLocalized: 'Fault',
       description: 'Can you help me?',
       referenceNumber: '',
       number: 'TT-24-001410',
       status: 'PSA_SVC_TRB_CLS',
-      statusLocalized: 'closed',
       open: false,
       updatedAt: '2024-01-12T10:14:55Z',
       responsibleAgent: '4668C6ADEF0443BE80FB4049097A901A',
@@ -65,12 +60,10 @@ export const Ticket = provideLocalStorageDataClass('Ticket', {
       _id: '5095866DEFF74DCDBE56B01689813749',
       title: 'My pump is no longer working',
       type: 'PSA_SVC_CAL',
-      typeLocalized: 'Question',
       description: 'This morning it stopped working.',
       referenceNumber: '',
       number: 'CL-24-001409',
       status: 'PSA_SVC_CAL_CLS',
-      statusLocalized: 'answered',
       open: false,
       updatedAt: '2024-01-12T10:10:08Z',
       responsibleAgent: '4668C6ADEF0443BE80FB4049097A901A',
