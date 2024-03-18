@@ -7,6 +7,7 @@ import {
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
+import { MouseEvent } from 'react'
 
 provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
   const baseButtonStyles = ['btn']
@@ -22,6 +23,7 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
           attribute="submitTitle"
           type="submit"
           className={`${baseButtonStyles.join(' ')} btn-primary`}
+          onClick={(e: MouseEvent<'button'>) => e.stopPropagation()}
         ></ContentTag>{' '}
         {widget.get('hasReset') && (
           <ContentTag
@@ -30,6 +32,7 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
             attribute="resetTitle"
             type="reset"
             className={`${baseButtonStyles.join(' ')} btn-danger`}
+            onClick={(e: MouseEvent<'button'>) => e.stopPropagation()}
           >
             {widget.get('resetTitle')}
           </ContentTag>
