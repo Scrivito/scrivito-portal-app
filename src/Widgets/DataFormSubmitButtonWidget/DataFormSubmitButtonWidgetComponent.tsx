@@ -22,6 +22,9 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
           attribute="submitTitle"
           type="submit"
           className={`${baseButtonStyles.join(' ')} btn-primary`}
+          onClick={(e: unknown) => {
+            if (supportsStopPropagation(e)) e.stopPropagation()
+          }}
         ></ContentTag>{' '}
         {widget.get('hasReset') && (
           <ContentTag
@@ -30,6 +33,9 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
             attribute="resetTitle"
             type="reset"
             className={`${baseButtonStyles.join(' ')} btn-danger`}
+            onClick={(e: unknown) => {
+              if (supportsStopPropagation(e)) e.stopPropagation()
+            }}
           >
             {widget.get('resetTitle')}
           </ContentTag>
@@ -38,3 +44,9 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
     </WidgetTag>
   )
 })
+
+function supportsStopPropagation(e: unknown): e is { stopPropagation(): void } {
+  return (
+    typeof (e as { stopPropagation(): void })?.stopPropagation === 'function'
+  )
+}
