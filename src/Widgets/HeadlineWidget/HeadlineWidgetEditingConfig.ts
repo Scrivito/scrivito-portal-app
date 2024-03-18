@@ -16,6 +16,8 @@ provideEditingConfig(HeadlineWidget, {
         { value: 'h4', title: 'Heading 4' },
         { value: 'h5', title: 'Heading 5' },
         { value: 'h6', title: 'Heading 6' },
+        { value: 'label-headline', title: 'Label heading' },
+        { value: 'label-subtitle', title: 'Label subtitle' },
       ],
     },
     level: {
