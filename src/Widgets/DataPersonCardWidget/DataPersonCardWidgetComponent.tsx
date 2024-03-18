@@ -1,12 +1,10 @@
 import {
   provideComponent,
-  WidgetTag,
   // @ts-expect-error TODO: remove once officially released
   useDataScope,
   DataScope,
   connect,
   DataItem,
-  ContentTag,
 } from 'scrivito'
 
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
@@ -16,7 +14,7 @@ import { DataPersonCardWidget } from './DataPersonCardWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import personCircle from '../../assets/images/person-circle.svg'
 
-provideComponent(DataPersonCardWidget, ({ widget }) => {
+provideComponent(DataPersonCardWidget, () => {
   const dataScope: DataScope | undefined = useDataScope()
 
   if (!dataScope) {
@@ -26,17 +24,11 @@ provideComponent(DataPersonCardWidget, ({ widget }) => {
   if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
 
   return (
-    <WidgetTag>
-      <ContentTag
-        content={widget}
-        attribute="headline"
-        tag="h6"
-        className="h6 text-uppercase"
-      />
+    <>
       {dataScope.take().map((dataItem) => (
         <PersonCard dataItem={dataItem} key={dataItem.id()} />
       ))}
-    </WidgetTag>
+    </>
   )
 })
 
