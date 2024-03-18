@@ -2,7 +2,7 @@ import { provideEditingConfig } from 'scrivito'
 import { CartItem } from './CartItemDataClass'
 
 provideEditingConfig(CartItem, {
-  title: 'Cart Item',
+  title: 'Cart item',
   attributes: {
     productId: {
       title: 'Product ID',
