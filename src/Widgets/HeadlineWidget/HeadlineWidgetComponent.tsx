@@ -4,9 +4,16 @@ import speakingUrl from 'speakingurl'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 
 provideComponent(HeadlineWidget, ({ widget }) => {
+  const classNames: string[] = []
+
   const style = widget.get('style') || 'h2'
-  const level = widget.get('level') || style
-  const classNames = [style]
+  if (style === 'label-headline') {
+    classNames.push('text-bold', 'text-extra-small')
+  } else if (style === 'label-subtitle') {
+    classNames.push('text-small')
+  } else {
+    classNames.push(style)
+  }
 
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
@@ -18,8 +25,17 @@ provideComponent(HeadlineWidget, ({ widget }) => {
       content={widget}
       attribute="headline"
       className={classNames.join(' ')}
-      tag={level}
+      tag={tag(widget.get('level'), style)}
       id={speakingUrl(widget.get('headline'))}
     />
   )
 })
+
+function tag(level: string | null, style: string): string {
+  if (level) return level
+
+  if (style === 'label-headline') return 'div'
+  if (style === 'label-subtitle') return 'div'
+
+  return style
+}
