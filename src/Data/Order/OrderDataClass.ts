@@ -164,7 +164,7 @@ export const Order = provideLocalStorageDataClass('Order', {
       quoteAt: null,
       orderAt: '2024-01-02T23:00:00Z',
       deliveryAt: '2023-07-23T13:35:38Z',
-      termsOfDelivery: 'PSA_TOD_10',
+      termsOfDelivery: 'RFC_TOD_DDU',
       termsOfPayment: 'RFC_TOP_NT60',
       totalPrice: 25246.476190476184,
       totalPriceCurrency: 'EUR',
