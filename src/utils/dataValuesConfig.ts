@@ -1,11 +1,11 @@
 import { DataClass } from 'scrivito'
 
-type ValuesByAttribute = Partial<Record<string, string[]>>
-type ValuesByDataClass = Partial<Record<string, ValuesByAttribute>>
+type ValuesByAttribute = Record<string, string[]>
+type ValuesByDataClass = Record<string, ValuesByAttribute>
 
-type LocalizerByValue = Partial<Record<string, string>>
-type LocalizersByAttribute = Partial<Record<string, LocalizerByValue>>
-type LocalizersByDataClass = Partial<Record<string, LocalizersByAttribute>>
+type LocalizerByValue = Record<string, string>
+type LocalizersByAttribute = Record<string, LocalizerByValue>
+type LocalizersByDataClass = Record<string, LocalizersByAttribute>
 
 const values: ValuesByDataClass = {}
 const localizers: LocalizersByDataClass = {}
