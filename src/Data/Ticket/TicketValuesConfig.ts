@@ -34,13 +34,7 @@ provideDataValues(Ticket, {
     'PSA_SVC_TRB_DON',
     'PSA_SVC_TRB_DSP',
   ],
-  type: [
-    'PSA_SVC_C8D',
-    'PSA_SVC_CAL',
-    'PSA_SVC_CPL',
-    'PSA_SVC_SUP_CPL',
-    'PSA_SVC_TRB',
-  ],
+  type: ['PSA_SVC_CAL', 'PSA_SVC_CPL', 'PSA_SVC_TRB'],
 })
 
 provideAttributeLocalizers(Ticket, {
