@@ -8,12 +8,7 @@ export const Ticket = provideLocalStorageDataClass('Ticket', {
 
     return {
       ...newData,
-      type:
-        newData.type === 'Question'
-          ? 'PSA_SVC_CAL'
-          : newData.type === 'Claim'
-            ? 'PSA_SVC_CPL'
-            : 'PSA_SVC_TRB',
+      type: newData.type || 'PSA_SVC_TRB',
       status: newData.status || 'PSA_SVC_CAL_ACQ',
       open: newData.open || true,
       referenceNumber: newData.referenceNumber || '',
