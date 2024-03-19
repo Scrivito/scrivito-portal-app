@@ -1,15 +1,22 @@
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   ContentTag,
+  DataScope,
   InPlaceEditingOff,
   provideComponent,
-  useDataItem,
+  // @ts-expect-error TODO: remove once officially released
+  useDataScope,
 } from 'scrivito'
 import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
 import { ensureString } from '../../utils/ensureString'
+import {
+  dataValues,
+  localizeAttributeValue,
+} from '../../utils/dataValuesConfig'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
-  const dataItem = useDataItem()
+  const dataScope: DataScope = useDataScope()
+  const dataItem = dataScope?.transform({ limit: 1 }).take()[0]
 
   const id = ['DataFormOptionsWidget', widget.id(), dataItem?.id()].join('-')
 
@@ -17,9 +24,11 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const attributeValue = ensureString(dataItem?.get(attributeName))
   const defaultValue = dataItem ? attributeValue : widget.get('defaultValue')
 
-  const optionsSet = new Set(widget.get('options'))
-  if (attributeValue) optionsSet.add(attributeValue)
-  const options = [...optionsSet]
+  // @ts-expect-error TODO: remove once officially released
+  const dataClass = dataScope.dataClass()
+
+  const options = new Set(dataValues(dataClass, attributeName))
+  if (attributeValue) options.add(attributeValue)
 
   return (
     <div className="mb-3" key={[id, attributeName, defaultValue].join('-')}>
@@ -79,12 +88,16 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
             <option value=""></option>
           )}
 
-          {options.map((option, index) => (
+          {[...options].map((attributeValue, index) => (
             <option
-              value={option}
-              key={[id, 'option', option, index].join('-')}
+              value={attributeValue}
+              key={[id, 'option', attributeValue, index].join('-')}
             >
-              {option}
+              {localizeAttributeValue({
+                dataClass,
+                attributeName,
+                attributeValue,
+              })}
             </option>
           ))}
         </select>
