@@ -56,10 +56,9 @@ export function provideLocalStorageDataClass(
       },
 
       async get(id: string): Promise<DataItem | null> {
-        const record = restoreRecord()
-        if (!(id in record)) return null
+        const rawItem = restoreRecord()[id]
+        if (!rawItem) return null
 
-        const rawItem = record[id]
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 

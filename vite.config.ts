@@ -42,35 +42,11 @@ export default defineConfig(({ mode }) => {
       strictPort: true,
       headers: developmentHeaders(),
       proxy: {
-        '/jr-api': {
-          target: 'https://api.justrelate.com',
+        '/auth': {
+          target: 'https://api.justrelate.com/iam/auth',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/jr-api/, ''),
-          headers: { 'X-JR-API-Location': 'http://localhost:8080/jr-api' },
-        },
-
-        /**
-         * Example Proxy
-         *
-         * This is the configuration for localhost/127.0.0.1.
-         * For Cloudflare Pages see `/functions/example-proxy/[[catchall]].ts`.
-         * Please also adjust `const RELOAD_SUBPATHS` in `NotFoundErrorPage.tsx`.
-         *
-         * Example usage: `Scrivito.unstable_JrRestApi.fetch('../example-proxy/some.json')`
-         */
-        '/example-proxy': {
-          target: 'https://myservice.example.com/api',
-          rewrite: (path) => {
-            // TODO: 🛑🚧🛑 Remove the following Error, once target and
-            // the `/example-proxy` prefix are adjusted to your needs.
-            throw new Error(
-              'Incomplete example-proxy configuration! See `vite.config.ts` for details.',
-            )
-
-            return path.replace(/^\/example-proxy/, '')
-          },
-
-          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/auth/, ''),
+          headers: { 'X-JR-Auth-Location': 'http://localhost:8080/auth' },
         },
       },
     },

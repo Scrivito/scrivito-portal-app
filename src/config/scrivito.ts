@@ -8,7 +8,6 @@ export function configureScrivito() {
     strictSearchOperators: true,
     contentTagsForEmptyAttributes: false,
     tenant: import.meta.env.SCRIVITO_TENANT || '',
-    jrRestApiEndpoint: `${window.location.origin}/jr-api`,
     // @ts-expect-error // TODO: Remove later on
     unstable: {
       trustedUiOrigins: [
