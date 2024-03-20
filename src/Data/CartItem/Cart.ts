@@ -41,7 +41,7 @@ export function numberOfCartItems(): number {
   if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
 
   // @ts-expect-error until out of private beta
-  return CartItem.all().take().length
+  return CartItem.all().count()
 }
 
 export async function checkoutCart(): Promise<DataItem> {
