@@ -8,7 +8,6 @@ export const DataFormOptionsWidget = provideWidgetClass(
       defaultValue: 'string',
       helpText: 'html',
       label: 'string',
-      options: 'stringlist',
       required: 'boolean',
     },
   },
