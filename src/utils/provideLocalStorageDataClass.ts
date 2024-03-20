@@ -27,7 +27,7 @@ export function provideLocalStorageDataClass(
 
   return provideDataClass(className, {
     connection: {
-      async index(params): Promise<{ results: DataItem[] }> {
+      async index(params): Promise<{ results: DataItem[]; count?: number }> {
         const record = restoreRecord()
         const rawItems = Object.values(record)
         const items = postProcessData
@@ -52,7 +52,7 @@ export function provideLocalStorageDataClass(
         if (params.search()) throw new Error('search not implemented!')
         const orderedItems = orderItems(filteredItems, params.order())
 
-        return { results: orderedItems }
+        return { results: orderedItems, count: filteredItems.length }
       },
 
       async get(id: string): Promise<DataItem | null> {

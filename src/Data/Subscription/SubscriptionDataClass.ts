@@ -10,7 +10,8 @@ interface Topic {
 export const Subscription = provideDataClass('Subscription', {
   connection: {
     async index() {
-      return { results: await fetchSubscriptions() }
+      const subscriptions = await fetchSubscriptions()
+      return { results: subscriptions, count: subscriptions.length }
     },
     async get(id: string) {
       return (await fetchSubscriptions()).find((sub) => sub.id === id) || null
