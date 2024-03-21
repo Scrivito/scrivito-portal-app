@@ -2,6 +2,14 @@
 // general styles adaptions
 // --------------------------------------------------------------- //
 @import 'scrivito-neoletter-form-widgets/editing.css';
+:root {
+  --jr-grey-dark: #111418;
+  --jr-grey-middle: #1d2229;
+  --jr-grey-light: #272d37;
+  --jr-grey-light-hover: #3a4353;
+
+  --jr-blue-light: #426698;
+}
 
 html,
 body {
@@ -10,7 +18,7 @@ body {
 }
 
 .scrivito_dark {
-  background: #3f3f3f;
+  background: var(--jr-grey-middle);
 
   [data-scrivito-editors-placeholder]:empty:not(:focus):before {
     color: #aaa !important;
