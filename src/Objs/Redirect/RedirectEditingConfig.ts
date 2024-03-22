@@ -13,8 +13,13 @@ provideEditingConfig('Redirect', {
     link: {
       title: 'Link',
     },
+    ensureUserIsLoggedIn: {
+      title: 'Ensure user is logged in',
+      description:
+        'If checked, the user must be logged in to see the target page.',
+    },
   },
-  properties: ['title', 'link'],
+  properties: ['title', 'link', 'ensureUserIsLoggedIn'],
   validations: [
     [
       'link',

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { load, provideComponent, urlFor } from 'scrivito'
+import { ensureUserIsLoggedIn, load, provideComponent, urlFor } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import { Redirect } from './RedirectObjClass'
 
@@ -20,6 +20,8 @@ provideComponent(Redirect, ({ page }) => {
       }
     })
   }, [page])
+
+  if (page.get('ensureUserIsLoggedIn')) ensureUserIsLoggedIn()
 
   const link = page.get('link')
 
