@@ -140,6 +140,7 @@ const FILTER_PRESENTATIONS = {
   Product: { title: 'Products', icon: 'suitcase' },
   ProductCategory: { title: 'Product categories', icon: 'relation' },
   ProductsOverview: { title: 'Products overviews', icon: 'relation' },
+  Redirect: { title: 'Redirects', icon: 'link' },
   Video: { title: 'Videos', icon: 'video' },
 }
 
@@ -149,4 +150,5 @@ const PAGES = [
   'Product',
   'ProductCategory',
   'ProductsOverview',
+  'Redirect',
 ]

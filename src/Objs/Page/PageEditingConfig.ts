@@ -25,11 +25,6 @@ provideEditingConfig(Page, {
       description: 'Limit to 175, ideally 150 characters.',
     },
     title: { title: 'Title' },
-    requireUserLogin: {
-      title: 'Require user login?',
-      description:
-        'Requires a user to be logged in for this page and all sub-pages',
-    },
   },
   properties: [
     'title',
@@ -37,6 +32,5 @@ provideEditingConfig(Page, {
     'hideInNavigation',
     'linkIcon',
     'excludeFromSearch',
-    'requireUserLogin',
   ],
 })
