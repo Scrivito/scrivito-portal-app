@@ -1,19 +1,20 @@
 import * as React from 'react'
-import * as Scrivito from 'scrivito'
+import { load, provideComponent, urlFor } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
+import { Redirect } from './RedirectObjClass'
 
-Scrivito.provideComponent('Redirect', ({ page }) => {
+provideComponent(Redirect, ({ page }) => {
   React.useEffect(() => {
-    Scrivito.load(() => {
+    load(() => {
       const link = page.get('link')
-      const url = link && Scrivito.urlFor(link)
+      const url = link && urlFor(link)
 
       return { link, url }
     }).then(({ link, url }) => {
-      if (!link) return
+      if (!link || !url) return
 
       if (link.isExternal()) {
-        window.top.location.replace(url)
+        window.top?.location.replace(url)
       } else {
         window.location.replace(url)
       }
