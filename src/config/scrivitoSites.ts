@@ -35,6 +35,14 @@ export function siteForUrl(
   if (baseUrl) return { baseUrl, siteId }
 }
 
+export async function ensureSiteIsPresent() {
+  if ((await load(currentSiteId)) === null) {
+    navigateTo(() =>
+      Obj.onAllSites().where('_path', 'equals', '/').order('_language').first(),
+    )
+  }
+}
+
 export function getTenantFromEnv(): string | undefined {
   if (import.meta.env.SCRIVITO_TENANT) return import.meta.env.SCRIVITO_TENANT
 

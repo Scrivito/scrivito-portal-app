@@ -1,5 +1,10 @@
 import { configure } from 'scrivito'
-import { getTenantFromEnv, baseUrlForSite, siteForUrl } from './scrivitoSites'
+import {
+  baseUrlForSite,
+  ensureSiteIsPresent,
+  getTenantFromEnv,
+  siteForUrl,
+} from './scrivitoSites'
 
 export function configureScrivito() {
   const tenant = getTenantFromEnv()
@@ -30,4 +35,5 @@ export function configureScrivito() {
   }
 
   configure(config)
+  ensureSiteIsPresent()
 }
