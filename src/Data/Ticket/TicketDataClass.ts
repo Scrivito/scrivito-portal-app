@@ -62,6 +62,7 @@ export const Ticket = provideLocalStorageDataClass('Ticket', {
       open: false,
       updatedAt: '2024-01-12T10:10:08Z',
       responsibleAgent: '4668C6ADEF0443BE80FB4049097A901A',
+      serviceObject: 'FA1992410CA54287948E84D2695A154C',
       createdBy: 'F87BDC400E41D630E030A8C00D01158A',
       createdAt: '2024-01-12T09:38:41Z',
       attachments: [],
