@@ -1,5 +1,5 @@
 import { configure } from 'scrivito'
-import { getTenantFromEnv } from './scrivitoSites'
+import { getTenantFromEnv, baseUrlForSite, siteForUrl } from './scrivitoSites'
 
 export function configureScrivito() {
   const tenant = getTenantFromEnv()
@@ -8,9 +8,11 @@ export function configureScrivito() {
   const config: Parameters<typeof configure>[0] = {
     adoptUi: true,
     autoConvertAttributes: true,
+    baseUrlForSite,
     optimizedWidgetLoading: true,
     strictSearchOperators: true,
     contentTagsForEmptyAttributes: false,
+    siteForUrl,
     tenant,
     // @ts-expect-error // TODO: Remove later on
     unstable: {
@@ -24,7 +26,6 @@ export function configureScrivito() {
 
   if (!import.meta.env.SCRIVITO_TENANT) {
     // Multitenancy mode
-    config.routingBasePath = `/${tenant}`
     config.extensionsUrl = `/_scrivito_extensions.html?tenantId=${tenant}`
   }
 

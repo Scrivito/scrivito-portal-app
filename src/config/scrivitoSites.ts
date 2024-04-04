@@ -1,5 +1,26 @@
 const location = typeof window !== 'undefined' ? window.location : undefined
 
+export function baseUrlForSite(_siteId: string): string | undefined {
+  const tenant = getTenantFromEnv()
+  if (!location || !tenant) return
+
+  const urlParts = [location.origin]
+
+  // Multitenancy mode
+  if (!import.meta.env.SCRIVITO_TENANT) urlParts.push(tenant)
+
+  return urlParts.join('/')
+}
+
+export function siteForUrl(
+  _url: string,
+): { baseUrl: string; siteId: string } | undefined {
+  const siteId = 'default'
+
+  const baseUrl = baseUrlForSite(siteId)
+  if (baseUrl) return { baseUrl, siteId }
+}
+
 export function getTenantFromEnv(): string | undefined {
   if (import.meta.env.SCRIVITO_TENANT) return import.meta.env.SCRIVITO_TENANT
 
