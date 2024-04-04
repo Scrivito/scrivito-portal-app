@@ -1,0 +1,7 @@
+// --------------------------------------------------------------- //
+// In-place editing styles adaptions
+// --------------------------------------------------------------- //
+
+[contenteditable]:focus-within {
+  text-transform: none;
+}
