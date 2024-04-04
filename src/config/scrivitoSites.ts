@@ -1,6 +1,8 @@
+import { Obj, currentSiteId, load, navigateTo } from 'scrivito'
+
 const location = typeof window !== 'undefined' ? window.location : undefined
 
-export function baseUrlForSite(_siteId: string): string | undefined {
+export function baseUrlForSite(siteId: string): string | undefined {
   const tenant = getTenantFromEnv()
   if (!location || !tenant) return
 
@@ -9,13 +11,25 @@ export function baseUrlForSite(_siteId: string): string | undefined {
   // Multitenancy mode
   if (!import.meta.env.SCRIVITO_TENANT) urlParts.push(tenant)
 
+  const language = Obj.onSite(siteId).root()?.language()
+  if (language) urlParts.push(language)
+
   return urlParts.join('/')
 }
 
 export function siteForUrl(
-  _url: string,
+  url: string,
 ): { baseUrl: string; siteId: string } | undefined {
-  const siteId = 'default'
+  const language = /\b\/([0-9a-f]{32}\/)?(?<lang>[a-z]{2})([?/]|$)/.exec(url)
+    ?.groups?.lang
+
+  const siteId = Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .and('_language', 'equals', language || null)
+    .first()
+    ?.siteId()
+
+  if (!siteId) return
 
   const baseUrl = baseUrlForSite(siteId)
   if (baseUrl) return { baseUrl, siteId }
