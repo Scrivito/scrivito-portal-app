@@ -14,7 +14,7 @@ provideEditingConfig('Redirect', {
       title: 'Link',
     },
     requireLogin: {
-      title: 'Ensure user is logged in',
+      title: 'Require user login?',
       description:
         'If checked, the user must be logged in to see the target page.',
     },
