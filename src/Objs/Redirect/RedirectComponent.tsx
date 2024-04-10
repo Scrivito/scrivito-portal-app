@@ -10,8 +10,8 @@ provideComponent(Redirect, ({ page }) => {
   React.useEffect(() => {
     if (!link || !url) return
 
-    if (link.isExternal()) {
-      window.top?.location.replace(url)
+    if (link.isExternal() && window.top) {
+      window.top.location.replace(url)
     } else {
       window.location.replace(url)
     }
