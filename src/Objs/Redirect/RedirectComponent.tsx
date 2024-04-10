@@ -17,7 +17,7 @@ provideComponent(Redirect, ({ page }) => {
     }
   }, [link, url])
 
-  if (page.get('ensureUserIsLoggedIn')) ensureUserIsLoggedIn()
+  if (page.get('requireLogin')) ensureUserIsLoggedIn()
 
   if (!link) {
     return (
