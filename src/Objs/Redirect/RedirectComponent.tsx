@@ -14,15 +14,15 @@ provideComponent(Redirect, ({ page }) => {
   const link = page.get('link')
 
   React.useEffect(() => {
-    if (isEditorLoggedIn()) return
+    if (!link || isEditorLoggedIn()) return
 
     if (requireLogin && !isUserLoggedIn()) {
       ensureUserIsLoggedIn()
       return
     }
 
-    load(() => link && urlFor(link)).then((url) => {
-      if (!link || !url) return
+    load(() => urlFor(link)).then((url) => {
+      if (!url) return
 
       if (link.isExternal() && window.top) {
         window.top.location.replace(url)
