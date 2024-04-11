@@ -1,12 +1,12 @@
 import * as React from 'react'
 import {
   ensureUserIsLoggedIn,
+  isEditorLoggedIn,
   isUserLoggedIn,
   load,
   provideComponent,
   urlFor,
 } from 'scrivito'
-import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import { Redirect } from './RedirectObjClass'
 
 provideComponent(Redirect, ({ page }) => {
@@ -30,11 +30,19 @@ provideComponent(Redirect, ({ page }) => {
     })
   }, [requireLogin, link])
 
-  if (!link) {
+  if (!link && isEditorLoggedIn()) {
     return (
-      <InPlaceEditingPlaceholder center>
-        Select a link in the redirect page properties.
-      </InPlaceEditingPlaceholder>
+      <div className="container d-flex h-100">
+        <div className="alert alert-warning d-flex m-auto">
+          <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
+          <div className="my-auto mx-2">
+            This obj never renders any content but triggers a redirect to the
+            specified target.
+            <br />
+            Select a redirect target in the page properties.
+          </div>
+        </div>
+      </div>
     )
   }
 
