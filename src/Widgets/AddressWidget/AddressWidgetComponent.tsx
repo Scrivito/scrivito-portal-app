@@ -7,6 +7,7 @@ import {
   LinkTag,
   ImageTag,
   isInPlaceEditingActive,
+  ContentTag,
 } from 'scrivito'
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
@@ -16,11 +17,7 @@ provideComponent(AddressWidget, ({ widget }) => (
     {widget.get('showLogo') && <Logo />}
     <address>
       <Address addressWidget={widget} />
-      <Table
-        phone={widget.get('phone')}
-        fax={widget.get('fax')}
-        email={widget.get('email')}
-      />
+      <Table widget={widget} />
     </address>
   </WidgetTag>
 ))
@@ -87,15 +84,15 @@ const Address = connect(
   },
 )
 
-function Table({
-  phone,
-  fax,
-  email,
+const Table = connect(function Table({
+  widget,
 }: {
-  phone: string
-  fax: string
-  email: string
+  widget: AddressWidgetInstance
 }) {
+  const phone = widget.get('phone')
+  const fax = widget.get('fax')
+  const email = widget.get('email')
+
   const lines: ['phone' | 'fax' | 'email', string][] = []
 
   if (phone) lines.push(['phone', phone])
@@ -109,7 +106,14 @@ function Table({
       <tbody>
         {lines.map(([name, value]) => (
           <tr key={name}>
-            <td>{`${LOCALIZATION[name]}: `}</td>
+            <td>
+              <ContentTag
+                tag="span"
+                content={widget}
+                attribute={`${name}Label`}
+              />
+              :{' '}
+            </td>
             <td className="text-break">
               <a href={`${LINK_PREFIXES[name]}:${value}`}>{value}</a>
             </td>
@@ -118,13 +122,7 @@ function Table({
       </tbody>
     </table>
   )
-}
-
-const LOCALIZATION = {
-  phone: 'Phone',
-  fax: 'Fax',
-  email: 'Email',
-}
+})
 
 const LINK_PREFIXES = {
   phone: 'tel',

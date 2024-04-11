@@ -13,8 +13,11 @@ export const AddressWidget = provideWidgetClass('AddressWidget', {
     addressFormat: ['enum', { values: ['USA', 'GER'] }],
 
     phone: 'string',
+    phoneLabel: 'string',
     fax: 'string',
+    faxLabel: 'string',
     email: 'string',
+    emailLabel: 'string',
   },
   extractTextAttributes: [
     'locationName',
@@ -23,8 +26,11 @@ export const AddressWidget = provideWidgetClass('AddressWidget', {
     'locationPostalCode',
     'locationRegion',
     'locationCountry',
+    'phoneLabel',
     'phone',
+    'faxLabel',
     'fax',
+    'emailLabel',
     'email',
   ],
 })
