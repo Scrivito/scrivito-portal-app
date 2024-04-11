@@ -14,7 +14,7 @@ provideComponent(Redirect, ({ page }) => {
   const url = link && urlFor(link)
 
   React.useEffect(() => {
-    if (requireLogin && !isUserLoggedIn) {
+    if (requireLogin && !isUserLoggedIn()) {
       ensureUserIsLoggedIn()
       return
     }
