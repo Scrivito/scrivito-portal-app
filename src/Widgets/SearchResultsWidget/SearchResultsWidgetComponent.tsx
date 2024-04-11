@@ -1,4 +1,6 @@
 import {
+  connect,
+  ContentTag,
   currentPageParams,
   ImageTag,
   InPlaceEditingOff,
@@ -9,7 +11,10 @@ import {
 import { useRef, useState } from 'react'
 import { ensureString } from '../../utils/ensureString'
 import { SearchResult } from './SearchResult'
-import { SearchResultsWidget } from './SearchResultsWidgetClass'
+import {
+  SearchResultsWidget,
+  SearchResultsWidgetInstance,
+} from './SearchResultsWidgetClass'
 import { DATA_OBJ_CLASSES } from '../../Objs/dataObjClasses'
 
 const BLACKLIST_OBJ_CLASSES = ['Image', 'Video', ...DATA_OBJ_CLASSES]
@@ -28,6 +33,11 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
 
   const searchResults = search.take(maxItems)
   const totalCount = search.count()
+
+  const readMoreLabel = widget.get('readMoreLabel')
+  const searchButtonLabel = widget.get('searchButtonLabel')
+  const searchInputPlaceholder = widget.get('searchInputPlaceholder')
+  const showMoreResultsLabel = widget.get('showMoreResultsLabel')
 
   return (
     <InPlaceEditingOff>
@@ -50,7 +60,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
             <div className="input-group">
               <input
                 className="form-control"
-                placeholder="Search"
+                placeholder={searchInputPlaceholder}
                 defaultValue={query}
                 ref={inputRef}
                 key={`search-results-widget-input-${query}`}
@@ -58,14 +68,16 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
               <span className="input-group-btn">
                 <button className="btn btn-secondary" type="submit">
                   <i className="bi bi-search" aria-hidden="true"></i>
-                  <span className="d-none d-sm-inline ps-1">Search again</span>
+                  <span className="d-none d-sm-inline ps-1">
+                    {searchButtonLabel}
+                  </span>
                 </button>
               </span>
             </div>
           </form>
 
           <h1 className="h3 b-bottom text-center mt-3">
-            <TotalCountSummary totalCount={totalCount} />
+            <TotalCountSummary totalCount={totalCount} widget={widget} />
           </h1>
         </div>
       </section>
@@ -76,6 +88,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
             <SearchResult
               key={`search-result-${searchResult.id()}`}
               query={query}
+              readMoreLabel={readMoreLabel}
               searchResult={searchResult}
             />
           ))}
@@ -88,7 +101,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
                   setMaxItems((maxItems) => maxItems + 10)
                 }}
               >
-                Load more
+                {showMoreResultsLabel}
               </button>
             </div>
           ) : null}
@@ -98,9 +111,22 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
   )
 })
 
-function TotalCountSummary({ totalCount }: { totalCount: number }) {
-  if (totalCount === 0) return 'No search results'
-  if (totalCount === 1) return '1 search result'
+const TotalCountSummary = connect(function TotalCountSummary({
+  totalCount,
+  widget,
+}: {
+  totalCount: number
+  widget: SearchResultsWidgetInstance
+}) {
+  const attributes = ['resultsHeadline0', 'resultsHeadline1'] as const
+  const attribute = attributes[totalCount] || 'resultsHeadline'
 
-  return `${totalCount} search results`
-}
+  return (
+    <ContentTag
+      tag="span"
+      content={widget}
+      attribute={attribute}
+      dataContext={{ count: totalCount.toString() }}
+    />
+  )
+})
