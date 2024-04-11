@@ -12,7 +12,12 @@ import { SearchResult } from './SearchResult'
 import { SearchResultsWidget } from './SearchResultsWidgetClass'
 import { DATA_OBJ_CLASSES } from '../../Objs/dataObjClasses'
 
-const BLACKLIST_OBJ_CLASSES = ['Image', 'Video', ...DATA_OBJ_CLASSES]
+const BLACKLIST_OBJ_CLASSES = [
+  'Image',
+  'Redirect',
+  'Video',
+  ...DATA_OBJ_CLASSES,
+]
 
 // TODO: Add "loading" state, once #7242 is available
 provideComponent(SearchResultsWidget, ({ widget }) => {
