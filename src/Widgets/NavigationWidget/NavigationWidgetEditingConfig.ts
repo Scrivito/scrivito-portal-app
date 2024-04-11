@@ -5,5 +5,6 @@ import Thumbnail from './thumbnail.svg'
 provideEditingConfig(NavigationWidget, {
   title: 'Navigation',
   thumbnail: Thumbnail,
-  properties: ['metaNavigationObjs'],
+  properties: ['metaNavigationObjs', 'searchInputLabel'],
+  initialContent: { searchInputLabel: 'Search' },
 })
