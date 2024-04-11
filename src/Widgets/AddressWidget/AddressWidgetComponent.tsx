@@ -115,7 +115,12 @@ const Table = connect(function Table({
               :{' '}
             </td>
             <td className="text-break">
-              <a href={`${LINK_PREFIXES[name]}:${value}`}>{value}</a>
+              <ContentTag
+                tag="a"
+                content={widget}
+                attribute={name}
+                href={`${LINK_PREFIXES[name]}:${value}`}
+              />
             </td>
           </tr>
         ))}
