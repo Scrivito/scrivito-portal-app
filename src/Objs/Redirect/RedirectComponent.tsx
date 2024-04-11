@@ -2,6 +2,7 @@ import * as React from 'react'
 import {
   ensureUserIsLoggedIn,
   isUserLoggedIn,
+  load,
   provideComponent,
   urlFor,
 } from 'scrivito'
@@ -11,7 +12,6 @@ import { Redirect } from './RedirectObjClass'
 provideComponent(Redirect, ({ page }) => {
   const requireLogin = page.get('requireLogin')
   const link = page.get('link')
-  const url = link && urlFor(link)
 
   React.useEffect(() => {
     if (requireLogin && !isUserLoggedIn()) {
@@ -19,14 +19,16 @@ provideComponent(Redirect, ({ page }) => {
       return
     }
 
-    if (!link || !url) return
+    load(() => link && urlFor(link)).then((url) => {
+      if (!link || !url) return
 
-    if (link.isExternal() && window.top) {
-      window.top.location.replace(url)
-    } else {
-      window.location.replace(url)
-    }
-  }, [requireLogin, link, url])
+      if (link.isExternal() && window.top) {
+        window.top.location.replace(url)
+      } else {
+        window.location.replace(url)
+      }
+    })
+  }, [requireLogin, link])
 
   if (!link) {
     return (
