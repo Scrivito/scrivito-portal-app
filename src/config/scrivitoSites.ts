@@ -37,10 +37,25 @@ export function siteForUrl(
 
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
-    navigateTo(() =>
-      Obj.onAllSites().where('_path', 'equals', '/').order('_language').first(),
-    )
+    navigateTo(() => {
+      const sites = Obj.onAllSites().where('_path', 'equals', '/').toArray()
+      const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
+
+      for (const language of preferredLanguageOrder) {
+        const site = sites.find((site) => siteHasLanguage(site, language))
+        if (site) return site
+      }
+
+      return sites[0] || null
+    })
   }
+}
+
+function siteHasLanguage(site: Obj, language: string | null) {
+  const siteLanguage = site.language()
+  return language && siteLanguage
+    ? language.startsWith(siteLanguage)
+    : language === siteLanguage
 }
 
 export function getTenantFromEnv(): string | undefined {
