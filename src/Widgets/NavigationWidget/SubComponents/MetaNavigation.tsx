@@ -18,7 +18,7 @@ export const MetaNavigation = connect(function MetaNavigation({
   if (root.get('sitePortalOnlyMode')) {
     return (
       <div className="navbar-meta">
-        <Nav className="ms-auto">
+        <Nav className="ms-auto border-left">
           <LanguageSwitch />
           <CurrentUserDropdown widget={widget} root={root} />
         </Nav>
@@ -44,7 +44,7 @@ export const MetaNavigation = connect(function MetaNavigation({
         ))}
       </Nav>
 
-      <Nav className="ms-auto">
+      <Nav className="ms-auto border-left">
         <LanguageSwitch />
         {showPortalNav && (
           <>
