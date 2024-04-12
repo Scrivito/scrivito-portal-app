@@ -1,5 +1,7 @@
+import { initNeoletterFormWidgets } from 'scrivito-neoletter-form-widgets';
 import.meta.glob(['./**/*WidgetClass.ts', './**/*WidgetComponent.tsx'], {
   eager: true,
 })
 
-export {}
+initNeoletterFormWidgets("your instanceId goes here");
+export { }
