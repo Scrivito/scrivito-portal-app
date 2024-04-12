@@ -4,10 +4,10 @@ import {
   ensureSiteIsPresent,
   siteForUrl,
 } from './scrivitoSites'
-import { getTenantFromEnv, isMultitenancyEnabled } from './scrivitoTenants'
+import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
 
 export function configureScrivito() {
-  const tenant = getTenantFromEnv()
+  const tenant = scrivitoTenantId()
   if (!tenant) return
 
   const config: Parameters<typeof configure>[0] = {

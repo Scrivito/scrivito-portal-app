@@ -1,10 +1,10 @@
 import { Obj, currentSiteId, load, navigateTo } from 'scrivito'
-import { getTenantFromEnv, isMultitenancyEnabled } from './scrivitoTenants'
+import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
 export function baseUrlForSite(siteId: string): string | undefined {
-  const tenant = getTenantFromEnv()
+  const tenant = scrivitoTenantId()
   if (!location || !tenant) return
 
   const urlParts = [location.origin]

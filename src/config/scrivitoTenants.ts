@@ -4,7 +4,7 @@ export function isMultitenancyEnabled(): boolean {
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
-export function getTenantFromEnv(): string | undefined {
+export function scrivitoTenantId(): string | undefined {
   if (!isMultitenancyEnabled()) return import.meta.env.SCRIVITO_TENANT
 
   if (!location) throw new Error('Could not determine tenant!')
