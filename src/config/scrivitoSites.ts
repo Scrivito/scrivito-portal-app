@@ -1,4 +1,5 @@
 import { Obj, currentSiteId, load, navigateTo } from 'scrivito'
+import { isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
@@ -8,8 +9,7 @@ export function baseUrlForSite(siteId: string): string | undefined {
 
   const urlParts = [location.origin]
 
-  // Multitenancy mode
-  if (!import.meta.env.SCRIVITO_TENANT) urlParts.push(tenant)
+  if (isMultitenancyEnabled()) urlParts.push(tenant)
 
   const language = Obj.onSite(siteId).root()?.language()
   if (language) urlParts.push(language)
@@ -44,11 +44,10 @@ export async function ensureSiteIsPresent() {
 }
 
 export function getTenantFromEnv(): string | undefined {
-  if (import.meta.env.SCRIVITO_TENANT) return import.meta.env.SCRIVITO_TENANT
+  if (!isMultitenancyEnabled()) return import.meta.env.SCRIVITO_TENANT
 
   if (!location) throw new Error('Could not determine tenant!')
 
-  // Multitenancy mode
   const tenantFromUrl = location.pathname.match(/^\/([0-9a-f]{32})\b/)?.[1]
   const tenantFromQuery = new URLSearchParams(location.search).get('tenantId')
   const tenant = tenantFromUrl || tenantFromQuery

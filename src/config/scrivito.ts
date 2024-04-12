@@ -5,6 +5,7 @@ import {
   getTenantFromEnv,
   siteForUrl,
 } from './scrivitoSites'
+import { isMultitenancyEnabled } from './scrivitoTenants'
 
 export function configureScrivito() {
   const tenant = getTenantFromEnv()
@@ -29,8 +30,7 @@ export function configureScrivito() {
     },
   }
 
-  if (!import.meta.env.SCRIVITO_TENANT) {
-    // Multitenancy mode
+  if (isMultitenancyEnabled()) {
     config.extensionsUrl = `/_scrivito_extensions.html?tenantId=${tenant}`
   }
 
