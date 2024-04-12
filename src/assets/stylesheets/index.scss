@@ -778,8 +778,15 @@ section .card.no-color-adaption {
   }
 }
 
-/* svg Icons
+/* Language Icon
  ================================================== */
+
+img.img-flag {
+  display: inline-block;
+  height: 15px;
+  margin: -3px 6px 0 0;
+  max-width: 17px;
+}
 
 .bi-flag-de,
 .bi-flag-en {

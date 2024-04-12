@@ -1,5 +1,12 @@
 import { NavDropdown } from 'react-bootstrap'
-import { LinkTag, Obj, connect, currentPage, currentSiteId } from 'scrivito'
+import {
+  ImageTag,
+  LinkTag,
+  Obj,
+  connect,
+  currentPage,
+  currentSiteId,
+} from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
 export const LanguageSwitch = connect(function LanguageSwitch() {
@@ -56,11 +63,14 @@ const LanguageLabel = connect(function LanguageLabel({
 
   return (
     <>
-      <i
-        className={`bi bi-flag-${language}`}
+      <ImageTag
+        alt=""
+        content={root}
+        attribute="siteLanguageIcon"
+        className="img-flag"
         aria-hidden={showIconOnly ? undefined : true}
         aria-label={showIconOnly ? label : undefined}
-      ></i>
+      />
       <span className={showIconOnly ? 'hidden-md hidden-lg' : undefined}>
         {label}
       </span>
