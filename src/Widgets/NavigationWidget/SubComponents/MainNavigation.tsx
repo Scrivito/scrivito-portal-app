@@ -6,8 +6,10 @@ import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
 export const MainNavigation = connect(function MainNavigation({
   root,
+  searchInputLabel,
 }: {
   root: HomepageInstance
+  searchInputLabel: string
 }) {
   if (root.get('sitePortalOnlyMode')) return null
 
@@ -25,7 +27,10 @@ export const MainNavigation = connect(function MainNavigation({
           />
         )}
       />
-      <SearchBox searchResultsPage={root.get('siteSearchResultsPage')} />
+      <SearchBox
+        searchInputLabel={searchInputLabel}
+        searchResultsPage={root.get('siteSearchResultsPage')}
+      />
     </Nav>
   )
 })

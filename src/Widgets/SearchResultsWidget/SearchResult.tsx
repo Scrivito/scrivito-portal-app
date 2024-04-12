@@ -14,9 +14,11 @@ import { objTitle } from '../../utils/objTitle'
 export const SearchResult = connect(function SearchResult({
   query,
   searchResult,
+  readMoreLabel,
 }: {
   query: string
   searchResult: Obj
+  readMoreLabel: string
 }) {
   return (
     <div className="card bg-light-grey my-4">
@@ -32,12 +34,20 @@ export const SearchResult = connect(function SearchResult({
                 />
               </div>
               <div className="col-md-9">
-                <TextDescription searchResult={searchResult} query={query} />
+                <TextDescription
+                  readMoreLabel={readMoreLabel}
+                  searchResult={searchResult}
+                  query={query}
+                />
               </div>
             </>
           ) : (
             <div className="col">
-              <TextDescription searchResult={searchResult} query={query} />
+              <TextDescription
+                readMoreLabel={readMoreLabel}
+                searchResult={searchResult}
+                query={query}
+              />
             </div>
           )}
         </div>
@@ -48,9 +58,11 @@ export const SearchResult = connect(function SearchResult({
 
 const TextDescription = connect(function TextResult({
   searchResult,
+  readMoreLabel,
   query,
 }: {
   searchResult: Obj
+  readMoreLabel: string
   query: string
 }) {
   const searchWords = query.split(/\s+/)
@@ -79,7 +91,7 @@ const TextDescription = connect(function TextResult({
       />
 
       <button className="btn btn-sm btn-outline-primary">
-        Read more
+        {readMoreLabel}
         <i className="bi bi-chevron-right ps-2" aria-hidden="true"></i>
       </button>
     </div>

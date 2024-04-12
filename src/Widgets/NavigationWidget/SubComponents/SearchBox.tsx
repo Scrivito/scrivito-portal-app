@@ -2,8 +2,10 @@ import { connect, navigateTo, Obj } from 'scrivito'
 import { useRef } from 'react'
 
 export const SearchBox = connect(function SearchBox({
+  searchInputLabel,
   searchResultsPage,
 }: {
+  searchInputLabel: string
   searchResultsPage: Obj | null
 }) {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -27,8 +29,8 @@ export const SearchBox = connect(function SearchBox({
         <input
           className="form-control"
           type="search"
-          placeholder="Search"
-          aria-label="Search"
+          placeholder={searchInputLabel}
+          aria-label={searchInputLabel}
           ref={inputRef}
         />
 
