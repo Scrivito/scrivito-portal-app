@@ -2,10 +2,9 @@ import { configure } from 'scrivito'
 import {
   baseUrlForSite,
   ensureSiteIsPresent,
-  getTenantFromEnv,
   siteForUrl,
 } from './scrivitoSites'
-import { isMultitenancyEnabled } from './scrivitoTenants'
+import { getTenantFromEnv, isMultitenancyEnabled } from './scrivitoTenants'
 
 export function configureScrivito() {
   const tenant = getTenantFromEnv()
