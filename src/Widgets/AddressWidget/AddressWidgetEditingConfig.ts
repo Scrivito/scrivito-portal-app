@@ -68,5 +68,8 @@ provideEditingConfig(AddressWidget, {
   initialContent: {
     showLogo: true,
     addressFormat: 'USA',
+    phoneLabel: 'Phone',
+    faxLabel: 'Fax',
+    emailLabel: 'Email',
   },
 })
