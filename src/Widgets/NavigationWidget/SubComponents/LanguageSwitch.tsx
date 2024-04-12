@@ -1,6 +1,7 @@
 import { NavDropdown } from 'react-bootstrap'
 import {
   ImageTag,
+  InPlaceEditingOff,
   LinkTag,
   Obj,
   connect,
@@ -62,7 +63,7 @@ const LanguageLabel = connect(function LanguageLabel({
   const label = displayName(language)
 
   return (
-    <>
+    <InPlaceEditingOff>
       <ImageTag
         alt=""
         content={root}
@@ -74,7 +75,7 @@ const LanguageLabel = connect(function LanguageLabel({
       <span className={showIconOnly ? 'hidden-md hidden-lg' : undefined}>
         {label}
       </span>
-    </>
+    </InPlaceEditingOff>
   )
 })
 
