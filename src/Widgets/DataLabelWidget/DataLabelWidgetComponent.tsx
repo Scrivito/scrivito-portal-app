@@ -103,7 +103,7 @@ function Currency({ value }: { value: unknown }) {
   return formatter.format(number)
 }
 
-function Datetime({
+const Datetime = connect(function Datetime({
   value,
   datetimeFormat,
 }: {
@@ -129,7 +129,7 @@ function Datetime({
   }
 
   return <RelativeDate date={date} />
-}
+})
 
 function Link({ value }: { value: unknown }) {
   if (typeof value !== 'string') return 'N/A'

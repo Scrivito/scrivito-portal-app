@@ -5,10 +5,15 @@ import {
   formatDayAndMonth,
   formatFullDateTime,
 } from '../../utils/formatDate'
+import { connect } from 'scrivito'
 
 const MONTH_IN_MS = 30 * 24 * 60 * 60 * 1000
 
-export function RelativeDate({ date }: { date: Date }) {
+export const RelativeDate = connect(function RelativeDate({
+  date,
+}: {
+  date: Date
+}) {
   const [currentDate, setCurrentDate] = useState(new Date())
   useEffect(() => {
     const interval = setInterval(() => setCurrentDate(new Date()), 30_000)
@@ -21,9 +26,15 @@ export function RelativeDate({ date }: { date: Date }) {
       <DisplayDate currentDate={currentDate} date={date} />
     </span>
   )
-}
+})
 
-function DisplayDate({ currentDate, date }: { currentDate: Date; date: Date }) {
+const DisplayDate = connect(function DisplayDate({
+  currentDate,
+  date,
+}: {
+  currentDate: Date
+  date: Date
+}) {
   const youngerThanOneMonth =
     currentDate.getTime() - date.getTime() < MONTH_IN_MS
 
@@ -36,4 +47,4 @@ function DisplayDate({ currentDate, date }: { currentDate: Date; date: Date }) {
   }
 
   return formatDateMonthAndYear(date)
-}
+})
