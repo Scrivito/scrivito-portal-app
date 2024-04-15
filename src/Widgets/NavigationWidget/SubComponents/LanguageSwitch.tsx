@@ -27,6 +27,8 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
     })
     .sort((a, b) => a.label.localeCompare(b.label))
 
+  if (versions.length < 2) return null
+
   const activeSite = (
     versions.find(({ root }) => root.siteId() === currentSiteId()) ||
     versions[0]
