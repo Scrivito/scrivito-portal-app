@@ -8,7 +8,6 @@ import { scrivitoTenantId } from './scrivitoTenants'
 
 export function configureScrivito() {
   const tenant = scrivitoTenantId()
-  if (!tenant) return
 
   const config: Parameters<typeof configure>[0] = {
     adoptUi: true,

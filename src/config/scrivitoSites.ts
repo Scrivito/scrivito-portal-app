@@ -4,10 +4,10 @@ import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
 const location = typeof window !== 'undefined' ? window.location : undefined
 
 export function baseUrlForSite(siteId: string): string | undefined {
-  const tenant = scrivitoTenantId()
-  if (!location || !tenant) return
+  if (!location) return
 
   const urlParts = [location.origin]
+  const tenant = scrivitoTenantId()
 
   if (isMultitenancyEnabled()) urlParts.push(tenant)
 
