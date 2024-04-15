@@ -7,7 +7,7 @@ import {
 import { scrivitoTenantId } from './scrivitoTenants'
 
 export function configureScrivito() {
-  const config: Parameters<typeof configure>[0] = {
+  configure({
     adoptUi: true,
     autoConvertAttributes: true,
     baseUrlForSite,
@@ -25,8 +25,7 @@ export function configureScrivito() {
         'https://*.pages.dev',
       ],
     },
-  }
+  })
 
-  configure(config)
   ensureSiteIsPresent()
 }
