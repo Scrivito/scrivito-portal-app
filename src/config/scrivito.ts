@@ -4,7 +4,7 @@ import {
   ensureSiteIsPresent,
   siteForUrl,
 } from './scrivitoSites'
-import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
+import { scrivitoTenantId } from './scrivitoTenants'
 
 export function configureScrivito() {
   const tenant = scrivitoTenantId()
@@ -17,6 +17,7 @@ export function configureScrivito() {
     optimizedWidgetLoading: true,
     strictSearchOperators: true,
     contentTagsForEmptyAttributes: false,
+    extensionsUrl: `/_scrivito_extensions.html?tenantId=${tenant}`,
     siteForUrl,
     tenant,
     // @ts-expect-error // TODO: Remove later on
@@ -27,10 +28,6 @@ export function configureScrivito() {
         'https://*.pages.dev',
       ],
     },
-  }
-
-  if (isMultitenancyEnabled()) {
-    config.extensionsUrl = `/_scrivito_extensions.html?tenantId=${tenant}`
   }
 
   configure(config)
