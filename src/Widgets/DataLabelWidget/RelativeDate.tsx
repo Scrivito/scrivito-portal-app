@@ -1,4 +1,3 @@
-import { formatDistance } from 'date-fns'
 import { useEffect, useState } from 'react'
 import {
   formatDateMonthAndYear,
@@ -6,6 +5,7 @@ import {
   formatFullDateTime,
 } from '../../utils/formatDate'
 import { connect } from 'scrivito'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 const MONTH_IN_MS = 30 * 24 * 60 * 60 * 1000
 
@@ -39,7 +39,7 @@ const DisplayDate = connect(function DisplayDate({
     currentDate.getTime() - date.getTime() < MONTH_IN_MS
 
   if (youngerThanOneMonth) {
-    return formatDistance(date, currentDate, { addSuffix: true })
+    return formatDistance(date, currentDate)
   }
 
   if (date.getUTCFullYear() === currentDate.getUTCFullYear()) {
@@ -48,3 +48,19 @@ const DisplayDate = connect(function DisplayDate({
 
   return formatDateMonthAndYear(date)
 })
+
+function formatDistance(date: Date, currentDate: Date) {
+  const days = Math.round(
+    (date.getTime() - currentDate.getTime()) / (24 * 3600 * 1000),
+  )
+  const months = Math.round(days / 30.436875)
+  const years = date.getFullYear() - new Date(currentDate).getFullYear()
+
+  const relativeTimeFormat = new Intl.RelativeTimeFormat(getCurrentLanguage(), {
+    numeric: 'auto',
+  })
+
+  if (years !== 0) return relativeTimeFormat.format(years, 'year')
+  if (months !== 0) return relativeTimeFormat.format(months, 'month')
+  return relativeTimeFormat.format(days, 'day')
+}
