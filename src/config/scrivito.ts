@@ -7,18 +7,16 @@ import {
 import { scrivitoTenantId } from './scrivitoTenants'
 
 export function configureScrivito() {
-  const tenant = scrivitoTenantId()
-
   const config: Parameters<typeof configure>[0] = {
     adoptUi: true,
     autoConvertAttributes: true,
     baseUrlForSite,
     contentTagsForEmptyAttributes: false,
-    extensionsUrl: `/_scrivito_extensions.html?tenantId=${tenant}`,
+    extensionsUrl: `/_scrivito_extensions.html?tenantId=${scrivitoTenantId()}`,
     optimizedWidgetLoading: true,
     siteForUrl,
     strictSearchOperators: true,
-    tenant,
+    tenant: scrivitoTenantId(),
     // @ts-expect-error // TODO: Remove later on
     unstable: {
       trustedUiOrigins: [
