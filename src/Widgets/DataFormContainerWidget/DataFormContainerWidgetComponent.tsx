@@ -1,15 +1,13 @@
 import {
   ContentTag,
   DataItem,
-  DataScope,
   InPlaceEditingOff,
   WidgetTag,
   load,
   provideComponent,
   urlForDataItem,
   useDataItem,
-  // @ts-expect-error TODO: remove once officially released
-  useDataScope,
+  useData,
 } from 'scrivito'
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
@@ -20,7 +18,7 @@ import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
-  const dataScope: DataScope | undefined = useDataScope()
+  const dataScope = useData()
   const formRef = useRef() as React.MutableRefObject<HTMLFormElement>
 
   const [isSubmitting, setIsSubmitting] = useState(false)
