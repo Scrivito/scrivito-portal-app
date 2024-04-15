@@ -14,11 +14,11 @@ export function configureScrivito() {
     adoptUi: true,
     autoConvertAttributes: true,
     baseUrlForSite,
-    optimizedWidgetLoading: true,
-    strictSearchOperators: true,
     contentTagsForEmptyAttributes: false,
     extensionsUrl: `/_scrivito_extensions.html?tenantId=${tenant}`,
+    optimizedWidgetLoading: true,
     siteForUrl,
+    strictSearchOperators: true,
     tenant,
     // @ts-expect-error // TODO: Remove later on
     unstable: {
