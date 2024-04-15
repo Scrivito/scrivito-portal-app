@@ -1,15 +1,9 @@
-import {
-  ContentTag,
-  DataScope,
-  provideComponent,
-  // @ts-expect-error TODO: remove once officially released
-  useDataScope,
-} from 'scrivito'
+import { ContentTag, provideComponent, useData } from 'scrivito'
 import { DataColumnListWidget } from './DataColumnListWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataColumnListWidget, ({ widget }) => {
-  const dataScope: DataScope | undefined = useDataScope()
+  const dataScope = useData()
 
   if (!dataScope) {
     return <EditorNote>No data found. Please select a data source.</EditorNote>

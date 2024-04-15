@@ -2,12 +2,10 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   ContentTag,
   DataItem,
-  DataScope,
   InPlaceEditingOff,
   provideComponent,
   useDataItem,
-  // @ts-expect-error TODO: remove once officially released
-  useDataScope,
+  useData,
 } from 'scrivito'
 import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
 import { ensureString } from '../../utils/ensureString'
@@ -18,7 +16,7 @@ import {
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const dataItem: DataItem | undefined = useDataItem()
-  const dataScope: DataScope = useDataScope()
+  const dataScope = useData()
 
   const id = ['DataFormOptionsWidget', widget.id(), dataItem?.id()].join('-')
 
@@ -26,8 +24,8 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const attributeValue = ensureString(dataItem?.get(attributeName))
   const defaultValue = dataItem ? attributeValue : widget.get('defaultValue')
 
-  // @ts-expect-error TODO: remove once officially released
   const dataClass = dataScope.dataClass()
+  if (!dataClass) return null
 
   const options = new Set(dataValues(dataClass, attributeName))
   if (attributeValue) options.add(attributeValue)
