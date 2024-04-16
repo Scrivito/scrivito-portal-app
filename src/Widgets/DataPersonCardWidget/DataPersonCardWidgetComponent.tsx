@@ -10,10 +10,6 @@ import personCircle from '../../assets/images/person-circle.svg'
 provideComponent(DataPersonCardWidget, () => {
   const dataScope = useData()
 
-  if (!dataScope) {
-    return <EditorNote>No data found. Please select a data source.</EditorNote>
-  }
-
   if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
 
   return (

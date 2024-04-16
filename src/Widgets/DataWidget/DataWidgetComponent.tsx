@@ -5,10 +5,6 @@ import { EditorNote } from '../../Components/EditorNote'
 provideComponent(DataWidget, ({ widget }) => {
   const dataScope = useData()
 
-  if (!dataScope) {
-    return <EditorNote>No data found. Please select a data source.</EditorNote>
-  }
-
   if (dataScope.isEmpty()) {
     return <EditorNote>Data is empty.</EditorNote>
   }
