@@ -14,7 +14,6 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { getHistory } from '../../config/history'
-import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -24,10 +23,6 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [keyCounter, setKeyCounter] = useState(0)
   const key = `DataFormContainerWidget-${widget.id()}-${keyCounter}`
-
-  if (!dataItem && !dataScope) {
-    return <EditorNote>No data found. Please select a data source.</EditorNote>
-  }
 
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')
   const submitOnChange = widget.get('submitOnChange')
