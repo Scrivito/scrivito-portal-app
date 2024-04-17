@@ -25,7 +25,7 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
         root: site as HomepageInstance,
       }
     })
-    .sort((a, b) => a.label.localeCompare(b.label))
+    .sort((a, b) => a.label.localeCompare(b.label, 'en'))
 
   if (versions.length < 2) return null
 
