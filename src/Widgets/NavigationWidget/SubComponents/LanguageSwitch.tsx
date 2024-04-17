@@ -36,7 +36,7 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
 
   if (!activeSite) return null
 
-  const title = <LanguageLabel root={activeSite} showIconOnly />
+  const title = <CurrentLanguageLabel root={activeSite} />
 
   return (
     <InPlaceEditingOff>
@@ -56,15 +56,10 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
   )
 })
 
-const LanguageLabel = connect(function LanguageLabel({
-  root,
-  showIconOnly,
-}: {
-  root: HomepageInstance
-  showIconOnly?: boolean
-}) {
-  const language = root.language() || 'en'
-  const label = displayName(language)
+type LanguageLabelProps = { root: HomepageInstance }
+
+const CurrentLanguageLabel = connect(function ({ root }: LanguageLabelProps) {
+  const label = displayName(root.language() || 'en')
 
   return (
     <>
@@ -73,12 +68,24 @@ const LanguageLabel = connect(function LanguageLabel({
         content={root}
         attribute="siteLanguageIcon"
         className="img-flag"
-        aria-hidden={showIconOnly ? undefined : true}
-        aria-label={showIconOnly ? label : undefined}
+        aria-label={label}
       />
-      <span className={showIconOnly ? 'hidden-md hidden-lg' : undefined}>
-        {label}
-      </span>
+      <span className="hidden-md hidden-lg">{label}</span>
+    </>
+  )
+})
+
+const LanguageLabel = connect(function ({ root }: LanguageLabelProps) {
+  return (
+    <>
+      <ImageTag
+        alt=""
+        content={root}
+        attribute="siteLanguageIcon"
+        className="img-flag"
+        aria-hidden={true}
+      />
+      {displayName(root.language() || 'en')}
     </>
   )
 })
