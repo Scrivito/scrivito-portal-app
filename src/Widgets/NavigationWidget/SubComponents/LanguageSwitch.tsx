@@ -39,18 +39,20 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
   const title = <LanguageLabel root={activeSite} showIconOnly />
 
   return (
-    <NavDropdown title={title}>
-      {versions.map(({ version, root }) => (
-        <NavDropdown.Item
-          key={root.id()}
-          as={LinkTag}
-          to={version || root}
-          active={root.language() === activeSite.language()}
-        >
-          <LanguageLabel root={root} />
-        </NavDropdown.Item>
-      ))}
-    </NavDropdown>
+    <InPlaceEditingOff>
+      <NavDropdown title={title}>
+        {versions.map(({ version, root }) => (
+          <NavDropdown.Item
+            key={root.id()}
+            as={LinkTag}
+            to={version || root}
+            active={root.language() === activeSite.language()}
+          >
+            <LanguageLabel root={root} />
+          </NavDropdown.Item>
+        ))}
+      </NavDropdown>
+    </InPlaceEditingOff>
   )
 })
 
@@ -65,7 +67,7 @@ const LanguageLabel = connect(function LanguageLabel({
   const label = displayName(language)
 
   return (
-    <InPlaceEditingOff>
+    <>
       <ImageTag
         alt=""
         content={root}
@@ -77,7 +79,7 @@ const LanguageLabel = connect(function LanguageLabel({
       <span className={showIconOnly ? 'hidden-md hidden-lg' : undefined}>
         {label}
       </span>
-    </InPlaceEditingOff>
+    </>
   )
 })
 
