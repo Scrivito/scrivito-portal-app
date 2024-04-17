@@ -59,8 +59,6 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
 type LanguageLabelProps = { root: HomepageInstance }
 
 const CurrentLanguageLabel = connect(function ({ root }: LanguageLabelProps) {
-  const label = displayName(root.language() || 'en')
-
   return (
     <>
       <ImageTag
@@ -68,9 +66,10 @@ const CurrentLanguageLabel = connect(function ({ root }: LanguageLabelProps) {
         content={root}
         attribute="siteLanguageIcon"
         className="img-flag"
-        aria-label={label}
       />
-      <span className="hidden-md hidden-lg">{label}</span>
+      <span className="hidden-md hidden-lg">
+        {displayName(root.language() || 'en')}
+      </span>
     </>
   )
 })
@@ -83,7 +82,6 @@ const LanguageLabel = connect(function ({ root }: LanguageLabelProps) {
         content={root}
         attribute="siteLanguageIcon"
         className="img-flag"
-        aria-hidden={true}
       />
       {displayName(root.language() || 'en')}
     </>
