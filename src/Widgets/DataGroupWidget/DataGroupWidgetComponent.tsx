@@ -1,6 +1,9 @@
 import { ContentTag, provideComponent } from 'scrivito'
 import { DataGroupWidget } from './DataGroupWidgetClass'
+import { DataScopeParamsContextProvider } from '../../Components/DataScopeParamsContext'
 
 provideComponent(DataGroupWidget, ({ widget }) => (
-  <ContentTag content={widget} attribute="content" />
+  <DataScopeParamsContextProvider>
+    <ContentTag content={widget} attribute="content" />
+  </DataScopeParamsContextProvider>
 ))
