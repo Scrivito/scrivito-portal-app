@@ -22,11 +22,5 @@ provideEditingConfig(SubnavigationOverview, {
         'This background will be shown on this page and all sub-pages',
     },
   },
-  properties: [
-    'title',
-    'hideInNavigation',
-    'linkIcon',
-    'topBannerBackground',
-    '',
-  ],
+  properties: ['title', 'hideInNavigation', 'linkIcon', 'topBannerBackground'],
 })
