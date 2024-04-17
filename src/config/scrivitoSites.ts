@@ -1,15 +1,15 @@
 import { Obj, currentSiteId, load, navigateTo } from 'scrivito'
+import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
 export function baseUrlForSite(siteId: string): string | undefined {
-  const tenant = getTenantFromEnv()
-  if (!location || !tenant) return
+  if (!location) return
 
   const urlParts = [location.origin]
+  const tenant = scrivitoTenantId()
 
-  // Multitenancy mode
-  if (!import.meta.env.SCRIVITO_TENANT) urlParts.push(tenant)
+  if (isMultitenancyEnabled()) urlParts.push(tenant)
 
   const language = Obj.onSite(siteId).root()?.language()
   if (language) urlParts.push(language)

@@ -16,6 +16,7 @@ import {
   formatFullDateTime,
   formatFullDayAndMonth,
 } from '../../utils/formatDate'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 const CURRENCY = 'EUR' // ISO 4217 Code
 
@@ -89,21 +90,21 @@ function Text({ value }: { value: unknown }) {
   return value ? value.toString() : 'N/A'
 }
 
-function Currency({ value }: { value: unknown }) {
+const Currency = connect(function Currency({ value }: { value: unknown }) {
   if (value === null) return 'N/A'
 
   const number = Number(value)
   if (Number.isNaN(number)) return 'N/A'
 
-  const formatter = new Intl.NumberFormat('en', {
+  const formatter = new Intl.NumberFormat(getCurrentLanguage(), {
     style: 'currency',
     currency: CURRENCY,
   })
 
   return formatter.format(number)
-}
+})
 
-function Datetime({
+const Datetime = connect(function Datetime({
   value,
   datetimeFormat,
 }: {
@@ -129,7 +130,7 @@ function Datetime({
   }
 
   return <RelativeDate date={date} />
-}
+})
 
 function Link({ value }: { value: unknown }) {
   if (typeof value !== 'string') return 'N/A'
