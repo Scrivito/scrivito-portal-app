@@ -36,11 +36,9 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
 
   if (!activeSite) return null
 
-  const title = <CurrentLanguageLabel root={activeSite} />
-
   return (
     <InPlaceEditingOff>
-      <NavDropdown title={title}>
+      <NavDropdown title={<CurrentLanguageLabel root={activeSite} />}>
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
             key={root.id()}
