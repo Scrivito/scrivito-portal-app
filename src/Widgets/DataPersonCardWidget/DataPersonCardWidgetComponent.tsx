@@ -1,11 +1,4 @@
-import {
-  provideComponent,
-  // @ts-expect-error TODO: remove once officially released
-  useDataScope,
-  DataScope,
-  connect,
-  DataItem,
-} from 'scrivito'
+import { connect, DataItem, provideComponent, useData } from 'scrivito'
 
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
 import { ensureString } from '../../utils/ensureString'
@@ -15,11 +8,7 @@ import { EditorNote } from '../../Components/EditorNote'
 import personCircle from '../../assets/images/person-circle.svg'
 
 provideComponent(DataPersonCardWidget, () => {
-  const dataScope: DataScope | undefined = useDataScope()
-
-  if (!dataScope) {
-    return <EditorNote>No data found. Please select a data source.</EditorNote>
-  }
+  const dataScope = useData()
 
   if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
 
