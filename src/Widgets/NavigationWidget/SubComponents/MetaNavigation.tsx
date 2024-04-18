@@ -24,7 +24,9 @@ export const MetaNavigation = connect(function MetaNavigation({
     )
   }
 
-  const sitePortalOverviewPage = root.get('sitePortalOverviewPage')
+  const sitePortalOverviewPage =
+    root.get('sitePortalOverviewPage') ||
+    root.get('sitePortalOverviewFallbackPage')
   const showPortalNav = !!sitePortalOverviewPage
 
   const siteCartPage = root.get('siteCartPage')

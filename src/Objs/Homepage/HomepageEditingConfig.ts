@@ -26,6 +26,9 @@ provideEditingConfig(Homepage, {
     sitePortalOnlyMode: { title: 'Use portal-only mode?' },
     siteCartPage: { title: 'Location of cart page' },
     sitePortalOverviewPage: { title: 'Location of portal overview page' },
+    sitePortalOverviewFallbackPage: {
+      title: 'Location of portal overview page (redirect fallback)',
+    },
     siteSearchResultsPage: {
       title: 'Location of search results page',
     },
@@ -42,6 +45,7 @@ provideEditingConfig(Homepage, {
         'sitePortalOnlyMode',
         'siteCartPage',
         'sitePortalOverviewPage',
+        'sitePortalOverviewFallbackPage',
         'siteSearchResultsPage',
         'siteUserProfilePage',
       ],

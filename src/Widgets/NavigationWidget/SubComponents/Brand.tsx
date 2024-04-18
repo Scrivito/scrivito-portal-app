@@ -29,7 +29,9 @@ const Link = connect(function Link({
   className?: string
 }) {
   if (root.get('sitePortalOnlyMode')) {
-    const portalOverviewPage = root.get('sitePortalOverviewPage')
+    const portalOverviewPage =
+      root.get('sitePortalOverviewPage') ||
+      root.get('sitePortalOverviewFallbackPage')
     if (!portalOverviewPage) {
       return <span className={className}>{children}</span>
     }

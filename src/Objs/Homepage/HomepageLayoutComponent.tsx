@@ -47,7 +47,9 @@ const EditorNoteOrRedirectAwayIfNeeded = connect(
   }: {
     root: HomepageInstance
   }) {
-    const portalOverviewPage = root.get('sitePortalOverviewPage')
+    const portalOverviewPage =
+      root.get('sitePortalOverviewPage') ||
+      root.get('sitePortalOverviewFallbackPage')
     const portalOverviewPagePath = portalOverviewPage?.path()
     const currentPageObjPath = currentPage()?.path()
 

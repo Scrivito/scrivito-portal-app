@@ -15,6 +15,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
     sitePortalOnlyMode: 'boolean',
     sitePortalOverviewPage: 'reference',
+    sitePortalOverviewFallbackPage: 'reference', // TODO: Remove workaround, once #10699 is available
     siteSearchResultsPage: 'reference',
     siteUserProfilePage: 'reference',
     title: 'string',
