@@ -779,22 +779,14 @@ section .card.no-color-adaption {
   }
 }
 
-/* svg Icons
+/* Language Icon
  ================================================== */
 
-.bi-flag-de,
-.bi-flag-en {
+img.img-flag {
   display: inline-block;
-  width: 17px;
   height: 15px;
-  margin: 0 0 -4px 0;
-}
-
-.bi-flag-de {
-  background: url('../images/flag-de.svg') no-repeat 0 0 / contain;
-}
-.bi-flag-en {
-  background: url('../images/flag-en.svg') no-repeat 0 0 / contain;
+  margin: -3px 6px 0 0;
+  max-width: 17px;
 }
 
 /* Bootstrap Icons - Sizes Add-on
