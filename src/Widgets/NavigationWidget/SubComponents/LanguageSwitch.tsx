@@ -17,10 +17,8 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
     .map((site) => {
       const siteId = site.siteId()
       const pageVersion = siteId && currentPage()?.versionOnSite(siteId)
-      const language = site.language() || 'en'
       return {
-        label: displayName(language),
-        language,
+        label: displayName(site.language()),
         version: pageVersion,
         root: site as HomepageInstance,
       }
@@ -73,14 +71,14 @@ const LanguageLabel = connect(function LanguageLabel({
         attribute="siteLanguageIcon"
         className="img-flag"
       />
-      <span className={className}>{displayName(root.language() || 'en')}</span>
+      <span className={className}>{displayName(root.language())}</span>
     </>
   )
 })
 
-function displayName(language: string) {
+function displayName(language: string | null) {
+  const locale = language || 'en'
   return (
-    new Intl.DisplayNames([language], { type: 'language' }).of(language) ||
-    language
+    new Intl.DisplayNames([locale], { type: 'language' }).of(locale) || locale
   )
 }
