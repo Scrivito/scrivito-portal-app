@@ -11,6 +11,7 @@ provideEditingConfig(Homepage, {
       title: 'Page description',
       description: 'Limit to 175, ideally 150 characters.',
     },
+    siteLanguageIcon: { title: 'Language icon' },
     siteLogoDark: {
       title: 'Dark logo',
       description: 'Used with light backgrounds',
@@ -39,6 +40,7 @@ provideEditingConfig(Homepage, {
         'siteLogoDark',
         'siteLogoLight',
         'siteFavicon',
+        'siteLanguageIcon',
         'sitePortalOnlyMode',
         'siteCartPage',
         'sitePortalOverviewPage',
