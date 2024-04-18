@@ -1,5 +1,6 @@
 import { connect, InPlaceEditingOff, LinkTag, ImageTag } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
+import { isRedirect } from '../../../Objs/Redirect/RedirectObjClass'
 
 export const Brand = connect(function Brand({
   root,
@@ -29,7 +30,13 @@ const Link = connect(function Link({
   className?: string
 }) {
   if (root.get('sitePortalOnlyMode')) {
-    const portalOverviewPage = root.get('sitePortalOverviewPage')
+    const rawPortalOverviewPage = root.get('sitePortalOverviewPage')
+    // TODO: Remove workaround, once #10699 is available
+    const portalOverviewPage =
+      (isRedirect(rawPortalOverviewPage) &&
+        rawPortalOverviewPage.get('link')?.obj()) ||
+      rawPortalOverviewPage
+
     if (!portalOverviewPage) {
       return <span className={className}>{children}</span>
     }

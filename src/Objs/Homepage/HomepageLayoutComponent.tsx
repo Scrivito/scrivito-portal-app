@@ -12,6 +12,7 @@ import {
 import { Homepage, HomepageInstance } from './HomepageObjClass'
 import { useEffect } from 'react'
 import { EditorNote } from '../../Components/EditorNote'
+import { isRedirect } from '../Redirect/RedirectObjClass'
 
 provideLayoutComponent(Homepage, ({ page }) => {
   const portalOnlyMode = page.get('sitePortalOnlyMode')
@@ -47,7 +48,13 @@ const EditorNoteOrRedirectAwayIfNeeded = connect(
   }: {
     root: HomepageInstance
   }) {
-    const portalOverviewPage = root.get('sitePortalOverviewPage')
+    const rawPortalOverviewPage = root.get('sitePortalOverviewPage')
+    // TODO: Remove workaround, once #10699 is available
+    const portalOverviewPage =
+      (isRedirect(rawPortalOverviewPage) &&
+        rawPortalOverviewPage.get('link')?.obj()) ||
+      rawPortalOverviewPage
+
     const portalOverviewPagePath = portalOverviewPage?.path()
     const currentPageObjPath = currentPage()?.path()
 
