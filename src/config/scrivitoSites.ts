@@ -1,4 +1,4 @@
-import { Obj, currentSiteId, load, navigateTo } from 'scrivito'
+import { Obj, currentSiteId, load, navigateTo, urlFor } from 'scrivito'
 import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
@@ -42,7 +42,7 @@ export async function ensureSiteIsPresent() {
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
       for (const language of preferredLanguageOrder) {
-        const site = sites.find((site) => siteHasLanguage(site, language))
+        const site = sites.find((site) => siteIsLanguageVersion(site, language))
         if (site) return site
       }
 
@@ -51,9 +51,16 @@ export async function ensureSiteIsPresent() {
   }
 }
 
-function siteHasLanguage(site: Obj, language: string | null) {
+function siteIsLanguageVersion(site: Obj, language: string | null) {
   const siteLanguage = site.language()
-  return language && siteLanguage
-    ? language.startsWith(siteLanguage)
-    : language === siteLanguage
+
+  const isLanguageMatch =
+    language && siteLanguage
+      ? language.startsWith(siteLanguage)
+      : language === siteLanguage
+
+  const isBaseUrlMatch =
+    urlFor(site) === `${window.location.origin}/${siteLanguage || ''}`
+
+  return isLanguageMatch && isBaseUrlMatch
 }
