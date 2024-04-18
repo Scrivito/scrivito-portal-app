@@ -7,7 +7,7 @@ import { containsItems, numberOfCartItems } from '../../../Data/CartItem/Cart'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import { CurrentUserDropdown } from './CurrentUserDropdown'
 import { LanguageSwitch } from './LanguageSwitch'
-import { isRedirect } from '../../../Objs/Redirect/RedirectObjClass'
+import { getSitePortalOverviewPage } from '../../../utils/getSitePortalOverviewPage'
 
 export const MetaNavigation = connect(function MetaNavigation({
   root,
@@ -27,12 +27,7 @@ export const MetaNavigation = connect(function MetaNavigation({
     )
   }
 
-  const rawSitePortalOverviewPage = root.get('sitePortalOverviewPage')
-  // TODO: Remove workaround, once #10699 is available
-  const sitePortalOverviewPage =
-    (isRedirect(rawSitePortalOverviewPage) &&
-      rawSitePortalOverviewPage.get('link')?.obj()) ||
-    rawSitePortalOverviewPage
+  const sitePortalOverviewPage = getSitePortalOverviewPage(root)
   const showPortalNav = !!sitePortalOverviewPage
 
   const siteCartPage = root.get('siteCartPage')
