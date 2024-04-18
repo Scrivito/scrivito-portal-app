@@ -1,5 +1,6 @@
 import { connect, InPlaceEditingOff, LinkTag, ImageTag } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
+import { getSitePortalOverviewPage } from '../../../utils/getSitePortalOverviewPage'
 
 export const Brand = connect(function Brand({
   root,
@@ -29,7 +30,8 @@ const Link = connect(function Link({
   className?: string
 }) {
   if (root.get('sitePortalOnlyMode')) {
-    const portalOverviewPage = root.get('sitePortalOverviewPage')
+    const portalOverviewPage = getSitePortalOverviewPage(root)
+
     if (!portalOverviewPage) {
       return <span className={className}>{children}</span>
     }
