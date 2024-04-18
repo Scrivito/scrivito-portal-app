@@ -5,10 +5,6 @@ import { EditorNote } from '../../Components/EditorNote'
 provideComponent(DataColumnListWidget, ({ widget }) => {
   const dataScope = useData()
 
-  if (!dataScope) {
-    return <EditorNote>No data found. Please select a data source.</EditorNote>
-  }
-
   if (dataScope.isEmpty()) {
     return <EditorNote>The data column list is empty.</EditorNote>
   }

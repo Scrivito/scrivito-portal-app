@@ -1,4 +1,4 @@
-import { ContentTag, provideComponent, useDataItem } from 'scrivito'
+import { ContentTag, connect, provideComponent, useDataItem } from 'scrivito'
 import { DataAttachmentsWidget } from './DataAttachmentsWidgetClass'
 import {
   dataBinaryToUrl,
@@ -7,6 +7,7 @@ import {
 } from '../../utils/dataBinaryToUrl'
 import { useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -32,7 +33,11 @@ provideComponent(DataAttachmentsWidget, ({ widget }) => {
   )
 })
 
-function Attachment({ attachment }: { attachment: FullDataBinary }) {
+const Attachment = connect(function Attachment({
+  attachment,
+}: {
+  attachment: FullDataBinary
+}) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
   const [trigger, setTrigger] = useState<number>(0)
 
@@ -60,12 +65,14 @@ function Attachment({ attachment }: { attachment: FullDataBinary }) {
       <div className="box-meta">
         <span className="box-name">{attachment.filename}</span>
         <span className="box-size">
-          {prettyBytes(attachment.contentLength, { locale: 'en' })}
+          {prettyBytes(attachment.contentLength, {
+            locale: getCurrentLanguage(),
+          })}
         </span>
       </div>
     </a>
   )
-}
+})
 
 function BoxPreviewContent({
   binaryUrl,

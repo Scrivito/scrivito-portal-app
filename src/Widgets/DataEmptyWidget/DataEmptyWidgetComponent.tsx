@@ -6,14 +6,9 @@ import {
   useData,
 } from 'scrivito'
 import { DataEmptyWidget } from './DataEmptyWidgetClass'
-import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataEmptyWidget, ({ widget }) => {
   const dataScope = useData()
-
-  if (!dataScope) {
-    return <EditorNote>No data found. Please select a data source.</EditorNote>
-  }
 
   if (
     dataScope.containsData() &&
