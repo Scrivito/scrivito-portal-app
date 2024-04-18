@@ -38,7 +38,11 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
 
   return (
     <InPlaceEditingOff>
-      <NavDropdown title={<CurrentLanguageLabel root={activeSite} />}>
+      <NavDropdown
+        title={
+          <LanguageLabel root={activeSite} className="hidden-md hidden-lg" />
+        }
+      >
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
             key={root.id()}
@@ -54,9 +58,13 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
   )
 })
 
-type LanguageLabelProps = { root: HomepageInstance }
-
-const CurrentLanguageLabel = connect(function ({ root }: LanguageLabelProps) {
+const LanguageLabel = connect(function LanguageLabel({
+  className,
+  root,
+}: {
+  className?: string
+  root: HomepageInstance
+}) {
   return (
     <>
       <ImageTag
@@ -65,23 +73,7 @@ const CurrentLanguageLabel = connect(function ({ root }: LanguageLabelProps) {
         attribute="siteLanguageIcon"
         className="img-flag"
       />
-      <span className="hidden-md hidden-lg">
-        {displayName(root.language() || 'en')}
-      </span>
-    </>
-  )
-})
-
-const LanguageLabel = connect(function ({ root }: LanguageLabelProps) {
-  return (
-    <>
-      <ImageTag
-        alt=""
-        content={root}
-        attribute="siteLanguageIcon"
-        className="img-flag"
-      />
-      {displayName(root.language() || 'en')}
+      <span className={className}>{displayName(root.language() || 'en')}</span>
     </>
   )
 })
