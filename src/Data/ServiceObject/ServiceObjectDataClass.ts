@@ -30,7 +30,7 @@ export const ServiceObject = provideLocalStorageDataClass('ServiceObject', {
     },
     {
       _id: '0B5573AAEBE54D3DB59800780636733E',
-      keyword: '### Behälter B100-2',
+      keyword: 'Behälter B100-2',
       number: '363.576-61',
       serialNumber: '',
       modelNumber: '',
