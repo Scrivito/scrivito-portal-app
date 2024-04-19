@@ -136,17 +136,19 @@ const FILTER_PRESENTATIONS = {
   Homepage: { title: 'Homepage', icon: 'inbox' },
   Image: { title: 'Images', icon: 'image' },
   Invoice: { title: 'Invoice', icon: 'certificate' },
+  LandingPage: { title: 'Landing pages', icon: 'inbox' },
   Page: { title: 'Standard pages', icon: 'sheet' },
   Product: { title: 'Products', icon: 'suitcase' },
   ProductCategory: { title: 'Product categories', icon: 'relation' },
   ProductsOverview: { title: 'Products overviews', icon: 'relation' },
-  SubnavigationOverview: { title: 'Subnavigation Overview', icon: 'inbox' },
   Redirect: { title: 'Redirects', icon: 'link' },
+  SubnavigationOverview: { title: 'Subnavigation Overview', icon: 'inbox' },
   Video: { title: 'Videos', icon: 'video' },
 }
 
 const PAGES = [
   'Page',
+  'LandingPage',
   'Homepage',
   'Product',
   'ProductCategory',
