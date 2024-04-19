@@ -28,7 +28,6 @@ provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
   if (!hasMore()) {
     if (!isInPlaceEditingActive() && !isComparisonActive()) return null
 
-    classNames.push('disabled')
     classNames.push('opacity-60')
     return (
       <WidgetTag className={alignmentClassName}>
