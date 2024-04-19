@@ -17,7 +17,7 @@ provideComponent(NavigationWidget, ({ widget }) => {
     <section>
       <div className="container">
         <Navbar expand="lg" collapseOnSelect>
-          <Brand root={root} />
+          <Brand root={root} linkClassName="navbar-brand" />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <MetaNavigation widget={widget} root={root} />

@@ -4,12 +4,14 @@ import { getSitePortalOverviewPage } from '../../../utils/getSitePortalOverviewP
 
 export const Brand = connect(function Brand({
   root,
+  linkClassName,
 }: {
   root: HomepageInstance
+  linkClassName?: string
 }) {
   return (
     <InPlaceEditingOff>
-      <Link root={root} className="navbar-brand">
+      <Link root={root} className={linkClassName}>
         <ImageTag
           content={root}
           attribute="siteLogoDark"
