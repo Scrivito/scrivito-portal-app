@@ -38,7 +38,7 @@ provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={alignmentClassName}>
-      <button className={classNames.join(' ')} onClick={() => loadMore()}>
+      <button className={classNames.join(' ')} onClick={loadMore}>
         {widget.get('title')}
       </button>
     </WidgetTag>
