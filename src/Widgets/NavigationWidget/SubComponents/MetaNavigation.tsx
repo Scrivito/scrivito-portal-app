@@ -6,6 +6,8 @@ import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { containsItems, numberOfCartItems } from '../../../Data/CartItem/Cart'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import { CurrentUserDropdown } from './CurrentUserDropdown'
+import { LanguageSwitch } from './LanguageSwitch'
+import { getSitePortalOverviewPage } from '../../../utils/getSitePortalOverviewPage'
 
 export const MetaNavigation = connect(function MetaNavigation({
   root,
@@ -17,14 +19,15 @@ export const MetaNavigation = connect(function MetaNavigation({
   if (root.get('sitePortalOnlyMode')) {
     return (
       <div className="navbar-meta">
-        <Nav className="ms-auto">
+        <Nav className="ms-auto border-left">
+          <LanguageSwitch />
           <CurrentUserDropdown widget={widget} root={root} />
         </Nav>
       </div>
     )
   }
 
-  const sitePortalOverviewPage = root.get('sitePortalOverviewPage')
+  const sitePortalOverviewPage = getSitePortalOverviewPage(root)
   const showPortalNav = !!sitePortalOverviewPage
 
   const siteCartPage = root.get('siteCartPage')
@@ -42,38 +45,41 @@ export const MetaNavigation = connect(function MetaNavigation({
         ))}
       </Nav>
 
-      {showPortalNav && (
-        <Nav className="ms-auto">
-          {showCart && (
+      <Nav className="ms-auto border-left">
+        <LanguageSwitch />
+        {showPortalNav && (
+          <>
+            {showCart && (
+              <Nav.Item>
+                <Nav.Link
+                  as={LinkTag}
+                  eventKey={`MetaNavigation-${siteCartPage.id()}`}
+                  key={`MetaNavigation-${siteCartPage.id()}`}
+                  to={siteCartPage}
+                >
+                  <ObjIconAndTitle obj={siteCartPage} />{' '}
+                  <span className="badge rounded-pill text-bg-secondary">
+                    {numberOfCartItems()}
+                  </span>
+                </Nav.Link>
+              </Nav.Item>
+            )}
+
             <Nav.Item>
               <Nav.Link
+                active={isCurrentPage(sitePortalOverviewPage)}
                 as={LinkTag}
-                eventKey={`MetaNavigation-${siteCartPage.id()}`}
-                key={`MetaNavigation-${siteCartPage.id()}`}
-                to={siteCartPage}
+                eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+                key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+                to={sitePortalOverviewPage}
               >
-                <ObjIconAndTitle obj={siteCartPage} />{' '}
-                <span className="badge rounded-pill text-bg-secondary">
-                  {numberOfCartItems()}
-                </span>
+                <ObjIconAndTitle obj={sitePortalOverviewPage} />
               </Nav.Link>
             </Nav.Item>
-          )}
-
-          <Nav.Item>
-            <Nav.Link
-              active={isCurrentPage(sitePortalOverviewPage)}
-              as={LinkTag}
-              eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
-              key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
-              to={sitePortalOverviewPage}
-            >
-              <ObjIconAndTitle obj={sitePortalOverviewPage} />
-            </Nav.Link>
-          </Nav.Item>
-          <CurrentUserDropdown widget={widget} root={root} />
-        </Nav>
-      )}
+            <CurrentUserDropdown widget={widget} root={root} />
+          </>
+        )}
+      </Nav>
     </div>
   )
 })

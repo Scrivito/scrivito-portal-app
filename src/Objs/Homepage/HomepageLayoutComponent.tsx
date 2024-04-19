@@ -12,6 +12,7 @@ import {
 import { Homepage, HomepageInstance } from './HomepageObjClass'
 import { useEffect } from 'react'
 import { EditorNote } from '../../Components/EditorNote'
+import { getSitePortalOverviewPage } from '../../utils/getSitePortalOverviewPage'
 
 provideLayoutComponent(Homepage, ({ page }) => {
   const portalOnlyMode = page.get('sitePortalOnlyMode')
@@ -47,7 +48,7 @@ const EditorNoteOrRedirectAwayIfNeeded = connect(
   }: {
     root: HomepageInstance
   }) {
-    const portalOverviewPage = root.get('sitePortalOverviewPage')
+    const portalOverviewPage = getSitePortalOverviewPage(root)
     const portalOverviewPagePath = portalOverviewPage?.path()
     const currentPageObjPath = currentPage()?.path()
 
