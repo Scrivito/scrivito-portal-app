@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react'
 import { connect, useData } from 'scrivito'
 
-export const DataScopeParamsContext = createContext<{
+export const DataBatchContext = createContext<{
   limit: number
   hasMore: () => boolean
   loadMore: () => void
@@ -13,8 +13,8 @@ export const DataScopeParamsContext = createContext<{
   },
 })
 
-export const DataScopeParamsContextProvider = connect(
-  function DataScopeParamsContextProvider({
+export const DataBatchContextProvider = connect(
+  function DataBatchContextProvider({
     children,
   }: {
     children: React.ReactNode
@@ -44,9 +44,9 @@ export const DataScopeParamsContextProvider = connect(
     const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
 
     return (
-      <DataScopeParamsContext.Provider value={{ limit, hasMore, loadMore }}>
+      <DataBatchContext.Provider value={{ limit, hasMore, loadMore }}>
         {children}
-      </DataScopeParamsContext.Provider>
+      </DataBatchContext.Provider>
     )
   },
 )

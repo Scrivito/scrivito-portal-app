@@ -1,9 +1,9 @@
 import { provideComponent, ContentTag } from 'scrivito'
 import { Page } from './PageObjClass'
-import { DataScopeParamsContextProvider } from '../../Components/DataBatchContext'
+import { DataBatchContextProvider } from '../../Components/DataBatchContext'
 
 provideComponent(Page, ({ page }) => (
-  <DataScopeParamsContextProvider>
+  <DataBatchContextProvider>
     <ContentTag tag="div" content={page} attribute="body" />
-  </DataScopeParamsContextProvider>
+  </DataBatchContextProvider>
 ))

@@ -6,12 +6,12 @@ import {
 } from 'scrivito'
 import { DataLoadMoreButtonWidget } from './DataLoadMoreButtonWidgetClass'
 import { useContext } from 'react'
-import { DataScopeParamsContext } from '../../Components/DataBatchContext'
+import { DataBatchContext } from '../../Components/DataBatchContext'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 
 provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
-  const { hasMore, loadMore } = useContext(DataScopeParamsContext)
+  const { hasMore, loadMore } = useContext(DataBatchContext)
 
   const classNames = ['btn']
 
