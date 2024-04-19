@@ -69,7 +69,7 @@ export function provideLocalStorageDataClass(
         const continuation =
           newOffset < orderedItems.length ? newOffset.toString() : undefined
 
-        return { results, continuation, count: filteredItems.length }
+        return { results, continuation, count: orderedItems.length }
       },
 
       async get(id: string): Promise<DataItem | null> {
