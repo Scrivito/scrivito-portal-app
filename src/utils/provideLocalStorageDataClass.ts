@@ -59,11 +59,10 @@ export function provideLocalStorageDataClass(
         if (params.search()) throw new Error('search not implemented!')
         const orderedItems = orderItems(filteredItems, params.order())
 
-        const continuationOffset = Number(params.continuation())
         const offset =
-          continuationOffset < 0 || isNaN(continuationOffset)
+          params.continuation() === undefined
             ? 0
-            : continuationOffset
+            : Number(params.continuation())
         const newOffset = offset + params.limit()
 
         const results = orderedItems.slice(offset, newOffset)
