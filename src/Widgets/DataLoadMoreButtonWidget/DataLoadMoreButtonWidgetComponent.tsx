@@ -6,7 +6,7 @@ import {
 } from 'scrivito'
 import { DataLoadMoreButtonWidget } from './DataLoadMoreButtonWidgetClass'
 import { useContext } from 'react'
-import { DataScopeParamsContext } from '../../Components/DataScopeParamsContext'
+import { DataScopeParamsContext } from '../../Components/DataBatchContext'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 

@@ -2,7 +2,7 @@ import { ContentTag, provideComponent, useData } from 'scrivito'
 import { DataColumnListWidget } from './DataColumnListWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { useContext } from 'react'
-import { DataScopeParamsContext } from '../../Components/DataScopeParamsContext'
+import { DataScopeParamsContext } from '../../Components/DataBatchContext'
 
 provideComponent(DataColumnListWidget, ({ widget }) => {
   const dataScope = useData()
