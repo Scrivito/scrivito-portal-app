@@ -63,7 +63,7 @@ export function provideLocalStorageDataClass(
           params.continuation() === undefined
             ? 0
             : Number(params.continuation())
-        const newOffset = offset + params.limit()
+        const newOffset = offset + 10
 
         const results = orderedItems.slice(offset, newOffset)
         const continuation =
