@@ -3,7 +3,6 @@ import {
   isComparisonActive,
   isInPlaceEditingActive,
   provideComponent,
-  useData,
 } from 'scrivito'
 import { DataLoadMoreButtonWidget } from './DataLoadMoreButtonWidgetClass'
 import { useContext } from 'react'
@@ -12,11 +11,7 @@ import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 
 provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
-  const dataScope = useData()
-  const { limit, setLimit } = useContext(DataScopeParamsContext)
-
-  const moreAvailable =
-    limit < dataScope.transform({ limit: limit + 1 }).take().length
+  const { hasMore, loadMore } = useContext(DataScopeParamsContext)
 
   const classNames = ['btn']
 
@@ -30,7 +25,7 @@ provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
     widget.get('alignment'),
   )
 
-  if (!moreAvailable) {
+  if (!hasMore()) {
     if (!isInPlaceEditingActive() && !isComparisonActive()) return null
 
     classNames.push('disabled')
@@ -44,10 +39,7 @@ provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={alignmentClassName}>
-      <button
-        className={classNames.join(' ')}
-        onClick={() => setLimit(limit + 10)}
-      >
+      <button className={classNames.join(' ')} onClick={() => loadMore()}>
         {widget.get('title')}
       </button>
     </WidgetTag>

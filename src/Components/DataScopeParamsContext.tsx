@@ -3,11 +3,13 @@ import { connect, useData } from 'scrivito'
 
 export const DataScopeParamsContext = createContext<{
   limit: number
-  setLimit: (newLimit: number) => void
+  hasMore: () => boolean
+  loadMore: () => void
 }>({
-  limit: 10,
-  setLimit: (_newLimit) => {
-    throw new Error('setLimit is not provided!')
+  limit: 20,
+  hasMore: () => true,
+  loadMore: () => {
+    throw new Error('loadMore is not provided!')
   },
 })
 
@@ -28,8 +30,21 @@ export const DataScopeParamsContextProvider = connect(
       setLimit(configuredLimit)
     }
 
+    const hasMore = () => {
+      const dataCount = dataScope.count()
+
+      const count =
+        dataCount === null
+          ? dataScope.transform({ limit }).take().length + 1
+          : dataCount
+
+      return count > limit
+    }
+
+    const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
+
     return (
-      <DataScopeParamsContext.Provider value={{ limit, setLimit }}>
+      <DataScopeParamsContext.Provider value={{ limit, hasMore, loadMore }}>
         {children}
       </DataScopeParamsContext.Provider>
     )
