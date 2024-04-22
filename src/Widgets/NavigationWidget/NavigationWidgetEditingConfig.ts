@@ -6,5 +6,5 @@ provideEditingConfig(NavigationWidget, {
   title: 'Navigation',
   thumbnail: Thumbnail,
   properties: ['metaNavigationObjs', 'searchInputLabel'],
-  initialContent: { searchInputLabel: 'Search' },
+  initialContent: { logOutLabel: 'Log out', searchInputLabel: 'Search' },
 })
