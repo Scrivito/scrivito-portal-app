@@ -24,6 +24,11 @@ provideEditingConfig(Page, {
       title: 'Page description',
       description: 'Limit to 175, ideally 150 characters.',
     },
+    showAsLandingPage: {
+      title: 'Display this page as a landing page?',
+      description:
+        'Removes the header navigation and only centers the logo instead. Default: No',
+    },
     title: { title: 'Title' },
   },
   properties: [
@@ -32,5 +37,6 @@ provideEditingConfig(Page, {
     'hideInNavigation',
     'linkIcon',
     'excludeFromSearch',
+    'showAsLandingPage',
   ],
 })
