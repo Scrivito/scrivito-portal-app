@@ -82,7 +82,7 @@ provideDataValues(Quote, {
   ],
 })
 
-provideAttributeLocalizers(Quote, {
+provideAttributeLocalizers('en', Quote, {
   mainStatus: {
     PSA_SAP_MAI_QUO_LST: 'Quote lost',
     PSA_SAP_MAI_QUO_ORD_CER: 'Quote generation',

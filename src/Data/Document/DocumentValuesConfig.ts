@@ -65,7 +65,7 @@ provideDataValues(Document, {
   ],
 })
 
-provideAttributeLocalizers(Document, {
+provideAttributeLocalizers('en', Document, {
   language: {
     ENG: 'English',
     FRA: 'French',

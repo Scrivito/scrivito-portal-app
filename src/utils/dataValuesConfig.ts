@@ -27,12 +27,12 @@ export function dataValues(
 }
 
 export function provideAttributeLocalizers(
+  locale: string,
   dataClass: DataClass,
   localizersByAttribute: Record<string, Record<string, string>>,
 ): void {
-  const locale = 'en'
-  localizers[locale] ||= {}
-  localizers[locale][dataClass.name()] = localizersByAttribute
+  const localeLocalizers = (localizers[locale] ||= {})
+  localeLocalizers[dataClass.name()] = localizersByAttribute
 }
 
 export function localizeAttributeValue({

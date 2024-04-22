@@ -37,7 +37,7 @@ provideDataValues(Ticket, {
   type: ['PSA_SVC_CAL', 'PSA_SVC_CPL', 'PSA_SVC_TRB'],
 })
 
-provideAttributeLocalizers(Ticket, {
+provideAttributeLocalizers('en', Ticket, {
   status: {
     PSA_SVC_C8D_ACQ: 'captured',
     PSA_SVC_C8D_CLS: 'closed',

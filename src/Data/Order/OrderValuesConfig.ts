@@ -69,7 +69,7 @@ provideDataValues(Order, {
   ],
 })
 
-provideAttributeLocalizers(Order, {
+provideAttributeLocalizers('en', Order, {
   mainStatus: {
     PSA_SAP_MAI_ORD_CNC_BEA: 'Order processing',
     PSA_SAP_MAI_ORD_CNC_EIN: 'Order inflow',

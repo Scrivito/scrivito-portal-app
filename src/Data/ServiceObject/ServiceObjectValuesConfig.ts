@@ -266,7 +266,7 @@ provideDataValues(ServiceObject, {
   status: ['PSA_ART_SVC_ACT', 'PSA_ART_SVC_CLS'],
 })
 
-provideAttributeLocalizers(ServiceObject, {
+provideAttributeLocalizers('en', ServiceObject, {
   locationCountry: {
     ABW: 'Aruba',
     AFG: 'Afghanistan',

@@ -20,7 +20,7 @@ provideDataValues(Event, {
   ],
 })
 
-provideAttributeLocalizers(Event, {
+provideAttributeLocalizers('en', Event, {
   language: {
     ENG: 'English',
     FRA: 'French',
