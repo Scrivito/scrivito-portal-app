@@ -15,6 +15,9 @@ export default defineConfig(({ mode }) => {
   const outDir = 'dist'
 
   const PISA_URL = env.PISA_URL
+  const enablePisa = env.ENABLE_PISA_ONLY_ON_PISA_BRANCH
+    ? env.CF_PAGES_BRANCH === 'pisa' && !!PISA_URL
+    : !!PISA_URL
 
   return {
     build: {
@@ -29,6 +32,7 @@ export default defineConfig(({ mode }) => {
     define: {
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
       'import.meta.env.PISA_URL': JSON.stringify(PISA_URL),
+      'import.meta.env.ENABLE_PISA': JSON.stringify(enablePisa),
       'import.meta.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE':
         JSON.stringify(env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE),
     },
