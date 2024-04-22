@@ -57,22 +57,38 @@ provideComponent(Product, ({ page }) => {
                   <ul className="nav nav-underline">
                     <li className="nav-item">
                       <a className="nav-link" href="#description">
-                        Description
+                        <ContentTag
+                          tag="span"
+                          content={page}
+                          attribute="descriptionSectionLabel"
+                        />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#data">
-                        Data
+                        <ContentTag
+                          tag="span"
+                          content={page}
+                          attribute="dataSectionLabel"
+                        />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#downloads">
-                        Downloads
+                        <ContentTag
+                          tag="span"
+                          content={page}
+                          attribute="downloadsSectionLabel"
+                        />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#accessories">
-                        Suitable accessories
+                        <ContentTag
+                          tag="span"
+                          content={page}
+                          attribute="suitableAccessoriesLabel"
+                        />
                       </a>
                     </li>
                   </ul>
@@ -108,17 +124,25 @@ provideComponent(Product, ({ page }) => {
         </div>
 
         <div className="container">
-          <h3 className="h4" id="description">
-            Description
-          </h3>
+          <ContentTag
+            tag="h3"
+            className="h4"
+            id="description"
+            content={page}
+            attribute="descriptionSectionLabel"
+          />
           <ContentTag content={page} attribute="descriptionSection" />
         </div>
       </section>
       <section className="py-4">
         <div className="container">
-          <h3 className="h4" id="data">
-            Data
-          </h3>
+          <ContentTag
+            tag="h3"
+            className="h4"
+            id="data"
+            content={page}
+            attribute="dataSectionLabel"
+          />
           <div className="row">
             <div className="col-md-6">
               <table className="table table-hover table-small m-0">
@@ -142,19 +166,25 @@ provideComponent(Product, ({ page }) => {
       </section>
       <section className="bg-light-grey py-4">
         <div className="container">
-          <h3 className="h4" id="downloads">
-            Downloads
-          </h3>
-
+          <ContentTag
+            tag="h3"
+            className="h4"
+            id="downloads"
+            content={page}
+            attribute="downloadsSectionLabel"
+          />
           <ContentTag content={page} attribute="downloadsSection" />
         </div>
       </section>
       <section className="bg-primary py-4">
         <div className="container">
-          <h3 className="h4" id="accessories">
-            Suitable accessories
-          </h3>
-
+          <ContentTag
+            tag="h3"
+            className="h4"
+            id="accessories"
+            content={page}
+            attribute="suitableAccessoriesLabel"
+          />
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 my-3">
             {page
               .get('suitableAccessories')
