@@ -21,11 +21,19 @@ provideEditingConfig(DataFormContainerWidget, {
       title: 'Submitted message',
       description: 'After submitting the form, the user will see this message.',
     },
+    failedMessage: {
+      title: 'Message shown if the form submission failed',
+    },
     hiddenFields: {
       title: 'Hidden fields',
     },
   },
-  properties: ['redirectAfterSubmit', 'submittedMessage', 'submitOnChange'],
+  properties: [
+    'redirectAfterSubmit',
+    'submittedMessage',
+    'failedMessage',
+    'submitOnChange',
+  ],
   propertiesGroups: [
     {
       title: 'Hidden fields',
@@ -38,6 +46,7 @@ provideEditingConfig(DataFormContainerWidget, {
       new DataFormInputFieldWidget({}),
       new DataFormSubmitButtonWidget({}),
     ],
+    failedMessage: 'We’re sorry for the inconvenience.',
     redirectAfterSubmit: true,
   },
 })

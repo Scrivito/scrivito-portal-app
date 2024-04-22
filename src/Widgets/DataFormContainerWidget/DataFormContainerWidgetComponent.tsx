@@ -27,6 +27,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')
   const submitOnChange = widget.get('submitOnChange')
   const submittedMessage = widget.get('submittedMessage')
+  const failedMessage = widget.get('failedMessage')
 
   return (
     <WidgetTag className="data-form-container-widget">
@@ -73,7 +74,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       toast.error(
         <div>
           <h6>{error.message}</h6>
-          <p>We&apos;re sorry for the inconvenience.</p>
+          <p>{failedMessage}</p>
         </div>,
       )
     } finally {
