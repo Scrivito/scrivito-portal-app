@@ -37,6 +37,45 @@ provideDataValues(Ticket, {
   type: ['PSA_SVC_CAL', 'PSA_SVC_CPL', 'PSA_SVC_TRB'],
 })
 
+provideAttributeLocalizers('de', Ticket, {
+  status: {
+    PSA_SVC_C8D_ACQ: 'erfasst',
+    PSA_SVC_C8D_CLS: 'abgeschlossen',
+    PSA_SVC_C8D_DCS: 'entschieden',
+    PSA_SVC_C8D_DON: 'erledigt',
+    PSA_SVC_C8D_DSP: 'disponiert',
+    PSA_SVC_C8D_FLW: 'nachbereitet',
+    PSA_SVC_C8D_NBE: 'nicht begonnen',
+    PSA_SVC_CAL_ACQ: 'erfasst',
+    PSA_SVC_CAL_CLS: 'beantwortet',
+    PSA_SVC_CAL_FRW: 'weitergeleitet',
+    PSA_SVC_CAL_WRK: 'in Bearbeitung',
+    PSA_SVC_CPL_ACQ: 'erfasst',
+    PSA_SVC_CPL_CLS: 'abgeschlossen',
+    PSA_SVC_CPL_DCS: 'Abstellmaßnahme festgelegt',
+    PSA_SVC_CPL_DON: 'Auftrag abgeschlossen',
+    PSA_SVC_CPL_FLW: 'nachbereitet',
+    PSA_SVC_CPL_ORD: 'Auftrag angelegt',
+    PSA_SVC_SUP_CPL_ASQ: 'erfasst',
+    PSA_SVC_SUP_CPL_BEA: 'in Bearbeitung durch Lieferanten',
+    PSA_SVC_SUP_CPL_ERL: 'erledigt',
+    PSA_SVC_SUP_CPL_RUE: 'rückgemeldet durch Lieferanten',
+    PSA_SVC_SUP_CPL_SEN: 'an Lieferanten gemeldet',
+    PSA_SVC_TRB_ACQ: 'erfasst',
+    PSA_SVC_TRB_CLS: 'beseitigt',
+    PSA_SVC_TRB_DCS: 'Abstellmaßnahme festgelegt',
+    PSA_SVC_TRB_DON: 'Auftrag abgeschlossen',
+    PSA_SVC_TRB_DSP: 'Auftrag angelegt',
+  },
+  type: {
+    PSA_SVC_C8D: 'Reklamation / 8D',
+    PSA_SVC_CAL: 'Anfrage',
+    PSA_SVC_CPL: 'Reklamation',
+    PSA_SVC_SUP_CPL: 'Lieferantenreklamation',
+    PSA_SVC_TRB: 'Störung',
+  },
+})
+
 provideAttributeLocalizers('en', Ticket, {
   status: {
     PSA_SVC_C8D_ACQ: 'captured',
