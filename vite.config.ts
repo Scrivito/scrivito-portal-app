@@ -14,6 +14,8 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const outDir = 'dist'
 
+  const PISA_URL = env.PISA_URL
+
   return {
     build: {
       outDir,
@@ -26,6 +28,7 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
+      'import.meta.env.PISA_URL': JSON.stringify(PISA_URL),
       'import.meta.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE':
         JSON.stringify(env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE),
     },
