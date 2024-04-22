@@ -6,13 +6,12 @@ import { Brand } from './SubComponents/Brand'
 import { MainNavigation } from './SubComponents/MainNavigation'
 import { MetaNavigation } from './SubComponents/MetaNavigation'
 import { isHomepage } from '../../Objs/Homepage/HomepageObjClass'
-import { isLandingPage } from '../../Objs/LandingPage/LandingPageObjClass'
 
 provideComponent(NavigationWidget, ({ widget }) => {
   const root = Obj.root()
   if (!isHomepage(root)) return null
 
-  if (isLandingPage(currentPage())) {
+  if (currentPage()?.get('showAsLandingPage')) {
     return (
       <section className="bg-primary pb-4">
         <div className="container">
