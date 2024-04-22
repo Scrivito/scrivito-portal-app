@@ -4,6 +4,23 @@ import { Homepage } from './HomepageObjClass'
 provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
+    cartAddedMessage: {
+      title: 'Confirmation message after adding',
+    },
+    cartAddLabel: {
+      title: 'Add-button label',
+    },
+    cartRemovedMessage: {
+      title: 'Confirmation message after removing',
+    },
+    cartRemoveLabel: {
+      title: 'Remove-button label',
+    },
+    cartUnvailableMessage: {
+      title: 'Add-button tooltip if not logged in',
+      description:
+        'The placeholder __product__ is available for all labels and messages.',
+    },
     contentTitle: {
       title: 'Site name',
     },
@@ -50,9 +67,23 @@ provideEditingConfig(Homepage, {
     },
     {
       title: 'Shopping cart',
-      properties: ['siteCartPage'],
+      properties: [
+        'siteCartPage',
+        'cartUnvailableMessage',
+        'cartAddLabel',
+        'cartAddedMessage',
+        'cartRemoveLabel',
+        'cartRemovedMessage',
+      ],
       key: 'cart-settings-group',
     },
   ],
   properties: ['title', 'metaDataDescription'],
+  initialContent: {
+    cartAddedMessage: 'Added __product__ to cart.',
+    cartAddLabel: 'Add to cart',
+    cartRemovedMessage: 'Removed __product__ from cart.',
+    cartRemoveLabel: 'Remove from cart',
+    cartUnvailableMessage: 'Please log in to add __product__ to cart.',
+  },
 })
