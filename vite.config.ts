@@ -15,9 +15,8 @@ export default defineConfig(({ mode }) => {
   const outDir = 'dist'
 
   const PISA_URL = env.PISA_URL
-  const enablePisa = env.ENABLE_PISA_ONLY_ON_PISA_BRANCH
-    ? env.CF_PAGES_BRANCH === 'pisa' && !!PISA_URL
-    : !!PISA_URL
+  const enablePisa = !!PISA_URL
+  if (enablePisa) console.log('Pisa included in the build.')
 
   return {
     build: {
