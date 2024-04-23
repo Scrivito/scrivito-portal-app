@@ -4,6 +4,7 @@ import { ServiceObject } from './ServiceObjectDataClass'
 provideEditingConfig(ServiceObject, {
   title: 'Service object',
   attributes: {
+    _id: { title: 'Service object ID' },
     keyword: { title: 'Keyword' },
     number: { title: 'Number' },
     serialNumber: { title: 'Serial number' },

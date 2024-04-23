@@ -4,6 +4,7 @@ import { Order } from './OrderDataClass'
 provideEditingConfig(Order, {
   title: 'Order',
   attributes: {
+    _id: { title: 'Order ID' },
     keyword: { title: 'Keyword' },
     number: { title: 'Number' },
     type: { title: 'Type' },
