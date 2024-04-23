@@ -3,11 +3,14 @@ import { DataIconWidget } from './DataIconWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { isDataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
 import { IconComponent } from '../../Components/Icon'
+import { localizeAttributeValue } from '../../utils/dataValuesConfig'
+import { ensureString } from '../../utils/ensureString'
 
 provideComponent(DataIconWidget, ({ widget }) => {
   const dataItem = useDataItem()
 
-  const attributeValue = dataItem?.get(widget.get('attributeName'))
+  const attributeName = widget.get('attributeName')
+  const attributeValue = ensureString(dataItem?.get(attributeName))
 
   const size = widget.get('size') || 'bi-2x'
 
@@ -29,7 +32,15 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={matchingCondition.get('icon') || 'bi-box'}
             size={size}
             link={null}
-            title={`${attributeValue}`}
+            title={
+              dataItem
+                ? localizeAttributeValue({
+                    dataClass: dataItem.dataClass(),
+                    attributeName,
+                    attributeValue,
+                  })
+                : attributeValue
+            }
           />
         </>
       ) : (
