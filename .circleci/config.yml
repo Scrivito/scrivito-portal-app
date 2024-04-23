@@ -7,11 +7,6 @@ jobs:
         type: string
     docker:
       - image: cimg/node:18.17
-        environment:
-          # With a PISA_URL environment variable the build will not contain fake LocalStorage
-          # data classes. Given that it's easier to see the actual package size,
-          # without artificial fake data.
-          PISA_URL: 'some-fake-pisa-url'
     steps:
       - checkout
       - run: npm ci
