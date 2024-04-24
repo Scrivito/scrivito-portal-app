@@ -29,8 +29,7 @@ export function toClientParams(params: IndexParams) {
 function toClientFilterParam(filters: Record<string, OperatorSpec>) {
   const params: Record<string, string> = {}
 
-  Object.keys(filters).forEach((name) => {
-    const { opCode, value } = filters[name] as OperatorSpec
+  Object.entries(filters).forEach(([name, { opCode, value }]) => {
     const key = opCode === 'eq' ? name : [name, opCode].join('.')
     params[key] = value
   })
