@@ -5,11 +5,7 @@ export const FormCheckboxWidget = provideWidgetClass('FormCheckboxWidget', {
     type: [
       'enum',
       {
-        values: ['custom', 'accept_terms'].concat(
-          import.meta.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE
-            ? ['subscription']
-            : [],
-        ),
+        values: ['custom', 'accept_terms', 'subscription'],
       },
     ],
     customFieldName: 'string',
