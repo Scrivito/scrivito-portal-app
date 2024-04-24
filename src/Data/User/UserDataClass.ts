@@ -5,24 +5,10 @@ import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
 import { load } from 'scrivito'
 import fuchsImage from './FakeBinaries/fuchs.jpg'
 import bachImage from './FakeBinaries/bach.jpg'
+import { RawItem } from '../types'
 
 export const User = provideLocalStorageDataClass('User', {
-  postProcessData: async (data) => {
-    // Use the data item cached by Scrivito instead of connecting to the backend directly
-    const pisaUserId = await load(() => CurrentUser.get('pisaUserId'))
-    if (data._id !== pisaUserId) return data
-
-    return {
-      _id: data._id,
-      staff: false,
-      email: await load(() => CurrentUser.get('email')),
-      familyName: await load(() => CurrentUser.get('familyName')),
-      givenName: await load(() => CurrentUser.get('givenName')),
-      image: { url: await load(() => CurrentUser.get('picture')) },
-      name: await load(() => CurrentUser.get('name')),
-      salutation: await load(() => CurrentUser.get('salutation')),
-    }
-  },
+  postProcessData,
   initialContent: [
     {
       _id: '052601BEBCEC39C8E040A8C00D0107AC',
@@ -128,3 +114,20 @@ export const User = provideLocalStorageDataClass('User', {
     },
   ],
 })
+
+export async function postProcessData(data: RawItem) {
+  // Use the data item cached by Scrivito instead of connecting to the backend directly
+  const pisaUserId = await load(() => CurrentUser.get('pisaUserId'))
+  if (data._id !== pisaUserId) return data
+
+  return {
+    _id: data._id,
+    staff: false,
+    email: await load(() => CurrentUser.get('email')),
+    familyName: await load(() => CurrentUser.get('familyName')),
+    givenName: await load(() => CurrentUser.get('givenName')),
+    image: { url: await load(() => CurrentUser.get('picture')) },
+    name: await load(() => CurrentUser.get('name')),
+    salutation: await load(() => CurrentUser.get('salutation')),
+  }
+}
