@@ -76,7 +76,7 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
         to={Obj.root()}
       >
         <i className={`bi bi-box-arrow-right`}></i>
-        <ContentTag tag="span" content={widget} attribute="logOutLabel" />
+        {widget.get('logOutLabel')}
       </NavDropdown.Item>
     </NavDropdown>
   )
