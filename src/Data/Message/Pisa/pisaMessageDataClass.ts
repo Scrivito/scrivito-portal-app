@@ -1,9 +1,8 @@
 import { provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 import { toClientParams } from '../../toClientParams'
-import { DataIndexResponse } from '../../DataIndexResponse'
+import { DataIndexResponse, RawItem } from '../../types'
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
-import { RawItem } from '../../RawItem'
 
 export function pisaMessageDataClass() {
   const messageClient = pisaClient('message')

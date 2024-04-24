@@ -1,4 +1,7 @@
-import { RawItem } from './RawItem'
+export interface RawItem {
+  _id: string
+  [key: string]: unknown
+}
 
 export interface DataIndexResponse {
   results: RawItem[]
