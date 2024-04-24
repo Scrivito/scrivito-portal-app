@@ -22,9 +22,7 @@ export function toClientParams(params: IndexParams) {
       : undefined,
     _limit: params.limit().toString(),
     _search: params.search() || undefined,
-    _count: params.includeCount()
-      ? params.includeCount().toString()
-      : undefined,
+    _count: params.includeCount() ? 'true' : undefined,
   }
 }
 
