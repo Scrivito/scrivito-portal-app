@@ -32,8 +32,6 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
       'import.meta.env.PISA_URL': JSON.stringify(PISA_URL),
       'import.meta.env.ENABLE_PISA': JSON.stringify(enablePisa),
-      'import.meta.env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE':
-        JSON.stringify(env.ENABLE_NEOLETTER_FORM_BUILDER_SUBSCRIPTION_FEATURE),
     },
     optimizeDeps: {
       force: true,
