@@ -1,8 +1,12 @@
-import { provideDataClass } from 'scrivito'
+import { provideDataClass, createApiClient } from 'scrivito'
 
 type DataConnection = Parameters<typeof provideDataClass>[1]['connection']
 type IndexCallback = NonNullable<DataConnection['index']>
 type IndexParams = Parameters<IndexCallback>[0]
+
+type ApiClient = ReturnType<typeof createApiClient>
+type FetchOptions = NonNullable<Parameters<ApiClient['get']>[1]>
+type FetchParams = NonNullable<FetchOptions['params']>
 
 interface OperatorSpec {
   operator: 'equals' | 'notEquals'
@@ -10,7 +14,7 @@ interface OperatorSpec {
   value: string
 }
 
-export function toClientParams(params: IndexParams) {
+export function toClientParams(params: IndexParams): FetchParams {
   return {
     ...toClientFilterParam(params.filters()),
     _continuation: params.continuation(),
