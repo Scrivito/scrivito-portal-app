@@ -4,25 +4,25 @@ import { toClientParams } from '../../toClientParams'
 import { DataIndexResponse, RawItem } from '../../types'
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 
-export function pisaMessageDataClass() {
-  const messageClient = pisaClient('message')
+export function pisaDocumentDataClass() {
+  const documentClient = pisaClient('document')
 
-  return provideDataClass('Message', {
+  return provideDataClass('Document', {
     connection: {
       index: (params) =>
-        messageClient.get('', {
+        documentClient.get('', {
           params: toClientParams(params),
         }) as Promise<DataIndexResponse>,
-      get: (id) => messageClient.get(id),
+      get: (id) => documentClient.get(id),
       create: async (data) =>
-        messageClient.post('', {
+        documentClient.post('', {
           data: await convertBlobAttributes(data),
         }) as Promise<RawItem>,
       update: async (id, data) =>
-        messageClient.patch(id, {
+        documentClient.patch(id, {
           data: await convertBlobAttributes(data),
         }),
-      delete: (id) => messageClient.delete(id),
+      delete: (id) => documentClient.delete(id),
     },
   })
 }

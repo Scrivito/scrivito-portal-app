@@ -23,9 +23,10 @@ async function blobToBinary(blob: Blob | File): Promise<{
   dataBase64: string
   filename: string
 
-  contentLength?: number // only needed for "localStorage" fake
-  contentType?: string // only needed for "localStorage" fake
-  _id?: string // only needed for "localStorage" fake
+  // only needed for localStorage
+  contentLength?: number
+  contentType?: string
+  _id?: string
 }> {
   const binary = {
     dataBase64: await blobToBase64(blob),

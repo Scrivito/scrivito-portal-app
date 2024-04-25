@@ -1,7 +1,9 @@
 import { pisaClient, pisaUrl } from '../Data/pisaClient'
 import { FullDataBinary } from './dataBinaryToUrl'
 
-export async function pisaDataBinaryToUrl(binary: FullDataBinary) {
+export async function pisaDataBinaryToUrl(
+  binary: FullDataBinary,
+): Promise<{ url: string; maxAge: number }> {
   const dataBinaryClient = pisaClient('binary-access-token')
   const accessTokens = await dataBinaryClient.get(binary._id)
   if (!isAccessToken(accessTokens)) {
