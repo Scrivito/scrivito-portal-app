@@ -8,7 +8,7 @@ export const User = import.meta.env.ENABLE_PISA
   ? pisaUserDataClass()
   : localStorageUserDataClass()
 
-export async function postProcessData(data: RawItem) {
+export async function postProcessUserData(data: RawItem): Promise<RawItem> {
   // Use the data item cached by Scrivito instead of connecting to the backend directly
   const pisaUserId = await load(() => CurrentUser.get('pisaUserId'))
   if (data._id !== pisaUserId) return data

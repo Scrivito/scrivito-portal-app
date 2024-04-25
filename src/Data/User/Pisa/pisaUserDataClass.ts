@@ -2,7 +2,7 @@ import { provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 import { toClientParams } from '../../toClientParams'
 import { DataIndexResponse } from '../../types'
-import { postProcessData } from '../UserDataClass'
+import { postProcessUserData } from '../UserDataClass'
 
 export function pisaUserDataClass() {
   const userClient = pisaClient('user')
@@ -15,14 +15,14 @@ export function pisaUserDataClass() {
         }) as Promise<DataIndexResponse>)
 
         return {
-          results: await Promise.all(results.map(postProcessData)),
+          results: await Promise.all(results.map(postProcessUserData)),
           continuation,
           count,
         }
       },
       get: async (id) => {
         const item = await userClient.get(id)
-        return item ? postProcessData(item as { _id: string }) : item
+        return item ? postProcessUserData(item as { _id: string }) : item
       },
     },
   })

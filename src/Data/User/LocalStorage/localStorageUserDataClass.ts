@@ -3,11 +3,11 @@ import richterImage from './FakeBinaries/richter.jpg'
 import braschauImage from './FakeBinaries/braschau.jpg'
 import fuchsImage from './FakeBinaries/fuchs.jpg'
 import bachImage from './FakeBinaries/bach.jpg'
-import { postProcessData } from '../UserDataClass'
+import { postProcessUserData } from '../UserDataClass'
 
 export function localStorageUserDataClass() {
   return provideLocalStorageDataClass('User', {
-    postProcessData,
+    postProcessData: postProcessUserData,
     initialContent: [
       {
         _id: '052601BEBCEC39C8E040A8C00D0107AC',
