@@ -14,6 +14,7 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { getHistory } from '../../config/history'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -27,7 +28,6 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')
   const submitOnChange = widget.get('submitOnChange')
   const submittedMessage = widget.get('submittedMessage')
-  const failedMessage = widget.get('failedMessage')
 
   return (
     <WidgetTag className="data-form-container-widget">
@@ -74,7 +74,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       toast.error(
         <div>
           <h6>{error.message}</h6>
-          <p>{failedMessage}</p>
+          <p>{getErrorMessage()}</p>
         </div>,
       )
     } finally {
@@ -144,4 +144,13 @@ function valueFromElement(
   }
 
   return element.value
+}
+
+function getErrorMessage(): string {
+  switch (getCurrentLanguage()) {
+    case 'de':
+      return 'Wir bedauern die Unannehmlichkeiten.'
+    default:
+      return 'We’re sorry for the inconvenience.'
+  }
 }
