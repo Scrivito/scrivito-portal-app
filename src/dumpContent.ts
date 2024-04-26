@@ -58,8 +58,10 @@ async function dumpContent() {
       },
     )
 
-    objIds.push(...data.objs.map(({ _id }) => _id))
-    for (const objData of data.objs) await dumpObjAndBinaries(objData)
+    for (const objData of data.objs) {
+      await dumpObjAndBinaries(objData)
+      objIds.push(objData._id)
+    }
 
     continuation = data.continuation
   } while (continuation)
