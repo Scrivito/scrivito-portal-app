@@ -1,5 +1,6 @@
 import { connect, getInstanceId, uiContext } from 'scrivito'
 import { ContentProperty } from '../../Components/ScrivitoExtensions/ContentProperty'
+import './FormIdComponent.scss'
 
 export const FormIdComponent = connect(({ widget }) => {
   const formSubmissionsHref = widget.get('formId')

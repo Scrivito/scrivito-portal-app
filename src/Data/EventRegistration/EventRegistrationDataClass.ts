@@ -1,6 +1,6 @@
-import { provideLocalStorageDataClass } from '../../utils/provideLocalStorageDataClass'
+import { localStorageEventRegistrationDataClass } from './LocalStorage/localStorageEventRegistrationDataClass'
+import { pisaEventRegistrationDataClass } from './Pisa/pisaEventRegistrationDataClass'
 
-export const EventRegistration = provideLocalStorageDataClass(
-  'EventRegistration',
-  {},
-)
+export const EventRegistration = import.meta.env.ENABLE_PISA
+  ? pisaEventRegistrationDataClass()
+  : localStorageEventRegistrationDataClass()

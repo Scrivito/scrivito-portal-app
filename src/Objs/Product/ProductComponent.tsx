@@ -1,6 +1,7 @@
 import {
   ContentTag,
   ImageTag,
+  Obj,
   connect,
   isUserLoggedIn,
   provideComponent,
@@ -14,6 +15,7 @@ import {
 import { ProductPreview } from './ProductPreviewComponent'
 import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
 import { getCurrentLanguage } from '../../utils/currentLanguage'
+import { ensureString } from '../../utils/ensureString'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -180,14 +182,28 @@ const CartActionButton = connect(function CartActionButton({
 }) {
   const productTitle = product.get('title')
 
+  function getMessage(attribute: string) {
+    return ensureString(Obj.root()?.get(attribute)).replaceAll(
+      '__product__',
+      productTitle,
+    )
+  }
+
+  const cartAddedMessage = getMessage('cartAddedMessage')
+  const cartAddLabel = getMessage('cartAddLabel')
+  const cartRemovedMessage = getMessage('cartRemovedMessage')
+  const cartRemoveLabel = getMessage('cartRemoveLabel')
+  const cartUnvailableMessage = getMessage('cartUnvailableMessage')
+
   if (!isUserLoggedIn()) {
     return (
       <button
         className="btn btn-sm btn-primary disabled"
         style={{ pointerEvents: 'auto' }}
-        title={`Please log in to add "${productTitle}" to cart.`}
+        title={cartUnvailableMessage}
       >
-        <i className="bi bi-cart"></i>Add to cart
+        <i className="bi bi-cart"></i>
+        {cartAddLabel}
       </button>
     )
   }
@@ -198,10 +214,11 @@ const CartActionButton = connect(function CartActionButton({
         className="btn btn-sm btn-primary"
         onClick={() => {
           removeFromCart(product)
-          toast.info(`Removed "${productTitle}" from cart.`)
+          toast.info(cartRemovedMessage)
         }}
       >
-        <i className="bi bi-x-lg"></i>Remove from cart
+        <i className="bi bi-x-lg"></i>
+        {cartRemoveLabel}
       </button>
     )
   }
@@ -211,10 +228,11 @@ const CartActionButton = connect(function CartActionButton({
       className="btn btn-sm btn-primary"
       onClick={async () => {
         await addToCart(product)
-        toast.success(`Added "${productTitle}" to cart.`)
+        toast.success(cartAddedMessage)
       }}
     >
-      <i className="bi bi-cart"></i>Add to cart
+      <i className="bi bi-cart"></i>
+      {cartAddLabel}
     </button>
   )
 })
