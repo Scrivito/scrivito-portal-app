@@ -18,10 +18,4 @@ provideEditingConfig(Product, {
     'suitableAccessories',
   ],
   thumbnailForContent: (obj) => obj.get('image'),
-  initialContent: {
-    dataSectionLabel: 'Data',
-    descriptionSectionLabel: 'Description',
-    downloadsSectionLabel: 'Downloads',
-    suitableAccessoriesLabel: 'Suitable accessories',
-  },
 })

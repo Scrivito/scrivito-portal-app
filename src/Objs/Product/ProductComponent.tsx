@@ -13,6 +13,7 @@ import {
 } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
 import { ProductPreview } from './ProductPreviewComponent'
 import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -57,38 +58,22 @@ provideComponent(Product, ({ page }) => {
                   <ul className="nav nav-underline">
                     <li className="nav-item">
                       <a className="nav-link" href="#description">
-                        <ContentTag
-                          tag="span"
-                          content={page}
-                          attribute="descriptionSectionLabel"
-                        />
+                        <Label localizer="description" />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#data">
-                        <ContentTag
-                          tag="span"
-                          content={page}
-                          attribute="dataSectionLabel"
-                        />
+                        <Label localizer="data" />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#downloads">
-                        <ContentTag
-                          tag="span"
-                          content={page}
-                          attribute="downloadsSectionLabel"
-                        />
+                        <Label localizer="downloads" />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#accessories">
-                        <ContentTag
-                          tag="span"
-                          content={page}
-                          attribute="suitableAccessoriesLabel"
-                        />
+                        <Label localizer="suitableAccessories" />
                       </a>
                     </li>
                   </ul>
@@ -124,25 +109,18 @@ provideComponent(Product, ({ page }) => {
         </div>
 
         <div className="container">
-          <ContentTag
+          <Label
             tag="h3"
             className="h4"
             id="description"
-            content={page}
-            attribute="descriptionSectionLabel"
+            localizer="description"
           />
           <ContentTag content={page} attribute="descriptionSection" />
         </div>
       </section>
       <section className="py-4">
         <div className="container">
-          <ContentTag
-            tag="h3"
-            className="h4"
-            id="data"
-            content={page}
-            attribute="dataSectionLabel"
-          />
+          <Label tag="h3" className="h4" id="data" localizer="data" />
           <div className="row">
             <div className="col-md-6">
               <table className="table table-hover table-small m-0">
@@ -166,24 +144,17 @@ provideComponent(Product, ({ page }) => {
       </section>
       <section className="bg-light-grey py-4">
         <div className="container">
-          <ContentTag
-            tag="h3"
-            className="h4"
-            id="downloads"
-            content={page}
-            attribute="downloadsSectionLabel"
-          />
+          <Label tag="h3" className="h4" id="downloads" localizer="downloads" />
           <ContentTag content={page} attribute="downloadsSection" />
         </div>
       </section>
       <section className="bg-primary py-4">
         <div className="container">
-          <ContentTag
+          <Label
             tag="h3"
             className="h4"
             id="accessories"
-            content={page}
-            attribute="suitableAccessoriesLabel"
+            localizer="suitableAccessories"
           />
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 my-3">
             {page
@@ -247,3 +218,41 @@ const CartActionButton = connect(function CartActionButton({
     </button>
   )
 })
+
+const Label = connect(function Label({
+  className,
+  id,
+  localizer,
+  tag,
+}: {
+  className?: string
+  id?: string
+  localizer: keyof (typeof LOCALIZERS)['en']
+  tag?: 'h3'
+}) {
+  const Tag = tag || 'span'
+  const currentLanguage = getCurrentLanguage() || 'en'
+  const localizers = LOCALIZERS[currentLanguage] || LOCALIZERS['en']
+
+  return (
+    <Tag className={className} id={id}>
+      {localizers[localizer]}
+    </Tag>
+  )
+})
+
+const LOCALIZERS: Record<string, Record<string, string>> &
+  Record<'en', Record<string, string>> = {
+  de: {
+    data: 'Daten',
+    description: 'Beschreibung',
+    downloads: 'Downloads',
+    suitableAccessories: 'Passendes Zubehör',
+  },
+  en: {
+    data: 'Data',
+    description: 'Description',
+    downloads: 'Downloads',
+    suitableAccessories: 'Suitable accessories',
+  },
+}
