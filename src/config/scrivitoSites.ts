@@ -3,12 +3,12 @@ import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
-const BLACKLISTED_SITE_ID = 'mailing-app'
+const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
 export function baseUrlForSite(siteId: string): string | undefined {
   if (!location) return
 
-  if (BLACKLISTED_SITE_ID === siteId) return
+  if (NEOLETTER_MAILINGS_SITE_ID === siteId) return
 
   const urlParts = [location.origin]
   const tenant = scrivitoTenantId()
