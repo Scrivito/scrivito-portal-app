@@ -7,6 +7,7 @@ import { containsItems, numberOfCartItems } from '../../../Data/CartItem/Cart'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import { CurrentUserDropdown } from './CurrentUserDropdown'
 import { LanguageSwitch } from './LanguageSwitch'
+import { getSitePortalOverviewPage } from '../../../utils/getSitePortalOverviewPage'
 
 export const MetaNavigation = connect(function MetaNavigation({
   root,
@@ -26,7 +27,7 @@ export const MetaNavigation = connect(function MetaNavigation({
     )
   }
 
-  const sitePortalOverviewPage = root.get('sitePortalOverviewPage')
+  const sitePortalOverviewPage = getSitePortalOverviewPage(root)
   const showPortalNav = !!sitePortalOverviewPage
 
   const siteCartPage = root.get('siteCartPage')

@@ -10,7 +10,7 @@ provideEditingConfig(SearchResultsWidget, {
     resultsHeadline0: { title: 'Headline for 0 results' },
     resultsHeadline1: { title: 'Headline for 1 result' },
     resultsHeadline: {
-      title: 'Headline',
+      title: 'Headline for multiple results',
       description:
         'The placeholder __count__ represents the total number of results.',
     },

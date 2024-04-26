@@ -61,7 +61,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
+    <WidgetTag className={alignmentClassName}>
       <EditorNote>Deletes {dataItem.dataClass().name()}.</EditorNote>
       <InPlaceEditingOff>
         <ContentTag

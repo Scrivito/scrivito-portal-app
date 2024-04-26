@@ -23,20 +23,24 @@ async function blobToBinary(blob: Blob | File): Promise<{
   dataBase64: string
   filename: string
 
-  // TODO: Remove for pisa
-  contentLength: number
-  contentType: string
-  _id: string
+  // only needed for localStorage
+  contentLength?: number
+  contentType?: string
+  _id?: string
 }> {
-  return {
+  const binary = {
     dataBase64: await blobToBase64(blob),
     filename: blob instanceof File ? blob.name : 'unknown-name',
-
-    // TODO: Remove for pisa
-    contentLength: blob.size,
-    contentType: blob.type,
-    _id: pseudoRandom32CharHex(),
   }
+
+  return import.meta.env.ENABLE_PISA
+    ? binary
+    : {
+        ...binary,
+        contentLength: blob.size,
+        contentType: blob.type,
+        _id: pseudoRandom32CharHex(),
+      }
 }
 
 async function blobToBase64(blob: Blob): Promise<string> {

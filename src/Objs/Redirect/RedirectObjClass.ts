@@ -7,3 +7,9 @@ export const Redirect = provideObjClass('Redirect', {
     requireLogin: 'boolean',
   },
 })
+
+export type RedirectInstance = InstanceType<typeof Redirect>
+
+export function isRedirect(input: unknown): input is RedirectInstance {
+  return input instanceof Redirect
+}
