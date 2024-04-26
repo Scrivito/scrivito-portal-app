@@ -1,4 +1,5 @@
 import { isOptionalString } from './isOptionalString'
+import { pisaDataBinaryToUrl } from './pisaDataBinaryToUrl'
 
 export async function dataBinaryToUrl(
   binary: DataBinary,
@@ -15,7 +16,11 @@ export async function dataBinaryToUrl(
     }
   }
 
-  throw new Error('Not yet implemented!')
+  if (import.meta.env.ENABLE_PISA) {
+    return pisaDataBinaryToUrl(binary)
+  } else {
+    throw new Error('Not yet implemented!')
+  }
 }
 
 export type DataBinary = UrlDataBinary | FullDataBinary

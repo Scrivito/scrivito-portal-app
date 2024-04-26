@@ -7,6 +7,12 @@ export const FormHiddenFieldWidget = provideWidgetClass(
     attributes: {
       customFieldName: 'string',
       hiddenValue: 'string',
+      type: [
+        'enum',
+        {
+          values: ['custom', 'subscription'],
+        },
+      ],
     },
   },
 )
