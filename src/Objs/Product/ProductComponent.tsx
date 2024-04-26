@@ -1,7 +1,6 @@
 import {
   ContentTag,
   ImageTag,
-  Obj,
   connect,
   isUserLoggedIn,
   provideComponent,
@@ -15,7 +14,6 @@ import {
 import { ProductPreview } from './ProductPreviewComponent'
 import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
 import { getCurrentLanguage } from '../../utils/currentLanguage'
-import { ensureString } from '../../utils/ensureString'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -183,10 +181,7 @@ const CartActionButton = connect(function CartActionButton({
   const productTitle = product.get('title')
 
   function getMessage(attribute: string) {
-    return ensureString(Obj.root()?.get(attribute)).replaceAll(
-      '__product__',
-      productTitle,
-    )
+    return getLocalizer(attribute).replaceAll('__product__', productTitle)
   }
 
   const cartAddedMessage = getMessage('cartAddedMessage')
@@ -249,25 +244,40 @@ const Label = connect(function Label({
   tag?: 'h3'
 }) {
   const Tag = tag || 'span'
-  const currentLanguage = getCurrentLanguage() || 'en'
-  const localizers = LOCALIZERS[currentLanguage] || LOCALIZERS['en']
 
   return (
     <Tag className={className} id={id}>
-      {localizers[localizer]}
+      {getLocalizer(localizer)}
     </Tag>
   )
 })
 
+function getLocalizer(localizer: keyof (typeof LOCALIZERS)['en']): string {
+  const currentLanguage = getCurrentLanguage() || 'en'
+  const localizers = LOCALIZERS[currentLanguage] || LOCALIZERS['en']
+  return localizers[localizer] || localizer
+}
+
 const LOCALIZERS: Record<string, Record<string, string>> &
   Record<'en', Record<string, string>> = {
   de: {
+    cartAddedMessage: '__product__ wurde dem Warenkorb hinzugefügt.',
+    cartAddLabel: 'In den Warenkorb',
+    cartRemovedMessage: '__product__ wurde aus dem Warenkorb entfernt.',
+    cartRemoveLabel: 'Aus dem Warenkorb entfernen',
+    cartUnvailableMessage:
+      'Bitte melden Sie sich an, um __product__ zum Warenkorb hinzuzufügen.',
     data: 'Daten',
     description: 'Beschreibung',
     downloads: 'Downloads',
     suitableAccessories: 'Passendes Zubehör',
   },
   en: {
+    cartAddedMessage: 'Added __product__ to cart.',
+    cartAddLabel: 'Add to cart',
+    cartRemovedMessage: 'Removed __product__ from cart.',
+    cartRemoveLabel: 'Remove from cart',
+    cartUnvailableMessage: 'Please log in to add __product__ to cart.',
     data: 'Data',
     description: 'Description',
     downloads: 'Downloads',
