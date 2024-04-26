@@ -1,4 +1,4 @@
-import { Obj, currentSiteId, load, navigateTo } from 'scrivito'
+import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
 import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
@@ -6,9 +6,11 @@ const location = typeof window !== 'undefined' ? window.location : undefined
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
 export function baseUrlForSite(siteId: string): string | undefined {
-  if (!location) return
+  if (siteId === NEOLETTER_MAILINGS_SITE_ID) {
+    return `https://mailing.neoletter.com/${getInstanceId()}`
+  }
 
-  if (NEOLETTER_MAILINGS_SITE_ID === siteId) return
+  if (!location) return
 
   const urlParts = [location.origin]
   const tenant = scrivitoTenantId()
@@ -24,6 +26,14 @@ export function baseUrlForSite(siteId: string): string | undefined {
 export function siteForUrl(
   url: string,
 ): { baseUrl: string; siteId: string } | undefined {
+  const neoletterMailingsBaseUrl = baseUrlForSite(NEOLETTER_MAILINGS_SITE_ID)
+  if (neoletterMailingsBaseUrl && url.startsWith(neoletterMailingsBaseUrl)) {
+    return {
+      baseUrl: neoletterMailingsBaseUrl,
+      siteId: NEOLETTER_MAILINGS_SITE_ID,
+    }
+  }
+
   const language = /\b\/([0-9a-f]{32}\/)?(?<lang>[a-z]{2})([?/]|$)/.exec(url)
     ?.groups?.lang
 
