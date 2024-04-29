@@ -23,6 +23,8 @@ export function configureScrivito() {
         'http://localhost:8090',
         'https://*.scrivito-ui.pages.dev',
       ],
+      initialContentDumpUrl:
+        'https://demo3-content.scrivito-portal-app.pages.dev/index.json',
     },
   })
 
