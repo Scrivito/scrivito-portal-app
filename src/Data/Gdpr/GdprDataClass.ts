@@ -1,18 +1,6 @@
-import { provideLocalStorageDataClass } from '../../utils/provideLocalStorageDataClass'
+import { localStorageGdprDataClass } from './LocalStorage/localStorageGdprDataClass'
+import { pisaGdprDataClass } from './Pisa/pisaGdprDataClass'
 
-export const Gdpr = provideLocalStorageDataClass('Gdpr', {
-  prepareData: async (data) => ({
-    active: data.active,
-    _id: 'F9BB0AAA22C947BAE030A8C00C015B91',
-    name: 'Contact by telephone',
-    description: 'I agree to be contacted by telephone.',
-  }),
-  initialContent: [
-    {
-      _id: 'F9BB0AAA22C947BAE030A8C00C015B91',
-      name: 'Contact by telephone',
-      description: 'I agree to be contacted by telephone.',
-      active: true,
-    },
-  ],
-})
+export const Gdpr = import.meta.env.ENABLE_PISA
+  ? pisaGdprDataClass()
+  : localStorageGdprDataClass()

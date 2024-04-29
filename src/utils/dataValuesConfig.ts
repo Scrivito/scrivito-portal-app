@@ -1,4 +1,5 @@
 import { DataClass } from 'scrivito'
+import { getCurrentLanguage } from './currentLanguage'
 
 type ValuesByAttribute = Record<string, string[]>
 type ValuesByDataClass = Record<string, ValuesByAttribute>
@@ -6,9 +7,10 @@ type ValuesByDataClass = Record<string, ValuesByAttribute>
 type LocalizerByValue = Record<string, string>
 type LocalizersByAttribute = Record<string, LocalizerByValue>
 type LocalizersByDataClass = Record<string, LocalizersByAttribute>
+type LocalizersByLocale = Record<string, LocalizersByDataClass>
 
 const values: ValuesByDataClass = {}
-const localizers: LocalizersByDataClass = {}
+const localizers: LocalizersByLocale = {}
 
 export function provideDataValues(
   dataClass: DataClass,
@@ -25,10 +27,12 @@ export function dataValues(
 }
 
 export function provideAttributeLocalizers(
+  locale: string,
   dataClass: DataClass,
   localizersByAttribute: Record<string, Record<string, string>>,
 ): void {
-  localizers[dataClass.name()] = localizersByAttribute
+  const localeLocalizers = (localizers[locale] ||= {})
+  localeLocalizers[dataClass.name()] = localizersByAttribute
 }
 
 export function localizeAttributeValue({
@@ -40,8 +44,11 @@ export function localizeAttributeValue({
   attributeName: string
   attributeValue: string
 }): string {
-  return (
-    localizers[dataClass.name()]?.[attributeName]?.[attributeValue] ??
-    attributeValue
-  )
+  const language = getCurrentLanguage() || 'en'
+  const localizedValue =
+    localizers[language]?.[dataClass.name()]?.[attributeName]?.[attributeValue]
+  const enValue =
+    localizers['en']?.[dataClass.name()]?.[attributeName]?.[attributeValue]
+
+  return localizedValue ?? enValue ?? attributeValue
 }
