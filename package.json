@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "rm -rf dist && cp -r contentDump dist",
     "preview": "vite preview",
     "eslint": "eslint --max-warnings 0 'src/**/*.ts' 'src/**/*.tsx'",
     "prettier": "prettier --check .",
