@@ -37,16 +37,15 @@ export function siteForUrl(
   const language = /\b\/([0-9a-f]{32}\/)?(?<lang>[a-z]{2})([?/]|$)/.exec(url)
     ?.groups?.lang
 
-  return Obj.onAllSites()
+  const siteId = Obj.onAllSites()
     .where('_path', 'equals', '/')
+    .andNot('_siteId', 'equals', NEOLETTER_MAILINGS_SITE_ID)
     .and('_language', 'equals', language || null)
-    .toArray()
-    .map((root) => {
-      const siteId = root.siteId()
-      const baseUrl = siteId && baseUrlForSite(siteId)
-      if (baseUrl) return { baseUrl, siteId }
-    })
-    .find((site) => site)
+    .first()
+    ?.siteId()
+
+  const baseUrl = siteId && baseUrlForSite(siteId)
+  if (baseUrl) return { baseUrl, siteId }
 }
 
 export async function ensureSiteIsPresent() {
