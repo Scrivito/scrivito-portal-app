@@ -20,7 +20,29 @@ provideDataValues(Event, {
   ],
 })
 
-provideAttributeLocalizers(Event, {
+provideAttributeLocalizers('de', Event, {
+  language: {
+    ENG: 'Englisch',
+    FRA: 'Französisch',
+    GER: 'Deutsch',
+    ITA: 'Italienisch',
+    SPA: 'Spanisch',
+  },
+  status: {
+    PSA_PRO_EVT_BRK: 'unterbrochen',
+    PSA_PRO_EVT_CLS: 'abgeschlossen',
+    PSA_PRO_EVT_CNL: 'vorzeitig abgebrochen',
+    PSA_PRO_EVT_EXE: 'Durchführung',
+    PSA_PRO_EVT_PRE: 'geplant',
+    PSA_PRO_EVT_PRP: 'in Vorbereitung',
+    PSA_PRO_EVT_REG_CLS: 'Anmeldephase geschlossen',
+    PSA_PRO_EVT_REG_OPN: 'Anmeldephase offen',
+    PSA_PRO_EVT_REW: 'in Nachbearbeitung',
+    PSA_PRO_EVT_WRK: 'in Arbeit',
+  },
+})
+
+provideAttributeLocalizers('en', Event, {
   language: {
     ENG: 'English',
     FRA: 'French',
