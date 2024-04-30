@@ -7,6 +7,9 @@ type ObjData = { _id: string; _widget_pool?: Record<string, WidgetData> }
 type WidgetData = Record<string, unknown>
 type SearchData = { continuation?: string; objs: ObjData[] }
 type BlobsData = { private_access: { get: { url: string } } }
+type BlobMetadata = {
+  meta_data: { content_type: ['string', string]; filename: ['string', string] }
+}
 
 const DUMP_PATH = 'contentDump'
 
@@ -83,7 +86,10 @@ async function dumpObjAndBinaries(objData: ObjData) {
 
 async function dumpBinaries(data: ObjData | WidgetData) {
   for (const value of Object.values(data)) {
-    if (isBinaryAttribute(value)) await dumpBinary(value[1].id)
+    if (isBinaryAttribute(value)) {
+      const { id } = value[1]
+      await Promise.all([dumpBinary(id), dumpMetadata(id)])
+    }
   }
 
   const widgetPool = data._widget_pool || {}
@@ -112,6 +118,21 @@ async function dumpBinary(binaryId: string) {
   fs.writeFileSync(
     `${DUMP_PATH}/blob-${urlSafeBase64(binaryId)}`,
     Buffer.from(await blob.arrayBuffer()),
+  )
+}
+
+async function dumpMetadata(binaryId: string) {
+  const {
+    meta_data: {
+      content_type: [, contentType],
+      filename: [, filename],
+    },
+  } = await fetchJson<BlobMetadata>(
+    `blobs/${encodeURIComponent(binaryId)}/meta_data`,
+  )
+  fs.writeFileSync(
+    `${DUMP_PATH}/blob-metadata-${urlSafeBase64(binaryId)}.json`,
+    JSON.stringify({ contentType, filename }, null, 2),
   )
 }
 
