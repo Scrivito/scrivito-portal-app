@@ -110,9 +110,13 @@ async function dumpBinary(binaryId: string) {
   if (response.status !== 200) throw new Error(`Failed to fetch ${url}`)
   const blob = await response.blob()
   fs.writeFileSync(
-    `${DUMP_PATH}/blob-${btoa(binaryId).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+/, '')}`,
+    `${DUMP_PATH}/blob-${urlSafeBase64(binaryId)}`,
     Buffer.from(await blob.arrayBuffer()),
   )
+}
+
+function urlSafeBase64(id: string): string {
+  return btoa(id).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+/, '')
 }
 
 function dumpObj(objData: ObjData) {
