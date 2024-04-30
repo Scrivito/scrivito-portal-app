@@ -3,11 +3,6 @@ import { provideObjClass } from 'scrivito'
 export const Homepage = provideObjClass('Homepage', {
   attributes: {
     body: 'widgetlist',
-    cartAddedMessage: 'string',
-    cartAddLabel: 'string',
-    cartRemovedMessage: 'string',
-    cartRemoveLabel: 'string',
-    cartUnvailableMessage: 'string',
     childOrder: 'referencelist',
     contentTitle: 'string',
     metaDataDescription: 'string',
