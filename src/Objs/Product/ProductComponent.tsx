@@ -180,7 +180,7 @@ const CartActionButton = connect(function CartActionButton({
 }) {
   const productTitle = product.get('title')
 
-  function getMessage(attribute: string) {
+  function getMessage(attribute: keyof (typeof LOCALIZERS)['en']) {
     return getLocalizer(attribute).replaceAll('__product__', productTitle)
   }
 
@@ -252,15 +252,14 @@ const Label = connect(function Label({
   )
 })
 
-function getLocalizer(localizer: keyof (typeof LOCALIZERS)['en']): string {
+function getLocalizer(localizer: keyof (typeof LOCALIZERS)['en']) {
   const currentLanguage = getCurrentLanguage() || 'en'
   const localizers = LOCALIZERS[currentLanguage] || LOCALIZERS['en']
-  return localizers[localizer] || localizer
+  return localizers[localizer]
 }
 
-const LOCALIZERS: Record<string, Record<string, string>> &
-  Record<'en', Record<string, string>> = {
-  de: {
+const LOCALIZERS = {
+  ['de' as string]: {
     cartAddedMessage: '__product__ wurde dem Warenkorb hinzugefügt.',
     cartAddLabel: 'In den Warenkorb',
     cartRemovedMessage: '__product__ wurde aus dem Warenkorb entfernt.',
