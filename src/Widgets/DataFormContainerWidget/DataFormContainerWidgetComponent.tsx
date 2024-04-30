@@ -14,6 +14,7 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { getHistory } from '../../config/history'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -73,7 +74,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
       toast.error(
         <div>
           <h6>{error.message}</h6>
-          <p>We&apos;re sorry for the inconvenience.</p>
+          <p>{getErrorMessage()}</p>
         </div>,
       )
     } finally {
@@ -143,4 +144,13 @@ function valueFromElement(
   }
 
   return element.value
+}
+
+function getErrorMessage(): string {
+  switch (getCurrentLanguage()) {
+    case 'de':
+      return 'Wir bedauern die Unannehmlichkeiten.'
+    default:
+      return 'We’re sorry for the inconvenience.'
+  }
 }

@@ -1,14 +1,17 @@
 import { connect, InPlaceEditingOff, LinkTag, ImageTag } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
+import { getSitePortalOverviewPage } from '../../../utils/getSitePortalOverviewPage'
 
 export const Brand = connect(function Brand({
   root,
+  linkClassName,
 }: {
   root: HomepageInstance
+  linkClassName?: string
 }) {
   return (
     <InPlaceEditingOff>
-      <Link root={root} className="navbar-brand">
+      <Link root={root} className={linkClassName}>
         <ImageTag
           content={root}
           attribute="siteLogoDark"
@@ -29,7 +32,8 @@ const Link = connect(function Link({
   className?: string
 }) {
   if (root.get('sitePortalOnlyMode')) {
-    const portalOverviewPage = root.get('sitePortalOverviewPage')
+    const portalOverviewPage = getSitePortalOverviewPage(root)
+
     if (!portalOverviewPage) {
       return <span className={className}>{children}</span>
     }

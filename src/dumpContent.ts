@@ -7,10 +7,11 @@ type ObjData = { _id: string; _widget_pool?: Record<string, WidgetData> }
 type WidgetData = Record<string, unknown>
 type SearchData = { continuation?: string; objs: ObjData[] }
 type BlobsData = { private_access: { get: { url: string } } }
+type BlobMetadata = {
+  meta_data: { content_type: ['string', string]; filename: ['string', string] }
+}
 
 const DUMP_PATH = 'contentDump'
-const BINARIES_PATH = `${DUMP_PATH}/binaries`
-const OBJS_PATH = `${DUMP_PATH}/objs`
 
 const env = loadEnv('development', process.cwd(), '')
 
@@ -34,18 +35,17 @@ if (API_CLIENT_ID && API_CLIENT_SECRET && INSTANCE_ID) {
 
 function clearDump() {
   fs.rmSync(DUMP_PATH, { force: true, recursive: true })
-  fs.mkdirSync(OBJS_PATH, { recursive: true })
-  fs.mkdirSync(BINARIES_PATH, { recursive: true })
+  fs.mkdirSync(DUMP_PATH, { recursive: true })
 }
 
 function fileStats() {
-  const objs = fs.readdirSync(OBJS_PATH)
-  const binaries = fs.readdirSync(BINARIES_PATH)
-  return `${objs.length} objs and ${binaries.length} binaries`
+  const files = fs.readdirSync(DUMP_PATH)
+  return `${files.length} files`
 }
 
 async function dumpContent() {
   let continuation: string | undefined
+  const objIds = []
 
   do {
     const data: SearchData = await fetchJson<SearchData>(
@@ -61,10 +61,22 @@ async function dumpContent() {
       },
     )
 
-    for (const objData of data.objs) await dumpObjAndBinaries(objData)
+    for (const objData of data.objs) {
+      await dumpObjAndBinaries(objData)
+      objIds.push(objData._id)
+    }
 
     continuation = data.continuation
   } while (continuation)
+
+  dumpManifest(objIds)
+}
+
+function dumpManifest(objIds: string[]) {
+  fs.writeFileSync(
+    `${DUMP_PATH}/index.json`,
+    JSON.stringify({ objIds }, null, 2),
+  )
 }
 
 async function dumpObjAndBinaries(objData: ObjData) {
@@ -74,7 +86,10 @@ async function dumpObjAndBinaries(objData: ObjData) {
 
 async function dumpBinaries(data: ObjData | WidgetData) {
   for (const value of Object.values(data)) {
-    if (isBinaryAttribute(value)) await dumpBinary(value[1].id)
+    if (isBinaryAttribute(value)) {
+      const { id } = value[1]
+      await Promise.all([dumpBinary(id), dumpMetadata(id)])
+    }
   }
 
   const widgetPool = data._widget_pool || {}
@@ -101,14 +116,33 @@ async function dumpBinary(binaryId: string) {
   if (response.status !== 200) throw new Error(`Failed to fetch ${url}`)
   const blob = await response.blob()
   fs.writeFileSync(
-    `${BINARIES_PATH}/${encodeURIComponent(binaryId)}`,
+    `${DUMP_PATH}/blob-${urlSafeBase64(binaryId)}`,
     Buffer.from(await blob.arrayBuffer()),
   )
 }
 
+async function dumpMetadata(binaryId: string) {
+  const {
+    meta_data: {
+      content_type: [, contentType],
+      filename: [, filename],
+    },
+  } = await fetchJson<BlobMetadata>(
+    `blobs/${encodeURIComponent(binaryId)}/meta_data`,
+  )
+  fs.writeFileSync(
+    `${DUMP_PATH}/blob-metadata-${urlSafeBase64(binaryId)}.json`,
+    JSON.stringify({ contentType, filename }, null, 2),
+  )
+}
+
+function urlSafeBase64(id: string): string {
+  return btoa(id).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+/, '')
+}
+
 function dumpObj(objData: ObjData) {
   fs.writeFileSync(
-    `${OBJS_PATH}/${objData._id}.json`,
+    `${DUMP_PATH}/obj-${objData._id}.json`,
     JSON.stringify(objData, null, 2),
   )
 }

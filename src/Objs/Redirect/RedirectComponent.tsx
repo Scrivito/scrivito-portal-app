@@ -14,12 +14,12 @@ provideComponent(Redirect, ({ page }) => {
   const link = page.get('link')
 
   React.useEffect(() => {
-    if (!link) return
-
     if (requireLogin && !isUserLoggedIn()) {
       ensureUserIsLoggedIn()
       return
     }
+
+    if (!link) return
 
     load(() => urlFor(link)).then((url) => {
       if (!url) return

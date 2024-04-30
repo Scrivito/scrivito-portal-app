@@ -13,6 +13,7 @@ import {
 } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
 import { ProductPreview } from './ProductPreviewComponent'
 import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -57,22 +58,22 @@ provideComponent(Product, ({ page }) => {
                   <ul className="nav nav-underline">
                     <li className="nav-item">
                       <a className="nav-link" href="#description">
-                        Description
+                        <Label localizer="description" />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#data">
-                        Data
+                        <Label localizer="data" />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#downloads">
-                        Downloads
+                        <Label localizer="downloads" />
                       </a>
                     </li>
                     <li className="nav-item">
                       <a className="nav-link" href="#accessories">
-                        Suitable accessories
+                        <Label localizer="suitableAccessories" />
                       </a>
                     </li>
                   </ul>
@@ -108,17 +109,18 @@ provideComponent(Product, ({ page }) => {
         </div>
 
         <div className="container">
-          <h3 className="h4" id="description">
-            Description
-          </h3>
+          <Label
+            tag="h3"
+            className="h4"
+            id="description"
+            localizer="description"
+          />
           <ContentTag content={page} attribute="descriptionSection" />
         </div>
       </section>
       <section className="py-4">
         <div className="container">
-          <h3 className="h4" id="data">
-            Data
-          </h3>
+          <Label tag="h3" className="h4" id="data" localizer="data" />
           <div className="row">
             <div className="col-md-6">
               <table className="table table-hover table-small m-0">
@@ -142,19 +144,18 @@ provideComponent(Product, ({ page }) => {
       </section>
       <section className="bg-light-grey py-4">
         <div className="container">
-          <h3 className="h4" id="downloads">
-            Downloads
-          </h3>
-
+          <Label tag="h3" className="h4" id="downloads" localizer="downloads" />
           <ContentTag content={page} attribute="downloadsSection" />
         </div>
       </section>
       <section className="bg-primary py-4">
         <div className="container">
-          <h3 className="h4" id="accessories">
-            Suitable accessories
-          </h3>
-
+          <Label
+            tag="h3"
+            className="h4"
+            id="accessories"
+            localizer="suitableAccessories"
+          />
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 my-3">
             {page
               .get('suitableAccessories')
@@ -179,14 +180,25 @@ const CartActionButton = connect(function CartActionButton({
 }) {
   const productTitle = product.get('title')
 
+  function getMessage(attribute: string) {
+    return getLocalizer(attribute).replaceAll('__product__', productTitle)
+  }
+
+  const cartAddedMessage = getMessage('cartAddedMessage')
+  const cartAddLabel = getMessage('cartAddLabel')
+  const cartRemovedMessage = getMessage('cartRemovedMessage')
+  const cartRemoveLabel = getMessage('cartRemoveLabel')
+  const cartUnvailableMessage = getMessage('cartUnvailableMessage')
+
   if (!isUserLoggedIn()) {
     return (
       <button
         className="btn btn-sm btn-primary disabled"
         style={{ pointerEvents: 'auto' }}
-        title={`Please log in to add "${productTitle}" to cart.`}
+        title={cartUnvailableMessage}
       >
-        <i className="bi bi-cart"></i>Add to cart
+        <i className="bi bi-cart"></i>
+        {cartAddLabel}
       </button>
     )
   }
@@ -197,10 +209,11 @@ const CartActionButton = connect(function CartActionButton({
         className="btn btn-sm btn-primary"
         onClick={() => {
           removeFromCart(product)
-          toast.info(`Removed "${productTitle}" from cart.`)
+          toast.info(cartRemovedMessage)
         }}
       >
-        <i className="bi bi-x-lg"></i>Remove from cart
+        <i className="bi bi-x-lg"></i>
+        {cartRemoveLabel}
       </button>
     )
   }
@@ -210,10 +223,64 @@ const CartActionButton = connect(function CartActionButton({
       className="btn btn-sm btn-primary"
       onClick={async () => {
         await addToCart(product)
-        toast.success(`Added "${productTitle}" to cart.`)
+        toast.success(cartAddedMessage)
       }}
     >
-      <i className="bi bi-cart"></i>Add to cart
+      <i className="bi bi-cart"></i>
+      {cartAddLabel}
     </button>
   )
 })
+
+const Label = connect(function Label({
+  className,
+  id,
+  localizer,
+  tag,
+}: {
+  className?: string
+  id?: string
+  localizer: keyof (typeof LOCALIZERS)['en']
+  tag?: 'h3'
+}) {
+  const Tag = tag || 'span'
+
+  return (
+    <Tag className={className} id={id}>
+      {getLocalizer(localizer)}
+    </Tag>
+  )
+})
+
+function getLocalizer(localizer: keyof (typeof LOCALIZERS)['en']): string {
+  const currentLanguage = getCurrentLanguage() || 'en'
+  const localizers = LOCALIZERS[currentLanguage] || LOCALIZERS['en']
+  return localizers[localizer] || localizer
+}
+
+const LOCALIZERS: Record<string, Record<string, string>> &
+  Record<'en', Record<string, string>> = {
+  de: {
+    cartAddedMessage: '__product__ wurde dem Warenkorb hinzugefügt.',
+    cartAddLabel: 'In den Warenkorb',
+    cartRemovedMessage: '__product__ wurde aus dem Warenkorb entfernt.',
+    cartRemoveLabel: 'Aus dem Warenkorb entfernen',
+    cartUnvailableMessage:
+      'Bitte melden Sie sich an, um __product__ zum Warenkorb hinzuzufügen.',
+    data: 'Daten',
+    description: 'Beschreibung',
+    downloads: 'Downloads',
+    suitableAccessories: 'Passendes Zubehör',
+  },
+  en: {
+    cartAddedMessage: 'Added __product__ to cart.',
+    cartAddLabel: 'Add to cart',
+    cartRemovedMessage: 'Removed __product__ from cart.',
+    cartRemoveLabel: 'Remove from cart',
+    cartUnvailableMessage: 'Please log in to add __product__ to cart.',
+    data: 'Data',
+    description: 'Description',
+    downloads: 'Downloads',
+    suitableAccessories: 'Suitable accessories',
+  },
+}
