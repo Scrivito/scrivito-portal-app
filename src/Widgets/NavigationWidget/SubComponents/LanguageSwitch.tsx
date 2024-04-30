@@ -11,9 +11,8 @@ import {
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
 export const LanguageSwitch = connect(function LanguageSwitch() {
-  const versions = Obj.onAllSites()
-    .where('_path', 'equals', '/')
-    .toArray()
+  const versions = Obj.root()
+    ?.versionsOnAllSites()
     .map((site) => {
       const siteId = site.siteId()
       const pageVersion = siteId && currentPage()?.versionOnSite(siteId)
@@ -25,7 +24,7 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
     })
     .sort((a, b) => a.label.localeCompare(b.label, 'en'))
 
-  if (versions.length < 2) return null
+  if (!versions || versions.length < 2) return null
 
   const activeSite = (
     versions.find(({ root }) => root.siteId() === currentSiteId()) ||

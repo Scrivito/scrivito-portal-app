@@ -1,9 +1,15 @@
-import { Obj, currentSiteId, load, navigateTo } from 'scrivito'
+import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
 import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
+const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
+
 export function baseUrlForSite(siteId: string): string | undefined {
+  if (siteId === NEOLETTER_MAILINGS_SITE_ID) {
+    return `https://mailing.neoletter.com/${getInstanceId()}`
+  }
+
   if (!location) return
 
   const urlParts = [location.origin]
@@ -20,35 +26,46 @@ export function baseUrlForSite(siteId: string): string | undefined {
 export function siteForUrl(
   url: string,
 ): { baseUrl: string; siteId: string } | undefined {
+  const neoletterMailingsBaseUrl = baseUrlForSite(NEOLETTER_MAILINGS_SITE_ID)
+  if (neoletterMailingsBaseUrl && url.startsWith(neoletterMailingsBaseUrl)) {
+    return {
+      baseUrl: neoletterMailingsBaseUrl,
+      siteId: NEOLETTER_MAILINGS_SITE_ID,
+    }
+  }
+
   const language = /\b\/([0-9a-f]{32}\/)?(?<lang>[a-z]{2})([?/]|$)/.exec(url)
     ?.groups?.lang
 
-  const siteId = Obj.onAllSites()
-    .where('_path', 'equals', '/')
+  const siteId = allWebsites()
     .and('_language', 'equals', language || null)
     .first()
     ?.siteId()
 
-  if (!siteId) return
-
-  const baseUrl = baseUrlForSite(siteId)
+  const baseUrl = siteId && baseUrlForSite(siteId)
   if (baseUrl) return { baseUrl, siteId }
 }
 
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
     navigateTo(() => {
-      const sites = Obj.onAllSites().where('_path', 'equals', '/').toArray()
+      const websites = allWebsites().toArray()
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
       for (const language of preferredLanguageOrder) {
-        const site = sites.find((site) => siteHasLanguage(site, language))
+        const site = websites.find((site) => siteHasLanguage(site, language))
         if (site) return site
       }
 
-      return sites[0] || null
+      return websites[0] || null
     })
   }
+}
+
+function allWebsites() {
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .andNot('_siteId', 'equals', NEOLETTER_MAILINGS_SITE_ID)
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
