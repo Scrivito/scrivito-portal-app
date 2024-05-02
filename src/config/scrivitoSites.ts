@@ -34,26 +34,21 @@ export function baseUrlForSite(siteId: string): string | undefined {
 export function siteForUrl(
   url: string,
 ): { baseUrl: string; siteId: string } | undefined {
-  const neoletterMailingsBaseUrl = baseUrlForSite(NEOLETTER_MAILINGS_SITE_ID)
-  if (neoletterMailingsBaseUrl && url.startsWith(neoletterMailingsBaseUrl)) {
-    return {
-      baseUrl: neoletterMailingsBaseUrl,
-      siteId: NEOLETTER_MAILINGS_SITE_ID,
-    }
-  }
-
-  const language = /\b\/([0-9a-f]{32}\/)?(?<lang>[a-z]{2})([?/]|$)/.exec(url)
-    ?.groups?.lang
-
-  const siteId = Obj.onAllSites()
+  return Obj.onAllSites()
     .where('_path', 'equals', '/')
-    .andNot('_siteId', 'equals', NEOLETTER_MAILINGS_SITE_ID)
-    .and('_language', 'equals', language || null)
-    .first()
-    ?.siteId()
-
-  const baseUrl = siteId && baseUrlForSite(siteId)
-  if (baseUrl) return { baseUrl, siteId }
+    .toArray()
+    .filter(
+      (website): website is { siteId: () => string } & Obj =>
+        !!website.siteId(),
+    )
+    .map((websiteWithSiteId) => {
+      const siteId = websiteWithSiteId.siteId()
+      return { siteId, baseUrl: baseUrlForSite(siteId) }
+    })
+    .find(
+      (item): item is { baseUrl: string; siteId: string } =>
+        !!item.baseUrl && url.startsWith(item.baseUrl),
+    )
 }
 
 export async function ensureSiteIsPresent() {
