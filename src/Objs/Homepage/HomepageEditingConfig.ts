@@ -7,6 +7,11 @@ provideEditingConfig(Homepage, {
     contentTitle: {
       title: 'Site name',
     },
+    baseUrl: {
+      title: 'Base URL',
+      description:
+        'Under which URL is this site reachable? E.g. "https://www.tynacoon.com/en"',
+    },
     metaDataDescription: {
       title: 'Page description',
       description: 'Limit to 175, ideally 150 characters.',
@@ -37,6 +42,7 @@ provideEditingConfig(Homepage, {
       title: 'Site settings',
       properties: [
         'contentTitle',
+        'baseUrl',
         'siteLogoDark',
         'siteLogoLight',
         'siteFavicon',
