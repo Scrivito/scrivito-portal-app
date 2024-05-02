@@ -11,6 +11,13 @@ export function baseUrlForSite(siteId: string): string | undefined {
     return `https://mailing.neoletter.com/${getInstanceId()}`
   }
 
+  const siteRoot = Obj.onSite(siteId).root()
+  if (siteRoot?.contentId() !== SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID) {
+    const rawBaseUrl = siteRoot?.get('baseUrl')
+    const baseUrl = isStringArray(rawBaseUrl) ? rawBaseUrl[0] : undefined
+    return baseUrl ? baseUrl : undefined
+  }
+
   if (!location) return
 
   const urlParts = [location.origin]
@@ -18,7 +25,7 @@ export function baseUrlForSite(siteId: string): string | undefined {
 
   if (isMultitenancyEnabled()) urlParts.push(tenant)
 
-  const language = Obj.onSite(siteId).root()?.language()
+  const language = siteRoot?.language()
   if (language) urlParts.push(language)
 
   return urlParts.join('/')
@@ -72,4 +79,8 @@ function siteHasLanguage(site: Obj, language: string | null) {
   return language && siteLanguage
     ? language.startsWith(siteLanguage)
     : language === siteLanguage
+}
+
+function isStringArray(item: unknown): item is string[] {
+  return Array.isArray(item) && item.every((i) => typeof i === 'string')
 }
