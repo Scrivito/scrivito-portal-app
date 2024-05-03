@@ -1,5 +1,5 @@
 import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
-import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
+import { isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
@@ -18,17 +18,13 @@ export function baseUrlForSite(siteId: string): string | undefined {
     return buildExternalBaseUrl(siteRoot)
   }
 
-  if (!location) return
-
-  const urlParts = [location.origin]
-  const tenant = scrivitoTenantId()
-
-  if (isMultitenancyEnabled()) urlParts.push(tenant)
+  const baseAppUrl = getBaseAppUrl()
+  if (!baseAppUrl) return
 
   const language = siteRoot.language()
-  if (language) urlParts.push(language)
+  if (!language) return
 
-  return urlParts.join('/')
+  return `${baseAppUrl}/${language}`
 }
 
 export function siteForUrl(
@@ -67,6 +63,14 @@ export async function ensureSiteIsPresent() {
       return websites[0] || null
     })
   }
+}
+
+function getBaseAppUrl(): string | undefined {
+  if (!location) return
+
+  return isMultitenancyEnabled()
+    ? `${location.origin}/${getInstanceId()}`
+    : location.origin
 }
 
 function buildExternalBaseUrl(siteRoot: Obj): string | undefined {
