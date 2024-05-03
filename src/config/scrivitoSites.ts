@@ -59,10 +59,10 @@ export function siteForUrl(
       (website): website is { siteId: () => string } & Obj =>
         !!website.siteId(),
     )
-    .map((websiteWithSiteId) => {
-      const siteId = websiteWithSiteId.siteId()
-      return { siteId, baseUrl: baseUrlForSite(siteId) }
-    })
+    .map((websiteWithSiteId) => ({
+      baseUrl: buildExternalBaseUrl(websiteWithSiteId),
+      siteId: websiteWithSiteId.siteId(),
+    }))
     .find(
       (item): item is { baseUrl: string; siteId: string } =>
         !!item.baseUrl && url.startsWith(item.baseUrl),
