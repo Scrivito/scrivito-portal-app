@@ -50,9 +50,7 @@ export function siteForUrl(
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
     navigateTo(() => {
-      const websites = Obj.onAllSites()
-        .where('_contentId', 'equals', SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID)
-        .toArray()
+      const websites = allPortalWebsites().toArray()
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
       for (const language of preferredLanguageOrder) {
@@ -81,6 +79,12 @@ function buildExternalBaseUrl(siteRoot: Obj): string | undefined {
   if (baseUrl === '') return
 
   return baseUrl
+}
+
+function allPortalWebsites() {
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .and('_contentId', 'equals', SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID)
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
