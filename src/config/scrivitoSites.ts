@@ -30,6 +30,11 @@ export function baseUrlForSite(siteId: string): string | undefined {
 export function siteForUrl(
   url: string,
 ): { baseUrl: string; siteId: string } | undefined {
+  const neoletterBaseUrl = `https://mailing.neoletter.com/${getInstanceId()}`
+  if (url.startsWith(neoletterBaseUrl)) {
+    return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
+  }
+
   return Obj.onAllSites()
     .where('_path', 'equals', '/')
     .toArray()
