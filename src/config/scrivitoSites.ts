@@ -12,10 +12,10 @@ export function baseUrlForSite(siteId: string): string | undefined {
   }
 
   const siteRoot = Obj.onSite(siteId).root()
-  if (siteRoot?.contentId() !== SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID) {
-    const rawBaseUrl = siteRoot?.get('baseUrl')
-    const baseUrl = isStringArray(rawBaseUrl) ? rawBaseUrl[0] : undefined
-    return baseUrl ? baseUrl : undefined
+  if (!siteRoot) return
+
+  if (siteRoot.contentId() !== SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID) {
+    return buildExternalBaseUrl(siteRoot)
   }
 
   if (!location) return
@@ -25,7 +25,7 @@ export function baseUrlForSite(siteId: string): string | undefined {
 
   if (isMultitenancyEnabled()) urlParts.push(tenant)
 
-  const language = siteRoot?.language()
+  const language = siteRoot.language()
   if (language) urlParts.push(language)
 
   return urlParts.join('/')
@@ -67,6 +67,16 @@ export async function ensureSiteIsPresent() {
       return websites[0] || null
     })
   }
+}
+
+function buildExternalBaseUrl(siteRoot: Obj): string | undefined {
+  const rawBaseUrl = siteRoot.get('baseUrl')
+  if (!isStringArray(rawBaseUrl)) return
+
+  const baseUrl = rawBaseUrl[0]
+  if (baseUrl === '') return
+
+  return baseUrl
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
