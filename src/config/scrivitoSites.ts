@@ -35,6 +35,23 @@ export function siteForUrl(
     return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
   }
 
+  const baseAppUrl = getBaseAppUrl()
+  if (baseAppUrl && url.startsWith(baseAppUrl)) {
+    const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
+    const language = regex.exec(url)?.groups?.lang
+    if (!language) return
+
+    const languageSite = allPortalWebsites()
+      .and('_language', 'equals', language)
+      .first()
+    if (!languageSite) return
+
+    const languageSiteId = languageSite.siteId()
+    if (!languageSiteId) return
+
+    return { baseUrl: `${baseAppUrl}/${language}`, siteId: languageSiteId }
+  }
+
   return Obj.onAllSites()
     .where('_path', 'equals', '/')
     .toArray()
