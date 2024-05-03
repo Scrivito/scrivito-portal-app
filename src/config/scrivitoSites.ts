@@ -54,6 +54,10 @@ export function siteForUrl(
 
   return Obj.onAllSites()
     .where('_path', 'equals', '/')
+    .andNot('_contentId', 'equals', [
+      SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID,
+      NEOLETTER_MAILINGS_SITE_ID,
+    ])
     .toArray()
     .filter(
       (website): website is { siteId: () => string } & Obj =>
