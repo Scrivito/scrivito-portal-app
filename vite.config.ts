@@ -29,7 +29,6 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
       'import.meta.env.PISA_URL': JSON.stringify(PISA_URL),
       'import.meta.env.ENABLE_PISA': JSON.stringify(enablePisa),
     },
