@@ -1,6 +1,6 @@
 import dns from 'dns'
 import fs from 'fs'
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { resolve } from 'path'
 import { productionHeaders, developmentHeaders } from './headers.config'
@@ -10,12 +10,8 @@ import { productionHeaders, developmentHeaders } from './headers.config'
 dns.setDefaultResultOrder('verbatim')
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd(), '')
+export default defineConfig(() => {
   const outDir = 'dist'
-
-  const PISA_URL = env.PISA_URL
-  const enablePisa = !!PISA_URL
 
   return {
     build: {
@@ -28,8 +24,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      'import.meta.env.PISA_URL': JSON.stringify(PISA_URL),
-      'import.meta.env.ENABLE_PISA': JSON.stringify(enablePisa),
+      'import.meta.env.ENABLE_PISA': true,
     },
     optimizeDeps: {
       force: true,
