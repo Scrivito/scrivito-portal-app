@@ -1,13 +1,14 @@
-import { ContentTag, connect, provideComponent } from 'scrivito'
-import {
-  ProductCategory,
-  ProductCategoryInstance,
-} from './ProductCategoryObjClass'
+import { provideComponent } from 'scrivito'
+import { ProductCategory } from './ProductCategoryObjClass'
 import { isProduct } from '../Product/ProductObjClass'
 import { ProductPreview } from '../Product/ProductPreviewComponent'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(ProductCategory, ({ page }) => {
   const products = page.orderedChildren().filter(isProduct)
+
+  const count = products.length
+  const itemsLocalizer = (['items0', 'items1'] as const)[count] || 'itemsMany'
 
   return (
     <section className="bg-light-grey py-4">
@@ -15,12 +16,13 @@ provideComponent(ProductCategory, ({ page }) => {
         <div className="row">
           <div className="col-lg-12">
             <h3>
-              <ContentTag tag="span" content={page} attribute="headline" />
-              {' - '}
-              {page.get('title')}
+              {getLocalizer('headline')} - {page.get('title')}
             </h3>
             <p>
-              <TotalCountSummary page={page} totalCount={products.length} />
+              {getLocalizer(itemsLocalizer).replace(
+                '__count__',
+                count.toString(),
+              )}
             </p>
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 my-3">
               {products.map((product) => (
@@ -37,22 +39,23 @@ provideComponent(ProductCategory, ({ page }) => {
   )
 })
 
-const TotalCountSummary = connect(function TotalCountSummary({
-  totalCount,
-  page,
-}: {
-  totalCount: number
-  page: ProductCategoryInstance
-}) {
-  const attributes = ['resultsHeadline0', 'resultsHeadline1'] as const
-  const attribute = attributes[totalCount] || 'resultsHeadline'
+function getLocalizer(localizer: keyof (typeof LOCALIZERS)['en']) {
+  const currentLanguage = getCurrentLanguage() || 'en'
+  const localizers = LOCALIZERS[currentLanguage] || LOCALIZERS['en']
+  return localizers[localizer]
+}
 
-  return (
-    <ContentTag
-      tag="span"
-      content={page}
-      attribute={attribute}
-      dataContext={{ count: totalCount.toString() }}
-    />
-  )
-})
+const LOCALIZERS = {
+  ['de' as string]: {
+    headline: 'Produktgruppe',
+    items0: 'Keine Artikel',
+    items1: '1 Artikel',
+    itemsMany: '__count__ Artikel',
+  },
+  en: {
+    headline: 'Product category',
+    items0: 'No items',
+    items1: '1 item',
+    itemsMany: '__count__ items',
+  },
+}
