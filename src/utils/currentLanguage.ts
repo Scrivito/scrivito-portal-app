@@ -5,6 +5,6 @@ export function getCurrentLanguage(): undefined | string {
   return currentSiteLanguage === null ? 'en' : currentSiteLanguage
 }
 
-export function acceptLanguageHeader() {
+export function languageHeaders() {
   return { 'Accept-Language': getCurrentLanguage() ?? 'en' }
 }

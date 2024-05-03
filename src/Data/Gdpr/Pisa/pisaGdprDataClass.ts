@@ -2,7 +2,7 @@ import { provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 import { toClientParams } from '../../toClientParams'
 import { DataIndexResponse } from '../../types'
-import { acceptLanguageHeader } from '../../../utils/currentLanguage'
+import { languageHeaders } from '../../../utils/currentLanguage'
 
 export function pisaGdprDataClass() {
   const gdprClient = pisaClient('gdpr')
@@ -12,11 +12,10 @@ export function pisaGdprDataClass() {
       index: async (params) =>
         gdprClient.get('', {
           params: toClientParams(params),
-          headers: acceptLanguageHeader(),
+          headers: languageHeaders(),
         }) as Promise<DataIndexResponse>,
 
-      get: async (id) =>
-        gdprClient.get(id, { headers: acceptLanguageHeader() }),
+      get: async (id) => gdprClient.get(id, { headers: languageHeaders() }),
       update: async (id, data) => gdprClient.patch(id, { data }),
     },
   })

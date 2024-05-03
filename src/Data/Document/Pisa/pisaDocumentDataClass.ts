@@ -3,7 +3,7 @@ import { pisaClient } from '../../pisaClient'
 import { toClientParams } from '../../toClientParams'
 import { DataIndexResponse, RawItem } from '../../types'
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
-import { acceptLanguageHeader } from '../../../utils/currentLanguage'
+import { languageHeaders } from '../../../utils/currentLanguage'
 
 export function pisaDocumentDataClass() {
   const documentClient = pisaClient('document')
@@ -13,11 +13,11 @@ export function pisaDocumentDataClass() {
       index: (params) =>
         documentClient.get('', {
           params: toClientParams(params),
-          headers: acceptLanguageHeader(),
+          headers: languageHeaders(),
         }) as Promise<DataIndexResponse>,
       get: (id) =>
         documentClient.get(id, {
-          headers: acceptLanguageHeader(),
+          headers: languageHeaders(),
         }),
       create: async (data) =>
         documentClient.post('', {
