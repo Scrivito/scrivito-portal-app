@@ -4,3 +4,7 @@ export function getCurrentLanguage(): undefined | string {
   const currentSiteLanguage = Obj.root()?.language()
   return currentSiteLanguage === null ? 'en' : currentSiteLanguage
 }
+
+export function acceptLanguageHeader() {
+  return { 'Accept-Language': getCurrentLanguage() ?? 'en' }
+}
