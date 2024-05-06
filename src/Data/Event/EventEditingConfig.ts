@@ -4,6 +4,7 @@ import { Event } from './EventDataClass'
 provideEditingConfig(Event, {
   title: 'Event',
   attributes: {
+    _id: { title: 'Event ID' },
     keyword: { title: 'Keyword' },
     number: { title: 'Number' },
     beginsAt: { title: 'Begins at' },

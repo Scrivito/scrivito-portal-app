@@ -4,6 +4,7 @@ import { Quote } from './QuoteDataClass'
 provideEditingConfig(Quote, {
   title: 'Quote',
   attributes: {
+    _id: { title: 'Quote ID' },
     keyword: { title: 'Keyword' },
     number: { title: 'Number' },
     type: { title: 'Type' },

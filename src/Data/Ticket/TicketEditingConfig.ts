@@ -4,6 +4,7 @@ import { Ticket } from './TicketDataClass'
 provideEditingConfig(Ticket, {
   title: 'Ticket',
   attributes: {
+    _id: { title: 'Ticket ID' },
     title: { title: 'Title' },
     description: { title: 'Description' },
     number: { title: 'Ticket number' },
