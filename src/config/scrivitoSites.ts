@@ -1,10 +1,9 @@
 import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
-import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
+import { isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
-const SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID = 'c2a0aab78be05a4e'
 
 export function baseUrlForSite(siteId: string): string | undefined {
   if (siteId === NEOLETTER_MAILINGS_SITE_ID) {
@@ -46,9 +45,7 @@ export function siteForUrl(
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
     navigateTo(() => {
-      const websites = Obj.onAllSites()
-        .where('_contentId', 'equals', SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID)
-        .toArray()
+      const websites = allWebsites().toArray()
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
       for (const language of preferredLanguageOrder) {
@@ -67,6 +64,12 @@ function getBaseAppUrl(): string | undefined {
   return isMultitenancyEnabled()
     ? `${location.origin}/${getInstanceId()}`
     : location.origin
+}
+
+function allWebsites() {
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .andNot('_siteId', 'equals', NEOLETTER_MAILINGS_SITE_ID)
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
