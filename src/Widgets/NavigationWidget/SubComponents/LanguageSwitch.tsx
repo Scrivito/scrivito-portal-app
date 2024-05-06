@@ -1,12 +1,12 @@
 import { NavDropdown } from 'react-bootstrap'
 import {
-  ImageTag,
-  InPlaceEditingOff,
-  LinkTag,
-  Obj,
   connect,
   currentPage,
   currentSiteId,
+  ImageTag,
+  InPlaceEditingOff,
+  Obj,
+  urlFor,
 } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
@@ -43,8 +43,7 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
             key={root.id()}
-            as={LinkTag}
-            to={version || root}
+            href={urlFor(version || root)}
             active={root.language() === activeSite.language()}
           >
             <LanguageLabel root={root} />

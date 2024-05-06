@@ -1,11 +1,21 @@
 import { provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
+import { toClientParams } from '../../toClientParams'
+import { languageHeaders } from '../../../utils/currentLanguage'
+import { DataIndexResponse } from '../../types'
 
 export function pisaQuoteDataClass() {
-  const orderClient = pisaClient('quote')
+  const quoteClient = pisaClient('quote')
 
   return provideDataClass('Quote', {
-    // @ts-expect-error until out of private beta
-    restApi: orderClient,
+    connection: {
+      index: async (params) =>
+        quoteClient.get('', {
+          params: toClientParams(params),
+          headers: languageHeaders(),
+        }) as Promise<DataIndexResponse>,
+
+      get: async (id) => quoteClient.get(id, { headers: languageHeaders() }),
+    },
   })
 }
