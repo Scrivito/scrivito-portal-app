@@ -25,21 +25,27 @@ export function baseUrlForSite(siteId: string): string | undefined {
 export function siteForUrl(
   url: string,
 ): { baseUrl: string; siteId: string } | undefined {
-  return Obj.onAllSites()
-    .where('_path', 'equals', '/')
-    .toArray()
-    .filter(
-      (website): website is { siteId: () => string } & Obj =>
-        !!website.siteId(),
-    )
-    .map((websiteWithSiteId) => {
-      const siteId = websiteWithSiteId.siteId()
-      return { siteId, baseUrl: baseUrlForSite(siteId) }
-    })
-    .find(
-      (item): item is { baseUrl: string; siteId: string } =>
-        !!item.baseUrl && url.startsWith(item.baseUrl),
-    )
+  const neoletterBaseUrl = `https://mailing.neoletter.com/${getInstanceId()}`
+  if (url.startsWith(neoletterBaseUrl)) {
+    return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
+  }
+
+  const baseAppUrl = getBaseAppUrl()
+  if (!baseAppUrl) return
+
+  const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
+  const language = regex.exec(url)?.groups?.lang
+  if (!language) return
+
+  const languageSite = allWebsites()
+    .and('_language', 'equals', language)
+    .first()
+  if (!languageSite) return
+
+  const languageSiteId = languageSite.siteId()
+  if (!languageSiteId) return
+
+  return { baseUrl: `${baseAppUrl}/${language}`, siteId: languageSiteId }
 }
 
 export async function ensureSiteIsPresent() {
