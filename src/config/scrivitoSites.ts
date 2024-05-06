@@ -12,11 +12,7 @@ export function baseUrlForSite(siteId: string): string | undefined {
   }
 
   const siteRoot = Obj.onSite(siteId).root()
-  if (siteRoot?.contentId() !== SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID) {
-    const rawBaseUrl = siteRoot?.get('baseUrl')
-    const baseUrl = isStringArray(rawBaseUrl) ? rawBaseUrl[0] : undefined
-    return baseUrl ? baseUrl : undefined
-  }
+  if (!siteRoot) return
 
   if (!location) return
 
@@ -74,8 +70,4 @@ function siteHasLanguage(site: Obj, language: string | null) {
   return language && siteLanguage
     ? language.startsWith(siteLanguage)
     : language === siteLanguage
-}
-
-function isStringArray(item: unknown): item is string[] {
-  return Array.isArray(item) && item.every((i) => typeof i === 'string')
 }
