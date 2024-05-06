@@ -22,10 +22,12 @@ export function pisaDocumentDataClass() {
       create: async (data) =>
         documentClient.post('', {
           data: await convertBlobAttributes(data),
+          headers: languageHeaders(),
         }) as Promise<RawItem>,
       update: async (id, data) =>
         documentClient.patch(id, {
           data: await convertBlobAttributes(data),
+          headers: languageHeaders(),
         }),
       delete: (id) => documentClient.delete(id),
     },

@@ -16,7 +16,8 @@ export function pisaGdprDataClass() {
         }) as Promise<DataIndexResponse>,
 
       get: async (id) => gdprClient.get(id, { headers: languageHeaders() }),
-      update: async (id, data) => gdprClient.patch(id, { data }),
+      update: async (id, data) =>
+        gdprClient.patch(id, { data, headers: languageHeaders() }),
     },
   })
 }
