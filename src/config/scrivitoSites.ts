@@ -14,17 +14,13 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (!location) return
+  const baseAppUrl = getBaseAppUrl()
+  if (!baseAppUrl) return
 
-  const urlParts = [location.origin]
-  const tenant = scrivitoTenantId()
+  const language = siteRoot.language()
+  if (!language) return
 
-  if (isMultitenancyEnabled()) urlParts.push(tenant)
-
-  const language = siteRoot?.language()
-  if (language) urlParts.push(language)
-
-  return urlParts.join('/')
+  return `${baseAppUrl}/${language}`
 }
 
 export function siteForUrl(
@@ -63,6 +59,14 @@ export async function ensureSiteIsPresent() {
       return websites[0] || null
     })
   }
+}
+
+function getBaseAppUrl(): string | undefined {
+  if (!location) return
+
+  return isMultitenancyEnabled()
+    ? `${location.origin}/${getInstanceId()}`
+    : location.origin
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
