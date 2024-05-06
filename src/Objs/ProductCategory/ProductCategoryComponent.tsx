@@ -40,13 +40,19 @@ provideComponent(ProductCategory, ({ page }) => {
 })
 
 function getLocalizer(localizer: keyof (typeof LOCALIZERS)['en']) {
-  const currentLanguage = getCurrentLanguage() || 'en'
-  const localizers = LOCALIZERS[currentLanguage] || LOCALIZERS['en']
+  const currentLanguage = getCurrentLanguage()
+  const localizers = isLocalizersKey(currentLanguage)
+    ? LOCALIZERS[currentLanguage]
+    : LOCALIZERS['en']
   return localizers[localizer]
 }
 
+function isLocalizersKey(key?: PropertyKey): key is keyof typeof LOCALIZERS {
+  return !!key && key in LOCALIZERS
+}
+
 const LOCALIZERS = {
-  ['de' as string]: {
+  de: {
     headline: 'Produktgruppe',
     items0: 'Keine Artikel',
     items1: '1 Artikel',
