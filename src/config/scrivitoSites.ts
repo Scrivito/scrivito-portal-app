@@ -1,10 +1,9 @@
 import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
-import { scrivitoTenantId, isMultitenancyEnabled } from './scrivitoTenants'
+import { isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
-const SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID = 'c2a0aab78be05a4e'
 
 export function baseUrlForSite(siteId: string): string | undefined {
   if (siteId === NEOLETTER_MAILINGS_SITE_ID) {
@@ -12,51 +11,47 @@ export function baseUrlForSite(siteId: string): string | undefined {
   }
 
   const siteRoot = Obj.onSite(siteId).root()
-  if (siteRoot?.contentId() !== SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID) {
-    const rawBaseUrl = siteRoot?.get('baseUrl')
-    const baseUrl = isStringArray(rawBaseUrl) ? rawBaseUrl[0] : undefined
-    return baseUrl ? baseUrl : undefined
-  }
+  if (!siteRoot) return
 
-  if (!location) return
+  const baseAppUrl = getBaseAppUrl()
+  if (!baseAppUrl) return
 
-  const urlParts = [location.origin]
-  const tenant = scrivitoTenantId()
+  const language = siteRoot.language()
+  if (!language) return
 
-  if (isMultitenancyEnabled()) urlParts.push(tenant)
-
-  const language = siteRoot?.language()
-  if (language) urlParts.push(language)
-
-  return urlParts.join('/')
+  return `${baseAppUrl}/${language}`
 }
 
 export function siteForUrl(
   url: string,
 ): { baseUrl: string; siteId: string } | undefined {
-  return Obj.onAllSites()
-    .where('_path', 'equals', '/')
-    .toArray()
-    .filter(
-      (website): website is { siteId: () => string } & Obj =>
-        !!website.siteId(),
-    )
-    .map((websiteWithSiteId) => {
-      const siteId = websiteWithSiteId.siteId()
-      return { siteId, baseUrl: baseUrlForSite(siteId) }
-    })
-    .find(
-      (item): item is { baseUrl: string; siteId: string } =>
-        !!item.baseUrl && url.startsWith(item.baseUrl),
-    )
+  const neoletterBaseUrl = `https://mailing.neoletter.com/${getInstanceId()}`
+  if (url.startsWith(neoletterBaseUrl)) {
+    return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
+  }
+
+  const baseAppUrl = getBaseAppUrl()
+  if (!baseAppUrl) return
+
+  const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
+  const language = regex.exec(url)?.groups?.lang
+  if (!language) return
+
+  const languageSite = allWebsites()
+    .and('_language', 'equals', language)
+    .first()
+  if (!languageSite) return
+
+  const languageSiteId = languageSite.siteId()
+  if (!languageSiteId) return
+
+  return { baseUrl: `${baseAppUrl}/${language}`, siteId: languageSiteId }
 }
 
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
     navigateTo(() => {
-      const websites = Obj.onAllSites()
-        .where('_contentId', 'equals', SCRIVITO_PORTAL_APP_ROOT_CONTENT_ID)
-        .toArray()
+      const websites = allWebsites().toArray()
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
       for (const language of preferredLanguageOrder) {
@@ -69,13 +64,23 @@ export async function ensureSiteIsPresent() {
   }
 }
 
+function getBaseAppUrl(): string | undefined {
+  if (!location) return
+
+  return isMultitenancyEnabled()
+    ? `${location.origin}/${getInstanceId()}`
+    : location.origin
+}
+
+function allWebsites() {
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .andNot('_siteId', 'equals', NEOLETTER_MAILINGS_SITE_ID)
+}
+
 function siteHasLanguage(site: Obj, language: string | null) {
   const siteLanguage = site.language()
   return language && siteLanguage
     ? language.startsWith(siteLanguage)
     : language === siteLanguage
-}
-
-function isStringArray(item: unknown): item is string[] {
-  return Array.isArray(item) && item.every((i) => typeof i === 'string')
 }
