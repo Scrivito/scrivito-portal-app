@@ -1454,7 +1454,7 @@ section:focus >,
 /* ============ mobile view ============ */
 
 @media (max-width: 991px) {
-  .navbar-collapse {
+  header .navbar-collapse {
     flex-flow: column-reverse;
   }
   .navbar-main {
