@@ -1457,9 +1457,14 @@ section:focus >,
   .navbar-collapse {
     flex-flow: column-reverse;
   }
+  .navbar-main {
+    flex-flow: column-reverse;
+  }
+  .navbar-meta {
+    flex-flow: column;
+  }
   .navbar-meta,
   .navbar-main {
-    flex-flow: column;
     margin-top: 12px;
 
     .navbar-nav {
