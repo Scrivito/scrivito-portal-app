@@ -2,15 +2,15 @@ import { connect } from 'scrivito'
 import { getCurrentLanguage } from '../utils/currentLanguage'
 
 export const Loading = connect(function Loading() {
+  const message = getMessage()
   return (
-    <div className="text-muted">
-      <span
-        className="spinner-border spinner-border-sm me-2"
-        role="status"
-        aria-hidden="true"
-      />
-      {getMessage()}
-    </div>
+    <div
+      aria-busy="true"
+      aria-valuetext={message}
+      className="loading-placeholder"
+      role="progressbar"
+      title={message}
+    />
   )
 })
 
