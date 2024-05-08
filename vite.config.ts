@@ -82,6 +82,7 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       include: ['scrivito'],
       force: true,
+      disabled: 'development',
     },
     plugins: [react(), writeProductionHeaders(outDir)],
     preview: {
