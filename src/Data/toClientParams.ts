@@ -1,10 +1,10 @@
-import { provideDataClass, createApiClient } from 'scrivito'
+import { provideDataClass, createRestApiClient } from 'scrivito'
 
 type DataConnection = Parameters<typeof provideDataClass>[1]['connection']
 type IndexCallback = NonNullable<DataConnection['index']>
 type IndexParams = Parameters<IndexCallback>[0]
 
-type ApiClient = ReturnType<typeof createApiClient>
+type ApiClient = ReturnType<typeof createRestApiClient>
 type FetchOptions = NonNullable<Parameters<ApiClient['get']>[1]>
 type FetchParams = NonNullable<FetchOptions['params']>
 
