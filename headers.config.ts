@@ -5,9 +5,26 @@ function headers(environment: string) {
     'Content-Security-Policy': cspBuilder({
       directives: {
         'base-uri': "'none'",
-        'default-src': ["'self'", 'data:', 'https:', 'wss:'],
-        'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
+        'default-src': [
+          'http:', // custom rule for onDevSdk
+          'ws:', // custom rule for onDevSdk
+          "'self'",
+          'data:',
+          'https:',
+          'wss:',
+        ],
+        'style-src': [
+          'http:', // custom rule for onDevSdk
+          'ws:', // custom rule for onDevSdk
+          "'self'",
+          'data:',
+          'https:',
+          'wss:',
+          "'unsafe-inline'",
+        ],
         'script-src': [
+          'http:', // custom rule for onDevSdk
+          "'unsafe-eval'", // custom rule for onDevSdk
           "'self'",
           'https://api.scrivito.com',
           'https://assets.scrivito.com',
