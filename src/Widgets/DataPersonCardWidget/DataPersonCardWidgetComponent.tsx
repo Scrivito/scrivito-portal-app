@@ -1,4 +1,10 @@
-import { connect, ContentTag, DataItem, provideComponent } from 'scrivito'
+import {
+  connect,
+  ContentTag,
+  DataItem,
+  provideComponent,
+  useDataLocator,
+} from 'scrivito'
 
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
 import { ensureString } from '../../utils/ensureString'
@@ -6,24 +12,15 @@ import { isDataBinary } from '../../utils/dataBinaryToUrl'
 import { DataPersonCardWidget } from './DataPersonCardWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import personCircle from '../../assets/images/person-circle.svg'
-import { CurrentUser } from '../../Data/CurrentUser/CurrentUserDataItem'
-import { User } from '../../Data/User/UserDataClass'
 import { Loading } from '../../Components/Loading'
 
 provideComponent(
   DataPersonCardWidget,
   ({ widget }) => {
-    // TODO: Remove workaround, once #10883 is resolved
-    const name = ensureString(widget.get('attributeName'))
-    if (!name) return <EditorNote>Data is empty.</EditorNote>
+    // TODO: Replace with useData() once 1.41.0-rc2 is used
+    const dataScope = useDataLocator(widget.get('data'))
 
-    const value = CurrentUser.get(name)
-    if (!value) return <EditorNote>Data is empty.</EditorNote>
-
-    // @ts-expect-error until out of private beta
-    const user: DataItem | null = User.get(value)
-
-    if (!user) return <EditorNote>Data is empty.</EditorNote>
+    if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
 
     return (
       <div>
@@ -32,7 +29,9 @@ provideComponent(
           attribute="headline"
           className="h6 text-uppercase"
         />
-        <PersonCard dataItem={user} key={user.id()} />
+        {dataScope.take().map((dataItem) => (
+          <PersonCard dataItem={dataItem} key={dataItem.id()} />
+        ))}
       </div>
     )
   },

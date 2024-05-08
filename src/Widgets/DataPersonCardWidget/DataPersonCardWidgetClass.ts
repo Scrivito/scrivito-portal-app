@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const DataPersonCardWidget = provideWidgetClass('DataPersonCardWidget', {
   attributes: {
-    attributeName: 'string',
+    data: 'datalocator',
     headline: 'string',
   },
 })
