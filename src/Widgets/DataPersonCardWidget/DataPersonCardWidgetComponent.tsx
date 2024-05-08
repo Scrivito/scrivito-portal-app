@@ -1,4 +1,10 @@
-import { connect, DataItem, provideComponent, useData } from 'scrivito'
+import {
+  connect,
+  ContentTag,
+  DataItem,
+  provideComponent,
+  useDataLocator,
+} from 'scrivito'
 
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
 import { ensureString } from '../../utils/ensureString'
@@ -10,17 +16,23 @@ import { Loading } from '../../Components/Loading'
 
 provideComponent(
   DataPersonCardWidget,
-  () => {
-    const dataScope = useData()
+  ({ widget }) => {
+    // TODO: Replace with useData() once 1.41.0-rc2 is used
+    const dataScope = useDataLocator(widget.get('data'))
 
     if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
 
     return (
-      <>
+      <div>
+        <ContentTag
+          content={widget}
+          attribute="headline"
+          className="h6 text-uppercase"
+        />
         {dataScope.take().map((dataItem) => (
           <PersonCard dataItem={dataItem} key={dataItem.id()} />
         ))}
-      </>
+      </div>
     )
   },
   { loading: Loading },
