@@ -38,8 +38,6 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
     .and('_dataParam', 'equals', null) // Ignore data details pages
     .andNot('excludeFromSearch', 'equals', true)
 
-  const searchResults = search.take(maxItems)
-
   const readMoreLabel = widget.get('readMoreLabel')
   const searchButtonLabel = widget.get('searchButtonLabel')
   const searchInputPlaceholder = widget.get('searchInputPlaceholder')
@@ -88,32 +86,61 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
         </div>
       </section>
 
-      <section className="bg-white py-3">
-        <div className="container">
-          {searchResults.map((searchResult) => (
-            <SearchResult
-              key={`search-result-${searchResult.id()}`}
-              query={query}
-              readMoreLabel={readMoreLabel}
-              searchResult={searchResult}
-            />
-          ))}
-          {search.count() > maxItems ? (
-            <div className="text-center">
-              <button
-                className="btn btn-outline-primary"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setMaxItems((maxItems) => maxItems + 10)
-                }}
-              >
-                {showMoreResultsLabel}
-              </button>
-            </div>
-          ) : null}
-        </div>
-      </section>
+      <SearchResults
+        search={search}
+        query={query}
+        maxItems={maxItems}
+        setMaxItems={setMaxItems}
+        readMoreLabel={readMoreLabel}
+        showMoreResultsLabel={showMoreResultsLabel}
+      />
     </InPlaceEditingOff>
+  )
+})
+
+const SearchResults = connect(function SearchResults({
+  search,
+  query,
+  maxItems,
+  setMaxItems,
+  readMoreLabel,
+  showMoreResultsLabel,
+}: {
+  search: ObjSearch
+  query: string
+  maxItems: number
+  setMaxItems: React.Dispatch<React.SetStateAction<number>>
+  readMoreLabel: string
+  showMoreResultsLabel: string
+}) {
+  const searchResults = search.take(maxItems)
+
+  return (
+    <section className="bg-white py-3">
+      <div className="container">
+        {searchResults.map((searchResult) => (
+          <SearchResult
+            key={`search-result-${searchResult.id()}`}
+            query={query}
+            readMoreLabel={readMoreLabel}
+            searchResult={searchResult}
+          />
+        ))}
+        {search.count() > maxItems ? (
+          <div className="text-center">
+            <button
+              className="btn btn-outline-primary"
+              onClick={(e) => {
+                e.preventDefault()
+                setMaxItems((maxItems) => maxItems + 10)
+              }}
+            >
+              {showMoreResultsLabel}
+            </button>
+          </div>
+        ) : null}
+      </div>
+    </section>
   )
 })
 
