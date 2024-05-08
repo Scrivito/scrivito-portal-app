@@ -1,4 +1,6 @@
-export function getJrPlatformConfig() {
+export function getJrPlatformConfig(
+  additionalUnstableConfig: Record<string, string> = {},
+) {
   return {
     unstable: {
       initialContentDumpUrl:
@@ -7,6 +9,7 @@ export function getJrPlatformConfig() {
         'http://localhost:8090',
         'https://*.scrivito-ui.pages.dev',
       ],
+      ...additionalUnstableConfig,
     },
   }
 }
