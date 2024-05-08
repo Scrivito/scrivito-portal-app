@@ -14,7 +14,7 @@
     "prerender-preview": "ws",
     "prettier": "prettier --check .",
     "start-design": "vite --config design/vite-design.config.ts",
-    "start": "vite"
+    "start": "concurrently --raw 'vite --force' 'nodemon --watch ../scrivito_js/js/build/npm_scrivito'"
   },
   "dependencies": {
     "color": "^4.2.3",
