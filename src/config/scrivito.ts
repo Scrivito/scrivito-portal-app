@@ -9,7 +9,7 @@ export function configureScrivito(options?: { priority?: 'background' }) {
 
   configure({
     activateDataIntegration: true,
-    adoptUi: true,
+    adoptUi: 'http://localhost:8090',
     autoConvertAttributes: true,
     baseUrlForSite,
     contentTagsForEmptyAttributes: false,
@@ -18,7 +18,14 @@ export function configureScrivito(options?: { priority?: 'background' }) {
     siteForUrl,
     strictSearchOperators: true,
     tenant,
-    ...(import.meta.env.PRIVATE_JR_PLATFORM ? getJrPlatformConfig() : {}),
+    ...(import.meta.env.PRIVATE_JR_PLATFORM
+      ? getJrPlatformConfig({ assetUrlBase: 'http://localhost:8091' })
+      : {
+          unstable: {
+            assetUrlBase: 'http://localhost:8091',
+            trustedUiOrigins: ['http://localhost:8090'],
+          },
+        }),
     ...options,
   })
 }
