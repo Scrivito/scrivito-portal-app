@@ -36,6 +36,6 @@ provideEditingConfig(LogInButtonWidget, {
     alignment: 'left',
     buttonColor: 'btn-primary',
     buttonSize: 'medium',
-    title: 'Login',
+    title: 'Log in',
   },
 })
