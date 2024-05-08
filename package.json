@@ -9,7 +9,7 @@
     "eslint": "eslint --max-warnings 0 'src/**/*.ts' 'src/**/*.tsx'",
     "prettier": "prettier --check .",
     "start-design": "vite --config design/vite-design.config.ts",
-    "start": "vite",
+    "start": "concurrently --raw 'vite --force' 'nodemon --watch ../scrivito_js/js/build/npm_scrivito'",
     "knip": "knip"
   },
   "dependencies": {
