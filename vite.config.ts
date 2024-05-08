@@ -74,6 +74,7 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.PRIVATE_JR_PLATFORM': JSON.stringify(privateJrPlatform),
     },
     optimizeDeps: {
+      include: ['scrivito'],
       force: true,
     },
     plugins: [react(), writeProductionHeaders(outDir)],
@@ -87,6 +88,7 @@ export default defineConfig(({ mode }) => {
           ? '@honeybadger-io/js'
           : resolve(__dirname, 'src/honeybadgerStub.ts'),
       },
+      dedupe: ['react', 'react-dom'],
     },
     server: {
       port: 8080,
