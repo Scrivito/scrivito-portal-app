@@ -13,10 +13,29 @@ function headers({
     'Content-Security-Policy': cspBuilder({
       directives: {
         'base-uri': "'none'",
-        'default-src': ["'self'", 'data:', 'https:', 'wss:'],
+        'default-src': [
+          'http:', // custom rule for onDevSdk
+          'ws:', // custom rule for onDevSdk
+          "'self'",
+          'data:',
+          'https:',
+          'wss:',
+        ],
         'img-src': ["'self'", 'data:', 'https:', 'blob:'],
-        'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
-        'script-src': scriptSrc,
+        'style-src': [
+          'http:', // custom rule for onDevSdk
+          "'unsafe-eval'", // custom rule for onDevSdk
+          "'self'",
+          'data:',
+          'https:',
+          'wss:',
+          "'unsafe-inline'",
+        ],
+        'script-src': [
+          'http:', // custom rule for onDevSdk
+          "'unsafe-eval'", // custom rule for onDevSdk
+          ...scriptSrc,
+        ],
         'object-src': "'none'",
         'block-all-mixed-content': true,
         'frame-ancestors': frameAncestors,
