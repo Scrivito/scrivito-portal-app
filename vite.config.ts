@@ -96,6 +96,7 @@ export default defineConfig(({ mode }) => {
       ...(mode === 'development' && { cspNonce: DEV_CSP_NONCE }),
     },
     optimizeDeps: {
+      include: ['scrivito'],
       force: true,
     },
     plugins: [react(), writeProductionHeadersFile(outDir)],
@@ -110,6 +111,7 @@ export default defineConfig(({ mode }) => {
           ? '@honeybadger-io/js'
           : resolve(import.meta.dirname, 'src/honeybadgerStub.ts'),
       },
+      dedupe: ['react', 'react-dom'],
     },
     server: {
       port: 8080,
