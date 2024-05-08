@@ -6,6 +6,7 @@ import {
   InPlaceEditingOff,
   navigateTo,
   Obj,
+  ObjSearch,
   provideComponent,
 } from 'scrivito'
 import { useRef, useState } from 'react'
@@ -16,6 +17,7 @@ import {
   SearchResultsWidgetInstance,
 } from './SearchResultsWidgetClass'
 import { DATA_OBJ_CLASSES } from '../../Objs/dataObjClasses'
+import { Loading } from '../../Components/Loading'
 
 const BLACKLIST_OBJ_CLASSES = [
   'Image',
@@ -37,7 +39,6 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
     .andNot('excludeFromSearch', 'equals', true)
 
   const searchResults = search.take(maxItems)
-  const totalCount = search.count()
 
   const readMoreLabel = widget.get('readMoreLabel')
   const searchButtonLabel = widget.get('searchButtonLabel')
@@ -82,7 +83,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
           </form>
 
           <h1 className="h3 b-bottom text-center mt-3">
-            <TotalCountSummary totalCount={totalCount} widget={widget} />
+            <TotalCountSummary search={search} widget={widget} />
           </h1>
         </div>
       </section>
@@ -97,7 +98,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
               searchResult={searchResult}
             />
           ))}
-          {totalCount > maxItems ? (
+          {search.count() > maxItems ? (
             <div className="text-center">
               <button
                 className="btn btn-outline-primary"
@@ -116,22 +117,26 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
   )
 })
 
-const TotalCountSummary = connect(function TotalCountSummary({
-  totalCount,
-  widget,
-}: {
-  totalCount: number
-  widget: SearchResultsWidgetInstance
-}) {
-  const attributes = ['resultsHeadline0', 'resultsHeadline1'] as const
-  const attribute = attributes[totalCount] || 'resultsHeadline'
+const TotalCountSummary = connect(
+  function TotalCountSummary({
+    search,
+    widget,
+  }: {
+    search: ObjSearch
+    widget: SearchResultsWidgetInstance
+  }) {
+    const totalCount = search.count()
+    const attributes = ['resultsHeadline0', 'resultsHeadline1'] as const
+    const attribute = attributes[totalCount] || 'resultsHeadline'
 
-  return (
-    <ContentTag
-      tag="span"
-      content={widget}
-      attribute={attribute}
-      dataContext={{ count: totalCount.toString() }}
-    />
-  )
-})
+    return (
+      <ContentTag
+        tag="span"
+        content={widget}
+        attribute={attribute}
+        dataContext={{ count: totalCount.toString() }}
+      />
+    )
+  },
+  { loading: Loading },
+)
