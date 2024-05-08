@@ -46,12 +46,16 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
     },
     optimizeDeps: {
+      include: ['scrivito'],
       force: true,
     },
     plugins: [react(), writeProductionHeaders(outDir)],
     preview: {
       port: 8080,
       strictPort: true,
+    },
+    resolve: {
+      dedupe: ['react', 'react-dom'],
     },
     server: {
       port: 8080,
