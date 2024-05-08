@@ -6,6 +6,7 @@ export const SearchResultsWidget = provideWidgetClass('SearchResultsWidget', {
     resultsHeadline: 'string',
     resultsHeadline0: 'string',
     resultsHeadline1: 'string',
+    resultsLoadingHeadline: 'string',
     searchButtonLabel: 'string',
     searchInputPlaceholder: 'string',
     showMoreResultsLabel: 'string',

@@ -176,5 +176,9 @@ const TotalCountSummary = connect(
       />
     )
   },
-  { loading: Loading },
+  {
+    loading: ({ widget }: { widget: SearchResultsWidgetInstance }) => (
+      <ContentTag content={widget} attribute="resultsLoadingHeadline" />
+    ),
+  },
 )
