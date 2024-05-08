@@ -1,4 +1,4 @@
-import { connect, DataItem, provideComponent, useData } from 'scrivito'
+import { connect, ContentTag, DataItem, provideComponent } from 'scrivito'
 
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
 import { ensureString } from '../../utils/ensureString'
@@ -6,18 +6,31 @@ import { isDataBinary } from '../../utils/dataBinaryToUrl'
 import { DataPersonCardWidget } from './DataPersonCardWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import personCircle from '../../assets/images/person-circle.svg'
+import { CurrentUser } from '../../Data/CurrentUser/CurrentUserDataItem'
+import { User } from '../../Data/User/UserDataClass'
 
-provideComponent(DataPersonCardWidget, () => {
-  const dataScope = useData()
+provideComponent(DataPersonCardWidget, ({ widget }) => {
+  // TODO: Remove workaround, once #10883 is resolved
+  const name = ensureString(widget.get('attributeName'))
+  if (!name) return <EditorNote>Data is empty.</EditorNote>
 
-  if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
+  const value = CurrentUser.get(name)
+  if (!value) return <EditorNote>Data is empty.</EditorNote>
+
+  // @ts-expect-error until out of private beta
+  const user: DataItem | null = User.get(value)
+
+  if (!user) return <EditorNote>Data is empty.</EditorNote>
 
   return (
-    <>
-      {dataScope.take().map((dataItem) => (
-        <PersonCard dataItem={dataItem} key={dataItem.id()} />
-      ))}
-    </>
+    <div>
+      <ContentTag
+        content={widget}
+        attribute="headline"
+        className="h6 text-uppercase"
+      />
+      <PersonCard dataItem={user} key={user.id()} />
+    </div>
   )
 })
 

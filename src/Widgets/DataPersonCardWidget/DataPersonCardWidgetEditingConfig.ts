@@ -5,4 +5,8 @@ import Thumbnail from './thumbnail.svg'
 provideEditingConfig(DataPersonCardWidget, {
   title: 'Data Person Card',
   thumbnail: Thumbnail,
+  properties: ['attributeName', 'headline'],
+  initialContent: {
+    headline: 'Your...',
+  },
 })
