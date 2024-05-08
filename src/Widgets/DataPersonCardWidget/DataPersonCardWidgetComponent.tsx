@@ -6,20 +6,25 @@ import { isDataBinary } from '../../utils/dataBinaryToUrl'
 import { DataPersonCardWidget } from './DataPersonCardWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import personCircle from '../../assets/images/person-circle.svg'
+import { Loading } from '../../Components/Loading'
 
-provideComponent(DataPersonCardWidget, () => {
-  const dataScope = useData()
+provideComponent(
+  DataPersonCardWidget,
+  () => {
+    const dataScope = useData()
 
-  if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
+    if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
 
-  return (
-    <>
-      {dataScope.take().map((dataItem) => (
-        <PersonCard dataItem={dataItem} key={dataItem.id()} />
-      ))}
-    </>
-  )
-})
+    return (
+      <>
+        {dataScope.take().map((dataItem) => (
+          <PersonCard dataItem={dataItem} key={dataItem.id()} />
+        ))}
+      </>
+    )
+  },
+  { loading: Loading },
+)
 
 const PersonCard = connect(function PersonCard({
   dataItem,
