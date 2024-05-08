@@ -1,6 +1,8 @@
 import {
   ensureUserIsLoggedIn,
+  isEditorLoggedIn,
   isInPlaceEditingActive,
+  isUserLoggedIn,
   provideComponent,
   WidgetTag,
 } from 'scrivito'
@@ -9,6 +11,7 @@ import { LogInButtonWidget } from './LogInButtonWidgetClass'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 
 provideComponent(LogInButtonWidget, ({ widget }) => {
+  if (isUserLoggedIn() && !isEditorLoggedIn()) return null
   const title = widget.get('title')
 
   const buttonClassNames = ['btn']
