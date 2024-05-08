@@ -17,7 +17,7 @@
     "prerender-precompress": "precompress --include '(**).(css|html|js)' --types br dist-ssr",
     "prerender-preview": "ws",
     "prettier": "prettier --check .",
-    "start": "vite"
+    "start": "concurrently --raw 'vite --force' 'nodemon --watch ../scrivito_js/js/build/npm_scrivito'"
   },
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.4",
