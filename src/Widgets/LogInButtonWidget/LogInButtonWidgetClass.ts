@@ -1,6 +1,6 @@
 import { provideWidgetClass } from 'scrivito'
 
-export const LoginButtonWidget = provideWidgetClass('LoginButtonWidget', {
+export const LogInButtonWidget = provideWidgetClass('LogInButtonWidget', {
   attributes: {
     title: 'string',
     alignment: ['enum', { values: ['left', 'center', 'right', 'block'] }],

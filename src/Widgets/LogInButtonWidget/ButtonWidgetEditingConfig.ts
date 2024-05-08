@@ -1,8 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
-import { LoginButtonWidget } from './LogInButtonWidgetClass'
+import { LogInButtonWidget } from './LogInButtonWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
-provideEditingConfig(LoginButtonWidget, {
+provideEditingConfig(LogInButtonWidget, {
   title: 'LoginButton',
   thumbnail: Thumbnail,
   attributes: {

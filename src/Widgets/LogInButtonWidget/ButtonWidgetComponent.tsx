@@ -5,10 +5,10 @@ import {
   WidgetTag,
 } from 'scrivito'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
-import { LoginButtonWidget } from './LogInButtonWidgetClass'
+import { LogInButtonWidget } from './LogInButtonWidgetClass'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 
-provideComponent(LoginButtonWidget, ({ widget }) => {
+provideComponent(LogInButtonWidget, ({ widget }) => {
   const title = widget.get('title')
 
   const buttonClassNames = ['btn']
