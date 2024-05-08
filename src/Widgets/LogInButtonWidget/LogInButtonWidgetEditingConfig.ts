@@ -3,7 +3,7 @@ import { LogInButtonWidget } from './LogInButtonWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(LogInButtonWidget, {
-  title: 'LoginButton',
+  title: 'Log In Button',
   thumbnail: Thumbnail,
   attributes: {
     alignment: {
