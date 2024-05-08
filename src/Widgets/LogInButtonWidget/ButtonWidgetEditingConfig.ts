@@ -1,5 +1,5 @@
 import { provideEditingConfig } from 'scrivito'
-import { LoginButtonWidget } from './LoginButtonWidgetClass'
+import { LoginButtonWidget } from './LogInButtonWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(LoginButtonWidget, {
