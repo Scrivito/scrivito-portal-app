@@ -1,4 +1,6 @@
-export function getJrPlatformConfig() {
+export function getJrPlatformConfig(
+  additionalUnstableConfig: Record<string, string> = {},
+) {
   return {
     unstable: {
       initialContentDumpUrl:
@@ -8,6 +10,7 @@ export function getJrPlatformConfig() {
         'https://*.scrivito-ui.pages.dev',
       ],
       widgetHighlighting: true,
+      ...additionalUnstableConfig,
     },
   }
 }
