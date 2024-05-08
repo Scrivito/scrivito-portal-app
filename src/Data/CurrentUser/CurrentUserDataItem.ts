@@ -8,7 +8,7 @@ import { pisaClient } from '../pisaClient'
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
     const user = await load(currentUser)
-    if (!user) return {}
+    if (!user) return null
 
     const neoletterProfile = await neoletterClient().get('my/profile')
     if (!isNeoletterData(neoletterProfile)) {
