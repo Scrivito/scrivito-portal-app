@@ -8,31 +8,36 @@ import { EditorNote } from '../../Components/EditorNote'
 import personCircle from '../../assets/images/person-circle.svg'
 import { CurrentUser } from '../../Data/CurrentUser/CurrentUserDataItem'
 import { User } from '../../Data/User/UserDataClass'
+import { Loading } from '../../Components/Loading'
 
-provideComponent(DataPersonCardWidget, ({ widget }) => {
-  // TODO: Remove workaround, once #10883 is resolved
-  const name = ensureString(widget.get('attributeName'))
-  if (!name) return <EditorNote>Data is empty.</EditorNote>
+provideComponent(
+  DataPersonCardWidget,
+  ({ widget }) => {
+    // TODO: Remove workaround, once #10883 is resolved
+    const name = ensureString(widget.get('attributeName'))
+    if (!name) return <EditorNote>Data is empty.</EditorNote>
 
-  const value = CurrentUser.get(name)
-  if (!value) return <EditorNote>Data is empty.</EditorNote>
+    const value = CurrentUser.get(name)
+    if (!value) return <EditorNote>Data is empty.</EditorNote>
 
-  // @ts-expect-error until out of private beta
-  const user: DataItem | null = User.get(value)
+    // @ts-expect-error until out of private beta
+    const user: DataItem | null = User.get(value)
 
-  if (!user) return <EditorNote>Data is empty.</EditorNote>
+    if (!user) return <EditorNote>Data is empty.</EditorNote>
 
-  return (
-    <div>
-      <ContentTag
-        content={widget}
-        attribute="headline"
-        className="h6 text-uppercase"
-      />
-      <PersonCard dataItem={user} key={user.id()} />
-    </div>
-  )
-})
+    return (
+      <div>
+        <ContentTag
+          content={widget}
+          attribute="headline"
+          className="h6 text-uppercase"
+        />
+        <PersonCard dataItem={user} key={user.id()} />
+      </div>
+    )
+  },
+  { loading: Loading },
+)
 
 const PersonCard = connect(function PersonCard({
   dataItem,
