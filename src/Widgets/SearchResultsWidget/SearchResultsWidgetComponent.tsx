@@ -86,14 +86,16 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
         </div>
       </section>
 
-      <SearchResults
-        search={search}
-        query={query}
-        maxItems={maxItems}
-        setMaxItems={setMaxItems}
-        readMoreLabel={readMoreLabel}
-        showMoreResultsLabel={showMoreResultsLabel}
-      />
+      <section className="bg-white py-3">
+        <SearchResults
+          search={search}
+          query={query}
+          maxItems={maxItems}
+          setMaxItems={setMaxItems}
+          readMoreLabel={readMoreLabel}
+          showMoreResultsLabel={showMoreResultsLabel}
+        />
+      </section>
     </InPlaceEditingOff>
   )
 })
@@ -117,40 +119,36 @@ const SearchResults = connect(
     const searchResults = search.take(maxItems)
 
     return (
-      <section className="bg-white py-3">
-        <div className="container">
-          {searchResults.map((searchResult) => (
-            <SearchResult
-              key={`search-result-${searchResult.id()}`}
-              query={query}
-              readMoreLabel={readMoreLabel}
-              searchResult={searchResult}
-            />
-          ))}
-          {search.count() > maxItems ? (
-            <div className="text-center">
-              <button
-                className="btn btn-outline-primary"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setMaxItems((maxItems) => maxItems + 10)
-                }}
-              >
-                {showMoreResultsLabel}
-              </button>
-            </div>
-          ) : null}
-        </div>
-      </section>
+      <div className="container">
+        {searchResults.map((searchResult) => (
+          <SearchResult
+            key={`search-result-${searchResult.id()}`}
+            query={query}
+            readMoreLabel={readMoreLabel}
+            searchResult={searchResult}
+          />
+        ))}
+        {search.count() > maxItems ? (
+          <div className="text-center">
+            <button
+              className="btn btn-outline-primary"
+              onClick={(e) => {
+                e.preventDefault()
+                setMaxItems((maxItems) => maxItems + 10)
+              }}
+            >
+              {showMoreResultsLabel}
+            </button>
+          </div>
+        ) : null}
+      </div>
     )
   },
   {
     loading: () => (
-      <section className="bg-white py-3">
-        <div className="container text-center">
-          <Loading />
-        </div>
-      </section>
+      <div className="container text-center">
+        <Loading />
+      </div>
     ),
   },
 )
