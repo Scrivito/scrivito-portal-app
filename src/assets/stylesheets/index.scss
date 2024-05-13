@@ -1219,12 +1219,6 @@ section:focus >,
   }
 }
 
-@media (max-width: 991px) {
-  .navbar-nav {
-    flex-direction: column-reverse;
-  }
-}
-
 /* navbar
  =================================================================== */
 
@@ -1460,12 +1454,17 @@ section:focus >,
 /* ============ mobile view ============ */
 
 @media (max-width: 991px) {
-  .navbar-collapse {
+  header .navbar-collapse {
     flex-flow: column-reverse;
+  }
+  .navbar-main {
+    flex-flow: column-reverse;
+  }
+  .navbar-meta {
+    flex-flow: column;
   }
   .navbar-meta,
   .navbar-main {
-    flex-flow: column;
     margin-top: 12px;
 
     .navbar-nav {

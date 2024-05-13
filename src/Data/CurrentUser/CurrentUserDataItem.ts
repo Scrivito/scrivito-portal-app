@@ -9,7 +9,7 @@ import { errorToast } from './errorToast'
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
     const user = await load(currentUser)
-    if (!user) return {}
+    if (!user) return null
 
     let neoletterProfile
     try {
