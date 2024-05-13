@@ -7,6 +7,7 @@ provideEditingConfig(SearchResultsWidget, {
   thumbnail: Thumbnail,
   attributes: {
     readMoreLabel: { title: 'Read-more buttons label' },
+    resultsLoadingHeadline: { title: 'Headline while loading results' },
     resultsHeadline0: { title: 'Headline for 0 results' },
     resultsHeadline1: { title: 'Headline for 1 result' },
     resultsHeadline: {
@@ -24,6 +25,7 @@ provideEditingConfig(SearchResultsWidget, {
     'topBannerBackground',
     'searchInputPlaceholder',
     'searchButtonLabel',
+    'resultsLoadingHeadline',
     'resultsHeadline0',
     'resultsHeadline1',
     'resultsHeadline',
@@ -35,6 +37,7 @@ provideEditingConfig(SearchResultsWidget, {
     resultsHeadline: '__count__ search results',
     resultsHeadline0: 'No search results',
     resultsHeadline1: '1 search result',
+    resultsLoadingHeadline: 'Search results',
     searchButtonLabel: 'Search again',
     searchInputPlaceholder: 'Search',
     showMoreResultsLabel: 'Load more',

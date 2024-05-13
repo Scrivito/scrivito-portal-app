@@ -6,6 +6,7 @@ import {
   InPlaceEditingOff,
   navigateTo,
   Obj,
+  ObjSearch,
   provideComponent,
 } from 'scrivito'
 import { useRef, useState } from 'react'
@@ -16,6 +17,7 @@ import {
   SearchResultsWidgetInstance,
 } from './SearchResultsWidgetClass'
 import { DATA_OBJ_CLASSES } from '../../Objs/dataObjClasses'
+import { Loading } from '../../Components/Loading'
 
 const BLACKLIST_OBJ_CLASSES = [
   'Image',
@@ -35,9 +37,6 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
     .andNot('_objClass', 'equals', BLACKLIST_OBJ_CLASSES)
     .and('_dataParam', 'equals', null) // Ignore data details pages
     .andNot('excludeFromSearch', 'equals', true)
-
-  const searchResults = search.take(maxItems)
-  const totalCount = search.count()
 
   const readMoreLabel = widget.get('readMoreLabel')
   const searchButtonLabel = widget.get('searchButtonLabel')
@@ -82,56 +81,101 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
           </form>
 
           <h1 className="h3 b-bottom text-center mt-3">
-            <TotalCountSummary totalCount={totalCount} widget={widget} />
+            <TotalCountSummary search={search} widget={widget} />
           </h1>
         </div>
       </section>
 
       <section className="bg-white py-3">
-        <div className="container">
-          {searchResults.map((searchResult) => (
-            <SearchResult
-              key={`search-result-${searchResult.id()}`}
-              query={query}
-              readMoreLabel={readMoreLabel}
-              searchResult={searchResult}
-            />
-          ))}
-          {totalCount > maxItems ? (
-            <div className="text-center">
-              <button
-                className="btn btn-outline-primary"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setMaxItems((maxItems) => maxItems + 10)
-                }}
-              >
-                {showMoreResultsLabel}
-              </button>
-            </div>
-          ) : null}
-        </div>
+        <SearchResults
+          search={search}
+          query={query}
+          maxItems={maxItems}
+          setMaxItems={setMaxItems}
+          readMoreLabel={readMoreLabel}
+          showMoreResultsLabel={showMoreResultsLabel}
+        />
       </section>
     </InPlaceEditingOff>
   )
 })
 
-const TotalCountSummary = connect(function TotalCountSummary({
-  totalCount,
-  widget,
-}: {
-  totalCount: number
-  widget: SearchResultsWidgetInstance
-}) {
-  const attributes = ['resultsHeadline0', 'resultsHeadline1'] as const
-  const attribute = attributes[totalCount] || 'resultsHeadline'
+const SearchResults = connect(
+  function SearchResults({
+    search,
+    query,
+    maxItems,
+    setMaxItems,
+    readMoreLabel,
+    showMoreResultsLabel,
+  }: {
+    search: ObjSearch
+    query: string
+    maxItems: number
+    setMaxItems: React.Dispatch<React.SetStateAction<number>>
+    readMoreLabel: string
+    showMoreResultsLabel: string
+  }) {
+    const searchResults = search.take(maxItems)
 
-  return (
-    <ContentTag
-      tag="span"
-      content={widget}
-      attribute={attribute}
-      dataContext={{ count: totalCount.toString() }}
-    />
-  )
-})
+    return (
+      <div className="container">
+        {searchResults.map((searchResult) => (
+          <SearchResult
+            key={`search-result-${searchResult.id()}`}
+            query={query}
+            readMoreLabel={readMoreLabel}
+            searchResult={searchResult}
+          />
+        ))}
+        {search.count() > maxItems ? (
+          <div className="text-center">
+            <button
+              className="btn btn-outline-primary"
+              onClick={(e) => {
+                e.preventDefault()
+                setMaxItems((maxItems) => maxItems + 10)
+              }}
+            >
+              {showMoreResultsLabel}
+            </button>
+          </div>
+        ) : null}
+      </div>
+    )
+  },
+  {
+    loading: () => (
+      <div className="container text-center">
+        <Loading />
+      </div>
+    ),
+  },
+)
+
+const TotalCountSummary = connect(
+  function TotalCountSummary({
+    search,
+    widget,
+  }: {
+    search: ObjSearch
+    widget: SearchResultsWidgetInstance
+  }) {
+    const totalCount = search.count()
+    const attributes = ['resultsHeadline0', 'resultsHeadline1'] as const
+    const attribute = attributes[totalCount] || 'resultsHeadline'
+
+    return (
+      <ContentTag
+        content={widget}
+        attribute={attribute}
+        dataContext={{ count: totalCount.toString() }}
+      />
+    )
+  },
+  {
+    loading: ({ widget }: { widget: SearchResultsWidgetInstance }) => (
+      <ContentTag content={widget} attribute="resultsLoadingHeadline" />
+    ),
+  },
+)
