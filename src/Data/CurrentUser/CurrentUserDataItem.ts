@@ -15,7 +15,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     try {
       neoletterProfile = await neoletterClient().get('my/profile')
       if (!isNeoletterData(neoletterProfile)) {
-        throw new Error('Neoletter data is not in the expected format')
+        throw new Error('Invalid user profile')
       }
     } catch (error) {
       errorToast('Unable to connect to Neoletter', error)
@@ -80,9 +80,7 @@ async function pisaIds() {
   let whoAmI
   try {
     whoAmI = await pisaClient('whoami').get('')
-    if (!isWhoAmI(whoAmI)) {
-      throw new Error('Whoami data is not in the expected format')
-    }
+    if (!isWhoAmI(whoAmI)) throw new Error('Invalid user ID')
   } catch (error) {
     errorToast('Unable to connect to PisaSales', error)
     throw error
