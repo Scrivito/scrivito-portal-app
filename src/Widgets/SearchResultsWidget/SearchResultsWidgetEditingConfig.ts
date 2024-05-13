@@ -7,7 +7,7 @@ provideEditingConfig(SearchResultsWidget, {
   thumbnail: Thumbnail,
   attributes: {
     readMoreLabel: { title: 'Read-more buttons label' },
-    resultsLoadingHeadline: { title: 'Headline for loading results' },
+    resultsLoadingHeadline: { title: 'Headline while loading results' },
     resultsHeadline0: { title: 'Headline for 0 results' },
     resultsHeadline1: { title: 'Headline for 1 result' },
     resultsHeadline: {
