@@ -3,7 +3,7 @@ import {
   ContentTag,
   DataItem,
   provideComponent,
-  useDataLocator,
+  useData,
 } from 'scrivito'
 
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
@@ -17,8 +17,7 @@ import { Loading } from '../../Components/Loading'
 provideComponent(
   DataPersonCardWidget,
   ({ widget }) => {
-    // TODO: Replace with useData() once 1.41.0-rc2 is used
-    const dataScope = useDataLocator(widget.get('data'))
+    const dataScope = useData()
 
     if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
 
