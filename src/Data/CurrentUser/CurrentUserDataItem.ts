@@ -26,7 +26,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
 
     return {
       email: user.email(),
-      picture: ensureString(user.picture()) || personCircle,
+      picture: user.picture() || personCircle,
       jrUserId: user.id(),
 
       pisaUserId,
@@ -87,9 +87,9 @@ async function pisaIds() {
   }
 
   return {
-    pisaUserId: ensureString(whoAmI._id),
-    salesUserId: ensureString(whoAmI.salesUserId), // TODO: Remove "ensureString" once datalocator filter can handle "null"
-    serviceUserId: ensureString(whoAmI.serviceUserId), // TODO: Remove "ensureString" once datalocator filter can handle "null"
+    pisaUserId: whoAmI._id,
+    salesUserId: whoAmI.salesUserId,
+    serviceUserId: whoAmI.serviceUserId,
   }
 }
 
