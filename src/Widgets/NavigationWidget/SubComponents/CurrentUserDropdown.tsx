@@ -14,6 +14,7 @@ import { CurrentUser } from '../../../Data/CurrentUser/CurrentUserDataItem'
 import { ensureString } from '../../../utils/ensureString'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import personCircle from '../../../assets/images/person-circle.svg'
+import { Loading } from '../../../Components/Loading'
 
 export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   root,
@@ -82,12 +83,15 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   )
 })
 
-const ProfileImg = connect(function ProfileImg() {
-  const picture = ensureString(CurrentUser.get('picture')) || personCircle
+const ProfileImg = connect(
+  function ProfileImg() {
+    const picture = ensureString(CurrentUser.get('picture')) || personCircle
 
-  return (
-    <>
-      <img className="profile-img" src={picture} aria-hidden="true" />{' '}
-    </>
-  )
-})
+    return (
+      <>
+        <img className="profile-img" src={picture} aria-hidden="true" />{' '}
+      </>
+    )
+  },
+  { loading: Loading },
+)
