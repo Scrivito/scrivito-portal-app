@@ -167,7 +167,6 @@ const TotalCountSummary = connect(
 
     return (
       <ContentTag
-        tag="span"
         content={widget}
         attribute={attribute}
         dataContext={{ count: totalCount.toString() }}
