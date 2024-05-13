@@ -4,15 +4,22 @@ import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
 import { pisaClient } from '../pisaClient'
+import { errorToast } from './errorToast'
 
 export const CurrentUser = provideDataItem('CurrentUser', {
   async get() {
     const user = await load(currentUser)
     if (!user) return null
 
-    const neoletterProfile = await neoletterClient().get('my/profile')
-    if (!isNeoletterData(neoletterProfile)) {
-      throw new Error('Neoletter data is not in the expected format')
+    let neoletterProfile
+    try {
+      neoletterProfile = await neoletterClient().get('my/profile')
+      if (!isNeoletterData(neoletterProfile)) {
+        throw new Error('Invalid user profile')
+      }
+    } catch (error) {
+      errorToast('Unable to connect to Neoletter', error)
+      throw error
     }
 
     const { pisaUserId, salesUserId, serviceUserId } = await pisaIds()
@@ -70,10 +77,13 @@ async function pisaIds() {
     }
   }
 
-  const whoAmI = await pisaClient('whoami').get('')
-
-  if (!isWhoAmI(whoAmI)) {
-    throw new Error('Whoami data is not in the expected format')
+  let whoAmI
+  try {
+    whoAmI = await pisaClient('whoami').get('')
+    if (!isWhoAmI(whoAmI)) throw new Error('Invalid user ID')
+  } catch (error) {
+    errorToast('Unable to connect to PisaSales', error)
+    throw error
   }
 
   return {
