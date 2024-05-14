@@ -16,7 +16,6 @@ export default defineConfig(({ mode }) => {
 
   const PISA_URL = env.PISA_URL
   const enablePisa = !!PISA_URL
-  if (enablePisa) console.log('Pisa is enabled.')
 
   return {
     build: {
