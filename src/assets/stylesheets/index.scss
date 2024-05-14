@@ -71,6 +71,8 @@
   --bs-link-hover-color-rgb: 10, 88, 202;
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
+
+  hyphens: auto;
 }
 
 .btn {
@@ -1626,7 +1628,6 @@ header .navbar.navbar-expand-lg {
   margin: 0;
   color: var(--bs-nav-link-color);
   display: flex;
-  word-break: break-all;
 }
 
 .nav-bordered li.active > a {
