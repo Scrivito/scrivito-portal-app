@@ -2,6 +2,7 @@ import {
   ContentTag,
   ImageTag,
   connect,
+  ensureUserIsLoggedIn,
   isUserLoggedIn,
   provideComponent,
 } from 'scrivito'
@@ -188,17 +189,18 @@ const CartActionButton = connect(function CartActionButton({
   const cartAddLabel = getMessage('cartAddLabel')
   const cartRemovedMessage = getMessage('cartRemovedMessage')
   const cartRemoveLabel = getMessage('cartRemoveLabel')
+  const cartLoginLabel = getMessage('cartLoginLabel')
   const cartUnvailableMessage = getMessage('cartUnvailableMessage')
 
   if (!isUserLoggedIn()) {
     return (
       <button
-        className="btn btn-sm btn-primary disabled"
-        style={{ pointerEvents: 'auto' }}
+        className="btn btn-sm btn-outline-primary"
         title={cartUnvailableMessage}
+        onClick={ensureUserIsLoggedIn}
       >
         <i className="bi bi-cart"></i>
-        {cartAddLabel}
+        {cartLoginLabel}
       </button>
     )
   }
@@ -270,6 +272,7 @@ const LOCALIZERS = {
     cartAddLabel: 'In den Warenkorb',
     cartRemovedMessage: '__product__ wurde aus dem Warenkorb entfernt.',
     cartRemoveLabel: 'Aus dem Warenkorb entfernen',
+    cartLoginLabel: 'Anmelden',
     cartUnvailableMessage:
       'Bitte melden Sie sich an, um __product__ zum Warenkorb hinzuzufügen.',
     data: 'Daten',
@@ -282,6 +285,7 @@ const LOCALIZERS = {
     cartAddLabel: 'Add to cart',
     cartRemovedMessage: 'Removed __product__ from cart.',
     cartRemoveLabel: 'Remove from cart',
+    cartLoginLabel: 'Log in',
     cartUnvailableMessage: 'Please log in to add __product__ to cart.',
     data: 'Data',
     description: 'Description',
