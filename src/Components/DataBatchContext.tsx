@@ -1,12 +1,10 @@
 import { createContext, useState } from 'react'
-import { connect, useData } from 'scrivito'
+import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
-  limit: number
   hasMore: () => boolean
   loadMore: () => void
 }>({
-  limit: 20,
   hasMore: () => true,
   loadMore: () => {
     throw new Error('loadMore is not provided!')
@@ -15,9 +13,11 @@ export const DataBatchContext = createContext<{
 
 export const DataBatchContextProvider = connect(
   function DataBatchContextProvider({
-    children,
+    content,
+    attribute,
   }: {
-    children: React.ReactNode
+    content: Obj | Widget
+    attribute: string
   }) {
     const dataScope = useData()
     // @ts-expect-error TODO: Remove workaround, once #10835 is resolved
@@ -44,8 +44,12 @@ export const DataBatchContextProvider = connect(
     const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
 
     return (
-      <DataBatchContext.Provider value={{ limit, hasMore, loadMore }}>
-        {children}
+      <DataBatchContext.Provider value={{ hasMore, loadMore }}>
+        <ContentTag
+          content={content}
+          attribute={attribute}
+          dataContext={dataScope.transform({ limit })}
+        />
       </DataBatchContext.Provider>
     )
   },
