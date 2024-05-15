@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import { connect, useData } from 'scrivito'
+import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
   limit: number
@@ -15,9 +15,11 @@ export const DataBatchContext = createContext<{
 
 export const DataBatchContextProvider = connect(
   function DataBatchContextProvider({
-    children,
+    content,
+    attribute,
   }: {
-    children: React.ReactNode
+    content: Obj | Widget
+    attribute: string
   }) {
     const dataScope = useData()
     // @ts-expect-error TODO: Remove workaround, once #10835 is resolved
@@ -45,7 +47,7 @@ export const DataBatchContextProvider = connect(
 
     return (
       <DataBatchContext.Provider value={{ limit, hasMore, loadMore }}>
-        {children}
+        <ContentTag content={content} attribute={attribute} />
       </DataBatchContext.Provider>
     )
   },
