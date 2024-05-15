@@ -25,7 +25,14 @@ function headers(environment: string) {
         'frame-ancestors':
           environment === 'development'
             ? ['*']
-            : ["'self'", 'https://*.scrivito.com'],
+            : [
+                "'self'",
+                'https://*.scrivito.com',
+
+                // TODO: Remove later on:
+                'http://localhost:8090',
+                'https://*.scrivito-ui.pages.dev',
+              ],
       },
     }),
     'X-Frame-Options': 'sameorigin',
