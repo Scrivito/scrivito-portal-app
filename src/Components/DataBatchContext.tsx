@@ -2,11 +2,9 @@ import { createContext, useState } from 'react'
 import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
-  limit: number
   hasMore: () => boolean
   loadMore: () => void
 }>({
-  limit: 20,
   hasMore: () => true,
   loadMore: () => {
     throw new Error('loadMore is not provided!')
@@ -46,8 +44,12 @@ export const DataBatchContextProvider = connect(
     const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
 
     return (
-      <DataBatchContext.Provider value={{ limit, hasMore, loadMore }}>
-        <ContentTag content={content} attribute={attribute} />
+      <DataBatchContext.Provider value={{ hasMore, loadMore }}>
+        <ContentTag
+          content={content}
+          attribute={attribute}
+          dataContext={dataScope.transform({ limit })}
+        />
       </DataBatchContext.Provider>
     )
   },
