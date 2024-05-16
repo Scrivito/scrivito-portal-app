@@ -21,8 +21,7 @@ export function configureScrivito() {
     unstable: {
       trustedUiOrigins: [
         'http://localhost:8090',
-        'https://*.netlify.app',
-        'https://*.pages.dev',
+        'https://*.scrivito-ui.pages.dev',
       ],
     },
   })
