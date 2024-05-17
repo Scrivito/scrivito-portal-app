@@ -6,9 +6,12 @@ import {
   Obj,
   logout,
   isUserLoggedIn,
+  isEditorLoggedIn,
 } from 'scrivito'
 import { NavigationWidgetInstance } from '../NavigationWidgetClass'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { CurrentUser } from '../../../Data/CurrentUser/CurrentUserDataItem'
 import { ensureString } from '../../../utils/ensureString'
@@ -77,6 +80,32 @@ const LogOutButton = connect(function LogOutButton({
 }: {
   logOutLabel: string
 }) {
+  // TODO: Remove workaround, once #10276 is available
+  if (isEditorLoggedIn()) {
+    return (
+      <OverlayTrigger
+        placement="left"
+        overlay={
+          <Tooltip>
+            Logging out from an app inside the Scrivito UI is currently not
+            possible.
+          </Tooltip>
+        }
+      >
+        <div>
+          <NavDropdown.Item
+            eventKey="MetaNavigation-LogOut"
+            key="MetaNavigation-LogOut"
+            disabled
+          >
+            <i className={`bi bi-box-arrow-right`}></i>
+            {logOutLabel}
+          </NavDropdown.Item>
+        </div>
+      </OverlayTrigger>
+    )
+  }
+
   return (
     <NavDropdown.Item
       as={LinkTag}
