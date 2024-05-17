@@ -1,0 +1,378 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Angebote"
+  ],
+  "link_icon": [
+    "string",
+    "bi-file-earmark-text"
+  ],
+  "meta_data_description": [
+    "string",
+    "Verwalten Sie Ihre Angebote mühelos bei uns auf Tynacoon! Sehen Sie detaillierte Informationen über jedes Angebot wie ID, Angebotsdatum, aktuellen Status und Gesamtpreis ein. Greifen Sie schnell auf Ihre komplette Angebots-Historie zu."
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Quote",
+      "order_by": [
+        [
+          "quoteAt",
+          "desc"
+        ]
+      ],
+      "query": [
+        {
+          "field": "open",
+          "value": "true"
+        }
+      ],
+      "size": 10
+    }
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "584cb3f6",
+      "3d538b32",
+      "a02ca071",
+      "55f4bc65",
+      "732671c9"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "f7da3de531e46fe9",
+  "_created_at": "20240405114131",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "f16dc0fbeddfaa9f",
+  "_language": "de",
+  "_last_changed": "20240513123516",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/f16dc0fbeddfaa9f",
+  "_permalink": null,
+  "_published_at": "20240513123753",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202405131237530000000000000000478d9653d10e681a",
+  "_widget_pool": {
+    "94402649": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "keyword"
+      ],
+      "details": [
+        "string",
+        "__Quote.number__"
+      ],
+      "label": [
+        "string",
+        "Angebot"
+      ]
+    },
+    "584cb3f6": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "7c6e30ee"
+        ]
+      ]
+    },
+    "7b6513dc": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "aaa0e994",
+          "9ba24b9d",
+          "a3c63024",
+          "cb16e4b9",
+          "238effb0"
+        ]
+      ]
+    },
+    "aaa0e994": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b2d01b47",
+          "935801b4"
+        ]
+      ]
+    },
+    "9ba24b9d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "94402649"
+        ]
+      ]
+    },
+    "a3c63024": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e92ee80c"
+        ]
+      ]
+    },
+    "cb16e4b9": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "3829e760"
+        ]
+      ]
+    },
+    "935801b4": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-file-earmark-text"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "7c6e30ee": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "52311cd4fb7fce3b",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "7b6513dc"
+        ]
+      ]
+    },
+    "238effb0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "98050bf5"
+        ]
+      ]
+    },
+    "e92ee80c": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Erstellt am"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "quoteAt"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "98050bf5": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Gesamt"
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "value_size": [
+        "string",
+        "h4"
+      ],
+      "attribute_name": [
+        "string",
+        "totalPrice"
+      ]
+    },
+    "3829e760": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "status"
+      ]
+    },
+    "bd59fd8d": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Keine Angebote gefunden.</p>"
+      ]
+    },
+    "b2d01b47": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "732671c9": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "7e68ab76a338b481",
+          "query": null,
+          "target": null,
+          "title": "Angebotsarchiv",
+          "url": null
+        }
+      ]
+    },
+    "55f4bc65": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "a02ca071": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "bd59fd8d"
+        ]
+      ]
+    },
+    "3d538b32": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Mehr laden"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

@@ -1,0 +1,374 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Angebotsarchiv"
+  ],
+  "link_icon": [
+    "string",
+    "bi-file-earmark-text"
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Quote",
+      "order_by": [
+        [
+          "quoteAt",
+          "desc"
+        ]
+      ],
+      "query": [
+        {
+          "field": "open",
+          "value": "false"
+        }
+      ],
+      "size": 10
+    }
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "145e7c13",
+      "3b1363c0",
+      "239fe3f1",
+      "1c87ea85",
+      "ad5ba362"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "ec9a22125e28ddcc",
+  "_created_at": "20240405114139",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "7e68ab76a338b481",
+  "_language": "de",
+  "_last_changed": "20240513123451",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/f16dc0fbeddfaa9f/7e68ab76a338b481",
+  "_permalink": null,
+  "_published_at": "20240513123753",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202405131237530000000000000000478d9653d10e681a",
+  "_widget_pool": {
+    "54958389": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "70b1e2c5"
+        ]
+      ]
+    },
+    "145e7c13": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8ebd1f50"
+        ]
+      ]
+    },
+    "b1a6d82f": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "a8e53055",
+          "fef10a99",
+          "905c4ad7",
+          "1fea959d",
+          "54958389"
+        ]
+      ]
+    },
+    "a8e53055": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "595323c2",
+          "5cfda4ed"
+        ]
+      ]
+    },
+    "fef10a99": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "bc41343c"
+        ]
+      ]
+    },
+    "905c4ad7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "65f8fc09"
+        ]
+      ]
+    },
+    "1fea959d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c4a37b01"
+        ]
+      ]
+    },
+    "5cfda4ed": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-file-earmark-text"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "8ebd1f50": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "0092ff67875b69f8",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "b1a6d82f"
+        ]
+      ]
+    },
+    "bc41343c": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "keyword"
+      ],
+      "details": [
+        "string",
+        "__Quote.number__"
+      ],
+      "label": [
+        "string",
+        "Angebot"
+      ]
+    },
+    "65f8fc09": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Erstellt am"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "quoteAt"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "70b1e2c5": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Gesamt"
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "value_size": [
+        "string",
+        "h4"
+      ],
+      "attribute_name": [
+        "string",
+        "totalPrice"
+      ]
+    },
+    "c4a37b01": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "status"
+      ]
+    },
+    "a3e6ea9e": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Keine Angebote gefunden.</p>"
+      ]
+    },
+    "595323c2": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "1c87ea85": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "ad5ba362": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "f16dc0fbeddfaa9f",
+          "query": null,
+          "target": null,
+          "title": "Angebotsübersicht",
+          "url": null
+        }
+      ]
+    },
+    "239fe3f1": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a3e6ea9e"
+        ]
+      ]
+    },
+    "3b1363c0": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Mehr laden"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

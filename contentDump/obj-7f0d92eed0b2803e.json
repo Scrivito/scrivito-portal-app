@@ -1,0 +1,64 @@
+{
+  "_obj_class": "Invoice",
+  "pdf_download_url": [
+    "string",
+    "https://cdn0.scrvt.com/d0a154d76edf2a7bd991fc658e700a1d/b98a9787b4ec4ee8/04563db74de8/INVOICE.pdf"
+  ],
+  "order_id": [
+    "string",
+    "#6281"
+  ],
+  "customer_id": [
+    "string",
+    "#6504"
+  ],
+  "invoice_id": [
+    "string",
+    "#7356"
+  ],
+  "created_at": [
+    "string",
+    "2023-07-01"
+  ],
+  "payment": [
+    "string",
+    "invoice"
+  ],
+  "content": [
+    "string",
+    "Vacuum pumps (Quantity: 3)\nSupply gaskets (Quantity: 2)"
+  ],
+  "issuer_address": [
+    "string",
+    "Tynacoon\nGoethestraße 123\n04109 Leipzig\nGermany"
+  ],
+  "customer_address": [
+    "string",
+    "Flux AG\nWillweg123\n22335 Lurch\nGermany"
+  ],
+  "total": [
+    "string",
+    "€5,250.00"
+  ],
+  "_conflicts": null,
+  "_content_id": "7f0d92eed0b2803e",
+  "_created_at": "20230704102455",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230706120613",
+  "_id": "7f0d92eed0b2803e",
+  "_language": "en",
+  "_last_changed": "20240116133201",
+  "_modification": null,
+  "_path": null,
+  "_permalink": null,
+  "_published_at": "20240116140853",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202401161408530000000000000000a6b9c77620d715e3",
+  "_widget_pool": {},
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

@@ -1,0 +1,228 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Mein Profil bearbeiten"
+  ],
+  "exclude_from_search": [
+    "boolean",
+    true
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "341da9ba"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "e842f873009bceb2",
+  "_created_at": "20240405113848",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "5e4bdb0a09991e19",
+  "_language": "de",
+  "_last_changed": "20240418084219",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/09a152b36247dc0a/5e4bdb0a09991e19",
+  "_permalink": null,
+  "_published_at": "20240418085825",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "2024041808582500000000000000009438266ab389ba45",
+  "_widget_pool": {
+    "b695ddc3": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "type": [
+        "string",
+        "single_line"
+      ],
+      "attribute_name": [
+        "string",
+        "company"
+      ],
+      "label": [
+        "string",
+        "Firma"
+      ]
+    },
+    "bbfecb2c": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "type": [
+        "string",
+        "phone_number"
+      ],
+      "label": [
+        "string",
+        "Telefonnummer"
+      ],
+      "attribute_name": [
+        "string",
+        "phoneNumber"
+      ]
+    },
+    "420d2f29": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "type": [
+        "string",
+        "single_line"
+      ],
+      "label": [
+        "string",
+        "Anrede"
+      ],
+      "attribute_name": [
+        "string",
+        "salutation"
+      ]
+    },
+    "fc7c4306": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "submit_title": [
+        "string",
+        "Änderungen speichern"
+      ],
+      "reset_title": [
+        "string",
+        "abbrechen"
+      ],
+      "size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "369c7bab": {
+      "_obj_class": "DataFormContainerWidget",
+      "redirect_after_submit": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "78e83624"
+        ]
+      ]
+    },
+    "06e1a94b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c464fbe5"
+        ]
+      ]
+    },
+    "efbc8bca": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "420d2f29",
+          "5b24d65b",
+          "bbfecb2c",
+          "b695ddc3",
+          "fc7c4306"
+        ]
+      ]
+    },
+    "78e83624": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "06e1a94b",
+          "efbc8bca"
+        ]
+      ]
+    },
+    "341da9ba": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "369c7bab"
+        ]
+      ]
+    },
+    "5b24d65b": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "type": [
+        "string",
+        "single_line"
+      ],
+      "label": [
+        "string",
+        "Name"
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ]
+    },
+    "c464fbe5": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "attribute_name": [
+        "string",
+        "picture"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ],
+      "image_from_data_item": [
+        "boolean",
+        true
+      ],
+      "link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "#"
+        }
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

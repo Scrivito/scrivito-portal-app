@@ -1,0 +1,535 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Career"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "5c228c75",
+      "0f200af9",
+      "0b541fc7",
+      "1f09ab33"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "8942b689824112e6",
+  "_created_at": "20230516091436",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230516091834",
+  "_id": "8942b689824112e6",
+  "_language": "en",
+  "_last_changed": "20240513144050",
+  "_modification": null,
+  "_path": "/55d682c23b93bd62/b5cfb74078461073",
+  "_permalink": null,
+  "_published_at": "20240514080213",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "2024051408021300000000000000004022c6aa2c64cc9c",
+  "_widget_pool": {
+    "5c228c75": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "9d62fdc7"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "5db83338": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "How to Start a Career at Tynacoon"
+      ]
+    },
+    "515a9b5b": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>\n  In today's fast-paced business environment, finding a job that offers both\n  stability and growth potential can be challenging. However, Tynacoon provides\n  an excellent opportunity for individuals who are looking to take their career\n  to the next level. Here's why you should consider working at Tynacoon:\n</p>\n<ol>\n  <li>\n    <strong>Global Market Leader</strong> - As one of the leading manufacturers\n    in nozzles and filling lines worldwide, Tynacoon is a well-established\n    company with an excellent reputation for providing high-quality products. By\n    joining our team, you'll be part of a global market leader that continues to\n    expand its reach into new markets every year.\n  </li>\n  <li>\n    <strong>Opportunities for Growth</strong> - At Tynacoon, we believe in\n    investing in our employees and helping them grow professionally. We offer a\n    range of training programs and development opportunities designed to help\n    you acquire the skills and knowledge needed to advance your career within\n    the company. Whether you're just starting out or looking to take on new\n    challenges, there are plenty of opportunities for growth at Tynacoon.\n  </li>\n  <li>\n    <strong>Competitive Salaries and Benefits</strong> - We understand that our\n    employees are our greatest asset, which is why we offer competitive salaries\n    and benefits packages designed to help them achieve a healthy work-life\n    balance. From comprehensive health insurance plans to flexible work\n    arrangements, we strive to create an environment where everyone can thrive\n    both personally and professionally.\n  </li>\n  <li>\n    <strong>Cutting-Edge Technology</strong> - As a leading manufacturer in\n    nozzles and filling lines, we are constantly investing in new technologies\n    designed to improve efficiency and productivity across all areas of our\n    business. By working at Tynacoon, you'll have access to some of the most\n    advanced equipment available today, allowing you to stay on top of industry\n    trends while also expanding your technical skills.\n  </li>\n  <li>\n    <strong>Collaborative Work Environment</strong> - At Tynacoon, we believe in\n    fostering a collaborative work environment where everyone works together\n    towards common goals. We encourage open communication and collaboration\n    among team members across all departments, ensuring that every voice is\n    heard and valued. By working at Tynacoon, you'll be part of a dynamic team\n    dedicated to delivering exceptional results for our customers worldwide.\n  </li>\n</ol>\n<p>\n  If you're looking for an opportunity to grow your career while contributing to\n  the success of one of the world's leading manufacturers in nozzles and filling\n  lines, then look no further than Tynacoon. With competitive salaries,\n  comprehensive benefits packages, cutting-edge technology and a collaborative\n  work environment, we offer everything you need to succeed both personally and\n  professionally. Join our team today!\n</p>\n"
+      ]
+    },
+    "0f200af9": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "5db83338",
+          "515a9b5b"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "0b541fc7": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "481b9bd8"
+        ]
+      ]
+    },
+    "9d35be86": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c57ed6048b05e7d8"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "dc3c9cf9": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Clara Corn"
+      ]
+    },
+    "4dd11cc1": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Chief Human Resources Officer"
+      ]
+    },
+    "a50ced18": {
+      "_obj_class": "ButtonWidget",
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Contact me",
+          "url": null
+        }
+      ]
+    },
+    "0f13e6d2": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "40ff39f8"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ]
+    },
+    "40ff39f8": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "83e9dcfb",
+          "cda600d1"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "83e9dcfb": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9d35be86"
+        ]
+      ]
+    },
+    "cda600d1": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "dc3c9cf9",
+          "4dd11cc1",
+          "dae54942",
+          "a50ced18"
+        ]
+      ]
+    },
+    "481b9bd8": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "1c0c542e",
+          "9349c783",
+          "3fbfe52d"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "1c0c542e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "9349c783": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "0f13e6d2",
+          "53f415b7"
+        ]
+      ]
+    },
+    "53f415b7": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<br>"
+      ]
+    },
+    "1f09ab33": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5aee7475"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "0fbd23bf": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "EXPO 2024"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "9b4c5b02": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Latest nozzle innovations by Tynacoon</p>"
+      ]
+    },
+    "ebd42838": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "c30746d8": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "0fbd23bf",
+          "9b4c5b02",
+          "ebd42838"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "background_color": [
+        "string",
+        "success"
+      ]
+    },
+    "34b9db50": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c30746d8"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "fc0a593f": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hannover Industry Exibition 2024"
+      ]
+    },
+    "1fe2dcf2": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Latest filling line updates by Tynacoon</p>"
+      ]
+    },
+    "c57e227c": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "1f175bbc": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "fc0a593f",
+          "1fe2dcf2",
+          "c57e227c"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "1890fb79": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "1f175bbc"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "5aee7475": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "34b9db50",
+          "1890fb79"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "3fbfe52d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "dae54942": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "3c46c297": {
+      "_obj_class": "BannerHeadlineWidget",
+      "headline": [
+        "string",
+        "Career"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "9d62fdc7": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "3c46c297"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:95cc3b45bac04c01b7f9efdd41e262ce",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

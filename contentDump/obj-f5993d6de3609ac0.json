@@ -1,0 +1,565 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Services"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "6fed6c50",
+      "00179d0d",
+      "eb948fe1",
+      "78f9c788",
+      "bf1100fb"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "f5993d6de3609ac0",
+  "_created_at": "20230511084339",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230511084702",
+  "_id": "f5993d6de3609ac0",
+  "_language": "en",
+  "_last_changed": "20240513143723",
+  "_modification": null,
+  "_path": "/35aa421c76a38f87",
+  "_permalink": null,
+  "_published_at": "20240514080213",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "2024051408021300000000000000004022c6aa2c64cc9c",
+  "_widget_pool": {
+    "00179d0d": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d7e590f8",
+          "956d7f74"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "956d7f74": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p id=\"isPasted\">At Tynacoon, we understand that your nozzle and filling lines are critical components of your production process that have a direct impact on the quality and efficiency of your products. That's why our team of experts is dedicated to providing you with professional services tailored specifically for this industry. With years of experience in designing, manufacturing, installing, and maintaining nozzle &amp; filling lines, we have become a trusted partner for businesses worldwide that demand nothing less than the best when it comes to their production needs.</p>"
+      ]
+    },
+    "6fed6c50": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "43e41e93"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "efb46cb2c7fa3cb5"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "d7e590f8": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Your Reliable Partner for Nozzle & Filling Line Solutions"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "ba401aed": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "6bc1f056",
+          "3bd5f47d",
+          "1c45b019"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "6bc1f056": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e28f19f5"
+        ]
+      ]
+    },
+    "3bd5f47d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8f85ae8f"
+        ]
+      ]
+    },
+    "1c45b019": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6b3d3a67"
+        ]
+      ]
+    },
+    "e28f19f5": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "ab2921d83b66edb5"
+      ]
+    },
+    "8f85ae8f": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "1409db9bede134fb"
+      ]
+    },
+    "6b3d3a67": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "518864722dad1deb"
+      ]
+    },
+    "80e367b1": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Why Choose Tynacoon?"
+      ]
+    },
+    "e901deb4": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p id=\"isPasted\">With years of experience in the nozzle &amp; filling lines industry, our team possesses unparalleled knowledge and skills to help you optimize your production process. We stay up-to-date with the latest advancements in technology and best practices, ensuring that we can provide cutting-edge solutions for your business needs.</p><p id=\"isPasted\">Recognizing that no two businesses are alike, we offer tailored services designed specifically for your unique requirements. From design consultation to maintenance plans, our goal is to deliver customized solutions that meet your exact specifications while maximizing efficiency and profitability.</p><p>At Tynacoon, quality is at the heart of everything we do. We adhere to strict quality standards during every stage of production, ensuring that each nozzle &amp; filling line we manufacture meets or exceeds industry benchmarks for performance and durability.</p><p>As a business partner, your success is our priority. That's why we strive to build long-term relationships with our clients by providing exceptional service, responsive support, and transparent communication throughout the entire process. Your satisfaction is always our top concern.</p><p>We understand that investing in nozzle &amp; filling lines can be a significant financial decision for your business. That's why we offer competitive pricing without compromising on quality or service. Our goal is to provide you with cost-effective solutions that deliver maximum value for money.</p>"
+      ]
+    },
+    "bf1100fb": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "e40cefc1",
+          "80e367b1",
+          "e901deb4",
+          "726ad0df"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ]
+    },
+    "0c6c58ba": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "EXPO 2024"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "e9e30dd3": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much more</p>"
+      ]
+    },
+    "7f3f9fe2": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "ae5bca21": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "0c6c58ba",
+          "e9e30dd3",
+          "7f3f9fe2"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "background_color": [
+        "string",
+        "success"
+      ]
+    },
+    "206d314f": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ae5bca21"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "a0d82327": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hannover Industry Exibition 2024"
+      ]
+    },
+    "19f23465": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much more</p>"
+      ]
+    },
+    "f6818772": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "c1dc6cb9": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "a0d82327",
+          "19f23465",
+          "f6818772"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "91c8192c": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c1dc6cb9"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "726ad0df": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "206d314f",
+          "91c8192c"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "43e41e93": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "7eeb594a"
+        ]
+      ]
+    },
+    "7eeb594a": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "headline": [
+        "string",
+        "Services"
+      ]
+    },
+    "fe23dc5b": {
+      "_obj_class": "YoutubeVideoWidget",
+      "youtube_video_id": [
+        "string",
+        "O_f7U7DpvSM"
+      ],
+      "aspect_ratio": [
+        "string",
+        "16to9"
+      ]
+    },
+    "e40cefc1": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "8e99425c": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "8c4b4374",
+          "c1641c9d",
+          "f6bd19a7"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "8c4b4374": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "c1641c9d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "fe23dc5b"
+        ]
+      ]
+    },
+    "f6bd19a7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "78f9c788": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "83a61eb9",
+          "a69f16c3",
+          "8e99425c"
+        ]
+      ]
+    },
+    "eb948fe1": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ba401aed"
+        ]
+      ]
+    },
+    "83a61eb9": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p id=\"isPasted\">Our team of engineers will work closely with you to design customized nozzle &amp; filling lines that meet your specific requirements, ensuring optimal performance and efficiency in your production process. We take into consideration factors such as product type, volume capacity, and desired speed while designing the perfect solution for your business needs.</p><p>With state-of-the-art facilities equipped with advanced machinery and tools, we manufacture high-quality nozzle &amp; filling lines that adhere to strict quality standards. Our skilled technicians meticulously craft each component, ensuring durability and reliability in every product we deliver.</p><p id=\"isPasted\">Our experienced professionals will handle the entire installation process for your new nozzle &amp; filling lines, minimizing downtime and disruptions to your production schedule. We ensure that all components are correctly installed and calibrated according to industry best practices, guaranteeing smooth operation from day one.</p><p id=\"isPasted\">To keep your nozzle &amp; filling lines running at peak performance, we offer comprehensive maintenance services tailored specifically for this equipment. Our technicians will conduct regular inspections, perform routine cleaning and lubrication, identify potential issues before they become major problems, and provide expert advice on how to maximize the lifespan of your machinery.</p><p>Should any component in your nozzle &amp; filling lines require repair or replacement, our team is ready to assist you promptly. We stock a wide range of genuine spare parts for all major brands, ensuring that we can quickly resolve any issue without compromising on quality or performance.</p>"
+      ]
+    },
+    "a69f16c3": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:95cc3b45bac04c01b7f9efdd41e262ce",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

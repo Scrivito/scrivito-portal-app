@@ -1,0 +1,1124 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Order details"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "ed835dbb",
+      "c8f56623"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "75f5feaca1004671",
+  "_created_at": "20230607072520",
+  "_data_param": [
+    "Order"
+  ],
+  "_editing_asset": false,
+  "_first_published_at": "20230607082616",
+  "_id": "75f5feaca1004671",
+  "_language": "en",
+  "_last_changed": "20240513123319",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/02d09ad2dd7d2332/cfb24ef7ec3a4bc2",
+  "_permalink": null,
+  "_published_at": "20240513123753",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "default",
+  "_version": "202405131237530000000000000000478d9653d10e681a",
+  "_widget_pool": {
+    "55815025": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "orderAt"
+      ],
+      "label": [
+        "string",
+        "Ordered At"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "ed835dbb": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "4b81160f",
+          "c090b1dc",
+          "6d907144",
+          "8d6603c4",
+          "3861364a",
+          "b80449d0",
+          "48c20492"
+        ]
+      ]
+    },
+    "b80449d0": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "e9a624bd",
+          "92f2e78f",
+          "1093141e"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "e9a624bd": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "92f2e78f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6e11e0e8"
+        ]
+      ]
+    },
+    "c090b1dc": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "6d907144": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "c6184c42",
+          "494ba464",
+          "d7c2f716"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "c6184c42": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "55815025"
+        ]
+      ]
+    },
+    "494ba464": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        5
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6214df43"
+        ]
+      ]
+    },
+    "1093141e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "aa925e11"
+        ]
+      ]
+    },
+    "3861364a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "4b81160f": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h3"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "keyword"
+      ],
+      "details": [
+        "string",
+        "__Order.number__"
+      ]
+    },
+    "aa925e11": {
+      "_obj_class": "DataLabelWidget",
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "totalPrice"
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "label": [
+        "string",
+        "Order Total"
+      ],
+      "value_size": [
+        "string",
+        "h3"
+      ]
+    },
+    "6e11e0e8": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Terms ​of Payment"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "termsOfPayment"
+      ]
+    },
+    "d7c2f716": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f04395ce"
+        ]
+      ]
+    },
+    "28bbe450": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "deliveryAt"
+      ],
+      "label": [
+        "string",
+        "Delivery At"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "dc4f7ccb": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "termsOfDelivery"
+      ],
+      "label": [
+        "string",
+        "Terms of Delivery"
+      ]
+    },
+    "cc9cd870": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "28bbe450",
+          "dc4f7ccb"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "48b3aa00": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "type"
+      ],
+      "label": [
+        "string",
+        "Order Type"
+      ]
+    },
+    "51124d05": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "description"
+      ],
+      "label": [
+        "string",
+        "Description"
+      ]
+    },
+    "f3603dd5": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "48b3aa00",
+          "51124d05"
+        ]
+      ],
+      "col_size": [
+        "number",
+        5
+      ]
+    },
+    "8c663cef": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "salesPartner"
+      ],
+      "label": [
+        "string",
+        "Sales Partner"
+      ]
+    },
+    "5d661530": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "0f285bf8",
+          "8c663cef"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "8d6603c4": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "cc9cd870",
+          "f3603dd5",
+          "5d661530"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "a8f79452": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a8e9130e"
+        ]
+      ]
+    },
+    "a8e9130e": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Commercial Agent"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ]
+    },
+    "eb404b73": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Technical Agent"
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ]
+    },
+    "63421c41": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "eb404b73"
+        ]
+      ]
+    },
+    "6214df43": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "status"
+      ]
+    },
+    "0cb4500f": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Downloads"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "2094f73c": {
+      "_obj_class": "DataAttachmentsWidget",
+      "attribute_name": [
+        "string",
+        "body"
+      ]
+    },
+    "41f532db": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "2094f73c"
+        ]
+      ]
+    },
+    "8369ab72": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No downloads found.</p>"
+      ]
+    },
+    "18854b1e": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ]
+    },
+    "fbc00be0": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "18854b1e"
+        ]
+      ]
+    },
+    "96025cea": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "de2aed23"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "3b83aaac": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "318fd138": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "createdAt"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "e7f659db": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "318fd138"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "1ea68791": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "96025cea",
+          "3b83aaac",
+          "e7f659db"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "ddee0849": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "attribute_name": [
+        "string",
+        "text"
+      ]
+    },
+    "7615736a": {
+      "_obj_class": "DataAttachmentsWidget",
+      "label": [
+        "string",
+        "Attachments"
+      ],
+      "attribute_name": [
+        "string",
+        "attachments"
+      ]
+    },
+    "40ed47d6": {
+      "_obj_class": "DataMessageWidget",
+      "content": [
+        "widgetlist",
+        [
+          "1ea68791",
+          "ddee0849",
+          "7615736a"
+        ]
+      ]
+    },
+    "aeeb0730": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "label": [
+        "string",
+        "Addition message"
+      ],
+      "type": [
+        "string",
+        "multi_line"
+      ],
+      "attribute_name": [
+        "string",
+        "text"
+      ]
+    },
+    "5597e577": {
+      "_obj_class": "DataFormUploadWidget",
+      "label": [
+        "string",
+        "Files"
+      ],
+      "attribute_name": [
+        "string",
+        "attachments"
+      ],
+      "multiple": [
+        "boolean",
+        true
+      ]
+    },
+    "f36ca210": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "submit_title": [
+        "string",
+        "Send message"
+      ],
+      "reset_title": [
+        "string",
+        "cancel"
+      ],
+      "size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "fc4f26b5": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "aeeb0730",
+          "5597e577",
+          "f36ca210"
+        ]
+      ]
+    },
+    "2568ea54": {
+      "_obj_class": "DataMessageWidget",
+      "content": [
+        "widgetlist",
+        [
+          "fc4f26b5"
+        ]
+      ]
+    },
+    "c959b820": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "40ed47d6"
+        ]
+      ]
+    },
+    "a21621f0": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Commercial Agent"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "some_not_existing_attribute"
+      ]
+    },
+    "9dcd79d9": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Technical Agent"
+      ],
+      "attribute_name": [
+        "string",
+        "some_not_existing_attribute"
+      ]
+    },
+    "48c20492": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "OrderDocument",
+          "query": [
+            {
+              "field": "orderId",
+              "value_via": {
+                "class": "Order",
+                "field": "_id"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "115f659f",
+          "0cb4500f",
+          "40d137b0",
+          "716be1a0",
+          "d12cc0fb"
+        ]
+      ]
+    },
+    "d12cc0fb": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8369ab72"
+        ]
+      ]
+    },
+    "9d3ff43d": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "OrderDocument",
+                "field": "documentId"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "41f532db"
+        ]
+      ]
+    },
+    "115f659f": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "c8f56623": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Message",
+          "order_by": [
+            [
+              "createdAt",
+              "asc"
+            ]
+          ],
+          "query": [
+            {
+              "field": "subjectId",
+              "value_via": {
+                "class": "Order",
+                "field": "_id"
+              }
+            }
+          ],
+          "size": 100
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c959b820",
+          "a8e2b249",
+          "2568ea54"
+        ]
+      ]
+    },
+    "f04395ce": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Order",
+                "field": "commercialAgent"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a8f79452",
+          "030daa77"
+        ]
+      ]
+    },
+    "030daa77": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a21621f0"
+        ]
+      ]
+    },
+    "0f285bf8": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Order",
+                "field": "technicalAgent"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "63421c41",
+          "909b9b39"
+        ]
+      ]
+    },
+    "909b9b39": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "9dcd79d9"
+        ]
+      ]
+    },
+    "de2aed23": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Message",
+                "field": "createdBy"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "fbc00be0"
+        ]
+      ]
+    },
+    "40d137b0": {
+      "_obj_class": "DataColumnListWidget",
+      "columns_count": [
+        "string",
+        "4"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9d3ff43d"
+        ]
+      ]
+    },
+    "a8e2b249": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "716be1a0": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

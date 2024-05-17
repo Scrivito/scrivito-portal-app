@@ -1,0 +1,598 @@
+{
+  "_obj_class": "Page",
+  "body": [
+    "widgetlist",
+    [
+      "1e884cfa",
+      "44a6472e"
+    ]
+  ],
+  "title": [
+    "string",
+    "Contact"
+  ],
+  "_conflicts": null,
+  "_content_id": "d9d4a49fab05294e",
+  "_created_at": "20230516091637",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230516091834",
+  "_id": "d9d4a49fab05294e",
+  "_language": "en",
+  "_last_changed": "20240513151641",
+  "_modification": null,
+  "_path": "/55d682c23b93bd62/d9d4a49fab05294e",
+  "_permalink": "contact",
+  "_published_at": "20240514080213",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "2024051408021300000000000000004022c6aa2c64cc9c",
+  "_widget_pool": {
+    "44610333": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "f4b0047d"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "92912952": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "given_name"
+      ],
+      "label": [
+        "string",
+        "First name"
+      ],
+      "placeholder": [
+        "string",
+        "Your first name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "1e884cfa": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3089a4d7"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "d7cb8d71df8ef049"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "44a6472e": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "7a498b8e",
+          "fc4c472a"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "bd58cbce": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "EXPO 2024"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "613bc45a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much more</p>"
+      ]
+    },
+    "82e0fa5f": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "f4b0047d": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "bd58cbce",
+          "613bc45a",
+          "82e0fa5f"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "background_image": [
+        "reference",
+        "b6307ad8551faa98"
+      ]
+    },
+    "902d8257": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hannover Industry Exibition 2024"
+      ]
+    },
+    "d0e6bc7e": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much more</p>"
+      ]
+    },
+    "546b75ea": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "c4cad7aa": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "902d8257",
+          "d0e6bc7e",
+          "546b75ea"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "6ba8ee45": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c4cad7aa"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "fc4c472a": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "44610333",
+          "6ba8ee45"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "8685478c": {
+      "_obj_class": "BannerHeadlineWidget",
+      "headline": [
+        "string",
+        "Contact"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "3089a4d7": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "8685478c"
+        ]
+      ]
+    },
+    "1a835a7a": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Get in Touch with Us"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "7a498b8e": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "1a835a7a",
+          "1597174c"
+        ]
+      ]
+    },
+    "1597174c": {
+      "_obj_class": "FormStepContainerWidget",
+      "captcha_alignment": [
+        "string",
+        "center"
+      ],
+      "friendly_captcha_theme": [
+        "string",
+        "light"
+      ],
+      "google_recaptcha_theme": [
+        "string",
+        "light"
+      ],
+      "friendly_captcha_start_mode": [
+        "string",
+        "none"
+      ],
+      "form_id": [
+        "string",
+        "4cee52a19d60fa8f85043be93e1424b3"
+      ],
+      "failed_message": [
+        "string",
+        "We are sorry, your request could not be completed. Please try again later."
+      ],
+      "submitted_message": [
+        "string",
+        "Your message has been successfully sent. Thank you for your request. We will get back to you as soon as possible."
+      ],
+      "submitting_message": [
+        "string",
+        "Submitting..."
+      ],
+      "form_type": [
+        "string",
+        "single-step"
+      ],
+      "steps": [
+        "widgetlist",
+        [
+          "ae630d2a"
+        ]
+      ],
+      "forward_button_text": [
+        "string",
+        "Forward"
+      ],
+      "backward_button_text": [
+        "string",
+        "Backward"
+      ],
+      "submit_button_text": [
+        "string",
+        "Submit"
+      ],
+      "review_button_text": [
+        "string",
+        "Review"
+      ],
+      "review_header_title": [
+        "string",
+        "Review"
+      ],
+      "review_close_button_text": [
+        "string",
+        "Close"
+      ],
+      "single_submit_button_alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "e5a9fc39": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "family_name"
+      ],
+      "label": [
+        "string",
+        "Last name"
+      ],
+      "placeholder": [
+        "string",
+        "Your last name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "f1fb6f0d": {
+      "_obj_class": "FormInputFieldWidget",
+      "label": [
+        "string",
+        "Email"
+      ],
+      "placeholder": [
+        "string",
+        "Your email address"
+      ],
+      "type": [
+        "string",
+        "email"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "22c6326d": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "company"
+      ],
+      "label": [
+        "string",
+        "Company"
+      ],
+      "placeholder": [
+        "string",
+        "Your company"
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "19f52595": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "custom"
+      ],
+      "custom_type": [
+        "string",
+        "multi_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_message"
+      ],
+      "label": [
+        "string",
+        "Message"
+      ],
+      "placeholder": [
+        "string",
+        "Your message"
+      ],
+      "required": [
+        "boolean",
+        true
+      ]
+    },
+    "ae630d2a": {
+      "_obj_class": "FormStepWidget",
+      "items": [
+        "widgetlist",
+        [
+          "2069a67d",
+          "f1fb6f0d",
+          "22c6326d",
+          "19f52595",
+          "c9b8e5f8"
+        ]
+      ],
+      "step_number": [
+        "number",
+        1
+      ],
+      "is_single_step": [
+        "boolean",
+        true
+      ]
+    },
+    "2069a67d": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "ef3ccc69",
+          "f9fefb8d"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "ef3ccc69": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "92912952"
+        ]
+      ]
+    },
+    "f9fefb8d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e5a9fc39"
+        ]
+      ]
+    },
+    "c9b8e5f8": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>By submitting this form, you agree to the terms and conditions of our privacy policy.</p>"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:95cc3b45bac04c01b7f9efdd41e262ce",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

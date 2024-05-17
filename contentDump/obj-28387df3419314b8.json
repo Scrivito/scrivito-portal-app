@@ -1,0 +1,819 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Ausrüstungsdetails"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "e529e0e5",
+      "7d0943c8",
+      "c559b336",
+      "49aabb9f"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "1e241bae572507e8",
+  "_created_at": "20240405113134",
+  "_data_param": [
+    "ServiceObject"
+  ],
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "28387df3419314b8",
+  "_language": "de",
+  "_last_changed": "20240418084150",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/486f8f791abc7a5f/28387df3419314b8",
+  "_permalink": null,
+  "_published_at": "20240418085825",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "2024041808582500000000000000009438266ab389ba45",
+  "_widget_pool": {
+    "e529e0e5": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-5"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "f6d3a94c"
+        ]
+      ]
+    },
+    "3d448d7b": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "label": [
+        "string",
+        "Zuständiger Agent"
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ]
+    },
+    "8e79208a": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3d448d7b"
+        ]
+      ]
+    },
+    "22c2db9c": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "status"
+      ]
+    },
+    "a51d85bd": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "label": [
+        "string",
+        "Zuständiger Agent"
+      ],
+      "attribute_name": [
+        "string",
+        "some_not_existing_attribute"
+      ]
+    },
+    "2c053ea8": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "ServiceObject",
+                "field": "responsibleAgent"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8e79208a",
+          "da5de734"
+        ]
+      ]
+    },
+    "da5de734": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a51d85bd"
+        ]
+      ]
+    },
+    "a39559f6": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "carrier"
+      ],
+      "label": [
+        "string",
+        "Spediteur"
+      ]
+    },
+    "3361d9ff": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "attribute_name": [
+        "string",
+        "supplier"
+      ],
+      "label": [
+        "string",
+        "Lieferant"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "9ced92f2": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image_from_data_item": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "picture"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "e16ba3d9": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Installiert am"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "installedAt"
+      ],
+      "datetime_format": [
+        "string",
+        "date"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "a7f6e50a": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "warrentyEndsAt"
+      ],
+      "label": [
+        "string",
+        "GARANTIE ENDET AM"
+      ],
+      "datetime_format": [
+        "string",
+        "date"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "f8fd68ab": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "attribute_name": [
+        "string",
+        "modelNumber"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "label": [
+        "string",
+        "Modellnummer"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "608eab22": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Seriennummer"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "serialNumber"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "0ff77051": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "f6d3a94c": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "045fafce",
+          "43e55446"
+        ]
+      ]
+    },
+    "045fafce": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "62bf29b2",
+          "3361d9ff",
+          "a39559f6"
+        ]
+      ]
+    },
+    "43e55446": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "1fad8eb4",
+          "7ddd92f4",
+          "2c053ea8"
+        ]
+      ]
+    },
+    "1fad8eb4": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "3ae3fcd3",
+          "a632c02b"
+        ]
+      ]
+    },
+    "3ae3fcd3": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9ced92f2",
+          "0ff77051"
+        ]
+      ]
+    },
+    "a632c02b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "22c2db9c"
+        ]
+      ]
+    },
+    "ff3e64c6": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e16ba3d9",
+          "f8fd68ab"
+        ]
+      ]
+    },
+    "981d7b33": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a7f6e50a",
+          "608eab22"
+        ]
+      ]
+    },
+    "7ddd92f4": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "ff3e64c6",
+          "981d7b33"
+        ]
+      ]
+    },
+    "6f58bea5": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "150240e1"
+        ]
+      ]
+    },
+    "49aabb9f": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Ticket",
+          "order_by": [
+            [
+              "updatedAt",
+              "desc"
+            ]
+          ],
+          "query": [
+            {
+              "field": "serviceObject",
+              "value_via": {
+                "class": "ServiceObject",
+                "field": "_id"
+              }
+            }
+          ],
+          "size": 10
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6f58bea5"
+        ]
+      ]
+    },
+    "62bf29b2": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h3"
+      ],
+      "attribute_name": [
+        "string",
+        "product"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "details": [
+        "string",
+        "__ServiceObject.number__\n__ServiceObject.information__\n\n__ServiceObject.locationStreet__\n__ServiceObject.locationPostalCode__ __ServiceObject.locationCity__ __ServiceObject.locationCountry__"
+      ]
+    },
+    "05d5a712": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        0.8
+      ]
+    },
+    "49eb8e45": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-question-circle"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_CAL"
+      ]
+    },
+    "c9117b0a": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-bug"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_TRB"
+      ]
+    },
+    "27fdbd4e": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-journal-check"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_CPL"
+      ]
+    },
+    "d64d7471": {
+      "_obj_class": "DataIconWidget",
+      "conditions": [
+        "widgetlist",
+        [
+          "49eb8e45",
+          "c9117b0a",
+          "27fdbd4e"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "fallback_icon": [
+        "string",
+        "bi-question-octagon"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "attribute_name": [
+        "string",
+        "type"
+      ]
+    },
+    "8d7066f9": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "05d5a712",
+          "d64d7471"
+        ]
+      ],
+      "col_size": [
+        "number",
+        1
+      ]
+    },
+    "3ec8accb": {
+      "_obj_class": "DataLabelWidget",
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "label": [
+        "string",
+        "Zugehöriges Ticket"
+      ],
+      "attribute_name": [
+        "string",
+        "title"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "details": [
+        "string",
+        "__Ticket.number__"
+      ]
+    },
+    "d7127ac9": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3ec8accb"
+        ]
+      ],
+      "col_size": [
+        "number",
+        7
+      ]
+    },
+    "062da1df": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Aktualisiert am"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "updatedAt"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "031a0fa4": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "062da1df"
+        ]
+      ],
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "0d2bea10": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "status"
+      ]
+    },
+    "6fcacec3": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "0d2bea10"
+        ]
+      ],
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "0a0bc8d1": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "8d7066f9",
+          "d7127ac9",
+          "031a0fa4",
+          "6fcacec3"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "stretch"
+      ]
+    },
+    "150240e1": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "0a0bc8d1"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "a593db912c64b615",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ]
+    },
+    "7d0943c8": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "right"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "26d2c9ef30130477",
+          "query": null,
+          "target": null,
+          "title": "Neues Ticket erstellen",
+          "url": null
+        }
+      ]
+    },
+    "c559b336": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

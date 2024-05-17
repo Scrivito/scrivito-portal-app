@@ -1,0 +1,1003 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Ticket details"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "6e002419",
+      "c3aaf4e9",
+      "e24c2813",
+      "efcbe184"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "e7118807488a6364",
+  "_created_at": "20240109075914",
+  "_data_param": [
+    "Ticket"
+  ],
+  "_editing_asset": false,
+  "_first_published_at": "20240112090022",
+  "_id": "e7118807488a6364",
+  "_language": "en",
+  "_last_changed": "20240426093916",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/125f0003cf11c725/e7118807488a6364",
+  "_permalink": null,
+  "_published_at": "20240426093932",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "default",
+  "_version": "2024042609393200000000000000003405ac05de87887e",
+  "_widget_pool": {
+    "62381b16": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "createdAt"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "083e2086": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "createdAt"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "dd35dc41": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "4340a5d8",
+          "bb077578",
+          "bb48b543"
+        ]
+      ]
+    },
+    "4340a5d8": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "label": [
+        "string",
+        "Addition message"
+      ],
+      "type": [
+        "string",
+        "multi_line"
+      ],
+      "attribute_name": [
+        "string",
+        "text"
+      ]
+    },
+    "bb48b543": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "submit_title": [
+        "string",
+        "Send message"
+      ],
+      "reset_title": [
+        "string",
+        "cancel"
+      ],
+      "size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "6186efa5": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "027b2721",
+          "5eaf876b",
+          "8b384cc0"
+        ]
+      ]
+    },
+    "8b384cc0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "62381b16"
+        ]
+      ]
+    },
+    "027b2721": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "360ef637"
+        ]
+      ]
+    },
+    "5eaf876b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "6208c86b": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "0cedc27b",
+          "3cf3bf32",
+          "e711bcc8"
+        ]
+      ]
+    },
+    "0cedc27b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "dfc4528e"
+        ]
+      ]
+    },
+    "3cf3bf32": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "e711bcc8": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "083e2086"
+        ]
+      ]
+    },
+    "60abac22": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "49afb345"
+        ]
+      ]
+    },
+    "a094d497": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "attribute_name": [
+        "string",
+        "text"
+      ]
+    },
+    "d6226fa8": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ]
+    },
+    "c2708936": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d6226fa8"
+        ]
+      ]
+    },
+    "362c2844": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ]
+    },
+    "84bf46e1": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "362c2844"
+        ]
+      ]
+    },
+    "bb077578": {
+      "_obj_class": "DataFormUploadWidget",
+      "label": [
+        "string",
+        "Files"
+      ],
+      "attribute_name": [
+        "string",
+        "attachments"
+      ],
+      "multiple": [
+        "boolean",
+        true
+      ]
+    },
+    "0fa6405f": {
+      "_obj_class": "DataAttachmentsWidget",
+      "label": [
+        "string",
+        "Attachments"
+      ],
+      "attribute_name": [
+        "string",
+        "attachments"
+      ]
+    },
+    "85aa8032": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h3"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "attribute_name": [
+        "string",
+        "title"
+      ],
+      "details": [
+        "string",
+        "__Ticket.number__"
+      ]
+    },
+    "b3ce35b9": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "85aa8032"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "96f55141": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-question-circle"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_CAL"
+      ]
+    },
+    "9627c966": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-bug"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_TRB"
+      ]
+    },
+    "a1943b42": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-journal-check"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_CPL"
+      ]
+    },
+    "ca1487fb": {
+      "_obj_class": "DataIconWidget",
+      "conditions": [
+        "widgetlist",
+        [
+          "96f55141",
+          "9627c966",
+          "a1943b42"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "right"
+      ],
+      "fallback_icon": [
+        "string",
+        "bi-question-octagon"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "attribute_name": [
+        "string",
+        "type"
+      ],
+      "label": [
+        "string",
+        "Type"
+      ]
+    },
+    "526a0673": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ca1487fb"
+        ]
+      ],
+      "col_size": [
+        "number",
+        1
+      ]
+    },
+    "c95c04a2": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "status"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "6d9e97ed": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Reference number"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "referenceNumber"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "28b40f18": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Responsible Agent"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ]
+    },
+    "8466b782": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "28b40f18"
+        ]
+      ]
+    },
+    "1c4bcf61": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c95c04a2",
+          "6d9e97ed",
+          "ae865377"
+        ]
+      ],
+      "col_size": [
+        "number",
+        5
+      ]
+    },
+    "7ecb9dcd": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "b3ce35b9",
+          "526a0673",
+          "1c4bcf61"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "6e002419": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "7ecb9dcd"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "4626a400": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "attribute_name": [
+        "string",
+        "description"
+      ]
+    },
+    "3750d8c2": {
+      "_obj_class": "DataAttachmentsWidget",
+      "label": [
+        "string",
+        "Attachments"
+      ],
+      "attribute_name": [
+        "string",
+        "attachments"
+      ]
+    },
+    "e24c2813": {
+      "_obj_class": "DataMessageWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6186efa5",
+          "4626a400",
+          "3750d8c2"
+        ]
+      ]
+    },
+    "49afb345": {
+      "_obj_class": "DataMessageWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6208c86b",
+          "a094d497",
+          "0fa6405f"
+        ]
+      ]
+    },
+    "673d01d0": {
+      "_obj_class": "DataMessageWidget",
+      "content": [
+        "widgetlist",
+        [
+          "dd35dc41"
+        ]
+      ]
+    },
+    "efcbe184": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Message",
+          "order_by": [
+            [
+              "createdAt",
+              "asc"
+            ]
+          ],
+          "query": [
+            {
+              "field": "subjectId",
+              "value_via": {
+                "class": "Ticket",
+                "field": "_id"
+              }
+            }
+          ],
+          "size": 100
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "60abac22",
+          "6d2d06be",
+          "673d01d0"
+        ]
+      ]
+    },
+    "ae865377": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Ticket",
+                "field": "responsibleAgent"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8466b782"
+        ]
+      ]
+    },
+    "360ef637": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Ticket",
+                "field": "createdBy"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c2708936"
+        ]
+      ]
+    },
+    "dfc4528e": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Message",
+                "field": "createdBy"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "84bf46e1"
+        ]
+      ]
+    },
+    "d2100b02": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "709a8455"
+        ]
+      ]
+    },
+    "c3aaf4e9": {
+      "_obj_class": "DataGroupWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d2100b02"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Ticket",
+                "field": "serviceObject"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "709a8455": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "d89b590a"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "1e241bae572507e8",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ]
+    },
+    "d56e4cc4": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-wrench-adjustable-circle"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "2b55871f": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "e035cefb",
+          "d56e4cc4"
+        ]
+      ],
+      "col_size": [
+        "number",
+        1
+      ]
+    },
+    "df872043": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "product"
+      ],
+      "details": [
+        "string",
+        "__ServiceObject.number__\n__ServiceObject.information__"
+      ],
+      "label": [
+        "string",
+        "Associated equipment"
+      ]
+    },
+    "75127f03": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "df872043"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "e20030cc": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "d9d6bd95": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Installed at"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "installedAt"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ]
+    },
+    "bba4ef00": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d9d6bd95"
+        ]
+      ]
+    },
+    "e822d314": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "attribute_name": [
+        "string",
+        "status"
+      ]
+    },
+    "d89b590a": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "2b55871f",
+          "75127f03",
+          "e20030cc",
+          "bba4ef00",
+          "3ddc1d08"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "3ddc1d08": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e822d314"
+        ]
+      ]
+    },
+    "e035cefb": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        0.8
+      ]
+    },
+    "6d2d06be": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

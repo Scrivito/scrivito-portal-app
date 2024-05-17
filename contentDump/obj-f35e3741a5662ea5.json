@@ -1,0 +1,245 @@
+{
+  "_obj_class": "Product",
+  "title": [
+    "string",
+    "GreenGuard Nozzle"
+  ],
+  "image": [
+    "reference",
+    "8764987d24e806f3"
+  ],
+  "parameters": [
+    "widgetlist",
+    [
+      "b9417ec8",
+      "0aa2f55e",
+      "9d5a51fb",
+      "62c0ec3c",
+      "7ccbccba"
+    ]
+  ],
+  "suitable_accessories": [
+    "referencelist",
+    [
+      "7aa779f9fcf90589"
+    ]
+  ],
+  "data_section": [
+    "widgetlist",
+    [
+      "35c11d23"
+    ]
+  ],
+  "description_section": [
+    "widgetlist",
+    [
+      "76905414"
+    ]
+  ],
+  "downloads_section": [
+    "widgetlist",
+    [
+      "3801ecd7"
+    ]
+  ],
+  "subtitle": [
+    "string",
+    "Precise Coverage, Minimal Waste"
+  ],
+  "_conflicts": null,
+  "_content_id": "f35e3741a5662ea5",
+  "_created_at": "20230830080701",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230831080316",
+  "_id": "f35e3741a5662ea5",
+  "_language": "en",
+  "_last_changed": "20231006063237",
+  "_modification": null,
+  "_path": "/587d96465c3c69c4/7a141950d1520c28/574d560204cebf08",
+  "_permalink": null,
+  "_published_at": "20231006064235",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202310060642350000000000000000e5173cd54d6fea40",
+  "_widget_pool": {
+    "76905414": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>An advanced broadcast spray nozzle designed to optimize the application of fertilizers, pesticides, herbicides and other chemicals in agriculture and lawn care. This innovative nozzle delivers precise and uniform coverage, ensuring maximum efficiency and effectiveness while minimizing drift and over-spraying. Its robust construction and easy maintenance make it a reliable choice for any farming or landscaping operation. With GreenGuard Nozzle, you can rest assured that your crops and lawns are getting the best possible care while protecting the environment.</p>"
+      ]
+    },
+    "9d5a51fb": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Droplet size"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "Coarse – very fine"
+        ]
+      ]
+    },
+    "b9417ec8": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Flow rate"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "5 l/min",
+          "10 l/min"
+        ]
+      ]
+    },
+    "62c0ec3c": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Material"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "POM"
+        ]
+      ]
+    },
+    "7ccbccba": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Certification mark"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "CE"
+        ]
+      ]
+    },
+    "0aa2f55e": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Selling unit"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "5 pieces"
+        ]
+      ]
+    },
+    "35c11d23": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c3570e788bbaf414"
+      ]
+    },
+    "c9f5c81d": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "title": [
+        "string",
+        "GreenGuard Nozzle"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "subtitle": [
+        "string",
+        "Technical Data"
+      ]
+    },
+    "77b88ed8": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c9f5c81d"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "65e663b7": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "details": [
+        "string",
+        "​PDF"
+      ],
+      "title": [
+        "string",
+        "GreenGuard Nozzle"
+      ],
+      "subtitle": [
+        "string",
+        "Certificates"
+      ]
+    },
+    "5527dc8e": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "65e663b7"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "c545e40d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "3801ecd7": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "77b88ed8",
+          "5527dc8e",
+          "c545e40d"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

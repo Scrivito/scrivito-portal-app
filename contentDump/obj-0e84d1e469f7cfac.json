@@ -1,0 +1,339 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "My profile"
+  ],
+  "link_icon": [
+    "string",
+    "bi-person-circle"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "31a74e40"
+    ]
+  ],
+  "meta_data_description": [
+    "string",
+    "Easily manage your account information with Tynacoon! View your name, email address, JustRelate ID, and more. Edit your phone number, company, and preferred salutation for a personalized experience. Keep your details up-to-date to ensure timely communication and optimal service."
+  ],
+  "_conflicts": null,
+  "_content_id": "0e84d1e469f7cfac",
+  "_created_at": "20230619123241",
+  "_data_param": [
+    "CurrentUser"
+  ],
+  "_editing_asset": false,
+  "_first_published_at": "20230620092020",
+  "_id": "0e84d1e469f7cfac",
+  "_language": "en",
+  "_last_changed": "20240322121447",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/4df09188b1541b70",
+  "_permalink": "my-profile",
+  "_published_at": "20240418085825",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "default",
+  "_version": "2024041808582500000000000000009438266ab389ba45",
+  "_widget_pool": {
+    "31a74e40": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "118d20bf"
+        ]
+      ]
+    },
+    "118d20bf": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "3b970851",
+          "046b7013"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "3b970851": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "563f53ae"
+        ]
+      ]
+    },
+    "046b7013": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6014703a",
+          "65b580d6",
+          "4bb4ba9c",
+          "0eaba041",
+          "90d75dab",
+          "89fed451"
+        ]
+      ]
+    },
+    "86edbdb8": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "e842f873009bceb2",
+          "query": null,
+          "target": null,
+          "title": "Edit profile",
+          "url": null
+        }
+      ]
+    },
+    "6014703a": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Salutation"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "salutation"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "65b580d6": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "label": [
+        "string",
+        "Name"
+      ],
+      "attribute_name": [
+        "string",
+        "name"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "4bb4ba9c": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "email"
+      ],
+      "label": [
+        "string",
+        "Email"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "0eaba041": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Phone Number"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "phoneNumber"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "90d75dab": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "attribute_name": [
+        "string",
+        "company"
+      ],
+      "label": [
+        "string",
+        "Company"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "563f53ae": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "attribute_name": [
+        "string",
+        "picture"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ],
+      "image_from_data_item": [
+        "boolean",
+        true
+      ]
+    },
+    "42b62f9d": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "e8f5370d6569478a",
+          "query": null,
+          "target": null,
+          "title": "GDPR consent",
+          "url": null
+        }
+      ]
+    },
+    "89fed451": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "deade78f",
+          "3acb5e1b"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "deade78f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "86edbdb8"
+        ]
+      ]
+    },
+    "3acb5e1b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "42b62f9d"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:8ffe3720f536480aa3cea87f15b3d6d1",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

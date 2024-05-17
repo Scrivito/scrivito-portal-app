@@ -1,0 +1,1171 @@
+{
+  "_obj_class": "Page",
+  "exclude_from_search": [
+    "boolean",
+    true
+  ],
+  "hide_in_navigation": [
+    "boolean",
+    true
+  ],
+  "title": [
+    "string",
+    "Whitepaper \"Hochmoderne Abfüllanlagen\""
+  ],
+  "show_as_landing_page": [
+    "boolean",
+    true
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "984aa7c0",
+      "a220f28e"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "28718c1fe9dd5169",
+  "_created_at": "20240514071754",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240514080213",
+  "_id": "df208b86b908e06d",
+  "_language": "de",
+  "_last_changed": "20240514075753",
+  "_modification": null,
+  "_path": "/84435b45662730da/6a5898770a646824/df208b86b908e06d",
+  "_permalink": "whitepaper/hochmoderne-abfuellanlagen",
+  "_published_at": "20240514080213",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "2024051408021300000000000000004022c6aa2c64cc9c",
+  "_widget_pool": {
+    "86887669": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "f7a9dbfb",
+          "ce1dc475"
+        ]
+      ]
+    },
+    "984aa7c0": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "fd456e1a38e85cfb"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b08b12f0"
+        ]
+      ]
+    },
+    "b08b12f0": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "a0c14b6b",
+          "3bd2a2be"
+        ]
+      ]
+    },
+    "a0c14b6b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9d6ce3f4",
+          "e6411aee"
+        ]
+      ]
+    },
+    "3bd2a2be": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "832d3b9f",
+          "8a6cadaa"
+        ]
+      ]
+    },
+    "8a6cadaa": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "padding": [
+        "string",
+        "p-5"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "6aa82d84",
+          "73f8b9c1",
+          "673555fb",
+          "ffa08dfe"
+        ]
+      ]
+    },
+    "ffa08dfe": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p class=\"text-small\">Wir respektieren Ihre Privatsphäre und verpflichten uns, Ihre persönlichen Daten zu schützen. Diese werden von uns verarbeitet, um Ihre Anfrage zu beantworten. Weitere Informationen finden Sie in der <a href=\"https://www.iubenda.com/privacy-policy/49159983\">Datenschutzerklärung</a> und den <a href=\"https://www.justrelate.com/de/transparente-information\">Transparenten Informationen</a>.</p>"
+      ]
+    },
+    "60d48751": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "9e82b21a",
+          "8433e90a"
+        ]
+      ]
+    },
+    "9e82b21a": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h1"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "headline": [
+        "string",
+        "Was enthält dieses Whitepaper?"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ]
+    },
+    "8433e90a": {
+      "_obj_class": "BannerHeadlineWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "Erleben Sie die Kraft der Effizienz"
+      ]
+    },
+    "6aa82d84": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Whitepaper herunterladen"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "e6411aee": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "4f4d221b9e654c82"
+      ]
+    },
+    "411f8237": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "17111fe4",
+          "eb54cd8c"
+        ]
+      ]
+    },
+    "17111fe4": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "61738a2b",
+          "dc910108",
+          "86887669",
+          "e76af65a"
+        ]
+      ]
+    },
+    "eb54cd8c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e151f187",
+          "df888657"
+        ]
+      ]
+    },
+    "e151f187": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "29b1bd22ef98b074"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "2b75d440": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-shield-check"
+      ],
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "290ff65a": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ],
+      "headline": [
+        "string",
+        "Individuelle Lösungen, schnelle Resultate"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ]
+    },
+    "acd86cd0": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Brauchen Sie eine maßgeschneiderte Lösung für Ihre speziellen Anforderungen? Unser Expertenteam arbeitet mit Ihnen zusammen, um eine auf Ihre genauen Spezifikationen zugeschnittene Abfüllanlage zu entwerfen und einzuführen. Vom Konzept bis zur Fertigstellung liefern wir Ergebnisse schnell, damit Sie die Vorteile früher genießen können.</p>"
+      ]
+    },
+    "fa3ce3d7": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "11a20e6047134560"
+      ]
+    },
+    "34f980a2": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "fa3ce3d7"
+        ]
+      ]
+    },
+    "3058f52b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f2863413",
+          "31641b22",
+          "eb48813b",
+          "e2d2a37d"
+        ]
+      ]
+    },
+    "672a189e": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "34f980a2",
+          "3058f52b"
+        ]
+      ]
+    },
+    "eb48813b": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "72383db6",
+          "bec7590a"
+        ]
+      ]
+    },
+    "72383db6": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "2b75d440"
+        ]
+      ]
+    },
+    "bec7590a": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "290ff65a",
+          "acd86cd0"
+        ]
+      ]
+    },
+    "1cbb7eb8": {
+      "_obj_class": "IconWidget",
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "icon": [
+        "string",
+        "bi-patch-check"
+      ]
+    },
+    "f7a9dbfb": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "1cbb7eb8"
+        ]
+      ]
+    },
+    "dcf32883": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h5"
+      ],
+      "headline": [
+        "string",
+        "100% Genauigkeit garantiert"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "b0d6c490": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Unsere Präzisionsdosiersysteme gewährleisten eine 100%ige Genauigkeit bei den Füllniveaus, eliminieren kostspielige Überfüllungen und minimieren Produktverschwendung. Jeder Tropfen zählt, und unsere Abfüllanlagen liefern konstante Ergebnisse, Charge für Charge.</p>"
+      ]
+    },
+    "ce1dc475": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "dcf32883",
+          "b0d6c490"
+        ]
+      ]
+    },
+    "9a4c45ff": {
+      "_obj_class": "IconWidget",
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "icon": [
+        "string",
+        "bi-clock-history"
+      ]
+    },
+    "de838b10": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9a4c45ff"
+        ]
+      ]
+    },
+    "a3f95a5f": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Rund um die Uhr Produktivität"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "08c02e6b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Maximieren Sie die Betriebszeit und halten Sie Ihre Produktionslinien rund um die Uhr am Laufen. Unsere Abfüllanlagen sind auf die Anforderungen eines kontinuierlichen Betriebs ausgelegt, so dass Sie Fristen einhalten und Erwartungen ohne Unterbrechung übertreffen können.</p>"
+      ]
+    },
+    "c3947d8f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a3f95a5f",
+          "08c02e6b"
+        ]
+      ]
+    },
+    "31641b22": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "de838b10",
+          "c3947d8f"
+        ]
+      ]
+    },
+    "01aee323": {
+      "_obj_class": "IconWidget",
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "icon": [
+        "string",
+        "bi-graph-up-arrow"
+      ]
+    },
+    "ff8decc6": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "01aee323"
+        ]
+      ]
+    },
+    "cfaf9918": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "40% Steigerung des Durchsatzes"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "3e2a28f3": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Durch unsere fortschrittlichen Abfüllanlagen können Sie Ihren Produktionsausstoß um bis zu 40% erhöhen. Verabschieden Sie sich von Engpässen und begrüßen Sie reibungslose Abläufe, die mit Ihrer wachsenden Nachfrage Schritt halten.</p>"
+      ]
+    },
+    "6f1d4d8c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "cfaf9918",
+          "3e2a28f3"
+        ]
+      ]
+    },
+    "dc910108": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "ff8decc6",
+          "6f1d4d8c"
+        ]
+      ]
+    },
+    "a220f28e": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "60d48751",
+          "411f8237",
+          "672a189e"
+        ]
+      ]
+    },
+    "f2863413": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "61738a2b": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "df888657": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "832d3b9f": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        4
+      ]
+    },
+    "673555fb": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "4aa50514": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h1"
+      ],
+      "headline": [
+        "string",
+        "Whitepaper-Download"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ]
+    },
+    "db121751": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Hochmoderne Abfüllanlagen"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ]
+    },
+    "9d6ce3f4": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "4aa50514",
+          "db121751"
+        ]
+      ]
+    },
+    "73f8b9c1": {
+      "_obj_class": "FormStepContainerWidget",
+      "captcha_alignment": [
+        "string",
+        "center"
+      ],
+      "friendly_captcha_theme": [
+        "string",
+        "light"
+      ],
+      "google_recaptcha_theme": [
+        "string",
+        "light"
+      ],
+      "friendly_captcha_start_mode": [
+        "string",
+        "none"
+      ],
+      "form_id": [
+        "string",
+        "9ae1401582cdf6a83188ed778388039c"
+      ],
+      "failed_message": [
+        "string",
+        "Es tut uns leid, Ihre Anfrage konnte nicht abgeschlossen werden. Bitte versuchen Sie es später erneut."
+      ],
+      "submitted_message": [
+        "string",
+        "Vielen Dank. Bitte überprüfen Sie Ihren Posteingang. Wir haben Ihnen einen Downloadlink per E-Mail geschickt."
+      ],
+      "submitting_message": [
+        "string",
+        "Wird übertragen..."
+      ],
+      "form_type": [
+        "string",
+        "single-step"
+      ],
+      "forward_button_text": [
+        "string",
+        "Forward"
+      ],
+      "backward_button_text": [
+        "string",
+        "Backward"
+      ],
+      "submit_button_text": [
+        "string",
+        "Absenden"
+      ],
+      "review_button_text": [
+        "string",
+        "Review"
+      ],
+      "review_header_title": [
+        "string",
+        "Review"
+      ],
+      "review_close_button_text": [
+        "string",
+        "Close"
+      ],
+      "single_submit_button_alignment": [
+        "string",
+        "left"
+      ],
+      "steps": [
+        "widgetlist",
+        [
+          "7cd5e4d6"
+        ]
+      ]
+    },
+    "c7d1a187": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "given_name"
+      ],
+      "label": [
+        "string",
+        "Vorname"
+      ],
+      "placeholder": [
+        "string",
+        "Ihr Vorname"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "81e477fd": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "family_name"
+      ],
+      "label": [
+        "string",
+        "Nachname"
+      ],
+      "placeholder": [
+        "string",
+        "Ihr Nachname"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "6093a553": {
+      "_obj_class": "FormInputFieldWidget",
+      "label": [
+        "string",
+        "E-Mail"
+      ],
+      "placeholder": [
+        "string",
+        "Ihre E-Mail-Adresse"
+      ],
+      "type": [
+        "string",
+        "email"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "7cd5e4d6": {
+      "_obj_class": "FormStepWidget",
+      "step_number": [
+        "number",
+        1
+      ],
+      "is_single_step": [
+        "boolean",
+        true
+      ],
+      "items": [
+        "widgetlist",
+        [
+          "d6701af9",
+          "6093a553",
+          "5d8ec2fe"
+        ]
+      ]
+    },
+    "d6701af9": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "c61897b4",
+          "f14411d9"
+        ]
+      ]
+    },
+    "c61897b4": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c7d1a187"
+        ]
+      ]
+    },
+    "f14411d9": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "81e477fd"
+        ]
+      ]
+    },
+    "5d8ec2fe": {
+      "_obj_class": "FormCheckboxWidget",
+      "type": [
+        "string",
+        "subscription"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_checkbox"
+      ],
+      "label": [
+        "string",
+        "Bitte melden Sie mich für Ihren Newsletter an"
+      ]
+    },
+    "3fdd5bb7": {
+      "_obj_class": "IconWidget",
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "icon": [
+        "string",
+        "bi-hourglass-split"
+      ]
+    },
+    "6c75b1bf": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "3fdd5bb7"
+        ]
+      ]
+    },
+    "1657e33b": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h5"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "30% Reduzierung der Stillstandszeiten"
+      ]
+    },
+    "6f5c74c7": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Erleben Sie reibungsarme Betriebsabläufe mit unseren zuverlässigen Abfüllanlagen. Mit integrierten Funktionen für die vorausschauende Wartung und der robusten Konstruktion können Sie die Stillstandszeiten um bis zu 30% reduzieren und Ihre Produktion auf Höchstleistung halten.</p>"
+      ]
+    },
+    "a9636ee7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "1657e33b",
+          "6f5c74c7"
+        ]
+      ]
+    },
+    "e76af65a": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "6c75b1bf",
+          "a9636ee7"
+        ]
+      ]
+    },
+    "75d189d1": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-piggy-bank"
+      ],
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "75a18eeb": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "75d189d1"
+        ]
+      ]
+    },
+    "5e7fe31f": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ],
+      "headline": [
+        "string",
+        "ROI in Monaten, nicht Jahren"
+      ]
+    },
+    "eeb1f5ce": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Investieren Sie in Effizienz und beobachten Sie, wie Ihre Gewinnmargen steigen. Mit unseren Abfüllanlagen sehen Sie eine schnelle Amortisation der Investition, mit Payback-Zeiten, die in Monaten, nicht Jahren, gemessen werden. Es ist eine kluge Investition, die sich jahrelang auszahlt.</p>"
+      ]
+    },
+    "c1ede161": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5e7fe31f",
+          "eeb1f5ce"
+        ]
+      ]
+    },
+    "e2d2a37d": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "75a18eeb",
+          "c1ede161"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:95cc3b45bac04c01b7f9efdd41e262ce",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

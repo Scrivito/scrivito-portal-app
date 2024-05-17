@@ -1,0 +1,196 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Create ticket"
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Ticket"
+    }
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "25921a17",
+      "f764dbd5"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "f909e9691db27360",
+  "_created_at": "20240109075855",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240112090022",
+  "_id": "f909e9691db27360",
+  "_language": "en",
+  "_last_changed": "20240418082932",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/125f0003cf11c725/f909e9691db27360",
+  "_permalink": null,
+  "_published_at": "20240418085825",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "default",
+  "_version": "2024041808582500000000000000009438266ab389ba45",
+  "_widget_pool": {
+    "ca6026fe": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c1c694c9",
+          "fcd15dfa",
+          "68c55e2a",
+          "c977b809",
+          "31558d9d"
+        ]
+      ],
+      "redirect_after_submit": [
+        "boolean",
+        true
+      ]
+    },
+    "c1c694c9": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "label": [
+        "string",
+        "Title"
+      ],
+      "type": [
+        "string",
+        "single_line"
+      ],
+      "attribute_name": [
+        "string",
+        "title"
+      ],
+      "required": [
+        "boolean",
+        true
+      ]
+    },
+    "31558d9d": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "submit_title": [
+        "string",
+        "Create"
+      ],
+      "reset_title": [
+        "string",
+        "cancel"
+      ],
+      "size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "68c55e2a": {
+      "_obj_class": "DataFormOptionsWidget",
+      "label": [
+        "string",
+        "Type"
+      ],
+      "attribute_name": [
+        "string",
+        "type"
+      ],
+      "options": [
+        "stringlist",
+        [
+          "Question",
+          "Fault",
+          "Claim"
+        ]
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "default_value": [
+        "string",
+        "PSA_SVC_CAL"
+      ]
+    },
+    "fcd15dfa": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "label": [
+        "string",
+        "Description"
+      ],
+      "type": [
+        "string",
+        "multi_line"
+      ],
+      "attribute_name": [
+        "string",
+        "description"
+      ],
+      "required": [
+        "boolean",
+        true
+      ]
+    },
+    "f764dbd5": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "ca6026fe"
+        ]
+      ]
+    },
+    "25921a17": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Create ticket"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "c977b809": {
+      "_obj_class": "DataFormUploadWidget",
+      "label": [
+        "string",
+        "Files"
+      ],
+      "attribute_name": [
+        "string",
+        "attachments"
+      ],
+      "multiple": [
+        "boolean",
+        true
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}
