@@ -67,19 +67,29 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
         </>
       ) : null}
 
-      <NavDropdown.Item
-        as={LinkTag}
-        eventKey="MetaNavigation-LogOut"
-        key="MetaNavigation-LogOut"
-        onClick={() => {
-          logout()
-        }}
-        to={Obj.root()}
-      >
-        <i className={`bi bi-box-arrow-right`}></i>
-        {widget.get('logOutLabel')}
-      </NavDropdown.Item>
+      <LogOutButton logOutLabel={widget.get('logOutLabel')} />
     </NavDropdown>
+  )
+})
+
+const LogOutButton = connect(function LogOutButton({
+  logOutLabel,
+}: {
+  logOutLabel: string
+}) {
+  return (
+    <NavDropdown.Item
+      as={LinkTag}
+      eventKey="MetaNavigation-LogOut"
+      key="MetaNavigation-LogOut"
+      onClick={() => {
+        logout()
+      }}
+      to={Obj.root()}
+    >
+      <i className={`bi bi-box-arrow-right`}></i>
+      {logOutLabel}
+    </NavDropdown.Item>
   )
 })
 
