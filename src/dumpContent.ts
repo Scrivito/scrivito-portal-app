@@ -13,6 +13,8 @@ type BlobMetadata = {
 
 const DUMP_PATH = 'contentDump'
 
+const UNWANTED_OBJ_IDS = ['05de9425035de4f7', '0787fc76eea28ac2']
+
 const env = loadEnv('development', process.cwd(), '')
 
 const API_CLIENT_ID = env.CONTENT_MASTER_API_CLIENT_ID || ''
@@ -62,6 +64,8 @@ async function dumpContent() {
     )
 
     for (const objData of data.objs) {
+      if (UNWANTED_OBJ_IDS.includes(objData._id)) continue
+
       await dumpObjAndBinaries(objData)
       objIds.push(objData._id)
     }
