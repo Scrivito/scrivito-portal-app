@@ -9,7 +9,10 @@ const pisaLookup: Partial<Record<string, string>> = {
 export function pisaUrl(): string {
   const instanceId = scrivitoTenantId()
   const url = pisaLookup[instanceId]
-  if (!url) throw new Error(`No PISA URL for ${instanceId} found!`)
+  if (!url) {
+    if (location.search.includes('ignoreMissingPisaUrl')) return ''
+    throw new Error(`No PISA URL for ${instanceId} found!`)
+  }
 
   return url
 }
