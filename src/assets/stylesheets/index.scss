@@ -218,11 +218,26 @@ fieldset:disabled .btn {
   .btn {
     border-radius: 0 30px 30px 0;
   }
+  .btn-x { background: transparent;
+    margin-left: -30px!important;
+    width: 30px;
+    padding: 2px 0 0 0;
+    z-index: 5;
+    &:active {
+      border-color: transparent!important;
+    }
+  }
   .form-control {
     border-radius: 30px;
     background: var(--light-grey);
     border-right: 0;
+    padding-right: 30px;
   }
+}
+
+.bg-light-grey .input-group .form-control {
+  background: #fff; 
+  border-color: rgba(0, 0, 0, 0.15);
 }
 
 .navbar-main .input-group {
@@ -244,6 +259,13 @@ fieldset:disabled .btn {
 .btn i {
   padding-right: 6px;
 }
+
+/* Hide the cancel button */
+::-webkit-search-cancel-button { 
+  -webkit-appearance: none; 
+}
+
+
 /* parts imports
  ================================================== */
 
