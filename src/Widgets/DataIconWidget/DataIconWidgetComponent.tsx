@@ -49,7 +49,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={widget.get('fallbackIcon') || 'bi-question-octagon'}
             size={size}
             link={null}
-            title={`${attributeValue}` || 'N/A'}
+            title={attributeValue || 'N/A'}
           />
         </>
       )}
