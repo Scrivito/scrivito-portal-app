@@ -1,7 +1,7 @@
 import { DataItem, isUserLoggedIn, load } from 'scrivito'
 import { Product, ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
-import { Ticket } from '../Ticket/TicketDataClass'
+import { Opportunity } from '../Opportunity/OpportunityDataClass'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
@@ -57,7 +57,7 @@ export async function checkoutCart(): Promise<DataItem> {
     if (product) products.push(product)
   }
 
-  const ticketMessage = `This is an automatically generated message.
+  const description = `This is an automatically generated message.
 
 I would like to request a quote with the following items:
 ${products
@@ -75,13 +75,13 @@ Please send me a quote.
 `
 
   // @ts-expect-error until out of private beta
-  const ticket = await Ticket.create({
-    title: 'Quote request',
-    description: ticketMessage,
+  const opportunity = await Opportunity.create({
+    keyword: 'Quote request',
+    description,
   })
 
   const deletePromises = cartItems.map((item) => item.delete())
   await Promise.all(deletePromises)
 
-  return ticket
+  return opportunity
 }
