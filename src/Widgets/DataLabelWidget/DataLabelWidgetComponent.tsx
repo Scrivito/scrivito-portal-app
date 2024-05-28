@@ -67,7 +67,7 @@ const AttributeValue = connect(function AttributeValue({
   datetimeFormat: string | null
   showAs: string | null
 }) {
-  if (!dataItem) return 'N/A'
+  if (!dataItem) return localizeNotAvailable()
 
   const attributeValue = dataItem?.get(attributeName)
 
@@ -87,14 +87,14 @@ const AttributeValue = connect(function AttributeValue({
 })
 
 function Text({ value }: { value: unknown }) {
-  return value ? value.toString() : 'N/A'
+  return value ? value.toString() : localizeNotAvailable()
 }
 
 const Currency = connect(function Currency({ value }: { value: unknown }) {
-  if (value === null) return 'N/A'
+  if (value === null) return localizeNotAvailable()
 
   const number = Number(value)
-  if (Number.isNaN(number)) return 'N/A'
+  if (Number.isNaN(number)) return localizeNotAvailable()
 
   const formatter = new Intl.NumberFormat(getCurrentLanguage(), {
     style: 'currency',
@@ -111,11 +111,11 @@ const Datetime = connect(function Datetime({
   value: unknown
   datetimeFormat: string | null
 }) {
-  if (value === null) return 'N/A'
-  if (typeof value !== 'string') return 'N/A'
+  if (value === null) return localizeNotAvailable()
+  if (typeof value !== 'string') return localizeNotAvailable()
 
   const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return 'N/A'
+  if (Number.isNaN(date.getTime())) return localizeNotAvailable()
 
   if (datetimeFormat === 'date') {
     return (
@@ -133,12 +133,19 @@ const Datetime = connect(function Datetime({
 })
 
 function Link({ value }: { value: unknown }) {
-  if (typeof value !== 'string') return 'N/A'
-  if (!value) return 'N/A'
+  if (typeof value !== 'string') return localizeNotAvailable()
+  if (!value) return localizeNotAvailable()
 
   return (
     <a href={value} target="_blank" rel="noreferrer">
       {value}
     </a>
   )
+}
+
+function localizeNotAvailable(): string {
+  const currentLanguage = getCurrentLanguage()
+  if (currentLanguage === 'de') return 'k.A.'
+
+  return 'N/A'
 }
