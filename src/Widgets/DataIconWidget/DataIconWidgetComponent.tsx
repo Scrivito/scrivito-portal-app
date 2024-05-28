@@ -5,6 +5,7 @@ import { isDataIconConditionWidget } from '../DataIconConditionWidget/DataIconCo
 import { IconComponent } from '../../Components/Icon'
 import { localizeAttributeValue } from '../../utils/dataValuesConfig'
 import { ensureString } from '../../utils/ensureString'
+import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataIconWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -49,10 +50,17 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={widget.get('fallbackIcon') || 'bi-question-octagon'}
             size={size}
             link={null}
-            title={attributeValue || 'N/A'}
+            title={attributeValue || localizeNotAvailable()}
           />
         </>
       )}
     </WidgetTag>
   )
 })
+
+function localizeNotAvailable(): string {
+  const currentLanguage = getCurrentLanguage()
+  if (currentLanguage === 'de') return 'k.A.'
+
+  return 'N/A'
+}
