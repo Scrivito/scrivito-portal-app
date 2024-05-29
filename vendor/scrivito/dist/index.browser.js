@@ -4975,7 +4975,7 @@ function create_rest_api_client_fetch(_0) {
 
 
 function getClientVersion() {
-  const clientVersion = "jssdk/1.29.0-dev-1-g77baba215982";
+  const clientVersion = "jssdk/1.29.0-dev-1-gd3995a2b8b6e";
   if (!clientVersion)
     throw new common/* InternalError */.AQ();
   return clientVersion;
@@ -6361,7 +6361,7 @@ function runAndCatchException(fn) {
 
 
 function getScrivitoVersion() {
-  const version = "1.29.0-dev-1-g77baba215982";
+  const version = "1.29.0-dev-1-gd3995a2b8b6e";
   if (!version) {
     throw new InternalError();
   }
@@ -15762,7 +15762,7 @@ class DataLocator {
   isSingleItem() {
     var _a;
     return this._viaRef === "single" || !!((_a = this._query) == null ? void 0 : _a.some(
-      (filter) => isDataLocatorValueFilter(filter) && filter.field === "_id"
+      (filter) => (isDataLocatorValueFilter(filter) || isDataLocatorValueViaFilter(filter)) && filter.field === "_id"
     ));
   }
   /** @internal */

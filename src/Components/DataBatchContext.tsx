@@ -28,8 +28,7 @@ export const DataBatchContextProvider = connect(
     attribute: string
   }) {
     const dataScope = useData()
-    // @ts-expect-error TODO: Remove workaround, once #10835 is resolved
-    const configuredLimit: number = dataScope._params?.limit ?? 20
+    const configuredLimit = dataScope.limit() ?? 20
     const [limit, setLimit] = useState(configuredLimit)
     const [initialLimit, setInitialLimit] = useState(configuredLimit)
 
