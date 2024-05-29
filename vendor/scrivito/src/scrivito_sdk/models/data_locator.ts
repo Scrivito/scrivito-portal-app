@@ -109,7 +109,10 @@ export class DataLocator {
     return (
       this._viaRef === 'single' ||
       !!this._query?.some(
-        (filter) => isDataLocatorValueFilter(filter) && filter.field === '_id'
+        (filter) =>
+          (isDataLocatorValueFilter(filter) ||
+            isDataLocatorValueViaFilter(filter)) &&
+          filter.field === '_id'
       )
     );
   }
