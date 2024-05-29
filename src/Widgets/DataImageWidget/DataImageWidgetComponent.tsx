@@ -55,7 +55,6 @@ const ImageComponent = connect(function ImageComponent({
   dataScope: DataScope
   widget: DataImageWidgetInstance
 }) {
-  const widgetAlternativeText = widget.get('alternativeText')
   const className = widget.get('roundCorners') ? 'rounded' : undefined
 
   const dataItemAttribute = dataScope.dataItemAttribute()
@@ -68,7 +67,6 @@ const ImageComponent = connect(function ImageComponent({
         <ImageTag
           content={objValue}
           attribute={dataItemAttribute.attributeName()}
-          alt={widgetAlternativeText}
           className={className}
         />
       </InPlaceEditingOff>
@@ -77,22 +75,10 @@ const ImageComponent = connect(function ImageComponent({
 
   const attributeValue = dataItemAttribute.get()
   if (isDataBinary(attributeValue)) {
-    return (
-      <DataBinaryImage
-        dataBinary={attributeValue}
-        alt={widgetAlternativeText}
-        className={className}
-      />
-    )
+    return <DataBinaryImage dataBinary={attributeValue} className={className} />
   }
 
   if (typeof attributeValue !== 'string') return null
 
-  return (
-    <img
-      src={attributeValue}
-      alt={widgetAlternativeText}
-      className={className}
-    />
-  )
+  return <img src={attributeValue} className={className} />
 })

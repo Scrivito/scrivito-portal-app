@@ -15,10 +15,6 @@ provideEditingConfig(DataImageWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
-    alternativeText: {
-      title: 'Alternative text',
-      description: 'Brief description of what the image is about.',
-    },
     link: {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
@@ -27,7 +23,7 @@ provideEditingConfig(DataImageWidget, {
       title: 'Round corners?',
     },
   },
-  properties: ['alignment', 'alternativeText', 'link', 'roundCorners'],
+  properties: ['alignment', 'link', 'roundCorners'],
   initialContent: {
     alignment: 'left',
   },
