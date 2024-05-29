@@ -1,7 +1,7 @@
-import { getInstanceId, createApiClient } from 'scrivito'
+import { getInstanceId, createRestApiClient } from 'scrivito'
 
 export function neoletterClient() {
-  return createApiClient(
+  return createRestApiClient(
     `https://api.justrelate.com/neoletter/instances/${getInstanceId()}`,
   )
 }

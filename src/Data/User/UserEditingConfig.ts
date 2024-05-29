@@ -8,6 +8,7 @@ provideEditingConfig(User, {
     name: { title: 'Name (given and family name)' },
     email: { title: 'Email' },
     position: { title: 'Position' },
+    image: { title: 'Image' },
     staff: { title: 'Staff?' },
     salutation: { title: 'Salutation' },
     givenName: { title: 'Given name' },

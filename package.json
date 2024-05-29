@@ -22,7 +22,7 @@
     "react-draggable": "^4.4.6",
     "react-helmet-async": "^2.0.5",
     "react-toastify": "^10.0.5",
-    "scrivito": "^1.41.0",
+    "scrivito": "file:vendor/scrivito",
     "scrivito-neoletter-form-widgets": "^0.0.13",
     "scroll-to-fragment": "^1.0.12",
     "speakingurl": "^14.0.1",

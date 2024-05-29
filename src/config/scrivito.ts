@@ -23,6 +23,7 @@ export function configureScrivito() {
         'http://localhost:8090',
         'https://*.scrivito-ui.pages.dev',
       ],
+      assetUrlBase: '/scrivito',
     },
   })
 
