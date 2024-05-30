@@ -6,7 +6,6 @@ import {
   Link,
   useData,
   WidgetTag,
-  DataScope,
   Obj,
   ImageTag,
   InPlaceEditingOff,
@@ -20,8 +19,6 @@ import { isDataBinary } from '../../utils/dataBinaryToUrl'
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
 
 provideComponent(DataImageWidget, ({ widget }) => {
-  const dataScope = useData()
-
   const classNames = ['image-widget']
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
@@ -29,7 +26,7 @@ provideComponent(DataImageWidget, ({ widget }) => {
   return (
     <WidgetTag className={classNames.join(' ')}>
       <LinkWrapper link={widget.get('link')}>
-        <ImageComponent widget={widget} dataScope={dataScope} />
+        <ImageComponent widget={widget} />
       </LinkWrapper>
     </WidgetTag>
   )
@@ -49,15 +46,13 @@ const LinkWrapper = connect(function LinkWrapper({
 })
 
 const ImageComponent = connect(function ImageComponent({
-  dataScope,
   widget,
 }: {
-  dataScope: DataScope
   widget: DataImageWidgetInstance
 }) {
   const className = widget.get('roundCorners') ? 'rounded' : undefined
 
-  const dataItemAttribute = dataScope.dataItemAttribute()
+  const dataItemAttribute = useData().dataItemAttribute()
   if (!dataItemAttribute) return null
 
   const objValue = dataItemAttribute.dataItem().obj()
