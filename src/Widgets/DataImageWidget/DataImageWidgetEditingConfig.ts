@@ -1,9 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
-import { ImageWidget } from './ImageWidgetClass'
+import { DataImageWidget } from './DataImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
-provideEditingConfig(ImageWidget, {
-  title: 'Image',
+provideEditingConfig(DataImageWidget, {
+  title: 'Data Image',
   thumbnail: Thumbnail,
   attributes: {
     alignment: {
@@ -15,18 +15,6 @@ provideEditingConfig(ImageWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
-    alternativeText: {
-      title: 'Alternative text (optional)',
-      description:
-        'Brief description of what the image is about.' +
-        ' If empty, the alternative text of the image is used.',
-    },
-    attributeName: {
-      title: 'Data item attribute name',
-    },
-    imageFromDataItem: {
-      title: 'Show image from data item?',
-    },
     link: {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
@@ -35,7 +23,7 @@ provideEditingConfig(ImageWidget, {
       title: 'Round corners?',
     },
   },
-  properties: ['alignment', 'alternativeText', 'link', 'roundCorners'],
+  properties: ['alignment', 'link', 'roundCorners'],
   initialContent: {
     alignment: 'left',
   },
