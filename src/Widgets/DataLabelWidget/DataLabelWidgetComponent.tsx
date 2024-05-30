@@ -1,9 +1,8 @@
 import {
   connect,
   ContentTag,
-  DataItem,
   provideComponent,
-  useDataItem,
+  useData,
   WidgetTag,
 } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
@@ -21,8 +20,6 @@ import { getCurrentLanguage } from '../../utils/currentLanguage'
 const CURRENCY = 'EUR' // ISO 4217 Code
 
 provideComponent(DataLabelWidget, ({ widget }) => {
-  const dataItem = useDataItem()
-
   const valueCssClassNames = ['text-multiline']
 
   const valueSize = widget.get('valueSize')
@@ -39,8 +36,6 @@ provideComponent(DataLabelWidget, ({ widget }) => {
       />
       <div className={valueCssClassNames.join(' ')}>
         <AttributeValue
-          dataItem={dataItem}
-          attributeName={widget.get('attributeName')}
           datetimeFormat={widget.get('datetimeFormat')}
           showAs={widget.get('showAs')}
         />
@@ -57,19 +52,16 @@ provideComponent(DataLabelWidget, ({ widget }) => {
 })
 
 const AttributeValue = connect(function AttributeValue({
-  dataItem,
-  attributeName,
   datetimeFormat,
   showAs,
 }: {
-  dataItem?: DataItem
-  attributeName: string
   datetimeFormat: string | null
   showAs: string | null
 }) {
-  if (!dataItem) return localizeNotAvailable()
+  const dataItemAttribute = useData().dataItemAttribute()
+  if (!dataItemAttribute) return localizeNotAvailable()
 
-  const attributeValue = dataItem?.get(attributeName)
+  const attributeValue = dataItemAttribute.get()
 
   if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') {
@@ -78,8 +70,8 @@ const AttributeValue = connect(function AttributeValue({
   if (showAs === 'link') return <Link value={attributeValue} />
 
   const value = localizeAttributeValue({
-    dataClass: dataItem.dataClass(),
-    attributeName,
+    dataClass: dataItemAttribute.dataClass(),
+    attributeName: dataItemAttribute.attributeName(),
     attributeValue: ensureString(attributeValue),
   })
 
