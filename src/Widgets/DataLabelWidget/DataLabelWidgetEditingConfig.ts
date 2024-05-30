@@ -6,7 +6,6 @@ provideEditingConfig(DataLabelWidget, {
   title: 'Data Label',
   thumbnail: Thumbnail,
   attributes: {
-    attributeName: { title: 'Data item attribute name' },
     showAs: {
       title: 'Show as',
       description: 'Default: Text',
@@ -32,7 +31,6 @@ provideEditingConfig(DataLabelWidget, {
   },
   properties: (widget) =>
     [
-      'attributeName',
       'showAs',
       widget.get('showAs') === 'datetime' ? 'datetimeFormat' : null,
       'valueSize',
