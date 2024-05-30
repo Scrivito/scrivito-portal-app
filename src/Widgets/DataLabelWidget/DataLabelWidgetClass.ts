@@ -1,5 +1,4 @@
 import { provideWidgetClass } from 'scrivito'
-import './migrateDataLabelWidgets'
 
 export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
   attributes: {
