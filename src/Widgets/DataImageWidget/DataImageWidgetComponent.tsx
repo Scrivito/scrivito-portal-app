@@ -80,5 +80,5 @@ const ImageComponent = connect(function ImageComponent({
 
   if (typeof attributeValue !== 'string') return null
 
-  return <img src={attributeValue} className={className} />
+  return <img src={attributeValue} className={className} alt="" />
 })
