@@ -6,7 +6,6 @@ import {
   Link,
   useData,
   WidgetTag,
-  Obj,
   ImageTag,
   InPlaceEditingOff,
 } from 'scrivito'
@@ -56,7 +55,7 @@ const ImageComponent = connect(function ImageComponent({
   if (!dataItemAttribute) return null
 
   const objValue = dataItemAttribute.dataItem().obj()
-  if (objValue instanceof Obj) {
+  if (objValue) {
     return (
       <InPlaceEditingOff>
         <ImageTag
