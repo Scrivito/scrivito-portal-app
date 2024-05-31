@@ -7,8 +7,10 @@ import './Objs'
 import './Widgets'
 import { App } from './App'
 import { configure } from './config'
+import { ensureSiteIsPresent } from './config/scrivitoSites'
 
 configure()
+ensureSiteIsPresent()
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
