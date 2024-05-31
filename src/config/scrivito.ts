@@ -1,9 +1,5 @@
 import { configure } from 'scrivito'
-import {
-  baseUrlForSite,
-  ensureSiteIsPresent,
-  siteForUrl,
-} from './scrivitoSites'
+import { baseUrlForSite, siteForUrl } from './scrivitoSites'
 import { scrivitoTenantId } from './scrivitoTenants'
 
 export function configureScrivito() {
@@ -26,6 +22,4 @@ export function configureScrivito() {
       assetUrlBase: '/scrivito',
     },
   })
-
-  ensureSiteIsPresent()
 }
