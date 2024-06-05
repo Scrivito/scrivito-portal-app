@@ -49,7 +49,7 @@ async function dumpContent() {
 
   do {
     const data: SearchData = await fetchJson<SearchData>(
-      `workspaces/published/objs/search`,
+      'workspaces/published/objs/search',
       {
         data: {
           continuation,

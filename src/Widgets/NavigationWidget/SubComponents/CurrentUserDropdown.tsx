@@ -98,7 +98,7 @@ const LogOutButton = connect(function LogOutButton({
             key="MetaNavigation-LogOut"
             disabled
           >
-            <i className={`bi bi-box-arrow-right`}></i>
+            <i className={'bi bi-box-arrow-right'}></i>
             {logOutLabel}
           </NavDropdown.Item>
         </div>
@@ -116,7 +116,7 @@ const LogOutButton = connect(function LogOutButton({
       }}
       to={Obj.root()}
     >
-      <i className={`bi bi-box-arrow-right`}></i>
+      <i className={'bi bi-box-arrow-right'}></i>
       {logOutLabel}
     </NavDropdown.Item>
   )
