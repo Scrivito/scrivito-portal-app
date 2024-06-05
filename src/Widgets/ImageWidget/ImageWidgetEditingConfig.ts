@@ -35,29 +35,8 @@ provideEditingConfig(ImageWidget, {
       title: 'Round corners?',
     },
   },
-  properties: (widget) => [
-    'alignment',
-    'alternativeText',
-    'link',
-    'roundCorners',
-    'imageFromDataItem',
-    ['attributeName', { enabled: widget.get('imageFromDataItem') }],
-  ],
+  properties: ['alignment', 'alternativeText', 'link', 'roundCorners'],
   initialContent: {
     alignment: 'left',
   },
-  validations: [
-    [
-      'image',
-
-      (image, { widget }) => {
-        if (!widget.get('imageFromDataItem') && !image) {
-          return {
-            message: 'The image should be set.',
-            severity: 'warning',
-          }
-        }
-      },
-    ],
-  ],
 })

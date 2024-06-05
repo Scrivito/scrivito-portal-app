@@ -1,4 +1,4 @@
-import { createApiClient } from 'scrivito'
+import { createRestApiClient } from 'scrivito'
 import { ensureString } from '../utils/ensureString'
 
 export function pisaUrl(): string {
@@ -10,5 +10,5 @@ export function pisaUrl(): string {
 
 export function pisaClient(subPath: string) {
   const url = `${pisaUrl()}/${subPath}`
-  return createApiClient(url)
+  return createRestApiClient(url)
 }

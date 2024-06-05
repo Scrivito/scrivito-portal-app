@@ -1,9 +1,8 @@
 import {
   connect,
   ContentTag,
-  DataItem,
   provideComponent,
-  useDataItem,
+  useData,
   WidgetTag,
 } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
@@ -21,8 +20,6 @@ import { getCurrentLanguage } from '../../utils/currentLanguage'
 const CURRENCY = 'EUR' // ISO 4217 Code
 
 provideComponent(DataLabelWidget, ({ widget }) => {
-  const dataItem = useDataItem()
-
   const valueCssClassNames = ['text-multiline']
 
   const valueSize = widget.get('valueSize')
@@ -39,8 +36,6 @@ provideComponent(DataLabelWidget, ({ widget }) => {
       />
       <div className={valueCssClassNames.join(' ')}>
         <AttributeValue
-          dataItem={dataItem}
-          attributeName={widget.get('attributeName')}
           datetimeFormat={widget.get('datetimeFormat')}
           showAs={widget.get('showAs')}
         />
@@ -57,19 +52,16 @@ provideComponent(DataLabelWidget, ({ widget }) => {
 })
 
 const AttributeValue = connect(function AttributeValue({
-  dataItem,
-  attributeName,
   datetimeFormat,
   showAs,
 }: {
-  dataItem?: DataItem
-  attributeName: string
   datetimeFormat: string | null
   showAs: string | null
 }) {
-  if (!dataItem) return 'N/A'
+  const dataItemAttribute = useData().dataItemAttribute()
+  if (!dataItemAttribute) return localizeNotAvailable()
 
-  const attributeValue = dataItem?.get(attributeName)
+  const attributeValue = dataItemAttribute.get()
 
   if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') {
@@ -78,8 +70,8 @@ const AttributeValue = connect(function AttributeValue({
   if (showAs === 'link') return <Link value={attributeValue} />
 
   const value = localizeAttributeValue({
-    dataClass: dataItem.dataClass(),
-    attributeName,
+    dataClass: dataItemAttribute.dataClass(),
+    attributeName: dataItemAttribute.attributeName(),
     attributeValue: ensureString(attributeValue),
   })
 
@@ -87,14 +79,14 @@ const AttributeValue = connect(function AttributeValue({
 })
 
 function Text({ value }: { value: unknown }) {
-  return value ? value.toString() : 'N/A'
+  return value ? value.toString() : localizeNotAvailable()
 }
 
 const Currency = connect(function Currency({ value }: { value: unknown }) {
-  if (value === null) return 'N/A'
+  if (value === null) return localizeNotAvailable()
 
   const number = Number(value)
-  if (Number.isNaN(number)) return 'N/A'
+  if (Number.isNaN(number)) return localizeNotAvailable()
 
   const formatter = new Intl.NumberFormat(getCurrentLanguage(), {
     style: 'currency',
@@ -111,11 +103,11 @@ const Datetime = connect(function Datetime({
   value: unknown
   datetimeFormat: string | null
 }) {
-  if (value === null) return 'N/A'
-  if (typeof value !== 'string') return 'N/A'
+  if (value === null) return localizeNotAvailable()
+  if (typeof value !== 'string') return localizeNotAvailable()
 
   const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return 'N/A'
+  if (Number.isNaN(date.getTime())) return localizeNotAvailable()
 
   if (datetimeFormat === 'date') {
     return (
@@ -133,12 +125,19 @@ const Datetime = connect(function Datetime({
 })
 
 function Link({ value }: { value: unknown }) {
-  if (typeof value !== 'string') return 'N/A'
-  if (!value) return 'N/A'
+  if (typeof value !== 'string') return localizeNotAvailable()
+  if (!value) return localizeNotAvailable()
 
   return (
     <a href={value} target="_blank" rel="noreferrer">
       {value}
     </a>
   )
+}
+
+function localizeNotAvailable(): string {
+  const currentLanguage = getCurrentLanguage()
+  if (currentLanguage === 'de') return 'k.A.'
+
+  return 'N/A'
 }

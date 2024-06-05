@@ -46,7 +46,7 @@ export class ErrorBoundary extends React.Component<
                 <button
                   type="button"
                   className="btn btn-secondary"
-                  onClick={() => window.location.reload()}
+                  onClick={window.location.reload}
                 >
                   Please try again
                 </button>

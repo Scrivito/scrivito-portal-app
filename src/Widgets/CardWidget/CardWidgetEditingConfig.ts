@@ -8,7 +8,7 @@ provideEditingConfig(CardWidget, {
   attributes: {
     backgroundColor: {
       title: 'Background color',
-      description: 'Default: Light grey',
+      description: 'Default: White',
       values: [
         { value: 'transparent', title: 'Transparent' },
         { value: 'white', title: 'White' },
@@ -49,7 +49,7 @@ provideEditingConfig(CardWidget, {
     'showFooter',
   ],
   initialContent: {
-    backgroundColor: 'light-grey',
+    backgroundColor: 'white',
     margin: 'mb-4',
     padding: 'p-4',
   },

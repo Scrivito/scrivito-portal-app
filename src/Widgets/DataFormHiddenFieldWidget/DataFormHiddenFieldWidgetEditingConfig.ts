@@ -1,5 +1,4 @@
 import { provideEditingConfig, Widget } from 'scrivito'
-import { attributeNameValidation } from '../DataFormContainerWidget/utils/validations/attributeNameValidation'
 import { DataFormHiddenFieldWidget } from './DataFormHiddenFieldWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
@@ -18,7 +17,6 @@ provideEditingConfig(DataFormHiddenFieldWidget, {
     attributeName: 'hidden_field',
   },
   validations: [
-    attributeNameValidation,
     (widget) => {
       const hiddenFields = widget.container().get('hiddenFields')
       if (

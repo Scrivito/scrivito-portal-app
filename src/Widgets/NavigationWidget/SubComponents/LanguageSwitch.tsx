@@ -2,6 +2,7 @@ import { NavDropdown } from 'react-bootstrap'
 import {
   connect,
   currentPage,
+  currentPageParams,
   currentSiteId,
   ImageTag,
   InPlaceEditingOff,
@@ -43,7 +44,11 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
             key={root.id()}
-            href={urlFor(version || root)}
+            href={
+              version
+                ? urlFor(version, { query: currentQuery() })
+                : urlFor(root)
+            }
             active={root.language() === activeSite.language()}
           >
             <LanguageLabel root={root} />
@@ -53,6 +58,14 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
     </InPlaceEditingOff>
   )
 })
+
+function currentQuery() {
+  const params = new URLSearchParams()
+  Object.entries(currentPageParams()).forEach(([k, v]) => {
+    if (typeof v === 'string') params.append(k, v)
+  })
+  return params.toString()
+}
 
 const LanguageLabel = connect(function LanguageLabel({
   className,
