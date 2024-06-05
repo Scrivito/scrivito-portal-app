@@ -62,6 +62,7 @@ const ImageComponent = connect(function ImageComponent({
           content={objValue}
           attribute={dataItemAttribute.attributeName()}
           className={className}
+          alt=""
         />
       </InPlaceEditingOff>
     )
