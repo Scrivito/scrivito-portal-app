@@ -18,6 +18,11 @@
   },
   "rules": {
     "curly": ["error", "multi-line"],
+    "quotes": [
+      "warn",
+      "single",
+      { "avoidEscape": true, "allowTemplateLiterals": false }
+    ],
     "@typescript-eslint/no-unused-vars": [
       1,
       { "args": "all", "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }
