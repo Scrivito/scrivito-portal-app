@@ -1,4 +1,10 @@
-import { DataItem, isUserLoggedIn, load } from 'scrivito'
+import {
+  DataItem,
+  currentLanguage,
+  currentUser,
+  isUserLoggedIn,
+  load,
+} from 'scrivito'
 import { Product, ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
@@ -57,31 +63,27 @@ export async function checkoutCart(): Promise<DataItem> {
     if (product) products.push(product)
   }
 
-  const description = `This is an automatically generated message.
-
-I would like to request a quote with the following items:
-${products
-  .map(
-    (product) =>
-      '- ' +
-      [product.get('title'), product.get('subtitle')].join(' - ') +
-      ' (ID: ' +
-      product.id() +
-      ')',
-  )
-  .join('\n')}
-
-Please send me a quote.
-`
+  const keyword = await getTitle()
+  const description = products
+    .map((product) => `1 × ${product.get('title')} (ID: ${product.id()})`)
+    .join('\n')
 
   // @ts-expect-error until out of private beta
-  const opportunity = await Opportunity.create({
-    keyword: 'Quote request',
-    description,
-  })
+  const opportunity = await Opportunity.create({ keyword, description })
 
   const deletePromises = cartItems.map((item) => item.delete())
   await Promise.all(deletePromises)
 
   return opportunity
+}
+
+async function getTitle() {
+  const name = await load(() => currentUser()?.name())
+
+  switch (await load(currentLanguage)) {
+    case 'de':
+      return `${name}s Warenkorb vom ${new Date().toLocaleString('de')}`
+    default:
+      return `${name}’s shopping cart of ${new Date().toLocaleString('en')}`
+  }
 }
