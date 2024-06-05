@@ -97,6 +97,7 @@ const LogOutButton = connect(function LogOutButton({
             eventKey="MetaNavigation-LogOut"
             key="MetaNavigation-LogOut"
             disabled
+            style={{ color: 'rgba(0, 0, 0, 0.5)' }}
           >
             <i className="bi bi-box-arrow-right"></i>
             {logOutLabel}
