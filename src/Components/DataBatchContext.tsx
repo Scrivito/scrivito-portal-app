@@ -1,13 +1,5 @@
 import { createContext, useState } from 'react'
-import {
-  connect,
-  useData,
-  Obj,
-  Widget,
-  ContentTag,
-  ClientError,
-  DataConnectionError,
-} from 'scrivito'
+import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
   hasMore: () => boolean
@@ -37,25 +29,8 @@ export const DataBatchContextProvider = connect(
       setLimit(configuredLimit)
     }
 
-    const hasMore = () => {
-      let dataCount: number | null = null
-      // TODO: Remove workaround, once #10900 is resolved
-      try {
-        dataCount = dataScope.count()
-      } catch (error) {
-        if (error instanceof ClientError) return false
-        if (error instanceof DataConnectionError) return false
-
-        throw error
-      }
-
-      const count =
-        dataCount === null
-          ? dataScope.transform({ limit }).take().length + 1
-          : dataCount
-
-      return count > limit
-    }
+    const hasMore = () =>
+      dataScope.transform({ limit: limit + 1 }).take().length > limit
 
     const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
 
