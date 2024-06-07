@@ -1,4 +1,4 @@
-import { ContentTag, connect, provideComponent, useDataItem } from 'scrivito'
+import { ContentTag, connect, provideComponent, useData } from 'scrivito'
 import { DataAttachmentsWidget } from './DataAttachmentsWidgetClass'
 import {
   dataBinaryToUrl,
@@ -10,8 +10,8 @@ import prettyBytes from 'pretty-bytes'
 import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
-  const dataItem = useDataItem()
-  const value = dataItem?.get(widget.get('attributeName'))
+  const dataItemAttribute = useData().dataItemAttribute()
+  const value = dataItemAttribute?.get()
   const attachments = isFullDataBinary(value) ? [value] : value
   if (!isFullBinaryArray(attachments)) return null
   if (attachments.length === 0) return null
