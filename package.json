@@ -29,6 +29,7 @@
     "vite-node": "^1.6.0"
   },
   "devDependencies": {
+    "@arabasta/eslint-plugin-require-useeffect-dependency-array": "^1.0.9",
     "@cloudflare/workers-types": "^4.20240529.0",
     "@types/highlight-words-core": "^1.2.3",
     "@types/lodash-es": "^4.17.12",
