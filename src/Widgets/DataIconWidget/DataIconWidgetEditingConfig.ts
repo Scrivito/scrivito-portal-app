@@ -25,13 +25,7 @@ provideEditingConfig(DataIconWidget, {
         'This icon is used, if no condition matches. Default: "bi-question-octagon". The full list of names can be found at https://icons.getbootstrap.com/',
     },
   },
-  properties: [
-    'attributeName',
-    'size',
-    'alignment',
-    'fallbackIcon',
-    'conditions',
-  ],
+  properties: ['size', 'alignment', 'fallbackIcon', 'conditions'],
   initialContent: {
     alignment: 'left',
     fallbackIcon: 'bi-question-octagon',

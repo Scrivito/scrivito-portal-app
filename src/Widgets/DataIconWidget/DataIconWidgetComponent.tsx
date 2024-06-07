@@ -1,4 +1,4 @@
-import { ContentTag, WidgetTag, provideComponent, useDataItem } from 'scrivito'
+import { ContentTag, WidgetTag, provideComponent, useData } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { isDataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
@@ -8,17 +8,17 @@ import { ensureString } from '../../utils/ensureString'
 import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataIconWidget, ({ widget }) => {
-  const dataItem = useDataItem()
-
-  const attributeName = widget.get('attributeName')
-  const attributeValue = ensureString(dataItem?.get(attributeName))
+  const dataItemAttribute = useData().dataItemAttribute()
+  const attributeValue = ensureString(dataItemAttribute?.get())
 
   const size = widget.get('size') || 'bi-2x'
 
   const conditions = widget.get('conditions').filter(isDataIconConditionWidget)
-  const matchingCondition = conditions.find(
-    (condition) => condition.get('attributeValue') === attributeValue,
-  )
+  const matchingCondition =
+    dataItemAttribute &&
+    conditions.find(
+      (condition) => condition.get('attributeValue') === attributeValue,
+    )
 
   return (
     <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
@@ -33,15 +33,11 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={matchingCondition.get('icon') || 'bi-box'}
             size={size}
             link={null}
-            title={
-              dataItem
-                ? localizeAttributeValue({
-                    dataClass: dataItem.dataClass(),
-                    attributeName,
-                    attributeValue,
-                  })
-                : attributeValue
-            }
+            title={localizeAttributeValue({
+              dataClass: dataItemAttribute.dataClass(),
+              attributeName: dataItemAttribute.attributeName(),
+              attributeValue,
+            })}
           />
         </>
       ) : (

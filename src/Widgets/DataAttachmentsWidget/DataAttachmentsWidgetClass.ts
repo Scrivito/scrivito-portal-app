@@ -4,7 +4,7 @@ export const DataAttachmentsWidget = provideWidgetClass(
   'DataAttachmentsWidget',
   {
     attributes: {
-      attributeName: 'string',
+      data: 'datalocator',
       label: 'string',
     },
   },
