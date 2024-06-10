@@ -69,6 +69,10 @@ const AttributeValue = connect(function AttributeValue({
   }
   if (showAs === 'link') return <Link value={attributeValue} />
 
+  if (typeof attributeValue === 'number') {
+    return <NumberText value={attributeValue} />
+  }
+
   const value = localizeAttributeValue({
     dataClass: dataItemAttribute.dataClass(),
     attributeName: dataItemAttribute.attributeName(),
@@ -80,6 +84,10 @@ const AttributeValue = connect(function AttributeValue({
 
 function Text({ value }: { value: unknown }) {
   return value ? value.toString() : localizeNotAvailable()
+}
+
+function NumberText({ value }: { value: number }) {
+  return new Intl.NumberFormat(getCurrentLanguage()).format(value)
 }
 
 const Currency = connect(function Currency({ value }: { value: unknown }) {
