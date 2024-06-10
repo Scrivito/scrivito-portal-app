@@ -13,7 +13,7 @@ export function DataBinaryImage({
   const [src, setSrc] = useState<string | undefined>(undefined)
   useEffect(() => {
     dataBinaryToUrl(dataBinary).then(({ url }) => setSrc(url))
-  }, [dataBinary]) // TODO: Find out, why "eslint-plugin-react-hooks" does not detect this!
+  }, [dataBinary])
 
   if (!src) return null
   return <img src={src} alt={alt} className={className} />
