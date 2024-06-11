@@ -86,9 +86,9 @@ function Text({ value }: { value: unknown }) {
   return value ? value.toString() : localizeNotAvailable()
 }
 
-function NumberText({ value }: { value: number }) {
+const NumberText = connect(function NumberText({ value }: { value: number }) {
   return new Intl.NumberFormat(getCurrentLanguage()).format(value)
-}
+})
 
 const Currency = connect(function Currency({ value }: { value: unknown }) {
   if (value === null) return localizeNotAvailable()
