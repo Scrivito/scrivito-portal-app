@@ -8,13 +8,13 @@ import {
   urlForDataItem,
   useDataItem,
   useData,
+  currentLanguage,
 } from 'scrivito'
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { getHistory } from '../../config/history'
-import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -147,7 +147,7 @@ function valueFromElement(
 }
 
 function getErrorMessage(): string {
-  switch (getCurrentLanguage()) {
+  switch (currentLanguage()) {
     case 'de':
       return 'Wir bedauern die Unannehmlichkeiten.'
     default:

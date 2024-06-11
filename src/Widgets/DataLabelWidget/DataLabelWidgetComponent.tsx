@@ -1,6 +1,7 @@
 import {
   connect,
   ContentTag,
+  currentLanguage,
   provideComponent,
   useData,
   WidgetTag,
@@ -136,8 +137,10 @@ function Link({ value }: { value: unknown }) {
 }
 
 function localizeNotAvailable(): string {
-  const currentLanguage = getCurrentLanguage()
-  if (currentLanguage === 'de') return 'k.A.'
-
-  return 'N/A'
+  switch (currentLanguage()) {
+    case 'de':
+      return 'k.A.'
+    default:
+      return 'N/A'
+  }
 }

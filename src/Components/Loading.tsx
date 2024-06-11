@@ -1,5 +1,4 @@
-import { connect } from 'scrivito'
-import { getCurrentLanguage } from '../utils/currentLanguage'
+import { connect, currentLanguage } from 'scrivito'
 
 export const Loading = connect(function Loading() {
   const message = getMessage()
@@ -15,7 +14,7 @@ export const Loading = connect(function Loading() {
 })
 
 function getMessage(): string {
-  switch (getCurrentLanguage()) {
+  switch (currentLanguage()) {
     case 'de':
       return 'Daten werden geladen…'
     default:
