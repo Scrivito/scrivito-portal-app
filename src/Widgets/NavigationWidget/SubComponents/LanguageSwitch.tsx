@@ -6,8 +6,9 @@ import {
   currentSiteId,
   ImageTag,
   InPlaceEditingOff,
+  Link,
+  LinkTag,
   Obj,
-  urlFor,
 } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
@@ -44,11 +45,8 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
             key={root.id()}
-            href={
-              version
-                ? urlFor(version, { query: currentQuery() })
-                : urlFor(root)
-            }
+            as={LinkTag}
+            to={new Link({ obj: version || root, query: currentQuery() })}
             active={root.language() === activeSite.language()}
           >
             <LanguageLabel root={root} />
