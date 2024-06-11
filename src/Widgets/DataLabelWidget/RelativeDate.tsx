@@ -4,8 +4,7 @@ import {
   formatDayAndMonth,
   formatFullDateTime,
 } from '../../utils/formatDate'
-import { connect } from 'scrivito'
-import { getCurrentLanguage } from '../../utils/currentLanguage'
+import { connect, currentLanguage } from 'scrivito'
 
 const MONTH_IN_MS = 30 * 24 * 60 * 60 * 1000
 
@@ -56,9 +55,12 @@ function formatDistance(date: Date, currentDate: Date) {
   const months = Math.round(days / 30.436875)
   const years = date.getFullYear() - new Date(currentDate).getFullYear()
 
-  const relativeTimeFormat = new Intl.RelativeTimeFormat(getCurrentLanguage(), {
-    numeric: 'auto',
-  })
+  const relativeTimeFormat = new Intl.RelativeTimeFormat(
+    currentLanguage() ?? 'en',
+    {
+      numeric: 'auto',
+    },
+  )
 
   if (years !== 0) return relativeTimeFormat.format(years, 'year')
   if (months !== 0) return relativeTimeFormat.format(months, 'month')
