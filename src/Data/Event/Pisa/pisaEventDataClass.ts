@@ -4,7 +4,7 @@ import { toClientParams } from '../../toClientParams'
 import { DataIndexResponse } from '../../types'
 import { languageHeaders } from '../../../utils/currentLanguage'
 
-export function pisaEventDataClass() {
+export async function pisaEventDataClass() {
   const eventClient = pisaClient('event')
 
   return provideDataClass('Event', {

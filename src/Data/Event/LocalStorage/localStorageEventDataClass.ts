@@ -2,7 +2,7 @@ import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorage
 import spiderImage from './FakeBinaries/Schulung_Spider_30.png'
 import roadshowImage from './FakeBinaries/TYNACOON_Roadshow.jpg'
 
-export function localStorageEventDataClass() {
+export async function localStorageEventDataClass() {
   return provideLocalStorageDataClass('Event', {
     initialContent: [
       {
