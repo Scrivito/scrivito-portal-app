@@ -1,10 +1,12 @@
 import { provideEditingConfig } from 'scrivito'
-import { Opportunity } from './OpportunityDataClass'
+import { OpportunityPromise } from './OpportunityDataClass'
 
-provideEditingConfig(Opportunity, {
-  title: 'Opportunity',
-  attributes: {
-    keyword: { title: 'Keyword' },
-    description: { title: 'Description' },
-  },
+OpportunityPromise.then((Opportunity) => {
+  provideEditingConfig(Opportunity, {
+    title: 'Opportunity',
+    attributes: {
+      keyword: { title: 'Keyword' },
+      description: { title: 'Description' },
+    },
+  })
 })
