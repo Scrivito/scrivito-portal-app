@@ -1,12 +1,12 @@
 import {
   connect,
-  isCurrentPage,
-  LinkTag,
   ContentTag,
-  Obj,
-  logout,
-  isUserLoggedIn,
+  isCurrentPage,
   isEditorLoggedIn,
+  isUserLoggedIn,
+  LinkTag,
+  logout,
+  urlFor,
 } from 'scrivito'
 import { NavigationWidgetInstance } from '../NavigationWidgetClass'
 import NavDropdown from 'react-bootstrap/NavDropdown'
@@ -70,15 +70,17 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
         </>
       ) : null}
 
-      <LogOutButton logOutLabel={widget.get('logOutLabel')} />
+      <LogOutButton logOutLabel={widget.get('logOutLabel')} root={root} />
     </NavDropdown>
   )
 })
 
 const LogOutButton = connect(function LogOutButton({
   logOutLabel,
+  root,
 }: {
   logOutLabel: string
+  root: HomepageInstance
 }) {
   // TODO: Remove workaround, once #10276 is available
   if (isEditorLoggedIn()) {
@@ -107,15 +109,13 @@ const LogOutButton = connect(function LogOutButton({
     )
   }
 
+  const rootUrl = urlFor(root)
+
   return (
     <NavDropdown.Item
-      as={LinkTag}
       eventKey="MetaNavigation-LogOut"
       key="MetaNavigation-LogOut"
-      onClick={() => {
-        logout()
-      }}
-      to={Obj.root()}
+      onClick={() => logout(rootUrl)}
     >
       <i className="bi bi-box-arrow-right"></i>
       {logOutLabel}
