@@ -5,7 +5,7 @@ import fuchsImage from './FakeBinaries/fuchs.jpg'
 import bachImage from './FakeBinaries/bach.jpg'
 import { postProcessUserData } from '../UserDataClass'
 
-export function localStorageUserDataClass() {
+export async function localStorageUserDataClass() {
   return provideLocalStorageDataClass('User', {
     postProcessData: postProcessUserData,
     initialContent: [
