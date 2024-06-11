@@ -1,7 +1,7 @@
 import { provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 
-export function pisaEventRegistrationDataClass() {
+export async function pisaEventRegistrationDataClass() {
   const eventRegistrationClient = pisaClient('event-registration')
 
   return provideDataClass('EventRegistration', {
