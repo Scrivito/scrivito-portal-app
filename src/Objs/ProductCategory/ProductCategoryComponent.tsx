@@ -1,8 +1,7 @@
-import { provideComponent } from 'scrivito'
+import { currentLanguage, provideComponent } from 'scrivito'
 import { ProductCategory } from './ProductCategoryObjClass'
 import { isProduct } from '../Product/ProductObjClass'
 import { ProductPreview } from '../Product/ProductPreviewComponent'
-import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(ProductCategory, ({ page }) => {
   const products = page.orderedChildren().filter(isProduct)
@@ -40,14 +39,16 @@ provideComponent(ProductCategory, ({ page }) => {
 })
 
 function getLocalizer(localizer: keyof (typeof LOCALIZERS)['en']) {
-  const currentLanguage = getCurrentLanguage()
-  const localizers = isLocalizersKey(currentLanguage)
-    ? LOCALIZERS[currentLanguage]
+  const language = currentLanguage()
+  const localizers = isLocalizersKey(language)
+    ? LOCALIZERS[language]
     : LOCALIZERS['en']
   return localizers[localizer]
 }
 
-function isLocalizersKey(key?: PropertyKey): key is keyof typeof LOCALIZERS {
+function isLocalizersKey(
+  key?: PropertyKey | null,
+): key is keyof typeof LOCALIZERS {
   return !!key && key in LOCALIZERS
 }
 
