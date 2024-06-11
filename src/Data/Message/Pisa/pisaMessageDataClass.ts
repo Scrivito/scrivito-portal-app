@@ -4,7 +4,7 @@ import { toClientParams } from '../../toClientParams'
 import { DataIndexResponse, RawItem } from '../../types'
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 
-export function pisaMessageDataClass() {
+export async function pisaMessageDataClass() {
   const messageClient = pisaClient('message')
 
   return provideDataClass('Message', {
