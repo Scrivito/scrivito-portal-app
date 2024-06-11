@@ -1,4 +1,4 @@
-import { Obj } from 'scrivito'
+import { Obj, currentLanguage } from 'scrivito'
 
 export function getCurrentLanguage(): undefined | string {
   const currentSiteLanguage = Obj.root()?.language()
@@ -6,5 +6,5 @@ export function getCurrentLanguage(): undefined | string {
 }
 
 export function languageHeaders() {
-  return { 'Accept-Language': getCurrentLanguage() ?? 'en' }
+  return { 'Accept-Language': currentLanguage() ?? 'en' }
 }
