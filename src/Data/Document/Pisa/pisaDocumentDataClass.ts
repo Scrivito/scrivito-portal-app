@@ -5,7 +5,7 @@ import { DataIndexResponse, RawItem } from '../../types'
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 import { languageHeaders } from '../../../utils/currentLanguage'
 
-export function pisaDocumentDataClass() {
+export async function pisaDocumentDataClass() {
   const documentClient = pisaClient('document')
 
   return provideDataClass('Document', {
