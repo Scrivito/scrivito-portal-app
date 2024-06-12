@@ -87,7 +87,7 @@ function Text({ value }: { value: unknown }) {
 }
 
 const NumberText = connect(function NumberText({ value }: { value: number }) {
-  return new Intl.NumberFormat(getCurrentLanguage(), {
+  return new Intl.NumberFormat(currentLanguage() ?? 'en', {
     useGrouping: Math.abs(value) >= 10000, // same as newer 'min2' option
   }).format(value)
 })
