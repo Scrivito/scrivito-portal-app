@@ -1,4 +1,4 @@
-import { createRestApiClient } from 'scrivito'
+import { createRestApiClient, currentLanguage, load } from 'scrivito'
 import { ensureString } from '../utils/ensureString'
 
 export function pisaUrl(): string {
@@ -10,5 +10,9 @@ export function pisaUrl(): string {
 
 export async function pisaClient(subPath: string) {
   const url = `${pisaUrl()}/${subPath}`
-  return createRestApiClient(url)
+
+  const language = await load(() => currentLanguage() ?? 'en')
+  const headers = { 'Accept-Language': language }
+
+  return createRestApiClient(url, { headers })
 }
