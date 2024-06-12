@@ -5,7 +5,7 @@ import { DataIndexResponse, RawItem } from '../../types'
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 
 export async function pisaTicketDataClass() {
-  const ticketClient = pisaClient('ticket')
+  const ticketClient = await pisaClient('ticket')
 
   return provideDataClass('Ticket', {
     connection: {

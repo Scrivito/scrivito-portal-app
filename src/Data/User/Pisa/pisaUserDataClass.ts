@@ -5,7 +5,7 @@ import { DataIndexResponse } from '../../types'
 import { postProcessUserData } from '../UserDataClass'
 
 export async function pisaUserDataClass() {
-  const userClient = pisaClient('user')
+  const userClient = await pisaClient('user')
 
   return provideDataClass('User', {
     connection: {

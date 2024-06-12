@@ -77,9 +77,10 @@ async function pisaIds() {
     }
   }
 
+  const whoamiClient = await pisaClient('whoami')
   let whoAmI
   try {
-    whoAmI = await pisaClient('whoami').get('')
+    whoAmI = await whoamiClient.get('')
     if (!isWhoAmI(whoAmI)) throw new Error('Invalid user ID')
   } catch (error) {
     errorToast('Unable to connect to PisaSales', error)
