@@ -1,4 +1,10 @@
-import { ContentTag, connect, provideComponent, useData } from 'scrivito'
+import {
+  ContentTag,
+  connect,
+  currentLanguage,
+  provideComponent,
+  useData,
+} from 'scrivito'
 import { DataAttachmentsWidget } from './DataAttachmentsWidgetClass'
 import {
   dataBinaryToUrl,
@@ -7,7 +13,6 @@ import {
 } from '../../utils/dataBinaryToUrl'
 import { useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
-import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
   const dataItemAttribute = useData().dataItemAttribute()
@@ -66,7 +71,7 @@ const Attachment = connect(function Attachment({
         <span className="box-name">{attachment.filename}</span>
         <span className="box-size">
           {prettyBytes(attachment.contentLength, {
-            locale: getCurrentLanguage(),
+            locale: currentLanguage() ?? 'en',
           })}
         </span>
       </div>

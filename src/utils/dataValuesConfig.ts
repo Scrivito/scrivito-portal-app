@@ -1,5 +1,4 @@
-import { DataClass } from 'scrivito'
-import { getCurrentLanguage } from './currentLanguage'
+import { DataClass, currentLanguage } from 'scrivito'
 
 type ValuesByAttribute = Record<string, string[]>
 type ValuesByDataClass = Record<string, ValuesByAttribute>
@@ -44,7 +43,7 @@ export function localizeAttributeValue({
   attributeName: string
   attributeValue: string
 }): string {
-  const language = getCurrentLanguage() || 'en'
+  const language = currentLanguage() ?? 'en'
   const localizedValue =
     localizers[language]?.[dataClass.name()]?.[attributeName]?.[attributeValue]
   const enValue =

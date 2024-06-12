@@ -6,8 +6,8 @@ import {
   currentSiteId,
   ImageTag,
   InPlaceEditingOff,
+  LinkTag,
   Obj,
-  urlFor,
 } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
@@ -44,11 +44,9 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
             key={root.id()}
-            href={
-              version
-                ? urlFor(version, { query: currentQuery() })
-                : urlFor(root)
-            }
+            as={LinkTag}
+            to={version || root}
+            params={currentPageParams()}
             active={root.language() === activeSite.language()}
           >
             <LanguageLabel root={root} />
@@ -58,14 +56,6 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
     </InPlaceEditingOff>
   )
 })
-
-function currentQuery() {
-  const params = new URLSearchParams()
-  Object.entries(currentPageParams()).forEach(([k, v]) => {
-    if (typeof v === 'string') params.append(k, v)
-  })
-  return params.toString()
-}
 
 const LanguageLabel = connect(function LanguageLabel({
   className,
