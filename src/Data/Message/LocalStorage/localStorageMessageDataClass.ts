@@ -1,7 +1,7 @@
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 
-export function localStorageMessageDataClass() {
+export async function localStorageMessageDataClass() {
   return provideLocalStorageDataClass('Message', {
     prepareData: async (data) => {
       const newData = await convertBlobAttributes(data)

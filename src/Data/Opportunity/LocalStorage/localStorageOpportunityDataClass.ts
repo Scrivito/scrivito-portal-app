@@ -1,5 +1,5 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 
-export function localStorageOpportunityDataClass() {
+export async function localStorageOpportunityDataClass() {
   return provideLocalStorageDataClass('Opportunity')
 }

@@ -1,6 +1,6 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 
-export function localQuoteDataClass() {
+export async function localQuoteDataClass() {
   return provideLocalStorageDataClass('Quote', {
     initialContent: [
       {

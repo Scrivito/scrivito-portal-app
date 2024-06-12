@@ -7,7 +7,7 @@ import {
 } from 'scrivito'
 import { Product, ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
-import { Opportunity } from '../Opportunity/OpportunityDataClass'
+import { OpportunityPromise } from '../Opportunity/OpportunityDataClass'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
@@ -68,6 +68,7 @@ export async function checkoutCart(): Promise<DataItem> {
     .map((product) => `1 × ${product.get('title')} (ID: ${product.id()})`)
     .join('\n')
 
+  const Opportunity = await OpportunityPromise
   // @ts-expect-error until out of private beta
   const opportunity = await Opportunity.create({ keyword, description })
 

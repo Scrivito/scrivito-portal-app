@@ -2,7 +2,7 @@ import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 import { pseudoRandom32CharHex } from '../../../utils/pseudoRandom32CharHex'
 
-export function localStorageTicketDataClass() {
+export async function localStorageTicketDataClass() {
   return provideLocalStorageDataClass('Ticket', {
     prepareData: async (data) => {
       const newData = await convertBlobAttributes(data)

@@ -4,7 +4,7 @@ import { toClientParams } from '../../toClientParams'
 import { DataIndexResponse } from '../../types'
 import { postProcessUserData } from '../UserDataClass'
 
-export function pisaUserDataClass() {
+export async function pisaUserDataClass() {
   const userClient = pisaClient('user')
 
   return provideDataClass('User', {

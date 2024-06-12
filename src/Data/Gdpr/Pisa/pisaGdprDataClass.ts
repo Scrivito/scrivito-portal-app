@@ -4,7 +4,7 @@ import { toClientParams } from '../../toClientParams'
 import { DataIndexResponse } from '../../types'
 import { languageHeaders } from '../../../utils/currentLanguage'
 
-export function pisaGdprDataClass() {
+export async function pisaGdprDataClass() {
   const gdprClient = pisaClient('gdpr')
 
   return provideDataClass('Gdpr', {

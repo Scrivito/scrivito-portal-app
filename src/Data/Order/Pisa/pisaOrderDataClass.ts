@@ -4,7 +4,7 @@ import { toClientParams } from '../../toClientParams'
 import { languageHeaders } from '../../../utils/currentLanguage'
 import { DataIndexResponse } from '../../types'
 
-export function pisaOrderDataClass() {
+export async function pisaOrderDataClass() {
   const orderClient = pisaClient('order')
 
   return provideDataClass('Order', {

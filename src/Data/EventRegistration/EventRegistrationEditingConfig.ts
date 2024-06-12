@@ -1,9 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
-import { EventRegistration } from './EventRegistrationDataClass'
+import { EventRegistrationPromise } from './EventRegistrationDataClass'
 
-provideEditingConfig(EventRegistration, {
-  title: 'Event registration',
-  attributes: {
-    eventId: { title: 'Event ID' },
-  },
+EventRegistrationPromise.then((EventRegistration) => {
+  provideEditingConfig(EventRegistration, {
+    title: 'Event registration',
+    attributes: {
+      eventId: { title: 'Event ID' },
+    },
+  })
 })

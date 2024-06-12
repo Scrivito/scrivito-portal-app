@@ -4,7 +4,7 @@ import { toClientParams } from '../../toClientParams'
 import { languageHeaders } from '../../../utils/currentLanguage'
 import { DataIndexResponse } from '../../types'
 
-export function pisaQuoteDataClass() {
+export async function pisaQuoteDataClass() {
   const quoteClient = pisaClient('quote')
 
   return provideDataClass('Quote', {

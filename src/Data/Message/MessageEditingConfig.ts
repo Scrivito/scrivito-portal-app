@@ -1,14 +1,16 @@
 import { provideEditingConfig } from 'scrivito'
-import { Message } from './MessageDataClass'
+import { MessagePromise } from './MessageDataClass'
 
-provideEditingConfig(Message, {
-  title: 'Message',
-  attributes: {
-    _id: { title: 'Message ID' },
-    subjectId: { title: 'Subject ID' },
-    text: { title: 'Text' },
-    createdBy: { title: 'Created by (ID)' },
-    createdAt: { title: 'Created at' },
-    attachments: { title: 'Attachments' },
-  },
+MessagePromise.then((Message) => {
+  provideEditingConfig(Message, {
+    title: 'Message',
+    attributes: {
+      _id: { title: 'Message ID' },
+      subjectId: { title: 'Subject ID' },
+      text: { title: 'Text' },
+      createdBy: { title: 'Created by (ID)' },
+      createdAt: { title: 'Created at' },
+      attachments: { title: 'Attachments' },
+    },
+  })
 })
