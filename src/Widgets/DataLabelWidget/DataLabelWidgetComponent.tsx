@@ -1,6 +1,7 @@
 import {
   connect,
   ContentTag,
+  currentLanguage,
   provideComponent,
   useData,
   WidgetTag,
@@ -15,7 +16,6 @@ import {
   formatFullDateTime,
   formatFullDayAndMonth,
 } from '../../utils/formatDate'
-import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 const CURRENCY = 'EUR' // ISO 4217 Code
 
@@ -98,7 +98,7 @@ const Currency = connect(function Currency({ value }: { value: unknown }) {
   const number = Number(value)
   if (Number.isNaN(number)) return localizeNotAvailable()
 
-  const formatter = new Intl.NumberFormat(getCurrentLanguage(), {
+  const formatter = new Intl.NumberFormat(currentLanguage() ?? 'en', {
     style: 'currency',
     currency: CURRENCY,
   })
@@ -146,8 +146,10 @@ function Link({ value }: { value: unknown }) {
 }
 
 function localizeNotAvailable(): string {
-  const currentLanguage = getCurrentLanguage()
-  if (currentLanguage === 'de') return 'k.A.'
-
-  return 'N/A'
+  switch (currentLanguage()) {
+    case 'de':
+      return 'k.A.'
+    default:
+      return 'N/A'
+  }
 }

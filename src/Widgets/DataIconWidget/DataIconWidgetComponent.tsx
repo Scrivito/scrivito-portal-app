@@ -1,11 +1,16 @@
-import { ContentTag, WidgetTag, provideComponent, useData } from 'scrivito'
+import {
+  ContentTag,
+  WidgetTag,
+  currentLanguage,
+  provideComponent,
+  useData,
+} from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { isDataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
 import { IconComponent } from '../../Components/Icon'
 import { localizeAttributeValue } from '../../utils/dataValuesConfig'
 import { ensureString } from '../../utils/ensureString'
-import { getCurrentLanguage } from '../../utils/currentLanguage'
 
 provideComponent(DataIconWidget, ({ widget }) => {
   const dataItemAttribute = useData().dataItemAttribute()
@@ -55,8 +60,10 @@ provideComponent(DataIconWidget, ({ widget }) => {
 })
 
 function localizeNotAvailable(): string {
-  const currentLanguage = getCurrentLanguage()
-  if (currentLanguage === 'de') return 'k.A.'
-
-  return 'N/A'
+  switch (currentLanguage()) {
+    case 'de':
+      return 'k.A.'
+    default:
+      return 'N/A'
+  }
 }
