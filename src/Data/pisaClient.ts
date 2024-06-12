@@ -8,7 +8,7 @@ export function pisaUrl(): string {
   return url
 }
 
-export function pisaClient(subPath: string) {
+export async function pisaClient(subPath: string) {
   const url = `${pisaUrl()}/${subPath}`
   return createRestApiClient(url)
 }

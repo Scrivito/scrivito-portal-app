@@ -6,7 +6,7 @@ import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 import { languageHeaders } from '../../../utils/currentLanguage'
 
 export async function pisaDocumentDataClass() {
-  const documentClient = pisaClient('document')
+  const documentClient = await pisaClient('document')
 
   return provideDataClass('Document', {
     connection: {

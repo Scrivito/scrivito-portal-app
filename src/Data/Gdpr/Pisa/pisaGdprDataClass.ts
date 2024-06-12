@@ -5,7 +5,7 @@ import { DataIndexResponse } from '../../types'
 import { languageHeaders } from '../../../utils/currentLanguage'
 
 export async function pisaGdprDataClass() {
-  const gdprClient = pisaClient('gdpr')
+  const gdprClient = await pisaClient('gdpr')
 
   return provideDataClass('Gdpr', {
     connection: {

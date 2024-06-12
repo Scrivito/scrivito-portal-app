@@ -5,7 +5,7 @@ import { DataIndexResponse } from '../../types'
 import { languageHeaders } from '../../../utils/currentLanguage'
 
 export async function pisaEventDataClass() {
-  const eventClient = pisaClient('event')
+  const eventClient = await pisaClient('event')
 
   return provideDataClass('Event', {
     connection: {

@@ -5,7 +5,7 @@ import { languageHeaders } from '../../../utils/currentLanguage'
 import { DataIndexResponse } from '../../types'
 
 export async function pisaOrderDataClass() {
-  const orderClient = pisaClient('order')
+  const orderClient = await pisaClient('order')
 
   return provideDataClass('Order', {
     connection: {

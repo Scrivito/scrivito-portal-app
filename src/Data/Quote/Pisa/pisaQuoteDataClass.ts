@@ -5,7 +5,7 @@ import { languageHeaders } from '../../../utils/currentLanguage'
 import { DataIndexResponse } from '../../types'
 
 export async function pisaQuoteDataClass() {
-  const quoteClient = pisaClient('quote')
+  const quoteClient = await pisaClient('quote')
 
   return provideDataClass('Quote', {
     connection: {
