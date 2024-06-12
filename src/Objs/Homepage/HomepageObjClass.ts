@@ -7,6 +7,7 @@ export const Homepage = provideObjClass('Homepage', {
     childOrder: 'referencelist',
     contentTitle: 'string',
     metaDataDescription: 'string',
+    pisaUrl: 'string',
     siteCartPage: 'reference',
     siteFavicon: ['reference', { only: 'Image' }],
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],

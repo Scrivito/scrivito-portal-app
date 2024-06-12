@@ -16,6 +16,11 @@ provideEditingConfig(Homepage, {
       title: 'Page description',
       description: 'Limit to 175, ideally 150 characters.',
     },
+    pisaUrl: {
+      title: 'PisaSales Portal API URL',
+      description:
+        'Only editable on the default site. Reload the app after changing this value.',
+    },
     siteLanguageIcon: { title: 'Language icon' },
     siteLogoDark: {
       title: 'Dark logo',
@@ -37,12 +42,13 @@ provideEditingConfig(Homepage, {
     },
     siteUserProfilePage: { title: 'Location of user profile page' },
   },
-  propertiesGroups: [
+  propertiesGroups: (site) => [
     {
       title: 'Site settings',
       properties: [
         'contentTitle',
         'baseUrl',
+        ['pisaUrl', { enabled: site.siteId() === 'default' }],
         'siteLogoDark',
         'siteLogoLight',
         'siteFavicon',
