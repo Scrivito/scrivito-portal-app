@@ -1,6 +1,6 @@
 #!npx vite-node
 import fs from 'fs'
-import { promisify } from 'util'
+import { configure, createRestApiClient } from 'scrivito'
 import { loadEnv } from 'vite'
 
 type ObjData = { _id: string; _widget_pool?: Record<string, WidgetData> }
@@ -19,9 +19,21 @@ const API_CLIENT_ID = env.CONTENT_MASTER_API_CLIENT_ID || ''
 const API_CLIENT_SECRET = env.CONTENT_MASTER_API_CLIENT_SECRET || ''
 const INSTANCE_ID = env.CONTENT_MASTER_SCRIVITO_TENANT || ''
 
-let apiToken: string | undefined = undefined
+const scrivitoClient = createRestApiClient(
+  `https://api.scrivito.com/tenants/${INSTANCE_ID}`,
+  { headers: { 'Scrivito-Access-As': 'editor' } },
+)
 
 if (API_CLIENT_ID && API_CLIENT_SECRET && INSTANCE_ID) {
+  configure({
+    tenant: INSTANCE_ID,
+    apiKey: {
+      clientId: API_CLIENT_ID,
+      clientSecret: API_CLIENT_SECRET,
+    },
+    priority: 'background',
+  })
+
   clearDump()
   await dumpContent()
   console.log(`\n✅ Dump complete (${fileStats()}).`)
@@ -48,18 +60,15 @@ async function dumpContent() {
   const objIds = []
 
   do {
-    const data: SearchData = await fetchJson<SearchData>(
-      'workspaces/published/objs/search',
-      {
-        data: {
-          continuation,
-          include_objs: true,
-          options: { site_aware: true },
-          size: 10,
-        },
-        method: 'put',
+    const data = (await scrivitoClient.put('workspaces/published/objs/search', {
+      data: {
+        continuation,
+        include_objs: true,
+        options: { site_aware: true },
+        size: 10,
       },
-    )
+    })) as SearchData
+    process.stdout.write('.')
 
     for (const objData of data.objs) {
       await dumpObjAndBinaries(objData)
@@ -108,9 +117,10 @@ function isBinaryAttribute(data: unknown): data is ['binary', { id: string }] {
 }
 
 async function dumpBinary(binaryId: string) {
-  const binary = await fetchJson<BlobsData>(
+  const binary = (await scrivitoClient.get(
     `blobs/${encodeURIComponent(binaryId)}`,
-  )
+  )) as BlobsData
+  process.stdout.write('.')
   const url = binary.private_access.get.url
   const response = await fetch(url)
   if (response.status !== 200) throw new Error(`Failed to fetch ${url}`)
@@ -127,9 +137,10 @@ async function dumpMetadata(binaryId: string) {
       content_type: [, contentType],
       filename: [, filename],
     },
-  } = await fetchJson<BlobMetadata>(
+  } = (await scrivitoClient.get(
     `blobs/${encodeURIComponent(binaryId)}/meta_data`,
-  )
+  )) as BlobMetadata
+  process.stdout.write('.')
   fs.writeFileSync(
     `${DUMP_PATH}/blob-metadata-${urlSafeBase64(binaryId)}.json`,
     JSON.stringify({ contentType, filename }, null, 2),
@@ -145,52 +156,4 @@ function dumpObj(objData: ObjData) {
     `${DUMP_PATH}/obj-${objData._id}.json`,
     JSON.stringify(objData, null, 2),
   )
-}
-
-async function fetchJson<T>(
-  apiPath: string,
-  options: { data?: Record<string, unknown>; method?: string } = {},
-): Promise<T> {
-  process.stdout.write('.')
-
-  if (!apiToken) apiToken = await fetchIamToken()
-
-  const response = await fetch(
-    `https://api.scrivito.com/tenants/${INSTANCE_ID}/${apiPath}`,
-    {
-      body: options.data ? JSON.stringify(options.data) : undefined,
-      headers: {
-        Authorization: `Bearer ${apiToken}`,
-        'Content-Type': 'application/json',
-        'Scrivito-Access-As': 'editor',
-      },
-      method: options.method,
-    },
-  )
-  if (response.status === 200) return response.json()
-
-  console.log(`\nHTTP status ${response.status}, retrying...\n`)
-  apiToken = undefined
-  const sleep = promisify(setTimeout)
-  await sleep(2000)
-  return fetchJson(apiPath, options)
-}
-
-async function fetchIamToken(): Promise<string> {
-  const response = await fetch('https://api.justrelate.com/iam/token', {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${Buffer.from(
-        `${encodeURIComponent(API_CLIENT_ID)}:${encodeURIComponent(
-          API_CLIENT_SECRET,
-        )}`,
-      ).toString('base64')}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: 'grant_type=client_credentials',
-  })
-
-  if (response.status !== 200) throw new Error('Failed to get API access.')
-
-  return (await response.json()).access_token
 }
