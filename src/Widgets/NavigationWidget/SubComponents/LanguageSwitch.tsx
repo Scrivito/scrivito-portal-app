@@ -6,7 +6,6 @@ import {
   currentSiteId,
   ImageTag,
   InPlaceEditingOff,
-  Link,
   LinkTag,
   Obj,
 } from 'scrivito'
@@ -46,7 +45,8 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
           <NavDropdown.Item
             key={root.id()}
             as={LinkTag}
-            to={new Link({ obj: version || root, query: currentQuery() })}
+            to={version || root}
+            params={currentPageParams()}
             active={root.language() === activeSite.language()}
           >
             <LanguageLabel root={root} />
@@ -56,14 +56,6 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
     </InPlaceEditingOff>
   )
 })
-
-function currentQuery() {
-  const params = new URLSearchParams()
-  Object.entries(currentPageParams()).forEach(([k, v]) => {
-    if (typeof v === 'string') params.append(k, v)
-  })
-  return params.toString()
-}
 
 const LanguageLabel = connect(function LanguageLabel({
   className,
