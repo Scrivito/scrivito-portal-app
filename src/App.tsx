@@ -9,7 +9,7 @@ import { ErrorBoundary } from './Components/ErrorBoundary'
 import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 
-export const helmetContext = {}
+const helmetContext = {}
 
 export function App() {
   return (
