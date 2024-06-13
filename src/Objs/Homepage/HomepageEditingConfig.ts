@@ -18,8 +18,7 @@ provideEditingConfig(Homepage, {
     },
     pisaUrl: {
       title: 'PisaSales Portal API URL',
-      description:
-        'Only editable on the default site. Reload the app after changing this value.',
+      description: 'Only editable on the default site.',
     },
     siteLanguageIcon: { title: 'Language icon' },
     siteLogoDark: {
