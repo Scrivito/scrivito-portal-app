@@ -11,7 +11,7 @@ export async function pisaDataBinaryToUrl(
   }
 
   return {
-    url: pisaUrl() + accessTokens.accessToken,
+    url: (await pisaUrl()) + accessTokens.accessToken,
     maxAge: accessTokens.maxAge,
   }
 }

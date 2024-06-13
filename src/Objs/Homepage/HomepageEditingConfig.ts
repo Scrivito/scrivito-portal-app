@@ -16,6 +16,9 @@ provideEditingConfig(Homepage, {
       title: 'Page description',
       description: 'Limit to 175, ideally 150 characters.',
     },
+    pisaUrl: {
+      title: 'PisaSales Portal API URL',
+    },
     siteLanguageIcon: { title: 'Language icon' },
     siteLogoDark: {
       title: 'Dark logo',
@@ -37,12 +40,13 @@ provideEditingConfig(Homepage, {
     },
     siteUserProfilePage: { title: 'Location of user profile page' },
   },
-  propertiesGroups: [
+  propertiesGroups: (site) => [
     {
       title: 'Site settings',
       properties: [
         'contentTitle',
         'baseUrl',
+        site.siteId() === 'default' && site.path() === '/' ? 'pisaUrl' : null,
         'siteLogoDark',
         'siteLogoLight',
         'siteFavicon',
@@ -52,7 +56,7 @@ provideEditingConfig(Homepage, {
         'sitePortalOverviewPage',
         'siteSearchResultsPage',
         'siteUserProfilePage',
-      ],
+      ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },
   ],
