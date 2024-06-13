@@ -1,0 +1,37 @@
+{
+  "entry": [
+    "src/main.tsx",
+    "src/scrivitoExtensions.tsx",
+    "src/dumpContent.ts",
+    "functions/auth/*.ts",
+
+    "src/Data/**/*DataClass.ts",
+    "src/Data/**/*DataItem.ts",
+    "src/Data/**/*EditingConfig.ts",
+    "src/Data/**/*EditingConfig.tsx",
+    "src/Data/**/*ValuesConfig.ts",
+
+    "src/Objs/**/*Component.tsx",
+    "src/Objs/**/*EditingConfig.ts",
+    "src/Objs/**/*EditingConfig.tsx",
+    "src/Objs/**/*LayoutComponent.tsx",
+    "src/Objs/**/*ObjClass.ts",
+
+    "src/Widgets/**/*Component.tsx",
+    "src/Widgets/**/*EditingConfig.ts",
+    "src/Widgets/**/*EditingConfig.tsx",
+    "src/Widgets/**/*LayoutComponent.tsx",
+    "src/Widgets/**/*WidgetClass.ts",
+  ],
+  "ignore": [
+    "design/**",
+    "public/scrivito/**",
+    "src/assets/stylesheets/bs5/**",
+    "vendor/**",
+  ],
+  "ignoreDependencies": [
+    "@cloudflare/workers-types", // used by functions/*
+    "vite-node", // used by src/dumpContent.ts
+  ],
+  "project": ["**/*.{js,ts,tsx}"],
+}
