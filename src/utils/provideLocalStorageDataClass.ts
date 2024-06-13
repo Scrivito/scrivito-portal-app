@@ -1,6 +1,7 @@
 import { provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
+import { ensureString } from './ensureString'
 
 interface DataItem {
   _id: string
@@ -56,8 +57,14 @@ export function provideLocalStorageDataClass(
                 ),
               )
 
-        if (params.search()) throw new Error('search not implemented!')
-        const orderedItems = orderItems(filteredItems, params.order())
+        const search = params.search().toLowerCase()
+        const matchingItems = filteredItems.filter((item) =>
+          Object.values(item)
+            .map(ensureString)
+            .some((value) => value.toLowerCase().includes(search)),
+        )
+
+        const orderedItems = orderItems(matchingItems, params.order())
 
         const offset =
           params.continuation() === undefined
