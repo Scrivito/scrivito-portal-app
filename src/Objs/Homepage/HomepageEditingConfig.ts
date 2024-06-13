@@ -18,7 +18,6 @@ provideEditingConfig(Homepage, {
     },
     pisaUrl: {
       title: 'PisaSales Portal API URL',
-      description: 'Only editable on the default site.',
     },
     siteLanguageIcon: { title: 'Language icon' },
     siteLogoDark: {
@@ -47,7 +46,7 @@ provideEditingConfig(Homepage, {
       properties: [
         'contentTitle',
         'baseUrl',
-        ['pisaUrl', { enabled: site.siteId() === 'default' }],
+        site.siteId() === 'default' && site.path() === '/' ? 'pisaUrl' : null,
         'siteLogoDark',
         'siteLogoLight',
         'siteFavicon',
@@ -57,7 +56,7 @@ provideEditingConfig(Homepage, {
         'sitePortalOverviewPage',
         'siteSearchResultsPage',
         'siteUserProfilePage',
-      ],
+      ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },
   ],
