@@ -8,6 +8,7 @@ import {
   ImageTag,
   isInPlaceEditingActive,
   ContentTag,
+  currentLanguage,
 } from 'scrivito'
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
@@ -42,7 +43,7 @@ const Address = connect(
   ({ addressWidget }: { addressWidget: AddressWidgetInstance }) => {
     let localityRegionPostalCode: string[]
 
-    if (addressWidget.get('addressFormat') === 'GER') {
+    if (currentLanguage() === 'de') {
       localityRegionPostalCode = [
         addressWidget.get('locationPostalCode'),
         addressWidget.get('locationLocality'),

@@ -34,14 +34,6 @@ provideEditingConfig(AddressWidget, {
       title: 'Country',
       description: 'E.g. USA',
     },
-    addressFormat: {
-      title: 'Address format',
-      description: 'Default: USA',
-      values: [
-        { value: 'USA', title: 'USA' },
-        { value: 'GER', title: 'Germany' },
-      ],
-    },
     phone: {
       title: 'Phone',
     },
@@ -60,14 +52,12 @@ provideEditingConfig(AddressWidget, {
     'locationPostalCode',
     'locationRegion',
     'locationCountry',
-    'addressFormat',
     'phone',
     'fax',
     'email',
   ],
   initialContent: {
     showLogo: true,
-    addressFormat: 'USA',
     phoneLabel: 'Phone',
     faxLabel: 'Fax',
     emailLabel: 'Email',
