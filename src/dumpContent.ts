@@ -77,7 +77,7 @@ async function dumpContent() {
     process.stdout.write('.')
 
     for (const objData of data.objs) {
-      const processedObjData = preprocessObjData(objData)
+      const processedObjData = ignorePerInstanceData(objData)
       await dumpObjAndBinaries(processedObjData)
       objIds.push(processedObjData._id)
     }
@@ -95,7 +95,7 @@ function dumpManifest(objIds: string[]) {
   )
 }
 
-function preprocessObjData(objData: ObjData): ObjData {
+function ignorePerInstanceData(objData: ObjData): ObjData {
   // Ignore pisa_url - this should be set up in the new instance
   if (objData._site_id === 'default' && objData._path === '/') {
     delete objData.pisa_url
