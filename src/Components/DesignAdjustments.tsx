@@ -28,6 +28,13 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
   const secondaryDarken = root.get('siteColorSecondaryDarken')
   if (secondaryDarken) styles.push(`--bs-secondary-darken: ${secondaryDarken};`)
 
+  const dropShadow = root.get('siteDropShadow')
+  styles.push(
+    `--bs-card-box-shadow: ${
+      dropShadow ? '0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25)' : 'none'
+    };`,
+  )
+
   return (
     <Helmet>
       {/* @ts-expect-error helmet bug: https://github.com/nfl/react-helmet/issues/344*/}
