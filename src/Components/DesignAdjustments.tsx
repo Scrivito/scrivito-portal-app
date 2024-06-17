@@ -30,13 +30,13 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
 
   const dropShadow = root.get('siteDropShadow')
   styles.push(
-    `--bs-card-box-shadow: ${
+    `--jr-card-box-shadow: ${
       dropShadow ? '0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25)' : 'none'
     };`,
   )
 
   const roundedCorners = root.get('siteRoundedCorners')
-  styles.push(`--bs-card-border-radius: ${roundedCorners ? '0.5rem' : '0'};`)
+  styles.push(`--jr-card-border-radius: ${roundedCorners ? '0.5rem' : '0'};`)
 
   return (
     <Helmet>
