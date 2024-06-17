@@ -96,7 +96,6 @@ function dumpManifest(objIds: string[]) {
 }
 
 function ignorePerInstanceData(objData: ObjData): ObjData {
-  // Ignore pisa_url - this should be set up in the new instance
   if (objData._site_id === 'default' && objData._path === '/') {
     delete objData.pisa_url
   }
