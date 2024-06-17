@@ -3,7 +3,13 @@ import fs from 'fs'
 import { configure, createRestApiClient } from 'scrivito'
 import { loadEnv } from 'vite'
 
-type ObjData = { _id: string; _widget_pool?: Record<string, WidgetData> }
+type ObjData = {
+  _id: string
+  _path?: string
+  _site_id?: string
+  _widget_pool?: Record<string, WidgetData>
+  pisa_url?: unknown
+}
 type WidgetData = Record<string, unknown>
 type SearchData = { continuation?: string; objs: ObjData[] }
 type BlobsData = { private_access: { get: { url: string } } }
@@ -71,8 +77,9 @@ async function dumpContent() {
     process.stdout.write('.')
 
     for (const objData of data.objs) {
-      await dumpObjAndBinaries(objData)
-      objIds.push(objData._id)
+      const processedObjData = ignorePerInstanceData(objData)
+      await dumpObjAndBinaries(processedObjData)
+      objIds.push(processedObjData._id)
     }
 
     continuation = data.continuation
@@ -86,6 +93,12 @@ function dumpManifest(objIds: string[]) {
     `${DUMP_PATH}/index.json`,
     JSON.stringify({ objIds }, null, 2),
   )
+}
+
+function ignorePerInstanceData(objData: ObjData): ObjData {
+  delete objData.pisa_url
+
+  return objData
 }
 
 async function dumpObjAndBinaries(objData: ObjData) {
