@@ -4800,7 +4800,7 @@ function create_rest_api_client_fetch(_0) {
 
 
 function getClientVersion() {
-  const clientVersion = "jssdk/1.29.0-dev-1-gd174c5d7affc";
+  const clientVersion = "jssdk/1.29.0-dev-1-gd3995a2b8b6e";
   if (!clientVersion)
     throw new common/* InternalError */.AQ();
   return clientVersion;
@@ -6215,7 +6215,7 @@ function runAndCatchException(fn) {
 
 
 function getScrivitoVersion() {
-  const version = "1.29.0-dev-1-gd174c5d7affc";
+  const version = "1.29.0-dev-1-gd3995a2b8b6e";
   if (!version) {
     throw new InternalError();
   }
@@ -11098,8 +11098,7 @@ class ObjDataScope extends DataScope {
   /** @internal */
   toPojo() {
     return obj_data_class_spreadValues({
-      _class: this.dataClassName(),
-      _attribute: this._attributeName
+      _class: this._dataClass.name()
     }, this._params);
   }
   getSearch() {
