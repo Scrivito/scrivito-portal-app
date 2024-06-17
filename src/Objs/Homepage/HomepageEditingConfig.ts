@@ -59,6 +59,18 @@ provideEditingConfig(Homepage, {
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },
+    {
+      title: 'Site color settings',
+      properties: [
+        'siteColorPrimary',
+        'siteColorPrimaryLighten',
+        'siteColorPrimaryDarken',
+        'siteColorSecondary',
+        'siteColorSecondaryLighten',
+        'siteColorSecondaryDarken',
+      ],
+      key: 'site-color-settings-group',
+    },
   ],
   properties: ['title', 'metaDataDescription'],
 })
