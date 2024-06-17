@@ -69,6 +69,7 @@ provideEditingConfig(Homepage, {
         'siteColorSecondaryLighten',
         'siteColorSecondaryDarken',
         'siteDropShadow',
+        'siteRoundedCorners',
       ],
       key: 'site-color-settings-group',
     },

@@ -35,6 +35,9 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
     };`,
   )
 
+  const roundedCorners = root.get('siteRoundedCorners')
+  styles.push(`--bs-card-border-radius: ${roundedCorners ? '0.5rem' : '0'};`)
+
   return (
     <Helmet>
       {/* @ts-expect-error helmet bug: https://github.com/nfl/react-helmet/issues/344*/}

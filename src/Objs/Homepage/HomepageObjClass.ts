@@ -16,6 +16,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteColorSecondaryLighten: 'string',
     siteColorSecondaryDarken: 'string',
     siteDropShadow: 'boolean',
+    siteRoundedCorners: 'boolean',
     siteFavicon: ['reference', { only: 'Image' }],
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],
     siteHeader: 'widgetlist',
