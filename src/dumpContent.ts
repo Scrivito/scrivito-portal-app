@@ -96,9 +96,7 @@ function dumpManifest(objIds: string[]) {
 }
 
 function ignorePerInstanceData(objData: ObjData): ObjData {
-  if (objData._site_id === 'default' && objData._path === '/') {
-    delete objData.pisa_url
-  }
+  delete objData.pisa_url
 
   return objData
 }
