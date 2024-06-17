@@ -1,0 +1,24 @@
+{
+  "entry": [
+    "src/main.tsx",
+    "src/scrivitoExtensions.tsx",
+    "src/dumpContent.ts",
+    "functions/auth/*.ts",
+
+    // Workaround for https://github.com/webpro-nl/knip/issues/168
+    "src/Data/**/*{DataClass,DataItem,EditingConfig,ValuesConfig}.{ts,tsx}",
+    "src/Objs/**/*{Component,EditingConfig,LayoutComponent,ObjClass}.{ts,tsx}",
+    "src/Widgets/**/*{Component,EditingConfig,WidgetClass}.{ts,tsx}",
+  ],
+  "ignore": [
+    "design/**",
+    "public/scrivito/**",
+    "src/assets/stylesheets/bs5/**",
+    "vendor/**",
+  ],
+  "ignoreDependencies": [
+    "@cloudflare/workers-types", // used by functions/*
+    "vite-node", // used by src/dumpContent.ts
+  ],
+  "project": ["**/*.{js,ts,tsx}"],
+}
