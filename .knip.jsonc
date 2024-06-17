@@ -5,23 +5,10 @@
     "src/dumpContent.ts",
     "functions/auth/*.ts",
 
-    "src/Data/**/*DataClass.ts",
-    "src/Data/**/*DataItem.ts",
-    "src/Data/**/*EditingConfig.ts",
-    "src/Data/**/*EditingConfig.tsx",
-    "src/Data/**/*ValuesConfig.ts",
-
-    "src/Objs/**/*Component.tsx",
-    "src/Objs/**/*EditingConfig.ts",
-    "src/Objs/**/*EditingConfig.tsx",
-    "src/Objs/**/*LayoutComponent.tsx",
-    "src/Objs/**/*ObjClass.ts",
-
-    "src/Widgets/**/*Component.tsx",
-    "src/Widgets/**/*EditingConfig.ts",
-    "src/Widgets/**/*EditingConfig.tsx",
-    "src/Widgets/**/*LayoutComponent.tsx",
-    "src/Widgets/**/*WidgetClass.ts",
+    // Workaround for https://github.com/webpro-nl/knip/issues/168
+    "src/Data/**/*{DataClass,DataItem,EditingConfig,ValuesConfig}.{ts,tsx}",
+    "src/Objs/**/*{Component,EditingConfig,LayoutComponent,ObjClass}.{ts,tsx}",
+    "src/Widgets/**/*{Component,EditingConfig,WidgetClass}.{ts,tsx}",
   ],
   "ignore": [
     "design/**",
