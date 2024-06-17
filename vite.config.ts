@@ -14,15 +14,11 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const outDir = 'dist'
 
-  const PISA_URL = env.PISA_URL
-  const enablePisa = !!PISA_URL
+  const enablePisa = env.ENABLE_PISA === 'true'
 
   return {
     build: {
       outDir,
-      commonjsOptions: {
-        include: [/scrivito/, /node_modules/],
-      },
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
@@ -32,12 +28,10 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
-      'import.meta.env.PISA_URL': JSON.stringify(PISA_URL),
       'import.meta.env.ENABLE_PISA': JSON.stringify(enablePisa),
     },
     optimizeDeps: {
       force: true,
-      include: ['scrivito'],
     },
     plugins: [react(), writeProductionHeaders(outDir)],
     preview: {
