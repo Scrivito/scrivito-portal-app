@@ -8,7 +8,6 @@ import {
   ImageTag,
   isInPlaceEditingActive,
   ContentTag,
-  currentLanguage,
 } from 'scrivito'
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
@@ -41,21 +40,11 @@ const Logo = connect(() => {
 
 const Address = connect(
   ({ addressWidget }: { addressWidget: AddressWidgetInstance }) => {
-    let localityRegionPostalCode: string[]
-
-    if (currentLanguage() === 'de') {
-      localityRegionPostalCode = [
-        addressWidget.get('locationPostalCode'),
-        addressWidget.get('locationLocality'),
-        addressWidget.get('locationRegion'),
-      ]
-    } else {
-      localityRegionPostalCode = [
-        addressWidget.get('locationLocality'),
-        addressWidget.get('locationRegion'),
-        addressWidget.get('locationPostalCode'),
-      ]
-    }
+    const localityRegionPostalCode = [
+      addressWidget.get('locationPostalCode'),
+      addressWidget.get('locationLocality'),
+      addressWidget.get('locationRegion'),
+    ]
 
     const lines = [
       addressWidget.get('locationName'),
