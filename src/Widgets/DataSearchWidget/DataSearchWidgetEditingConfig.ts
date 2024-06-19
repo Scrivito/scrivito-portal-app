@@ -17,8 +17,5 @@ provideEditingConfig(DataSearchWidget, {
     placeholder: { title: 'Placeholder text' },
   },
   properties: ['buttonColor', 'placeholder'],
-  initialContent: {
-    buttonColor: 'btn-primary',
-    buttonSize: 'medium',
-  },
+  initialContent: { buttonColor: 'btn-primary' },
 })
