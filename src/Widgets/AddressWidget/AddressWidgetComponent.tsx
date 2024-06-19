@@ -40,26 +40,16 @@ const Logo = connect(() => {
 
 const Address = connect(
   ({ addressWidget }: { addressWidget: AddressWidgetInstance }) => {
-    let localityRegionPostalCode: string[]
-
-    if (addressWidget.get('addressFormat') === 'GER') {
-      localityRegionPostalCode = [
-        addressWidget.get('locationPostalCode'),
-        addressWidget.get('locationLocality'),
-        addressWidget.get('locationRegion'),
-      ]
-    } else {
-      localityRegionPostalCode = [
-        addressWidget.get('locationLocality'),
-        addressWidget.get('locationRegion'),
-        addressWidget.get('locationPostalCode'),
-      ]
-    }
+    const postalCodeLocalityRegion = [
+      addressWidget.get('locationPostalCode'),
+      addressWidget.get('locationLocality'),
+      addressWidget.get('locationRegion'),
+    ]
 
     const lines = [
       addressWidget.get('locationName'),
       addressWidget.get('locationStreetAddress'),
-      localityRegionPostalCode.filter((n) => n).join(' '),
+      postalCodeLocalityRegion.filter((n) => n).join(' '),
       addressWidget.get('locationCountry'),
     ].filter((n) => n)
 
