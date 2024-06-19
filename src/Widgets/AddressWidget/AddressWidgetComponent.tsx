@@ -40,7 +40,7 @@ const Logo = connect(() => {
 
 const Address = connect(
   ({ addressWidget }: { addressWidget: AddressWidgetInstance }) => {
-    const localityRegionPostalCode = [
+    const postalCodeLocalityRegion = [
       addressWidget.get('locationPostalCode'),
       addressWidget.get('locationLocality'),
       addressWidget.get('locationRegion'),
@@ -49,7 +49,7 @@ const Address = connect(
     const lines = [
       addressWidget.get('locationName'),
       addressWidget.get('locationStreetAddress'),
-      localityRegionPostalCode.filter((n) => n).join(' '),
+      postalCodeLocalityRegion.filter((n) => n).join(' '),
       addressWidget.get('locationCountry'),
     ].filter((n) => n)
 
