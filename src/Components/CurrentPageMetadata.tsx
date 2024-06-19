@@ -1,10 +1,11 @@
 import { connect, currentPage, Obj, urlFor } from 'scrivito'
 import { Helmet, HelmetProps } from 'react-helmet-async'
 import { ensureString } from '../utils/ensureString'
+import { getMetadata } from '../utils/getMetadata'
 
 export const CurrentPageMetadata = connect(() => {
   const links: HelmetProps['link'] = []
-  const meta: HelmetProps['meta'] = []
+  let meta: HelmetProps['meta'] = []
   let lang = 'en'
   let title = ''
 
@@ -24,9 +25,7 @@ export const CurrentPageMetadata = connect(() => {
     lang = page.language() || 'en'
     title = ensureString(page.get('title'))
     links.push({ rel: 'canonical', href: urlFor(page) })
-
-    const description = ensureString(page.get('metaDataDescription'))
-    if (description) meta.push({ name: 'description', content: description })
+    meta = getMetadata(page)
   }
 
   return (
