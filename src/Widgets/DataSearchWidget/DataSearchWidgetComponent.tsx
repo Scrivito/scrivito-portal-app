@@ -3,7 +3,6 @@ import {
   currentPageParams,
   navigateTo,
   provideComponent,
-  useData,
 } from 'scrivito'
 import { DataSearchWidget } from './DataSearchWidgetClass'
 import { useContext, useEffect, useRef } from 'react'
@@ -15,9 +14,9 @@ provideComponent(DataSearchWidget, ({ widget }) => {
 
   const buttonColor = widget.get('buttonColor') || 'btn-primary'
   const placeholder = widget.get('placeholder')
+  const urlParamName = widget.get('urlParamName') || 'search'
   const inputRef = useRef<HTMLInputElement>(null)
-  const paramName = useData().dataClassName() || 'search'
-  const search = ensureString(currentPageParams()[paramName]) || undefined
+  const search = ensureString(currentPageParams()[urlParamName]) || undefined
 
   useEffect(() => setSearch(search), [setSearch, search])
 
@@ -45,8 +44,8 @@ provideComponent(DataSearchWidget, ({ widget }) => {
 
     const value = inputRef.current.value
     const params = currentPageParams()
-    delete params[paramName]
-    if (value) params[paramName] = value
+    delete params[urlParamName]
+    if (value) params[urlParamName] = value
     navigateTo(currentPage(), { params })
   }
 })
