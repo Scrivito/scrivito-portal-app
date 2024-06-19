@@ -428,7 +428,8 @@ nav a,
 .nav a,
 .navbar a,
 .nav-bordered a,
-.card > a {
+.card > a,
+a.card {
   text-decoration: none !important;
 }
 
