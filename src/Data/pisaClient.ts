@@ -21,6 +21,9 @@ const pisaLookup: Partial<Record<string, string>> = {
   '5ccc791266c0ffec715636157d895744': 'https://web143.crm.pisasales.de/portal',
   '8ddaa6bcb0f274e097a5a1653c33faeb': 'https://web144.crm.pisasales.de/portal',
   '3c24a3db6f58f10a245dbc65c090e51a': 'https://web145.crm.pisasales.de/portal',
+  '38a2bb776f08b84f7b963b4a2a49fb76': 'https://web175.crm.pisasales.de/portal',
+  '874a0bc103d792b90ccaa850202556e3': 'https://web176.crm.pisasales.de/portal',
+  '9d40fdf1b7bce0f07d83086580be796d': 'https://web177.crm.pisasales.de/portal',
 }
 
 export function pisaUrl(): string {
