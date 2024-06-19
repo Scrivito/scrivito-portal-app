@@ -1,8 +1,13 @@
-import { currentPageParams, provideComponent, useData } from 'scrivito'
+import {
+  currentPage,
+  currentPageParams,
+  navigateTo,
+  provideComponent,
+  useData,
+} from 'scrivito'
 import { DataSearchWidget } from './DataSearchWidgetClass'
 import { useContext, useEffect, useRef } from 'react'
 import { DataBatchContext } from '../../Components/DataBatchContext'
-import { getHistory } from '../../config/history'
 import { ensureString } from '../../utils/ensureString'
 
 provideComponent(DataSearchWidget, ({ widget }) => {
@@ -36,13 +41,12 @@ provideComponent(DataSearchWidget, ({ widget }) => {
   function onSubmit(event: React.FormEvent) {
     event.preventDefault()
 
-    const history = getHistory()
-    if (!inputRef.current || !history) return
+    if (!inputRef.current) return
 
     const value = inputRef.current.value
-    const searchParams = new URLSearchParams(history.location.search)
-    searchParams.delete(paramName)
-    if (value) searchParams.set(paramName, value)
-    history.push(`?${searchParams.toString()}`)
+    const params = currentPageParams()
+    delete params[paramName]
+    if (value) params[paramName] = value
+    navigateTo(currentPage(), { params })
   }
 })
