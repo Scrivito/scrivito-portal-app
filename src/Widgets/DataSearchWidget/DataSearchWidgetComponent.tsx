@@ -8,9 +8,19 @@ import { DataSearchWidget } from './DataSearchWidgetClass'
 import { useContext, useEffect, useRef } from 'react'
 import { DataBatchContext } from '../../Components/DataBatchContext'
 import { ensureString } from '../../utils/ensureString'
+import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataSearchWidget, ({ widget }) => {
   const { setSearch } = useContext(DataBatchContext)
+
+  if (!setSearch) {
+    return (
+      <EditorNote>
+        This input is hidden because only data groups and pages support data
+        search.
+      </EditorNote>
+    )
+  }
 
   const buttonColor = widget.get('buttonColor') || 'btn-primary'
   const placeholder = widget.get('placeholder')

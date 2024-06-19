@@ -4,14 +4,11 @@ import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 export const DataBatchContext = createContext<{
   hasMore: () => boolean
   loadMore: () => void
-  setSearch: (query: string | undefined) => void
+  setSearch?: (query: string | undefined) => void
 }>({
   hasMore: () => true,
   loadMore: () => {
     throw new Error('loadMore is not provided!')
-  },
-  setSearch: () => {
-    throw new Error('setSearch is not provided!')
   },
 })
 
