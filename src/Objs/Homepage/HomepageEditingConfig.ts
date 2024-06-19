@@ -1,9 +1,17 @@
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
+import {
+  defaultPageEditingConfigAttributes,
+  defaultPageInitialContent,
+  defaultPageProperties,
+  defaultPagePropertiesGroups,
+  defaultPageValidations,
+} from '../defaultPageEditingConfig'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
+    ...defaultPageEditingConfigAttributes,
     contentTitle: {
       title: 'Site name',
     },
@@ -59,6 +67,9 @@ provideEditingConfig(Homepage, {
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },
+    ...defaultPagePropertiesGroups,
   ],
-  properties: ['title', 'metaDataDescription'],
+  properties: defaultPageProperties,
+  initialContent: defaultPageInitialContent,
+  validations: defaultPageValidations,
 })

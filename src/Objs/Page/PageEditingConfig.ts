@@ -1,11 +1,19 @@
 import { provideEditingConfig } from 'scrivito'
 import { Page } from './PageObjClass'
+import {
+  defaultPageEditingConfigAttributes,
+  defaultPageInitialContent,
+  defaultPageProperties,
+  defaultPagePropertiesGroups,
+  defaultPageValidations,
+} from '../defaultPageEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(Page, {
   title: 'Page',
   thumbnail: Thumbnail,
   attributes: {
+    ...defaultPageEditingConfigAttributes,
     excludeFromSearch: {
       title: 'Exclude from search results?',
       description:
@@ -32,6 +40,7 @@ provideEditingConfig(Page, {
     title: { title: 'Title' },
   },
   properties: [
+    ...defaultPageProperties,
     'title',
     'metaDataDescription',
     'hideInNavigation',
@@ -39,4 +48,7 @@ provideEditingConfig(Page, {
     'excludeFromSearch',
     'showAsLandingPage',
   ],
+  propertiesGroups: defaultPagePropertiesGroups,
+  initialContent: defaultPageInitialContent,
+  validations: defaultPageValidations,
 })
