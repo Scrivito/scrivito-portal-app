@@ -39,7 +39,7 @@ provideComponent(DataSearchWidget, ({ widget }) => {
     const history = getHistory()
     if (!inputRef.current || !history) return
 
-    const value = inputRef.current.value || undefined
+    const value = inputRef.current.value
     const searchParams = new URLSearchParams(history.location.search)
     searchParams.delete(paramName)
     if (value) searchParams.set(paramName, value)
