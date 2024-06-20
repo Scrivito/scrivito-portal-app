@@ -9,14 +9,10 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
   const styles: string[] = []
 
   const dropShadow = root.get('siteDropShadow')
-  styles.push(
-    `--jr-card-box-shadow: ${
-      dropShadow ? '0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25)' : 'none'
-    };`,
-  )
+  if (!dropShadow) styles.push("--jr-card-box-shadow: 'none';")
 
   const roundedCorners = root.get('siteRoundedCorners')
-  styles.push(`--jr-card-border-radius: ${roundedCorners ? '0.5rem' : '0'};`)
+  if (!roundedCorners) styles.push("--jr-card-border-radius: '0';")
 
   return (
     <Helmet>
