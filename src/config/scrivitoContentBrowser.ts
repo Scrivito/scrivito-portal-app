@@ -135,7 +135,6 @@ const FILTER_PRESENTATIONS = {
   Download: { title: 'Downloads', icon: 'pdf' },
   Homepage: { title: 'Homepage', icon: 'inbox' },
   Image: { title: 'Images', icon: 'image' },
-  Invoice: { title: 'Invoice', icon: 'certificate' },
   Page: { title: 'Standard pages', icon: 'sheet' },
   Product: { title: 'Products', icon: 'suitcase' },
   ProductCategory: { title: 'Product categories', icon: 'relation' },
