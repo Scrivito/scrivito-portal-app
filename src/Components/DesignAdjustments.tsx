@@ -21,7 +21,7 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
   return (
     <Helmet>
       {/* @ts-expect-error helmet bug: https://github.com/nfl/react-helmet/issues/344*/}
-      <body style={styles.join('\n')}></body>
+      <body style={styles.join(' ')}></body>
     </Helmet>
   )
 })
