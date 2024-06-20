@@ -1,5 +1,4 @@
 import { configureContentBrowser, Obj } from 'scrivito'
-import { DATA_OBJ_CLASSES } from '../Objs/dataObjClasses'
 
 export function configureScrivitoContentBrowser() {
   configureContentBrowser({
@@ -80,18 +79,6 @@ function defaultFilters() {
         },
         Download: filterOptionForObjClass('Download'),
         Video: filterOptionForObjClass('Video'),
-        Data: {
-          title: 'Data',
-          field: '_objClass',
-          value: DATA_OBJ_CLASSES,
-          options: DATA_OBJ_CLASSES.reduce(
-            (result, value) => {
-              result[value] = filterOptionForObjClass(value)
-              return result
-            },
-            {} as { [key: string]: FilterOption },
-          ),
-        },
       },
     },
     _modification: {
