@@ -34,7 +34,15 @@ provideEditingConfig(Homepage, {
     title: { title: 'Title' },
     sitePortalOnlyMode: { title: 'Use portal-only mode?' },
     siteCartPage: { title: 'Location of cart page' },
+    siteDropShadow: {
+      title: 'Show drop-shadow?',
+      description: 'Default: Yes',
+    },
     sitePortalOverviewPage: { title: 'Location of portal overview page' },
+    siteRoundedCorners: {
+      title: 'Show rounded corners?',
+      description: 'Default: Yes',
+    },
     siteSearchResultsPage: {
       title: 'Location of search results page',
     },
@@ -56,9 +64,15 @@ provideEditingConfig(Homepage, {
         'sitePortalOverviewPage',
         'siteSearchResultsPage',
         'siteUserProfilePage',
+        'siteDropShadow',
+        'siteRoundedCorners',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },
   ],
   properties: ['title', 'metaDataDescription'],
+  initialContent: {
+    siteDropShadow: true,
+    siteRoundedCorners: true,
+  },
 })
