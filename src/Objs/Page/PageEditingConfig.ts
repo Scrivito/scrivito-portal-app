@@ -28,21 +28,14 @@ provideEditingConfig(Page, {
       description:
         'This icon is shown e.g. when linked from the "portal" section of the navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
     },
-    metaDataDescription: {
-      title: 'Page description',
-      description: 'Limit to 175, ideally 150 characters.',
-    },
     showAsLandingPage: {
       title: 'Display this page as a landing page?',
       description:
         'Removes the header navigation and only centers the logo instead. Default: No',
     },
-    title: { title: 'Title' },
   },
   properties: [
     ...defaultPageProperties,
-    'title',
-    'metaDataDescription',
     'hideInNavigation',
     'linkIcon',
     'excludeFromSearch',

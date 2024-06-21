@@ -21,10 +21,6 @@ provideEditingConfig(Homepage, {
         'Under which URL is this site reachable? E.g. "https://www.tynacoon.com/en"',
     },
     facebookAppId: { title: 'Facebook app ID' },
-    metaDataDescription: {
-      title: 'Page description',
-      description: 'Limit to 175, ideally 150 characters.',
-    },
     pisaUrl: {
       title: 'PisaSales Portal API URL',
     },
@@ -40,7 +36,6 @@ provideEditingConfig(Homepage, {
     siteFavicon: {
       title: 'Favicon',
     },
-    title: { title: 'Title' },
     sitePortalOnlyMode: { title: 'Use portal-only mode?' },
     siteCartPage: { title: 'Location of cart page' },
     sitePortalOverviewPage: { title: 'Location of portal overview page' },
