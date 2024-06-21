@@ -7,3 +7,5 @@ export const DataSearchWidget = provideWidgetClass('DataSearchWidget', {
     urlParamName: 'string',
   },
 })
+
+export const DEFAULT_URL_PARAM_NAME = 'search'

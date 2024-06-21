@@ -4,7 +4,10 @@ import {
   navigateTo,
   provideComponent,
 } from 'scrivito'
-import { DataSearchWidget } from './DataSearchWidgetClass'
+import {
+  DEFAULT_URL_PARAM_NAME,
+  DataSearchWidget,
+} from './DataSearchWidgetClass'
 import { useContext, useEffect, useRef } from 'react'
 import { DataBatchContext } from '../../Components/DataBatchContext'
 import { ensureString } from '../../utils/ensureString'
@@ -24,7 +27,7 @@ provideComponent(DataSearchWidget, ({ widget }) => {
 
   const buttonColor = widget.get('buttonColor') || 'btn-primary'
   const placeholder = widget.get('placeholder')
-  const urlParamName = widget.get('urlParamName') || 'search'
+  const urlParamName = widget.get('urlParamName') || DEFAULT_URL_PARAM_NAME
   const inputRef = useRef<HTMLInputElement>(null)
   const search = ensureString(currentPageParams()[urlParamName]) || undefined
 
