@@ -1,4 +1,5 @@
 import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
+import { ensureString } from '../utils/ensureString'
 
 export const defaultPageEditingConfigAttributes = {
   title: {
@@ -47,8 +48,8 @@ export const defaultPageValidations = [
   [
     'title',
 
-    (title: string) => {
-      if (title.length === 0) {
+    (title: unknown) => {
+      if (ensureString(title).length === 0) {
         return {
           message: 'The title should be set.',
           severity: 'warning',
@@ -59,8 +60,8 @@ export const defaultPageValidations = [
   [
     'metaDataDescription',
 
-    (metaDataDescription: string) => {
-      if (metaDataDescription.length > 175) {
+    (metaDataDescription: unknown) => {
+      if (ensureString(metaDataDescription).length > 175) {
         return {
           message: 'The page description should not exceed 175 characters.',
           severity: 'warning',
@@ -71,8 +72,8 @@ export const defaultPageValidations = [
   [
     'tcCreator',
 
-    (tcCreator: string) => {
-      if (tcCreator && tcCreator.charAt(0) !== '@') {
+    (tcCreator: unknown) => {
+      if (tcCreator && ensureString(tcCreator).charAt(0) !== '@') {
         return {
           message: 'The creator should start with @.',
           severity: 'warning',
@@ -83,8 +84,8 @@ export const defaultPageValidations = [
   [
     'tcDescription',
 
-    (tcDescription: string) => {
-      if (tcDescription && tcDescription.length > 200) {
+    (tcDescription: unknown) => {
+      if (ensureString(tcDescription).length > 200) {
         return {
           message: 'The Twitter description should not exceed 200 characters.',
           severity: 'warning',
@@ -95,8 +96,8 @@ export const defaultPageValidations = [
   [
     'ogDescription',
 
-    (ogDescription: string) => {
-      if (ogDescription && ogDescription.length > 300) {
+    (ogDescription: unknown) => {
+      if (ensureString(ogDescription).length > 300) {
         return {
           message: 'The Facebook description should not exceed 300 characters.',
           severity: 'warning',
