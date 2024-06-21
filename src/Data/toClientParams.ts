@@ -25,7 +25,7 @@ export function toClientParams(params: IndexParams): FetchParams {
           .join(',')
       : undefined,
     _limit: params.limit().toString(),
-    _search: params.search() || undefined,
+    _search: params.search(),
     _count: params.includeCount() ? 'true' : undefined,
   }
 }

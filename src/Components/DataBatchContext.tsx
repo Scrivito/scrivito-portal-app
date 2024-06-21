@@ -4,7 +4,7 @@ import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 export const DataBatchContext = createContext<{
   hasMore: () => boolean
   loadMore: () => void
-  setSearch?: (query: string | undefined) => void
+  setSearch?: (query: string) => void
 }>({
   hasMore: () => true,
   loadMore: () => {
@@ -24,7 +24,7 @@ export const DataBatchContextProvider = connect(
     const configuredLimit = dataScope.limit() ?? 20
     const [limit, setLimit] = useState(configuredLimit)
     const [initialLimit, setInitialLimit] = useState(configuredLimit)
-    const [search, setSearch] = useState<string | undefined>()
+    const [search, setSearch] = useState('')
 
     if (initialLimit !== configuredLimit) {
       setInitialLimit(configuredLimit)

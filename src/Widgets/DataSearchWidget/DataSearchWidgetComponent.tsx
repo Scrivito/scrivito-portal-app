@@ -29,7 +29,7 @@ provideComponent(DataSearchWidget, ({ widget }) => {
   const placeholder = widget.get('placeholder')
   const urlParamName = widget.get('urlParamName') || DEFAULT_URL_PARAM_NAME
   const inputRef = useRef<HTMLInputElement>(null)
-  const search = ensureString(currentPageParams()[urlParamName]) || undefined
+  const search = ensureString(currentPageParams()[urlParamName])
 
   useEffect(() => setSearch(search), [setSearch, search])
 
