@@ -60,9 +60,9 @@ export const defaultPageValidations = [
     'metaDataDescription',
 
     (metaDataDescription: string) => {
-      if (metaDataDescription.length === 0) {
+      if (metaDataDescription.length > 175) {
         return {
-          message: 'The metaDataDescription should be set.',
+          message: 'The page description should not exceed 175 characters.',
           severity: 'warning',
         }
       }
