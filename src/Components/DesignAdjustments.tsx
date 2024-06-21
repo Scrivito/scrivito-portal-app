@@ -9,10 +9,10 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
   const styles: string[] = []
 
   const dropShadow = root.get('siteDropShadow')
-  if (!dropShadow) styles.push("--jr-card-box-shadow: 'none';")
+  if (!dropShadow) styles.push('--jr-card-box-shadow: none;')
 
   const roundedCorners = root.get('siteRoundedCorners')
-  if (!roundedCorners) styles.push("--jr-card-border-radius: '0';")
+  if (!roundedCorners) styles.push('--jr-card-border-radius: 0;')
 
   return (
     <Helmet>
