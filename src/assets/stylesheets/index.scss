@@ -11,8 +11,8 @@
  ================================================== */
 
 :root {
-  --light-grey: #f7f8f8;
-  --middle-grey: #f0ede9;
+  --light-grey: #f2f3f7;
+  --middle-grey: #e8e8e8;
   --dark-grey: #2f2f2f;
   --headline: #1a284d;
 
@@ -850,6 +850,9 @@ header section {
   --bs-card-inner-border-radius: 0.4375rem;
   --bs-card-cap-bg: transparent;
   box-shadow: var(--jr-card-box-shadow);
+}
+.card.bg-white .bi {
+  color: var(--bs-primary) !important;
 }
 
 .card-body {
@@ -1719,7 +1722,7 @@ header .navbar.navbar-expand-lg {
  =================================================================== */
 
 header section:after {
-  background: var(--middle-grey);
+  background: var(--light-grey);
   content: '';
   display: block;
   position: absolute;
