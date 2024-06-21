@@ -20,6 +20,7 @@ provideEditingConfig(Homepage, {
       description:
         'Under which URL is this site reachable? E.g. "https://www.tynacoon.com/en"',
     },
+    facebookAppId: { title: 'Facebook app ID' },
     metaDataDescription: {
       title: 'Page description',
       description: 'Limit to 175, ideally 150 characters.',
@@ -47,6 +48,10 @@ provideEditingConfig(Homepage, {
       title: 'Location of search results page',
     },
     siteUserProfilePage: { title: 'Location of user profile page' },
+    twitterSite: {
+      title: 'Twitter site',
+      description: 'Needs to be approved at https://cards-dev.x.com/validator',
+    },
   },
   propertiesGroups: (site) => [
     {
@@ -64,6 +69,8 @@ provideEditingConfig(Homepage, {
         'sitePortalOverviewPage',
         'siteSearchResultsPage',
         'siteUserProfilePage',
+        'facebookAppId',
+        'twitterSite',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },
