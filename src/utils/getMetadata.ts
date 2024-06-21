@@ -1,6 +1,7 @@
 import { Obj, urlFor, extractText } from 'scrivito'
 import { truncate } from 'lodash-es'
 import { ensureString } from './ensureString'
+import { isImage } from '../Objs/Image/ImageObjClass'
 
 export function getMetadata(page: Obj) {
   const meta = [
@@ -71,7 +72,5 @@ export function getMetadata(page: Obj) {
 }
 
 function imageUrlFor(obj: unknown) {
-  if (obj instanceof Obj && obj.objClass() === 'Image' && obj.get('blob')) {
-    return obj.contentUrl()
-  }
+  if (isImage(obj) && obj.get('blob')) return obj.contentUrl()
 }

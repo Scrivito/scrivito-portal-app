@@ -7,3 +7,9 @@ export const Image = provideObjClass('Image', {
     tags: 'stringlist',
   },
 })
+
+export type ImageInstance = InstanceType<typeof Image>
+
+export function isImage(input: unknown): input is ImageInstance {
+  return input instanceof Image
+}
