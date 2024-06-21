@@ -1,5 +1,6 @@
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
+import { SiteColorsPicker } from '../../Components/SiteColorsPicker'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -71,6 +72,7 @@ provideEditingConfig(Homepage, {
     },
     {
       title: 'Site colors',
+      component: SiteColorsPicker,
       properties: [
         'siteColorPrimary',
         'siteColorPrimaryLighten',
