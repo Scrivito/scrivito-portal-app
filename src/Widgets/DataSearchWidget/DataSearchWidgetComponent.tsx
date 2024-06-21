@@ -16,8 +16,8 @@ provideComponent(DataSearchWidget, ({ widget }) => {
   if (!setSearch) {
     return (
       <EditorNote>
-        This input is hidden because only data groups and pages support data
-        search.
+        This input is hidden because neither the page or a containing widget
+        support data search.
       </EditorNote>
     )
   }
