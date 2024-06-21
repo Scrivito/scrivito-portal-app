@@ -24,6 +24,7 @@ provideComponent(
     return (
       <div>
         <ContentTag
+          tag="h6"
           content={widget}
           attribute="headline"
           className="h6 text-uppercase"

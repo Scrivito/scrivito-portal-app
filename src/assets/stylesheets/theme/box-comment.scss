@@ -7,7 +7,7 @@
     img {
       width: 60px;
       border-radius: var(--jr-border-radius);
-      box-shadow: 0 0.375rem 2rem 0 rgba(140, 152, 164, 0.3);
+      box-shadow: var(--jr-box-shadow);
     }
     img[src*='.svg'] {
       padding: 10px;
