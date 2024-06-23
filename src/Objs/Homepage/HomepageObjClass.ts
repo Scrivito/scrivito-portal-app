@@ -10,6 +10,8 @@ export const Homepage = provideObjClass('Homepage', {
     facebookAppId: 'string',
     pisaUrl: 'string',
     siteCartPage: 'reference',
+    siteDropShadow: 'boolean',
+    siteRoundedCorners: 'boolean',
     siteFavicon: ['reference', { only: 'Image' }],
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],
     siteHeader: 'widgetlist',

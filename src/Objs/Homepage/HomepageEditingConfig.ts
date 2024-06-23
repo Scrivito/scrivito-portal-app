@@ -38,7 +38,15 @@ provideEditingConfig(Homepage, {
     },
     sitePortalOnlyMode: { title: 'Use portal-only mode?' },
     siteCartPage: { title: 'Location of cart page' },
+    siteDropShadow: {
+      title: 'Show drop-shadow?',
+      description: 'Default: Yes',
+    },
     sitePortalOverviewPage: { title: 'Location of portal overview page' },
+    siteRoundedCorners: {
+      title: 'Show rounded corners?',
+      description: 'Default: Yes',
+    },
     siteSearchResultsPage: {
       title: 'Location of search results page',
     },
@@ -64,6 +72,8 @@ provideEditingConfig(Homepage, {
         'sitePortalOverviewPage',
         'siteSearchResultsPage',
         'siteUserProfilePage',
+        'siteDropShadow',
+        'siteRoundedCorners',
         'facebookAppId',
         'twitterSite',
       ].filter((p): p is string => typeof p === 'string'),
@@ -72,6 +82,10 @@ provideEditingConfig(Homepage, {
     ...defaultPagePropertiesGroups,
   ],
   properties: defaultPageProperties,
-  initialContent: defaultPageInitialContent,
+  initialContent: {
+    ...defaultPageInitialContent,
+    siteDropShadow: true,
+    siteRoundedCorners: true,
+  },
   validations: defaultPageValidations,
 })
