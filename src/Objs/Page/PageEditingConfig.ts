@@ -9,7 +9,7 @@ provideEditingConfig(Page, {
     excludeFromSearch: {
       title: 'Exclude from search results?',
       description:
-        'If checked, this download will not be included in search results.',
+        'If checked, this page will not be included in search results.',
     },
     hideInNavigation: {
       title: 'Hide in navigation?',
