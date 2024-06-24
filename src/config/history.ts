@@ -13,7 +13,7 @@ export function configureHistory(): void {
 
 let currentHistory: BrowserHistory | undefined
 
-export function getHistory(): BrowserHistory | undefined {
+function getHistory(): BrowserHistory | undefined {
   if (typeof window === 'undefined') return
 
   if (!currentHistory) currentHistory = createBrowserHistory()
