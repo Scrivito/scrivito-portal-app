@@ -20,10 +20,10 @@ provideEditingConfig(Homepage, {
       description:
         'Under which URL is this site reachable? E.g. "https://www.tynacoon.com/en"',
     },
-    facebookAppId: { title: 'Facebook app ID' },
     pisaUrl: {
       title: 'PisaSales Portal API URL',
     },
+    siteFacebookAppId: { title: 'Facebook app ID' },
     siteLanguageIcon: { title: 'Language icon' },
     siteLogoDark: {
       title: 'Dark logo',
@@ -74,7 +74,7 @@ provideEditingConfig(Homepage, {
         'siteUserProfilePage',
         'siteDropShadow',
         'siteRoundedCorners',
-        'facebookAppId',
+        'siteFacebookAppId',
         'siteTwitterSite',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
