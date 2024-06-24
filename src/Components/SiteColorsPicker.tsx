@@ -1,6 +1,6 @@
 import Color from 'color'
 import { ColorPicker, useColor } from 'react-color-palette'
-import { connect } from 'scrivito'
+import { connect, uiContext } from 'scrivito'
 import { HomepageInstance } from '../Objs/Homepage/HomepageObjClass'
 import './SiteColorsPicker.scss'
 
@@ -19,11 +19,18 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
     initialSiteColorSecondary || '#39a9eb',
   )
 
+  const { theme } = uiContext() || { theme: null }
+  if (!theme) return null
   return (
-    <div className="site-colors-picker">
+    <div
+      className={`site-colors-picker scrivito_detail_content scrivito_${theme}`}
+    >
       <div>
-        <h2>Primary color</h2>
+        <div className="scrivito_detail_label">
+          <span>Primary color</span>
+        </div>
         <ColorPicker
+          height={100}
           color={primaryColor}
           hideInput={['hsv']}
           hideAlpha={true}
@@ -39,9 +46,13 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           }}
         />
       </div>
+
       <div>
-        <h2>Secondary color</h2>
+        <div className="scrivito_detail_label mt-2">
+          <span>Secondary color</span>
+        </div>
         <ColorPicker
+          height={100}
           color={secondaryColor}
           hideInput={['hsv']}
           hideAlpha={true}
