@@ -1,1 +1,70 @@
 @import 'react-color-palette/css';
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.rcp-root {
+  --rcp-background-color: rgba(255, 255, 255, 0.4);
+  --rcp-field-input-color: #555;
+  --rcp-field-input-border-color: transparent;
+  --rcp-field-label-color: #555;
+  border-radius: 3px !important;
+  margin-top: 0.25rem;
+  .rcp-saturation {
+    border-radius: 3px 3px 0 0;
+  }
+  .rcp-body {
+    padding: 5px;
+  }
+  .rcp-hue {
+    margin-top: 15px;
+  }
+  .rcp-fields {
+    flex-direction: row;
+  }
+  .rcp-fields-floor {
+    grid-template-columns: auto;
+    gap: 5px;
+    width: 100%;
+  }
+  .rcp-field-input {
+    background: #fff;
+    border-radius: 3px;
+    border: none;
+    padding: 4px 0;
+    &:focus {
+      box-shadow: 0 0 0 2px #426698 inset;
+      color: #555;
+    }
+  }
+  .rcp-field-label {
+    color: #555;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 3px 5px 3px;
+  }
+}
+
+.scrivito_dark {
+  padding: 7px !important;
+  &.site-colors-picker {
+    background: var(--jr-grey-middle);
+  }
+  .rcp-root {
+    --rcp-background-color: rgba(222, 222, 222, 0.1);
+    --rcp-field-input-color: #eee;
+    --rcp-field-input-border-color: transparent;
+    --rcp-field-label-color: #eee;
+    .rcp-field-input {
+      background: rgba(222, 222, 222, 0.1);
+      &:focus {
+        box-shadow: 0 0 0 2px #577fb6 inset;
+        color: #fff;
+      }
+    }
+    .rcp-field-label {
+      color: #eee;
+    }
+  }
+}
