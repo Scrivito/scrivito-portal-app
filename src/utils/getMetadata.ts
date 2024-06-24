@@ -27,9 +27,9 @@ export function getMetadata(page: Obj) {
       meta.push({ property: 'fb:app_id', content: facebookAppId })
     }
 
-    const twitterSite = ensureString(root.get('twitterSite'))
-    if (twitterSite) {
-      meta.push({ name: 'twitter:site', content: twitterSite })
+    const siteTwitterSite = ensureString(root.get('siteTwitterSite'))
+    if (siteTwitterSite) {
+      meta.push({ name: 'twitter:site', content: siteTwitterSite })
     }
   }
 

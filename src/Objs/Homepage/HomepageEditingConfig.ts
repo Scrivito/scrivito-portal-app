@@ -50,11 +50,11 @@ provideEditingConfig(Homepage, {
     siteSearchResultsPage: {
       title: 'Location of search results page',
     },
-    siteUserProfilePage: { title: 'Location of user profile page' },
-    twitterSite: {
+    siteTwitterSite: {
       title: 'Twitter site',
       description: 'Needs to be approved at https://cards-dev.x.com/validator',
     },
+    siteUserProfilePage: { title: 'Location of user profile page' },
   },
   propertiesGroups: (site) => [
     {
@@ -75,7 +75,7 @@ provideEditingConfig(Homepage, {
         'siteDropShadow',
         'siteRoundedCorners',
         'facebookAppId',
-        'twitterSite',
+        'siteTwitterSite',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },
