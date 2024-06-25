@@ -34,7 +34,7 @@
     "react-dom": "^19.2.4",
     "react-dropzone": "^15.0.0",
     "react-toastify": "^11.0.5",
-    "scrivito": "^1.59.1",
+    "scrivito": "file:../scrivito_js/js/build/npm_scrivito",
     "scrivito-neoletter-form-widgets": "^0.0.43",
     "scrivito-pisasales-questionnaire-builder": "^1.1.3",
     "scroll-to-fragment": "^1.1.0"
@@ -67,6 +67,7 @@
     "jsontoxml": "^1.0.1",
     "knip": "^6.3.1",
     "local-web-server": "^5.4.0",
+    "nodemon": "^3.1.10",
     "precompress": "^13.0.5",
     "prettier": "^3.8.1",
     "sass": "^1.78.0",
