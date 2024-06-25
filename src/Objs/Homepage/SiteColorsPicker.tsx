@@ -1,7 +1,7 @@
 import Color from 'color'
 import { ColorPicker, useColor } from 'react-color-palette'
 import { connect, uiContext } from 'scrivito'
-import { HomepageInstance } from '../Objs/Homepage/HomepageObjClass'
+import { HomepageInstance } from './HomepageObjClass'
 import './SiteColorsPicker.scss'
 
 export const SiteColorsPicker = connect(function SiteColorsPicker({

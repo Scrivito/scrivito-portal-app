@@ -1,6 +1,6 @@
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
-import { SiteColorsPicker } from '../../Components/SiteColorsPicker'
+import { SiteColorsPicker } from './SiteColorsPicker'
 import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
