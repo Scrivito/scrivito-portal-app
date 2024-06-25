@@ -10,14 +10,10 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
   page: HomepageInstance
 }) {
   const siteColorPrimary = page.get('siteColorPrimary')
-  const [primaryColor, setPrimaryColor] = useColor(
-    siteColorPrimary || '#274486',
-  )
+  const [iColorPrimary] = useColor(siteColorPrimary || '#274486')
 
   const siteColorSecondary = page.get('siteColorSecondary')
-  const [secondaryColor, setSecondaryColor] = useColor(
-    siteColorSecondary || '#39a9eb',
-  )
+  const [iColorSecondary] = useColor(siteColorSecondary || '#39a9eb')
 
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
@@ -33,7 +29,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           </div>
           <ColorPicker
             height={100}
-            color={primaryColor}
+            color={iColorPrimary}
             hideInput={['hsv']}
             hideAlpha={true}
             onChange={(iColor) => {
@@ -43,8 +39,6 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
                 siteColorPrimaryDarken: darken(newSiteColorPrimary),
                 siteColorPrimaryLighten: lighten(newSiteColorPrimary),
               })
-
-              setPrimaryColor(iColor)
             }}
           />
         </div>
@@ -55,7 +49,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           </div>
           <ColorPicker
             height={100}
-            color={secondaryColor}
+            color={iColorSecondary}
             hideInput={['hsv']}
             hideAlpha={true}
             onChange={(iColor) => {
@@ -65,8 +59,6 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
                 siteColorSecondaryDarken: darken(newSiteColorSecondary),
                 siteColorSecondaryLighten: lighten(newSiteColorSecondary),
               })
-
-              setSecondaryColor(iColor)
             }}
           />
         </div>
