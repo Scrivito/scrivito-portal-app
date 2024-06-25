@@ -42,6 +42,9 @@ provideEditingConfig(Page, {
     'showAsLandingPage',
   ],
   propertiesGroups: defaultPagePropertiesGroups,
-  initialContent: defaultPageInitialContent,
+  initialContent: {
+    ...defaultPageInitialContent,
+    linkIcon: 'bi-rocket-takeoff',
+  },
   validations: defaultPageValidations,
 })
