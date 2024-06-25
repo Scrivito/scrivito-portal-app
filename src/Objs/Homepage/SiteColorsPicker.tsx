@@ -9,14 +9,14 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
 }: {
   page: HomepageInstance
 }) {
-  const initialSiteColorPrimary = page.get('siteColorPrimary')
+  const siteColorPrimary = page.get('siteColorPrimary')
   const [primaryColor, setPrimaryColor] = useColor(
-    initialSiteColorPrimary || '#274486',
+    siteColorPrimary || '#274486',
   )
 
-  const initialSiteColorSecondary = page.get('siteColorSecondary')
+  const siteColorSecondary = page.get('siteColorSecondary')
   const [secondaryColor, setSecondaryColor] = useColor(
-    initialSiteColorSecondary || '#39a9eb',
+    siteColorSecondary || '#39a9eb',
   )
 
   const { theme } = uiContext() || { theme: null }
@@ -37,11 +37,11 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             hideInput={['hsv']}
             hideAlpha={true}
             onChange={(iColor) => {
-              const siteColorPrimary = iColor.hex
+              const newSiteColorPrimary = iColor.hex
               page.update({
-                siteColorPrimary,
-                siteColorPrimaryDarken: darken(siteColorPrimary),
-                siteColorPrimaryLighten: lighten(siteColorPrimary),
+                siteColorPrimary: newSiteColorPrimary,
+                siteColorPrimaryDarken: darken(newSiteColorPrimary),
+                siteColorPrimaryLighten: lighten(newSiteColorPrimary),
               })
 
               setPrimaryColor(iColor)
@@ -59,11 +59,11 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             hideInput={['hsv']}
             hideAlpha={true}
             onChange={(iColor) => {
-              const siteColorSecondary = iColor.hex
+              const newSiteColorSecondary = iColor.hex
               page.update({
-                siteColorSecondary,
-                siteColorSecondaryDarken: darken(siteColorSecondary),
-                siteColorSecondaryLighten: lighten(siteColorSecondary),
+                siteColorSecondary: newSiteColorSecondary,
+                siteColorSecondaryDarken: darken(newSiteColorSecondary),
+                siteColorSecondaryLighten: lighten(newSiteColorSecondary),
               })
 
               setSecondaryColor(iColor)
