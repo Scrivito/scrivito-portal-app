@@ -26,48 +26,50 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
     <div
       className={`site-colors-picker scrivito_detail_content scrivito_${theme}`}
     >
-      <div>
-        <div className="scrivito_detail_label">
-          <span>Primary color</span>
+      <div className="row">
+        <div className="col-sm-6">
+          <div className="scrivito_detail_label">
+            <span>Primary color</span>
+          </div>
+          <ColorPicker
+            height={100}
+            color={primaryColor}
+            hideInput={['hsv']}
+            hideAlpha={true}
+            onChange={(iColor) => {
+              const siteColorPrimary = iColor.hex
+              page.update({
+                siteColorPrimary,
+                siteColorPrimaryDarken: darken(siteColorPrimary),
+                siteColorPrimaryLighten: lighten(siteColorPrimary),
+              })
+
+              setPrimaryColor(iColor)
+            }}
+          />
         </div>
-        <ColorPicker
-          height={100}
-          color={primaryColor}
-          hideInput={['hsv']}
-          hideAlpha={true}
-          onChange={(iColor) => {
-            const siteColorPrimary = iColor.hex
-            page.update({
-              siteColorPrimary,
-              siteColorPrimaryDarken: darken(siteColorPrimary),
-              siteColorPrimaryLighten: lighten(siteColorPrimary),
-            })
 
-            setPrimaryColor(iColor)
-          }}
-        />
-      </div>
+        <div className="col-sm-6">
+          <div className="scrivito_detail_label">
+            <span>Secondary color</span>
+          </div>
+          <ColorPicker
+            height={100}
+            color={secondaryColor}
+            hideInput={['hsv']}
+            hideAlpha={true}
+            onChange={(iColor) => {
+              const siteColorSecondary = iColor.hex
+              page.update({
+                siteColorSecondary,
+                siteColorSecondaryDarken: darken(siteColorSecondary),
+                siteColorSecondaryLighten: lighten(siteColorSecondary),
+              })
 
-      <div>
-        <div className="scrivito_detail_label mt-2">
-          <span>Secondary color</span>
+              setSecondaryColor(iColor)
+            }}
+          />
         </div>
-        <ColorPicker
-          height={100}
-          color={secondaryColor}
-          hideInput={['hsv']}
-          hideAlpha={true}
-          onChange={(iColor) => {
-            const siteColorSecondary = iColor.hex
-            page.update({
-              siteColorSecondary,
-              siteColorSecondaryDarken: darken(siteColorSecondary),
-              siteColorSecondaryLighten: lighten(siteColorSecondary),
-            })
-
-            setSecondaryColor(iColor)
-          }}
-        />
       </div>
     </div>
   )
