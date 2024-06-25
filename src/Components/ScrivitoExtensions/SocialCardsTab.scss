@@ -39,30 +39,30 @@ $blueDarken: #0085ac;
 .scrivito_detail_label {
   &.scrivito_error {
     span,
-    .scrivito_icon,
-    .scrivito_icon:hover {
+    .social_card_icon,
+    .social_card_icon:hover {
       color: $red !important;
-      &.scrivito_icon_error:after {
+      &.social_card_icon_error:after {
         filter: drop-shadow(0 2em $red);
       }
     }
   }
   &.scrivito_warning {
     span,
-    .scrivito_icon,
-    .scrivito_icon:hover {
+    .social_card_icon,
+    .social_card_icon:hover {
       color: $yellowDarken !important;
-      &.scrivito_icon_error:after {
+      &.social_card_icon_error:after {
         filter: drop-shadow(0 2em $yellowDarken);
       }
     }
   }
   &.scrivito_info {
     span,
-    .scrivito_icon,
-    .scrivito_icon:hover {
+    .social_card_icon,
+    .social_card_icon:hover {
       color: $blue !important;
-      &.scrivito_icon_error:after {
+      &.social_card_icon_error:after {
         filter: drop-shadow(0 2em $blue);
       }
     }
@@ -117,7 +117,7 @@ $blueDarken: #0085ac;
   color: #eee !important;
 }
 
-.scrivito_icon_error {
+.social_card_icon_error {
   float: left;
   padding: 6px 3px;
   display: table-cell;

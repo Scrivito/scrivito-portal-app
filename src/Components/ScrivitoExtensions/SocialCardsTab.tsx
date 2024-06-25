@@ -158,7 +158,7 @@ const ContentProperty = connect(
       <>
         <div className={`scrivito_detail_label ${severityClass}`}>
           {severityClass && (
-            <i className="scrivito_icon scrivito_icon_error"></i>
+            <i className="social_card_icon social_card_icon_error"></i>
           )}
           <span>{title}</span>
         </div>
