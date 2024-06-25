@@ -1,12 +1,12 @@
 import { provideObjClass } from 'scrivito'
+import { defaultPageAttributes } from '../defaultPageAttributes'
 
 export const SubnavigationOverview = provideObjClass('SubnavigationOverview', {
   attributes: {
+    ...defaultPageAttributes,
     body: 'widgetlist',
-    childOrder: 'referencelist',
     hideInNavigation: 'boolean',
     linkIcon: 'string',
-    title: 'string',
     topBannerBackground: ['reference', { only: ['Image'] }],
   },
   extractTextAttributes: ['body'],

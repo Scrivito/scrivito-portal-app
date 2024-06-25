@@ -1,11 +1,11 @@
 import { provideObjClass } from 'scrivito'
+import { defaultPageAttributes } from '../defaultPageAttributes'
 
 export const ProductCategory = provideObjClass('ProductCategory', {
   attributes: {
-    childOrder: 'referencelist',
+    ...defaultPageAttributes,
     description: 'string',
     image: ['reference', { only: ['Image'] }],
-    title: 'string',
   },
   extractTextAttributes: ['description'],
 })
