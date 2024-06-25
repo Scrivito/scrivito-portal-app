@@ -45,9 +45,7 @@
 
   &.scrivito_dark {
     padding: 7px !important;
-    &.site-colors-picker {
-      background: var(--jr-grey-middle);
-    }
+
     .rcp-root {
       --rcp-background-color: rgba(222, 222, 222, 0.1);
       --rcp-field-input-color: #eee;
