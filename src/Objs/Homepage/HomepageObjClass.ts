@@ -1,16 +1,16 @@
 import { provideObjClass } from 'scrivito'
+import { defaultPageAttributes } from '../defaultPageAttributes'
 
 export const Homepage = provideObjClass('Homepage', {
   attributes: {
+    ...defaultPageAttributes,
     baseUrl: 'stringlist',
     body: 'widgetlist',
-    childOrder: 'referencelist',
     contentTitle: 'string',
-    metaDataDescription: 'string',
     pisaUrl: 'string',
     siteCartPage: 'reference',
     siteDropShadow: 'boolean',
-    siteRoundedCorners: 'boolean',
+    siteFacebookAppId: 'string',
     siteFavicon: ['reference', { only: 'Image' }],
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],
     siteHeader: 'widgetlist',
@@ -20,9 +20,10 @@ export const Homepage = provideObjClass('Homepage', {
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
     sitePortalOnlyMode: 'boolean',
     sitePortalOverviewPage: 'reference',
+    siteRoundedCorners: 'boolean',
     siteSearchResultsPage: 'reference',
+    siteTwitterSite: 'string',
     siteUserProfilePage: 'reference',
-    title: 'string',
   },
   extractTextAttributes: ['body'],
   onlyAsRoot: true,

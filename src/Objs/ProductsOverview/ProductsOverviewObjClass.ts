@@ -1,10 +1,10 @@
 import { provideObjClass } from 'scrivito'
+import { defaultPageAttributes } from '../defaultPageAttributes'
 
 export const ProductsOverview = provideObjClass('ProductsOverview', {
   attributes: {
+    ...defaultPageAttributes,
     body: 'widgetlist',
-    childOrder: 'referencelist',
-    title: 'string',
     topBannerBackground: ['reference', { only: ['Image'] }],
   },
   extractTextAttributes: ['body'],
