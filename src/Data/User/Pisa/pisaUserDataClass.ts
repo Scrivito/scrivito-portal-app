@@ -9,7 +9,7 @@ export async function pisaUserDataClass() {
     connection: {
       index: async () => {
         throw new DataConnectionError(
-          'Pisa does not support "index" for users due to security considerations.',
+          'Listing users is not supported due to data protection reasons.',
         )
       },
       get: async (id) => {
