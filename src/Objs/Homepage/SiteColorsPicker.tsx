@@ -9,12 +9,6 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
 }: {
   page: HomepageInstance
 }) {
-  const siteColorPrimary = page.get('siteColorPrimary')
-  const [iColorPrimary] = useColor(siteColorPrimary || '#274486')
-
-  const siteColorSecondary = page.get('siteColorSecondary')
-  const [iColorSecondary] = useColor(siteColorSecondary || '#39a9eb')
-
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
@@ -27,17 +21,13 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           <div className="scrivito_detail_label">
             <span>Primary color</span>
           </div>
-          <ColorPicker
-            height={100}
-            color={iColorPrimary}
-            hideInput={['hsv']}
-            hideAlpha={true}
-            onChange={(iColor) => {
-              const newSiteColorPrimary = iColor.hex
+          <AdvancedColorPicker
+            color={page.get('siteColorPrimary') || '#274486'}
+            setColor={(color) => {
               page.update({
-                siteColorPrimary: newSiteColorPrimary,
-                siteColorPrimaryDarken: darken(newSiteColorPrimary),
-                siteColorPrimaryLighten: lighten(newSiteColorPrimary),
+                siteColorPrimary: color,
+                siteColorPrimaryDarken: darken(color),
+                siteColorPrimaryLighten: lighten(color),
               })
             }}
           />
@@ -47,17 +37,13 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           <div className="scrivito_detail_label">
             <span>Secondary color</span>
           </div>
-          <ColorPicker
-            height={100}
-            color={iColorSecondary}
-            hideInput={['hsv']}
-            hideAlpha={true}
-            onChange={(iColor) => {
-              const newSiteColorSecondary = iColor.hex
+          <AdvancedColorPicker
+            color={page.get('siteColorSecondary') || '#39a9eb'}
+            setColor={(color) => {
               page.update({
-                siteColorSecondary: newSiteColorSecondary,
-                siteColorSecondaryDarken: darken(newSiteColorSecondary),
-                siteColorSecondaryLighten: lighten(newSiteColorSecondary),
+                siteColorSecondary: color,
+                siteColorSecondaryDarken: darken(color),
+                siteColorSecondaryLighten: lighten(color),
               })
             }}
           />
@@ -66,6 +52,26 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
     </div>
   )
 })
+
+function AdvancedColorPicker({
+  color,
+  setColor,
+}: {
+  color: string
+  setColor: (color: string) => void
+}) {
+  const [iColor] = useColor(color)
+
+  return (
+    <ColorPicker
+      height={100}
+      color={iColor}
+      hideInput={['hsv']}
+      hideAlpha={true}
+      onChange={(newIColor) => setColor(newIColor.hex)}
+    />
+  )
+}
 
 function lighten(color: string): string {
   return Color(color).lighten(0.5).hex()
