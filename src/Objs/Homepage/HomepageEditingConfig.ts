@@ -1,5 +1,6 @@
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
+import { SiteColorsPicker } from './SiteColorsPicker'
 import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
@@ -78,6 +79,19 @@ provideEditingConfig(Homepage, {
         'siteTwitterSite',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
+    },
+    {
+      title: 'Site colors',
+      component: SiteColorsPicker,
+      properties: [
+        'siteColorPrimary',
+        'siteColorPrimaryLighten',
+        'siteColorPrimaryDarken',
+        'siteColorSecondary',
+        'siteColorSecondaryLighten',
+        'siteColorSecondaryDarken',
+      ],
+      key: 'site-colors-group',
     },
     ...defaultPagePropertiesGroups,
   ],
