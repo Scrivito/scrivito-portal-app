@@ -29,10 +29,10 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
   if (secondaryDarken) styles.push(`--bs-secondary-darken: ${secondaryDarken};`)
 
   const dropShadow = root.get('siteDropShadow')
-  if (!dropShadow) styles.push('--jr-card-box-shadow: none;')
+  if (!dropShadow) styles.push('--jr-box-shadow: none;')
 
   const roundedCorners = root.get('siteRoundedCorners')
-  if (!roundedCorners) styles.push('--jr-card-border-radius: 0;')
+  if (!roundedCorners) styles.push('--jr-border-radius: 0;')
 
   return (
     <Helmet>
