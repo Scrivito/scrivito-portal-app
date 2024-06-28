@@ -78,10 +78,12 @@ function AdvancedColorPicker({
   )
 }
 
-function lighten(color: string): string {
-  return Color(color).lighten(0.5).hex()
+function lighten(inputColor: string): string {
+  const color = Color(inputColor)
+  return color.lightness(color.lightness() + 8).hex()
 }
 
-function darken(color: string): string {
-  return Color(color).darken(0.5).hex()
+function darken(inputColor: string): string {
+  const color = Color(inputColor)
+  return color.lightness(color.lightness() - 8).hex()
 }
