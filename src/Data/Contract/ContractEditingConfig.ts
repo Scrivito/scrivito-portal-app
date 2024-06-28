@@ -18,7 +18,7 @@ ContractPromise.then((Contract) => {
       partner: { title: 'Partner' },
       startAt: { title: 'Start at' },
       status: { title: 'Status' },
-      termExtensionEndAt: { title: 'Term extension at' },
+      termExtensionEndAt: { title: 'Term extension end at' },
       totalPrice: { title: 'Total price' },
       type: { title: 'Type' },
     },
