@@ -57,10 +57,13 @@ export const MetaNavigation = connect(function MetaNavigation({
 
 const PortalLink = connect(function PortalLink({
   root,
+  widget,
 }: {
   root: HomepageInstance
   widget: NavigationWidgetInstance
 }) {
+  if (widget.get('slimDesign')) return null
+
   const sitePortalOverviewPage = getSitePortalOverviewPage(root)
   if (!sitePortalOverviewPage) return null
 
