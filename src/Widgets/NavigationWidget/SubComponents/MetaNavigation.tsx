@@ -16,9 +16,6 @@ export const MetaNavigation = connect(function MetaNavigation({
   root: HomepageInstance
   widget: NavigationWidgetInstance
 }) {
-  const sitePortalOverviewPage = getSitePortalOverviewPage(root)
-  const showPortalNav = !!sitePortalOverviewPage
-
   const siteCartPage = root.get('siteCartPage')
   const showCart = !!siteCartPage && containsItems()
 
@@ -36,39 +33,47 @@ export const MetaNavigation = connect(function MetaNavigation({
 
       <Nav className="ms-auto border-left">
         <LanguageSwitch />
-        {showPortalNav && (
-          <>
-            {showCart && (
-              <Nav.Item>
-                <Nav.Link
-                  as={LinkTag}
-                  eventKey={`MetaNavigation-${siteCartPage.id()}`}
-                  key={`MetaNavigation-${siteCartPage.id()}`}
-                  to={siteCartPage}
-                >
-                  <ObjIconAndTitle obj={siteCartPage} />{' '}
-                  <span className="badge rounded-pill text-bg-secondary">
-                    {numberOfCartItems()}
-                  </span>
-                </Nav.Link>
-              </Nav.Item>
-            )}
-
-            <Nav.Item>
-              <Nav.Link
-                active={isCurrentPage(sitePortalOverviewPage)}
-                as={LinkTag}
-                eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
-                key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
-                to={sitePortalOverviewPage}
-              >
-                <ObjIconAndTitle obj={sitePortalOverviewPage} />
-              </Nav.Link>
-            </Nav.Item>
-            <CurrentUserDropdown widget={widget} root={root} />
-          </>
+        {showCart && (
+          <Nav.Item>
+            <Nav.Link
+              as={LinkTag}
+              eventKey={`MetaNavigation-${siteCartPage.id()}`}
+              key={`MetaNavigation-${siteCartPage.id()}`}
+              to={siteCartPage}
+            >
+              <ObjIconAndTitle obj={siteCartPage} />{' '}
+              <span className="badge rounded-pill text-bg-secondary">
+                {numberOfCartItems()}
+              </span>
+            </Nav.Link>
+          </Nav.Item>
         )}
+        {!widget.get('slimDesign') && <PortalLink root={root} />}
+        <CurrentUserDropdown widget={widget} root={root} />
       </Nav>
     </div>
+  )
+})
+
+const PortalLink = connect(function PortalLink({
+  root,
+}: {
+  root: HomepageInstance
+}) {
+  const sitePortalOverviewPage = getSitePortalOverviewPage(root)
+  if (!sitePortalOverviewPage) return null
+
+  return (
+    <Nav.Item>
+      <Nav.Link
+        active={isCurrentPage(sitePortalOverviewPage)}
+        as={LinkTag}
+        eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+        key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+        to={sitePortalOverviewPage}
+      >
+        <ObjIconAndTitle obj={sitePortalOverviewPage} />
+      </Nav.Link>
+    </Nav.Item>
   )
 })

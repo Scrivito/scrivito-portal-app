@@ -24,14 +24,14 @@ provideComponent(NavigationWidget, ({ widget }) => {
   }
 
   return (
-    <section>
+    <section className={widget.get('slimDesign') ? 'slim-nav' : ''}>
       <div className="container">
         <Navbar expand="lg" collapseOnSelect>
           <Brand root={root} linkClassName="navbar-brand" />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <MetaNavigation widget={widget} root={root} />
-            <MainNavigation root={root} />
+            {!widget.get('slimDesign') && <MainNavigation root={root} />}
           </Navbar.Collapse>
         </Navbar>
       </div>
