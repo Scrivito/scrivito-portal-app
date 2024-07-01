@@ -4,7 +4,6 @@ import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(NavigationWidget, {
   attributes: {
-    logOutLabel: { title: 'Log-out menu item label' },
     slimDesign: {
       title: 'Slim design?',
       description:
@@ -13,11 +12,5 @@ provideEditingConfig(NavigationWidget, {
   },
   title: 'Navigation',
   thumbnail: Thumbnail,
-  properties: [
-    'metaNavigationObjs',
-    'slimDesign',
-    'searchInputLabel',
-    'logOutLabel',
-  ],
-  initialContent: { logOutLabel: 'Log out', searchInputLabel: 'Search' },
+  properties: ['metaNavigationObjs', 'slimDesign'],
 })

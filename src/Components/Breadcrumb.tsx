@@ -5,12 +5,9 @@ export const Breadcrumb = connect(function Breadcrumb() {
   const currentPageObj = currentPage()
   if (!currentPageObj) return <nav aria-label="breadcrumb" />
 
-  const breadcrumbItems: Obj[] = []
-  let item = currentPageObj.parent()
-  while (item) {
-    if (!item.get('hideInNavigation')) breadcrumbItems.unshift(item)
-    item = item.parent()
-  }
+  const breadcrumbItems = currentPageObj
+    .ancestors()
+    .filter((item): item is Obj => !!item && !item.get('hideInNavigation'))
 
   return (
     <nav aria-label="breadcrumb">

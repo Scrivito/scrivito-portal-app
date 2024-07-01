@@ -23,8 +23,6 @@ provideComponent(NavigationWidget, ({ widget }) => {
     )
   }
 
-  const searchInputLabel = widget.get('searchInputLabel')
-
   return (
     <section className={widget.get('slimDesign') ? 'slim-nav' : ''}>
       <div className="container">
@@ -33,9 +31,7 @@ provideComponent(NavigationWidget, ({ widget }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <MetaNavigation widget={widget} root={root} />
-            {!widget.get('slimDesign') && (
-              <MainNavigation root={root} searchInputLabel={searchInputLabel} />
-            )}
+            {!widget.get('slimDesign') && <MainNavigation root={root} />}
           </Navbar.Collapse>
         </Navbar>
       </div>
