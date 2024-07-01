@@ -7,7 +7,8 @@ provideEditingConfig(NavigationWidget, {
     logOutLabel: { title: 'Log-out menu item label' },
     slimDesign: {
       title: 'Slim design?',
-      description: 'Shows only the meta navigation, not the "main" navigation.',
+      description:
+        'Shows only the meta navigation, not the hierarchy navigation.',
     },
   },
   title: 'Navigation',
