@@ -16,9 +16,6 @@ export const MetaNavigation = connect(function MetaNavigation({
   root: HomepageInstance
   widget: NavigationWidgetInstance
 }) {
-  const sitePortalOverviewPage = getSitePortalOverviewPage(root)
-  const showPortalNav = !!sitePortalOverviewPage
-
   const siteCartPage = root.get('siteCartPage')
   const showCart = !!siteCartPage && containsItems()
 
@@ -51,21 +48,33 @@ export const MetaNavigation = connect(function MetaNavigation({
             </Nav.Link>
           </Nav.Item>
         )}
-        {showPortalNav && (
-          <Nav.Item>
-            <Nav.Link
-              active={isCurrentPage(sitePortalOverviewPage)}
-              as={LinkTag}
-              eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
-              key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
-              to={sitePortalOverviewPage}
-            >
-              <ObjIconAndTitle obj={sitePortalOverviewPage} />
-            </Nav.Link>
-          </Nav.Item>
-        )}
+        <PortalLink widget={widget} root={root} />
         <CurrentUserDropdown widget={widget} root={root} />
       </Nav>
     </div>
+  )
+})
+
+const PortalLink = connect(function PortalLink({
+  root,
+}: {
+  root: HomepageInstance
+  widget: NavigationWidgetInstance
+}) {
+  const sitePortalOverviewPage = getSitePortalOverviewPage(root)
+  if (!sitePortalOverviewPage) return null
+
+  return (
+    <Nav.Item>
+      <Nav.Link
+        active={isCurrentPage(sitePortalOverviewPage)}
+        as={LinkTag}
+        eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+        key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
+        to={sitePortalOverviewPage}
+      >
+        <ObjIconAndTitle obj={sitePortalOverviewPage} />
+      </Nav.Link>
+    </Nav.Item>
   )
 })
