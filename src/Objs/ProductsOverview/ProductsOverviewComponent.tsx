@@ -12,7 +12,7 @@ provideComponent(ProductsOverview, ({ page }) => {
   const categories = page.orderedChildren().filter(isProductCategory)
 
   return (
-    <>
+    <main id="main">
       <section className="py-2">
         <div className="container">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 my-3">
@@ -49,6 +49,6 @@ provideComponent(ProductsOverview, ({ page }) => {
         </div>
       </section>
       <ContentTag content={page} attribute="body" />
-    </>
+    </main>
   )
 })

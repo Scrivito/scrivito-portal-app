@@ -23,7 +23,7 @@ provideComponent(Product, ({ page }) => {
     .map(toPlainParameter)
 
   return (
-    <>
+    <main id="main">
       <section className="bg-light-grey py-4">
         <div className="container">
           <div className="row align-items-stretch">
@@ -170,7 +170,7 @@ provideComponent(Product, ({ page }) => {
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 })
 

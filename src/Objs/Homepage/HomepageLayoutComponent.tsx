@@ -8,9 +8,7 @@ provideLayoutComponent(Homepage, ({ page }) => {
         Skip to Content
       </a>
       <ContentTag tag="header" content={page} attribute="siteHeader" />
-      <main id="main">
-        <CurrentPage />
-      </main>
+      <CurrentPage />
       <ContentTag
         tag="footer"
         content={page}
