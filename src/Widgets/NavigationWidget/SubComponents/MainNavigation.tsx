@@ -6,10 +6,8 @@ import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
 export const MainNavigation = connect(function MainNavigation({
   root,
-  searchInputLabel,
 }: {
   root: HomepageInstance
-  searchInputLabel: string
 }) {
   return (
     <Nav className="navbar-main">
@@ -25,10 +23,7 @@ export const MainNavigation = connect(function MainNavigation({
           />
         )}
       />
-      <SearchBox
-        searchInputLabel={searchInputLabel}
-        searchResultsPage={root.get('siteSearchResultsPage')}
-      />
+      <SearchBox searchResultsPage={root.get('siteSearchResultsPage')} />
     </Nav>
   )
 })

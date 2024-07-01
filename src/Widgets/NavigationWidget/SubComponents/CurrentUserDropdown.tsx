@@ -1,6 +1,7 @@
 import {
   connect,
   ContentTag,
+  currentLanguage,
   isCurrentPage,
   isEditorLoggedIn,
   isUserLoggedIn,
@@ -70,16 +71,14 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
         </>
       ) : null}
 
-      <LogOutButton logOutLabel={widget.get('logOutLabel')} root={root} />
+      <LogOutButton root={root} />
     </NavDropdown>
   )
 })
 
 const LogOutButton = connect(function LogOutButton({
-  logOutLabel,
   root,
 }: {
-  logOutLabel: string
   root: HomepageInstance
 }) {
   // TODO: Remove workaround, once #10276 is available
@@ -102,7 +101,7 @@ const LogOutButton = connect(function LogOutButton({
             style={{ color: 'rgba(0, 0, 0, 0.5)' }}
           >
             <i className="bi bi-box-arrow-right"></i>
-            {logOutLabel}
+            {localizeLogOutLabel()}
           </NavDropdown.Item>
         </div>
       </OverlayTrigger>
@@ -118,7 +117,7 @@ const LogOutButton = connect(function LogOutButton({
       onClick={() => logout(rootUrl)}
     >
       <i className="bi bi-box-arrow-right"></i>
-      {logOutLabel}
+      {localizeLogOutLabel()}
     </NavDropdown.Item>
   )
 })
@@ -135,3 +134,12 @@ const ProfileImg = connect(
   },
   { loading: Loading },
 )
+
+function localizeLogOutLabel(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Abmelden'
+    default:
+      return 'Log out'
+  }
+}
