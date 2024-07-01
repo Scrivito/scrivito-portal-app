@@ -23,8 +23,6 @@ provideComponent(NavigationWidget, ({ widget }) => {
     )
   }
 
-  const searchInputLabel = widget.get('searchInputLabel')
-
   return (
     <section>
       <div className="container">
@@ -33,7 +31,7 @@ provideComponent(NavigationWidget, ({ widget }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <MetaNavigation widget={widget} root={root} />
-            <MainNavigation root={root} searchInputLabel={searchInputLabel} />
+            <MainNavigation root={root} />
           </Navbar.Collapse>
         </Navbar>
       </div>

@@ -6,7 +6,6 @@ export const NavigationWidget = provideWidgetClass('NavigationWidget', {
     metaNavigationUserDescription: 'string',
     metaNavigationUserTitle: 'string',
     logOutLabel: 'string',
-    searchInputLabel: 'string',
   },
 })
 
