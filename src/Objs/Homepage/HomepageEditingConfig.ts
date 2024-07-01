@@ -37,7 +37,6 @@ provideEditingConfig(Homepage, {
     siteFavicon: {
       title: 'Favicon',
     },
-    sitePortalOnlyMode: { title: 'Use portal-only mode?' },
     siteCartPage: { title: 'Location of cart page' },
     siteDropShadow: {
       title: 'Show drop-shadow?',
@@ -68,7 +67,6 @@ provideEditingConfig(Homepage, {
         'siteLogoLight',
         'siteFavicon',
         'siteLanguageIcon',
-        'sitePortalOnlyMode',
         'siteCartPage',
         'sitePortalOverviewPage',
         'siteSearchResultsPage',

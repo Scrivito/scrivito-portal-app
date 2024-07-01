@@ -16,17 +16,6 @@ export const MetaNavigation = connect(function MetaNavigation({
   root: HomepageInstance
   widget: NavigationWidgetInstance
 }) {
-  if (root.get('sitePortalOnlyMode')) {
-    return (
-      <div className="navbar-meta">
-        <Nav className="ms-auto border-left">
-          <LanguageSwitch />
-          <CurrentUserDropdown widget={widget} root={root} />
-        </Nav>
-      </div>
-    )
-  }
-
   const sitePortalOverviewPage = getSitePortalOverviewPage(root)
   const showPortalNav = !!sitePortalOverviewPage
 

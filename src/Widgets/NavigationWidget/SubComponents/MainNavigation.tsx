@@ -11,8 +11,6 @@ export const MainNavigation = connect(function MainNavigation({
   root: HomepageInstance
   searchInputLabel: string
 }) {
-  if (root.get('sitePortalOnlyMode')) return null
-
   return (
     <Nav className="navbar-main">
       <ChildListTag
