@@ -3,19 +3,14 @@ import Nav from 'react-bootstrap/Nav'
 import { NavItem as NavItem } from './NavItem'
 import { SearchBox } from './SearchBox'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
-import { NavigationWidgetInstance } from '../NavigationWidgetClass'
 
 export const MainNavigation = connect(function MainNavigation({
   root,
   searchInputLabel,
-  widget,
 }: {
   root: HomepageInstance
   searchInputLabel: string
-  widget: NavigationWidgetInstance
 }) {
-  if (widget.get('slimDesign')) return null
-
   return (
     <Nav className="navbar-main">
       <ChildListTag

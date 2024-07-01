@@ -33,11 +33,9 @@ provideComponent(NavigationWidget, ({ widget }) => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <MetaNavigation widget={widget} root={root} />
-            <MainNavigation
-              widget={widget}
-              root={root}
-              searchInputLabel={searchInputLabel}
-            />
+            {!widget.get('slimDesign') && (
+              <MainNavigation root={root} searchInputLabel={searchInputLabel} />
+            )}
           </Navbar.Collapse>
         </Navbar>
       </div>
