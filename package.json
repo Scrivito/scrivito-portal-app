@@ -19,14 +19,14 @@
     "lodash-es": "^4.17.21",
     "pretty-bytes": "^6.1.1",
     "react": "^18.3.1",
-    "react-bootstrap": "^2.10.2",
-    "react-color-palette": "^7.1.1",
+    "react-bootstrap": "^2.10.4",
+    "react-color-palette": "^7.2.0",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6",
     "react-helmet-async": "^2.0.5",
     "react-toastify": "^10.0.5",
     "scrivito": "^1.42.0",
-    "scrivito-neoletter-form-widgets": "^0.0.13",
+    "scrivito-neoletter-form-widgets": "^0.0.16",
     "scroll-to-fragment": "^1.0.12",
     "speakingurl": "^14.0.1",
     "vite-node": "^1.6.0"
@@ -48,13 +48,13 @@
     "content-security-policy-builder": "^2.2.0",
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.34.2",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-react": "^7.34.3",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "knip": "^5.18.2",
-    "prettier": "^3.3.0",
-    "sass": "^1.77.4",
+    "knip": "^5.23.3",
+    "prettier": "^3.3.2",
+    "sass": "^1.77.6",
     "typescript": "^5.5.3",
-    "vite": "^5.2.12"
+    "vite": "^5.3.2"
   }
 }
