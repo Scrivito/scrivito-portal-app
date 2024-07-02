@@ -544,7 +544,7 @@ function distributeContents(columns: Widget[], originalContents: Widget[][]) {
     column.update({
       content:
         index < columns.length - 1
-          ? originalContents[index]
+          ? originalContents[index] || []
           : originalContents.slice(index).flat(),
     }),
   )
