@@ -16,6 +16,9 @@ export function App() {
   return (
     <HelmetProvider context={helmetContext}>
       <ErrorBoundary>
+        <a href="#main" className="btn skip-to-content">
+          Skip to Content
+        </a>
         <CurrentPage />
         <ScrivitoNotFoundErrorPage>
           <NotFoundErrorPage />

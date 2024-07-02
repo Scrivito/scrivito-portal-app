@@ -4,13 +4,8 @@ import { Homepage } from './HomepageObjClass'
 provideLayoutComponent(Homepage, ({ page }) => {
   return (
     <>
-      <a href="#main" className="btn skip-to-content">
-        Skip to Content
-      </a>
       <ContentTag tag="header" content={page} attribute="siteHeader" />
-      <main id="main">
-        <CurrentPage />
-      </main>
+      <CurrentPage />
       <ContentTag
         tag="footer"
         content={page}
