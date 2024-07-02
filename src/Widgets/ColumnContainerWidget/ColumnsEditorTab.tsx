@@ -398,8 +398,8 @@ class GridLayoutEditor extends React.Component<
     if (deltaColSize === 0) return
 
     const newGrid = [...this.props.currentGrid]
-    newGrid[colIndex] += deltaColSize
-    newGrid[colIndex + 1] -= deltaColSize
+    newGrid[colIndex] = newGrid[colIndex]! + deltaColSize
+    newGrid[colIndex + 1] = newGrid[colIndex + 1]! - deltaColSize
 
     this.props.adjustGrid(newGrid)
   }
