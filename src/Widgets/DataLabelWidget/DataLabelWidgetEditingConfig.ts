@@ -18,11 +18,11 @@ provideEditingConfig(DataLabelWidget, {
     },
     datetimeFormat: {
       title: 'Date format',
-      description: 'Default: Relative',
+      description: 'Default: Only date',
       values: [
-        { value: 'relative', title: 'Relative' },
-        { value: 'datetime', title: 'Date and time' },
         { value: 'date', title: 'Only date' },
+        { value: 'datetime', title: 'Date and time' },
+        { value: 'relative', title: 'Relative' },
       ],
     },
     marginBottom: {
@@ -37,9 +37,10 @@ provideEditingConfig(DataLabelWidget, {
       'marginBottom',
     ].filter((p): p is string => typeof p === 'string'),
   initialContent: {
+    datetimeFormat: 'date',
     label: 'Label',
+    marginBottom: false,
     showAs: 'text',
     valueSize: 'body-font-size',
-    marginBottom: false,
   },
 })
