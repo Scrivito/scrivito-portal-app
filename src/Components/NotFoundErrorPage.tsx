@@ -29,9 +29,12 @@ export const NotFoundErrorPage = connect(function NotFoundErrorPage() {
   return (
     <>
       <ContentTag tag="header" content={root} attribute="siteHeader" />
-      <main id="main">
-        <ContentTag tag="div" content={root} attribute="siteNotFound" />
-      </main>
+      <ContentTag
+        tag="main"
+        id="main"
+        content={root}
+        attribute="siteNotFound"
+      />
       <ContentTag
         tag="footer"
         content={root}
