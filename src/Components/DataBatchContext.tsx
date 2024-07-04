@@ -13,11 +13,15 @@ export const DataBatchContext = createContext<{
 
 export const DataBatchContextProvider = connect(
   function DataBatchContextProvider({
-    content,
     attribute,
+    content,
+    id,
+    tag,
   }: {
-    content: Obj | Widget
     attribute: string
+    content: Obj | Widget
+    id?: string
+    tag?: string
   }) {
     const dataScope = useData()
     const configuredLimit = dataScope.limit() ?? 20
@@ -37,6 +41,8 @@ export const DataBatchContextProvider = connect(
     return (
       <DataBatchContext.Provider value={{ hasMore, loadMore }}>
         <ContentTag
+          tag={tag}
+          id={id}
           content={content}
           attribute={attribute}
           dataContext={dataScope.transform({ limit })}
