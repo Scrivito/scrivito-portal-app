@@ -87,7 +87,7 @@ function BoxPreviewContent({
   attachment: FullDataBinary
 }) {
   if (binaryUrl && attachment.contentType.startsWith('image/')) {
-    return <img src={binaryUrl} />
+    return <img src={binaryUrl} alt={localizePreviewImageAltLabel()} />
   }
 
   let iconName = 'bi-file-earmark'
@@ -106,4 +106,13 @@ function BoxPreviewContent({
 
 function isFullBinaryArray(input: unknown): input is FullDataBinary[] {
   return Array.isArray(input) && input.every(isFullDataBinary)
+}
+
+function localizePreviewImageAltLabel(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Vorschaubild'
+    default:
+      return 'Preview image'
+  }
 }
