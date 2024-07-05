@@ -16,7 +16,7 @@ export async function localContractDataClass() {
         startAt: '2023-11-21T08:40:38Z',
         endAt: '2035-11-20T22:59:59Z',
         minimumTerm: 12,
-        minimumTermUnit: 0,
+        minimumTermUnit: 'PSA_CTR_CYC_YEA',
         cancelationEndAt: null,
         termExtensionEndAt: null,
         totalPrice: 0,

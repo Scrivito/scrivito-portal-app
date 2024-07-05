@@ -25,6 +25,7 @@ ContractPromise.then((Contract) => {
       'PSA_CTR_KND_160',
       'PSA_CTR_KND_170',
     ],
+    minimumTermUnit: ['PSA_CTR_CYC_YEA'],
     status: [
       'PSA_PRO_CTR_ACT',
       'PSA_PRO_CTR_CNC',
@@ -67,6 +68,7 @@ ContractPromise.then((Contract) => {
       PSA_CTR_KND_160: 'Projektvertrag',
       PSA_CTR_KND_170: 'Partnervertrag',
     },
+    minimumTermUnit: { PSA_CTR_CYC_YEA: 'Jahre' },
     status: {
       PSA_PRO_CTR_ACT: 'aktiv',
       PSA_PRO_CTR_CNC: 'storniert',
@@ -109,6 +111,7 @@ ContractPromise.then((Contract) => {
       PSA_CTR_KND_160: 'Project contract',
       PSA_CTR_KND_170: 'Partner contract',
     },
+    minimumTermUnit: { PSA_CTR_CYC_YEA: 'Years' },
     status: {
       PSA_PRO_CTR_ACT: 'active',
       PSA_PRO_CTR_CNC: 'cancelled',
