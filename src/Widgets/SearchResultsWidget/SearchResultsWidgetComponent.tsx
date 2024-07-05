@@ -80,7 +80,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
         </div>
       </section>
 
-      <section className="bg-white py-3">
+      <section className="bg-white py-2">
         <SearchResults
           search={search}
           query={query}
