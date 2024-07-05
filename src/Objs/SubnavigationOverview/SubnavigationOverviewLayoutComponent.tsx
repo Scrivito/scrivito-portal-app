@@ -60,6 +60,9 @@ provideLayoutComponent(SubnavigationOverview, ({ page }) => {
           </div>
         </div>
       </section>
+      {!!page.get('layoutShowFooter') && (
+        <ContentTag tag="footer" content={page} attribute="layoutFooter" />
+      )}
     </>
   )
 })
