@@ -3,9 +3,14 @@ import { NavigationWidget } from './NavigationWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(NavigationWidget, {
-  attributes: { logOutLabel: { title: 'Log-out menu item label' } },
+  attributes: {
+    slimDesign: {
+      title: 'Slim design?',
+      description:
+        'Shows only the meta navigation, not the hierarchy navigation.',
+    },
+  },
   title: 'Navigation',
   thumbnail: Thumbnail,
-  properties: ['metaNavigationObjs', 'searchInputLabel', 'logOutLabel'],
-  initialContent: { logOutLabel: 'Log out', searchInputLabel: 'Search' },
+  properties: ['metaNavigationObjs', 'slimDesign'],
 })

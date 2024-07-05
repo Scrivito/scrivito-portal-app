@@ -119,19 +119,19 @@ const Datetime = connect(function Datetime({
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return localizeNotAvailable()
 
-  if (datetimeFormat === 'date') {
-    return (
-      <span title={formatFullDayAndMonth(date)}>
-        {formatDateMonthAndYear(date)}
-      </span>
-    )
+  if (datetimeFormat === 'relative') {
+    return <RelativeDate date={date} />
   }
 
   if (datetimeFormat === 'datetime') {
     return <span title={formatFullDateTime(date)}>{formatDateTime(date)}</span>
   }
 
-  return <RelativeDate date={date} />
+  return (
+    <span title={formatFullDayAndMonth(date)}>
+      {formatDateMonthAndYear(date)}
+    </span>
+  )
 })
 
 function Link({ value }: { value: unknown }) {

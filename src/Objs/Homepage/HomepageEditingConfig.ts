@@ -1,5 +1,6 @@
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
+import { SiteColorsPicker } from './SiteColorsPicker'
 import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
@@ -36,7 +37,6 @@ provideEditingConfig(Homepage, {
     siteFavicon: {
       title: 'Favicon',
     },
-    sitePortalOnlyMode: { title: 'Use portal-only mode?' },
     siteCartPage: { title: 'Location of cart page' },
     siteDropShadow: {
       title: 'Show drop-shadow?',
@@ -67,7 +67,6 @@ provideEditingConfig(Homepage, {
         'siteLogoLight',
         'siteFavicon',
         'siteLanguageIcon',
-        'sitePortalOnlyMode',
         'siteCartPage',
         'sitePortalOverviewPage',
         'siteSearchResultsPage',
@@ -78,6 +77,19 @@ provideEditingConfig(Homepage, {
         'siteTwitterSite',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
+    },
+    {
+      title: 'Site colors',
+      component: SiteColorsPicker,
+      properties: [
+        'siteColorPrimary',
+        'siteColorPrimaryLighten',
+        'siteColorPrimaryDarken',
+        'siteColorSecondary',
+        'siteColorSecondaryLighten',
+        'siteColorSecondaryDarken',
+      ],
+      key: 'site-colors-group',
     },
     ...defaultPagePropertiesGroups,
   ],

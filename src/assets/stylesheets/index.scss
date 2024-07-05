@@ -20,13 +20,19 @@
 
   // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-primary: #274486;
-  --bs-primary-lighten: #395aa5;
-  --bs-primary-darken: #1d356b;
 
   // The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-secondary: #39a9eb;
-  --bs-secondary-lighten: #5bbbf3;
-  --bs-secondary-darken: #2f92cb;
+
+  // TODO: Use newer "from" variant, once it is supported by all browsers. See https://caniuse.com/?search=relative%20color
+  // --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
+  // --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
+  // --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
+  // --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
+  --bs-primary-lighten: #3054a6;
+  --bs-primary-darken: #1e3466;
+  --bs-secondary-lighten: #5eb9ef;
+  --bs-secondary-darken: #1798e4;
 
   --bs-success: #21704b;
   --bs-info: #39a9eb;
@@ -72,8 +78,8 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 
-  --jr-card-border-radius: 0.5rem;
-  --jr-card-box-shadow: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
+  --jr-border-radius: 0.5rem;
+  --jr-box-shadow: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
 
   hyphens: auto;
 }
@@ -97,7 +103,7 @@
   cursor: pointer;
   user-select: none;
   border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
-  border-radius: var(--jr-card-border-radius);
+  border-radius: var(--jr-border-radius);
   background-color: var(--bs-btn-bg);
   transition: all 0.2s ease-in-out;
 }
@@ -219,10 +225,10 @@ fieldset:disabled .btn {
 
 .input-group {
   .btn {
-    border-radius: 0 var(--jr-card-border-radius) var(--jr-card-border-radius) 0;
+    border-radius: 0 var(--jr-border-radius) var(--jr-border-radius) 0;
   }
   .form-control {
-    border-radius: var(--jr-card-border-radius);
+    border-radius: var(--jr-border-radius);
     background: var(--light-grey);
     border-right: 0;
   }
@@ -456,7 +462,7 @@ a.card {
 
 mark {
   padding: 0 3px;
-  border-radius: var(--jr-card-border-radius);
+  border-radius: var(--jr-border-radius);
   background: var(--bs-secondary);
   color: #fff;
   display: inline-block;
@@ -480,7 +486,7 @@ body {
 }
 #root {
   display: flex;
-  height: 100%;
+  // height: 100%; // TODO: Reenable, once `SubnavigationOverview` page is obsolete.
   flex-flow: column;
 }
 main {
@@ -845,11 +851,11 @@ header section {
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 0;
   --bs-card-border-color: rgba(108, 117, 140, 0.15);
-  --bs-card-border-radius: var(--jr-card-border-radius);
-  --bs-card-box-shadow: var(--jr-card-box-shadow);
+  --bs-card-border-radius: var(--jr-border-radius);
+  --bs-card-box-shadow: var(--jr-box-shadow);
   --bs-card-inner-border-radius: 0.4375rem;
   --bs-card-cap-bg: transparent;
-  box-shadow: var(--jr-card-box-shadow);
+  box-shadow: var(--jr-box-shadow);
 }
 .card.bg-white .bi {
   color: var(--bs-primary) !important;
@@ -935,17 +941,17 @@ section:focus >,
 .row [class*='col']:first-child .card-extended:after {
   right: 0;
   left: -600px;
-  border-radius: var(--jr-card-border-radius);
+  border-radius: var(--jr-border-radius);
 }
 .row [class*='col']:last-child .card-extended:after {
   left: 0;
   right: -600px;
-  border-radius: var(--jr-card-border-radius);
+  border-radius: var(--jr-border-radius);
 }
 .row [class*='col']:only-child .card-extended:after {
   left: 0;
   right: 0;
-  border-radius: var(--jr-card-border-radius);
+  border-radius: var(--jr-border-radius);
 }
 
 .card-extended {
@@ -1092,8 +1098,8 @@ section:focus >,
 .editor-img {
   max-width: 100%;
   object-fit: cover;
-  border-radius: var(--jr-card-border-radius);
-  box-shadow: var(--jr-card-box-shadow);
+  border-radius: var(--jr-border-radius);
+  box-shadow: var(--jr-box-shadow);
 }
 
 .box-date {
@@ -1167,7 +1173,7 @@ section:focus >,
   background-clip: padding-box;
   border: 0.0625rem solid rgba(33, 50, 91, 0.1);
   appearance: none;
-  border-radius: var(--jr-card-border-radius);
+  border-radius: var(--jr-border-radius);
   transition:
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -1219,12 +1225,39 @@ section:focus >,
   --bs-nav-link-hover-color: var(--bs-dark);
 }
 
-/* portal-only adaptions
+/* slim-nav adaptions
  =================================================================== */
 
-.portal-only {
+.slim-nav {
+  &:after {
+    display: none;
+  }
   .navbar-brand {
-    padding: 5px 15px;
+    height: 55px;
+    margin: 0;
+    padding: 0 5px 0 0;
+  }
+  .navbar-brand-logo {
+    max-width: 155px;
+  }
+  .navbar-meta .nav-link {
+    padding: 17px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+  .navbar-meta .navbar-nav.me-auto .nav-link {
+    font-size: 1rem;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 991px) {
+  .slim-nav {
+    .navbar-brand {
+      height: 45px;
+    }
   }
 }
 
@@ -1259,8 +1292,8 @@ section:focus >,
   margin: 0 5px -10px 0;
   padding: 5px 15px;
   background: #fff;
-  border-radius: 0 0 var(--jr-card-border-radius) var(--jr-card-border-radius);
-  box-shadow: var(--jr-card-box-shadow);
+  border-radius: 0 0 var(--jr-border-radius) var(--jr-border-radius);
+  box-shadow: var(--jr-box-shadow);
   align-self: stretch;
   display: flex;
 }
@@ -1326,7 +1359,7 @@ section:focus >,
   }
   .profile-img {
     object-fit: cover;
-    border-radius: var(--jr-card-border-radius);
+    border-radius: var(--jr-border-radius);
     width: 30px;
     height: 30px;
     margin: -5px 0 -5px -5px;
@@ -1612,7 +1645,7 @@ header .navbar.navbar-expand-lg {
   line-height: 1;
   color: var(--bs-navbar-color);
   background: #fff;
-  box-shadow: var(--jr-card-box-shadow);
+  box-shadow: var(--jr-box-shadow);
 }
 .navbar-toggler .navbar-toggler-toggled {
   display: none;
@@ -1750,10 +1783,6 @@ header section:after {
   right: 0;
   left: 0;
   pointer-events: none;
-}
-
-header.portal-only section:after {
-  display: none;
 }
 
 /* breadcrumb
