@@ -1,5 +1,8 @@
 export const defaultPageAttributes = {
   title: 'string',
+  // Layout widgets
+  layoutFooter: ['widgetlist', { only: 'SectionWidget' }],
+  layoutShowFooter: 'boolean',
   // Meta tags
   metaDataDescription: 'string',
   robotsIndex: 'boolean',
