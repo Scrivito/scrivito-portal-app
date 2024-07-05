@@ -28,7 +28,7 @@ export class ErrorBoundary extends React.Component<
     if (!this.state.hasError) return this.props.children
 
     return (
-      <section className="bg-danger vh-100 py-4">
+      <section className="bg-danger vh-100 py-5">
         <img
           src={errorBackground}
           alt="factory"

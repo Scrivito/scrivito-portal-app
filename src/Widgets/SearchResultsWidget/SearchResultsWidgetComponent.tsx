@@ -39,7 +39,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
 
   return (
     <InPlaceEditingOff>
-      <section className="bg-primary py-4">
+      <section className="bg-primary py-5">
         <ImageTag
           content={widget}
           attribute="topBannerBackground"

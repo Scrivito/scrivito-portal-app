@@ -11,7 +11,7 @@ provideComponent(ProductCategory, ({ page }) => {
 
   return (
     <main id="main">
-      <section className="bg-light-grey py-4">
+      <section className="bg-light-grey py-5">
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
