@@ -1,8 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
-import { CurrentPageTitleWidget } from './CurrentPageTitleWidgetClass'
+import { PageTitleWidget } from './PageTitleWidgetClass'
 
-provideEditingConfig(CurrentPageTitleWidget, {
-  title: 'Current Page Title',
+provideEditingConfig(PageTitleWidget, {
+  title: 'Page Title',
   attributes: {
     backgroundColor: {
       title: 'Background color',

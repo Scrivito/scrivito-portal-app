@@ -1,7 +1,7 @@
 import { ContentTag, currentPage, provideComponent } from 'scrivito'
-import { CurrentPageTitleWidget } from './CurrentPageTitleWidgetClass'
+import { PageTitleWidget } from './PageTitleWidgetClass'
 
-provideComponent(CurrentPageTitleWidget, ({ widget }) => {
+provideComponent(PageTitleWidget, ({ widget }) => {
   const backgroundColor = widget.get('backgroundColor') || 'primary'
 
   return (
