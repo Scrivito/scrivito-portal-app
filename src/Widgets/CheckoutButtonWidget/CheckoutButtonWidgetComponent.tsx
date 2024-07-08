@@ -2,6 +2,7 @@ import {
   ContentTag,
   InPlaceEditingOff,
   WidgetTag,
+  currentLanguage,
   navigateTo,
   provideComponent,
 } from 'scrivito'
@@ -19,7 +20,10 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
   if (!containsItems()) {
     return <EditorNote>The button is hidden if cart is empty.</EditorNote>
   }
+
   const successMessage = widget.get('successMessage')
+  const errorMessage = getErrorMessage()
+
   const buttonClassNames = ['btn']
   buttonClassNames.push(widget.get('buttonColor') || 'btn-primary')
 
@@ -47,10 +51,30 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
     e.stopPropagation()
 
     setIsSubmitting(true)
-    const result = await checkoutCart()
-    setIsSubmitting(false)
 
-    if (successMessage) toast.success(successMessage)
-    navigateTo(result)
+    try {
+      const result = await checkoutCart()
+      navigateTo(result)
+      if (successMessage) toast.success(successMessage)
+    } catch (error) {
+      if (!(error instanceof Error)) return
+      toast.error(
+        <div>
+          <h6>{error.message}</h6>
+          <p>{errorMessage}</p>
+        </div>,
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 })
+
+function getErrorMessage(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Wir bedauern die Unannehmlichkeiten.'
+    default:
+      return 'We’re sorry for the inconvenience.'
+  }
+}
