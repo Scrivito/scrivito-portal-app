@@ -39,7 +39,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
 
   return (
     <InPlaceEditingOff>
-      <section className="bg-primary py-4">
+      <section className="bg-primary py-5">
         <ImageTag
           content={widget}
           attribute="topBannerBackground"
@@ -80,7 +80,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
         </div>
       </section>
 
-      <section className="bg-white py-3">
+      <section className="bg-white py-2">
         <SearchResults
           search={search}
           query={query}
