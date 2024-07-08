@@ -15,7 +15,9 @@ export const defaultPageEditingConfigAttributes = {
     description: 'If not, search engines will ignore this page. Default: Yes',
   },
   layoutShowFooter: {
-    title: 'Show layout footer widgets?',
+    title: 'Show footer?',
+    description:
+      'This footer will be displayed on this page and all its descendant pages.',
   },
 }
 
@@ -25,9 +27,9 @@ export const defaultPageInitialContent = {
 
 export const defaultPagePropertiesGroups = [
   {
-    title: 'Layout widgets',
+    title: 'Layout',
     properties: ['layoutShowFooter'],
-    key: 'layout-widgets-group',
+    key: 'layout-group',
   },
   {
     title: 'Metadata',
