@@ -13,6 +13,7 @@ import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { EditorNote } from '../../Components/EditorNote'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { useState } from 'react'
+import { Submitting } from '../../Components/Submitting'
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -42,7 +43,7 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
           onClick={onClick}
         />
       </InPlaceEditingOff>
-      {isSubmitting && <div className="loader" />}
+      {isSubmitting && <Submitting />}
     </WidgetTag>
   )
 

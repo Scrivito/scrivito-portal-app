@@ -13,6 +13,7 @@ import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
+import { Submitting } from '../../Components/Submitting'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -42,7 +43,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
         </InPlaceEditingOff>
 
         <ContentTag content={widget} attribute="content" />
-        {isSubmitting && <div className="loader" />}
+        {isSubmitting && <Submitting />}
       </form>
     </WidgetTag>
   )
