@@ -128,7 +128,7 @@ const ProfileImg = connect(
 
     return (
       <>
-        <img className="profile-img" src={picture} aria-hidden="true" />{' '}
+        <img className="profile-img" src={picture} aria-hidden="true" alt="" />{' '}
       </>
     )
   },

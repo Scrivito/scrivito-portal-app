@@ -87,7 +87,7 @@ function BoxPreviewContent({
   attachment: FullDataBinary
 }) {
   if (binaryUrl && attachment.contentType.startsWith('image/')) {
-    return <img src={binaryUrl} />
+    return <img src={binaryUrl} alt="" />
   }
 
   let iconName = 'bi-file-earmark'
