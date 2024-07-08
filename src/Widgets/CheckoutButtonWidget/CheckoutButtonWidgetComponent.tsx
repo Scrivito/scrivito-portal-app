@@ -2,6 +2,7 @@ import {
   ContentTag,
   InPlaceEditingOff,
   WidgetTag,
+  currentLanguage,
   navigateTo,
   provideComponent,
 } from 'scrivito'
@@ -11,12 +12,18 @@ import { checkoutCart, containsItems } from '../../Data/CartItem/Cart'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { EditorNote } from '../../Components/EditorNote'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
+import { useState } from 'react'
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   if (!containsItems()) {
     return <EditorNote>The button is hidden if cart is empty.</EditorNote>
   }
+
   const successMessage = widget.get('successMessage')
+  const errorMessage = getErrorMessage()
+
   const buttonClassNames = ['btn']
   buttonClassNames.push(widget.get('buttonColor') || 'btn-primary')
 
@@ -31,9 +38,11 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
           attribute="buttonText"
           tag="button"
           className={buttonClassNames.join(' ')}
+          disabled={isSubmitting}
           onClick={onClick}
         />
       </InPlaceEditingOff>
+      {isSubmitting && <div className="loader" />}
     </WidgetTag>
   )
 
@@ -41,9 +50,31 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
     e.preventDefault()
     e.stopPropagation()
 
-    const result = await checkoutCart()
+    setIsSubmitting(true)
 
-    if (successMessage) toast.success(successMessage)
-    navigateTo(result)
+    try {
+      const result = await checkoutCart()
+      navigateTo(result)
+      if (successMessage) toast.success(successMessage)
+    } catch (error) {
+      if (!(error instanceof Error)) return
+      toast.error(
+        <div>
+          <h6>{error.message}</h6>
+          <p>{errorMessage}</p>
+        </div>,
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 })
+
+function getErrorMessage(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Wir bedauern die Unannehmlichkeiten.'
+    default:
+      return 'We’re sorry for the inconvenience.'
+  }
+}
