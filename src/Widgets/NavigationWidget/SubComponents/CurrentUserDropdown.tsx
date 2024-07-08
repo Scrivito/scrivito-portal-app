@@ -128,12 +128,7 @@ const ProfileImg = connect(
 
     return (
       <>
-        <img
-          className="profile-img"
-          src={picture}
-          aria-hidden="true"
-          alt={localizeProfileAltLabel()}
-        />{' '}
+        <img className="profile-img" src={picture} aria-hidden="true" alt="" />{' '}
       </>
     )
   },
@@ -146,14 +141,5 @@ function localizeLogOutLabel(): string {
       return 'Abmelden'
     default:
       return 'Log out'
-  }
-}
-
-function localizeProfileAltLabel(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Profilbild'
-    default:
-      return 'Profile image'
   }
 }
