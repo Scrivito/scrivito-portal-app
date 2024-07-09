@@ -13,7 +13,7 @@ import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { EditorNote } from '../../Components/EditorNote'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { useState } from 'react'
-import { Submitting } from '../../Components/Submitting'
+import { ModalSpinner } from '../../Components/ModalSpinner'
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -43,7 +43,7 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
           onClick={onClick}
         />
       </InPlaceEditingOff>
-      {isSubmitting && <Submitting />}
+      {isSubmitting && <ModalSpinner />}
     </WidgetTag>
   )
 

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Modal } from 'react-bootstrap'
 import { connect } from 'scrivito'
 
-export const Submitting = connect(function Submitting() {
+export const ModalSpinner = connect(function ModalSpinner() {
   const dialogRef = useRef<HTMLDialogElement>(null)
   useEffect(() => dialogRef.current?.showModal(), [])
 

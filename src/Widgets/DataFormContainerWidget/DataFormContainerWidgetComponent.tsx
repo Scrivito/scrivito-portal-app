@@ -13,7 +13,7 @@ import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
-import { Submitting } from '../../Components/Submitting'
+import { ModalSpinner } from '../../Components/ModalSpinner'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -43,7 +43,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
         </InPlaceEditingOff>
 
         <ContentTag content={widget} attribute="content" />
-        {isSubmitting && <Submitting />}
+        {isSubmitting && <ModalSpinner />}
       </form>
     </WidgetTag>
   )
