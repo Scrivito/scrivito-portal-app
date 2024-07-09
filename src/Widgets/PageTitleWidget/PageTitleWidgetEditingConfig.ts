@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { PageTitleWidget } from './PageTitleWidgetClass'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(PageTitleWidget, {
   title: 'Page Title',
+  thumbnail: Thumbnail,
   attributes: {
     backgroundColor: {
       title: 'Background color',
