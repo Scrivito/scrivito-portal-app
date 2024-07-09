@@ -13,7 +13,7 @@
   "ignore": [
     "design/**",
     "public/scrivito/**",
-    "src/assets/stylesheets/bs5/**",
+    "src/assets/stylesheets/vendor/**",
     "vendor/**",
   ],
   "ignoreDependencies": [
