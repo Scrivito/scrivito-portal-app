@@ -5,7 +5,6 @@ export const ProductsOverview = provideObjClass('ProductsOverview', {
   attributes: {
     ...defaultPageAttributes,
     body: 'widgetlist',
-    topBannerBackground: ['reference', { only: ['Image'] }],
   },
   extractTextAttributes: ['body'],
 })
