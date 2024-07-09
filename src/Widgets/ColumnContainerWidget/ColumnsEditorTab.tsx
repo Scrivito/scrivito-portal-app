@@ -9,6 +9,9 @@ import {
 import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
 
+// TODO: Remove next eslint-disable line
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
+
 export function ColumnsEditorTab({
   widget,
 }: {
