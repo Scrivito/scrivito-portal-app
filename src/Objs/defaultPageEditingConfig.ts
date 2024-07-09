@@ -14,6 +14,11 @@ export const defaultPageEditingConfigAttributes = {
     title: 'Should this page be indexed?',
     description: 'If not, search engines will ignore this page. Default: Yes',
   },
+  layoutShowFooter: {
+    title: 'Show footer?',
+    description:
+      'This footer will be displayed on this page and all its descendant pages.',
+  },
 }
 
 export const defaultPageInitialContent = {
@@ -21,6 +26,11 @@ export const defaultPageInitialContent = {
 } as const
 
 export const defaultPagePropertiesGroups = [
+  {
+    title: 'Layout',
+    properties: ['layoutShowFooter'],
+    key: 'layout-group',
+  },
   {
     title: 'Metadata',
     properties: ['metaDataDescription', 'robotsIndex'],

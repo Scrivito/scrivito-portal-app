@@ -35,12 +35,9 @@ export const NotFoundErrorPage = connect(function NotFoundErrorPage() {
         content={root}
         attribute="siteNotFound"
       />
-      <ContentTag
-        tag="footer"
-        content={root}
-        attribute="siteFooter"
-        className="bg-light-grey py-5"
-      />
+      {!!root.get('layoutShowFooter') && (
+        <ContentTag tag="footer" content={root} attribute="layoutFooter" />
+      )}
     </>
   )
 })

@@ -38,5 +38,8 @@ provideLayoutComponent(ProductsOverview, ({ page }) => (
       </div>
     </section>
     <CurrentPage />
+    {!!page.get('layoutShowFooter') && (
+      <ContentTag tag="footer" content={page} attribute="layoutFooter" />
+    )}
   </>
 ))
