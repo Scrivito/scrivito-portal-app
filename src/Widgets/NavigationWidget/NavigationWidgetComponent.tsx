@@ -1,4 +1,4 @@
-import { provideComponent, Obj, currentPage } from 'scrivito'
+import { provideComponent, Obj, currentPage, WidgetTag } from 'scrivito'
 import Navbar from 'react-bootstrap/Navbar'
 
 import { NavigationWidget } from './NavigationWidgetClass'
@@ -13,18 +13,21 @@ provideComponent(NavigationWidget, ({ widget }) => {
 
   if (currentPage()?.get('showAsLandingPage')) {
     return (
-      <section className="bg-primary pb-4">
+      <WidgetTag tag="section" className="bg-primary pb-4">
         <div className="container">
           <Navbar expand="lg" collapseOnSelect>
             <Brand root={root} linkClassName="navbar-brand m-auto pt-3" />
           </Navbar>
         </div>
-      </section>
+      </WidgetTag>
     )
   }
 
   return (
-    <section className={widget.get('slimDesign') ? 'slim-nav' : ''}>
+    <WidgetTag
+      tag="section"
+      className={widget.get('slimDesign') ? 'slim-nav' : ''}
+    >
       <div className="container">
         <Navbar expand="lg" collapseOnSelect>
           <Brand root={root} linkClassName="navbar-brand" />
@@ -35,6 +38,6 @@ provideComponent(NavigationWidget, ({ widget }) => {
           </Navbar.Collapse>
         </Navbar>
       </div>
-    </section>
+    </WidgetTag>
   )
 })
