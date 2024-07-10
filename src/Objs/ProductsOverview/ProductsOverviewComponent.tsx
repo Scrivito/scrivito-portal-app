@@ -7,6 +7,7 @@ import {
 } from 'scrivito'
 import { ProductsOverview } from './ProductsOverviewObjClass'
 import { isProductCategory } from '../ProductCategory/ProductCategoryObjClass'
+import { alternativeTextFromObj } from '../../utils/alternativeTextFromObj'
 
 provideComponent(ProductsOverview, ({ page }) => {
   const categories = page.orderedChildren().filter(isProductCategory)
@@ -25,6 +26,7 @@ provideComponent(ProductsOverview, ({ page }) => {
                         content={category}
                         attribute="image"
                         className="img-box img-h-200"
+                        alt={alternativeTextFromObj(category.get('image'))}
                       />
                       <div className="card-body p-2">
                         <ContentTag

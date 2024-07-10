@@ -10,6 +10,7 @@ import { truncate } from 'lodash-es'
 import { ensureString } from '../../utils/ensureString'
 import { Highlighter } from '../../Components/Highlighter'
 import { objTitle } from '../../utils/objTitle'
+import { alternativeTextFromObj } from '../../utils/alternativeTextFromObj'
 
 export const SearchResult = connect(function SearchResult({
   query,
@@ -31,6 +32,7 @@ export const SearchResult = connect(function SearchResult({
                   content={searchResult}
                   attribute="image"
                   className="img-box"
+                  alt={alternativeTextFromObj(searchResult.get('image'))}
                 />
               </div>
               <div className="col-md-9">

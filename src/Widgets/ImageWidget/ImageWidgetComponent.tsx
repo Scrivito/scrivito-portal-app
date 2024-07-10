@@ -3,14 +3,13 @@ import {
   ImageTag,
   isInPlaceEditingActive,
   LinkTag,
-  Obj,
   connect,
   Link,
   WidgetTag,
 } from 'scrivito'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget } from './ImageWidgetClass'
-import { ensureString } from '../../utils/ensureString'
+import { alternativeTextFromObj } from '../../utils/alternativeTextFromObj'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const classNames = ['image-widget']
@@ -46,7 +45,3 @@ const LinkWrapper = connect(function LinkWrapper({
 
   return <LinkTag to={link}>{children}</LinkTag>
 })
-
-function alternativeTextFromObj(image: Obj | null): string {
-  return ensureString(image?.get('alternativeText'))
-}
