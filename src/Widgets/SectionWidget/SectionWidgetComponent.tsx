@@ -64,6 +64,7 @@ const ImageOrVideo = connect(function ImageOrVideo({
           attribute="backgroundImage"
           className={classNames.join(' ')}
           aria-hidden="true"
+          alt=""
         />
       </InPlaceEditingOff>
     )
