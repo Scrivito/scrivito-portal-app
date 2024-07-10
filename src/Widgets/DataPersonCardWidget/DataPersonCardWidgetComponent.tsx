@@ -1,6 +1,7 @@
 import {
   connect,
   ContentTag,
+  currentLanguage,
   DataItem,
   provideComponent,
   useData,
@@ -66,8 +67,8 @@ const PersonCard = connect(function PersonCard({
               <tbody>
                 {email ? (
                   <tr>
-                    <th className="align-top">
-                      <i className="bi bi-envelope"></i>
+                    <th className="align-top" aria-label={getLocalizedEmail()}>
+                      <i className="bi bi-envelope" aria-hidden={true}></i>
                     </th>
                     <td>
                       <a href={`mailto:${email}`}>{email}</a>
@@ -82,3 +83,12 @@ const PersonCard = connect(function PersonCard({
     </div>
   )
 })
+
+function getLocalizedEmail(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'E-Mail'
+    default:
+      return 'Email'
+  }
+}
