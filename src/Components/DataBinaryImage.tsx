@@ -16,5 +16,5 @@ export function DataBinaryImage({
   }, [dataBinary])
 
   if (!src) return null
-  return <img src={src} alt={alt} className={className} />
+  return <img src={src} alt={alt ?? ''} className={className} />
 }
