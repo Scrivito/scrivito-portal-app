@@ -15,6 +15,7 @@ export const Brand = connect(function Brand({
           content={root}
           attribute="siteLogoDark"
           className="navbar-brand-logo"
+          alt="Logo"
         />
       </LinkTag>
     </InPlaceEditingOff>
