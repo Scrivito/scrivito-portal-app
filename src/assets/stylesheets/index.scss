@@ -486,7 +486,7 @@ body {
 }
 #root {
   display: flex;
-  // height: 100%; // TODO: Reenable, once `SubnavigationOverview` page is obsolete.
+  height: 100%; // TODO: Reenable, once `SubnavigationOverview` page is obsolete.
   flex-flow: column;
 }
 main {
@@ -1769,10 +1769,13 @@ header .navbar.navbar-expand-lg {
   margin: 0;
 }
 
-/* two color top navbar
+/* two color top navbar for tynacoon
  =================================================================== */
-
-header section:after {
+header:first-of-type section {
+  overflow: visible;
+  z-index: 3;
+}
+header:first-of-type section:after {
   background: var(--light-grey);
   content: '';
   display: block;
