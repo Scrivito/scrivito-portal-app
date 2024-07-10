@@ -28,8 +28,7 @@
     "scrivito": "^1.42.0",
     "scrivito-neoletter-form-widgets": "^0.0.17",
     "scroll-to-fragment": "^1.0.12",
-    "speakingurl": "^14.0.1",
-    "vite-node": "^1.6.0"
+    "speakingurl": "^14.0.1"
   },
   "devDependencies": {
     "@arabasta/eslint-plugin-require-useeffect-dependency-array": "^1.0.9",
@@ -55,6 +54,7 @@
     "prettier": "^3.3.2",
     "sass": "^1.77.6",
     "typescript": "^5.5.3",
-    "vite": "^5.3.3"
+    "vite": "^5.3.3",
+    "vite-node": "^2.0.1"
   }
 }
