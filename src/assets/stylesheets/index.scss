@@ -486,7 +486,7 @@ body {
 }
 #root {
   display: flex;
-  height: 100%; // TODO: Reenable, once `SubnavigationOverview` page is obsolete.
+  height: 100%;
   flex-flow: column;
 }
 main {
