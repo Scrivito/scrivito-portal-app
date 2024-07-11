@@ -9,7 +9,7 @@ import {
 } from 'scrivito'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget } from './ImageWidgetClass'
-import { alternativeTextFromObj } from '../../utils/alternativeTextFromObj'
+import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const classNames = ['image-widget']
@@ -22,7 +22,7 @@ provideComponent(ImageWidget, ({ widget }) => {
         <ImageTag
           alt={
             widget.get('alternativeText') ||
-            alternativeTextFromObj(widget.get('image'))
+            alternativeTextForObj(widget.get('image'))
           }
           className={widget.get('roundCorners') ? 'rounded' : undefined}
           attribute="image"
