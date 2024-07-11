@@ -7,7 +7,6 @@ import {
 } from 'scrivito'
 import { ProductInstance } from './ProductObjClass'
 import { isProductParameterWidget } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
-import { alternativeTextFromObj } from '../../utils/alternativeTextFromObj'
 
 export const ProductPreview = connect(function ProductPreview({
   product,
@@ -23,7 +22,7 @@ export const ProductPreview = connect(function ProductPreview({
               attribute="image"
               className="img-box img-h-100"
               content={product}
-              alt={alternativeTextFromObj(product.get('image'))}
+              alt=""
             />
 
             <div className="card-body p-2">
