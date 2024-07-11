@@ -1231,12 +1231,13 @@ section:focus >,
 
 .slim-nav {
   &:after {
-    display: none;
+    display: none !important;
   }
   .navbar-brand {
     height: 55px;
     margin: 0;
     padding: 0 5px 0 0;
+    box-shadow: none;
   }
   .navbar-brand-logo {
     max-width: 155px;
