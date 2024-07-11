@@ -1,8 +1,11 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
+import { pisaConfig } from '../../pisaClient'
 
 export async function pisaGdprDataClass() {
-  const gdprClient = await pisaClient('gdpr')
+  const gdprConfig = await pisaConfig('gdpr')
 
-  return provideDataClass('Gdpr', { restApi: gdprClient })
+  return provideDataClass('Gdpr', {
+    restApi: gdprConfig,
+    attributes: {},
+  })
 }
