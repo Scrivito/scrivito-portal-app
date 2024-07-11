@@ -1,10 +1,11 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
+import { pisaConfig } from '../../pisaClient'
 
 export async function pisaOpportunityDataClass() {
-  const opportunityClient = await pisaClient('opportunity')
+  const opportunityConfig = await pisaConfig('opportunity')
 
   return provideDataClass('Opportunity', {
-    restApi: opportunityClient,
+    restApi: opportunityConfig,
+    attributes: {},
   })
 }

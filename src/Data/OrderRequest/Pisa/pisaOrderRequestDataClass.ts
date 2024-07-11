@@ -1,8 +1,11 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
+import { pisaConfig } from '../../pisaClient'
 
 export async function pisaOrderRequestDataClass() {
-  const orderRequestClient = await pisaClient('order-request')
+  const orderRequestConfig = await pisaConfig('order-request')
 
-  return provideDataClass('OrderRequest', { restApi: orderRequestClient })
+  return provideDataClass('OrderRequest', {
+    restApi: orderRequestConfig,
+    attributes: {},
+  })
 }

@@ -15,12 +15,18 @@ export async function pisaUrl(): Promise<string> {
 }
 
 export async function pisaClient(subPath: string) {
+  const { url, headers } = await pisaConfig(subPath)
+
+  return createRestApiClient(url, { headers })
+}
+
+export async function pisaConfig(subPath: string) {
   const url = `${await pisaUrl()}/${subPath}`
 
   const language = await load(() => currentLanguage() ?? 'en')
   const headers = { 'Accept-Language': language }
 
-  return createRestApiClient(url, { headers })
+  return { url, headers }
 }
 
 function never() {
