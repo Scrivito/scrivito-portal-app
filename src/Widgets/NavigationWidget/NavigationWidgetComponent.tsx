@@ -16,7 +16,11 @@ provideComponent(NavigationWidget, ({ widget }) => {
       <section className="bg-primary pb-4">
         <div className="container">
           <Navbar expand="lg" collapseOnSelect>
-            <Brand root={root} linkClassName="navbar-brand m-auto pt-3" />
+            <Brand
+              root={root}
+              linkClassName="navbar-brand m-auto pt-3"
+              alt={widget.get('brandAlternativeText')}
+            />
           </Navbar>
         </div>
       </section>
@@ -27,7 +31,11 @@ provideComponent(NavigationWidget, ({ widget }) => {
     <section className={widget.get('slimDesign') ? 'slim-nav' : ''}>
       <div className="container">
         <Navbar expand="lg" collapseOnSelect>
-          <Brand root={root} linkClassName="navbar-brand" />
+          <Brand
+            root={root}
+            linkClassName="navbar-brand"
+            alt={widget.get('brandAlternativeText')}
+          />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <MetaNavigation widget={widget} root={root} />
