@@ -840,6 +840,7 @@ section:has(.img-background),
 }
 header section {
   overflow: visible;
+  position: relative;
   z-index: 2;
 }
 
