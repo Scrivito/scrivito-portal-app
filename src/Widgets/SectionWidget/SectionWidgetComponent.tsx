@@ -15,7 +15,7 @@ provideComponent(SectionWidget, ({ widget }) => {
     sectionClassNames.push(`bg-${backgroundColor}`)
   }
 
-  if (widget.get('showPadding')) sectionClassNames.push('py-5')
+  sectionClassNames.push(widget.get('showPadding') ? 'py-5' : 'py-2')
 
   let contentClassName = 'container'
   if (widget.get('containerWidth') === '95-percent') {

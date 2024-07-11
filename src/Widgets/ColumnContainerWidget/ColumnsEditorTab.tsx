@@ -9,6 +9,9 @@ import {
 import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
 
+// TODO: Remove next eslint-disable line
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
+
 export function ColumnsEditorTab({
   widget,
 }: {
@@ -398,8 +401,20 @@ class GridLayoutEditor extends React.Component<
     if (deltaColSize === 0) return
 
     const newGrid = [...this.props.currentGrid]
-    newGrid[colIndex] += deltaColSize
-    newGrid[colIndex + 1] -= deltaColSize
+
+    const nextColIndex = colIndex + 1
+    const previousColIndexValue = newGrid[colIndex]
+    const previousColNextIndexValue = newGrid[nextColIndex]
+
+    if (
+      typeof previousColIndexValue !== 'number' ||
+      typeof previousColNextIndexValue !== 'number'
+    ) {
+      return
+    }
+
+    newGrid[colIndex] = previousColIndexValue + deltaColSize
+    newGrid[nextColIndex] = previousColNextIndexValue - deltaColSize
 
     this.props.adjustGrid(newGrid)
   }
@@ -532,7 +547,7 @@ function distributeContents(columns: Widget[], originalContents: Widget[][]) {
     column.update({
       content:
         index < columns.length - 1
-          ? originalContents[index]
+          ? originalContents[index] || []
           : originalContents.slice(index).flat(),
     }),
   )

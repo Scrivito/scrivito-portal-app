@@ -23,8 +23,8 @@ provideComponent(Product, ({ page }) => {
     .map(toPlainParameter)
 
   return (
-    <>
-      <section className="bg-light-grey py-4">
+    <main id="main">
+      <section className="bg-light-grey py-5">
         <div className="container">
           <div className="row align-items-stretch">
             <div className="col-md-4 mb-4">
@@ -119,7 +119,7 @@ provideComponent(Product, ({ page }) => {
           <ContentTag content={page} attribute="descriptionSection" />
         </div>
       </section>
-      <section className="py-4">
+      <section className="py-5">
         <div className="container">
           <Label tag="h3" className="h4" id="data" localizer="data" />
           <div className="row">
@@ -143,13 +143,13 @@ provideComponent(Product, ({ page }) => {
           </div>
         </div>
       </section>
-      <section className="bg-light-grey py-4">
+      <section className="bg-light-grey py-5">
         <div className="container">
           <Label tag="h3" className="h4" id="downloads" localizer="downloads" />
           <ContentTag content={page} attribute="downloadsSection" />
         </div>
       </section>
-      <section className="bg-primary py-4">
+      <section className="bg-primary py-5">
         <div className="container">
           <Label
             tag="h3"
@@ -170,7 +170,7 @@ provideComponent(Product, ({ page }) => {
           </div>
         </div>
       </section>
-    </>
+    </main>
   )
 })
 

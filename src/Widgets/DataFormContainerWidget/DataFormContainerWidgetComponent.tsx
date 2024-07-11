@@ -3,18 +3,17 @@ import {
   DataItem,
   InPlaceEditingOff,
   WidgetTag,
-  load,
   provideComponent,
-  urlForDataItem,
   useDataItem,
   useData,
   currentLanguage,
+  navigateTo,
 } from 'scrivito'
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
-import { getHistory } from '../../config/history'
+import { ModalSpinner } from '../../Components/ModalSpinner'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataItem = useDataItem()
@@ -44,7 +43,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
         </InPlaceEditingOff>
 
         <ContentTag content={widget} attribute="content" />
-        {isSubmitting && <div className="loader" />}
+        {isSubmitting && <ModalSpinner />}
       </form>
     </WidgetTag>
   )
@@ -91,12 +90,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
   async function toastAndRedirect(targetDataItem: DataItem) {
     if (submittedMessage) toast.success(submittedMessage)
-
-    if (redirectAfterSubmit) {
-      // TODO: Remove workaround once the issue #10629 is fixed
-      const url = await load(() => urlForDataItem(targetDataItem))
-      if (url) getHistory()?.push(url)
-    }
+    if (redirectAfterSubmit) navigateTo(targetDataItem)
   }
 })
 

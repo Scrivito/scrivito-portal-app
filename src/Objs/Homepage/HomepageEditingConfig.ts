@@ -1,9 +1,18 @@
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
+import { SiteColorsPicker } from './SiteColorsPicker'
+import {
+  defaultPageEditingConfigAttributes,
+  defaultPageInitialContent,
+  defaultPageProperties,
+  defaultPagePropertiesGroups,
+  defaultPageValidations,
+} from '../defaultPageEditingConfig'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
+    ...defaultPageEditingConfigAttributes,
     contentTitle: {
       title: 'Site name',
     },
@@ -12,13 +21,10 @@ provideEditingConfig(Homepage, {
       description:
         'Under which URL is this site reachable? E.g. "https://www.tynacoon.com/en"',
     },
-    metaDataDescription: {
-      title: 'Page description',
-      description: 'Limit to 175, ideally 150 characters.',
-    },
     pisaUrl: {
       title: 'PisaSales Portal API URL',
     },
+    siteFacebookAppId: { title: 'Facebook app ID' },
     siteLanguageIcon: { title: 'Language icon' },
     siteLogoDark: {
       title: 'Dark logo',
@@ -31,8 +37,6 @@ provideEditingConfig(Homepage, {
     siteFavicon: {
       title: 'Favicon',
     },
-    title: { title: 'Title' },
-    sitePortalOnlyMode: { title: 'Use portal-only mode?' },
     siteCartPage: { title: 'Location of cart page' },
     siteDropShadow: {
       title: 'Show drop-shadow?',
@@ -45,6 +49,10 @@ provideEditingConfig(Homepage, {
     },
     siteSearchResultsPage: {
       title: 'Location of search results page',
+    },
+    siteTwitterSite: {
+      title: 'Twitter site',
+      description: 'Needs to be approved at https://cards-dev.x.com/validator',
     },
     siteUserProfilePage: { title: 'Location of user profile page' },
   },
@@ -59,20 +67,37 @@ provideEditingConfig(Homepage, {
         'siteLogoLight',
         'siteFavicon',
         'siteLanguageIcon',
-        'sitePortalOnlyMode',
         'siteCartPage',
         'sitePortalOverviewPage',
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
         'siteRoundedCorners',
+        'siteFacebookAppId',
+        'siteTwitterSite',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },
+    {
+      title: 'Site colors',
+      component: SiteColorsPicker,
+      properties: [
+        'siteColorPrimary',
+        'siteColorPrimaryLighten',
+        'siteColorPrimaryDarken',
+        'siteColorSecondary',
+        'siteColorSecondaryLighten',
+        'siteColorSecondaryDarken',
+      ],
+      key: 'site-colors-group',
+    },
+    ...defaultPagePropertiesGroups,
   ],
-  properties: ['title', 'metaDataDescription'],
+  properties: defaultPageProperties,
   initialContent: {
+    ...defaultPageInitialContent,
     siteDropShadow: true,
     siteRoundedCorners: true,
   },
+  validations: defaultPageValidations,
 })

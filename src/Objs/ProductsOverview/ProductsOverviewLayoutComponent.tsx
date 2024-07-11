@@ -11,7 +11,7 @@ import { Breadcrumb } from '../../Components/Breadcrumb'
 
 provideLayoutComponent(ProductsOverview, ({ page }) => (
   <>
-    <section className="bg-primary py-4">
+    <section className="bg-primary py-5">
       <InPlaceEditingOff>
         <ImageTag
           content={page}
@@ -38,5 +38,8 @@ provideLayoutComponent(ProductsOverview, ({ page }) => (
       </div>
     </section>
     <CurrentPage />
+    {!!page.get('layoutShowFooter') && (
+      <ContentTag tag="footer" content={page} attribute="layoutFooter" />
+    )}
   </>
 ))

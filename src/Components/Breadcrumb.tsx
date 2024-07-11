@@ -1,17 +1,13 @@
 import { LinkTag, Obj, connect, currentPage } from 'scrivito'
 import { objTitle } from '../utils/objTitle'
-import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 
 export const Breadcrumb = connect(function Breadcrumb() {
   const currentPageObj = currentPage()
   if (!currentPageObj) return <nav aria-label="breadcrumb" />
 
-  const breadcrumbItems: Obj[] = []
-  let item = currentPageObj.parent()
-  while (item) {
-    if (showInNavigation(item)) breadcrumbItems.unshift(item)
-    item = item.parent()
-  }
+  const breadcrumbItems = currentPageObj
+    .ancestors()
+    .filter((item): item is Obj => !!item && !item.get('hideInNavigation'))
 
   return (
     <nav aria-label="breadcrumb">
@@ -26,11 +22,3 @@ export const Breadcrumb = connect(function Breadcrumb() {
     </nav>
   )
 })
-
-function showInNavigation(item: Obj): boolean {
-  if (item.get('hideInNavigation')) return false
-
-  if (isHomepage(item)) return !item.get('sitePortalOnlyMode')
-
-  return true
-}

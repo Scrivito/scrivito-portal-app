@@ -1,3 +1,5 @@
+@import 'vendor/bs5/bootstrap';
+
 // --------------------------------------------------------------- //
 // general styles adaptions
 // --------------------------------------------------------------- //
@@ -13,6 +15,7 @@
 
 html,
 body {
+  background: unset;
   padding: 0;
   margin: 0;
 }

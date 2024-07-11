@@ -1,8 +1,9 @@
 import { provideObjClass } from 'scrivito'
+import { defaultPageAttributes } from '../defaultPageAttributes'
 
 export const Product = provideObjClass('Product', {
   attributes: {
-    childOrder: 'referencelist',
+    ...defaultPageAttributes,
     dataSection: 'widgetlist',
     descriptionSection: 'widgetlist',
     downloadsSection: 'widgetlist',
@@ -10,7 +11,6 @@ export const Product = provideObjClass('Product', {
     parameters: ['widgetlist', { only: ['ProductParameterWidget'] }],
     subtitle: 'string',
     suitableAccessories: ['referencelist', { only: 'Product' }],
-    title: 'string',
   },
   extractTextAttributes: [
     'subtitle',
