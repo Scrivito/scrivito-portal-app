@@ -45,7 +45,6 @@ provideComponent(CardWidget, ({ widget }) => {
             content={widget}
             attribute="backgroundImage"
             className={backgroundImageClassNames.join(' ')}
-            aria-hidden="true"
             alt=""
           />
         </InPlaceEditingOff>
