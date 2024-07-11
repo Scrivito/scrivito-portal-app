@@ -3,6 +3,7 @@ import { provideWidgetClass } from 'scrivito'
 export const AddressWidget = provideWidgetClass('AddressWidget', {
   attributes: {
     showLogo: 'boolean',
+    brandName: 'string',
 
     locationName: 'string',
     locationStreetAddress: 'string',
@@ -19,6 +20,7 @@ export const AddressWidget = provideWidgetClass('AddressWidget', {
     emailLabel: 'string',
   },
   extractTextAttributes: [
+    'brandName',
     'locationName',
     'locationStreetAddress',
     'locationLocality',

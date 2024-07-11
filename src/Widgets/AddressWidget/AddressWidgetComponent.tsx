@@ -4,7 +4,6 @@ import {
   WidgetTag,
   connect,
   Obj,
-  LinkTag,
   ImageTag,
   isInPlaceEditingActive,
   ContentTag,
@@ -14,7 +13,7 @@ import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 
 provideComponent(AddressWidget, ({ widget }) => (
   <WidgetTag>
-    {widget.get('showLogo') && <Logo />}
+    {widget.get('showLogo') && <Logo alt={widget.get('brandName')} />}
     <address>
       <Address addressWidget={widget} />
       <Table widget={widget} />
@@ -22,7 +21,7 @@ provideComponent(AddressWidget, ({ widget }) => (
   </WidgetTag>
 ))
 
-const Logo = connect(() => {
+const Logo = connect(({ alt }: { alt: string }) => {
   const root: unknown = Obj.root()
   if (!(root instanceof Homepage)) return null
 
@@ -31,9 +30,7 @@ const Logo = connect(() => {
 
   return (
     <div className="mb-2">
-      <LinkTag to={root} aria-label="Logo">
-        <ImageTag content={logo} className="navbar-brand-logo" alt="Logo" />
-      </LinkTag>
+      <ImageTag content={logo} className="navbar-brand-logo" alt={alt} />
     </div>
   )
 })
