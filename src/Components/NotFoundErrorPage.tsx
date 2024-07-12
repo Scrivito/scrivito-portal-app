@@ -28,7 +28,9 @@ export const NotFoundErrorPage = connect(function NotFoundErrorPage() {
 
   return (
     <>
-      <ContentTag tag="header" content={root} attribute="siteHeader" />
+      {!!root.get('layoutShowHeader') && (
+        <ContentTag tag="header" content={root} attribute="layoutHeader" />
+      )}
       <ContentTag
         tag="main"
         id="main"

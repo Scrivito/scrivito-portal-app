@@ -2,10 +2,7 @@ import {
   ChildListTag,
   connect,
   ContentTag,
-  currentPage,
   CurrentPage,
-  ImageTag,
-  InPlaceEditingOff,
   isCurrentPage,
   isOnCurrentPath,
   LinkTag,
@@ -16,37 +13,13 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { SubnavigationOverview } from './SubnavigationOverviewObjClass'
 import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
-import { Breadcrumb } from '../../Components/Breadcrumb'
 
 provideLayoutComponent(SubnavigationOverview, ({ page }) => {
   return (
     <>
-      <section className="bg-secondary py-5">
-        <InPlaceEditingOff>
-          <ImageTag
-            content={page}
-            attribute="topBannerBackground"
-            className="img-background"
-          />
-        </InPlaceEditingOff>
-        <div className="container">
-          <div className="header-caption">
-            <h3 className="h3">
-              <ContentTag
-                content={currentPage()}
-                attribute="title"
-                tag="span"
-                className="bg-primary"
-              />
-            </h3>
-          </div>
-        </div>
-      </section>
-      <section className="bg-light-grey py-2 hidden-xs">
-        <div className="container">
-          <Breadcrumb />
-        </div>
-      </section>
+      {!!page.get('layoutShowHeader') && (
+        <ContentTag tag="header" content={page} attribute="layoutHeader" />
+      )}
       <section className="py-2 bg-light-grey">
         <div className="container">
           <div className="row">

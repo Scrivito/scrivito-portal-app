@@ -14,13 +14,8 @@ provideEditingConfig(ProductsOverview, {
   thumbnail: Thumbnail,
   attributes: {
     ...defaultPageEditingConfigAttributes,
-    topBannerBackground: {
-      title: 'Top banner background',
-      description:
-        'This background will be shown on this page and all sub-pages',
-    },
   },
-  properties: [...defaultPageProperties, 'topBannerBackground'],
+  properties: defaultPageProperties,
   propertiesGroups: defaultPagePropertiesGroups,
   initialContent: defaultPageInitialContent,
   validations: defaultPageValidations,
