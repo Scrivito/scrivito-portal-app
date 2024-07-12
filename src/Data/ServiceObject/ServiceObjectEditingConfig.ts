@@ -20,6 +20,7 @@ ServiceObjectPromise.then((ServiceObject) => {
       locationStreet: { title: 'Location (street)' },
       modelNumber: { title: 'Model number' },
       number: { title: 'Number' },
+      parentId: { title: 'Parent service object (ID)' },
       picture: { title: 'Picture' },
       product: { title: 'Product' },
       responsibleAgent: { title: 'Responsible agent (ID)' },
