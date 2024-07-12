@@ -159,13 +159,7 @@ const TotalCountSummary = connect(
     const attributes = ['resultsHeadline0', 'resultsHeadline1'] as const
     const attribute = attributes[totalCount] || 'resultsHeadline'
 
-    return (
-      <ContentTag
-        content={widget}
-        attribute={attribute}
-        dataContext={{ count: totalCount.toString() }}
-      />
-    )
+    return widget.get(attribute).replaceAll('__count__', totalCount.toString())
   },
   {
     loading: ({ widget }: { widget: SearchResultsWidgetInstance }) => (
