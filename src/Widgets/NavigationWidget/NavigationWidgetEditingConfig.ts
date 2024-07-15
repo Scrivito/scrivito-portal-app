@@ -4,6 +4,7 @@ import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(NavigationWidget, {
   attributes: {
+    metaNavigationProminentPage: { title: 'Location of prominent page' },
     slimDesign: {
       title: 'Slim design?',
       description:
@@ -12,5 +13,9 @@ provideEditingConfig(NavigationWidget, {
   },
   title: 'Navigation',
   thumbnail: Thumbnail,
-  properties: ['metaNavigationObjs', 'slimDesign'],
+  properties: [
+    'metaNavigationObjs',
+    'metaNavigationProminentPage',
+    'slimDesign',
+  ],
 })

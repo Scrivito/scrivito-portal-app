@@ -1,4 +1,4 @@
-import { connect, isCurrentPage, LinkTag } from 'scrivito'
+import { connect, isCurrentPage, LinkTag, Obj } from 'scrivito'
 import { NavigationWidgetInstance } from '../NavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
@@ -7,7 +7,7 @@ import { containsItems, numberOfCartItems } from '../../../Data/CartItem/Cart'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import { CurrentUserDropdown } from './CurrentUserDropdown'
 import { LanguageSwitch } from './LanguageSwitch'
-import { getSitePortalOverviewPage } from '../../../utils/getSitePortalOverviewPage'
+import { isRedirect } from '../../../Objs/Redirect/RedirectObjClass'
 
 export const MetaNavigation = connect(function MetaNavigation({
   root,
@@ -48,31 +48,31 @@ export const MetaNavigation = connect(function MetaNavigation({
             </Nav.Link>
           </Nav.Item>
         )}
-        {!widget.get('slimDesign') && <PortalLink root={root} />}
+        <ProminentPageLink target={widget.get('metaNavigationProminentPage')} />
         <CurrentUserDropdown widget={widget} root={root} />
       </Nav>
     </div>
   )
 })
 
-const PortalLink = connect(function PortalLink({
-  root,
+const ProminentPageLink = connect(function ProminentPageLink({
+  target,
 }: {
-  root: HomepageInstance
+  target: Obj | null
 }) {
-  const sitePortalOverviewPage = getSitePortalOverviewPage(root)
-  if (!sitePortalOverviewPage) return null
+  if (!target) return null
+  const page = (isRedirect(target) && target.get('link')?.obj()) || target
 
   return (
     <Nav.Item>
       <Nav.Link
-        active={isCurrentPage(sitePortalOverviewPage)}
+        active={isCurrentPage(page)}
         as={LinkTag}
-        eventKey={`MetaNavigation-${sitePortalOverviewPage.id()}`}
-        key={`MetaNavigation-${sitePortalOverviewPage.id()}`}
-        to={sitePortalOverviewPage}
+        eventKey={`MetaNavigation-${page.id()}`}
+        key={`MetaNavigation-${page.id()}`}
+        to={page}
       >
-        <ObjIconAndTitle obj={sitePortalOverviewPage} />
+        <ObjIconAndTitle obj={page} />
       </Nav.Link>
     </Nav.Item>
   )
