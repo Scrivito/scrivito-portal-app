@@ -10,9 +10,6 @@ provideEditingConfig(AddressWidget, {
       title: 'Show brand logo?',
       description: 'Default: Yes',
     },
-    brandName: {
-      title: 'Brand name',
-    },
     locationName: {
       title: 'Location name',
       description: 'E.g. New York Convention Center',
@@ -49,7 +46,6 @@ provideEditingConfig(AddressWidget, {
   },
   properties: [
     'showLogo',
-    'brandName',
     'locationName',
     'locationStreetAddress',
     'locationLocality',

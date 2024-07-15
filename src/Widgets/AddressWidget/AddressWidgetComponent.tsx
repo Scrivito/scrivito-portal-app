@@ -10,10 +10,11 @@ import {
 } from 'scrivito'
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
+import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(AddressWidget, ({ widget }) => (
   <WidgetTag>
-    {widget.get('showLogo') && <Logo alt={widget.get('brandName')} />}
+    {widget.get('showLogo') && <Logo />}
     <address>
       <Address addressWidget={widget} />
       <Table widget={widget} />
@@ -21,7 +22,7 @@ provideComponent(AddressWidget, ({ widget }) => (
   </WidgetTag>
 ))
 
-const Logo = connect(({ alt }: { alt: string }) => {
+const Logo = connect(() => {
   const root: unknown = Obj.root()
   if (!(root instanceof Homepage)) return null
 
@@ -30,7 +31,11 @@ const Logo = connect(({ alt }: { alt: string }) => {
 
   return (
     <div className="mb-2">
-      <ImageTag content={logo} className="navbar-brand-logo" alt={alt} />
+      <ImageTag
+        content={logo}
+        className="navbar-brand-logo"
+        alt={alternativeTextForObj(logo)}
+      />
     </div>
   )
 })
