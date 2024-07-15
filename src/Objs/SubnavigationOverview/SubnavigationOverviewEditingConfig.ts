@@ -23,18 +23,8 @@ provideEditingConfig(SubnavigationOverview, {
       description:
         'This icon is shown e.g. when linked from the "portal" section of the navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
     },
-    topBannerBackground: {
-      title: 'Top banner background',
-      description:
-        'This background will be shown on this page and all sub-pages',
-    },
   },
-  properties: [
-    ...defaultPageProperties,
-    'hideInNavigation',
-    'linkIcon',
-    'topBannerBackground',
-  ],
+  properties: [...defaultPageProperties, 'hideInNavigation', 'linkIcon'],
   propertiesGroups: defaultPagePropertiesGroups,
   initialContent: defaultPageInitialContent,
   validations: defaultPageValidations,

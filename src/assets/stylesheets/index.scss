@@ -486,7 +486,7 @@ body {
 }
 #root {
   display: flex;
-  // height: 100%; // TODO: Reenable, once `SubnavigationOverview` page is obsolete.
+  height: 100%;
   flex-flow: column;
 }
 main {
@@ -651,7 +651,7 @@ section {
 }
 
 section {
-  min-height: 30px;
+  flex: 1;
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -831,7 +831,7 @@ img.img-flag {
  ================================================== */
 
 aside,
-section,
+section:has(.img-background),
 .card,
 .carousel-item {
   position: relative;
@@ -840,6 +840,7 @@ section,
 }
 header section {
   overflow: visible;
+  position: relative;
   z-index: 2;
 }
 
@@ -902,8 +903,8 @@ header section {
 .carousel-item:focus,
 section:hover >,
 section:focus >,
-.card:hover,
-.card:focus {
+.card:not([data-scrivito-private-widget]):hover,
+.card:not([data-scrivito-private-widget]):focus {
   .img-background.img-zoom {
     transform: scale(1.2);
     filter: blur(10px);
@@ -940,12 +941,12 @@ section:focus >,
 
 .row [class*='col']:first-child .card-extended:after {
   right: 0;
-  left: -600px;
+  left: -2600px;
   border-radius: var(--jr-border-radius);
 }
 .row [class*='col']:last-child .card-extended:after {
   left: 0;
-  right: -600px;
+  right: -2600px;
   border-radius: var(--jr-border-radius);
 }
 .row [class*='col']:only-child .card-extended:after {
@@ -1020,11 +1021,11 @@ section:focus >,
 
 .row [class*='col']:first-child .card-img-extended.card-extended:before {
   right: 0;
-  left: -600px;
+  left: -2600px;
 }
 .row [class*='col']:last-child .card-img-extended.card-extended:before {
   left: 0;
-  right: -600px;
+  right: -2600px;
 }
 .row [class*='col']:only-child .card-img-extended.card-extended:before {
   left: 0;
@@ -1230,12 +1231,13 @@ section:focus >,
 
 .slim-nav {
   &:after {
-    display: none;
+    display: none !important;
   }
   .navbar-brand {
     height: 55px;
     margin: 0;
     padding: 0 5px 0 0;
+    box-shadow: none;
   }
   .navbar-brand-logo {
     max-width: 155px;
@@ -1769,10 +1771,13 @@ header .navbar.navbar-expand-lg {
   margin: 0;
 }
 
-/* two color top navbar
+/* two color top navbar for tynacoon
  =================================================================== */
-
-header section:after {
+header:first-of-type section {
+  overflow: visible;
+  z-index: 3;
+}
+header:first-of-type section:after {
   background: var(--light-grey);
   content: '';
   display: block;

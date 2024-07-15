@@ -4,6 +4,7 @@ import {
   connect,
   ImageTag,
   InPlaceEditingOff,
+  WidgetTag,
 } from 'scrivito'
 import { SectionWidget, SectionWidgetInstance } from './SectionWidgetClass'
 
@@ -26,7 +27,7 @@ provideComponent(SectionWidget, ({ widget }) => {
   }
 
   return (
-    <section className={sectionClassNames.join(' ')}>
+    <WidgetTag tag="section" className={sectionClassNames.join(' ')}>
       <ImageOrVideo widget={widget} />
       <ContentTag
         tag="div"
@@ -34,7 +35,7 @@ provideComponent(SectionWidget, ({ widget }) => {
         className={contentClassName}
         attribute="content"
       />
-    </section>
+    </WidgetTag>
   )
 })
 
