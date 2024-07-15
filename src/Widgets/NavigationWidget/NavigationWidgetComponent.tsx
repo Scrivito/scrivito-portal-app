@@ -16,11 +16,7 @@ provideComponent(NavigationWidget, ({ widget }) => {
       <WidgetTag tag="section" className="bg-primary pb-4">
         <div className="container">
           <Navbar expand="lg" collapseOnSelect>
-            <Brand
-              root={root}
-              linkClassName="navbar-brand m-auto pt-3"
-              alt={widget.get('brandAlternativeText')}
-            />
+            <Brand root={root} linkClassName="navbar-brand m-auto pt-3" />
           </Navbar>
         </div>
       </WidgetTag>
@@ -34,11 +30,7 @@ provideComponent(NavigationWidget, ({ widget }) => {
     >
       <div className="container">
         <Navbar expand="lg" collapseOnSelect>
-          <Brand
-            root={root}
-            linkClassName="navbar-brand"
-            alt={widget.get('brandAlternativeText')}
-          />
+          <Brand root={root} linkClassName="navbar-brand" />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <MetaNavigation widget={widget} root={root} />

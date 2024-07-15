@@ -5,7 +5,6 @@ export const NavigationWidget = provideWidgetClass('NavigationWidget', {
     metaNavigationObjs: 'referencelist',
     metaNavigationUserDescription: 'string',
     metaNavigationUserTitle: 'string',
-    brandAlternativeText: 'string',
     slimDesign: 'boolean',
   },
 })

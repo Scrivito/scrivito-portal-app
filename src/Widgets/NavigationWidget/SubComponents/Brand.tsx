@@ -1,13 +1,12 @@
 import { connect, InPlaceEditingOff, LinkTag, ImageTag } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
+import { alternativeTextForObj } from '../../../utils/alternativeTextForObj'
 
 export const Brand = connect(function Brand({
   root,
   linkClassName,
-  alt,
 }: {
   root: HomepageInstance
-  alt: string
   linkClassName?: string
 }) {
   return (
@@ -17,7 +16,7 @@ export const Brand = connect(function Brand({
           content={root}
           attribute="siteLogoDark"
           className="navbar-brand-logo"
-          alt={alt}
+          alt={alternativeTextForObj(root.get('siteLogoDark'))}
         />
       </LinkTag>
     </InPlaceEditingOff>
