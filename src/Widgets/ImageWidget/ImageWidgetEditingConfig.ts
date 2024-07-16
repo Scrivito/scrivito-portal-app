@@ -18,7 +18,7 @@ provideEditingConfig(ImageWidget, {
     alternativeText: {
       title: 'Alternative text (optional)',
       description:
-        'Brief description of what the image is about.' +
+        'Text that helps visually impaired users understand the purpose or function of the image.' +
         ' If empty, the alternative text of the image is used.',
     },
     attributeName: {

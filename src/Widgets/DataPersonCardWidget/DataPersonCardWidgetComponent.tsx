@@ -62,20 +62,16 @@ const PersonCard = connect(function PersonCard({
             <div className="text-bold text-extra-small text-uppercase">
               {position}
             </div>
-            <table className="table-extra-small">
-              <tbody>
-                {email ? (
-                  <tr>
-                    <th className="align-top">
-                      <i className="bi bi-envelope"></i>
-                    </th>
-                    <td>
-                      <a href={`mailto:${email}`}>{email}</a>
-                    </td>
-                  </tr>
-                ) : null}
-              </tbody>
-            </table>
+            {email ? (
+              <div className="d-flex text-small">
+                <div className="me-1 ms-1">
+                  <i className="bi bi-envelope" aria-hidden={true} />
+                </div>
+                <div>
+                  <a href={`mailto:${email}`}>{email}</a>
+                </div>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

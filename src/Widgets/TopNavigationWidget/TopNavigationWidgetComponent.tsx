@@ -1,13 +1,13 @@
 import { provideComponent, Obj, currentPage, WidgetTag } from 'scrivito'
 import Navbar from 'react-bootstrap/Navbar'
 
-import { NavigationWidget } from './NavigationWidgetClass'
+import { TopNavigationWidget } from './TopNavigationWidgetClass'
 import { Brand } from './SubComponents/Brand'
 import { MainNavigation } from './SubComponents/MainNavigation'
 import { MetaNavigation } from './SubComponents/MetaNavigation'
 import { isHomepage } from '../../Objs/Homepage/HomepageObjClass'
 
-provideComponent(NavigationWidget, ({ widget }) => {
+provideComponent(TopNavigationWidget, ({ widget }) => {
   const root = Obj.root()
   if (!isHomepage(root)) return null
 
