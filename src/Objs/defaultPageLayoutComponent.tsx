@@ -52,7 +52,7 @@ const BackgroundWrapper = connect(function BackgroundWrapper({
   if (typeof backgroundColor !== 'string') return children
   if (backgroundColor === 'transparent') return children
 
-  return <section className={`bg-${backgroundColor}`}>{children}</section>
+  return <div className={`bg-${backgroundColor}`}>{children}</div>
 })
 
 const SidebarLayout = connect(function SidebarLayout({
