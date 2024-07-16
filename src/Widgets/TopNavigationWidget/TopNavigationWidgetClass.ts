@@ -5,7 +5,7 @@ export const TopNavigationWidget = provideWidgetClass('TopNavigationWidget', {
     metaNavigationObjs: 'referencelist',
     metaNavigationUserDescription: 'string',
     metaNavigationUserTitle: 'string',
-    metaNavigationProminentPage: 'reference',
+    metaNavigationUtilityLink: 'reference',
     slimDesign: 'boolean',
   },
 })

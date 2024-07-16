@@ -48,14 +48,14 @@ export const MetaNavigation = connect(function MetaNavigation({
             </Nav.Link>
           </Nav.Item>
         )}
-        <ProminentPageLink target={widget.get('metaNavigationProminentPage')} />
+        <UtilityLink target={widget.get('metaNavigationUtilityLink')} />
         <CurrentUserDropdown widget={widget} root={root} />
       </Nav>
     </div>
   )
 })
 
-const ProminentPageLink = connect(function ProminentPageLink({
+const UtilityLink = connect(function UtilityLink({
   target,
 }: {
   target: Obj | null
