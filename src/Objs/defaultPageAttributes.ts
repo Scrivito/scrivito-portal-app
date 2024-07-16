@@ -5,6 +5,28 @@ export const defaultPageAttributes = {
   layoutShowHeader: 'boolean',
   layoutFooter: ['widgetlist', { only: 'SectionWidget' }],
   layoutShowFooter: 'boolean',
+  layoutLeftSidebar: 'widgetlist',
+  layoutShowLeftSidebar: 'boolean',
+  layoutRightSidebar: 'widgetlist',
+  layoutShowRightSidebar: 'boolean',
+  layoutMainBackgroundColor: [
+    'enum',
+    {
+      values: [
+        'white',
+        'primary',
+        'secondary',
+        'light-grey',
+        'middle-grey',
+        'dark-grey',
+        'transparent',
+        'success',
+        'info',
+        'warning',
+        'danger',
+      ],
+    },
+  ],
   // Meta tags
   metaDataDescription: 'string',
   robotsIndex: 'boolean',

@@ -14,26 +14,61 @@ export const defaultPageEditingConfigAttributes = {
     title: 'Should this page be indexed?',
     description: 'If not, search engines will ignore this page. Default: Yes',
   },
+  layoutMainBackgroundColor: {
+    title: 'Background color',
+    description:
+      'Does not apply to the header and footer. Default: Transparent',
+    values: [
+      { value: 'transparent', title: 'Transparent' },
+      { value: 'white', title: 'White' },
+      { value: 'primary', title: 'Primary color' },
+      { value: 'secondary', title: 'Secondary color' },
+      { value: 'light-grey', title: 'Light grey' },
+      { value: 'middle-grey', title: 'Grey' },
+      { value: 'dark-grey', title: 'Dark grey' },
+      { value: 'success', title: 'Success' },
+      { value: 'info', title: 'Info' },
+      { value: 'warning', title: 'Warning' },
+      { value: 'danger', title: 'Danger' },
+    ],
+  },
   layoutShowHeader: {
     title: 'Show header?',
     description:
-      'This header will be displayed on this page and all its descendant pages.',
+      'The header will be displayed on this page and all its descendant pages.',
   },
   layoutShowFooter: {
     title: 'Show footer?',
     description:
-      'This footer will be displayed on this page and all its descendant pages.',
+      'The footer will be displayed on this page and all its descendant pages.',
+  },
+  layoutShowLeftSidebar: {
+    title: 'Show left sidebar?',
+    description:
+      'The left sidebar will be displayed on this page and all its descendant pages.',
+  },
+  layoutShowRightSidebar: {
+    title: 'Show right sidebar?',
+    description:
+      'The right sidebar will be displayed on this page and all its descendant pages.',
   },
 }
 
 export const defaultPageInitialContent = {
   robotsIndex: true,
+  layoutMainBackgroundColor: 'transparent',
 } as const
 
 export const defaultPagePropertiesGroups = [
   {
     title: 'Layout',
-    properties: ['layoutShowHeader', 'layoutShowFooter'],
+    properties: [
+      'layoutMainBackgroundColor',
+      'layoutShowHeader',
+      'layoutShowLeftSidebar',
+      'layoutShowRightSidebar',
+      'layoutShowFooter',
+    ],
     key: 'layout-group',
   },
   {

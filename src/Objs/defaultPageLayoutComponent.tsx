@@ -1,15 +1,39 @@
-import { ContentTag, CurrentPage, provideLayoutComponent } from 'scrivito'
+import {
+  connect,
+  ContentTag,
+  CurrentPage,
+  Obj,
+  provideLayoutComponent,
+} from 'scrivito'
 
 type ObjClass = Parameters<typeof provideLayoutComponent>[0]
 
 export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
   provideLayoutComponent(objClass, ({ page }) => {
+    const showLeftSidebar = !!page.get('layoutShowLeftSidebar')
+    const showRightSidebar = !!page.get('layoutShowRightSidebar')
+    const showSidebar = showLeftSidebar || showRightSidebar
+
     return (
       <>
         {!!page.get('layoutShowHeader') && (
           <ContentTag tag="header" content={page} attribute="layoutHeader" />
         )}
-        <CurrentPage />
+
+        <BackgroundWrapper
+          backgroundColor={page.get('layoutMainBackgroundColor')}
+        >
+          {showSidebar ? (
+            <SidebarLayout
+              page={page}
+              showLeftSidebar={showLeftSidebar}
+              showRightSidebar={showRightSidebar}
+            />
+          ) : (
+            <CurrentPage />
+          )}
+        </BackgroundWrapper>
+
         {!!page.get('layoutShowFooter') && (
           <ContentTag tag="footer" content={page} attribute="layoutFooter" />
         )}
@@ -17,3 +41,52 @@ export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
     )
   })
 }
+
+const BackgroundWrapper = connect(function BackgroundWrapper({
+  backgroundColor,
+  children,
+}: {
+  children: React.ReactNode
+  backgroundColor?: unknown
+}) {
+  if (typeof backgroundColor !== 'string') return children
+  if (backgroundColor === 'transparent') return children
+
+  return <div className={`bg-${backgroundColor}`}>{children}</div>
+})
+
+const SidebarLayout = connect(function SidebarLayout({
+  page,
+  showLeftSidebar,
+  showRightSidebar,
+}: {
+  page: Obj
+  showLeftSidebar: boolean
+  showRightSidebar: boolean
+}) {
+  return (
+    <div className="container py-2">
+      <div className="row">
+        {showLeftSidebar && (
+          <div className="col-lg-2 order-first">
+            <ContentTag content={page} attribute="layoutLeftSidebar" />
+          </div>
+        )}
+
+        <div
+          className={
+            showLeftSidebar && showRightSidebar ? 'col-lg-8' : 'col-lg-10'
+          }
+        >
+          <CurrentPage />
+        </div>
+
+        {showRightSidebar && (
+          <div className="col-lg-2 order-first order-lg-last">
+            <ContentTag content={page} attribute="layoutRightSidebar" />
+          </div>
+        )}
+      </div>
+    </div>
+  )
+})
