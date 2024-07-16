@@ -8,9 +8,9 @@ import {
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
-import { SideNavigationWidget } from './SideNavigationWidgetClass'
+import { VerticalNavigationWidget } from './VerticalNavigationWidgetClass'
 
-provideComponent(SideNavigationWidget, ({ widget }) => {
+provideComponent(VerticalNavigationWidget, ({ widget }) => {
   const page = widget.obj()
 
   return (
