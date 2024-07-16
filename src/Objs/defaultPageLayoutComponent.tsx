@@ -69,7 +69,11 @@ const SidebarLayout = connect(function SidebarLayout({
       <div className="row">
         {showLeftSidebar && (
           <div className="col-lg-2 order-first">
-            <ContentTag content={page} attribute="layoutLeftSidebar" />
+            <ContentTag
+              tag="aside"
+              content={page}
+              attribute="layoutLeftSidebar"
+            />
           </div>
         )}
 
@@ -83,7 +87,11 @@ const SidebarLayout = connect(function SidebarLayout({
 
         {showRightSidebar && (
           <div className="col-lg-2 order-first order-lg-last">
-            <ContentTag content={page} attribute="layoutRightSidebar" />
+            <ContentTag
+              tag="aside"
+              content={page}
+              attribute="layoutRightSidebar"
+            />
           </div>
         )}
       </div>
