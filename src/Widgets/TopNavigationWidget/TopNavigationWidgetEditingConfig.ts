@@ -4,10 +4,7 @@ import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(TopNavigationWidget, {
   attributes: {
-    metaNavigationUtilityLink: {
-      title: 'Utility link',
-      description: 'Shown next to the current user dropdown.',
-    },
+    metaNavigationUtilityLink: { title: 'Utility link' },
     slimDesign: {
       title: 'Slim design?',
       description:
