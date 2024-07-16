@@ -25,6 +25,7 @@ provideComponent(ProductsOverview, ({ page }) => {
                         content={category}
                         attribute="image"
                         className="img-box img-h-200"
+                        alt=""
                       />
                       <div className="card-body p-2">
                         <ContentTag

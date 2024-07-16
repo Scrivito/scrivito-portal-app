@@ -30,10 +30,6 @@ provideEditingConfig(Homepage, {
       title: 'Dark logo',
       description: 'Used with light backgrounds',
     },
-    siteLogoLight: {
-      title: 'Light logo',
-      description: 'Used with dark backgrounds',
-    },
     siteFavicon: {
       title: 'Favicon',
     },
@@ -64,7 +60,6 @@ provideEditingConfig(Homepage, {
         'baseUrl',
         site.siteId() === 'default' && site.path() === '/' ? 'pisaUrl' : null,
         'siteLogoDark',
-        'siteLogoLight',
         'siteFavicon',
         'siteLanguageIcon',
         'siteCartPage',

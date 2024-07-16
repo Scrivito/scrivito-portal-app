@@ -22,6 +22,7 @@ export const ProductPreview = connect(function ProductPreview({
               attribute="image"
               className="img-box img-h-100"
               content={product}
+              alt=""
             />
 
             <div className="card-body p-2">
