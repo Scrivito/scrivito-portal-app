@@ -3,7 +3,12 @@ import { connect } from 'scrivito'
 
 export const ModalSpinner = connect(function ModalSpinner() {
   const dialogRef = useRef<HTMLDialogElement>(null)
-  useEffect(() => dialogRef.current?.showModal(), [])
+  useEffect(() => {
+    dialogRef.current?.showModal()
+    dialogRef.current?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') e.preventDefault()
+    })
+  }, [])
 
   return (
     <dialog className="loader-dailog" ref={dialogRef}>
