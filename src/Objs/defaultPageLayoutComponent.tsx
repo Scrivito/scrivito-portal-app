@@ -20,15 +20,19 @@ export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
           <ContentTag tag="header" content={page} attribute="layoutHeader" />
         )}
 
-        {showSidebar ? (
-          <SidebarLayout
-            page={page}
-            showLeftSidebar={showLeftSidebar}
-            showRightSidebar={showRightSidebar}
-          />
-        ) : (
-          <CurrentPage />
-        )}
+        <BackgroundWrapper
+          backgroundColor={page.get('layoutMainBackgroundColor')}
+        >
+          {showSidebar ? (
+            <SidebarLayout
+              page={page}
+              showLeftSidebar={showLeftSidebar}
+              showRightSidebar={showRightSidebar}
+            />
+          ) : (
+            <CurrentPage />
+          )}
+        </BackgroundWrapper>
 
         {!!page.get('layoutShowFooter') && (
           <ContentTag tag="footer" content={page} attribute="layoutFooter" />
@@ -37,6 +41,19 @@ export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
     )
   })
 }
+
+const BackgroundWrapper = connect(function BackgroundWrapper({
+  backgroundColor,
+  children,
+}: {
+  children: React.ReactNode
+  backgroundColor?: unknown
+}) {
+  if (typeof backgroundColor !== 'string') return children
+  if (backgroundColor === 'transparent') return children
+
+  return <div className={`bg-${backgroundColor}`}>{children}</div>
+})
 
 const SidebarLayout = connect(function SidebarLayout({
   page,
