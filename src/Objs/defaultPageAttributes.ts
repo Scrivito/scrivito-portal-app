@@ -5,6 +5,10 @@ export const defaultPageAttributes = {
   layoutShowHeader: 'boolean',
   layoutFooter: ['widgetlist', { only: 'SectionWidget' }],
   layoutShowFooter: 'boolean',
+  layoutLeftSidebar: 'widgetlist',
+  layoutShowLeftSidebar: 'boolean',
+  layoutRightSidebar: 'widgetlist',
+  layoutShowRightSidebar: 'boolean',
   // Meta tags
   metaDataDescription: 'string',
   robotsIndex: 'boolean',

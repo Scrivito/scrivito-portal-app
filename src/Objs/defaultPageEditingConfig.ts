@@ -17,12 +17,22 @@ export const defaultPageEditingConfigAttributes = {
   layoutShowHeader: {
     title: 'Show header?',
     description:
-      'This header will be displayed on this page and all its descendant pages.',
+      'The header will be displayed on this page and all its descendant pages.',
   },
   layoutShowFooter: {
     title: 'Show footer?',
     description:
-      'This footer will be displayed on this page and all its descendant pages.',
+      'The footer will be displayed on this page and all its descendant pages.',
+  },
+  layoutShowLeftSidebar: {
+    title: 'Show left sidebar?',
+    description:
+      'The left sidebar will be displayed on this page and all its descendant pages.',
+  },
+  layoutShowRightSidebar: {
+    title: 'Show right sidebar?',
+    description:
+      'The right sidebar will be displayed on this page and all its descendant pages.',
   },
 }
 
@@ -33,7 +43,12 @@ export const defaultPageInitialContent = {
 export const defaultPagePropertiesGroups = [
   {
     title: 'Layout',
-    properties: ['layoutShowHeader', 'layoutShowFooter'],
+    properties: [
+      'layoutShowHeader',
+      'layoutShowLeftSidebar',
+      'layoutShowRightSidebar',
+      'layoutShowFooter',
+    ],
     key: 'layout-group',
   },
   {
