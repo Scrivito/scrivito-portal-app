@@ -49,6 +49,7 @@ export function provideLocalStorageDataClass(
                     const itemValue = item[filterAttribute]
                     const eq =
                       itemValue === filterValue ||
+                      (filterValue === 'null' && itemValue === null) ||
                       (filterValue === 'true' && itemValue === true) ||
                       (filterValue === 'false' && itemValue === false)
 

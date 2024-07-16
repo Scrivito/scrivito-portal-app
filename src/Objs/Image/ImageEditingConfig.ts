@@ -6,7 +6,10 @@ provideEditingConfig(Image, {
   attributes: {
     alternativeText: {
       title: 'Alternative text',
-      description: 'Brief description of what the image is about.',
+      description:
+        'Text that helps visually impaired users understand the purpose or function of the image.' +
+        ' Leave empty if only decorative.' +
+        ' See https://www.w3.org/WAI/tutorials/images/decision-tree/',
     },
     tags: {
       title: 'Tags',

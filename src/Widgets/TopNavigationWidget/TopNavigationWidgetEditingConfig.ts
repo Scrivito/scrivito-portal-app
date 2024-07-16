@@ -1,8 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
-import { NavigationWidget } from './NavigationWidgetClass'
+import { TopNavigationWidget } from './TopNavigationWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
-provideEditingConfig(NavigationWidget, {
+provideEditingConfig(TopNavigationWidget, {
   attributes: {
     metaNavigationProminentPage: { title: 'Location of prominent page' },
     slimDesign: {
@@ -11,7 +11,7 @@ provideEditingConfig(NavigationWidget, {
         'Shows only the meta navigation, not the hierarchy navigation.',
     },
   },
-  title: 'Navigation',
+  title: 'Top Navigation',
   thumbnail: Thumbnail,
   properties: [
     'metaNavigationObjs',

@@ -1,6 +1,6 @@
 import { provideWidgetClass } from 'scrivito'
 
-export const NavigationWidget = provideWidgetClass('NavigationWidget', {
+export const TopNavigationWidget = provideWidgetClass('TopNavigationWidget', {
   attributes: {
     metaNavigationObjs: 'referencelist',
     metaNavigationUserDescription: 'string',
@@ -10,4 +10,6 @@ export const NavigationWidget = provideWidgetClass('NavigationWidget', {
   },
 })
 
-export type NavigationWidgetInstance = InstanceType<typeof NavigationWidget>
+export type TopNavigationWidgetInstance = InstanceType<
+  typeof TopNavigationWidget
+>

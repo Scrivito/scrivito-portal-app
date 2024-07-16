@@ -4,13 +4,13 @@ import {
   WidgetTag,
   connect,
   Obj,
-  LinkTag,
   ImageTag,
   isInPlaceEditingActive,
   ContentTag,
 } from 'scrivito'
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
+import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(AddressWidget, ({ widget }) => (
   <WidgetTag>
@@ -31,9 +31,11 @@ const Logo = connect(() => {
 
   return (
     <div className="mb-2">
-      <LinkTag to={root} aria-label="Logo">
-        <ImageTag content={logo} className="navbar-brand-logo" alt="Logo" />
-      </LinkTag>
+      <ImageTag
+        content={logo}
+        className="navbar-brand-logo"
+        alt={alternativeTextForObj(logo)}
+      />
     </div>
   )
 })

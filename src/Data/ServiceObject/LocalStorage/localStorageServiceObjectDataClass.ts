@@ -7,6 +7,7 @@ export async function localStorageServiceObjectDataClass() {
     initialContent: [
       {
         _id: '01F15317280B4BFDA40FFFAF2914D847',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Tauchrohrheizkörper 400 mm 0,5 KW',
         number: '944.301-79',
         serialNumber: '',
@@ -31,6 +32,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: '0B5573AAEBE54D3DB59800780636733E',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Behälter B100-2',
         number: '363.576-61',
         serialNumber: '',
@@ -55,6 +57,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: '0C0F6053E79143BCAF182DF1F4DB3713',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'thermometer MT 1/A/E/K  CuZn',
         number: '944.500-06A',
         serialNumber: '',
@@ -79,6 +82,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: '0D4151D28A744B71887277AE6821FC86',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'exterior finish',
         number: 'ANSTRICH',
         serialNumber: '',
@@ -103,6 +107,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: '7681FF616BF5460FAD90A6BB5BC386B4',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Air cleaner, electroplated',
         number: '913.300-10',
         serialNumber: '',
@@ -127,6 +132,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: '7EE9B4F3EAF2450384738C3667AE6956',
+        parentId: null,
         keyword: 'Lubrication system 2, 3x10l/min',
         number: 'SO-07.000601',
         serialNumber: '11-4444',
@@ -152,6 +158,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: '84BEDE404245447988D3DC226698A16E',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Oil tray 30 L',
         number: '999.111-01',
         serialNumber: '',
@@ -176,6 +183,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: '8D77684BDB944587AF50CC89F66F7F72',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Blocking valve',
         number: '999.222-14',
         serialNumber: '',
@@ -200,6 +208,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: '9B96B2C68516436A901EDB2490203D98',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Hydraulic filter 160 LD 0008 G25',
         number: '945.009-80A',
         serialNumber: '',
@@ -224,6 +233,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: 'AF6948D08AA64AF3BAE27AEEC0DEA6D3',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Manometer GA 0-10bar',
         number: '943.800-92',
         serialNumber: '',
@@ -248,6 +258,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: 'D270B9C6ADFD4A0CB6EA97918AD2D04B',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Installation and small parts',
         number: '377.625-WA',
         serialNumber: '',
@@ -272,6 +283,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: 'F730B131294C4A9EA58FA8D4D40C8650',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Rust-proofing (inside)',
         number: 'RP-02.117',
         serialNumber: '',
@@ -296,6 +308,7 @@ export async function localStorageServiceObjectDataClass() {
       },
       {
         _id: 'FA1992410CA54287948E84D2695A154C',
+        parentId: '7EE9B4F3EAF2450384738C3667AE6956',
         keyword: 'Pump (complete)',
         number: 'A-03.1364',
         serialNumber: '',

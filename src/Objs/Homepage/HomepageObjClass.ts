@@ -22,7 +22,6 @@ export const Homepage = provideObjClass('Homepage', {
     siteHeader: 'widgetlist',
     siteLanguageIcon: ['reference', { only: 'Image' }],
     siteLogoDark: ['reference', { only: 'Image' }],
-    siteLogoLight: ['reference', { only: 'Image' }],
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
     siteRoundedCorners: 'boolean',
     siteSearchResultsPage: 'reference',

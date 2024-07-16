@@ -31,6 +31,7 @@ export const SearchResult = connect(function SearchResult({
                   content={searchResult}
                   attribute="image"
                   className="img-box"
+                  alt=""
                 />
               </div>
               <div className="col-md-9">
