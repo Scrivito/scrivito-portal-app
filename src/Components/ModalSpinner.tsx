@@ -11,8 +11,7 @@ export const ModalSpinner = connect(function ModalSpinner() {
   }, [])
 
   return (
-    <dialog className="loader-dailog" ref={dialogRef}>
-      <div className="fade modal-backdrop show"></div>
+    <dialog className="loader-dialog" ref={dialogRef}>
       <div className="loader" />
     </dialog>
   )

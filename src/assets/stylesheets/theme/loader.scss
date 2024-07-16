@@ -88,15 +88,15 @@
   }
 }
 
-.loader-dailog,
-.loader-dailog:focus-visible {
+.loader-dialog,
+.loader-dialog:focus-visible {
   background: transparent;
   outline: none;
   border: none !important;
   width: 100%;
   height: 100%;
 }
-.modal-backdrop {
-  background: #fff;
-  opacity: 0.7;
+dialog::backdrop {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
 }
