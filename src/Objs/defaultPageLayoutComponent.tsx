@@ -68,11 +68,9 @@ const SidebarLayout = connect(function SidebarLayout({
     <div className="container py-2">
       <div className="row">
         {showLeftSidebar && (
-          <ContentTag
-            content={page}
-            attribute="layoutLeftSidebar"
-            className="col-lg-2 order-first"
-          />
+          <div className="col-lg-2 order-first">
+            <ContentTag content={page} attribute="layoutLeftSidebar" />
+          </div>
         )}
 
         <div
@@ -84,11 +82,9 @@ const SidebarLayout = connect(function SidebarLayout({
         </div>
 
         {showRightSidebar && (
-          <ContentTag
-            content={page}
-            attribute="layoutRightSidebar"
-            className="col-lg-2 order-first order-lg-last"
-          />
+          <div className="col-lg-2 order-first order-lg-last">
+            <ContentTag content={page} attribute="layoutRightSidebar" />
+          </div>
         )}
       </div>
     </div>
