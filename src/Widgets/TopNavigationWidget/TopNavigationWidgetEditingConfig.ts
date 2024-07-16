@@ -4,6 +4,7 @@ import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(TopNavigationWidget, {
   attributes: {
+    metaNavigationUtilityLink: { title: 'Utility link' },
     slimDesign: {
       title: 'Slim design?',
       description:
@@ -12,5 +13,5 @@ provideEditingConfig(TopNavigationWidget, {
   },
   title: 'Top Navigation',
   thumbnail: Thumbnail,
-  properties: ['metaNavigationObjs', 'slimDesign'],
+  properties: ['metaNavigationObjs', 'metaNavigationUtilityLink', 'slimDesign'],
 })

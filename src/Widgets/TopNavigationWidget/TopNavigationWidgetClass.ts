@@ -5,6 +5,7 @@ export const TopNavigationWidget = provideWidgetClass('TopNavigationWidget', {
     metaNavigationObjs: 'referencelist',
     metaNavigationUserDescription: 'string',
     metaNavigationUserTitle: 'string',
+    metaNavigationUtilityLink: 'reference',
     slimDesign: 'boolean',
   },
 })

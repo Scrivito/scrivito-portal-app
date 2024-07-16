@@ -38,7 +38,6 @@ provideEditingConfig(Homepage, {
       title: 'Show drop-shadow?',
       description: 'Default: Yes',
     },
-    sitePortalOverviewPage: { title: 'Location of portal overview page' },
     siteRoundedCorners: {
       title: 'Show rounded corners?',
       description: 'Default: Yes',
@@ -63,7 +62,6 @@ provideEditingConfig(Homepage, {
         'siteFavicon',
         'siteLanguageIcon',
         'siteCartPage',
-        'sitePortalOverviewPage',
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
