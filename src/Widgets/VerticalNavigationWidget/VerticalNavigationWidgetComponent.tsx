@@ -37,8 +37,8 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
           <li className={isCurrentPage(page) ? 'active' : ''}>
             <Nav.Link
               as={LinkTag}
-              eventKey={`Subnavigation-${page.id()}`}
-              key={`Subnavigation-${page.id()}`}
+              eventKey={`VerticalNavigationWidget-${widget.id()}-${page.id()}`}
+              key={`VerticalNavigationWidget-${widget.id()}-${page.id()}`}
               to={page}
             >
               <ObjIconAndTitle obj={page} />
@@ -53,8 +53,8 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
             <li className={isOnCurrentPath(child) ? 'active' : ''}>
               <Nav.Link
                 as={LinkTag}
-                eventKey={`Subnavigation-${page.id()}-${child.id()}`}
-                key={`Subnavigation-${page.id()}-${child.id()}`}
+                eventKey={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
+                key={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
                 to={child}
               >
                 <ObjIconAndTitle obj={child} />
