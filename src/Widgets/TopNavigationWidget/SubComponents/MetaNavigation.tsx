@@ -1,5 +1,5 @@
 import { connect, isCurrentPage, LinkTag } from 'scrivito'
-import { NavigationWidgetInstance } from '../NavigationWidgetClass'
+import { TopNavigationWidgetInstance } from '../TopNavigationWidgetClass'
 import { NavItem } from './NavItem'
 import Nav from 'react-bootstrap/Nav'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
@@ -14,7 +14,7 @@ export const MetaNavigation = connect(function MetaNavigation({
   widget,
 }: {
   root: HomepageInstance
-  widget: NavigationWidgetInstance
+  widget: TopNavigationWidgetInstance
 }) {
   const siteCartPage = root.get('siteCartPage')
   const showCart = !!siteCartPage && containsItems()

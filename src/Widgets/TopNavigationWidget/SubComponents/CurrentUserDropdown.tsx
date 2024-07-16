@@ -9,7 +9,7 @@ import {
   logout,
   urlFor,
 } from 'scrivito'
-import { NavigationWidgetInstance } from '../NavigationWidgetClass'
+import { TopNavigationWidgetInstance } from '../TopNavigationWidgetClass'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
@@ -25,7 +25,7 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   widget,
 }: {
   root: HomepageInstance
-  widget: NavigationWidgetInstance
+  widget: TopNavigationWidgetInstance
 }) {
   if (!isUserLoggedIn()) return null
 
@@ -128,7 +128,7 @@ const ProfileImg = connect(
 
     return (
       <>
-        <img className="profile-img" src={picture} aria-hidden="true" alt="" />{' '}
+        <img className="profile-img" src={picture} alt="" />{' '}
       </>
     )
   },
