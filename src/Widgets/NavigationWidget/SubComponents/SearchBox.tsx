@@ -32,8 +32,12 @@ export const SearchBox = connect(function SearchBox({
           ref={inputRef}
         />
 
-        <button type="submit" className="btn btn-primary">
-          <i className="bi bi-search"></i>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          aria-label={localizeSearchInputLabel()}
+        >
+          <i className="bi bi-search" aria-hidden="true"></i>
         </button>
       </div>
     </form>

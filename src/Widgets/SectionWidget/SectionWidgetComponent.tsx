@@ -64,6 +64,7 @@ const ImageOrVideo = connect(function ImageOrVideo({
           content={widget}
           attribute="backgroundImage"
           className={classNames.join(' ')}
+          alt=""
         />
       </InPlaceEditingOff>
     )

@@ -10,6 +10,7 @@ import {
   isInPlaceEditingActive,
 } from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
+import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(CardWidget, ({ widget }) => {
   const cardBodyClassNames: string[] = ['card-body']
@@ -44,6 +45,7 @@ provideComponent(CardWidget, ({ widget }) => {
             content={widget}
             attribute="backgroundImage"
             className={backgroundImageClassNames.join(' ')}
+            alt=""
           />
         </InPlaceEditingOff>
       )}
@@ -54,6 +56,7 @@ provideComponent(CardWidget, ({ widget }) => {
               content={widget}
               attribute="image"
               className="img-box img-h-200"
+              alt={alternativeTextForObj(widget.get('image'))}
             />
           </InPlaceEditingOff>
         )}
