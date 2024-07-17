@@ -3,9 +3,9 @@ import { ServiceObjectDocumentPromise } from './ServiceObjectDocumentDataClass'
 
 ServiceObjectDocumentPromise.then((ServiceObjectDocument) => {
   provideEditingConfig(ServiceObjectDocument, {
-    title: 'Equipment document',
+    title: 'Service object document',
     attributes: {
-      serviceObjectId: { title: 'Equipment ID' },
+      serviceObjectId: { title: 'Service object ID' },
       documentId: { title: 'Document ID' },
     },
   })
