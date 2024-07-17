@@ -233,6 +233,11 @@ fieldset:disabled .btn {
     border-right: 0;
   }
 }
+.bg-light-grey {
+  .input-group .form-control {
+    background: #fff;
+  }
+}
 
 .navbar-main .input-group {
   margin-top: 4px;
@@ -830,7 +835,6 @@ img.img-flag {
 /* section / card background upgrades
  ================================================== */
 
-aside,
 section:has(.img-background),
 .card,
 .carousel-item {
@@ -1504,6 +1508,8 @@ section:focus >,
     display: flex;
     flex: 0 0 350px;
     align-items: flex-start;
+    position: relative;
+    z-index: 1;
   }
   aside ul li {
     flex-basis: 100%;
@@ -1686,24 +1692,24 @@ header .navbar.navbar-expand-lg {
   font-size: 14px;
   padding: 8px 15px;
   margin: 0;
-  color: var(--bs-nav-link-color);
+  color: var(--bs-nav-link-color) !important;
   display: flex;
 }
 
 .nav-bordered li.active > a {
   background: var(--bs-primary);
-  color: #fff;
+  color: #fff !important;
 }
 
 .nav-bordered li.active li.active a {
   background: var(--bs-primary-lighten);
-  color: #fff;
+  color: #fff !important;
 }
 .nav-bordered li a:hover,
 .nav-bordered li a:active {
   background: var(--bs-primary-lighten);
   text-decoration: none !important;
-  color: #fff;
+  color: #fff !important;
 }
 
 .nav-bordered li a .bi {
