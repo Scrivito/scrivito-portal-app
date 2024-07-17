@@ -830,7 +830,6 @@ img.img-flag {
 /* section / card background upgrades
  ================================================== */
 
-aside,
 section:has(.img-background),
 .card,
 .carousel-item {
@@ -1504,6 +1503,8 @@ section:focus >,
     display: flex;
     flex: 0 0 350px;
     align-items: flex-start;
+    position: relative;
+    z-index: 1;
   }
   aside ul li {
     flex-basis: 100%;
