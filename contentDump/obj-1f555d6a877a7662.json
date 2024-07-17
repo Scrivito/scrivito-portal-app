@@ -1,0 +1,36 @@
+{
+  "_obj_class": "Dropdown",
+  "title": [
+    "string",
+    "Über uns"
+  ],
+  "child_order": [
+    "referencelist",
+    [
+      "f688f1b1b19451ae",
+      "d4967853cd3565f8",
+      "e6f438cec91e8b70"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "9db36de70dd4d157",
+  "_created_at": "20240405095238",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "1f555d6a877a7662",
+  "_language": "de",
+  "_last_changed": "20240405154255",
+  "_modification": null,
+  "_path": "/1f555d6a877a7662",
+  "_permalink": null,
+  "_published_at": "20240405154733",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202404051547330000000000000000d638123954226ad5",
+  "_widget_pool": {},
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_published_by": "scrivito:943667111e7b464abf6dba5382978956"
+}

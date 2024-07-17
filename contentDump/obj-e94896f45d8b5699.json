@@ -1,0 +1,511 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Parts"
+  ],
+  "link_icon": [
+    "string",
+    "bi-wrench-adjustable"
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "2f00d06e",
+      "81b8641f"
+    ]
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "e94896f45d8b5699",
+  "_created_at": "20240712091405",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240716074034",
+  "_id": "e94896f45d8b5699",
+  "_language": "en",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/046cc19cf0f87d9d/1e241bae572507e8/e94896f45d8b5699",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "default",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "3e8bed84": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "a462dcfb",
+          "72b5c05c",
+          "3b78f3b0",
+          "b849ffce",
+          "3d212dcd"
+        ]
+      ]
+    },
+    "a462dcfb": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "feed6e61",
+          "de1a0b5a"
+        ]
+      ]
+    },
+    "72b5c05c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ab3e167a"
+        ]
+      ]
+    },
+    "3b78f3b0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e0ed8fe6"
+        ]
+      ]
+    },
+    "b849ffce": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "84b35bdc"
+        ]
+      ]
+    },
+    "de1a0b5a": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-wrench-adjustable-circle"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "3aab39c9": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "1e241bae572507e8",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "3e8bed84"
+        ]
+      ]
+    },
+    "3d212dcd": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "555999a1"
+        ]
+      ]
+    },
+    "ab3e167a": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__ServiceObject.number__\n__ServiceObject.information__"
+      ],
+      "label": [
+        "string",
+        "Piece of equipment"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "product",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "84b35bdc": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Installed at"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "installedAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "feed6e61": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        0.8
+      ]
+    },
+    "555999a1": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "a9fa0095": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ]
+    },
+    "e0ed8fe6": {
+      "_obj_class": "DataImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "picture",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "b479320a": {
+      "_obj_class": "DataSearchWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "placeholder": [
+        "string",
+        "Search for part"
+      ],
+      "url_param_name": [
+        "string",
+        "search"
+      ]
+    },
+    "ac55226f": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3aab39c9"
+        ]
+      ]
+    },
+    "ab9650b5": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No matching part found.</p>"
+      ]
+    },
+    "25d5f644": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ab9650b5"
+        ]
+      ]
+    },
+    "81b8641f": {
+      "_obj_class": "DataGroupWidget",
+      "content": [
+        "widgetlist",
+        [
+          "b479320a",
+          "ac55226f",
+          "a9fa0095",
+          "25d5f644"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "query": [
+            {
+              "field": "parentId",
+              "value_via": {
+                "class": "ServiceObject",
+                "field": "_id"
+              }
+            },
+            {
+              "field": "isCustomer",
+              "value": "true"
+            }
+          ],
+          "size": 10
+        }
+      ]
+    },
+    "db7b4f43": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "label": [
+        "string",
+        "Parts of"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "product",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "7af5ff0b": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "db7b4f43"
+        ]
+      ],
+      "col_size": [
+        "number",
+        9
+      ]
+    },
+    "1a8807a8": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "1e241bae572507e8",
+          "query": null,
+          "target": null,
+          "title": "View details",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "right"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "673e2bfc": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "1a8807a8"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "b53bf391": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "7af5ff0b",
+          "673e2bfc"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "2f00d06e": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "b53bf391"
+        ]
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "1e241bae572507e8",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

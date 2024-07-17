@@ -1,0 +1,753 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Über uns"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "e8e6dee3",
+      "603a8421"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "38d52d38e1f73575",
+  "_created_at": "20240405095719",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "f688f1b1b19451ae",
+  "_language": "de",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/1f555d6a877a7662/f688f1b1b19451ae",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "13235577": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "65f5c36f"
+        ]
+      ]
+    },
+    "98775993": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "headline": [
+        "string",
+        "Über uns"
+      ]
+    },
+    "e8e6dee3": {
+      "_obj_class": "SectionWidget",
+      "background_image": [
+        "reference",
+        "22d9c6805af643eb"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7bb0ad38"
+        ]
+      ]
+    },
+    "832c684a": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Qualität ohne Kompromisse - Vertrauenswürdig für Branchen weltweit"
+      ]
+    },
+    "12339dd9": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>Tynacoon ist ein führender Hersteller von Düsen und Füllsystemen, der sich auf die Bereitstellung hochwertiger Ausrüstung für verschiedene Branchen wie Lebensmittel- und Getränkeindustrie, Pharmazeutika, Kosmetik, Chemie und Industriesektoren spezialisiert hat. Unser Unternehmen wurde 2010 von John Smith gegründet, der die Vision hatte, ein innovatives Unternehmen aufzubauen, das auf den wachsenden Bedarf an Düsen- und Fülllinien reagieren kann. Seitdem haben wir uns im Laufe der Jahre enorm entwickelt mit unserem Engagement für die Bereitstellung von Qualitätsprodukten und -dienstleistungen für unsere Kunden.</p><p>Mit nur zwei Mitarbeitern, die Tag und Nacht hart arbeiteten, begannen wir damit, Düsen für Lebensmittelverarbeitungsmaschinen herzustellen. Unser Fokus lag immer auf Qualität, was uns schnell Anerkennung bei unseren Kunden verschaffte. Mit der Zeit erweiterten wir unser Produktangebot um Füllsysteme und bedienten unterschiedliche Branchen mit verschiedenen Bedürfnissen.</p><p>Heute betreibt Tynacoon zwei hochmoderne Einrichtungen an verschiedenen Standorten weltweit, die über Hunderte von qualifizierten Mitarbeitern verfügen, die sich der Bereitstellung von Exzellenz durch Innovation verschrieben haben.</p>"
+      ]
+    },
+    "603a8421": {
+      "_obj_class": "SectionWidget",
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "832c684a",
+          "12339dd9",
+          "ed0e9d7b"
+        ]
+      ]
+    },
+    "d9f946ca": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "c4049fb0",
+          "2a4120a8",
+          "501d00c7"
+        ]
+      ]
+    },
+    "c4049fb0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d3a3c3f1"
+        ]
+      ]
+    },
+    "2a4120a8": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ccbe7a41"
+        ]
+      ]
+    },
+    "501d00c7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f6abfee9"
+        ]
+      ]
+    },
+    "ccbe7a41": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_footer": [
+        "boolean",
+        true
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "b88ad617",
+          "c7259099",
+          "ab3bce55",
+          "6c47cfba"
+        ]
+      ],
+      "card_footer": [
+        "widgetlist",
+        [
+          "07871215"
+        ]
+      ]
+    },
+    "ab3bce55": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Clarius Ceasar"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "6c47cfba": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Dynamischer Betriebsvertreter"
+      ]
+    },
+    "b88ad617": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "7b2f9815fd86158b"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "9a719619": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "9bf8aeb7",
+          "8007968c",
+          "3f718f60"
+        ]
+      ]
+    },
+    "4c1e0b36": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "7c793651bfd5b099"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "4c5efcb4": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Jane Morgan"
+      ]
+    },
+    "7733c895": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Produktforschungsdirektorin"
+      ]
+    },
+    "9bf8aeb7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "91cbd2c2"
+        ]
+      ]
+    },
+    "8007968c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "82e29f5f"
+        ]
+      ]
+    },
+    "3f718f60": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ac4f7f29"
+        ]
+      ]
+    },
+    "d3a3c3f1": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_footer": [
+        "boolean",
+        true
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "4c1e0b36",
+          "0786ddcc",
+          "4c5efcb4",
+          "7733c895"
+        ]
+      ],
+      "card_footer": [
+        "widgetlist",
+        [
+          "9a719619"
+        ]
+      ]
+    },
+    "d7c1b0f2": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c282f3e5cd6edd64"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "55e68673": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Jason John"
+      ]
+    },
+    "26d63203": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Dynamischer Paradigmen-Direktor"
+      ]
+    },
+    "f6abfee9": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_footer": [
+        "boolean",
+        true
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "d7c1b0f2",
+          "d2787108",
+          "55e68673",
+          "26d63203"
+        ]
+      ],
+      "card_footer": [
+        "widgetlist",
+        [
+          "e9ea5fc5"
+        ]
+      ]
+    },
+    "c7259099": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "d2787108": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "0786ddcc": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "91cbd2c2": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-facebook"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ]
+    },
+    "82e29f5f": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-google"
+      ]
+    },
+    "ac4f7f29": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-twitter"
+      ]
+    },
+    "6adf7f7a": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-facebook"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ]
+    },
+    "375c38f7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6adf7f7a"
+        ]
+      ]
+    },
+    "65f5c36f": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-google"
+      ]
+    },
+    "d3e7eb51": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-twitter"
+      ]
+    },
+    "4f09fd68": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d3e7eb51"
+        ]
+      ]
+    },
+    "07871215": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "375c38f7",
+          "13235577",
+          "4f09fd68"
+        ]
+      ]
+    },
+    "cb1263db": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-facebook"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ]
+    },
+    "073a2e86": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "cb1263db"
+        ]
+      ]
+    },
+    "f854838c": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-google"
+      ]
+    },
+    "0cb2874c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f854838c"
+        ]
+      ]
+    },
+    "e5d8b996": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-twitter"
+      ]
+    },
+    "65cd505a": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e5d8b996"
+        ]
+      ]
+    },
+    "e9ea5fc5": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "073a2e86",
+          "0cb2874c",
+          "65cd505a"
+        ]
+      ]
+    },
+    "7bb0ad38": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "98775993"
+        ]
+      ]
+    },
+    "ed0e9d7b": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "ea192efc",
+          "0fe33f79",
+          "8c2e0598"
+        ]
+      ]
+    },
+    "ea192efc": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ]
+    },
+    "0fe33f79": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d9f946ca"
+        ]
+      ]
+    },
+    "8c2e0598": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

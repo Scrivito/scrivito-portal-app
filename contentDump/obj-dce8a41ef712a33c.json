@@ -1,0 +1,286 @@
+{
+  "_obj_class": "Product",
+  "title": [
+    "string",
+    "GreenGuard Düse"
+  ],
+  "image": [
+    "reference",
+    "8764987d24e806f3"
+  ],
+  "suitable_accessories": [
+    "referencelist",
+    [
+      "281600edb8b95202"
+    ]
+  ],
+  "subtitle": [
+    "string",
+    "Präzise Abdeckung, minimale Verschwendung"
+  ],
+  "parameters": [
+    "widgetlist",
+    [
+      "d5e86ee5",
+      "ee08df7f",
+      "8618e8b4",
+      "35aff6db",
+      "f47cf774"
+    ]
+  ],
+  "data_section": [
+    "widgetlist",
+    [
+      "3faeea1f"
+    ]
+  ],
+  "description_section": [
+    "widgetlist",
+    [
+      "eb62e6d2"
+    ]
+  ],
+  "downloads_section": [
+    "widgetlist",
+    [
+      "8c6eccea"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "f35e3741a5662ea5",
+  "_created_at": "20240405112916",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "dce8a41ef712a33c",
+  "_language": "de",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/ed043d1606eaf539/5c00595a07768f9d/dce8a41ef712a33c",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "8618e8b4": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Tropfengröße"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "Grob – sehr fein"
+        ]
+      ]
+    },
+    "d5e86ee5": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Durchflussrate"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "5 l/min",
+          "10 l/min"
+        ]
+      ]
+    },
+    "35aff6db": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Material"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "POM"
+        ]
+      ]
+    },
+    "f47cf774": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Zertifizierungszeichen"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "CE"
+        ]
+      ]
+    },
+    "ee08df7f": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Verkaufseinheit"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "5 Stück"
+        ]
+      ]
+    },
+    "3faeea1f": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c3570e788bbaf414"
+      ],
+      "link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "#"
+        }
+      ]
+    },
+    "eb62e6d2": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Eine fortschrittliche Breitstrahldüse, entwickelt, um die Anwendung von Düngemitteln, Pestiziden, Herbiziden und anderen Chemikalien in der Landwirtschaft und bei der Rasenpflege zu optimieren. Diese innovative Düse bietet eine präzise und gleichmäßige Abdeckung, was maximale Effizienz und Effektivität gewährleistet, während Drift und Übersprühen minimiert werden. Ihre robuste Konstruktion und einfache Wartung machen sie zur zuverlässigen Wahl für jeden landwirtschaftlichen Betrieb oder den Landschaftsbau. Mit der GreenGuard Düse können Sie sicher sein, dass Ihre Kulturen und Rasenflächen die bestmögliche Pflege erhalten, während gleichzeitig die Umwelt geschützt wird.</p>"
+      ]
+    },
+    "5525f14e": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "title": [
+        "string",
+        "GreenGuard Düse"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "subtitle": [
+        "string",
+        "Technische Daten"
+      ],
+      "link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "#"
+        }
+      ]
+    },
+    "62f799d6": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5525f14e"
+        ]
+      ]
+    },
+    "23e3e67a": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "title": [
+        "string",
+        "GreenGuard Düse"
+      ],
+      "subtitle": [
+        "string",
+        "Zertifikate"
+      ],
+      "link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "#"
+        }
+      ]
+    },
+    "0748e6ae": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "23e3e67a"
+        ]
+      ]
+    },
+    "0397dab6": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "8c6eccea": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "62f799d6",
+          "0748e6ae",
+          "0397dab6"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

@@ -1,0 +1,64 @@
+{
+  "_obj_class": "Invoice",
+  "issuer_address": [
+    "string",
+    "Tynacoon\nGoethestraße 123\n04109 Leipzig\nGermany"
+  ],
+  "content": [
+    "string",
+    "Gate valves (Quantity: 8)\nPressure relief valves (Quantity: 12)\nSolenoid valves (Quantity: 20)"
+  ],
+  "total": [
+    "string",
+    "€6,700.00"
+  ],
+  "order_id": [
+    "string",
+    "#423"
+  ],
+  "customer_id": [
+    "string",
+    "#6504"
+  ],
+  "invoice_id": [
+    "string",
+    "#92344"
+  ],
+  "created_at": [
+    "string",
+    "2023-07-04"
+  ],
+  "payment": [
+    "string",
+    "invoice"
+  ],
+  "pdf_download_url": [
+    "string",
+    "https://cdn0.scrvt.com/d0a154d76edf2a7bd991fc658e700a1d/b98a9787b4ec4ee8/04563db74de8/INVOICE.pdf"
+  ],
+  "customer_address": [
+    "string",
+    "Book AG\nZum Bierchen 4\n22335 Flensburg\nGermany"
+  ],
+  "_conflicts": null,
+  "_content_id": "1fc4f9d4ec8040f9",
+  "_created_at": "20230704120453",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230706120613",
+  "_id": "1fc4f9d4ec8040f9",
+  "_language": "en",
+  "_last_changed": "20240116133157",
+  "_modification": null,
+  "_path": null,
+  "_permalink": null,
+  "_published_at": "20240116140853",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202401161408530000000000000000a6b9c77620d715e3",
+  "_widget_pool": {},
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

@@ -1,0 +1,2122 @@
+{
+  "_obj_class": "Homepage",
+  "child_order": [
+    "referencelist",
+    [
+      "749ee4e15707e4ff",
+      "f5993d6de3609ac0",
+      "9db36de70dd4d157",
+      "f0724ea2d31beeee"
+    ]
+  ],
+  "site_logo_dark": [
+    "reference",
+    "29bd97232006ec75"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "7646d1c4",
+      "661fe349",
+      "eaef75af",
+      "0a1c13fa",
+      "c773504b",
+      "0ae872ae"
+    ]
+  ],
+  "title": [
+    "string",
+    "Homepage"
+  ],
+  "site_not_found": [
+    "widgetlist",
+    [
+      "49323687"
+    ]
+  ],
+  "site_favicon": [
+    "reference",
+    "1f6fc8477eeb0862"
+  ],
+  "site_cart_page": [
+    "reference",
+    "a8ede3121df9e2f6"
+  ],
+  "site_search_results_page": [
+    "reference",
+    "70f1003260d74f46"
+  ],
+  "site_user_profile_page": [
+    "reference",
+    "0e84d1e469f7cfac"
+  ],
+  "content_title": [
+    "string",
+    "Tynacoon - EN"
+  ],
+  "site_language_icon": [
+    "reference",
+    "2de7f41f5b80e6ab"
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_show_footer": [
+    "boolean",
+    true
+  ],
+  "layout_footer": [
+    "widgetlist",
+    [
+      "a4b0baf5"
+    ]
+  ],
+  "layout_header": [
+    "widgetlist",
+    [
+      "6253e7c8"
+    ]
+  ],
+  "layout_show_header": [
+    "boolean",
+    true
+  ],
+  "site_drop_shadow": [
+    "boolean",
+    true
+  ],
+  "site_rounded_corners": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "c2a0aab78be05a4e",
+  "_created_at": "20230509091921",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230509091931",
+  "_id": "c2a0aab78be05a4e",
+  "_language": "en",
+  "_last_changed": "20240716121558",
+  "_modification": null,
+  "_path": "/",
+  "_permalink": null,
+  "_published_at": "20240716121624",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202407161216240000000000000000f5da13f84621626f",
+  "_widget_pool": {
+    "10914562": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "52d66eb9",
+          "5b31a348"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "28787703": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "8bf53844",
+          "62656984",
+          "ef3e8773"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "ab2921d83b66edb5"
+      ]
+    },
+    "49323687": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "dark-grey"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_image": [
+        "reference",
+        "b6307ad8551faa98"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "31e55706"
+        ]
+      ]
+    },
+    "62656984": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Explore our Ecoline series, designed with sustainability and efficiency in mind. Enhance your operations with ecological solutions that do not compromise on quality.</p>"
+      ]
+    },
+    "7646d1c4": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3f6505d1",
+          "10914562",
+          "c385ac43"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "22d9c6805af643eb"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ]
+    },
+    "a4b0baf5": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "fa3645ad",
+          "5794f4ef",
+          "8d909c6f"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "6253e7c8": {
+      "_obj_class": "TopNavigationWidget",
+      "meta_navigation_objs": [
+        "referencelist",
+        [
+          "fec151165aeb27da",
+          "3a4cd2a0a23cea9b",
+          "d9d4a49fab05294e"
+        ]
+      ],
+      "meta_navigation_user_title": [
+        "string",
+        "__CurrentUser.name__"
+      ],
+      "meta_navigation_user_description": [
+        "string",
+        "__CurrentUser.email__"
+      ],
+      "meta_navigation_utility_link": [
+        "reference",
+        "0e0e03ae10d47eee"
+      ]
+    },
+    "4fbaed63": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "499471c7",
+          "582a81ea",
+          "1f33a162",
+          "037f0a39"
+        ]
+      ]
+    },
+    "d4f64af1": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8a19b670",
+          "d248bcb6",
+          "8379b2c4",
+          "f6c8d650"
+        ]
+      ]
+    },
+    "a799bac7": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "4fbaed63",
+          "d4f64af1",
+          "7bac5b31",
+          "a6128790",
+          "1124bdc8",
+          "a2e7216d"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "661fe349": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a799bac7"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "c5fdf5ce": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Systems for Industry and Trade in Premium Quality"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "18c7893e": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>With a global presence in over 70 countries through 33 subsidiaries, 19 production facilities, and a network of importers and agencies, our company guarantees accessibility. Safety-critical components are rigorously tested by the Research and Material Testing Institute for the Construction Industry (FMPA).</p>"
+      ]
+    },
+    "eaef75af": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c5fdf5ce",
+          "18c7893e",
+          "ce7f506f",
+          "8649d6d5"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "037f0a39": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Architects & Planners"
+      ]
+    },
+    "7bac5b31": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "dfcc5837",
+          "7f722079",
+          "3383db4d",
+          "12b96b52"
+        ]
+      ]
+    },
+    "a6128790": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "628e130d",
+          "88233fd2",
+          "d2a19b43",
+          "56aa14f9"
+        ]
+      ]
+    },
+    "1124bdc8": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "2464638a",
+          "ce5b2fd7",
+          "4646ca08",
+          "b991db69"
+        ]
+      ]
+    },
+    "a2e7216d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "38f0c22d",
+          "3f5b701d",
+          "d4ba78ad",
+          "e67a726a"
+        ]
+      ]
+    },
+    "f6c8d650": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "SHK Companies"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ]
+    },
+    "12b96b52": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Public Departments"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ]
+    },
+    "56aa14f9": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Press Related"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ]
+    },
+    "b991db69": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Students & Professionals"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ]
+    },
+    "e67a726a": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "API & IoT "
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ]
+    },
+    "d8dcc39b": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "ec78f00a",
+          "6b0be46a",
+          "d1c0f61a"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_image": [
+        "reference",
+        "22d9c6805af643eb"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ]
+    },
+    "0a1c13fa": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "9e356153"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "6b0be46a": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Product Planner",
+          "url": null
+        }
+      ],
+      "button_color": [
+        "string",
+        "btn-secondary"
+      ]
+    },
+    "347c48fe": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Academy",
+          "url": null
+        }
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "8c0d9fbc": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "e93bcf2a",
+          "347c48fe",
+          "218d1756"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "background_image": [
+        "reference",
+        "ab2921d83b66edb5"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ]
+    },
+    "8bf53844": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Ecoline"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "ef3e8773": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Learn more",
+          "url": null
+        }
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "a88a2ed0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "28787703"
+        ]
+      ]
+    },
+    "c31f08d0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f77defc6"
+        ]
+      ]
+    },
+    "9e356153": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "a88a2ed0",
+          "c31f08d0"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "369a1a2e": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Proline"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "018dbb30": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Discover our Proline series for professionals seeking unsurpassed quality and performance. Elevate your business with leading-edge solutions tailored for the most demanding applications.</p>"
+      ]
+    },
+    "b344c6a1": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Learn more",
+          "url": null
+        }
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "f77defc6": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "369a1a2e",
+          "018dbb30",
+          "b344c6a1"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "image": [
+        "reference",
+        "518864722dad1deb"
+      ]
+    },
+    "0ae872ae": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "367483dd"
+        ]
+      ]
+    },
+    "367483dd": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "67cc6f23",
+          "0d0c36f8",
+          "b8f9cdff"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "67cc6f23": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d8dcc39b"
+        ]
+      ]
+    },
+    "0d0c36f8": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8c0d9fbc"
+        ]
+      ]
+    },
+    "e36f6654": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "Subscribe to Our Newsletter"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ]
+    },
+    "7e6116e7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "52dcaeb4": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "0e7d4d1a",
+          "e36f6654",
+          "c52560cd",
+          "48d92cd8",
+          "898de0e1"
+        ]
+      ]
+    },
+    "6f1ee225": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "7e6116e7",
+          "52dcaeb4",
+          "f1d5b27f"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "c773504b": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6f1ee225"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_image": [
+        "reference",
+        "d7cb8d71df8ef049"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ]
+    },
+    "f1d5b27f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "48d92cd8": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-secondary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "648a0682c458d492",
+          "query": null,
+          "target": null,
+          "title": "Subscibe now and get our white paper for free",
+          "url": null
+        }
+      ]
+    },
+    "72d1fa6b": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Complete Solutions for Industry and Trade"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ]
+    },
+    "a727519a": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "05477c01",
+          "72d1fa6b"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_image": [
+        "reference",
+        "22d9c6805af643eb"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "show_footer": [
+        "boolean",
+        true
+      ],
+      "card_footer": [
+        "widgetlist",
+        [
+          "54d584b7",
+          "c9341864"
+        ]
+      ]
+    },
+    "b258da2d": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a727519a"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "d742e1ec": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "View Individual Products in more Detail"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "91c7c162": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Products & Categories",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ]
+    },
+    "fbd7e5e5": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "e4fe37e5",
+          "d742e1ec"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "background_image": [
+        "reference",
+        "518864722dad1deb"
+      ],
+      "show_footer": [
+        "boolean",
+        true
+      ],
+      "card_footer": [
+        "widgetlist",
+        [
+          "91c7c162",
+          "9ae96b67"
+        ]
+      ]
+    },
+    "865a50e2": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "fbd7e5e5"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "8649d6d5": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "b258da2d",
+          "865a50e2"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "stretch"
+      ]
+    },
+    "b8f9cdff": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "de509536"
+        ]
+      ]
+    },
+    "ec613c84": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Helpdesk",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "button_color": [
+        "string",
+        "btn-secondary"
+      ]
+    },
+    "de509536": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "4b8d87ce",
+          "ec613c84",
+          "d67ccef4"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_color": [
+        "string",
+        "middle-grey"
+      ],
+      "background_image": [
+        "reference",
+        "518864722dad1deb"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ]
+    },
+    "c79d0ad0": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Company"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "6fd58262": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>About<br>Careers<br>Blog<br>Customers<br>Hire us</p>"
+      ]
+    },
+    "631d4d07": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Features"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "ffdd20c8": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Documentation"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "186776c9": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Resources"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "7d22001a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p id=\"isPasted\">Press<br>Release Notes<br>Integrations<br>Pricing</p>"
+      ]
+    },
+    "fd110df0": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Support<br>Docs<br>Status<br>API Reference<br>Tech Requirements</p>"
+      ]
+    },
+    "7346870a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p id=\"isPasted\">Help<br>Your Account</p>"
+      ]
+    },
+    "8d909c6f": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "698545cd",
+          "b367e93f"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "698545cd": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "23e7c257"
+        ]
+      ]
+    },
+    "b367e93f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6a85a69f"
+        ]
+      ]
+    },
+    "6a85a69f": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "right"
+      ],
+      "text": [
+        "html",
+        "<p>© Tynacoon 2024 All rights reserved.</p>"
+      ]
+    },
+    "c385ac43": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "05477c01": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "0e7d4d1a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "898de0e1": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "ec78f00a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "d1c0f61a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "e93bcf2a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "218d1756": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "4b8d87ce": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "d67ccef4": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "582a81ea": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-house"
+      ],
+      "size": [
+        "string",
+        "bi-4x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "1f33a162": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "d248bcb6": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-4x"
+      ],
+      "icon": [
+        "string",
+        "bi-building"
+      ]
+    },
+    "7f722079": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-4x"
+      ],
+      "icon": [
+        "string",
+        "bi-buildings"
+      ]
+    },
+    "88233fd2": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-4x"
+      ],
+      "icon": [
+        "string",
+        "bi-newspaper"
+      ]
+    },
+    "ce5b2fd7": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-4x"
+      ],
+      "icon": [
+        "string",
+        "bi-people"
+      ]
+    },
+    "3f5b701d": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-4x"
+      ],
+      "icon": [
+        "string",
+        "bi-share"
+      ]
+    },
+    "8379b2c4": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "3383db4d": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "d2a19b43": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "4646ca08": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "d4ba78ad": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "31e55706": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "c33db625",
+          "b8920865"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "c33db625": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6a4b2425"
+        ]
+      ]
+    },
+    "b8920865": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "10b64d96",
+          "d8bbc171",
+          "473ae35b"
+        ]
+      ]
+    },
+    "6a4b2425": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "2f5fe2e900e4ce8b"
+      ]
+    },
+    "10b64d96": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Page ​not found"
+      ],
+      "style": [
+        "string",
+        "h1"
+      ]
+    },
+    "d8bbc171": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>The page you are looking for does not exist.</p>"
+      ]
+    },
+    "97df70bf": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "button_size": [
+        "string",
+        "large"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Go to Homepage",
+          "url": null
+        }
+      ]
+    },
+    "3f6505d1": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "56df0bbb": {
+      "_obj_class": "AddressWidget",
+      "location_locality": [
+        "string",
+        "Leipzig"
+      ],
+      "location_street_address": [
+        "string",
+        "Goethestraße 123"
+      ],
+      "location_postal_code": [
+        "string",
+        "04109"
+      ],
+      "location_country": [
+        "string",
+        "Germany"
+      ],
+      "phone": [
+        "string",
+        "+800 123 4567"
+      ],
+      "fax": [
+        "string",
+        "+800 466 4422"
+      ],
+      "email": [
+        "string",
+        "tynacoon@example.com"
+      ],
+      "show_logo": [
+        "boolean",
+        true
+      ],
+      "phone_label": [
+        "string",
+        "Phone"
+      ],
+      "fax_label": [
+        "string",
+        "Fax"
+      ],
+      "email_label": [
+        "string",
+        "Email"
+      ]
+    },
+    "fa3645ad": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "5caf3ab5",
+          "989df606",
+          "05a0b383",
+          "907d9eab",
+          "2dc77876"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "5caf3ab5": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "56df0bbb"
+        ]
+      ]
+    },
+    "989df606": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c79d0ad0",
+          "6fd58262"
+        ]
+      ]
+    },
+    "05a0b383": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "631d4d07",
+          "7d22001a"
+        ]
+      ]
+    },
+    "907d9eab": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ffdd20c8",
+          "fd110df0"
+        ]
+      ]
+    },
+    "2dc77876": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "186776c9",
+          "7346870a"
+        ]
+      ]
+    },
+    "5794f4ef": {
+      "_obj_class": "DividerWidget"
+    },
+    "23e7c257": {
+      "_obj_class": "IconContainerWidget",
+      "icon_list": [
+        "widgetlist",
+        [
+          "e3287ff1",
+          "bac26fdc",
+          "fc1a5b4b",
+          "9d2985f0"
+        ]
+      ]
+    },
+    "e3287ff1": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-facebook"
+      ],
+      "size": [
+        "string",
+        "bi-1x"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "bac26fdc": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-google"
+      ],
+      "size": [
+        "string",
+        "bi-1x"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "fc1a5b4b": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-linkedin"
+      ],
+      "size": [
+        "string",
+        "bi-1x"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "9d2985f0": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "icon": [
+        "string",
+        "bi-github"
+      ],
+      "size": [
+        "string",
+        "bi-1x"
+      ]
+    },
+    "3c951013": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "padding": [
+        "string",
+        "p-5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "94a99847",
+          "087ae4c0"
+        ]
+      ],
+      "card_extended": [
+        "boolean",
+        true
+      ]
+    },
+    "52d66eb9": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "3c951013"
+        ]
+      ]
+    },
+    "5b31a348": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "94a99847": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "The Right Solution for Your Industry"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "9ae96b67": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "499471c7": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "8a19b670": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "628e130d": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "2464638a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "38f0c22d": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "dfcc5837": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "087ae4c0": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Spanning five continents with 33 subsidiaries in 29 countries, along with 19 manufacturing sites, and numerous importers and agencies.</p>"
+      ]
+    },
+    "ce7f506f": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        3
+      ]
+    },
+    "e4fe37e5": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "c9341864": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "54d584b7": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Products & Categories",
+          "url": null
+        }
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "c52560cd": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "473ae35b": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "CurrentUser"
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ff9ecd02",
+          "d0bea222"
+        ]
+      ]
+    },
+    "d0bea222": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "87a5e2b6",
+          "cce316fa"
+        ]
+      ]
+    },
+    "87a5e2b6": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Log in to see if there's more available.</p>"
+      ]
+    },
+    "ff9ecd02": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "97df70bf"
+        ]
+      ]
+    },
+    "cce316fa": {
+      "_obj_class": "LogInButtonWidget",
+      "title": [
+        "string",
+        "Log in"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

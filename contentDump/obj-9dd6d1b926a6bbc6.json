@@ -1,0 +1,655 @@
+{
+  "_obj_class": "Page",
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "title": [
+    "string",
+    "Hannover Messe"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "e8efce54",
+      "ee734bce",
+      "e8cba5fc"
+    ]
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "96657d14578333ce",
+  "_created_at": "20240626122112",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240705083019",
+  "_id": "9dd6d1b926a6bbc6",
+  "_language": "de",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/84435b45662730da/d11017df5d1aaf49/9dd6d1b926a6bbc6",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "19901214": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Besuchen Sie uns auf der Hannover Messe!"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ]
+    },
+    "97561781": {
+      "_obj_class": "BannerHeadlineWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Neues bei Tynacoon-Abfüllanlagen"
+      ],
+      "level": [
+        "string",
+        "h3"
+      ]
+    },
+    "e8efce54": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_image": [
+        "reference",
+        "7daec637e1d07ef1"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "0a42deec"
+        ]
+      ]
+    },
+    "eb43c2f2": {
+      "_obj_class": "BannerHeadlineWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "headline": [
+        "string",
+        "Hannover Messe"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ],
+      "level": [
+        "string",
+        "h2"
+      ]
+    },
+    "0a42deec": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "eb43c2f2",
+          "97561781"
+        ]
+      ]
+    },
+    "da7e97bb": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "headline": [
+        "string",
+        "Von"
+      ]
+    },
+    "c9b6bdb1": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>12. Oktober</strong></p>"
+      ]
+    },
+    "9007f907": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "da7e97bb",
+          "c9b6bdb1"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "9a336b87": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "headline": [
+        "string",
+        "Bis"
+      ]
+    },
+    "6cf34ccd": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>26. Oktober</strong></p>"
+      ]
+    },
+    "4fe26172": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "9a336b87",
+          "6cf34ccd"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "aacc1f13": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Veranstaltungsort"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ]
+    },
+    "c93fa658": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>Messegelände<br>30521 Hannover</strong></p>"
+      ]
+    },
+    "9d9015fc": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "aacc1f13",
+          "c93fa658"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "948b5980": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "9007f907",
+          "4fe26172",
+          "9d9015fc"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "ee734bce": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "948b5980"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "67e84954": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p id=\"isPasted\">Tynacoon präsentiert revolutionäre Innovationen im Bereich Abfüllanlagen! Als führender Anbieter von Spitzentechnologie freuen wir uns darauf, Ihnen unsere neuesten Entwicklungen vorzustellen.</p><p><strong>Was Sie erwartet:</strong></p><ul><li style=\"font-weight: bold;\"><strong>Live-Demonstrationen</strong></li><li style=\"font-weight: bold;\"><strong>Interaktive Stände</strong></li><li style=\"font-weight: bold;\"><strong>Fachkundige Beratung</strong></li></ul><p><strong>Warum Sie uns besuchen sollten:</strong></p><ul><li><strong>Effizienz</strong>: Produktionsabläufe optimieren</li><li><strong>Produktivität</strong>: Qualität und Output steigern</li><li><strong>Nachhaltigkeit</strong>: Abfall reduzieren</li></ul><p>Egal, ob Sie Ihre bestehende Infrastruktur aufrüsten oder neue Systeme implementieren möchten, unser Expertenteam steht bereit, um Ihnen individuelle Beratung zu bieten und Ihre Fragen zu beantworten.</p><p>Erfahren Sie, wie Tynacoons neueste Innovationen Ihre Fertigungsprozesse transformieren können. Besuchen Sie uns auf der Hannover Messe!</p>"
+      ]
+    },
+    "f00e151c": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "615f89ed": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "19901214",
+          "67e84954",
+          "f00e151c"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "82a09a27": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Ihre Anmeldung zur Hannover Messe"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ]
+    },
+    "089d2d5d": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "82a09a27",
+          "236d8eec"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "29ba22a2": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "089d2d5d"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "3f7ea23c": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "615f89ed",
+          "29ba22a2"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "e8cba5fc": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3f7ea23c"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ]
+    },
+    "37c243c0": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "given_name"
+      ],
+      "label": [
+        "string",
+        "Vorname"
+      ],
+      "placeholder": [
+        "string",
+        "Ihr Vorname"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "76c2ad53": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "37c243c0"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "2b3457c1": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "family_name"
+      ],
+      "label": [
+        "string",
+        "Nachname"
+      ],
+      "placeholder": [
+        "string",
+        "Ihr Nachname"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "b6c09886": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "2b3457c1"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "c07786bb": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "76c2ad53",
+          "b6c09886"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "e463cf25": {
+      "_obj_class": "FormInputFieldWidget",
+      "label": [
+        "string",
+        "E-Mail"
+      ],
+      "placeholder": [
+        "string",
+        "Ihre E-Mail-Adresse"
+      ],
+      "type": [
+        "string",
+        "email"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "1fbe6477": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "company"
+      ],
+      "label": [
+        "string",
+        "Firma"
+      ],
+      "placeholder": [
+        "string",
+        "Ihre Firma"
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "4ada2162": {
+      "_obj_class": "FormStepWidget",
+      "items": [
+        "widgetlist",
+        [
+          "c07786bb",
+          "e463cf25",
+          "1fbe6477"
+        ]
+      ],
+      "step_number": [
+        "number",
+        1
+      ],
+      "is_single_step": [
+        "boolean",
+        true
+      ]
+    },
+    "236d8eec": {
+      "_obj_class": "FormStepContainerWidget",
+      "steps": [
+        "widgetlist",
+        [
+          "4ada2162"
+        ]
+      ],
+      "captcha_alignment": [
+        "string",
+        "center"
+      ],
+      "friendly_captcha_theme": [
+        "string",
+        "light"
+      ],
+      "google_recaptcha_theme": [
+        "string",
+        "light"
+      ],
+      "friendly_captcha_start_mode": [
+        "string",
+        "none"
+      ],
+      "form_id": [
+        "string",
+        "da4cb76a8f81ec1115c9ea950c64d6eb"
+      ],
+      "failed_message": [
+        "string",
+        "Es tut uns leid, Ihre Anfrage konnte nicht abgeschlossen werden. Bitte versuchen Sie es später erneut."
+      ],
+      "submitted_message": [
+        "string",
+        "Ihre Anmeldung für die Veranstaltung ist erfolgreich bei uns eingegangen. Vielen Dank für Ihr Interesse. Wir werden uns bald mit weiteren Informationen bei Ihnen melden."
+      ],
+      "submitting_message": [
+        "string",
+        "Wird übermittelt…"
+      ],
+      "form_type": [
+        "string",
+        "single-step"
+      ],
+      "forward_button_text": [
+        "string",
+        "Forward"
+      ],
+      "backward_button_text": [
+        "string",
+        "Backward"
+      ],
+      "submit_button_text": [
+        "string",
+        "Anmelden"
+      ],
+      "review_button_text": [
+        "string",
+        "Review"
+      ],
+      "review_header_title": [
+        "string",
+        "Review"
+      ],
+      "review_close_button_text": [
+        "string",
+        "Close"
+      ],
+      "single_submit_button_alignment": [
+        "string",
+        "left"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

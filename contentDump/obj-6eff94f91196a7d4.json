@@ -1,0 +1,308 @@
+{
+  "_obj_class": "Product",
+  "title": [
+    "string",
+    "Plug-in nozzle 0.3mm"
+  ],
+  "description_section": [
+    "widgetlist",
+    [
+      "38984fd2"
+    ]
+  ],
+  "downloads_section": [
+    "widgetlist",
+    [
+      "9e3d3ec4"
+    ]
+  ],
+  "data_section": [
+    "widgetlist",
+    [
+      "4051b18e"
+    ]
+  ],
+  "parameters": [
+    "widgetlist",
+    [
+      "f14ced15",
+      "749af3ab",
+      "a8f162ed",
+      "d673fc7b",
+      "0adf7e14",
+      "4c9b1b20",
+      "8fbf6993"
+    ]
+  ],
+  "image": [
+    "reference",
+    "a21465ccaa9eb97b"
+  ],
+  "suitable_accessories": [
+    "referencelist",
+    [
+      "8252c6d5cff8c608",
+      "7aa779f9fcf90589"
+    ]
+  ],
+  "subtitle": [
+    "string",
+    "High-Quality Nozzle Solution"
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "6eff94f91196a7d4",
+  "_created_at": "20230830072904",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230831080316",
+  "_id": "6eff94f91196a7d4",
+  "_language": "en",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/587d96465c3c69c4/7e48284613344ef2/8767657f952521a1",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "38984fd2": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p id=\"isPasted\">Plug-in nozzle 0.3mm cabinet socket for DIN rail and screw mounting; for plug type F, CEE 7/4 (Company®); common in DE, NL, AT with LED status display with Push-in CAGE Tynacoon® double connection light grey blue cap.</p><p><br>This nozzle is designed to work with a wide range of devices that use the same socket standard and offers reliable performance thanks to its high quality construction and materials. The LED status display allows for easy monitoring of device status, while the Push-in CAGE Tynacoon® double connection ensures secure connections even in demanding environments.</p>"
+      ]
+    },
+    "a03ccab1": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "title": [
+        "string",
+        "Plug-in nozzle 0.3mm"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "subtitle": [
+        "string",
+        "Technical Data"
+      ]
+    },
+    "76f12fdc": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a03ccab1"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "be72b8d1": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "details": [
+        "string",
+        "​PDF"
+      ],
+      "title": [
+        "string",
+        "Plug-in nozzle 0.3mm"
+      ],
+      "subtitle": [
+        "string",
+        "Certificates"
+      ]
+    },
+    "8311ac97": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "be72b8d1"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "e52ca3b0": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "title": [
+        "string",
+        "Plug-in nozzle 0.3mm"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "subtitle": [
+        "string",
+        "Scientific Efficiency Report"
+      ]
+    },
+    "19535efe": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "e52ca3b0"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "9e3d3ec4": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "76f12fdc",
+          "8311ac97",
+          "19535efe"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "4051b18e": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c3570e788bbaf414"
+      ]
+    },
+    "a8f162ed": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Selling unit"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "10 pieces"
+        ]
+      ]
+    },
+    "d673fc7b": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Max. liquid temperature"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "80 °C"
+        ]
+      ]
+    },
+    "0adf7e14": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Material"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "POM, stainless steel"
+        ]
+      ]
+    },
+    "4c9b1b20": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Droplet size"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "Ultra coarse – extremely coarse"
+        ]
+      ]
+    },
+    "8fbf6993": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Certification mark"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "CE, EAC"
+        ]
+      ]
+    },
+    "f14ced15": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Pressure range"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "2 - 4 bar",
+          "3 - 8 bar"
+        ]
+      ]
+    },
+    "749af3ab": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Spray angle"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "90°",
+          "120°"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

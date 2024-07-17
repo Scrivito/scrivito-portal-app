@@ -1,0 +1,655 @@
+{
+  "_obj_class": "Page",
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "title": [
+    "string",
+    "Hannover Messe"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "6c2a2dbc",
+      "d844c5ca",
+      "3d67846d"
+    ]
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "96657d14578333ce",
+  "_created_at": "20240625125001",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240705083019",
+  "_id": "96657d14578333ce",
+  "_language": "en",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/bfc7deb2d5d4425f/3aea139a26edc0e8",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "61082614": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "aedf2b1c",
+          "66298b80"
+        ]
+      ]
+    },
+    "6c2a2dbc": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_image": [
+        "reference",
+        "7daec637e1d07ef1"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "36334f54"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "36334f54": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "c3b8655f",
+          "3dabefd4"
+        ]
+      ]
+    },
+    "3dabefd4": {
+      "_obj_class": "BannerHeadlineWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Latest filling line updates by Tynacoon"
+      ],
+      "level": [
+        "string",
+        "h3"
+      ]
+    },
+    "3d67846d": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "08ef12a1"
+        ]
+      ]
+    },
+    "a32717fe": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "given_name"
+      ],
+      "label": [
+        "string",
+        "First name"
+      ],
+      "placeholder": [
+        "string",
+        "Your first name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "b1b65b48": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "family_name"
+      ],
+      "label": [
+        "string",
+        "Last name"
+      ],
+      "placeholder": [
+        "string",
+        "Your last name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "8ebfc138": {
+      "_obj_class": "FormInputFieldWidget",
+      "label": [
+        "string",
+        "Email"
+      ],
+      "placeholder": [
+        "string",
+        "Your email address"
+      ],
+      "type": [
+        "string",
+        "email"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "437facf8": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "company"
+      ],
+      "label": [
+        "string",
+        "Company"
+      ],
+      "placeholder": [
+        "string",
+        "Your company"
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "3931e81f": {
+      "_obj_class": "FormStepWidget",
+      "items": [
+        "widgetlist",
+        [
+          "92eabfc1",
+          "8ebfc138",
+          "437facf8"
+        ]
+      ],
+      "step_number": [
+        "number",
+        1
+      ],
+      "is_single_step": [
+        "boolean",
+        true
+      ]
+    },
+    "e8cab611": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Your registration for Hannover Messe"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ]
+    },
+    "d844c5ca": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "23a4cbd6"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "a8e7b530": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>October 12</strong></p>"
+      ]
+    },
+    "962092a2": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Start date"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ]
+    },
+    "574d1ccb": {
+      "_obj_class": "FormStepContainerWidget",
+      "captcha_alignment": [
+        "string",
+        "center"
+      ],
+      "friendly_captcha_theme": [
+        "string",
+        "light"
+      ],
+      "google_recaptcha_theme": [
+        "string",
+        "light"
+      ],
+      "friendly_captcha_start_mode": [
+        "string",
+        "none"
+      ],
+      "form_id": [
+        "string",
+        "da4cb76a8f81ec1115c9ea950c64d6eb"
+      ],
+      "failed_message": [
+        "string",
+        "We are sorry, your request could not be completed. Please try again later."
+      ],
+      "submitted_message": [
+        "string",
+        "Your event registration has been successfully received. Thank you for your interest. We will get back to you as soon as possible."
+      ],
+      "submitting_message": [
+        "string",
+        "Submitting..."
+      ],
+      "form_type": [
+        "string",
+        "single-step"
+      ],
+      "steps": [
+        "widgetlist",
+        [
+          "3931e81f"
+        ]
+      ],
+      "forward_button_text": [
+        "string",
+        "Forward"
+      ],
+      "backward_button_text": [
+        "string",
+        "Backward"
+      ],
+      "submit_button_text": [
+        "string",
+        "Register"
+      ],
+      "review_button_text": [
+        "string",
+        "Review"
+      ],
+      "review_header_title": [
+        "string",
+        "Review"
+      ],
+      "review_close_button_text": [
+        "string",
+        "Close"
+      ],
+      "single_submit_button_alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "c3b8655f": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h4"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "headline": [
+        "string",
+        "Hannover Messe"
+      ],
+      "level": [
+        "string",
+        "h2"
+      ]
+    },
+    "390d080e": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "e8cab611",
+          "574d1ccb"
+        ]
+      ]
+    },
+    "92eabfc1": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "2a372e14",
+          "bd7e571b"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "2a372e14": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a32717fe"
+        ]
+      ]
+    },
+    "bd7e571b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b1b65b48"
+        ]
+      ]
+    },
+    "23a4cbd6": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "9d6812de",
+          "61082614",
+          "09df8473"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "9d6812de": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "962092a2",
+          "a8e7b530"
+        ]
+      ]
+    },
+    "9e0da4bc": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Location"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ]
+    },
+    "2db67e4a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Tynacoon will be showcasing its latest innovations in filling lines! As a leading provider of cutting-edge technology, we are excited to present our newest developments that are set to revolutionize the industry.</p><p><strong>What to Expect:</strong></p><ul><li><strong>Live demonstrations</strong></li><li><strong>Interactive displays</strong></li><li><strong>Expert consultations</strong></li></ul><p><strong>Why visit us:</strong></p><ul><li><strong>Efficiency</strong>: Streamline production</li><li><strong>Productivity</strong>: Increase output quality</li><li><strong>Sustainability</strong>: Reduce waste</li></ul><p>Whether you're looking to upgrade your existing infrastructure or implement new systems, our team of experts will be on hand to provide personalized guidance and answer any questions.</p><p>Discover how Tynacoon's latest innovations can transform your manufacturing operations. Visit us at the Hannover Messe!</p>"
+      ]
+    },
+    "c6a99f1d": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Join us at the Hannover Messe"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ]
+    },
+    "19f1214a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>Messegelände<br>30521 Hannover</strong></p>"
+      ]
+    },
+    "08ef12a1": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "548a7ea5",
+          "f83cbe98"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "548a7ea5": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c6a99f1d",
+          "2db67e4a",
+          "5cd31998"
+        ]
+      ]
+    },
+    "f83cbe98": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "390d080e"
+        ]
+      ]
+    },
+    "aedf2b1c": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "headline": [
+        "string",
+        "End date"
+      ]
+    },
+    "66298b80": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>October 26</strong></p>"
+      ]
+    },
+    "09df8473": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9e0da4bc",
+          "19f1214a"
+        ]
+      ]
+    },
+    "5cd31998": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

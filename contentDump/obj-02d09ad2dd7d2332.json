@@ -1,0 +1,418 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Orders"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "44109464",
+      "ff8cf44a",
+      "5e101972",
+      "ab484fec",
+      "356ce1e6",
+      "ff9feb51"
+    ]
+  ],
+  "link_icon": [
+    "string",
+    "bi-envelope-paper"
+  ],
+  "meta_data_description": [
+    "string",
+    "Easily manage your past orders at Tynacoon. Get detailed information on each order such as ID, date, payment method, and total price. Quickly access your order history."
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Order",
+      "order_by": [
+        [
+          "orderAt",
+          "desc"
+        ]
+      ],
+      "query": [
+        {
+          "field": "open",
+          "value": "true"
+        }
+      ],
+      "size": 10
+    }
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "02d09ad2dd7d2332",
+  "_created_at": "20230525073826",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230526064258",
+  "_id": "02d09ad2dd7d2332",
+  "_language": "en",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/02d09ad2dd7d2332",
+  "_permalink": "orders",
+  "_published_at": "20240716121536",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "default",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "44109464": {
+      "_obj_class": "DataSearchWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "url_param_name": [
+        "string",
+        "search"
+      ],
+      "placeholder": [
+        "string",
+        "Search for order"
+      ]
+    },
+    "ff8cf44a": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "92260c68"
+        ]
+      ]
+    },
+    "568d9660": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "1b53cca5",
+          "edd92c96",
+          "b56adc87",
+          "532fc88e",
+          "5b1edb80"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "stretch"
+      ]
+    },
+    "1b53cca5": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "672b97c9",
+          "65bfc2a7"
+        ]
+      ]
+    },
+    "edd92c96": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d57151e6"
+        ]
+      ]
+    },
+    "b56adc87": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d80664ba"
+        ]
+      ]
+    },
+    "532fc88e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "25fef519"
+        ]
+      ]
+    },
+    "65bfc2a7": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-envelope-paper"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "92260c68": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "568d9660"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "75f5feaca1004671",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ]
+    },
+    "5b1edb80": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "1014f5fc"
+        ]
+      ]
+    },
+    "d57151e6": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__Order.number__"
+      ],
+      "label": [
+        "string",
+        "Order"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Order",
+          "field": "keyword",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "d80664ba": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Ordered At"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Order",
+          "field": "orderAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "1014f5fc": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Total"
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "value_size": [
+        "string",
+        "h4"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Order",
+          "field": "totalPrice",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "672b97c9": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "25fef519": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Order",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "03b3ea0f": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No orders found.</p>"
+      ]
+    },
+    "356ce1e6": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "ff9feb51": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "97c5809a3b2286f0",
+          "query": null,
+          "target": null,
+          "title": "Orders archive",
+          "url": null
+        }
+      ]
+    },
+    "ab484fec": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "03b3ea0f"
+        ]
+      ]
+    },
+    "5e101972": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

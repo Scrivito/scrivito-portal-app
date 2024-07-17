@@ -1,0 +1,639 @@
+{
+  "_obj_class": "Page",
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "title": [
+    "string",
+    "GLOBE Expo"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "c769bd12",
+      "19a7236b",
+      "c7f0c05a"
+    ]
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "cd31e0242dedcfa8",
+  "_created_at": "20240626122830",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240705083019",
+  "_id": "cd31e0242dedcfa8",
+  "_language": "en",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/bfc7deb2d5d4425f/cd31e0242dedcfa8",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "1fa26aaa": {
+      "_obj_class": "BannerHeadlineWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "headline": [
+        "string",
+        "GLOBE Expo"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ],
+      "level": [
+        "string",
+        "h2"
+      ]
+    },
+    "e4654385": {
+      "_obj_class": "BannerHeadlineWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Fill Your Future with Efficiency"
+      ],
+      "level": [
+        "string",
+        "h3"
+      ]
+    },
+    "aa7f04a3": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "1fa26aaa",
+          "e4654385"
+        ]
+      ]
+    },
+    "c769bd12": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "aa7f04a3"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "8bf0220b": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "headline": [
+        "string",
+        "Start date"
+      ]
+    },
+    "49924b6c": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>July 15</strong></p>"
+      ]
+    },
+    "9c8a54bd": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8bf0220b",
+          "49924b6c"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "097eefb8": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "headline": [
+        "string",
+        "End date"
+      ]
+    },
+    "2a64957f": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>July 22</strong></p>"
+      ]
+    },
+    "fc8ad7bf": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "097eefb8",
+          "2a64957f"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "5142c90f": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Location"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ]
+    },
+    "20b99d1a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>Messe Stuttgart<br id=\"isPasted\">Halle 1<br>Stand B49<br>70629 Leinfelden-Echterdingen</strong></p>"
+      ]
+    },
+    "3acb1296": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "5142c90f",
+          "20b99d1a"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "96e3a519": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "9c8a54bd",
+          "fc8ad7bf",
+          "3acb1296"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "19a7236b": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "96e3a519"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "c978321d": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p id=\"isPasted\">Mark your calendars for the <strong>GLOBE Expo</strong>, taking place from <strong>July 15th to 22nd</strong>! Among the esteemed exhibitors, Tynacoon will be showcasing its cutting-edge solutions at booth <strong>B49</strong>.</p><p>As a leader in filling lines and nozzles technology, Tynacoon's experts will demonstrate their newest developments and share insights into how these innovations can revolutionize your operations.</p><p><strong>What to Expect:</strong></p><ul><li><strong>Live demonstrations</strong></li><li><strong>Interactive displays</strong></li><li><strong>Expert consultations</strong></li></ul><p>Whether you're looking to optimize efficiency, enhance productivity, or reduce costs, Tynacoon's solutions are designed to help your business thrive.</p><p>Don’t miss the chance to experience these groundbreaking products up close at the <strong>GLOBE Expo</strong>. Visit booth <strong>B49</strong> and discover how Tynacoon can take your operations to the next level.</p>"
+      ]
+    },
+    "6611f5e8": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "e2dda49b": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c978321d",
+          "6611f5e8"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "0f2adf17": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Your registration for GLOBE Expo"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ]
+    },
+    "4713b355": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "given_name"
+      ],
+      "label": [
+        "string",
+        "First name"
+      ],
+      "placeholder": [
+        "string",
+        "Your first name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "bbc35fe7": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "4713b355"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "2caa2da0": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "family_name"
+      ],
+      "label": [
+        "string",
+        "Last name"
+      ],
+      "placeholder": [
+        "string",
+        "Your last name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "d9a9ea9d": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "2caa2da0"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "d914ce58": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "bbc35fe7",
+          "d9a9ea9d"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "476b768f": {
+      "_obj_class": "FormInputFieldWidget",
+      "label": [
+        "string",
+        "Email"
+      ],
+      "placeholder": [
+        "string",
+        "Your email address"
+      ],
+      "type": [
+        "string",
+        "email"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "c625c6b0": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "company"
+      ],
+      "label": [
+        "string",
+        "Company"
+      ],
+      "placeholder": [
+        "string",
+        "Your company"
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "366cc16e": {
+      "_obj_class": "FormStepWidget",
+      "items": [
+        "widgetlist",
+        [
+          "d914ce58",
+          "476b768f",
+          "c625c6b0"
+        ]
+      ],
+      "step_number": [
+        "number",
+        1
+      ],
+      "is_single_step": [
+        "boolean",
+        true
+      ]
+    },
+    "a0835aa1": {
+      "_obj_class": "FormStepContainerWidget",
+      "steps": [
+        "widgetlist",
+        [
+          "366cc16e"
+        ]
+      ],
+      "captcha_alignment": [
+        "string",
+        "center"
+      ],
+      "friendly_captcha_theme": [
+        "string",
+        "light"
+      ],
+      "google_recaptcha_theme": [
+        "string",
+        "light"
+      ],
+      "friendly_captcha_start_mode": [
+        "string",
+        "none"
+      ],
+      "form_id": [
+        "string",
+        "437fe89cdc4156b84a1bb00c1e72c75a"
+      ],
+      "failed_message": [
+        "string",
+        "We are sorry, your request could not be completed. Please try again later."
+      ],
+      "submitted_message": [
+        "string",
+        "Your event registration has been successfully received. Thank you for your interest. We will get back to you as soon as possible."
+      ],
+      "submitting_message": [
+        "string",
+        "Submitting..."
+      ],
+      "form_type": [
+        "string",
+        "single-step"
+      ],
+      "forward_button_text": [
+        "string",
+        "Forward"
+      ],
+      "backward_button_text": [
+        "string",
+        "Backward"
+      ],
+      "submit_button_text": [
+        "string",
+        "Register"
+      ],
+      "review_button_text": [
+        "string",
+        "Review"
+      ],
+      "review_header_title": [
+        "string",
+        "Review"
+      ],
+      "review_close_button_text": [
+        "string",
+        "Close"
+      ],
+      "single_submit_button_alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "3f1a8b53": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "0f2adf17",
+          "a0835aa1"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "562d3d93": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3f1a8b53"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "7ea0ce2f": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "e2dda49b",
+          "562d3d93"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "c7f0c05a": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "7ea0ce2f"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

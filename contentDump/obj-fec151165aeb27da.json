@@ -1,0 +1,706 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "News"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "4bd811c3",
+      "e1ddcc99",
+      "6cb333ad"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "fec151165aeb27da",
+  "_created_at": "20230516091658",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230516091834",
+  "_id": "fec151165aeb27da",
+  "_language": "en",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/3cc07265490102de",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "74168031": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "More News"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "92439613": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much more</p>"
+      ]
+    },
+    "4bd811c3": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "33c34107"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "bccfb5bb": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Factory 3000 ​live"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ]
+    },
+    "91819ab3": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much more</p>"
+      ]
+    },
+    "f9f26331": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "More Infos",
+          "url": null
+        }
+      ]
+    },
+    "1fffb4ec": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "bccfb5bb",
+          "91819ab3",
+          "f9f26331"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "1409db9bede134fb"
+      ]
+    },
+    "4d4a4446": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "1fffb4ec"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "c515c8b2": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5d2638ab"
+        ]
+      ]
+    },
+    "3b83c03f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "2dd7eb46"
+        ]
+      ]
+    },
+    "61a83be9": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "4d4a4446",
+          "c515c8b2",
+          "3b83c03f"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "e1ddcc99": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "61a83be9",
+          "74168031",
+          "d2089266"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "476cd1f1": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Maschine 3000"
+      ]
+    },
+    "529110e3": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get involved",
+          "url": null
+        }
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "5d2638ab": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "476cd1f1",
+          "92439613",
+          "529110e3"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "cc7f4ee9650cc196"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ]
+    },
+    "7b7785ff": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "New Tynacoon Website"
+      ]
+    },
+    "b82bfabd": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Products and much more</p>"
+      ]
+    },
+    "3c469ee5": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get involved",
+          "url": null
+        }
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "2dd7eb46": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "7b7785ff",
+          "b82bfabd",
+          "3c469ee5"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "8652bdd9640b1c9b"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ]
+    },
+    "e5bacd9e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "a3df02d8": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Subscribe to our Newsletter"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "aacfa3f9": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Subscibe now and get our White-Paper",
+          "url": null
+        }
+      ],
+      "button_color": [
+        "string",
+        "btn-secondary"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "d5b77a02": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "964b5e0a",
+          "a3df02d8",
+          "aacfa3f9",
+          "499c63d8"
+        ]
+      ],
+      "col_size": [
+        "number",
+        8
+      ]
+    },
+    "aa846682": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "d5b049f0": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "e5bacd9e",
+          "d5b77a02",
+          "aa846682"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "6cb333ad": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d5b049f0"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_image": [
+        "reference",
+        "d7cb8d71df8ef049"
+      ]
+    },
+    "964b5e0a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "499c63d8": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    },
+    "2c4c0f01": {
+      "_obj_class": "BannerHeadlineWidget",
+      "headline": [
+        "string",
+        "News"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "33c34107": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "2c4c0f01"
+        ]
+      ]
+    },
+    "654314f7": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "EXPO 2024"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "88849bd7": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Latest nozzle innovations by Tynacoon</p>"
+      ]
+    },
+    "a9af2e88": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "c73b63cc": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "654314f7",
+          "88849bd7",
+          "a9af2e88"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "background_color": [
+        "string",
+        "success"
+      ]
+    },
+    "0f2508c3": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c73b63cc"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "dc261a28": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hannover Industry Exhibition 2024"
+      ]
+    },
+    "804588a6": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Latest filling line updates by Tynacoon</p>"
+      ]
+    },
+    "17a54c97": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "c2a0aab78be05a4e",
+          "query": null,
+          "target": null,
+          "title": "Get tickets",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "d0d3d48e": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "dc261a28",
+          "804588a6",
+          "17a54c97"
+        ]
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "31b70fed": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d0d3d48e"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "d2089266": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "0f2508c3",
+          "31b70fed"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

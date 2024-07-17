@@ -1,0 +1,1068 @@
+{
+  "_obj_class": "Page",
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "title": [
+    "string",
+    "Tynacoon Roadshow"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "6d688aca",
+      "f6c8079e",
+      "1d62392e",
+      "3956ef5b"
+    ]
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "13c793bd134405d4",
+  "_created_at": "20240701163653",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240705083019",
+  "_id": "28a187fa9ff2d6c2",
+  "_language": "en",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/bfc7deb2d5d4425f/28a187fa9ff2d6c2",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "default",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "6d688aca": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "efb46cb2c7fa3cb5"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4dee1e2d"
+        ]
+      ]
+    },
+    "4dee1e2d": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "7c9d645f",
+          "6c8f4286"
+        ]
+      ]
+    },
+    "6c8f4286": {
+      "_obj_class": "BannerHeadlineWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Experience innovations live"
+      ]
+    },
+    "7c9d645f": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h2"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "headline": [
+        "string",
+        "Tynacoon Roadshow"
+      ]
+    },
+    "a66afd17": {
+      "_obj_class": "FormStepContainerWidget",
+      "captcha_alignment": [
+        "string",
+        "center"
+      ],
+      "friendly_captcha_theme": [
+        "string",
+        "light"
+      ],
+      "google_recaptcha_theme": [
+        "string",
+        "light"
+      ],
+      "friendly_captcha_start_mode": [
+        "string",
+        "none"
+      ],
+      "form_id": [
+        "string",
+        "99840595d00faa21a53ca9f9fd8942f1"
+      ],
+      "failed_message": [
+        "string",
+        "We are sorry, your request could not be completed. Please try again later."
+      ],
+      "submitted_message": [
+        "string",
+        "Your event registration has been successfully received. Thank you for your interest. We will get back to you as soon as possible."
+      ],
+      "submitting_message": [
+        "string",
+        "Submitting…"
+      ],
+      "form_type": [
+        "string",
+        "single-step"
+      ],
+      "forward_button_text": [
+        "string",
+        "Next"
+      ],
+      "backward_button_text": [
+        "string",
+        "Back"
+      ],
+      "submit_button_text": [
+        "string",
+        "Register"
+      ],
+      "review_button_text": [
+        "string",
+        "Review input"
+      ],
+      "review_header_title": [
+        "string",
+        "Your details"
+      ],
+      "review_close_button_text": [
+        "string",
+        "Close"
+      ],
+      "single_submit_button_alignment": [
+        "string",
+        "left"
+      ],
+      "show_review": [
+        "boolean",
+        true
+      ],
+      "show_steps_in_review": [
+        "boolean",
+        true
+      ],
+      "show_review_header": [
+        "boolean",
+        true
+      ],
+      "show_review_footer": [
+        "boolean",
+        true
+      ],
+      "steps": [
+        "widgetlist",
+        [
+          "42eed4ce"
+        ]
+      ]
+    },
+    "0f8b6bbb": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "given_name"
+      ],
+      "label": [
+        "string",
+        "First name"
+      ],
+      "placeholder": [
+        "string",
+        "Your first name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "7f597bc5": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "0f8b6bbb"
+        ]
+      ]
+    },
+    "6cbba581": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "family_name"
+      ],
+      "label": [
+        "string",
+        "Last name"
+      ],
+      "placeholder": [
+        "string",
+        "Your last name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "382465be": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6cbba581"
+        ]
+      ]
+    },
+    "b5f63633": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "7f597bc5",
+          "382465be"
+        ]
+      ]
+    },
+    "3afc1d66": {
+      "_obj_class": "FormInputFieldWidget",
+      "label": [
+        "string",
+        "Email"
+      ],
+      "placeholder": [
+        "string",
+        "Your email address"
+      ],
+      "type": [
+        "string",
+        "email"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "1e844a1b": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "company"
+      ],
+      "label": [
+        "string",
+        "Company"
+      ],
+      "placeholder": [
+        "string",
+        "Your company"
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "42eed4ce": {
+      "_obj_class": "FormStepWidget",
+      "step_number": [
+        "number",
+        1
+      ],
+      "items": [
+        "widgetlist",
+        [
+          "b5f63633",
+          "3afc1d66",
+          "1e844a1b"
+        ]
+      ],
+      "is_single_step": [
+        "boolean",
+        true
+      ]
+    },
+    "4110320c": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "headline": [
+        "string",
+        "Date"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ]
+    },
+    "d67adbda": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>May 3</strong></p>"
+      ]
+    },
+    "c5c480ea": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Venue"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ]
+    },
+    "a5b13011": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p id=\"isPasted\"><strong>Berlin Conference Center</strong></p>"
+      ]
+    },
+    "f6c8079e": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c2ca36ef"
+        ]
+      ]
+    },
+    "d0ab8bfa": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ],
+      "headline": [
+        "string",
+        "Your registration for the Tynacoon Roadshow"
+      ]
+    },
+    "087f689e": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "d0ab8bfa",
+          "a66afd17"
+        ]
+      ]
+    },
+    "1d62392e": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "408cebfc",
+          "0ad37986"
+        ]
+      ]
+    },
+    "c2ca36ef": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "94c3c5b8",
+          "255127d3",
+          "1bf403a0"
+        ]
+      ]
+    },
+    "94c3c5b8": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4110320c",
+          "d67adbda"
+        ]
+      ]
+    },
+    "255127d3": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c5c480ea",
+          "a5b13011"
+        ]
+      ]
+    },
+    "5ea1b62a": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ],
+      "headline": [
+        "string",
+        "Address"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ]
+    },
+    "7a3ca8cd": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Discover the future of filling technology!"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "fbcb2e1d": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "7c793651bfd5b099"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "e08bd8e8": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "53bad27d": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ],
+      "headline": [
+        "string",
+        "Jane Morgan"
+      ]
+    },
+    "f3e8f476": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "fbcb2e1d",
+          "e08bd8e8",
+          "53bad27d"
+        ]
+      ]
+    },
+    "5d55bac5": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f3e8f476"
+        ]
+      ]
+    },
+    "e8ce1d27": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "7b2f9815fd86158b"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "2c3f8e33": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "4d77dbf2": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "Clarius Ceasar"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ]
+    },
+    "f32f6d06": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "e8ce1d27",
+          "2c3f8e33",
+          "4d77dbf2"
+        ]
+      ]
+    },
+    "cd58b630": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f32f6d06"
+        ]
+      ]
+    },
+    "dbde1f58": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c282f3e5cd6edd64"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "7b364192": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "cd235063": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ],
+      "headline": [
+        "string",
+        "Jason John"
+      ]
+    },
+    "f41bd624": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "dbde1f58",
+          "7b364192",
+          "cd235063"
+        ]
+      ]
+    },
+    "a66e9178": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f41bd624"
+        ]
+      ]
+    },
+    "37e61f54": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "5d55bac5",
+          "cd58b630",
+          "a66e9178",
+          "43736f27"
+        ]
+      ]
+    },
+    "43736f27": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c85b849a"
+        ]
+      ]
+    },
+    "31bc4589": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c57ed6048b05e7d8"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "87ab4425": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "1d7bd84f": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ],
+      "headline": [
+        "string",
+        "Clara Corn"
+      ]
+    },
+    "c85b849a": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "31bc4589",
+          "87ab4425",
+          "1d7bd84f"
+        ]
+      ]
+    },
+    "5d53c7fb": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "Our Experts"
+      ]
+    },
+    "3956ef5b": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "dark-grey"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5d53c7fb",
+          "37e61f54"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ]
+    },
+    "0ad37986": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "d4295b28",
+          "15a8ddcc"
+        ]
+      ]
+    },
+    "d4295b28": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e5c66b27",
+          "d2d6edbf"
+        ]
+      ]
+    },
+    "15a8ddcc": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7316e29e",
+          "a952eabc"
+        ]
+      ]
+    },
+    "e5c66b27": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Visit the Tynacoon Roadshow in Germany"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ]
+    },
+    "a952eabc": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>At the venue, we offer you:</p><ul><li><strong>Live demonstrations</strong> of our top products</li><li><strong>Interactive presentations</strong> for in-depth insights</li><li><strong>Personal consultation</strong> with our on-site experts</li></ul>"
+      ]
+    },
+    "d2d6edbf": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Immerse yourself in the world of modern filling technology at the Tynacoon Roadshow, which awaits you on the <strong>3rd</strong><strong>&nbsp;of May</strong> in Berlin, Germany.</p><p>Our experts will present the latest developments and solutions that will revolutionize your production processes.</p>"
+      ]
+    },
+    "7316e29e": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Experience innovation firsthand"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ]
+    },
+    "1c85a920": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><strong>Alexanderplatz 2<br id=\"isPasted\">10178 Berlin</strong></p>"
+      ]
+    },
+    "408cebfc": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "786e3553",
+          "ff0c0ff7"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "786e3553": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7a3ca8cd",
+          "acf733e1"
+        ]
+      ]
+    },
+    "ff0c0ff7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "087f689e"
+        ]
+      ]
+    },
+    "1bf403a0": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "5ea1b62a",
+          "1c85a920"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "acf733e1": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Take this unique opportunity to learn about the future of filling technology and speak directly with our experts. Join us at the Tynacoon Roadshow and elevate your production to the next level!</p><p>Contact us today to register and get more information.</p>"
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}
