@@ -1,4 +1,12 @@
-import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
+import {
+  Link,
+  Obj,
+  currentSiteId,
+  getInstanceId,
+  load,
+  navigateTo,
+  urlFor,
+} from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
@@ -14,7 +22,9 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (rootContentId && siteRoot.contentId() !== rootContentId) return
+  if (rootContentId && siteRoot.contentId() !== rootContentId) {
+    return baseUrlsFor(siteRoot)[0]
+  }
 
   const baseAppUrl = getBaseAppUrl()
   if (!baseAppUrl) return
@@ -40,7 +50,7 @@ export function siteForUrl(
     : undefined
   const languageSiteId = languageSite?.siteId()
 
-  if (!languageSiteId) return
+  if (!languageSiteId) return findSiteForUrl(url)
 
   return { baseUrl: `${baseAppUrl}/${language}`, siteId: languageSiteId }
 }
@@ -50,6 +60,36 @@ function languageForUrl(url: string, baseAppUrl?: string) {
 
   const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
   return regex.exec(url)?.groups?.lang
+}
+
+function findSiteForUrl(url: string) {
+  if (!rootContentId) return
+
+  const sites = allWebsites()
+    .toArray()
+    .filter((site) =>
+      baseUrlsFor(site).some((baseUrl) => url.startsWith(baseUrl)),
+    )
+  if (sites.length !== 1) return
+
+  const site = sites[0]
+  const siteId = site?.siteId()
+  if (!site || !siteId) return
+
+  const baseUrl = baseUrlsFor(site)[0]
+  if (!baseUrl) return
+
+  return { baseUrl, siteId }
+}
+
+function baseUrlsFor(site: Obj) {
+  const baseUrl = site.get('baseUrl')
+  const baseUrlArray = Array.isArray(baseUrl) ? baseUrl : [baseUrl]
+  const baseUrls = baseUrlArray.map((value): string | undefined => {
+    if (typeof value === 'string') return value
+    if (value instanceof Link) return urlFor(value)
+  })
+  return baseUrls.filter((url): url is string => !!url)
 }
 
 export async function ensureSiteIsPresent() {
