@@ -71,6 +71,12 @@ provideEditingConfig(Homepage, {
       description:
         'If your chosen font supports multiple weights, pick the one that best fits your design. Default: 500',
     },
+    languageToolsPrompt: {
+      title: 'Assistant Noam',
+      description:
+        'Site specific instructions. For example, title case conventions or tone-of-voice.',
+      options: { multiLine: true, showHtmlSource: false },
+    },
   },
   propertiesGroups: (site) => [
     {
@@ -107,6 +113,11 @@ provideEditingConfig(Homepage, {
         'siteFontBodyWeight',
       ],
       key: 'site-fonts-group',
+    },
+    {
+      title: 'Site guidelines',
+      properties: ['languageToolsPrompt'],
+      key: 'language-tools-prompt-group',
     },
     ...defaultPagePropertiesGroups,
   ],
