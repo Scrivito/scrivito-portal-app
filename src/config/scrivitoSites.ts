@@ -2,6 +2,7 @@ import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
+const rootContentId = import.meta.env.SCRIVITO_ROOT_CONTENT_ID
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
@@ -12,6 +13,8 @@ export function baseUrlForSite(siteId: string): string | undefined {
 
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
+
+  if (rootContentId && siteRoot.contentId() !== rootContentId) return
 
   const baseAppUrl = getBaseAppUrl()
   if (!baseAppUrl) return
@@ -37,7 +40,7 @@ export function siteForUrl(
   const language = regex.exec(url)?.groups?.lang
   if (!language) return
 
-  const languageSite = allWebsites()
+  const languageSite = appWebsites()
     .and('_language', 'equals', language)
     .first()
   if (!languageSite) return
@@ -51,7 +54,7 @@ export function siteForUrl(
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
     navigateTo(() => {
-      const websites = allWebsites().toArray()
+      const websites = appWebsites().toArray()
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
       for (const language of preferredLanguageOrder) {
@@ -70,6 +73,12 @@ function getBaseAppUrl(): string | undefined {
   return isMultitenancyEnabled()
     ? `${location.origin}/${getInstanceId()}`
     : location.origin
+}
+
+function appWebsites() {
+  return rootContentId
+    ? Obj.onAllSites().where('_contentId', 'equals', rootContentId)
+    : allWebsites()
 }
 
 function allWebsites() {
