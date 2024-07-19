@@ -36,8 +36,7 @@ export function siteForUrl(
   const baseAppUrl = getBaseAppUrl()
   if (!baseAppUrl) return
 
-  const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
-  const language = regex.exec(url)?.groups?.lang
+  const language = languageForUrl(url, baseAppUrl)
   if (!language) return
 
   const languageSite = appWebsites()
@@ -49,6 +48,11 @@ export function siteForUrl(
   if (!languageSiteId) return
 
   return { baseUrl: `${baseAppUrl}/${language}`, siteId: languageSiteId }
+}
+
+function languageForUrl(url: string, baseAppUrl: string) {
+  const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
+  return regex.exec(url)?.groups?.lang
 }
 
 export async function ensureSiteIsPresent() {
