@@ -38,6 +38,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteSearchResultsPage: 'reference',
     siteTwitterSite: 'string',
     siteUserProfilePage: 'reference',
+    languageToolsPrompt: 'html',
   },
   extractTextAttributes: ['body'],
   onlyAsRoot: true,
