@@ -27,6 +27,7 @@
     "react-toastify": "^10.0.5",
     "scrivito": "^1.42.1-rc1",
     "scrivito-neoletter-form-widgets": "^0.0.19",
+    "scrivito-sam": "github:dcsaszar/scrivito-sam",
     "scroll-to-fragment": "^1.0.12",
     "speakingurl": "^14.0.1"
   },

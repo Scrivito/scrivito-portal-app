@@ -1,3 +1,6 @@
+// @ts-expect-error scrivito-sam
+import { assistPopertiesGroup } from 'scrivito-sam'
+
 import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
 import { ensureString } from '../utils/ensureString'
 
@@ -90,6 +93,7 @@ export const defaultPagePropertiesGroups = [
     ],
     key: 'social-cards-group',
   },
+  assistPopertiesGroup,
 ] as const
 
 export const defaultPageProperties = ['title']
