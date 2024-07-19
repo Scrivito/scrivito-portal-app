@@ -34,23 +34,20 @@ export function siteForUrl(
   }
 
   const baseAppUrl = getBaseAppUrl()
-  if (!baseAppUrl) return
-
   const language = languageForUrl(url, baseAppUrl)
-  if (!language) return
+  const languageSite = language
+    ? appWebsites().and('_language', 'equals', language).first()
+    : undefined
+  const languageSiteId = languageSite?.siteId()
 
-  const languageSite = appWebsites()
-    .and('_language', 'equals', language)
-    .first()
-  if (!languageSite) return
-
-  const languageSiteId = languageSite.siteId()
   if (!languageSiteId) return
 
   return { baseUrl: `${baseAppUrl}/${language}`, siteId: languageSiteId }
 }
 
-function languageForUrl(url: string, baseAppUrl: string) {
+function languageForUrl(url: string, baseAppUrl?: string) {
+  if (!baseAppUrl) return
+
   const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
   return regex.exec(url)?.groups?.lang
 }
