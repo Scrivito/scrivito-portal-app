@@ -1,5 +1,5 @@
 import { StrictMode } from 'react'
-import ReactDOM from 'react-dom/client'
+import { createRoot, hydrateRoot } from 'react-dom/client'
 import { isEditorLoggedIn, preload, updateContent } from 'scrivito'
 
 import './Data'
@@ -26,7 +26,7 @@ if (typeof window.preloadDump === 'string') {
 } else renderApp()
 
 function renderApp() {
-  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+  createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
       <App />
     </StrictMode>,
@@ -34,7 +34,7 @@ function renderApp() {
 }
 
 function hydrateApp() {
-  ReactDOM.hydrateRoot(
+  hydrateRoot(
     document.getElementById('root') as HTMLElement,
     <StrictMode>
       <App
