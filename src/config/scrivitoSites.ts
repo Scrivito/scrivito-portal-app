@@ -1,7 +1,8 @@
 import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
 
-const location = typeof window !== 'undefined' ? window.location : undefined
+const origin =
+  typeof window !== 'undefined' ? window.location.origin : undefined
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
@@ -65,11 +66,9 @@ export async function ensureSiteIsPresent() {
 }
 
 function getBaseAppUrl(): string | undefined {
-  if (!location) return
+  if (!origin) return
 
-  return isMultitenancyEnabled()
-    ? `${location.origin}/${getInstanceId()}`
-    : location.origin
+  return isMultitenancyEnabled() ? `${origin}/${getInstanceId()}` : origin
 }
 
 function allWebsites() {
