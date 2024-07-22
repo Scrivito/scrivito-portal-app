@@ -192,7 +192,7 @@ const CartActionButton = connect(function CartActionButton({
   const cartLoginLabel = getMessage('cartLoginLabel')
   const cartUnvailableMessage = getMessage('cartUnvailableMessage')
 
-  if (!isUserLoggedIn()) {
+  if (typeof window === 'undefined' || !isUserLoggedIn()) {
     return (
       <button
         className="btn btn-sm btn-outline-primary"

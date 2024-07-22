@@ -27,7 +27,7 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   root: HomepageInstance
   widget: TopNavigationWidgetInstance
 }) {
-  if (!isUserLoggedIn()) return null
+  if (typeof window === 'undefined' || !isUserLoggedIn()) return null
 
   const siteUserProfilePage = root.get('siteUserProfilePage')
   const showUserProfileLink = !!siteUserProfilePage
