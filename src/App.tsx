@@ -2,7 +2,7 @@ import {
   CurrentPage,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
-import { HelmetProvider } from 'react-helmet-async'
+import { HelmetProvider, HelmetServerState } from 'react-helmet-async'
 
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
@@ -10,7 +10,7 @@ import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 
-const helmetContext = {}
+const helmetContext: { helmet?: HelmetServerState } = {}
 
 export function App() {
   return (
