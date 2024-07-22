@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
-import { isEditorLoggedIn } from 'scrivito'
+import { isEditorLoggedIn, preload, updateContent } from 'scrivito'
 
 import './Data'
 import './Objs'
@@ -12,11 +12,39 @@ import { ensureSiteIsPresent } from './config/scrivitoSites'
 configure()
 ensureSiteIsPresent()
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+declare global {
+  interface Window {
+    preloadDump?: unknown
+  }
+}
+
+if (typeof window.preloadDump === 'string') {
+  preload(window.preloadDump).then(({ dumpLoaded }) => {
+    delete window.preloadDump
+    dumpLoaded ? hydrateApp() : renderApp()
+  })
+} else renderApp()
+
+function renderApp() {
+  ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  )
+}
+
+function hydrateApp() {
+  ReactDOM.hydrateRoot(
+    document.getElementById('root') as HTMLElement,
+    <StrictMode>
+      <App
+        appWrapperRef={(el) => {
+          if (el) updateContent()
+        }}
+      />
+    </StrictMode>,
+  )
+}
 
 if (isEditorLoggedIn()) {
   import('./assets/stylesheets/scrivitoEditing.scss')
