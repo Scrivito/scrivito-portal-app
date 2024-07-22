@@ -2,7 +2,9 @@ import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
 
 const origin =
-  typeof window !== 'undefined' ? window.location.origin : undefined
+  typeof window !== 'undefined'
+    ? window.location.origin
+    : import.meta.env.SCRIVITO_ORIGIN
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
