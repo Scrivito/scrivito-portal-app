@@ -10,7 +10,9 @@ import {
 import { isMultitenancyEnabled } from './scrivitoTenants'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
-const rootContentId = import.meta.env.SCRIVITO_ROOT_CONTENT_ID
+
+const rootContentId: string =
+  import.meta.env.SCRIVITO_ROOT_CONTENT_ID || 'c2a0aab78be05a4e'
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
@@ -22,7 +24,7 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (rootContentId && siteRoot.contentId() !== rootContentId) {
+  if (siteRoot.contentId() !== rootContentId) {
     return baseUrlsFor(siteRoot)[0]
   }
 
@@ -63,8 +65,6 @@ function languageForUrl(url: string, baseAppUrl?: string) {
 }
 
 function findSiteForUrl(url: string) {
-  if (!rootContentId) return
-
   const sites = allWebsites()
     .toArray()
     .filter((site) =>
@@ -117,9 +117,7 @@ function getBaseAppUrl(): string | undefined {
 }
 
 function appWebsites() {
-  return rootContentId
-    ? Obj.onAllSites().where('_contentId', 'equals', rootContentId)
-    : allWebsites()
+  return Obj.onAllSites().where('_contentId', 'equals', rootContentId)
 }
 
 function allWebsites() {
