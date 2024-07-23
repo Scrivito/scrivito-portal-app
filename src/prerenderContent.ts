@@ -2,6 +2,7 @@ import path from 'path'
 import './Objs'
 import './Widgets'
 import { configureScrivito } from './config/scrivito'
+import { extendRedirects } from './prerenderContent/extendRedirects'
 import { prerenderObjs } from './prerenderContent/prerenderObjs'
 import { prerenderSitemap } from './prerenderContent/prerenderSitemap'
 import { reportError } from './prerenderContent/reportError'
@@ -56,6 +57,8 @@ async function prerenderContent() {
     PRERENDER_OBJ_CLASSES_BLACKLIST,
     baseHtmlTemplate,
   )
+
+  await extendRedirects(TARGET_DIR, objFiles, SOURCE_DIR)
 
   console.log(
     `  📦 [prerenderContent] Added ${objFiles.length} files to ${TARGET_DIR}.`,
