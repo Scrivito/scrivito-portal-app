@@ -242,11 +242,12 @@ function PresetGrid({
   readOnly: boolean
   title: string
 }) {
-  const classNames = readOnly ? ['gle-preview'] : ['gle-preview', 'clickable']
+  const classNames = ['gle-preview', 'p-0']
+  if (!readOnly) classNames.push('clickable')
   if (isEqual(currentGrid, grid)) classNames.push('active')
 
   return (
-    <div
+    <button
       className={classNames.join(' ')}
       title={title}
       onClick={() => adjustGrid(grid)}
@@ -254,7 +255,7 @@ function PresetGrid({
       {grid.map((colSize, index) => (
         <div className={`grid-col-${colSize}`} key={index} />
       ))}
-    </div>
+    </button>
   )
 }
 
