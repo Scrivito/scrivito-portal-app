@@ -471,9 +471,9 @@ class GridLayoutEditor extends React.Component<
         )
       } else if (colIndex < 5 && !this.props.readOnly) {
         innerContent.unshift(
-          <div
+          <button
             key="grid-handle-plus"
-            className="grid-handle grid-handle-plus"
+            className="p-0 grid-handle grid-handle-plus"
             title="add a column"
             onClick={() =>
               this.adjustNumberOfColumns(this.props.currentGrid.length + 1)
@@ -484,9 +484,9 @@ class GridLayoutEditor extends React.Component<
 
       if (this.props.currentGrid.length > 1 && !this.props.readOnly) {
         innerContent.push(
-          <div
+          <button
             key="grid-del"
-            className="grid-del"
+            className="btn border-0 grid-del"
             title="delete column"
             onClick={() =>
               this.adjustNumberOfColumns(this.props.currentGrid.length - 1)
