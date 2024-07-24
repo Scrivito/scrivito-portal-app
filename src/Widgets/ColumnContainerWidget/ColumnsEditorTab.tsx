@@ -49,6 +49,8 @@ const ColumnsEditor = connect(
       [widget],
     )
 
+    const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
+
     return (
       <div className="scrivito_detail_content">
         <Alignment
@@ -175,31 +177,32 @@ const ColumnsEditor = connect(
 
         <div className="item_content">
           <div className="boolean_attribute_component">
-            <div
+            <label
               className={`scrivito_switch${
-                widget.get('disableResponsiveAdaption') ? ' active' : ''
+                disableResponsiveAdaption ? ' active' : ''
               }`}
+              aria-label={disableResponsiveAdaption ? 'Yes' : 'No'}
             >
+              <input
+                type="checkbox"
+                className="btn-check"
+                checked={disableResponsiveAdaption}
+                onClick={() =>
+                  widget.update({
+                    disableResponsiveAdaption: !disableResponsiveAdaption,
+                  })
+                }
+              />
               <div className="pill-wrapper">
                 <div className="cell pill"></div>
               </div>
-              <div
-                className="cell left"
-                onClick={() =>
-                  widget.update({ disableResponsiveAdaption: false })
-                }
-              >
+              <div className="cell left" aria-hidden>
                 No
               </div>
-              <div
-                className="cell right"
-                onClick={() =>
-                  widget.update({ disableResponsiveAdaption: true })
-                }
-              >
+              <div className="cell right" aria-hidden>
                 Yes
               </div>
-            </div>
+            </label>
           </div>
         </div>
       </div>
