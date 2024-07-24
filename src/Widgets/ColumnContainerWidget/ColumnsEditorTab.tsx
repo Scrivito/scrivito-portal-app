@@ -269,8 +269,8 @@ function Alignment({
   readOnly: boolean
 }) {
   const initialClasses = readOnly
-    ? ['gle-preview']
-    : ['gle-preview', 'clickable']
+    ? ['gle-preview', 'p-0']
+    : ['gle-preview', 'p-0', 'clickable']
 
   const startAlignmentClasses = [...initialClasses]
   const centerAlignmentClasses = [...initialClasses]
@@ -303,7 +303,7 @@ function Alignment({
       <div className="item_content">
         <div className="gle-preview-list">
           <div className="gle-preview-group">
-            <div
+            <button
               className={startAlignmentClasses.join(' ')}
               title="Content top aligned"
               onClick={() => setAlignment('start')}
@@ -311,9 +311,9 @@ function Alignment({
               <div className="grid-col-12">
                 <span className="alignment" />
               </div>
-            </div>
+            </button>
 
-            <div
+            <button
               className={centerAlignmentClasses.join(' ')}
               title="Content center aligned"
               onClick={() => setAlignment('center')}
@@ -321,9 +321,9 @@ function Alignment({
               <div className="grid-col-12">
                 <span className="alignment center" />
               </div>
-            </div>
+            </button>
 
-            <div
+            <button
               className={endAlignmentClasses.join(' ')}
               title="Content bottom aligned"
               onClick={() => setAlignment('end')}
@@ -331,9 +331,9 @@ function Alignment({
               <div className="grid-col-12">
                 <span className="alignment bottom" />
               </div>
-            </div>
+            </button>
 
-            <div
+            <button
               className={stretchAlignmentClasses.join(' ')}
               title="Content stretch (full height) aligned"
               onClick={() => setAlignment('stretch')}
@@ -341,7 +341,7 @@ function Alignment({
               <div className="grid-col-12">
                 <span className="alignment fullHeight" />
               </div>
-            </div>
+            </button>
           </div>
         </div>
         <AlignmentDescription alignment={alignment} />
