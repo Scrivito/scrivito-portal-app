@@ -1795,6 +1795,10 @@ header:first-of-type section:after {
   left: 0;
   pointer-events: none;
 }
+header:first-of-type section.bg-primary:after,
+header:first-of-type section.bg-secondary:after {
+  display: none;
+}
 
 /* breadcrumb
  =================================================================== */
