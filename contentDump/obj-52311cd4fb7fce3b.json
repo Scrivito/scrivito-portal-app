@@ -31,16 +31,16 @@
   "_first_published_at": "20240405121103",
   "_id": "52311cd4fb7fce3b",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20240724141215",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/f16dc0fbeddfaa9f/52311cd4fb7fce3b",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20240725065335",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "2024072506533500000000000000005f5b7f1472ef443c",
   "_widget_pool": {
     "18793356": {
       "_obj_class": "DataFormUploadWidget",
@@ -689,7 +689,7 @@
         "datalocator",
         {
           "class": "Document",
-          "field": "Körper",
+          "field": "body",
           "via_ref": "single"
         }
       ]
@@ -1307,6 +1307,6 @@
   },
   "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
-  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
 }
