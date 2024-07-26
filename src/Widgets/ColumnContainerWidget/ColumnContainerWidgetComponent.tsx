@@ -9,21 +9,23 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
 
   const classNames = ['row', `align-items-${alignment}`]
 
-  const content = columns.map((columnWidget, index) => {
-    const colSize = columnWidget.get('colSize') || 1
-    const className = widget.get('disableResponsiveAdaption')
-      ? `col-${colSize}`
-      : `col-md-${colSize}`
-    return (
-      <div key={index} className={className}>
-        <ContentTag
-          content={columnWidget}
-          attribute="content"
-          className="h-100"
-        />
-      </div>
-    )
-  })
-
-  return <div className={classNames.join(' ')}>{content}</div>
+  return (
+    <div className={classNames.join(' ')}>
+      {columns.map((columnWidget, index) => {
+        const colSize = columnWidget.get('colSize') || 1
+        const className = widget.get('disableResponsiveAdaption')
+          ? `col-${colSize}`
+          : `col-md-${colSize}`
+        return (
+          <div key={index} className={className}>
+            <ContentTag
+              content={columnWidget}
+              attribute="content"
+              className="h-100"
+            />
+          </div>
+        )
+      })}
+    </div>
+  )
 })
