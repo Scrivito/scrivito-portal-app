@@ -10,7 +10,10 @@ import {
 import { isMultitenancyEnabled } from './scrivitoTenants'
 import { ensureString } from '../utils/ensureString'
 
-const location = typeof window !== 'undefined' ? window.location : undefined
+const origin =
+  typeof window !== 'undefined'
+    ? window.location.origin
+    : ensureString(import.meta.env.SCRIVITO_ORIGIN)
 
 const rootContentId =
   ensureString(import.meta.env.SCRIVITO_ROOT_CONTENT_ID) || 'c2a0aab78be05a4e'
@@ -29,13 +32,10 @@ export function baseUrlForSite(siteId: string): string | undefined {
     return baseUrlsFor(siteRoot)[0]
   }
 
-  const baseAppUrl = getBaseAppUrl()
-  if (!baseAppUrl) return
-
   const language = siteRoot.language()
   if (!language) return
 
-  return `${baseAppUrl}/${language}`
+  return `${getBaseAppUrl()}/${language}`
 }
 
 export function siteForUrl(
@@ -104,12 +104,10 @@ export async function ensureSiteIsPresent() {
   }
 }
 
-function getBaseAppUrl(): string | undefined {
-  if (!location) return
+function getBaseAppUrl(): string {
+  if (!origin) throw new Error('No origin defined!')
 
-  return isMultitenancyEnabled()
-    ? `${location.origin}/${getInstanceId()}`
-    : location.origin
+  return isMultitenancyEnabled() ? `${origin}/${getInstanceId()}` : origin
 }
 
 function appWebsites() {

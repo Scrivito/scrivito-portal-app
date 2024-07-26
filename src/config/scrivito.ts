@@ -2,7 +2,7 @@ import { configure } from 'scrivito'
 import { baseUrlForSite, siteForUrl } from './scrivitoSites'
 import { scrivitoTenantId } from './scrivitoTenants'
 
-export function configureScrivito() {
+export function configureScrivito(options?: { priority?: 'background' }) {
   configure({
     adoptUi: true,
     autoConvertAttributes: true,
@@ -20,5 +20,6 @@ export function configureScrivito() {
         'https://*.scrivito-ui.pages.dev',
       ],
     },
+    ...options,
   })
 }

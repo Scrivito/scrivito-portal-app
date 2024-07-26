@@ -27,6 +27,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
+      'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(env.SCRIVITO_ORIGIN),
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
       'import.meta.env.SCRIVITO_ROOT_CONTENT_ID': JSON.stringify(
         env.SCRIVITO_ROOT_CONTENT_ID,
