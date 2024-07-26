@@ -43,7 +43,7 @@ export function containsItems(): boolean {
   return CartItem.all().containsData()
 }
 
-export function numberOfCartItems(): number {
+export function numberOfCartItems(): number | null {
   if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
 
   // @ts-expect-error until out of private beta

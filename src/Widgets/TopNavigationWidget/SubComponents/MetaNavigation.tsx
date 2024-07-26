@@ -18,6 +18,7 @@ export const MetaNavigation = connect(function MetaNavigation({
 }) {
   const siteCartPage = root.get('siteCartPage')
   const showCart = !!siteCartPage && containsItems()
+  const itemsCount = showCart && numberOfCartItems()
 
   return (
     <div className="navbar-meta">
@@ -42,9 +43,11 @@ export const MetaNavigation = connect(function MetaNavigation({
               to={siteCartPage}
             >
               <ObjIconAndTitle obj={siteCartPage} />{' '}
-              <span className="badge rounded-pill text-bg-secondary">
-                {numberOfCartItems()}
-              </span>
+              {itemsCount && (
+                <span className="badge rounded-pill text-bg-secondary">
+                  {itemsCount}
+                </span>
+              )}
             </Nav.Link>
           </Nav.Item>
         )}
