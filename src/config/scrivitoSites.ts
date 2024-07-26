@@ -58,7 +58,9 @@ export function siteForUrl(
 }
 
 function languageForUrl(url: string) {
-  const regex = new RegExp(`^${getBaseAppUrl()}\\/(?<lang>[a-z]{2})([?/]|$)`)
+  const regex = new RegExp(
+    `^${getBaseAppUrl()}\\/(?<lang>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
+  )
   return regex.exec(url)?.groups?.lang
 }
 
