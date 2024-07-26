@@ -27,6 +27,7 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   root: HomepageInstance
   widget: TopNavigationWidgetInstance
 }) {
+  // TODO: remove window check after #11101 is implemented
   if (typeof window === 'undefined' || !isUserLoggedIn()) return null
 
   const siteUserProfilePage = root.get('siteUserProfilePage')

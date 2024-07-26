@@ -192,6 +192,7 @@ const CartActionButton = connect(function CartActionButton({
   const cartLoginLabel = getMessage('cartLoginLabel')
   const cartUnvailableMessage = getMessage('cartUnvailableMessage')
 
+  // TODO: remove window check after #11101 is implemented
   if (typeof window === 'undefined' || !isUserLoggedIn()) {
     return (
       <button
