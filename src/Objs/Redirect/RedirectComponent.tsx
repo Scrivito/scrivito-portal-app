@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useEffect } from 'react'
 import {
   ensureUserIsLoggedIn,
   isEditorLoggedIn,
@@ -13,7 +13,7 @@ provideComponent(Redirect, ({ page }) => {
   const requireLogin = page.get('requireLogin')
   const link = page.get('link')
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (requireLogin && !isUserLoggedIn()) {
       ensureUserIsLoggedIn()
       return

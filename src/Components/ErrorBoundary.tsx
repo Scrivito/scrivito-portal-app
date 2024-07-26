@@ -1,4 +1,4 @@
-import React from 'react'
+import { Component } from 'react'
 import errorBackground from '../assets/images/error-background.jpg'
 import spaceman from '../assets/images/spaceman.svg'
 
@@ -10,7 +10,7 @@ interface ErrorBoundaryState {
   hasError: boolean
 }
 
-export class ErrorBoundary extends React.Component<
+export class ErrorBoundary extends Component<
   ErrorBoundaryProps,
   ErrorBoundaryState
 > {

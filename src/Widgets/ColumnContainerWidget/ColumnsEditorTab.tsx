@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { uiContext, canWrite, connect, Widget } from 'scrivito'
 import Draggable from 'react-draggable'
 import { isEqual, times } from 'lodash-es'
@@ -8,6 +7,7 @@ import {
 } from '../ColumnWidget/ColumnWidgetClass'
 import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
+import { Component, Fragment, createRef, useMemo } from 'react'
 
 // TODO: Remove next eslint-disable line
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
@@ -44,10 +44,7 @@ const ColumnsEditor = connect(
     readOnly: boolean
     currentGrid: number[]
   }) => {
-    const originalContents = React.useMemo(
-      () => calculateContents(widget),
-      [widget],
-    )
+    const originalContents = useMemo(() => calculateContents(widget), [widget])
 
     return (
       <div className="scrivito_detail_content">
@@ -292,7 +289,7 @@ function Alignment({
   }
 
   return (
-    <React.Fragment>
+    <Fragment>
       <div className="scrivito_detail_label">
         <span>Alignment</span>
       </div>
@@ -342,7 +339,7 @@ function Alignment({
         </div>
         <AlignmentDescription alignment={alignment} />
       </div>
-    </React.Fragment>
+    </Fragment>
   )
 }
 
@@ -352,7 +349,7 @@ interface GridLayoutEditorProps {
   readOnly: boolean
 }
 
-class GridLayoutEditor extends React.Component<
+class GridLayoutEditor extends Component<
   GridLayoutEditorProps,
   { draggableGrid: number }
 > {
@@ -365,7 +362,7 @@ class GridLayoutEditor extends React.Component<
       draggableGrid: 0,
     }
 
-    this.gridRulerRef = React.createRef()
+    this.gridRulerRef = createRef()
 
     this.adjustNumberOfColumns = this.adjustNumberOfColumns.bind(this)
     this.handleResize = this.handleResize.bind(this)

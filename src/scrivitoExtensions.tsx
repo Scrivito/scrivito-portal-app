@@ -1,5 +1,5 @@
 import { Extensions } from 'scrivito'
-import * as ReactDOM from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 import './Data'
 import './Data/editingConfigs'
 import './Objs'
@@ -8,6 +8,6 @@ import './Widgets'
 import './Widgets/editingConfigs'
 import { configure } from './config'
 
-ReactDOM.createRoot(document.createElement('div')).render(<Extensions />)
+createRoot(document.createElement('div')).render(<Extensions />)
 
 configure()
