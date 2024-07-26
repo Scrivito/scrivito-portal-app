@@ -46,8 +46,7 @@ export function siteForUrl(
     return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
   }
 
-  const baseAppUrl = getBaseAppUrl()
-  const language = languageForUrl(url, baseAppUrl)
+  const language = languageForUrl(url)
   const languageSite = language
     ? appWebsites().and('_language', 'equals', language).first()
     : undefined
@@ -55,13 +54,11 @@ export function siteForUrl(
 
   if (!languageSiteId) return findSiteForUrl(url)
 
-  return { baseUrl: `${baseAppUrl}/${language}`, siteId: languageSiteId }
+  return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId: languageSiteId }
 }
 
-function languageForUrl(url: string, baseAppUrl?: string) {
-  if (!baseAppUrl) return
-
-  const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
+function languageForUrl(url: string) {
+  const regex = new RegExp(`^${getBaseAppUrl()}\\/(?<lang>[a-z]{2})([?/]|$)`)
   return regex.exec(url)?.groups?.lang
 }
 
