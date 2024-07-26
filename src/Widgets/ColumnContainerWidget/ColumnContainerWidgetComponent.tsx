@@ -5,6 +5,10 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
   const columns = widget.get('columns')
   if (!columns.length) return null
 
+  const alignment = widget.get('alignment') || 'start'
+
+  const classNames = ['row', `align-items-${alignment}`]
+
   const content = columns.map((columnWidget, index) => {
     const colSize = columnWidget.get('colSize') || 1
     const className = widget.get('disableResponsiveAdaption')
@@ -20,14 +24,6 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
       </div>
     )
   })
-
-  const classNames = ['row']
-
-  if (widget.get('alignment')) {
-    classNames.push(`align-items-${widget.get('alignment')}`)
-  } else {
-    classNames.push('align-items-start')
-  }
 
   return <div className={classNames.join(' ')}>{content}</div>
 })
