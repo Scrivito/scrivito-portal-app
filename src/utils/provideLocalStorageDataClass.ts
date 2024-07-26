@@ -123,6 +123,8 @@ export function provideLocalStorageDataClass(
   })
 
   async function initializeContent(initialContent: DataItem[]) {
+    if (typeof localStorage === 'undefined') return
+
     const initializedKey = `${recordKey}-initialized-with`
     const initializedValue = JSON.stringify(initialContent)
 

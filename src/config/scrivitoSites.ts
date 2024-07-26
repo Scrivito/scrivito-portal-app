@@ -1,7 +1,11 @@
 import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
+import { ensureString } from '../utils/ensureString'
 
-const location = typeof window !== 'undefined' ? window.location : undefined
+const origin =
+  typeof window !== 'undefined'
+    ? window.location.origin
+    : ensureString(import.meta.env.SCRIVITO_ORIGIN)
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
@@ -13,13 +17,10 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  const baseAppUrl = getBaseAppUrl()
-  if (!baseAppUrl) return
-
   const language = siteRoot.language()
   if (!language) return
 
-  return `${baseAppUrl}/${language}`
+  return `${getBaseAppUrl()}/${language}`
 }
 
 export function siteForUrl(
@@ -30,10 +31,7 @@ export function siteForUrl(
     return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
   }
 
-  const baseAppUrl = getBaseAppUrl()
-  if (!baseAppUrl) return
-
-  const regex = new RegExp(`^${baseAppUrl}\\/(?<lang>[a-z]{2})([?/]|$)`)
+  const regex = new RegExp(`^${getBaseAppUrl()}\\/(?<lang>[a-z]{2})([?/]|$)`)
   const language = regex.exec(url)?.groups?.lang
   if (!language) return
 
@@ -45,7 +43,7 @@ export function siteForUrl(
   const languageSiteId = languageSite.siteId()
   if (!languageSiteId) return
 
-  return { baseUrl: `${baseAppUrl}/${language}`, siteId: languageSiteId }
+  return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId: languageSiteId }
 }
 
 export async function ensureSiteIsPresent() {
@@ -64,12 +62,10 @@ export async function ensureSiteIsPresent() {
   }
 }
 
-function getBaseAppUrl(): string | undefined {
-  if (!location) return
+function getBaseAppUrl(): string {
+  if (!origin) throw new Error('No origin defined!')
 
-  return isMultitenancyEnabled()
-    ? `${location.origin}/${getInstanceId()}`
-    : location.origin
+  return isMultitenancyEnabled() ? `${origin}/${getInstanceId()}` : origin
 }
 
 function allWebsites() {

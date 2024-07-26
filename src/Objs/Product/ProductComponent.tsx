@@ -192,7 +192,8 @@ const CartActionButton = connect(function CartActionButton({
   const cartLoginLabel = getMessage('cartLoginLabel')
   const cartUnvailableMessage = getMessage('cartUnvailableMessage')
 
-  if (!isUserLoggedIn()) {
+  // TODO: remove window check after #11101 is implemented
+  if (typeof window === 'undefined' || !isUserLoggedIn()) {
     return (
       <button
         className="btn btn-sm btn-outline-primary"
