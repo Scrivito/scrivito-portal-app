@@ -9,9 +9,6 @@ import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
 import { Component, Fragment, createRef, useMemo } from 'react'
 
-// TODO: Remove next eslint-disable line
-/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-
 export function ColumnsEditorTab({
   widget,
 }: {
@@ -45,6 +42,8 @@ const ColumnsEditor = connect(
     currentGrid: number[]
   }) => {
     const originalContents = useMemo(() => calculateContents(widget), [widget])
+
+    const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
 
     return (
       <div className="scrivito_detail_content">
@@ -172,31 +171,32 @@ const ColumnsEditor = connect(
 
         <div className="item_content">
           <div className="boolean_attribute_component">
-            <div
+            <label
               className={`scrivito_switch${
-                widget.get('disableResponsiveAdaption') ? ' active' : ''
+                disableResponsiveAdaption ? ' active' : ''
               }`}
+              aria-label={disableResponsiveAdaption ? 'Yes' : 'No'}
             >
+              <input
+                type="checkbox"
+                className="btn-check"
+                checked={disableResponsiveAdaption}
+                onClick={() =>
+                  widget.update({
+                    disableResponsiveAdaption: !disableResponsiveAdaption,
+                  })
+                }
+              />
               <div className="pill-wrapper">
                 <div className="cell pill"></div>
               </div>
-              <div
-                className="cell left"
-                onClick={() =>
-                  widget.update({ disableResponsiveAdaption: false })
-                }
-              >
+              <div className="cell left" aria-hidden>
                 No
               </div>
-              <div
-                className="cell right"
-                onClick={() =>
-                  widget.update({ disableResponsiveAdaption: true })
-                }
-              >
+              <div className="cell right" aria-hidden>
                 Yes
               </div>
-            </div>
+            </label>
           </div>
         </div>
       </div>
@@ -236,11 +236,12 @@ function PresetGrid({
   readOnly: boolean
   title: string
 }) {
-  const classNames = readOnly ? ['gle-preview'] : ['gle-preview', 'clickable']
+  const classNames = ['gle-preview', 'p-0']
+  if (!readOnly) classNames.push('clickable')
   if (isEqual(currentGrid, grid)) classNames.push('active')
 
   return (
-    <div
+    <button
       className={classNames.join(' ')}
       title={title}
       onClick={() => adjustGrid(grid)}
@@ -248,7 +249,7 @@ function PresetGrid({
       {grid.map((colSize, index) => (
         <div className={`grid-col-${colSize}`} key={index} />
       ))}
-    </div>
+    </button>
   )
 }
 
@@ -262,8 +263,8 @@ function Alignment({
   readOnly: boolean
 }) {
   const initialClasses = readOnly
-    ? ['gle-preview']
-    : ['gle-preview', 'clickable']
+    ? ['gle-preview', 'p-0']
+    : ['gle-preview', 'p-0', 'clickable']
 
   const startAlignmentClasses = [...initialClasses]
   const centerAlignmentClasses = [...initialClasses]
@@ -296,7 +297,7 @@ function Alignment({
       <div className="item_content">
         <div className="gle-preview-list">
           <div className="gle-preview-group">
-            <div
+            <button
               className={startAlignmentClasses.join(' ')}
               title="Content top aligned"
               onClick={() => setAlignment('start')}
@@ -304,9 +305,9 @@ function Alignment({
               <div className="grid-col-12">
                 <span className="alignment" />
               </div>
-            </div>
+            </button>
 
-            <div
+            <button
               className={centerAlignmentClasses.join(' ')}
               title="Content center aligned"
               onClick={() => setAlignment('center')}
@@ -314,9 +315,9 @@ function Alignment({
               <div className="grid-col-12">
                 <span className="alignment center" />
               </div>
-            </div>
+            </button>
 
-            <div
+            <button
               className={endAlignmentClasses.join(' ')}
               title="Content bottom aligned"
               onClick={() => setAlignment('end')}
@@ -324,9 +325,9 @@ function Alignment({
               <div className="grid-col-12">
                 <span className="alignment bottom" />
               </div>
-            </div>
+            </button>
 
-            <div
+            <button
               className={stretchAlignmentClasses.join(' ')}
               title="Content stretch (full height) aligned"
               onClick={() => setAlignment('stretch')}
@@ -334,7 +335,7 @@ function Alignment({
               <div className="grid-col-12">
                 <span className="alignment fullHeight" />
               </div>
-            </div>
+            </button>
           </div>
         </div>
         <AlignmentDescription alignment={alignment} />
@@ -464,9 +465,9 @@ class GridLayoutEditor extends Component<
         )
       } else if (colIndex < 5 && !this.props.readOnly) {
         innerContent.unshift(
-          <div
+          <button
             key="grid-handle-plus"
-            className="grid-handle grid-handle-plus"
+            className="p-0 grid-handle grid-handle-plus"
             title="add a column"
             onClick={() =>
               this.adjustNumberOfColumns(this.props.currentGrid.length + 1)
@@ -477,9 +478,9 @@ class GridLayoutEditor extends Component<
 
       if (this.props.currentGrid.length > 1 && !this.props.readOnly) {
         innerContent.push(
-          <div
+          <button
             key="grid-del"
-            className="grid-del"
+            className="btn border-0 grid-del"
             title="delete column"
             onClick={() =>
               this.adjustNumberOfColumns(this.props.currentGrid.length - 1)

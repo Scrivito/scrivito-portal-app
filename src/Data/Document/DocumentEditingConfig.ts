@@ -7,6 +7,7 @@ DocumentPromise.then((Document) => {
     attributes: {
       _id: { title: 'Document ID' },
       title: { title: 'Title' },
+      body: { title: 'Body' },
       number: { title: 'Number' },
       type: { title: 'Type' },
       createdAt: { title: 'Created at' },
