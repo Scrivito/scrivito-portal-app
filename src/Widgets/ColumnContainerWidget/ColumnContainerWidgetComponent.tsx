@@ -16,7 +16,8 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
         const key = columnWidget.id()
 
         if (isFlex) {
-          const className = 'flex-grow-0'
+          const flexGrow = columnWidget.get('flexGrow')
+          const className = flexGrow ? 'flex-grow-1' : undefined
           return (
             <ContentTag
               key={key}

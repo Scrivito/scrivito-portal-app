@@ -5,6 +5,7 @@ export const ColumnWidget = provideWidgetClass('ColumnWidget', {
   attributes: {
     colSize: 'integer',
     content: 'widgetlist',
+    flexGrow: 'boolean',
   },
   extractTextAttributes: ['content'],
 })
