@@ -11,13 +11,13 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
 
   return (
     <div className={classNames.join(' ')}>
-      {columns.map((columnWidget, index) => {
+      {columns.map((columnWidget) => {
         const colSize = columnWidget.get('colSize') || 1
         const className = widget.get('disableResponsiveAdaption')
           ? `col-${colSize}`
           : `col-md-${colSize}`
         return (
-          <div key={index} className={className}>
+          <div key={columnWidget.id()} className={className}>
             <ContentTag
               content={columnWidget}
               attribute="content"
