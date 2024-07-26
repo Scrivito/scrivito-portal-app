@@ -8,11 +8,12 @@ import {
   urlFor,
 } from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
+import { ensureString } from '../utils/ensureString'
 
 const location = typeof window !== 'undefined' ? window.location : undefined
 
 const rootContentId =
-  import.meta.env.SCRIVITO_ROOT_CONTENT_ID || 'c2a0aab78be05a4e'
+  ensureString(import.meta.env.SCRIVITO_ROOT_CONTENT_ID) || 'c2a0aab78be05a4e'
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
