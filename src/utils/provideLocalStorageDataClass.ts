@@ -204,10 +204,10 @@ function compare({
 }): boolean {
   if (['gt', 'lt', 'gte', 'lte'].includes(opCode)) {
     if (
-      typeof itemValue !== 'number' ||
-      typeof filterValue !== 'number' ||
-      typeof itemValue !== 'string' ||
-      typeof filterValue !== 'string'
+      !(
+        (typeof itemValue === 'number' || typeof itemValue === 'string') &&
+        (typeof filterValue === 'number' || typeof filterValue === 'string')
+      )
     ) {
       throw new Error(
         `Invalid comparison: ${itemValue} and ${filterValue} must be numbers or strings.`,
