@@ -44,18 +44,15 @@ export function provideLocalStorageDataClass(
           Object.keys(filters).length === 0
             ? items
             : items.filter((item) =>
-                Object.entries(filters).every(
-                  ([filterAttribute, { value: filterValue, opCode }]) => {
-                    const itemValue = item[filterAttribute]
-                    const eq =
-                      itemValue === filterValue ||
-                      (filterValue === 'null' && itemValue === null) ||
-                      (filterValue === 'true' && itemValue === true) ||
-                      (filterValue === 'false' && itemValue === false)
+                Object.entries(filters).every(([filterAttribute, filter]) => {
+                  const itemValue = item[filterAttribute]
+                  const subFilters =
+                    filter.operator === 'and' ? filter.value : [filter]
 
-                    return opCode === 'neq' ? !eq : eq
-                  },
-                ),
+                  return subFilters.every(({ value: filterValue, opCode }) =>
+                    compare({ itemValue, filterValue, opCode }),
+                  )
+                }),
               )
 
         const search = params.search().toLowerCase()
@@ -194,4 +191,48 @@ function orderItems(
     order.map(([attr]) => attr),
     order.map(([_, ascOrDesc]) => ascOrDesc),
   )
+}
+
+function compare({
+  itemValue,
+  filterValue,
+  opCode,
+}: {
+  itemValue: unknown
+  filterValue: string | number | boolean | null
+  opCode: 'eq' | 'neq' | 'gt' | 'lt' | 'gte' | 'lte'
+}): boolean {
+  if (['gt', 'lt', 'gte', 'lte'].includes(opCode)) {
+    if (typeof itemValue !== typeof filterValue) {
+      throw new Error(
+        `Invalid comparison: Item value ${itemValue} (type: ${typeof itemValue}) and` +
+          ` filter value ${filterValue} (type: ${typeof filterValue}) must be of the same type.`,
+      )
+    }
+    if (
+      typeof itemValue !== 'number' ||
+      typeof filterValue !== 'number' ||
+      typeof itemValue !== 'string' ||
+      typeof filterValue !== 'string'
+    ) {
+      throw new Error(
+        `Invalid comparison: ${itemValue} and ${filterValue} must be numbers or strings.`,
+      )
+    }
+
+    if (opCode === 'gt') return itemValue > filterValue
+    if (opCode === 'lt') return itemValue < filterValue
+    if (opCode === 'gte') return itemValue >= filterValue
+    if (opCode === 'lte') return itemValue <= filterValue
+
+    throw new Error(`Invalid comparison operator: ${opCode}`)
+  }
+
+  const eq =
+    itemValue === filterValue ||
+    (filterValue === 'null' && itemValue === null) ||
+    (filterValue === 'true' && itemValue === true) ||
+    (filterValue === 'false' && itemValue === false)
+
+  return opCode === 'neq' ? !eq : eq
 }
