@@ -203,12 +203,6 @@ function compare({
   opCode: 'eq' | 'neq' | 'gt' | 'lt' | 'gte' | 'lte'
 }): boolean {
   if (['gt', 'lt', 'gte', 'lte'].includes(opCode)) {
-    if (typeof itemValue !== typeof filterValue) {
-      throw new Error(
-        `Invalid comparison: Item value ${itemValue} (type: ${typeof itemValue}) and` +
-          ` filter value ${filterValue} (type: ${typeof filterValue}) must be of the same type.`,
-      )
-    }
     if (
       typeof itemValue !== 'number' ||
       typeof filterValue !== 'number' ||
