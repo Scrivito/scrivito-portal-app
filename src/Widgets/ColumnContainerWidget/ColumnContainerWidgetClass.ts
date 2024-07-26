@@ -7,6 +7,7 @@ export const ColumnContainerWidget = provideWidgetClass(
       columns: ['widgetlist', { only: 'ColumnWidget' }],
       alignment: ['enum', { values: ['start', 'center', 'end', 'stretch'] }],
       disableResponsiveAdaption: 'boolean',
+      layoutMode: ['enum', { values: ['grid', 'flex'] }],
     },
     extractTextAttributes: ['columns'],
   },

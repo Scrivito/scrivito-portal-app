@@ -21,5 +21,6 @@ provideEditingConfig(ColumnContainerWidget, {
       new ColumnWidget({ colSize: 4 }),
     ],
     alignment: 'start',
+    layoutMode: 'grid',
   },
 })
