@@ -66,21 +66,16 @@ function languageForUrl(url: string, baseAppUrl?: string) {
 }
 
 function findSiteForUrl(url: string) {
-  const sites = allWebsites()
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .andNot('_siteId', 'equals', [NEOLETTER_MAILINGS_SITE_ID, null])
     .toArray()
-    .filter((site) =>
-      baseUrlsFor(site).some((baseUrl) => url.startsWith(baseUrl)),
-    )
-  if (sites.length !== 1) return
-
-  const site = sites[0]
-  const siteId = site?.siteId()
-  if (!site || !siteId) return
-
-  const baseUrl = baseUrlsFor(site)[0]
-  if (!baseUrl) return
-
-  return { baseUrl, siteId }
+    .flatMap((site) => {
+      // null site IDs are excluded by the _siteId query
+      const siteId = site.siteId()!
+      return baseUrlsFor(site).map((baseUrl) => ({ baseUrl, siteId }))
+    })
+    .find(({ baseUrl }) => url.startsWith(baseUrl))
 }
 
 function baseUrlsFor(site: Obj) {
@@ -119,12 +114,6 @@ function getBaseAppUrl(): string | undefined {
 
 function appWebsites() {
   return Obj.onAllSites().where('_contentId', 'equals', rootContentId)
-}
-
-function allWebsites() {
-  return Obj.onAllSites()
-    .where('_path', 'equals', '/')
-    .andNot('_siteId', 'equals', NEOLETTER_MAILINGS_SITE_ID)
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
