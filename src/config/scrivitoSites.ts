@@ -72,6 +72,7 @@ function findSiteForUrl(url: string) {
       const siteId = site.siteId()!
       return baseUrlsFor(site).map((baseUrl) => ({ baseUrl, siteId }))
     })
+    .sort((a, b) => b.baseUrl.length - a.baseUrl.length)
     .find(({ baseUrl }) => url.startsWith(baseUrl))
 }
 
