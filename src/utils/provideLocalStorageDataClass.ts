@@ -219,7 +219,7 @@ function compare({
     if (opCode === 'gte') return itemValue >= filterValue
     if (opCode === 'lte') return itemValue <= filterValue
 
-    throw new Error(`Invalid comparison operator: ${opCode}`)
+    throw new Error(`Implementation error: ${opCode} is not handled.`)
   }
 
   const eq =
