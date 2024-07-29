@@ -193,6 +193,13 @@ function orderItems(
   )
 }
 
+const comparators = {
+  gt: (a: string | number, b: string | number) => a > b,
+  lt: (a: string | number, b: string | number) => a < b,
+  gte: (a: string | number, b: string | number) => a >= b,
+  lte: (a: string | number, b: string | number) => a <= b,
+}
+
 function compare({
   itemValue,
   filterValue,
@@ -202,7 +209,7 @@ function compare({
   filterValue: string | number | boolean | null
   opCode: 'eq' | 'neq' | 'gt' | 'lt' | 'gte' | 'lte'
 }): boolean {
-  if (['gt', 'lt', 'gte', 'lte'].includes(opCode)) {
+  if (opCode !== 'eq' && opCode !== 'neq') {
     if (
       !(
         (typeof itemValue === 'number' || typeof itemValue === 'string') &&
@@ -214,12 +221,7 @@ function compare({
       )
     }
 
-    if (opCode === 'gt') return itemValue > filterValue
-    if (opCode === 'lt') return itemValue < filterValue
-    if (opCode === 'gte') return itemValue >= filterValue
-    if (opCode === 'lte') return itemValue <= filterValue
-
-    throw new Error(`Implementation error: ${opCode} is not handled.`)
+    return comparators[opCode](itemValue, filterValue)
   }
 
   const eq =
