@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "eslint": "eslint --max-warnings 0 'src/**/*.ts' 'src/**/*.tsx'",
     "prerender": "tsc && vite build && vite-node --options.deps.external='/scrivito/' src/prerenderContent.ts",
+    "prerender-preview": "vite preview --outDir dist-ssr",
     "prettier": "prettier --check .",
     "start-design": "vite --config design/vite-design.config.ts",
     "start": "vite",
