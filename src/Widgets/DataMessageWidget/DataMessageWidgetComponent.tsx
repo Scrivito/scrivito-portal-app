@@ -17,13 +17,9 @@ import { ensureString } from '../../utils/ensureString'
 UserPromise.then((User) => {
   provideComponent(DataMessageWidget, ({ widget }) => {
     const dataItem = useDataItem()
-    const createdBy = dataItem?.get('createdBy')
+    const createdBy = ensureString(dataItem?.get('createdBy'))
 
-    const user:
-      | null
-      | DataItem
-      // @ts-expect-error until out of private beta
-      | undefined = createdBy && User.get(createdBy)
+    const user: DataItem | null = createdBy ? User.get(createdBy) : null
 
     const classNames = ['box-comment']
 
