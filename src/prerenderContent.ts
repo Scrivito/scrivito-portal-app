@@ -12,12 +12,19 @@ configureScrivito({ priority: 'background' })
 
 const PRERENDER_OBJ_CLASSES_BLACKLIST = [
   'Download',
+  'Dropdown',
   'Image',
   'Redirect',
   'Video',
 ]
 
-const SITEMAP_OBJ_CLASSES_WHITELIST = ['Homepage', 'Page']
+const SITEMAP_OBJ_CLASSES_WHITELIST = [
+  'Homepage',
+  'Page',
+  'Product',
+  'ProductCategory',
+  'ProductsOverview',
+]
 
 const SOURCE_DIR = 'dist'
 const TARGET_DIR = 'dist-ssr'
