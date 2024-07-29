@@ -1,10 +1,7 @@
 import { Obj, urlFor } from 'scrivito'
-import { loadEnv } from 'vite'
 
 export function getSiteIds(): string[] {
-  const env = loadEnv('development', process.cwd(), '')
-
-  const origin = env.SCRIVITO_ORIGIN
+  const origin = import.meta.env.SCRIVITO_ORIGIN
   if (!origin) throw new Error('Missing SCRIVITO_ORIGIN.')
 
   const allSites = Obj.onAllSites().where('_path', 'equals', '/').toArray()

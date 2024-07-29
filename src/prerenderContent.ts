@@ -25,7 +25,7 @@ const TARGET_DIR = 'dist-ssr'
 async function prerenderContent() {
   console.time('[prerenderContent]')
 
-  if (!process.env.SCRIVITO_ORIGIN) {
+  if (!import.meta.env.SCRIVITO_ORIGIN) {
     throw new Error(
       'The environment variable "SCRIVITO_ORIGIN" is not defined.' +
         ' Prerendered pages need a configured origin.',
