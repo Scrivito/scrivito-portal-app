@@ -6,7 +6,7 @@ import { extendRedirects } from './prerenderContent/extendRedirects'
 import { prerenderObjs } from './prerenderContent/prerenderObjs'
 import { prerenderSitemap } from './prerenderContent/prerenderSitemap'
 import { reportError } from './prerenderContent/reportError'
-import { cp, readFile, rename, rm } from 'fs/promises'
+import { cp, readFile, rm } from 'fs/promises'
 
 configureScrivito({ priority: 'background' })
 
@@ -51,11 +51,6 @@ async function prerenderContent() {
     `  📦 [prerenderContent] Copying ${SOURCE_DIR}/ to ${TARGET_DIR}/`,
   )
   await cp(SOURCE_DIR, TARGET_DIR, { recursive: true })
-
-  await rename(
-    path.join(TARGET_DIR, 'index.html'),
-    path.join(TARGET_DIR, 'catch_all_index.html'),
-  )
 
   await prerenderSitemap(TARGET_DIR, SITEMAP_OBJ_CLASSES_WHITELIST)
 
