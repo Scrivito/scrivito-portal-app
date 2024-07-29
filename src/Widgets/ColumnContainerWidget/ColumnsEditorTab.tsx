@@ -204,11 +204,12 @@ const ColumnsEditor = connect(
 
     function adjustGrid(newGrid: number[]) {
       if (readOnly) return
-      if (isEqual(currentGrid, newGrid)) return
-
-      adjustNumberOfColumns(widget, newGrid.length)
-      distributeContents(widget.get('columns'), originalContents)
-      adjustColSize(widget.get('columns'), newGrid)
+      if (!isEqual(currentGrid, newGrid)) {
+        adjustNumberOfColumns(widget, newGrid.length)
+        distributeContents(widget.get('columns'), originalContents)
+        adjustColSize(widget.get('columns'), newGrid)
+      }
+      adjustFlexGrow(widget.get('columns'), newGrid)
     }
   },
 )
@@ -554,6 +555,13 @@ function distributeContents(columns: Widget[], originalContents: Widget[][]) {
 function adjustColSize(columns: Widget[], newGrid: number[]) {
   columns.forEach((column, index) => {
     column.update({ colSize: newGrid[index] })
+  })
+}
+
+function adjustFlexGrow(columns: Widget[], grid: number[]) {
+  const max = Math.max(...grid)
+  columns.forEach((column, index) => {
+    column.update({ flexGrow: grid[index] === max })
   })
 }
 
