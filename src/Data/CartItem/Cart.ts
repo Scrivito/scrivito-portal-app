@@ -12,7 +12,6 @@ import { OpportunityPromise } from '../Opportunity/OpportunityDataClass'
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
 
-  // @ts-expect-error until out of private beta
   await CartItem.create({ productId })
 }
 
@@ -20,7 +19,6 @@ export async function removeFromCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
 
   const items: DataItem[] = await load(() =>
-    // @ts-expect-error until out of private beta
     CartItem.all().transform({ filters: { productId } }).take(),
   )
 
@@ -32,26 +30,22 @@ export function isInCart(product: ProductInstance): boolean {
 
   const productId = product.id()
 
-  // @ts-expect-error until out of private beta
   return CartItem.all().transform({ filters: { productId } }).containsData()
 }
 
 export function containsItems(): boolean {
   if (!isUserLoggedIn()) return false // TODO: remove, once CartItem itself requires a login
 
-  // @ts-expect-error until out of private beta
   return CartItem.all().containsData()
 }
 
 export function numberOfCartItems(): number | null {
   if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
 
-  // @ts-expect-error until out of private beta
   return CartItem.all().count()
 }
 
 export async function checkoutCart(): Promise<DataItem> {
-  // @ts-expect-error until out of private beta
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
 
   const products: ProductInstance[] = []
@@ -69,7 +63,6 @@ export async function checkoutCart(): Promise<DataItem> {
     .join('\n')
 
   const Opportunity = await OpportunityPromise
-  // @ts-expect-error until out of private beta
   const opportunity = await Opportunity.create({ keyword, description })
 
   const deletePromises = cartItems.map((item) => item.delete())

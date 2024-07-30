@@ -1,12 +1,9 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
+import { pisaConfig } from '../../pisaClient'
 
 export async function pisaServiceObjectDocumentDataClass() {
-  const serviceObjectDocumentClient = await pisaClient(
-    'service-object-document',
-  )
-
   return provideDataClass('ServiceObjectDocument', {
-    restApi: serviceObjectDocumentClient,
+    restApi: pisaConfig('service-object-document'),
+    attributes: {},
   })
 }

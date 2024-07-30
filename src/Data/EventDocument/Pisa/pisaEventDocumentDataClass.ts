@@ -1,10 +1,9 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
+import { pisaConfig } from '../../pisaClient'
 
 export async function pisaEventDocumentDataClass() {
-  const eventDocumentClient = await pisaClient('event-document')
-
   return provideDataClass('EventDocument', {
-    restApi: eventDocumentClient,
+    restApi: pisaConfig('event-document'),
+    attributes: {},
   })
 }
