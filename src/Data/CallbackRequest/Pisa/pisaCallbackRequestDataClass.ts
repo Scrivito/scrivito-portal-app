@@ -14,10 +14,14 @@ export async function pisaCallbackRequestDataClass() {
             results: [await callbackRequestClient.get('')],
           } as DataIndexResponse
         } catch (error) {
-          if (!(error instanceof ClientError)) throw error
-          if (error.code !== 'record.not_found') throw error
+          if (
+            error instanceof ClientError &&
+            error.code === 'record.not_found'
+          ) {
+            return { results: [] }
+          }
 
-          return { results: [] }
+          throw error
         }
       },
       get: () => callbackRequestClient.get(''),
