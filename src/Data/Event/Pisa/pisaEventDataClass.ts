@@ -6,13 +6,12 @@ import { DataConnection, DataIndexResponse } from '../../types'
 export function pisaEventDataClass() {
   return provideDataClass('Event', {
     connection: pisaClient('event').then(
-      (eventClient): DataConnection => ({
+      (apiClient): DataConnection => ({
         index: async (params) =>
-          eventClient.get('', {
+          apiClient.get('', {
             params: toClientParams(params),
           }) as Promise<DataIndexResponse>,
-
-        get: async (id) => eventClient.get(id),
+        get: async (id) => apiClient.get(id),
       }),
     ),
   })

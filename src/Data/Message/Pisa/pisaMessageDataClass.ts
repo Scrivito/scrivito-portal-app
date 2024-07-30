@@ -7,21 +7,19 @@ import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 export function pisaMessageDataClass() {
   return provideDataClass('Message', {
     connection: pisaClient('message').then(
-      (messageClient): DataConnection => ({
+      (apiClient): DataConnection => ({
         index: (params) =>
-          messageClient.get('', {
+          apiClient.get('', {
             params: toClientParams(params),
           }) as Promise<DataIndexResponse>,
-        get: (id) => messageClient.get(id),
+        get: (id) => apiClient.get(id),
         create: async (data) =>
-          messageClient.post('', {
+          apiClient.post('', {
             data: await convertBlobAttributes(data),
           }) as Promise<RawItem>,
         update: async (id, data) =>
-          messageClient.patch(id, {
-            data: await convertBlobAttributes(data),
-          }),
-        delete: (id) => messageClient.delete(id),
+          apiClient.patch(id, { data: await convertBlobAttributes(data) }),
+        delete: (id) => apiClient.delete(id),
       }),
     ),
   })

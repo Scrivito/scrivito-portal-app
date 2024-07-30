@@ -6,12 +6,12 @@ import { DataConnection, DataIndexResponse } from '../../types'
 export function pisaServiceObjectDataClass() {
   return provideDataClass('ServiceObject', {
     connection: pisaClient('service-object').then(
-      (serviceObjectClient): DataConnection => ({
+      (apiClient): DataConnection => ({
         index: (params) =>
-          serviceObjectClient.get('', {
+          apiClient.get('', {
             params: toClientParams(params),
           }) as Promise<DataIndexResponse>,
-        get: (id) => serviceObjectClient.get(id),
+        get: (id) => apiClient.get(id),
       }),
     ),
   })

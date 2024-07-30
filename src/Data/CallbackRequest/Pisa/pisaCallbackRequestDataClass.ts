@@ -6,16 +6,13 @@ export function pisaCallbackRequestDataClass() {
   // callback-request is more or less a "singleton". It only offers PUT, GET and DELETE.
   return provideDataClass('CallbackRequest', {
     connection: pisaClient('callback-request').then(
-      (callbackRequestClient): DataConnection => ({
+      (apiClient): DataConnection => ({
         index: async () =>
-          ({
-            results: [await callbackRequestClient.get('')],
-          }) as DataIndexResponse,
-        get: () => callbackRequestClient.get(''),
-        create: async (data) =>
-          callbackRequestClient.put('', { data }) as Promise<RawItem>,
-        update: async (_id, data) => callbackRequestClient.put('', { data }),
-        delete: (id) => callbackRequestClient.delete(id),
+          ({ results: [await apiClient.get('')] }) as DataIndexResponse,
+        get: () => apiClient.get(''),
+        create: async (data) => apiClient.put('', { data }) as Promise<RawItem>,
+        update: async (_id, data) => apiClient.put('', { data }),
+        delete: (id) => apiClient.delete(id),
       }),
     ),
   })
