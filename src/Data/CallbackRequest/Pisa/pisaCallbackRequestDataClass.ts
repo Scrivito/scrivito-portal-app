@@ -2,7 +2,7 @@ import { provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 import { DataConnection, DataIndexResponse, RawItem } from '../../types'
 
-export async function pisaCallbackRequestDataClass() {
+export function pisaCallbackRequestDataClass() {
   // callback-request is more or less a "singleton". It only offers PUT, GET and DELETE.
   return provideDataClass('CallbackRequest', {
     connection: pisaClient('callback-request').then(
