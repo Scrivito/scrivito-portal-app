@@ -1,12 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
-import { EventDocumentPromise } from './EventDocumentDataClass'
+import { EventDocument } from './EventDocumentDataClass'
 
-EventDocumentPromise.then((EventDocument) => {
-  provideEditingConfig(EventDocument, {
-    title: 'Event document',
-    attributes: {
-      documentId: { title: 'Document ID' },
-      eventId: { title: 'Event ID' },
-    },
-  })
+provideEditingConfig(EventDocument, {
+  title: 'Event document',
+  attributes: {
+    documentId: { title: 'Document ID' },
+    eventId: { title: 'Event ID' },
+  },
 })
