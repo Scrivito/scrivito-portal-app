@@ -2,7 +2,7 @@ import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorage
 import machineImage from './FakeBinaries/machine.jpg'
 import pumpImage from './FakeBinaries/pump.jpg'
 
-export async function localStorageServiceObjectDataClass() {
+export function localStorageServiceObjectDataClass() {
   return provideLocalStorageDataClass('ServiceObject', {
     initialContent: [
       {

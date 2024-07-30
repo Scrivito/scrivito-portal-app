@@ -3,7 +3,7 @@ import { pisaClient } from '../../pisaClient'
 import { toClientParams } from '../../toClientParams'
 import { DataConnection, DataIndexResponse } from '../../types'
 
-export async function pisaServiceObjectDataClass() {
+export function pisaServiceObjectDataClass() {
   return provideDataClass('ServiceObject', {
     connection: pisaClient('service-object').then(
       (serviceObjectClient): DataConnection => ({
