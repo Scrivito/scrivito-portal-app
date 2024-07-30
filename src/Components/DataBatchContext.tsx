@@ -37,9 +37,16 @@ export const DataBatchContextProvider = connect(
 
     const transform = { limit, search }
 
-    const hasMore = () =>
-      dataScope.transform({ ...transform, limit: limit + 1 }).take().length >
-      limit
+    const hasMore = () => {
+      try {
+        return (
+          dataScope.transform({ ...transform, limit: limit + 1 }).take()
+            .length > limit
+        )
+      } catch (error) {
+        return false
+      }
+    }
 
     const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
 

@@ -13,13 +13,29 @@ import { DataPersonCardWidget } from './DataPersonCardWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import personCircle from '../../assets/images/person-circle.svg'
 import { Loading } from '../../Components/Loading'
+import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(
   DataPersonCardWidget,
   ({ widget }) => {
     const dataScope = useData()
+    let dataError: unknown
 
-    if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
+    try {
+      if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
+    } catch (error) {
+      dataError = error
+    }
+
+    let dataItems: DataItem[]
+    try {
+      dataItems = dataScope.take()
+    } catch (error) {
+      dataItems = []
+      dataError = error
+    }
+
+    if (dataError) return <DataErrorEditorNote error={dataError} />
 
     return (
       <div>
@@ -29,7 +45,7 @@ provideComponent(
           attribute="headline"
           className="h6 text-uppercase"
         />
-        {dataScope.take().map((dataItem) => (
+        {dataItems.map((dataItem) => (
           <PersonCard dataItem={dataItem} key={dataItem.id()} />
         ))}
       </div>

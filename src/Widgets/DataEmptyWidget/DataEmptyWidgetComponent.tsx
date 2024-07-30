@@ -6,17 +6,21 @@ import {
   useData,
 } from 'scrivito'
 import { DataEmptyWidget } from './DataEmptyWidgetClass'
+import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(
   DataEmptyWidget,
   ({ widget }) => {
     const dataScope = useData()
 
-    if (
-      dataScope.containsData() &&
-      !isInPlaceEditingActive() &&
-      !isComparisonActive()
-    ) {
+    let containsData
+    try {
+      containsData = dataScope.containsData()
+    } catch (error) {
+      return <DataErrorEditorNote error={error} />
+    }
+
+    if (containsData && !isInPlaceEditingActive() && !isComparisonActive()) {
       return null
     }
 
@@ -24,7 +28,7 @@ provideComponent(
       <ContentTag
         content={widget}
         attribute="content"
-        className={dataScope.containsData() ? 'opacity-60' : null}
+        className={containsData ? 'opacity-60' : null}
       />
     )
   },
