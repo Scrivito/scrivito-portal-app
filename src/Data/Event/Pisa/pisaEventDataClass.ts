@@ -3,7 +3,7 @@ import { pisaClient } from '../../pisaClient'
 import { toClientParams } from '../../toClientParams'
 import { DataConnection, DataIndexResponse } from '../../types'
 
-export async function pisaEventDataClass() {
+export function pisaEventDataClass() {
   return provideDataClass('Event', {
     connection: pisaClient('event').then(
       (eventClient): DataConnection => ({
