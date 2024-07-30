@@ -1,4 +1,4 @@
-import { provideDataClass } from 'scrivito'
+import { ClientError, provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 import { DataConnection, DataIndexResponse, RawItem } from '../../types'
 
@@ -7,8 +7,22 @@ export function pisaCallbackRequestDataClass() {
   return provideDataClass('CallbackRequest', {
     connection: pisaClient('callback-request').then(
       (apiClient): DataConnection => ({
-        index: async () =>
-          ({ results: [await apiClient.get('')] }) as DataIndexResponse,
+        index: async () => {
+          try {
+            return {
+              results: [await apiClient.get('')],
+            } as DataIndexResponse
+          } catch (error) {
+            if (
+              error instanceof ClientError &&
+              error.code === 'record.not_found'
+            ) {
+              return { results: [] }
+            }
+
+            throw error
+          }
+        },
         get: () => apiClient.get(''),
         create: async (data) => apiClient.put('', { data }) as Promise<RawItem>,
         update: async (_id, data) => apiClient.put('', { data }),
