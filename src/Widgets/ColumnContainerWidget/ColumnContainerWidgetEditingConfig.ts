@@ -12,6 +12,12 @@ provideEditingConfig(ColumnContainerWidget, {
       title: 'Columns layout',
       key: 'columns-layout-group',
       component: ColumnsEditorTab,
+      properties: [
+        'alignment',
+        'columns',
+        'disableResponsiveAdaption',
+        'layoutMode',
+      ],
     },
   ],
   initialContent: {
