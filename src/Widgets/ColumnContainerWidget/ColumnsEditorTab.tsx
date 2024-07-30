@@ -46,6 +46,10 @@ const ColumnsEditor = connect(
     const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
     const isFlex = widget.get('layoutMode') === 'flex'
 
+    function isActive(grid: number[]) {
+      return isEqual(grid, currentGrid)
+    }
+
     return (
       <div className="scrivito_detail_content">
         <Alignment
@@ -64,7 +68,7 @@ const ColumnsEditor = connect(
           <div className="gle-preview-list">
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="1 column"
@@ -73,21 +77,21 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="2 columns"
                 grid={[6, 6]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="2 columns"
                 grid={[3, 9]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="2 columns"
@@ -96,28 +100,28 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="3 columns"
                 grid={[4, 4, 4]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="3 columns"
                 grid={[2, 8, 2]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="3 columns"
                 grid={[2, 5, 5]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="3 columns"
@@ -126,14 +130,14 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="4 columns"
                 grid={[3, 3, 3, 3]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="4 columns"
@@ -142,7 +146,7 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="5 columns"
@@ -151,7 +155,7 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="6 columns"
@@ -246,21 +250,21 @@ function calculateContentIds(contents: Widget[][]) {
 }
 
 function PresetGrid({
-  currentGrid,
+  isActive,
   adjustGrid,
   title,
   grid,
   readOnly,
 }: {
   adjustGrid: (newGrid: number[]) => void
-  currentGrid: number[]
+  isActive: (grid: number[]) => boolean
   grid: number[]
   readOnly: boolean
   title: string
 }) {
   const classNames = ['gle-preview', 'p-0']
   if (!readOnly) classNames.push('clickable')
-  if (isEqual(currentGrid, grid)) classNames.push('active')
+  if (isActive(grid)) classNames.push('active')
 
   return (
     <button
