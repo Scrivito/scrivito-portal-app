@@ -47,7 +47,9 @@ const ColumnsEditor = connect(
     const isFlex = widget.get('layoutMode') === 'flex'
 
     function isActive(grid: number[]) {
-      return isEqual(grid, currentGrid)
+      return isFlex
+        ? isEqual(growFromGrid(grid), growOfWidget(widget))
+        : isEqual(grid, currentGrid)
     }
 
     return (
@@ -643,10 +645,15 @@ function adjustFlexGrow(columns: Widget[], newGrow: boolean[]) {
 }
 
 function adjustFlexGrowFromGrid(columns: Widget[], grid: number[]) {
+  const flexGrow = growFromGrid(grid)
+  columns.forEach((column, index) =>
+    column.update({ flexGrow: flexGrow[index] }),
+  )
+}
+
+function growFromGrid(grid: number[]) {
   const max = Math.max(...grid)
-  columns.forEach((column, index) => {
-    column.update({ flexGrow: grid[index] === max })
-  })
+  return grid.map((colSize) => colSize === max)
 }
 
 function AlignmentDescription({ alignment }: { alignment: string | null }) {
