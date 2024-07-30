@@ -4,7 +4,7 @@ import { toClientParams } from '../../toClientParams'
 import { DataConnection, DataIndexResponse, RawItem } from '../../types'
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 
-export async function pisaDocumentDataClass() {
+export function pisaDocumentDataClass() {
   return provideDataClass('Document', {
     connection: pisaClient('document').then(
       (documentClient): DataConnection => ({
