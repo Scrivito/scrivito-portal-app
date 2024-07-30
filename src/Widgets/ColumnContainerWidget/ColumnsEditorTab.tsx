@@ -63,6 +63,15 @@ const ColumnsEditor = connect(
           }}
           readOnly={readOnly}
         />
+        <Switch
+          className="two_valued"
+          labels={['Grid', 'Flex']}
+          onClick={() =>
+            widget.update({ layoutMode: isFlex ? 'grid' : 'flex' })
+          }
+          title="Display mode"
+          value={isFlex ? 1 : 0}
+        />
         <div className="scrivito_detail_label">
           <span>Layout (desktop)</span>
         </div>
@@ -643,11 +652,13 @@ function AlignmentDescription({ alignment }: { alignment: string | null }) {
 }
 
 function Switch({
+  className,
   labels,
   onClick,
   title,
   value,
 }: {
+  className?: string
   labels: string[]
   onClick: () => void
   title: string
