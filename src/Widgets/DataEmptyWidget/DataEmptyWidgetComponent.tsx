@@ -6,17 +6,26 @@ import {
   useData,
 } from 'scrivito'
 import { DataEmptyWidget } from './DataEmptyWidgetClass'
+import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(
   DataEmptyWidget,
   ({ widget }) => {
     const dataScope = useData()
 
-    if (
-      dataScope.containsData() &&
-      !isInPlaceEditingActive() &&
-      !isComparisonActive()
-    ) {
+    let containsData
+    try {
+      containsData = dataScope.containsData()
+    } catch (error) {
+      return (
+        <EditorNote>
+          Error fetching data:{' '}
+          {error instanceof Error ? error.message : JSON.stringify(error)}
+        </EditorNote>
+      )
+    }
+
+    if (containsData && !isInPlaceEditingActive() && !isComparisonActive()) {
       return null
     }
 
@@ -24,7 +33,7 @@ provideComponent(
       <ContentTag
         content={widget}
         attribute="content"
-        className={dataScope.containsData() ? 'opacity-60' : null}
+        className={containsData ? 'opacity-60' : null}
       />
     )
   },
