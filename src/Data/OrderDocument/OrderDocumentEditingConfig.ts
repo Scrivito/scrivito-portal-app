@@ -1,12 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
-import { OrderDocumentPromise } from './OrderDocumentDataClass'
+import { OrderDocument } from './OrderDocumentDataClass'
 
-OrderDocumentPromise.then((OrderDocument) => {
-  provideEditingConfig(OrderDocument, {
-    title: 'Order document',
-    attributes: {
-      orderId: { title: 'Order ID' },
-      documentId: { title: 'Document ID' },
-    },
-  })
+provideEditingConfig(OrderDocument, {
+  title: 'Order document',
+  attributes: {
+    orderId: { title: 'Order ID' },
+    documentId: { title: 'Document ID' },
+  },
 })
