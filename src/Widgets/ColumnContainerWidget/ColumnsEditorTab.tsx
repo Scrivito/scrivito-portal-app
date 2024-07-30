@@ -180,40 +180,16 @@ const ColumnsEditor = connect(
           )}
         </div>
 
-        <div className="scrivito_detail_label">
-          <span style={{ fontSize: '11px' }}>Disable responsive adaption?</span>
-        </div>
-
-        <div className="item_content">
-          <div className="boolean_attribute_component">
-            <label
-              className={`scrivito_switch${
-                disableResponsiveAdaption ? ' active' : ''
-              }`}
-              aria-label={disableResponsiveAdaption ? 'Yes' : 'No'}
-            >
-              <input
-                type="checkbox"
-                className="btn-check"
-                checked={disableResponsiveAdaption}
-                onClick={() =>
-                  widget.update({
-                    disableResponsiveAdaption: !disableResponsiveAdaption,
-                  })
-                }
-              />
-              <div className="pill-wrapper">
-                <div className="cell pill"></div>
-              </div>
-              <div className="cell left" aria-hidden>
-                No
-              </div>
-              <div className="cell right" aria-hidden>
-                Yes
-              </div>
-            </label>
-          </div>
-        </div>
+        <Switch
+          labels={['No', 'Yes']}
+          onClick={() =>
+            widget.update({
+              disableResponsiveAdaption: !disableResponsiveAdaption,
+            })
+          }
+          title="Disable responsive adaption?"
+          value={disableResponsiveAdaption ? 1 : 0}
+        />
       </div>
     )
 
@@ -663,5 +639,50 @@ function AlignmentDescription({ alignment }: { alignment: string | null }) {
     <div className="scrivito_notice_body">
       Stretch (full height) only works with one box widget inside a column.
     </div>
+  )
+}
+
+function Switch({
+  labels,
+  onClick,
+  title,
+  value,
+}: {
+  labels: string[]
+  onClick: () => void
+  title: string
+  value: number
+}) {
+  return (
+    <>
+      <div className="scrivito_detail_label">
+        <span style={{ fontSize: '11px' }}>{title}</span>
+      </div>
+
+      <div className="item_content">
+        <div className="boolean_attribute_component">
+          <label
+            className={`scrivito_switch ${className} ${value ? 'active' : ''}`}
+            aria-label={labels[value]}
+          >
+            <input
+              type="checkbox"
+              className="btn-check"
+              checked={!!value}
+              onClick={onClick}
+            />
+            <div className="pill-wrapper">
+              <div className="cell pill"></div>
+            </div>
+            <div className="cell left" aria-hidden>
+              {labels[0]}
+            </div>
+            <div className="cell right" aria-hidden>
+              {labels[1]}
+            </div>
+          </label>
+        </div>
+      </div>
+    </>
   )
 }
