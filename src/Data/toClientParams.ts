@@ -1,10 +1,6 @@
-import { provideDataClass, createRestApiClient, ArgumentError } from 'scrivito'
+import { createRestApiClient, ArgumentError } from 'scrivito'
+import { DataConnection } from './types'
 
-type DataConnection = Parameters<
-  typeof provideDataClass
->[1]['connection'] extends Partial<infer U> | Promise<Partial<infer U>>
-  ? Partial<U>
-  : never
 type IndexCallback = NonNullable<DataConnection['index']>
 type IndexParams = Parameters<IndexCallback>[0]
 

@@ -1,28 +1,26 @@
 import { provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 import { toClientParams } from '../../toClientParams'
-import { DataIndexResponse, RawItem } from '../../types'
+import { DataConnection, DataIndexResponse, RawItem } from '../../types'
 import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 
-export async function pisaDocumentDataClass() {
-  const documentClient = await pisaClient('document')
-
+export function pisaDocumentDataClass() {
   return provideDataClass('Document', {
-    connection: {
-      index: (params) =>
-        documentClient.get('', {
-          params: toClientParams(params),
-        }) as Promise<DataIndexResponse>,
-      get: (id) => documentClient.get(id),
-      create: async (data) =>
-        documentClient.post('', {
-          data: await convertBlobAttributes(data),
-        }) as Promise<RawItem>,
-      update: async (id, data) =>
-        documentClient.patch(id, {
-          data: await convertBlobAttributes(data),
-        }),
-      delete: (id) => documentClient.delete(id),
-    },
+    connection: pisaClient('document').then(
+      (apiClient): DataConnection => ({
+        index: (params) =>
+          apiClient.get('', {
+            params: toClientParams(params),
+          }) as Promise<DataIndexResponse>,
+        get: (id) => apiClient.get(id),
+        create: async (data) =>
+          apiClient.post('', {
+            data: await convertBlobAttributes(data),
+          }) as Promise<RawItem>,
+        update: async (id, data) =>
+          apiClient.patch(id, { data: await convertBlobAttributes(data) }),
+        delete: (id) => apiClient.delete(id),
+      }),
+    ),
   })
 }

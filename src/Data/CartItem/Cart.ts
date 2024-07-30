@@ -7,7 +7,7 @@ import {
 } from 'scrivito'
 import { Product, ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
-import { OpportunityPromise } from '../Opportunity/OpportunityDataClass'
+import { Opportunity } from '../Opportunity/OpportunityDataClass'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
@@ -62,7 +62,6 @@ export async function checkoutCart(): Promise<DataItem> {
     .map((product) => `1 × ${product.get('title')} (ID: ${product.id()})`)
     .join('\n')
 
-  const Opportunity = await OpportunityPromise
   const opportunity = await Opportunity.create({ keyword, description })
 
   const deletePromises = cartItems.map((item) => item.delete())

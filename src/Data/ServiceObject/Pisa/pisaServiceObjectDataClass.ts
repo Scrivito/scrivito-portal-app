@@ -1,18 +1,18 @@
 import { provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 import { toClientParams } from '../../toClientParams'
-import { DataIndexResponse } from '../../types'
+import { DataConnection, DataIndexResponse } from '../../types'
 
-export async function pisaServiceObjectDataClass() {
-  const serviceObjectClient = await pisaClient('service-object')
-
+export function pisaServiceObjectDataClass() {
   return provideDataClass('ServiceObject', {
-    connection: {
-      index: (params) =>
-        serviceObjectClient.get('', {
-          params: toClientParams(params),
-        }) as Promise<DataIndexResponse>,
-      get: (id) => serviceObjectClient.get(id),
-    },
+    connection: pisaClient('service-object').then(
+      (apiClient): DataConnection => ({
+        index: (params) =>
+          apiClient.get('', {
+            params: toClientParams(params),
+          }) as Promise<DataIndexResponse>,
+        get: (id) => apiClient.get(id),
+      }),
+    ),
   })
 }

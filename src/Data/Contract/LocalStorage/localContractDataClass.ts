@@ -1,6 +1,6 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 
-export async function localContractDataClass() {
+export function localContractDataClass() {
   return provideLocalStorageDataClass('Contract', {
     initialContent: [
       {

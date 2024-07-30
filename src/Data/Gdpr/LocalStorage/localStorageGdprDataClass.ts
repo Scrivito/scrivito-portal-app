@@ -1,6 +1,6 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 
-export async function localStorageGdprDataClass() {
+export function localStorageGdprDataClass() {
   return provideLocalStorageDataClass('Gdpr', {
     prepareData: async (data) => ({
       active: data.active,
