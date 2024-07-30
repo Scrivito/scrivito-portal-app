@@ -3,7 +3,7 @@ import { pisaClient } from '../../pisaClient'
 import { postProcessUserData } from '../UserDataClass'
 import { DataConnection } from '../../types'
 
-export async function pisaUserDataClass() {
+export function pisaUserDataClass() {
   return provideDataClass('User', {
     connection: pisaClient('user').then(
       (userClient): DataConnection => ({
