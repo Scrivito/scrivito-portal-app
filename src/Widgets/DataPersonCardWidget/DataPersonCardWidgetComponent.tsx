@@ -13,6 +13,7 @@ import { DataPersonCardWidget } from './DataPersonCardWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import personCircle from '../../assets/images/person-circle.svg'
 import { Loading } from '../../Components/Loading'
+import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(
   DataPersonCardWidget,
@@ -34,16 +35,7 @@ provideComponent(
       dataError = error
     }
 
-    if (dataError) {
-      return (
-        <EditorNote>
-          Error fetching data:{' '}
-          {dataError instanceof Error
-            ? dataError.message
-            : JSON.stringify(dataError)}
-        </EditorNote>
-      )
-    }
+    if (dataError) return <DataErrorEditorNote error={dataError} />
 
     return (
       <div>

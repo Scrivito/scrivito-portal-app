@@ -6,7 +6,7 @@ import {
   useData,
 } from 'scrivito'
 import { DataEmptyWidget } from './DataEmptyWidgetClass'
-import { EditorNote } from '../../Components/EditorNote'
+import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(
   DataEmptyWidget,
@@ -17,12 +17,7 @@ provideComponent(
     try {
       containsData = dataScope.containsData()
     } catch (error) {
-      return (
-        <EditorNote>
-          Error fetching data:{' '}
-          {error instanceof Error ? error.message : JSON.stringify(error)}
-        </EditorNote>
-      )
+      return <DataErrorEditorNote error={error} />
     }
 
     if (containsData && !isInPlaceEditingActive() && !isComparisonActive()) {

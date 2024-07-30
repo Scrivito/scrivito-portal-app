@@ -2,6 +2,7 @@ import { ContentTag, DataItem, provideComponent, useData } from 'scrivito'
 import { DataWidget } from './DataWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { Loading } from '../../Components/Loading'
+import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(
   DataWidget,
@@ -23,16 +24,7 @@ provideComponent(
       dataError = error
     }
 
-    if (dataError) {
-      return (
-        <EditorNote>
-          Error fetching data:{' '}
-          {dataError instanceof Error
-            ? dataError.message
-            : JSON.stringify(dataError)}
-        </EditorNote>
-      )
-    }
+    if (dataError) return <DataErrorEditorNote error={dataError} />
 
     return (
       <>

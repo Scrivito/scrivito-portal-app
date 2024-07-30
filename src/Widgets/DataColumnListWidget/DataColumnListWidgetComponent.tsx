@@ -2,6 +2,7 @@ import { ContentTag, DataItem, provideComponent, useData } from 'scrivito'
 import { DataColumnListWidget } from './DataColumnListWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { Loading } from '../../Components/Loading'
+import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(
   DataColumnListWidget,
@@ -25,16 +26,7 @@ provideComponent(
       dataError = error
     }
 
-    if (dataError) {
-      return (
-        <EditorNote>
-          Error fetching data:{' '}
-          {dataError instanceof Error
-            ? dataError.message
-            : JSON.stringify(dataError)}
-        </EditorNote>
-      )
-    }
+    if (dataError) return <DataErrorEditorNote error={dataError} />
 
     const columnsCount = widget.get('columnsCount') || '2'
 
