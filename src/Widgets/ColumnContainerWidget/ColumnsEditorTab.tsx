@@ -44,6 +44,7 @@ const ColumnsEditor = connect(
     const originalContents = useMemo(() => calculateContents(widget), [widget])
 
     const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
+    const isFlex = widget.get('layoutMode') === 'flex'
 
     return (
       <div className="scrivito_detail_content">
@@ -158,11 +159,19 @@ const ColumnsEditor = connect(
               />
             </div>
           </div>
-          <GridLayoutEditor
-            currentGrid={currentGrid}
-            adjustGrid={adjustGrid}
-            readOnly={readOnly}
-          />
+          {isFlex ? (
+            <FlexLayoutEditor
+              currentGrow={growOfWidget(widget)}
+              adjustGrow={adjustGrow}
+              readOnly={readOnly}
+            />
+          ) : (
+            <GridLayoutEditor
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+            />
+          )}
         </div>
 
         <div className="scrivito_detail_label">
@@ -204,12 +213,24 @@ const ColumnsEditor = connect(
 
     function adjustGrid(newGrid: number[]) {
       if (readOnly) return
+      adjustCols(newGrid)
+      adjustFlexGrowFromGrid(widget.get('columns'), newGrid)
+    }
+
+    function adjustGrow(newGrow: boolean[]) {
+      if (readOnly) return
+      const newGrid =
+        length === 5 ? [2, 2, 2, 2, 4] : newGrow.map(() => 12 / newGrow.length)
+      adjustCols(newGrid)
+      adjustFlexGrow(widget.get('columns'), newGrow)
+    }
+
+    function adjustCols(newGrid: number[]) {
       if (!isEqual(currentGrid, newGrid)) {
         adjustNumberOfColumns(widget, newGrid.length)
         distributeContents(widget.get('columns'), originalContents)
         adjustColSize(widget.get('columns'), newGrid)
       }
-      adjustFlexGrow(widget.get('columns'), newGrid)
     }
   },
 )
@@ -345,6 +366,53 @@ function Alignment({
   )
 }
 
+function FlexLayoutEditor({
+  readOnly,
+  adjustGrow,
+  currentGrow,
+}: {
+  readOnly: boolean
+  adjustGrow: (newGrow: boolean[]) => void
+  currentGrow: boolean[]
+}) {
+  return (
+    <div className="gle flex-layout">
+      <div className={`grid-columns ${readOnly ? '' : 'clickable'}`}>
+        {currentGrow.map((flexGrow, index) => (
+          <div
+            key={index}
+            className={`grid-col grid-col-${flexGrow ? 'grow' : 'shrink'}`}
+          >
+            {currentGrow.length > 1 && (
+              <button
+                className="btn grid-del"
+                title="delete column"
+                onClick={() =>
+                  adjustGrow(currentGrow.filter((_, i) => i !== index))
+                }
+              />
+            )}
+            <button
+              className="btn grid-button"
+              title={flexGrow ? 'shrink column' : 'grow column'}
+              onClick={() =>
+                adjustGrow(currentGrow.map((v, i) => (i === index ? !v : v)))
+              }
+            />
+          </div>
+        ))}
+
+        {currentGrow.length < 6 && (
+          <button
+            className="p-0 grid-handle grid-handle-plus"
+            title="add a column"
+            onClick={() => adjustGrow([...currentGrow, true])}
+          />
+        )}
+      </div>
+    </div>
+  )
+}
 interface GridLayoutEditorProps {
   currentGrid: number[]
   adjustGrid: (newGrid: number[]) => void
@@ -523,6 +591,12 @@ function gridOfWidget(containerWidget: ColumnContainerWidgetInstance) {
     .map((column) => (column as ColumnWidgetInstance).get('colSize') || 1)
 }
 
+function growOfWidget(containerWidget: ColumnContainerWidgetInstance) {
+  return containerWidget
+    .get('columns')
+    .map((column) => (column as ColumnWidgetInstance).get('flexGrow'))
+}
+
 function adjustNumberOfColumns(
   containerWidget: ColumnContainerWidgetInstance,
   desiredLength: number,
@@ -558,7 +632,13 @@ function adjustColSize(columns: Widget[], newGrid: number[]) {
   })
 }
 
-function adjustFlexGrow(columns: Widget[], grid: number[]) {
+function adjustFlexGrow(columns: Widget[], newGrow: boolean[]) {
+  columns.forEach((column, index) => {
+    column.update({ flexGrow: newGrow[index] })
+  })
+}
+
+function adjustFlexGrowFromGrid(columns: Widget[], grid: number[]) {
   const max = Math.max(...grid)
   columns.forEach((column, index) => {
     column.update({ flexGrow: grid[index] === max })
