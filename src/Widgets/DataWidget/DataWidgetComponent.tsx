@@ -1,4 +1,4 @@
-import { ContentTag, provideComponent, useData } from 'scrivito'
+import { ContentTag, DataItem, provideComponent, useData } from 'scrivito'
 import { DataWidget } from './DataWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { Loading } from '../../Components/Loading'
@@ -7,14 +7,36 @@ provideComponent(
   DataWidget,
   ({ widget }) => {
     const dataScope = useData()
+    let dataError: unknown
 
-    if (dataScope.isEmpty()) {
-      return <EditorNote>Data is empty.</EditorNote>
+    try {
+      if (dataScope.isEmpty()) return <EditorNote>Data is empty.</EditorNote>
+    } catch (error) {
+      dataError = error
+    }
+
+    let dataItems: DataItem[]
+    try {
+      dataItems = dataScope.take()
+    } catch (error) {
+      dataItems = []
+      dataError = error
+    }
+
+    if (dataError) {
+      return (
+        <EditorNote>
+          Error fetching data:{' '}
+          {dataError instanceof Error
+            ? dataError.message
+            : JSON.stringify(dataError)}
+        </EditorNote>
+      )
     }
 
     return (
       <>
-        {dataScope.take().map((dataItem) => (
+        {dataItems.map((dataItem) => (
           <ContentTag
             content={widget}
             attribute="content"
