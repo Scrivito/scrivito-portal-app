@@ -49,18 +49,22 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
           className="nav-bordered"
           tag="ul"
           parent={page}
-          renderChild={(child) => (
-            <li className={isOnCurrentPath(child) ? 'active' : ''}>
-              <Nav.Link
-                as={LinkTag}
-                eventKey={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
-                key={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
-                to={child}
-              >
-                <ObjIconAndTitle obj={child} />
-              </Nav.Link>
-            </li>
-          )}
+          renderChild={(child) =>
+            child.get('hideInNavigation') === true ? (
+              <></>
+            ) : (
+              <li className={isOnCurrentPath(child) ? 'active' : ''}>
+                <Nav.Link
+                  as={LinkTag}
+                  eventKey={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
+                  key={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
+                  to={child}
+                >
+                  <ObjIconAndTitle obj={child} />
+                </Nav.Link>
+              </li>
+            )
+          }
         />
       </Navbar.Collapse>
     </Navbar>
