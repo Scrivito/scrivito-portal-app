@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(env.SCRIVITO_ORIGIN),
+      'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(scrivitoOrigin(env)),
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
       'import.meta.env.SCRIVITO_ROOT_CONTENT_ID': JSON.stringify(
         env.SCRIVITO_ROOT_CONTENT_ID,
@@ -57,6 +57,17 @@ export default defineConfig(({ mode }) => {
     },
   }
 })
+
+function scrivitoOrigin(env: Record<string, string>) {
+  /** @see https://docs.netlify.com/configure-builds/environment-variables/ */
+  const netlifyDeployUrl =
+    env.CONTEXT === 'production' ? env.URL : env.DEPLOY_PRIME_URL
+
+  /** @see https://developers.cloudflare.com/pages/configuration/build-configuration/ */
+  const cloudflarePagesDeployUrl = env.CF_PAGES_URL
+
+  return env.SCRIVITO_ORIGIN || cloudflarePagesDeployUrl || netlifyDeployUrl
+}
 
 function writeProductionHeaders(outDir: string) {
   return {
