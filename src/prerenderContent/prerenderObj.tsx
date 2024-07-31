@@ -13,49 +13,36 @@ export async function prerenderObj(
 ): Promise<{ filename: string; content: string }[]> {
   HelmetProvider.canUseDOM = false
 
-  const { result, preloadDump } = await renderPage(obj, () => {
+  const {
+    result: { objId, objUrl, ...data },
+    preloadDump,
+  } = await renderPage(obj, () => {
     const bodyContent = ReactDOMServer.renderToString(<App />)
     const { helmet } = helmetContext
 
     return {
-      objId: obj.id(),
-      objUrl: urlFor(obj),
-      htmlAttributes: helmet?.htmlAttributes.toString() || '',
-      headContent: `
-          ${helmet?.title.toString()}
-          ${helmet?.meta.toString()}
-          ${helmet?.link.toString()}
-        `,
       bodyAttributes: helmet?.bodyAttributes.toString() || '',
       bodyContent,
+      htmlAttributes: helmet?.htmlAttributes.toString() || '',
+      link: helmet?.link.toString() || '',
+      meta: helmet?.meta.toString() || '',
+      objId: obj.id(),
+      objUrl: urlFor(obj),
+      title: helmet?.title.toString() || '',
     }
   })
 
-  const {
-    bodyAttributes,
-    bodyContent,
-    headContent,
-    htmlAttributes,
-    objId,
-    objUrl,
-  } = result
   const preloadDumpFileContent = generatePreloadDump(preloadDump)
   const preloadDumpContentHash = await contentHash(preloadDumpFileContent)
   const preloadDumpFileName = `/assets/preloadDumps/${objId}.${preloadDumpContentHash}.js`
   const preloadDumpScript = `<script type="module" src="${preloadDumpFileName}"></script>`
 
   return [
-    {
-      filename: preloadDumpFileName,
-      content: preloadDumpFileContent,
-    },
+    { filename: preloadDumpFileName, content: preloadDumpFileContent },
     {
       filename: filenameFromUrl(objUrl),
       content: await generateHtml(baseHtmlTemplate, {
-        bodyAttributes,
-        bodyContent,
-        headContent,
-        htmlAttributes,
+        ...data,
         preloadDumpScript,
       }),
     },
