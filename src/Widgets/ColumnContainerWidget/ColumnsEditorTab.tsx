@@ -211,7 +211,9 @@ const ColumnsEditor = connect(
     function adjustGrow(newGrow: boolean[]) {
       if (readOnly) return
       const newGrid =
-        length === 5 ? [2, 2, 2, 2, 4] : newGrow.map(() => 12 / newGrow.length)
+        newGrow.length === 5
+          ? [2, 2, 2, 2, 4]
+          : newGrow.map(() => 12 / newGrow.length)
       adjustCols(newGrid)
       adjustFlexGrow(widget.get('columns'), newGrow)
     }
