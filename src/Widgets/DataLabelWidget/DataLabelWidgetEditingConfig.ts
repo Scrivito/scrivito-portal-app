@@ -28,6 +28,9 @@ provideEditingConfig(DataLabelWidget, {
     marginBottom: {
       title: 'Add margin bottom?',
     },
+    data: {
+      restrictDataTo: ['itemAttribute'],
+    },
   },
   properties: (widget) =>
     [

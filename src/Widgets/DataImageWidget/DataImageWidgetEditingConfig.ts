@@ -22,6 +22,9 @@ provideEditingConfig(DataImageWidget, {
     roundCorners: {
       title: 'Round corners?',
     },
+    data: {
+      restrictDataTo: ['itemAttribute'],
+    },
   },
   properties: ['alignment', 'link', 'roundCorners'],
   initialContent: {
