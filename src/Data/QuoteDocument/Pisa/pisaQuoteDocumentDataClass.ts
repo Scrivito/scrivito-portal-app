@@ -1,10 +1,9 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
+import { pisaConfig } from '../../pisaClient'
 
-export async function pisaQuoteDocumentDataClass() {
-  const quoteDocumentClient = await pisaClient('quote-document')
-
+export function pisaQuoteDocumentDataClass() {
   return provideDataClass('QuoteDocument', {
-    restApi: quoteDocumentClient,
+    restApi: pisaConfig('quote-document'),
+    attributes: {},
   })
 }

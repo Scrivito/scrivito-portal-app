@@ -1,10 +1,9 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
+import { pisaConfig } from '../../pisaClient'
 
-export async function pisaContractDocumentDataClass() {
-  const contractDocumentClient = await pisaClient('contract-document')
-
+export function pisaContractDocumentDataClass() {
   return provideDataClass('ContractDocument', {
-    restApi: contractDocumentClient,
+    restApi: pisaConfig('contract-document'),
+    attributes: {},
   })
 }

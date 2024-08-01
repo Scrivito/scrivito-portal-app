@@ -1,19 +1,9 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
-import { toClientParams } from '../../toClientParams'
-import { DataIndexResponse } from '../../types'
+import { pisaConfig } from '../../pisaClient'
 
-export async function pisaEventDataClass() {
-  const eventClient = await pisaClient('event')
-
+export function pisaEventDataClass() {
   return provideDataClass('Event', {
-    connection: {
-      index: async (params) =>
-        eventClient.get('', {
-          params: toClientParams(params),
-        }) as Promise<DataIndexResponse>,
-
-      get: async (id) => eventClient.get(id),
-    },
+    restApi: pisaConfig('event'),
+    attributes: {},
   })
 }

@@ -1,10 +1,9 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
+import { pisaConfig } from '../../pisaClient'
 
-export async function pisaEventRegistrationDataClass() {
-  const eventRegistrationClient = await pisaClient('event-registration')
-
+export function pisaEventRegistrationDataClass() {
   return provideDataClass('EventRegistration', {
-    restApi: eventRegistrationClient,
+    restApi: pisaConfig('event-registration'),
+    attributes: {},
   })
 }

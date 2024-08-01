@@ -33,6 +33,9 @@ provideEditingConfig(Page, {
       description:
         'Removes the header navigation and only centers the logo instead. Default: No',
     },
+    data: {
+      restrictDataTo: ['scope', 'item'],
+    },
   },
   properties: [
     ...defaultPageProperties,

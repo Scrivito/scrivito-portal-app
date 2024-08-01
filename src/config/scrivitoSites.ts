@@ -58,7 +58,9 @@ export function siteForUrl(
 }
 
 function languageForUrl(url: string) {
-  const regex = new RegExp(`^${getBaseAppUrl()}\\/(?<lang>[a-z]{2})([?/]|$)`)
+  const regex = new RegExp(
+    `^${getBaseAppUrl()}\\/(?<lang>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
+  )
   return regex.exec(url)?.groups?.lang
 }
 
@@ -72,6 +74,7 @@ function findSiteForUrl(url: string) {
       const siteId = site.siteId()!
       return baseUrlsFor(site).map((baseUrl) => ({ baseUrl, siteId }))
     })
+    .sort((a, b) => b.baseUrl.length - a.baseUrl.length)
     .find(({ baseUrl }) => url.startsWith(baseUrl))
 }
 

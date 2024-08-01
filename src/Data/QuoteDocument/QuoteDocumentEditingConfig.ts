@@ -1,12 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
-import { QuoteDocumentPromise } from './QuoteDocumentDataClass'
+import { QuoteDocument } from './QuoteDocumentDataClass'
 
-QuoteDocumentPromise.then((QuoteDocument) => {
-  provideEditingConfig(QuoteDocument, {
-    title: 'Quote document',
-    attributes: {
-      quoteId: { title: 'Quote ID' },
-      documentId: { title: 'Document ID' },
-    },
-  })
+provideEditingConfig(QuoteDocument, {
+  title: 'Quote document',
+  attributes: {
+    quoteId: { title: 'Quote ID' },
+    documentId: { title: 'Document ID' },
+  },
 })

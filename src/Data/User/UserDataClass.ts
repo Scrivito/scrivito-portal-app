@@ -4,7 +4,7 @@ import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
 import { RawItem } from '../types'
 import { pisaUserDataClass } from './Pisa/pisaUserDataClass'
 
-export const UserPromise = import.meta.env.ENABLE_PISA
+export const User = import.meta.env.ENABLE_PISA
   ? pisaUserDataClass()
   : localStorageUserDataClass()
 

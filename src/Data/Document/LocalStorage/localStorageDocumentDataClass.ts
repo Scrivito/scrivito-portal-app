@@ -3,7 +3,7 @@ import penImage from './FakeBinaries/pen.jpg'
 import kmkPdf from './FakeBinaries/KMK-overview_(Karlsruhe_Exhibition_Centre).pdf'
 import orderPdf from './FakeBinaries/ORDER.pdf'
 
-export async function localStorageDocumentDataClass() {
+export function localStorageDocumentDataClass() {
   return provideLocalStorageDataClass('Document', {
     initialContent: [
       {
