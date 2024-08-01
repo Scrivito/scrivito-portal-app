@@ -20,7 +20,7 @@
     "pretty-bytes": "^6.1.1",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.4",
-    "react-color-palette": "^7.2.0",
+    "react-color-palette": "^7.2.2",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6",
     "react-helmet-async": "^2.0.5",
@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@arabasta/eslint-plugin-require-useeffect-dependency-array": "^1.0.9",
-    "@cloudflare/workers-types": "^4.20240620.0",
+    "@cloudflare/workers-types": "^4.20240729.0",
     "@types/color": "^3.0.6",
     "@types/highlight-words-core": "^1.2.3",
     "@types/lodash-es": "^4.17.12",
@@ -48,13 +48,13 @@
     "eslint": "^8.57.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.9.0",
-    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "knip": "^5.25.1",
-    "prettier": "^3.3.2",
-    "sass": "^1.77.6",
-    "typescript": "^5.5.3",
-    "vite": "^5.3.3",
-    "vite-node": "^2.0.1"
+    "knip": "^5.27.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.77.8",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
+    "vite-node": "^2.0.5"
   }
 }
