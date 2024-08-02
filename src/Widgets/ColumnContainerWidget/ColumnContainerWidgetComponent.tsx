@@ -6,9 +6,12 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
   if (!columns.length) return null
 
   const alignment = widget.get('alignment') || 'start'
+  const isResponsive = !widget.get('disableResponsiveAdaption')
   const isFlex = widget.get('layoutMode') === 'flex'
 
-  const classNames = [`align-items-${alignment}`, isFlex ? 'd-flex' : 'row']
+  const classNames = [`align-items-${alignment}`]
+  if (isFlex) classNames.push(isResponsive ? 'd-md-flex' : 'd-flex')
+  else classNames.push('row')
 
   return (
     <div className={classNames.join(' ')}>
@@ -16,12 +19,12 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
         const key = columnWidget.id()
 
         if (isFlex) {
-          const flexGrow = columnWidget.get('flexGrow')
-          const className = flexGrow ? 'flex-grow-1' : undefined
+          const colClassNames = isResponsive ? ['my-md-0', 'm-2'] : ['mx-2']
+          if (columnWidget.get('flexGrow')) colClassNames.push('flex-grow-1')
           return (
             <ContentTag
               key={key}
-              className={className}
+              className={colClassNames.join(' ')}
               content={columnWidget}
               attribute="content"
             />
@@ -29,11 +32,11 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
         }
 
         const colSize = columnWidget.get('colSize') || 1
-        const className = widget.get('disableResponsiveAdaption')
-          ? `col-${colSize}`
-          : `col-md-${colSize}`
+        const colClassName = isResponsive
+          ? `col-md-${colSize}`
+          : `col-${colSize}`
         return (
-          <div key={key} className={className}>
+          <div key={key} className={colClassName}>
             <ContentTag
               content={columnWidget}
               attribute="content"
