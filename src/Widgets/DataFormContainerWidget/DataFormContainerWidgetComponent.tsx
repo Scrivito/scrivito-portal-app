@@ -4,7 +4,6 @@ import {
   InPlaceEditingOff,
   WidgetTag,
   provideComponent,
-  useDataItem,
   useData,
   currentLanguage,
   navigateTo,
@@ -16,8 +15,8 @@ import './DataFormContainerWidget.scss'
 import { ModalSpinner } from '../../Components/ModalSpinner'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
-  const dataItem = useDataItem()
   const dataScope = useData()
+  const dataItem = dataScope.dataItem()
   const formRef = useRef() as React.MutableRefObject<HTMLFormElement>
 
   const [isSubmitting, setIsSubmitting] = useState(false)
