@@ -21,7 +21,9 @@ declare global {
 if (typeof window.preloadDump === 'string') {
   preload(window.preloadDump).then(({ dumpLoaded }) => {
     delete window.preloadDump
-    dumpLoaded ? hydrateApp() : renderApp()
+
+    if (dumpLoaded) hydrateApp()
+    else renderApp()
   })
 } else renderApp()
 
