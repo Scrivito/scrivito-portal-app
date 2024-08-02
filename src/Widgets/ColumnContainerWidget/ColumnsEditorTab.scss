@@ -417,7 +417,9 @@
   .grid-columns {
     display: flex;
     align-items: start;
-    padding-right: 15px;
+    &:has(.grid-handle-plus) {
+      padding-right: 15px;
+    }
   }
 
   .grid-col,
