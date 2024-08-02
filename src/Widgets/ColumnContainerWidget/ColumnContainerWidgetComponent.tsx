@@ -1,5 +1,6 @@
 import { provideComponent, ContentTag } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
+import { ColumnWidgetInstance } from '../ColumnWidget/ColumnWidgetClass'
 
 provideComponent(ColumnContainerWidget, ({ widget }) => {
   const columns = widget.get('columns')
@@ -10,16 +11,22 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
   const isFlex = widget.get('layoutMode') === 'flex'
 
   const classNames = [`align-items-${alignment}`]
-  if (isFlex) classNames.push(isResponsive ? 'd-md-flex' : 'd-flex')
-  else classNames.push('row')
+  const flexClassName = isResponsive ? 'd-md-flex' : 'd-flex'
+  classNames.push(isFlex ? flexClassName : 'row')
 
   return (
     <div className={classNames.join(' ')}>
-      {columns.map((columnWidget) => {
+      {columns.map((columnWidget: ColumnWidgetInstance) => {
         const key = columnWidget.id()
 
         if (isFlex) {
           const colClassNames = isResponsive ? ['my-md-0', 'm-2'] : ['mx-2']
+          if (
+            alignment === 'stretch' &&
+            columnWidget.get('content').length < 2
+          ) {
+            colClassNames.push(flexClassName)
+          }
           if (columnWidget.get('flexGrow')) colClassNames.push('flex-grow-1')
           return (
             <ContentTag
