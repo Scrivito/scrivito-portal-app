@@ -376,7 +376,7 @@ function FlexLayoutEditor({
             key={index}
             className={`grid-col grid-col-${flexGrow ? 'grow' : 'shrink'}`}
           >
-            {currentGrow.length > 1 && (
+            {!readOnly && currentGrow.length > 1 && (
               <button
                 className="btn grid-del"
                 title="delete column"
@@ -395,7 +395,7 @@ function FlexLayoutEditor({
           </div>
         ))}
 
-        {currentGrow.length < 6 && (
+        {!readOnly && currentGrow.length < 6 && (
           <button
             className="p-0 grid-handle grid-handle-plus"
             title="add a column"
