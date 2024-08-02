@@ -1,4 +1,5 @@
-import { createRestApiClient, ArgumentError } from 'scrivito'
+import type { createRestApiClient } from 'scrivito'
+import { ArgumentError } from 'scrivito'
 import { DataConnection } from './types'
 
 type IndexCallback = NonNullable<DataConnection['index']>

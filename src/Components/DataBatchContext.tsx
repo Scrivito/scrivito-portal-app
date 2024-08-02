@@ -43,7 +43,7 @@ export const DataBatchContextProvider = connect(
           dataScope.transform({ ...transform, limit: limit + 1 }).take()
             .length > limit
         )
-      } catch (error) {
+      } catch {
         return false
       }
     }

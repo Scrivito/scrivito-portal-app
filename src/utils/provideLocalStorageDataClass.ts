@@ -160,7 +160,7 @@ export function provideLocalStorageDataClass(
       if (!isDataItemRecord(parsed)) return {}
 
       return parsed
-    } catch (e) {
+    } catch {
       return {}
     }
   }
