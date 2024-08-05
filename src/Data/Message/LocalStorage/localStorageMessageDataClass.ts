@@ -1,17 +1,12 @@
-import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 
 export function localStorageMessageDataClass() {
   return provideLocalStorageDataClass('Message', {
-    prepareData: async (data) => {
-      const newData = await convertBlobAttributes(data)
-
-      return {
-        ...newData,
-        createdBy: newData.createdBy || 'F87BDC400E41D630E030A8C00D01158A',
-        createdAt: newData.createdAt || new Date().toISOString(),
-      }
-    },
+    prepareData: async (data) => ({
+      ...data,
+      createdBy: data.createdBy || 'F87BDC400E41D630E030A8C00D01158A',
+      createdAt: data.createdAt || new Date().toISOString(),
+    }),
     initialContent: [
       {
         _id: '5095866DEFF74DCDBE56B016898137491',
