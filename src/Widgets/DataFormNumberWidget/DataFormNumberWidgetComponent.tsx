@@ -60,6 +60,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
       ) : null}
       <br />
       <input
+        className="form-control"
         defaultValue={defaultValue}
         id={id}
         name={attributeName}
