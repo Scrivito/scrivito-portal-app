@@ -26,7 +26,7 @@
     "react-helmet-async": "^2.0.5",
     "react-toastify": "^10.0.5",
     "scrivito": "^1.42.1-rc1",
-    "scrivito-neoletter-form-widgets": "^0.0.18",
+    "scrivito-neoletter-form-widgets": "^0.0.19",
     "scroll-to-fragment": "^1.0.12",
     "speakingurl": "^14.0.1"
   },
