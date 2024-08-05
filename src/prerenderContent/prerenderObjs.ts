@@ -50,6 +50,13 @@ export async function prerenderObjs(
 }
 
 function allObjs(objClassesBlacklist: string[]) {
+  const prerenderObjId = process.env.PRERENDER_OBJ_ID
+  if (prerenderObjId) {
+    const root = Obj.onAllSites().get(prerenderObjId)
+    if (root) return [root]
+    throw new Error(`Prerender obj not found: ${prerenderObjId}`)
+  }
+
   return Obj.onAllSites()
     .where('_siteId', 'equals', getSiteIds())
     .andNot('_objClass', 'equals', objClassesBlacklist)

@@ -7,6 +7,8 @@ export async function prerenderSitemap(
   targetDir: string,
   objClassesWhitelist: string[],
 ): Promise<void> {
+  if (process.env.PRERENDER_OBJ_ID) return
+
   console.time('[prerenderSitemap]')
 
   const pages = await Scrivito.load(() =>
