@@ -3,12 +3,12 @@ import {
   ContentTag,
   InPlaceEditingOff,
   provideComponent,
-  useDataItem,
+  useData,
 } from 'scrivito'
 import { DataFormInputFieldWidget } from './DataFormInputFieldWidgetClass'
 
 provideComponent(DataFormInputFieldWidget, ({ widget }) => {
-  const dataItem = useDataItem()
+  const dataItem = useData().dataItem()
 
   const id = ['DataFormInputFieldWidget', widget.id(), dataItem?.id()].join('-')
 

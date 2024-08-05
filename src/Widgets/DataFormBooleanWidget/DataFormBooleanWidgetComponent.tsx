@@ -2,14 +2,14 @@ import {
   ContentTag,
   InPlaceEditingOff,
   provideComponent,
-  useDataItem,
+  useData,
 } from 'scrivito'
 import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import './DataFormBooleanWidget.scss'
 
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
-  const dataItem = useDataItem()
+  const dataItem = useData().dataItem()
 
   const id = ['DataFormBooleanWidget', widget.id(), dataItem?.id()].join('-')
 

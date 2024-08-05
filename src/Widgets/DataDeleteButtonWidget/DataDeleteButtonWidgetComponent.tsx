@@ -5,7 +5,7 @@ import {
   currentLanguage,
   navigateTo,
   provideComponent,
-  useDataItem,
+  useData,
 } from 'scrivito'
 import { DataDeleteButtonWidget } from './DataDeleteButtonWidgetClass'
 import { useState } from 'react'
@@ -19,7 +19,7 @@ import { ModalSpinner } from '../../Components/ModalSpinner'
 provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
-  const dataItem = useDataItem()
+  const dataItem = useData().dataItem()
 
   const buttonClassNames = ['btn']
   const cancelButtonClassNames = ['btn']
