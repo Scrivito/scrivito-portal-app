@@ -13,10 +13,7 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { ModalSpinner } from '../../Components/ModalSpinner'
-import {
-  blobToBinary,
-  DataBinaryUpload,
-} from '../../utils/convertBlobAttributes'
+import { blobToBinary, DataBinaryUpload } from '../../utils/blobToBinary'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataScope = useData()
