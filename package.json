@@ -35,6 +35,7 @@
   "devDependencies": {
     "@arabasta/eslint-plugin-require-useeffect-dependency-array": "^1.0.9",
     "@cloudflare/workers-types": "^4.20240729.0",
+    "@lhci/cli": "^0.14.0",
     "@types/color": "^3.0.6",
     "@types/highlight-words-core": "^1.2.3",
     "@types/jsontoxml": "^1.0.6",
@@ -54,6 +55,7 @@
     "eslint-plugin-react": "^7.35.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "hash-wasm": "^4.11.0",
+    "http-server": "^14.1.1",
     "jsontoxml": "^1.0.1",
     "knip": "^5.27.0",
     "prettier": "^3.3.3",

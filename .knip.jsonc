@@ -18,6 +18,7 @@
   ],
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
+    "http-server", // used by Lighthouse
   ],
   "project": ["**/*.{js,ts,tsx}"],
 }
