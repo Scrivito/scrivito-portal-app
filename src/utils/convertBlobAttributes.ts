@@ -19,7 +19,7 @@ async function convertAttribute(value: unknown) {
   return value
 }
 
-async function blobToBinary(blob: Blob | File): Promise<{
+export interface DataBinaryUpload {
   dataBase64: string
   filename: string
 
@@ -27,7 +27,11 @@ async function blobToBinary(blob: Blob | File): Promise<{
   contentLength?: number
   contentType?: string
   _id?: string
-}> {
+}
+
+export async function blobToBinary(
+  blob: Blob | File,
+): Promise<DataBinaryUpload> {
   const binary = {
     dataBase64: await blobToBase64(blob),
     filename: blob instanceof File ? blob.name : 'unknown-name',

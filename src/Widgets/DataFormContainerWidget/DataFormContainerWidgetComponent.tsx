@@ -13,6 +13,10 @@ import { toast } from 'react-toastify'
 import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { ModalSpinner } from '../../Components/ModalSpinner'
+import {
+  blobToBinary,
+  DataBinaryUpload,
+} from '../../utils/convertBlobAttributes'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataScope = useData()
@@ -56,7 +60,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     setIsSubmitting(true)
 
     try {
-      const attributes = attributesFromForm(formRef.current)
+      const attributes = await attributesFromForm(formRef.current)
 
       if (dataItem) {
         await dataItem.update(attributes)
@@ -93,9 +97,15 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   }
 })
 
-function attributesFromForm(formElement: HTMLFormElement) {
+async function attributesFromForm(formElement: HTMLFormElement) {
   const attributes: {
-    [key: string]: string | boolean | number | null | Blob | Blob[]
+    [key: string]:
+      | string
+      | boolean
+      | number
+      | null
+      | DataBinaryUpload
+      | DataBinaryUpload[]
   } = {}
 
   for (const element of formElement.elements) {
@@ -110,13 +120,13 @@ function attributesFromForm(formElement: HTMLFormElement) {
     const name = element.getAttribute('name')
     if (!name) throw new Error('No name given!')
 
-    attributes[name] = valueFromElement(element)
+    attributes[name] = await valueFromElement(element)
   }
 
   return attributes
 }
 
-function valueFromElement(
+async function valueFromElement(
   element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement,
 ) {
   if (element instanceof HTMLSelectElement) return element.value
@@ -131,9 +141,12 @@ function valueFromElement(
 
   if (element.type === 'file') {
     const files = element.files
-    if (element.multiple) return files ? [...files] : []
-    if (files?.length === 1) return files[0]!
-    return null
+    if (!files) return element.multiple ? [] : null
+
+    const blobToBinaryPromises = [...files].map(blobToBinary)
+    return element.multiple
+      ? Promise.all(blobToBinaryPromises)
+      : blobToBinaryPromises[0]!
   }
 
   return element.value
