@@ -3,7 +3,7 @@ import {
   DataItem,
   WidgetTag,
   provideComponent,
-  useDataItem,
+  useData,
 } from 'scrivito'
 import { DataMessageWidget } from './DataMessageWidgetClass'
 import { User } from '../../Data/User/UserDataClass'
@@ -15,7 +15,7 @@ import { DataBinaryImage } from '../../Components/DataBinaryImage'
 import { ensureString } from '../../utils/ensureString'
 
 provideComponent(DataMessageWidget, ({ widget }) => {
-  const dataItem = useDataItem()
+  const dataItem = useData().dataItem()
   const createdBy = ensureString(dataItem?.get('createdBy'))
 
   const user: DataItem | null = createdBy ? User.get(createdBy) : null
@@ -57,7 +57,7 @@ function getImage({
   dataItem,
   user,
 }: {
-  dataItem?: DataItem
+  dataItem: DataItem | null
   user?: DataItem | null
 }): DataBinary {
   if (!dataItem) {
