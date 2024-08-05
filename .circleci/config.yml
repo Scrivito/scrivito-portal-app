@@ -33,9 +33,6 @@ workflows:
   main:
     jobs:
       - execute-npm:
-          name: npm run build
-          npm-run-command: build
-      - execute-npm:
           name: npm run check-types
           npm-run-command: check-types
       - execute-npm:
