@@ -16,6 +16,7 @@
     "src/assets/stylesheets/vendor/**",
     "vendor/**",
   ],
+  "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
     "http-server", // used by Lighthouse
