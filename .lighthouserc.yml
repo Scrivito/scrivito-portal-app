@@ -8,7 +8,7 @@ ci:
     includePassedAssertions: true
   collect:
     numberOfRuns: 1
-    startServerCommand: http-server dist-ssr --brotli
+    startServerCommand: http-server dist-ssr --brotli -c31536000
     startServerReadyPattern: Hit CTRL-C to stop the server
     url:
       - http://localhost:8080/en
