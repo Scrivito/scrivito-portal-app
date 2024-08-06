@@ -1,9 +1,11 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 import spiderImage from './FakeBinaries/Schulung_Spider_30.png'
 import roadshowImage from './FakeBinaries/TYNACOON_Roadshow.jpg'
 
-export function localStorageEventDataClass() {
+export function localStorageEventDataClass(attributes: DataClassAttributes) {
   return provideLocalStorageDataClass('Event', {
+    attributes,
     initialContent: [
       {
         _id: 'DD6585A543FE48018F497D3631332C6F',
