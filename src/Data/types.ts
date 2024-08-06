@@ -16,3 +16,7 @@ export type DataConnection = Parameters<
 >[1]['connection'] extends Partial<infer U> | Promise<Partial<infer U>>
   ? Partial<U>
   : never
+
+type ProvideDataClassFunction = typeof provideDataClass
+type Params = Parameters<ProvideDataClassFunction>[1]
+export type DataClassAttributes = NonNullable<Params['attributes']>
