@@ -1,8 +1,10 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 import { pseudoRandom32CharHex } from '../../../utils/pseudoRandom32CharHex'
+import { DataClassAttributes } from '../../types'
 
-export function localStorageTicketDataClass() {
+export function localStorageTicketDataClass(attributes: DataClassAttributes) {
   return provideLocalStorageDataClass('Ticket', {
+    attributes,
     prepareData: async (data) => ({
       ...data,
       type: data.type || 'PSA_SVC_TRB',
