@@ -1,5 +1,8 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 
-export function localStorageOpportunityDataClass() {
-  return provideLocalStorageDataClass('Opportunity')
+export function localStorageOpportunityDataClass(
+  attributes: DataClassAttributes,
+) {
+  return provideLocalStorageDataClass('Opportunity', { attributes })
 }
