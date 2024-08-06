@@ -669,7 +669,7 @@ function Switch({
   return (
     <>
       <div className="scrivito_detail_label">
-        <span style={{ fontSize: '11px' }}>{title}</span>
+        <span>{title}</span>
       </div>
 
       <div className="item_content">
