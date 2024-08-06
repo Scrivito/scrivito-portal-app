@@ -2,9 +2,11 @@ import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorage
 import penImage from './FakeBinaries/pen.jpg'
 import kmkPdf from './FakeBinaries/KMK-overview_(Karlsruhe_Exhibition_Centre).pdf'
 import orderPdf from './FakeBinaries/ORDER.pdf'
+import { DataClassAttributes } from '../../types'
 
-export function localStorageDocumentDataClass() {
+export function localStorageDocumentDataClass(attributes: DataClassAttributes) {
   return provideLocalStorageDataClass('Document', {
+    attributes,
     initialContent: [
       {
         _id: '29FE46BEE85B44E58350F2828C820E74',
