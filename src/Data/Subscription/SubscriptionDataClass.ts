@@ -8,6 +8,10 @@ interface Topic {
 }
 
 export const Subscription = provideDataClass('Subscription', {
+  attributes: {
+    description: 'string',
+    title: 'string',
+  },
   connection: {
     async index() {
       const subscriptions = await fetchSubscriptions()
