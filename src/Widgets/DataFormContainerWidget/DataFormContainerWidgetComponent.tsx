@@ -137,13 +137,13 @@ async function valueFromElement(
   }
 
   if (element.type === 'file') {
-    const files = element.files
-    if (!files) return element.multiple ? [] : null
+    const files = [...(element.files ?? [])]
+    if (files.length === 0) return null
 
-    const blobToBinaryPromises = [...files].map(blobToBinary)
+    const blobToBinaryPromises = files.map(blobToBinary)
     return element.multiple
       ? Promise.all(blobToBinaryPromises)
-      : blobToBinaryPromises[0]!
+      : (blobToBinaryPromises[0] ?? null)
   }
 
   return element.value
