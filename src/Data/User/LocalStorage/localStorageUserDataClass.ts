@@ -4,9 +4,11 @@ import braschauImage from './FakeBinaries/braschau.jpg'
 import fuchsImage from './FakeBinaries/fuchs.jpg'
 import bachImage from './FakeBinaries/bach.jpg'
 import { postProcessUserData } from '../UserDataClass'
+import { DataClassAttributes } from '../../types'
 
-export function localStorageUserDataClass() {
+export function localStorageUserDataClass(attributes: DataClassAttributes) {
   return provideLocalStorageDataClass('User', {
+    attributes,
     postProcessData: postProcessUserData,
     initialContent: [
       {
