@@ -9,7 +9,7 @@ ci:
   collect:
     numberOfRuns: 1
     startServerCommand: npm run prerender-preview
-    startServerReadyPattern: Hit CTRL-C to stop the server
+    startServerReadyPattern: Listening on
     url:
       - http://localhost:8080/en
   upload:
