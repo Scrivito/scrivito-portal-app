@@ -15,9 +15,6 @@ const origin =
     ? window.location.origin
     : ensureString(import.meta.env.SCRIVITO_ORIGIN)
 
-const rootContentId =
-  ensureString(import.meta.env.SCRIVITO_ROOT_OBJ_ID) || undefined
-
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
 export function baseUrlForSite(siteId: string): string | undefined {
@@ -28,7 +25,7 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (siteRoot.contentId() !== rootContentId) {
+  if (siteRoot.contentId() !== rootContentId()) {
     return baseUrlsFor(siteRoot)[0]
   }
 
@@ -111,10 +108,16 @@ function getBaseAppUrl(): string {
 }
 
 function appWebsites() {
-  const contentId = rootContentId
+  const contentId = rootContentId()
   return contentId
     ? Obj.onAllSites().where('_contentId', 'equals', contentId)
     : undefined
+}
+
+function rootContentId() {
+  return Obj.onAllSites()
+    .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
+    ?.contentId()
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
