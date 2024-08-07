@@ -1,7 +1,11 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 
-export function localStorageEventDocumentDataClass() {
+export function localStorageEventDocumentDataClass(
+  attributes: DataClassAttributes,
+) {
   return provideLocalStorageDataClass('EventDocument', {
+    attributes,
     initialContent: [
       {
         _id: '1',

@@ -6,22 +6,27 @@ const GENERAL_TOPIC_ID = 'general'
 export const GeneralMarketingConsent = provideDataItem(
   'GeneralMarketingConsent',
   {
-    async get() {
-      const mySubscribedTopicIds = await fetchMySubscribedTopicIds()
+    attributes: {},
+    connection: {
+      async get() {
+        const mySubscribedTopicIds = await fetchMySubscribedTopicIds()
 
-      return { isConsentGiven: mySubscribedTopicIds.includes(GENERAL_TOPIC_ID) }
-    },
-    async update(params) {
-      const { isConsentGiven } = params
+        return {
+          isConsentGiven: mySubscribedTopicIds.includes(GENERAL_TOPIC_ID),
+        }
+      },
+      async update(params) {
+        const { isConsentGiven } = params
 
-      await neoletterClient().put(`my/consents/${GENERAL_TOPIC_ID}`, {
-        data: {
-          source: 'self-service portal',
-          state: isConsentGiven ? 'given' : 'revoked',
-        },
-      })
+        await neoletterClient().put(`my/consents/${GENERAL_TOPIC_ID}`, {
+          data: {
+            source: 'self-service portal',
+            state: isConsentGiven ? 'given' : 'revoked',
+          },
+        })
 
-      return params
+        return params
+      },
     },
   },
 )

@@ -8,13 +8,17 @@ interface Topic {
 }
 
 export const Subscription = provideDataClass('Subscription', {
+  attributes: {
+    description: 'string',
+    title: 'string',
+  },
   connection: {
     async index() {
       const subscriptions = await fetchSubscriptions()
       return { results: subscriptions, count: subscriptions.length }
     },
     async get(id: string) {
-      return (await fetchSubscriptions()).find((sub) => sub.id === id) || null
+      return (await fetchSubscriptions()).find((sub) => sub._id === id) || null
     },
     async update(id: string, params) {
       await neoletterClient().put(`my/consents/${id}`, {
@@ -42,7 +46,7 @@ async function fetchSubscriptions() {
 
   return topics.map(({ id, description, title }) => ({
     description,
-    id,
+    _id: id,
     isConsentGiven: subscribedTopicIds.includes(id),
     title,
   }))

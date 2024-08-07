@@ -1,7 +1,11 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 
-export function localStorageContractDocumentDataClass() {
+export function localStorageContractDocumentDataClass(
+  attributes: DataClassAttributes,
+) {
   return provideLocalStorageDataClass('ContractDocument', {
+    attributes,
     initialContent: [
       {
         _id: '1',

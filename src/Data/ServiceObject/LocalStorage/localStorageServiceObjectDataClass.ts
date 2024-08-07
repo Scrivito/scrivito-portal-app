@@ -1,9 +1,13 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 import machineImage from './FakeBinaries/machine.jpg'
 import pumpImage from './FakeBinaries/pump.jpg'
 
-export function localStorageServiceObjectDataClass() {
+export function localStorageServiceObjectDataClass(
+  attributes: DataClassAttributes,
+) {
   return provideLocalStorageDataClass('ServiceObject', {
+    attributes,
     initialContent: [
       {
         _id: '01F15317280B4BFDA40FFFAF2914D847',

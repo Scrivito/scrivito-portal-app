@@ -1,7 +1,9 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 
-export function localStorageMessageDataClass() {
+export function localStorageMessageDataClass(attributes: DataClassAttributes) {
   return provideLocalStorageDataClass('Message', {
+    attributes,
     prepareData: async (data) => ({
       ...data,
       createdBy: data.createdBy || 'F87BDC400E41D630E030A8C00D01158A',
