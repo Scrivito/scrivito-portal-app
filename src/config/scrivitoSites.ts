@@ -15,7 +15,8 @@ const origin =
     ? window.location.origin
     : ensureString(import.meta.env.SCRIVITO_ORIGIN)
 
-const rootContentId = ensureString(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
+const rootContentId =
+  ensureString(import.meta.env.SCRIVITO_ROOT_OBJ_ID) || undefined
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
@@ -47,7 +48,7 @@ export function siteForUrl(
 
   const language = languageForUrl(url)
   const languageSite = language
-    ? appWebsites().and('_language', 'equals', language).first()
+    ? appWebsites()?.and('_language', 'equals', language).first()
     : undefined
   const languageSiteId = languageSite?.siteId()
 
@@ -90,7 +91,7 @@ function baseUrlsFor(site: Obj) {
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
     navigateTo(() => {
-      const websites = appWebsites().toArray()
+      const websites = appWebsites()?.toArray() || []
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
       for (const language of preferredLanguageOrder) {
@@ -110,7 +111,10 @@ function getBaseAppUrl(): string {
 }
 
 function appWebsites() {
-  return Obj.onAllSites().where('_contentId', 'equals', rootContentId)
+  const contentId = rootContentId
+  return contentId
+    ? Obj.onAllSites().where('_contentId', 'equals', contentId)
+    : undefined
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
