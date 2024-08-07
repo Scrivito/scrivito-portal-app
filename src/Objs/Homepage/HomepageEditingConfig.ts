@@ -57,9 +57,7 @@ provideEditingConfig(Homepage, {
       properties: [
         'contentTitle',
         'baseUrl',
-        site.id() === import.meta.env.SCRIVITO_ROOT_CONTENT_ID
-          ? 'pisaUrl'
-          : null,
+        site.id() === import.meta.env.SCRIVITO_ROOT_OBJ_ID ? 'pisaUrl' : null,
         'siteLogoDark',
         'siteFavicon',
         'siteLanguageIcon',

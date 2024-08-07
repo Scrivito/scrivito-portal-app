@@ -15,7 +15,7 @@ const origin =
     ? window.location.origin
     : ensureString(import.meta.env.SCRIVITO_ORIGIN)
 
-const rootContentId = ensureString(import.meta.env.SCRIVITO_ROOT_CONTENT_ID)
+const rootContentId = ensureString(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 

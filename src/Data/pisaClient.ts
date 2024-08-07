@@ -3,7 +3,7 @@ import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 
 export async function pisaUrl(): Promise<string> {
   const defaultRoot = await load(() =>
-    Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_CONTENT_ID),
+    Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID),
   )
   if (!isHomepage(defaultRoot)) return never()
 
