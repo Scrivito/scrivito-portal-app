@@ -8,7 +8,7 @@ ci:
     includePassedAssertions: true
   collect:
     numberOfRuns: 1
-    startServerCommand: npm run prerender-preview
+    startServerCommand: ws
     startServerReadyPattern: Listening on
     url:
       - http://localhost:8080/en
