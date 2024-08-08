@@ -6,6 +6,7 @@ const attributes: DataClassAttributes = {
   carrier: 'string',
   customer: 'string',
   information: 'string',
+  installedAt: 'date',
   keyword: 'string',
   locationCity: 'string',
   locationCountry: 'string', // TODO: convert to enum, once fully available
@@ -17,6 +18,7 @@ const attributes: DataClassAttributes = {
   serialNumber: 'string',
   status: 'string', // TODO: convert to enum, once fully available
   supplier: 'string',
+  warrentyEndsAt: 'date',
 }
 
 export const ServiceObject = import.meta.env.ENABLE_PISA
