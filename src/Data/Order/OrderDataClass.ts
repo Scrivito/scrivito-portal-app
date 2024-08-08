@@ -12,6 +12,7 @@ const attributes: DataClassAttributes = {
   status: 'string', // TODO: convert to enum, once fully available
   termsOfDelivery: 'string', // TODO: convert to enum, once fully available
   termsOfPayment: 'string', // TODO: convert to enum, once fully available
+  totalPrice: 'number',
   totalPriceCurrency: 'string',
   type: 'string', // TODO: convert to enum, once fully available
 }

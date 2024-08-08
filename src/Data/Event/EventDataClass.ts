@@ -3,7 +3,9 @@ import { localStorageEventDataClass } from './LocalStorage/localStorageEventData
 import { pisaEventDataClass } from './Pisa/pisaEventDataClass'
 
 const attributes: DataClassAttributes = {
+  attendanceFee: 'number',
   description: 'string',
+  freeSeats: 'number',
   keyword: 'string',
   language: 'string', // TODO: convert to enum, once fully available
   location: 'string',

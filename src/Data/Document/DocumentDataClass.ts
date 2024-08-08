@@ -6,6 +6,7 @@ const attributes: DataClassAttributes = {
   format: 'string',
   language: 'string', // TODO: convert to enum, once fully available
   number: 'string',
+  size: 'number',
   title: 'string',
   type: 'string', // TODO: convert to enum, once fully available
   version: 'string',

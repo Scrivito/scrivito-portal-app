@@ -6,10 +6,12 @@ const attributes: DataClassAttributes = {
   category: 'string', // TODO: convert to enum, once fully available
   internalDepartment: 'string',
   keyword: 'string',
+  minimumTerm: 'number',
   minimumTermUnit: 'string', // TODO: convert to enum, once fully available
   number: 'string',
   partner: 'string',
   status: 'string', // TODO: convert to enum, once fully available
+  totalPrice: 'number',
   type: 'string', // TODO: convert to enum, once fully available
 }
 
