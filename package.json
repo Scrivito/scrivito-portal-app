@@ -8,8 +8,10 @@
     "types": "tsc",
     "preview": "vite preview",
     "lint": "eslint --max-warnings 0 'src/**/*.ts' 'src/**/*.tsx' && knip",
+    "lighthouse": "SCRIVITO_ORIGIN=http://localhost:8080 PRERENDER_OBJ_ID=c2a0aab78be05a4e npm run prerender && npm run prerender-precompress && for run in $(seq 6); do lhci autorun && break; done",
     "prerender": "vite build && vite-node --options.deps.external='/scrivito/' src/prerenderContent.ts",
-    "prerender-preview": "vite preview --outDir dist-ssr",
+    "prerender-precompress": "precompress --include '(**).(css|html|js)' --types br dist-ssr",
+    "prerender-preview": "ws --directory dist-ssr --port 8080 --rewrite '(/..)(/.*|$) -> $&.html' --spa index.html --spa.asset-test-fs --static.maxage 31536000",
     "prettier": "prettier --check .",
     "start-design": "vite --config design/vite-design.config.ts",
     "start": "vite"
@@ -35,6 +37,7 @@
   "devDependencies": {
     "@arabasta/eslint-plugin-require-useeffect-dependency-array": "^1.0.9",
     "@cloudflare/workers-types": "^4.20240729.0",
+    "@lhci/cli": "^0.14.0",
     "@types/color": "^3.0.6",
     "@types/highlight-words-core": "^1.2.3",
     "@types/jsontoxml": "^1.0.6",
@@ -56,10 +59,17 @@
     "hash-wasm": "^4.11.0",
     "jsontoxml": "^1.0.1",
     "knip": "^5.27.0",
+    "local-web-server": "^5.4.0",
+    "precompress": "^12.0.5",
     "prettier": "^3.3.3",
     "sass": "^1.77.6",
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "vite-node": "^2.0.5"
+  },
+  "overrides": {
+    "@lhci/cli": {
+      "rimraf": "3"
+    }
   }
 }

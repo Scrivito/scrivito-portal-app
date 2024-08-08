@@ -12,6 +12,7 @@ dist
 !vendor/scrivito/dist
 dist-ssr
 *.local
+.lighthouseci
 
 # Editor directories and files
 .vscode/*
