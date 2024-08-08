@@ -3,7 +3,6 @@ import { localContractDataClass } from './LocalStorage/localContractDataClass'
 import { pisaContractDataClass } from './Pisa/pisaContractDataClass'
 
 const attributes: DataClassAttributes = {
-  agent: 'string', // TODO: convert to reference, once fully available
   category: 'string', // TODO: convert to enum, once fully available
   internalDepartment: 'string',
   keyword: 'string',

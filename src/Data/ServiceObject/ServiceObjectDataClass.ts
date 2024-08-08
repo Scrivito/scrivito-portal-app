@@ -13,9 +13,7 @@ const attributes: DataClassAttributes = {
   locationStreet: 'string',
   modelNumber: 'string',
   number: 'string',
-  parentId: 'string', // TODO: convert to reference, once fully available
   product: 'string',
-  responsibleAgent: 'string', // TODO: convert to reference, once fully available
   serialNumber: 'string',
   status: 'string', // TODO: convert to enum, once fully available
   supplier: 'string',
