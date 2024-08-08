@@ -3,6 +3,7 @@ import { localStorageDocumentDataClass } from './LocalStorage/localStorageDocume
 import { pisaDocumentDataClass } from './Pisa/pisaDocumentDataClass'
 
 const attributes: DataClassAttributes = {
+  createdAt: 'date',
   format: 'string',
   language: 'string', // TODO: convert to enum, once fully available
   number: 'string',
