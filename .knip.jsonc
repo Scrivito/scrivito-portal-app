@@ -19,7 +19,7 @@
   "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
-    "http-server", // used by Lighthouse
+    "local-web-server", // used by Lighthouse
   ],
   "project": ["**/*.{js,ts,tsx}"],
 }
