@@ -9,7 +9,6 @@ import {
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import { RelativeDate } from './RelativeDate'
 import { localizeAttributeValue } from '../../utils/dataValuesConfig'
-import { ensureString } from '../../utils/ensureString'
 import {
   formatDateMonthAndYear,
   formatDateTime,
@@ -73,11 +72,14 @@ const AttributeValue = connect(function AttributeValue({
     return <NumberText value={attributeValue} />
   }
 
-  const value = localizeAttributeValue({
-    dataClass: dataItemAttribute.dataClass(),
-    attributeName: dataItemAttribute.attributeName(),
-    attributeValue: ensureString(attributeValue),
-  })
+  const value =
+    typeof attributeValue === 'string'
+      ? localizeAttributeValue({
+          dataClass: dataItemAttribute.dataClass(),
+          attributeName: dataItemAttribute.attributeName(),
+          attributeValue,
+        })
+      : attributeValue
 
   return <Text value={value} />
 })
@@ -94,6 +96,7 @@ const NumberText = connect(function NumberText({ value }: { value: number }) {
 
 const Currency = connect(function Currency({ value }: { value: unknown }) {
   if (value === null) return localizeNotAvailable()
+  if (value instanceof Date) return localizeNotAvailable()
 
   const number = Number(value)
   if (Number.isNaN(number)) return localizeNotAvailable()
@@ -114,7 +117,9 @@ const Datetime = connect(function Datetime({
   datetimeFormat: string | null
 }) {
   if (value === null) return localizeNotAvailable()
-  if (typeof value !== 'string') return localizeNotAvailable()
+  if (typeof value !== 'string' && !(value instanceof Date)) {
+    return localizeNotAvailable()
+  }
 
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return localizeNotAvailable()
