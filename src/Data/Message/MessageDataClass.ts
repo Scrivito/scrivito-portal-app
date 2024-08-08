@@ -3,8 +3,6 @@ import { localStorageMessageDataClass } from './LocalStorage/localStorageMessage
 import { pisaMessageDataClass } from './Pisa/pisaMessageDataClass'
 
 const attributes: DataClassAttributes = {
-  createdBy: 'string', // TODO: convert to reference, once fully available
-  subjectId: 'string', // TODO: convert to reference, once fully available
   text: 'string',
 }
 

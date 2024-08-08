@@ -16,10 +16,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     name: 'string',
     phoneNumber: 'string',
     picture: 'string',
-    pisaUserId: 'string', // TODO: convert to reference, once fully available
-    salesUserId: 'string', // TODO: convert to reference, once fully available
     salutation: 'string',
-    serviceUserId: 'string', // TODO: convert to reference, once fully available
   },
   connection: {
     async get() {

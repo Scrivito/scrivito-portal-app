@@ -9,7 +9,6 @@ const attributes: DataClassAttributes = {
   location: 'string',
   number: 'string',
   organizer: 'string',
-  responsibleAgent: 'string', // TODO: convert to reference, once fully available
   status: 'string', // TODO: convert to enum, once fully available
   url: 'string',
 }
