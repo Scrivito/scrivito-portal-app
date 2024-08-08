@@ -5,9 +5,9 @@ import { IconContainerWidget } from './IconContainerWidgetClass'
 import { ensureString } from '../../utils/ensureString'
 
 provideComponent(IconContainerWidget, ({ widget }) => {
-  const icons = widget.get('iconList')
+  const iconList = widget.get('iconList')
 
-  if (!icons.length) {
+  if (!iconList.length) {
     return (
       <InPlaceEditingPlaceholder center>
         Select icons in the widget properties.
@@ -17,7 +17,7 @@ provideComponent(IconContainerWidget, ({ widget }) => {
 
   return (
     <ul className="list-inline mb-0">
-      {icons.map((iconListItem) => {
+      {iconList.map((iconListItem) => {
         const link = iconListItem.get('link')
         if (!isLinkOrNull(link)) return null
 
