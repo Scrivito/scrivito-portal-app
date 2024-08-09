@@ -1,12 +1,4 @@
-import {
-  Link,
-  Obj,
-  currentSiteId,
-  getInstanceId,
-  load,
-  navigateTo,
-  urlFor,
-} from 'scrivito'
+import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
 import { ensureString } from '../utils/ensureString'
 
@@ -77,12 +69,10 @@ function findSiteForUrl(url: string) {
 
 function baseUrlsFor(site: Obj) {
   const baseUrl = site.get('baseUrl')
-  const baseUrlArray = Array.isArray(baseUrl) ? baseUrl : [baseUrl]
-  const baseUrls = baseUrlArray.map((value): string | undefined => {
-    if (typeof value === 'string') return value
-    if (value instanceof Link) return urlFor(value)
-  })
-  return baseUrls.filter((url): url is string => !!url)
+  const baseUrls = Array.isArray(baseUrl) ? baseUrl : [baseUrl]
+  return baseUrls.filter(
+    (url): url is string => typeof url === 'string' && !!url,
+  )
 }
 
 export async function ensureSiteIsPresent() {
