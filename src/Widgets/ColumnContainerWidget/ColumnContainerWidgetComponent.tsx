@@ -42,7 +42,7 @@ const FlexColumn = connect(function FlexColumn({
   isResponsive,
   isStretch,
 }: ColumnProps) {
-  const classNames = isResponsive ? ['my-md-0', 'm-2'] : ['mx-2']
+  const classNames = isResponsive ? ['my-md-0', 'my-2', 'mx-md-2'] : ['mx-2']
   if (columnWidget.get('flexGrow')) classNames.push('flex-grow-1')
   if (isStretch && columnWidget.get('content').length < 2) {
     classNames.push(isResponsive ? 'd-md-flex' : 'd-flex')
