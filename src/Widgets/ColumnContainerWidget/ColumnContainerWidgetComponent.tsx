@@ -66,12 +66,10 @@ const GridColumn = connect(function GridColumn({
   const className = isResponsive ? `col-md-${colSize}` : `col-${colSize}`
 
   return (
-    <div className={className}>
-      <ContentTag
-        content={columnWidget}
-        attribute="content"
-        className="h-100"
-      />
-    </div>
+    <ContentTag
+      content={columnWidget}
+      attribute="content"
+      className={className}
+    />
   )
 })
