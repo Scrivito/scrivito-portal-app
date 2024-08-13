@@ -1,9 +1,9 @@
-.column-container-widget {
+.column-container-widget--flex-wrapper {
   margin: 0 calc(0px - 0.5rem);
 }
 
 @media (max-width: 767px) {
-  .column-container-widget.d-md-flex {
+  .column-container-widget--flex-wrapper.d-md-flex {
     margin: 0;
   }
 }

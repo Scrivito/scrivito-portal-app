@@ -12,10 +12,13 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
   const isFlex = widget.get('layoutMode') === 'flex'
 
   const classNames = [`align-items-${alignment}`]
-  const flexClassName = isResponsive
-    ? 'd-md-flex column-container-widget'
-    : 'd-flex column-container-widget'
-  classNames.push(isFlex ? flexClassName : 'row')
+
+  if (isFlex) {
+    classNames.push(
+      'column-container-widget--flex-wrapper',
+      isResponsive ? 'd-md-flex' : 'd-flex',
+    )
+  } else classNames.push('row')
 
   return (
     <div className={classNames.join(' ')}>
