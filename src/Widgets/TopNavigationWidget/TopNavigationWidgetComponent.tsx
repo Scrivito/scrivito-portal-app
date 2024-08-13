@@ -6,6 +6,7 @@ import { Brand } from './SubComponents/Brand'
 import { MainNavigation } from './SubComponents/MainNavigation'
 import { MetaNavigation } from './SubComponents/MetaNavigation'
 import { isHomepage } from '../../Objs/Homepage/HomepageObjClass'
+import './TopNavigationWidget.scss'
 
 provideComponent(TopNavigationWidget, ({ widget }) => {
   const root = Obj.root()
