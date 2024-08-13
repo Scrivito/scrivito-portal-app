@@ -2,6 +2,16 @@
  * grid layout editor - gle
  */
 
+.flex-wrapper {
+  margin: 0 calc(0px - 0.5rem);
+}
+
+@media (max-width: 767px) {
+  .flex-wrapper.d-md-flex {
+    margin: 0;
+  }
+}
+
 /* -- grid layout editor - previews -- */
 
 .gle-preview-list {
