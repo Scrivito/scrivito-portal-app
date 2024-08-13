@@ -308,14 +308,9 @@ body {
   position: relative;
 }
 
-// only-of-type works only with same tag, here a DIV
-.row.align-items-stretch .card:only-of-type {
-  height: 100%;
-}
-@media (max-width: 767px) {
-  .row.align-items-stretch .card:only-of-type {
-    height: auto;
-  }
+// patch for full height same margins as flex cols
+.row.align-items-stretch [class*='col-'] {
+  display: grid;
 }
 
 img {
