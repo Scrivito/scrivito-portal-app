@@ -5,4 +5,9 @@ import Thumbnail from './thumbnail.svg'
 provideEditingConfig(DataGroupWidget, {
   title: 'Data Group',
   thumbnail: Thumbnail,
+  attributes: {
+    data: {
+      restrictDataTo: ['scope', 'item'],
+    },
+  },
 })

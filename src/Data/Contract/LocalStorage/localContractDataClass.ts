@@ -1,7 +1,9 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 
-export function localContractDataClass() {
+export function localContractDataClass(attributes: DataClassAttributes) {
   return provideLocalStorageDataClass('Contract', {
+    attributes,
     initialContent: [
       {
         _id: '1E3039CD3CACF294E040A8C00F0177E3',

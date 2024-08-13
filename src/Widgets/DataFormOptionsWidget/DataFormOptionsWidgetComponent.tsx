@@ -1,10 +1,8 @@
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   ContentTag,
-  DataItem,
   InPlaceEditingOff,
   provideComponent,
-  useDataItem,
   useData,
 } from 'scrivito'
 import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
@@ -15,8 +13,8 @@ import {
 } from '../../utils/dataValuesConfig'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
-  const dataItem: DataItem | undefined = useDataItem()
   const dataScope = useData()
+  const dataItem = dataScope.dataItem()
 
   const id = ['DataFormOptionsWidget', widget.id(), dataItem?.id()].join('-')
 

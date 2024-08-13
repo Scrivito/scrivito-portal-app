@@ -1,12 +1,21 @@
 import { load } from 'scrivito'
 import { localStorageUserDataClass } from './LocalStorage/localStorageUserDataClass'
 import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
-import { RawItem } from '../types'
+import { DataClassAttributes, RawItem } from '../types'
 import { pisaUserDataClass } from './Pisa/pisaUserDataClass'
 
+const attributes: DataClassAttributes = {
+  email: 'string',
+  familyName: 'string',
+  givenName: 'string',
+  name: 'string',
+  position: 'string',
+  salutation: 'string',
+}
+
 export const User = import.meta.env.ENABLE_PISA
-  ? pisaUserDataClass()
-  : localStorageUserDataClass()
+  ? pisaUserDataClass(attributes)
+  : localStorageUserDataClass(attributes)
 
 export async function postProcessUserData(data: RawItem): Promise<RawItem> {
   // Use the data item cached by Scrivito instead of connecting to the backend directly

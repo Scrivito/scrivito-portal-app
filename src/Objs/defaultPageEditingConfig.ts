@@ -137,7 +137,8 @@ export const defaultPageValidations = [
     (tcDescription: unknown) => {
       if (ensureString(tcDescription).length > 200) {
         return {
-          message: 'The Twitter description should not exceed 200 characters.',
+          message:
+            'The Twitter card description should not exceed 200 characters.',
           severity: 'warning',
         }
       }

@@ -16,9 +16,10 @@
     "src/assets/stylesheets/vendor/**",
     "vendor/**",
   ],
+  "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
-    "vite-node", // used by src/dumpContent.ts
+    "local-web-server", // used by Lighthouse
   ],
   "project": ["**/*.{js,ts,tsx}"],
 }

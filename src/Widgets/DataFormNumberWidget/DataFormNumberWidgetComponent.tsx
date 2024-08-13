@@ -2,14 +2,14 @@ import {
   ContentTag,
   InPlaceEditingOff,
   provideComponent,
-  useDataItem,
+  useData,
 } from 'scrivito'
 
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
 
 provideComponent(DataFormNumberWidget, ({ widget }) => {
-  const dataItem = useDataItem()
+  const dataItem = useData().dataItem()
 
   const id = ['DataFormNumberWidget', widget.id(), dataItem?.id()].join('-')
 
@@ -60,6 +60,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
       ) : null}
       <br />
       <input
+        className="form-control"
         defaultValue={defaultValue}
         id={id}
         name={attributeName}

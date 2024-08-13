@@ -26,6 +26,6 @@ provideEditingConfig(ServiceObject, {
     serialNumber: { title: 'Serial number' },
     status: { title: 'Status' },
     supplier: { title: 'Supplier' },
-    warrentyEndsAt: { title: 'Warranty ends at' },
+    warrantyEndsAt: { title: 'Warranty ends at' },
   },
 })

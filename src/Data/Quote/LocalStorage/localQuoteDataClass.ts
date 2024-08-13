@@ -1,7 +1,9 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 
-export function localQuoteDataClass() {
+export function localQuoteDataClass(attributes: DataClassAttributes) {
   return provideLocalStorageDataClass('Quote', {
+    attributes,
     initialContent: [
       {
         _id: '0F80EB689F5AC10BE040A8C00F0173D3',

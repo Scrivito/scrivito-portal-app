@@ -1,9 +1,13 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { DataClassAttributes } from '../../types'
 import machineImage from './FakeBinaries/machine.jpg'
 import pumpImage from './FakeBinaries/pump.jpg'
 
-export function localStorageServiceObjectDataClass() {
+export function localStorageServiceObjectDataClass(
+  attributes: DataClassAttributes,
+) {
   return provideLocalStorageDataClass('ServiceObject', {
+    attributes,
     initialContent: [
       {
         _id: '01F15317280B4BFDA40FFFAF2914D847',
@@ -22,7 +26,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Tauchrohrheizkörper 400 mm 0,5 KW',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',
@@ -47,7 +51,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Behälter B100-2',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: 'Behälter',
         locationStreet: '',
         locationPostalCode: '',
@@ -72,7 +76,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'thermometer MT 1/A/E/K  CuZn',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: 'Thermometer MT 1/A/E/K  CuZn',
         locationStreet: '',
         locationPostalCode: '',
@@ -97,7 +101,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'exterior finish',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',
@@ -122,7 +126,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Air cleaner, electroplated',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',
@@ -147,7 +151,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Lubrication system 3x10l/min',
         installedAt: '2008-03-22T14:39:45Z',
-        warrentyEndsAt: '2010-03-22T14:39:45Z',
+        warrantyEndsAt: '2010-03-22T14:39:45Z',
         information:
           'Schmieranlage 3x10l/min\nBehälter 63l, Wanne nach Norm WHG',
         locationStreet: 'Tölzer Straße 1\nHalle 15, Tor 4',
@@ -173,7 +177,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Oil tray 30 L',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: 'Ölauffangwanne 30 L',
         locationStreet: '',
         locationPostalCode: '',
@@ -198,7 +202,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Blocking valve',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',
@@ -223,7 +227,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Hydraulic filter 160 LD 0008 G25',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',
@@ -248,7 +252,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Manometer GA 0-10bar',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',
@@ -273,7 +277,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Installation and small parts',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',
@@ -298,7 +302,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Rust-proofing (inside)',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',
@@ -323,7 +327,7 @@ export function localStorageServiceObjectDataClass() {
         isSupplier: false,
         product: 'Pump (complete)',
         installedAt: null,
-        warrentyEndsAt: null,
+        warrantyEndsAt: null,
         information: '',
         locationStreet: '',
         locationPostalCode: '',

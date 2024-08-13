@@ -1,26 +1,10 @@
 import { provideDataClass } from 'scrivito'
-import { pisaClient } from '../../pisaClient'
-import { toClientParams } from '../../toClientParams'
-import { DataConnection, DataIndexResponse, RawItem } from '../../types'
-import { convertBlobAttributes } from '../../../utils/convertBlobAttributes'
+import { pisaConfig } from '../../pisaClient'
+import { DataClassAttributes } from '../../types'
 
-export function pisaDocumentDataClass() {
+export function pisaDocumentDataClass(attributes: DataClassAttributes) {
   return provideDataClass('Document', {
-    connection: pisaClient('document').then(
-      (apiClient): DataConnection => ({
-        index: (params) =>
-          apiClient.get('', {
-            params: toClientParams(params),
-          }) as Promise<DataIndexResponse>,
-        get: (id) => apiClient.get(id),
-        create: async (data) =>
-          apiClient.post('', {
-            data: await convertBlobAttributes(data),
-          }) as Promise<RawItem>,
-        update: async (id, data) =>
-          apiClient.patch(id, { data: await convertBlobAttributes(data) }),
-        delete: (id) => apiClient.delete(id),
-      }),
-    ),
+    restApi: pisaConfig('document'),
+    attributes,
   })
 }

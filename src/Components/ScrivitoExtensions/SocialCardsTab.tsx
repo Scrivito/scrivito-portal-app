@@ -44,13 +44,13 @@ export function SocialCardsTab({ obj }: { obj: Obj }) {
 const TwitterInput = connect(({ obj }: { obj: Obj }) => (
   <div>
     <div className="scrivito_detail_label">
-      <span className="headline">Twitter</span>
+      <span className="headline">X Twitter Card</span>
     </div>
     <ContentProperty
       content={obj}
       attribute="tcCreator"
       title="Creator"
-      description="Twitter handle of the tweet creator. Start with @"
+      description="Username of the content creator. Start with @"
     />
     <div className="scrivito_detail_label">
       <span>Image</span>
@@ -95,8 +95,8 @@ const FacebookInput = connect(({ obj }) => (
 const TwitterPreview = connect(({ obj }: { obj: Obj }) => (
   <div className="social_card_preview">
     <div className="scrivito_detail_label">
-      <span className="headline">Twitter preview</span>
-      <span>Twitter (Summary card with large image)</span>
+      <span className="headline">X Twitter preview</span>
+      <span>Summary Card with Large Image</span>
     </div>
     <div className="creator">
       Tweet creator: {lookupMetadata(obj, 'twitter:creator')}

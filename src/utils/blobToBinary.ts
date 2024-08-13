@@ -1,25 +1,6 @@
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
 
-export async function convertBlobAttributes(
-  data: Record<string, unknown>,
-): Promise<Record<string, unknown>> {
-  const result: Record<string, unknown> = {}
-  for (const key in data) {
-    result[key] = await convertAttribute(data[key])
-  }
-  return result
-}
-
-async function convertAttribute(value: unknown) {
-  if (value instanceof Blob) return blobToBinary(value)
-  if (Array.isArray(value) && value.every((v) => v instanceof Blob)) {
-    return Promise.all(value.map((v) => blobToBinary(v)))
-  }
-
-  return value
-}
-
-async function blobToBinary(blob: Blob | File): Promise<{
+export interface DataBinaryUpload {
   dataBase64: string
   filename: string
 
@@ -27,7 +8,11 @@ async function blobToBinary(blob: Blob | File): Promise<{
   contentLength?: number
   contentType?: string
   _id?: string
-}> {
+}
+
+export async function blobToBinary(
+  blob: Blob | File,
+): Promise<DataBinaryUpload> {
   const binary = {
     dataBase64: await blobToBase64(blob),
     filename: blob instanceof File ? blob.name : 'unknown-name',

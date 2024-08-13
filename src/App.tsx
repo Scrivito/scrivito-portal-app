@@ -10,7 +10,7 @@ import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 
-const helmetContext: { helmet?: HelmetServerState } = {}
+export const helmetContext: { helmet?: HelmetServerState } = {}
 
 export function App({
   appWrapperRef,
