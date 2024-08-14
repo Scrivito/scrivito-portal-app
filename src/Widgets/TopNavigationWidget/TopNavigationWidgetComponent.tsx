@@ -6,14 +6,19 @@ import { Brand } from './SubComponents/Brand'
 import { MainNavigation } from './SubComponents/MainNavigation'
 import { MetaNavigation } from './SubComponents/MetaNavigation'
 import { isHomepage } from '../../Objs/Homepage/HomepageObjClass'
+import './TopNavigationWidget.scss'
 
 provideComponent(TopNavigationWidget, ({ widget }) => {
   const root = Obj.root()
   if (!isHomepage(root)) return null
 
+  const classNames = ['top-navigation-widget']
+
   if (currentPage()?.get('showAsLandingPage')) {
+    classNames.push('bg-primary', 'pb-4')
+
     return (
-      <WidgetTag tag="section" className="bg-primary pb-4">
+      <WidgetTag tag="section" className={classNames.join(' ')}>
         <div className="container">
           <Navbar expand="lg" collapseOnSelect>
             <Brand root={root} linkClassName="navbar-brand m-auto pt-3" />
@@ -23,11 +28,10 @@ provideComponent(TopNavigationWidget, ({ widget }) => {
     )
   }
 
+  if (widget.get('slimDesign')) classNames.push('slim-nav')
+
   return (
-    <WidgetTag
-      tag="section"
-      className={widget.get('slimDesign') ? 'slim-nav' : ''}
-    >
+    <WidgetTag tag="section" className={classNames.join(' ')}>
       <div className="container">
         <Navbar expand="lg" collapseOnSelect>
           <Brand root={root} linkClassName="navbar-brand" />

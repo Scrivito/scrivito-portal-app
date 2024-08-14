@@ -1777,29 +1777,6 @@ header .navbar.navbar-expand-lg {
   margin: 0;
 }
 
-/* two color top navbar for tynacoon
- =================================================================== */
-header:first-of-type section {
-  overflow: visible;
-  z-index: 3;
-}
-header:first-of-type section:after {
-  background: var(--light-grey);
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  height: 38px;
-  z-index: -1;
-  right: 0;
-  left: 0;
-  pointer-events: none;
-}
-header:first-of-type section.bg-primary:after,
-header:first-of-type section.bg-secondary:after {
-  display: none;
-}
-
 /* breadcrumb
  =================================================================== */
 
