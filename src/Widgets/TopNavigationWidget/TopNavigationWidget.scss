@@ -5,7 +5,7 @@
   &:after {
     background: var(--light-grey);
     content: '';
-    display: block;
+    display: block !important;
     position: absolute;
     top: 0;
     height: 38px;
