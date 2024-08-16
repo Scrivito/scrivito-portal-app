@@ -672,23 +672,24 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--headline) !important;
+      color: var(--headline);
     }
     a:not(.btn),
     p {
       color: var(--bs-body-color);
     }
     .text-primary {
-      color: var(--bs-primary) !important;
+      color: var(--bs-primary);
     }
     .text-secondary {
-      color: var(--bs-secondary) !important;
+      color: var(--bs-secondary);
     }
   }
 }
 // -- new override -- //
 
-section .card {
+.card,
+.card .card {
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -704,7 +705,7 @@ section .card {
     .h4,
     .h5,
     .h6 {
-      color: var(--headline) !important;
+      color: var(--headline);
     }
     a:not(.btn),
     p,
@@ -712,16 +713,25 @@ section .card {
     td {
       color: var(--bs-body-color);
     }
+    .btn-outline-primary {
+      color: var(--bs-primary);
+      border-color: var(--bs-primary);
+    }
+    .btn-outline-secondary {
+      color: var(--bs-secondary);
+      border-color: var(--bs-secondary);
+    }
     .text-primary {
-      color: var(--bs-primary) !important;
+      color: var(--bs-primary);
     }
     .text-secondary {
-      color: var(--bs-secondary) !important;
+      color: var(--bs-secondary);
     }
   }
 }
 
-section .card {
+.card,
+.card .card {
   &.bg-primary,
   &.bg-dark-grey,
   &.bg-secondary,
@@ -746,7 +756,7 @@ section .card {
     td,
     .form-label,
     .text-mandatory {
-      color: rgba(255, 255, 255, 0.9) !important;
+      color: rgba(255, 255, 255, 0.9);
     }
     .btn-outline-primary,
     .btn-outline-secondary {
@@ -754,10 +764,10 @@ section .card {
       border-color: #fff;
     }
     .text-primary {
-      color: var(--bs-primary) !important;
+      color: var(--bs-primary);
     }
     .text-secondary {
-      color: var(--bs-secondary) !important;
+      color: var(--bs-secondary);
     }
   }
 }

@@ -14,9 +14,9 @@
     left: 0;
     pointer-events: none;
   }
-
+  &.slim-nav:after,
   &.bg-primary:after,
   &.bg-secondary:after {
-    display: none;
+    display: none !important;
   }
 }
