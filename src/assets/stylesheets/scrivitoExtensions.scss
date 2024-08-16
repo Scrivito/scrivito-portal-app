@@ -26,6 +26,15 @@ body {
   [data-scrivito-editors-placeholder]:empty:not(:focus):before {
     color: #aaa !important;
   }
+
+  &.scrivito_detail_content,
+  .scrivito_detail_content {
+    padding: 7px;
+
+    .row {
+      --bs-gutter-x: 7px;
+    }
+  }
 }
 
 // --------------------------------------------------------------- //
