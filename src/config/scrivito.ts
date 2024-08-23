@@ -13,6 +13,7 @@ export function configureScrivito(options?: { priority?: 'background' }) {
     siteForUrl,
     strictSearchOperators: true,
     tenant: scrivitoTenantId(),
+    treatLocalhostLike: 'https://scrivito-portal-app.pages.dev',
     // @ts-expect-error // TODO: Remove later on
     unstable: {
       assetUrlBase: 'http://localhost:8091',
