@@ -1256,6 +1256,7 @@ section:focus >,
   }
   .navbar-brand-logo {
     max-width: 155px;
+    min-height: 45px;
   }
   .navbar-meta .nav-link {
     padding: 17px;
@@ -1318,6 +1319,8 @@ section:focus >,
 .navbar-brand-logo {
   margin: auto;
   max-width: 135px;
+  min-height: 37px;
+  object-fit: contain;
 }
 .navbar {
   padding: 0;
