@@ -35,6 +35,15 @@ export const DataBatchContextProvider = connect(
       setLimit(configuredLimit)
     }
 
+    const key = [
+      'DataBatchContextProvider',
+      content?.id(),
+      attribute,
+      id,
+      tag,
+      search,
+    ].join('-')
+
     const transform = { limit, search }
 
     const hasMore = () => {
@@ -55,6 +64,7 @@ export const DataBatchContextProvider = connect(
         <ContentTag
           tag={tag}
           id={id}
+          key={key}
           content={content}
           attribute={attribute}
           dataContext={dataScope.transform(transform)}
