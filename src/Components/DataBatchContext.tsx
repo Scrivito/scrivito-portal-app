@@ -37,7 +37,7 @@ export const DataBatchContextProvider = connect(
 
     const key = [
       'DataBatchContextProvider',
-      content?.id(),
+      content.id(),
       attribute,
       id,
       tag,
