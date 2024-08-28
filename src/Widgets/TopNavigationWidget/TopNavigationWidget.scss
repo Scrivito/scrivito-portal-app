@@ -1,0 +1,22 @@
+.top-navigation-widget {
+  z-index: 3;
+
+  /* two color top navbar  */
+  &:after {
+    background: var(--light-grey);
+    content: '';
+    display: block !important;
+    position: absolute;
+    top: 0;
+    height: 38px;
+    z-index: -1;
+    right: 0;
+    left: 0;
+    pointer-events: none;
+  }
+  &.slim-nav:after,
+  &.bg-primary:after,
+  &.bg-secondary:after {
+    display: none !important;
+  }
+}

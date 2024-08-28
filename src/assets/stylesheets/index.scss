@@ -667,23 +667,24 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--headline) !important;
+      color: var(--headline);
     }
     a:not(.btn),
     p {
       color: var(--bs-body-color);
     }
     .text-primary {
-      color: var(--bs-primary) !important;
+      color: var(--bs-primary);
     }
     .text-secondary {
-      color: var(--bs-secondary) !important;
+      color: var(--bs-secondary);
     }
   }
 }
 // -- new override -- //
 
-section .card {
+.card,
+.card .card {
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -699,7 +700,7 @@ section .card {
     .h4,
     .h5,
     .h6 {
-      color: var(--headline) !important;
+      color: var(--headline);
     }
     a:not(.btn),
     p,
@@ -707,16 +708,25 @@ section .card {
     td {
       color: var(--bs-body-color);
     }
+    .btn-outline-primary {
+      color: var(--bs-primary);
+      border-color: var(--bs-primary);
+    }
+    .btn-outline-secondary {
+      color: var(--bs-secondary);
+      border-color: var(--bs-secondary);
+    }
     .text-primary {
-      color: var(--bs-primary) !important;
+      color: var(--bs-primary);
     }
     .text-secondary {
-      color: var(--bs-secondary) !important;
+      color: var(--bs-secondary);
     }
   }
 }
 
-section .card {
+.card,
+.card .card {
   &.bg-primary,
   &.bg-dark-grey,
   &.bg-secondary,
@@ -741,7 +751,7 @@ section .card {
     td,
     .form-label,
     .text-mandatory {
-      color: rgba(255, 255, 255, 0.9) !important;
+      color: rgba(255, 255, 255, 0.9);
     }
     .btn-outline-primary,
     .btn-outline-secondary {
@@ -749,10 +759,10 @@ section .card {
       border-color: #fff;
     }
     .text-primary {
-      color: var(--bs-primary) !important;
+      color: var(--bs-primary);
     }
     .text-secondary {
-      color: var(--bs-secondary) !important;
+      color: var(--bs-secondary);
     }
   }
 }
@@ -855,6 +865,7 @@ header section {
   --bs-card-box-shadow: var(--jr-box-shadow);
   --bs-card-inner-border-radius: 0.4375rem;
   --bs-card-cap-bg: transparent;
+  --bs-card-bg: transparent;
   box-shadow: var(--jr-box-shadow);
 }
 .card.bg-white .bi {
@@ -1770,29 +1781,6 @@ header .navbar.navbar-expand-lg {
 .list-value {
   display: block;
   margin: 0;
-}
-
-/* two color top navbar for tynacoon
- =================================================================== */
-header:first-of-type section {
-  overflow: visible;
-  z-index: 3;
-}
-header:first-of-type section:after {
-  background: var(--light-grey);
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  height: 38px;
-  z-index: -1;
-  right: 0;
-  left: 0;
-  pointer-events: none;
-}
-header:first-of-type section.bg-primary:after,
-header:first-of-type section.bg-secondary:after {
-  display: none;
 }
 
 /* breadcrumb
