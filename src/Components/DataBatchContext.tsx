@@ -42,7 +42,7 @@ export const DataBatchContextProvider = connect(
       id,
       tag,
       search,
-      // limit is intentionally not included in the key. Otherwise the component would show a loading spinner on every "load more" click-
+      // limit is intentionally not included in the key. Otherwise the component would show a loading spinner on every "load more" click.
     ].join('-')
 
     const transform = { limit, search }
