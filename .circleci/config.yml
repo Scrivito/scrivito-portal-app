@@ -6,10 +6,10 @@ orbs:
 executors:
   node:
     docker:
-      - image: cimg/node:18.18
+      - image: cimg/node:20.17
   node-browsers:
     docker:
-      - image: cimg/node:18.18-browsers
+      - image: cimg/node:20.17-browsers
 
 jobs:
   execute-npm:
@@ -35,6 +35,8 @@ workflows:
       - execute-npm:
           name: npm run build
           npm-run-command: build
+          setup:
+            - run: node --version
       - execute-npm:
           name: npm run types
           npm-run-command: types
