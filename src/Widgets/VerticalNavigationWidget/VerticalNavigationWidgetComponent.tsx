@@ -1,8 +1,10 @@
 import {
   ChildListTag,
+  connect,
   isCurrentPage,
   isOnCurrentPath,
   LinkTag,
+  Obj,
   provideComponent,
 } from 'scrivito'
 import Navbar from 'react-bootstrap/Navbar'
@@ -49,24 +51,23 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
           className="nav-bordered"
           tag="ul"
           parent={page}
-          renderChild={(child) =>
-            child.get('hideInNavigation') === true ? (
-              <></>
-            ) : (
-              <li className={isOnCurrentPath(child) ? 'active' : ''}>
-                <Nav.Link
-                  as={LinkTag}
-                  eventKey={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
-                  key={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
-                  to={child}
-                >
-                  <ObjIconAndTitle obj={child} />
-                </Nav.Link>
-              </li>
-            )
-          }
+          renderChild={(child) => <Child child={child} />}
         />
       </Navbar.Collapse>
     </Navbar>
+  )
+})
+
+const Child = connect(function Child({ child }: { child: Obj }) {
+  if (child.get('hideInNavigation') === true) return null
+
+  const key = `VerticalNavigationWidget-Child-${child.id()}`
+
+  return (
+    <li className={isOnCurrentPath(child) ? 'active' : ''}>
+      <Nav.Link as={LinkTag} eventKey={key} key={key} to={child}>
+        <ObjIconAndTitle obj={child} />
+      </Nav.Link>
+    </li>
   )
 })
