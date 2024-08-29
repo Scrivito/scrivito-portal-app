@@ -44,6 +44,13 @@ const ColumnsEditor = connect(
     const originalContents = useMemo(() => calculateContents(widget), [widget])
 
     const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
+    const isFlex = widget.get('layoutMode') === 'flex'
+
+    function isActive(grid: number[]) {
+      return isFlex
+        ? isEqual(growFromGrid(grid), growOfWidget(widget))
+        : isEqual(grid, currentGrid)
+    }
 
     return (
       <div className="scrivito_detail_content">
@@ -56,6 +63,15 @@ const ColumnsEditor = connect(
           }}
           readOnly={readOnly}
         />
+        <Switch
+          className="two_valued"
+          labels={['Grid', 'Flex']}
+          onClick={() =>
+            widget.update({ layoutMode: isFlex ? 'grid' : 'flex' })
+          }
+          title="Display mode"
+          value={isFlex ? 1 : 0}
+        />
         <div className="scrivito_detail_label">
           <span>Layout (desktop)</span>
         </div>
@@ -63,7 +79,7 @@ const ColumnsEditor = connect(
           <div className="gle-preview-list">
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="1 column"
@@ -72,21 +88,21 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="2 columns"
                 grid={[6, 6]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="2 columns"
                 grid={[3, 9]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="2 columns"
@@ -95,28 +111,28 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="3 columns"
                 grid={[4, 4, 4]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="3 columns"
                 grid={[2, 8, 2]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="3 columns"
                 grid={[2, 5, 5]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="3 columns"
@@ -125,14 +141,14 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="4 columns"
                 grid={[3, 3, 3, 3]}
               />
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="4 columns"
@@ -141,7 +157,7 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="5 columns"
@@ -150,7 +166,7 @@ const ColumnsEditor = connect(
             </div>
             <div className="gle-preview-group">
               <PresetGrid
-                currentGrid={currentGrid}
+                isActive={isActive}
                 adjustGrid={adjustGrid}
                 readOnly={readOnly}
                 title="6 columns"
@@ -158,57 +174,56 @@ const ColumnsEditor = connect(
               />
             </div>
           </div>
-          <GridLayoutEditor
-            currentGrid={currentGrid}
-            adjustGrid={adjustGrid}
-            readOnly={readOnly}
-          />
+          {isFlex ? (
+            <FlexLayoutEditor
+              currentGrow={growOfWidget(widget)}
+              adjustGrow={adjustGrow}
+              readOnly={readOnly}
+            />
+          ) : (
+            <GridLayoutEditor
+              currentGrid={currentGrid}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+            />
+          )}
         </div>
 
-        <div className="scrivito_detail_label">
-          <span style={{ fontSize: '11px' }}>Disable responsive adaption?</span>
-        </div>
-
-        <div className="item_content">
-          <div className="boolean_attribute_component">
-            <label
-              className={`scrivito_switch${
-                disableResponsiveAdaption ? ' active' : ''
-              }`}
-              aria-label={disableResponsiveAdaption ? 'Yes' : 'No'}
-            >
-              <input
-                type="checkbox"
-                className="btn-check"
-                checked={disableResponsiveAdaption}
-                onClick={() =>
-                  widget.update({
-                    disableResponsiveAdaption: !disableResponsiveAdaption,
-                  })
-                }
-              />
-              <div className="pill-wrapper">
-                <div className="cell pill"></div>
-              </div>
-              <div className="cell left" aria-hidden>
-                No
-              </div>
-              <div className="cell right" aria-hidden>
-                Yes
-              </div>
-            </label>
-          </div>
-        </div>
+        <Switch
+          labels={['No', 'Yes']}
+          onClick={() =>
+            widget.update({
+              disableResponsiveAdaption: !disableResponsiveAdaption,
+            })
+          }
+          title="Disable responsive adaption?"
+          value={disableResponsiveAdaption ? 1 : 0}
+        />
       </div>
     )
 
     function adjustGrid(newGrid: number[]) {
       if (readOnly) return
-      if (isEqual(currentGrid, newGrid)) return
+      adjustCols(newGrid)
+      adjustFlexGrowFromGrid(widget.get('columns'), newGrid)
+    }
 
-      adjustNumberOfColumns(widget, newGrid.length)
-      distributeContents(widget.get('columns'), originalContents)
-      adjustColSize(widget.get('columns'), newGrid)
+    function adjustGrow(newGrow: boolean[]) {
+      if (readOnly) return
+      const newGrid =
+        newGrow.length === 5
+          ? [2, 2, 2, 2, 4]
+          : newGrow.map(() => 12 / newGrow.length)
+      adjustCols(newGrid)
+      adjustFlexGrow(widget.get('columns'), newGrow)
+    }
+
+    function adjustCols(newGrid: number[]) {
+      if (!isEqual(currentGrid, newGrid)) {
+        adjustNumberOfColumns(widget, newGrid.length)
+        distributeContents(widget.get('columns'), originalContents)
+        adjustColSize(widget.get('columns'), newGrid)
+      }
     }
   },
 )
@@ -224,21 +239,21 @@ function calculateContentIds(contents: Widget[][]) {
 }
 
 function PresetGrid({
-  currentGrid,
+  isActive,
   adjustGrid,
   title,
   grid,
   readOnly,
 }: {
   adjustGrid: (newGrid: number[]) => void
-  currentGrid: number[]
+  isActive: (grid: number[]) => boolean
   grid: number[]
   readOnly: boolean
   title: string
 }) {
   const classNames = ['gle-preview', 'p-0']
   if (!readOnly) classNames.push('clickable')
-  if (isEqual(currentGrid, grid)) classNames.push('active')
+  if (isActive(grid)) classNames.push('active')
 
   return (
     <button
@@ -344,6 +359,53 @@ function Alignment({
   )
 }
 
+function FlexLayoutEditor({
+  readOnly,
+  adjustGrow,
+  currentGrow,
+}: {
+  readOnly: boolean
+  adjustGrow: (newGrow: boolean[]) => void
+  currentGrow: boolean[]
+}) {
+  return (
+    <div className="gle flex-layout">
+      <div className={`grid-columns ${readOnly ? '' : 'clickable'}`}>
+        {currentGrow.map((flexGrow, index) => (
+          <div
+            key={index}
+            className={`grid-col grid-col-${flexGrow ? 'grow' : 'shrink'}`}
+          >
+            {!readOnly && currentGrow.length > 1 && (
+              <button
+                className="btn grid-del"
+                title="delete column"
+                onClick={() =>
+                  adjustGrow(currentGrow.filter((_, i) => i !== index))
+                }
+              />
+            )}
+            <button
+              className="btn grid-button"
+              title={flexGrow ? 'shrink column' : 'grow column'}
+              onClick={() =>
+                adjustGrow(currentGrow.map((v, i) => (i === index ? !v : v)))
+              }
+            />
+          </div>
+        ))}
+
+        {!readOnly && currentGrow.length < 6 && (
+          <button
+            className="p-0 grid-handle grid-handle-plus"
+            title="add a column"
+            onClick={() => adjustGrow([...currentGrow, true])}
+          />
+        )}
+      </div>
+    </div>
+  )
+}
 interface GridLayoutEditorProps {
   currentGrid: number[]
   adjustGrid: (newGrid: number[]) => void
@@ -522,6 +584,12 @@ function gridOfWidget(containerWidget: ColumnContainerWidgetInstance) {
     .map((column) => (column as ColumnWidgetInstance).get('colSize') || 1)
 }
 
+function growOfWidget(containerWidget: ColumnContainerWidgetInstance) {
+  return containerWidget
+    .get('columns')
+    .map((column) => (column as ColumnWidgetInstance).get('flexGrow'))
+}
+
 function adjustNumberOfColumns(
   containerWidget: ColumnContainerWidgetInstance,
   desiredLength: number,
@@ -557,6 +625,24 @@ function adjustColSize(columns: Widget[], newGrid: number[]) {
   })
 }
 
+function adjustFlexGrow(columns: Widget[], newGrow: boolean[]) {
+  columns.forEach((column, index) => {
+    column.update({ flexGrow: newGrow[index] })
+  })
+}
+
+function adjustFlexGrowFromGrid(columns: Widget[], grid: number[]) {
+  const flexGrow = growFromGrid(grid)
+  columns.forEach((column, index) =>
+    column.update({ flexGrow: flexGrow[index] }),
+  )
+}
+
+function growFromGrid(grid: number[]) {
+  const max = Math.max(...grid)
+  return grid.map((colSize) => colSize === max)
+}
+
 function AlignmentDescription({ alignment }: { alignment: string | null }) {
   if (alignment !== 'stretch') return null
 
@@ -564,5 +650,52 @@ function AlignmentDescription({ alignment }: { alignment: string | null }) {
     <div className="scrivito_notice_body">
       Stretch (full height) only works with one box widget inside a column.
     </div>
+  )
+}
+
+function Switch({
+  className,
+  labels,
+  onClick,
+  title,
+  value,
+}: {
+  className?: string
+  labels: string[]
+  onClick: () => void
+  title: string
+  value: number
+}) {
+  return (
+    <>
+      <div className="scrivito_detail_label">
+        <span>{title}</span>
+      </div>
+
+      <div className="item_content">
+        <div className="boolean_attribute_component">
+          <label
+            className={`scrivito_switch ${className} ${value ? 'active' : ''}`}
+            aria-label={labels[value]}
+          >
+            <input
+              type="checkbox"
+              className="btn-check"
+              checked={!!value}
+              onClick={onClick}
+            />
+            <div className="pill-wrapper">
+              <div className="cell pill"></div>
+            </div>
+            <div className="cell left" aria-hidden>
+              {labels[0]}
+            </div>
+            <div className="cell right" aria-hidden>
+              {labels[1]}
+            </div>
+          </label>
+        </div>
+      </div>
+    </>
   )
 }

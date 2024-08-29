@@ -12,14 +12,21 @@ provideEditingConfig(ColumnContainerWidget, {
       title: 'Columns layout',
       key: 'columns-layout-group',
       component: ColumnsEditorTab,
+      properties: [
+        'alignment',
+        'columns',
+        'disableResponsiveAdaption',
+        'layoutMode',
+      ],
     },
   ],
   initialContent: {
     columns: [
-      new ColumnWidget({ colSize: 4 }),
-      new ColumnWidget({ colSize: 4 }),
-      new ColumnWidget({ colSize: 4 }),
+      new ColumnWidget({ colSize: 4, flexGrow: true }),
+      new ColumnWidget({ colSize: 4, flexGrow: true }),
+      new ColumnWidget({ colSize: 4, flexGrow: true }),
     ],
     alignment: 'start',
+    layoutMode: 'grid',
   },
 })

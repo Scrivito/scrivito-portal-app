@@ -1,33 +1,73 @@
-import { provideComponent, ContentTag } from 'scrivito'
+import { provideComponent, ContentTag, connect } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
+import { ColumnWidgetInstance } from '../ColumnWidget/ColumnWidgetClass'
+import './ColumnContainerWidget.scss'
 
 provideComponent(ColumnContainerWidget, ({ widget }) => {
   const columns = widget.get('columns')
   if (!columns.length) return null
 
-  const content = columns.map((columnWidget, index) => {
-    const colSize = columnWidget.get('colSize') || 1
-    const className = widget.get('disableResponsiveAdaption')
-      ? `col-${colSize}`
-      : `col-md-${colSize}`
-    return (
-      <div key={index} className={className}>
-        <ContentTag
-          content={columnWidget}
-          attribute="content"
-          className="h-100"
-        />
-      </div>
+  const alignment = widget.get('alignment') || 'start'
+  const isResponsive = !widget.get('disableResponsiveAdaption')
+  const isFlex = widget.get('layoutMode') === 'flex'
+
+  const classNames = [`align-items-${alignment}`]
+
+  if (isFlex) {
+    classNames.push(
+      'column-container-widget--flex-wrapper',
+      isResponsive ? 'd-md-flex' : 'd-flex',
     )
-  })
+  } else classNames.push('row')
 
-  const classNames = ['row']
+  return (
+    <div className={classNames.join(' ')}>
+      {columns.map((columnWidget: ColumnWidgetInstance) => {
+        return (
+          <Column
+            key={columnWidget.id()}
+            columnWidget={columnWidget}
+            isFlex={isFlex}
+            isResponsive={isResponsive}
+            isStretch={alignment === 'stretch'}
+          />
+        )
+      })}
+    </div>
+  )
+})
 
-  if (widget.get('alignment')) {
-    classNames.push(`align-items-${widget.get('alignment')}`)
+const Column = connect(function Column({
+  columnWidget,
+  isFlex,
+  isResponsive,
+  isStretch,
+}: {
+  columnWidget: ColumnWidgetInstance
+  isFlex: boolean
+  isResponsive: boolean
+  isStretch: boolean
+}) {
+  const classNames = []
+
+  if (isFlex) {
+    classNames.push(
+      ...(isResponsive ? ['my-md-0', 'my-2', 'mx-md-2'] : ['mx-2']),
+    )
+    if (columnWidget.get('flexGrow')) classNames.push('flex-grow-1')
+    if (isStretch && columnWidget.get('content').length < 2) {
+      classNames.push(isResponsive ? 'd-md-flex' : 'd-flex')
+    }
   } else {
-    classNames.push('align-items-start')
+    const colSize = columnWidget.get('colSize') || 1
+    classNames.push(isResponsive ? `col-md-${colSize}` : `col-${colSize}`)
   }
 
-  return <div className={classNames.join(' ')}>{content}</div>
+  return (
+    <ContentTag
+      content={columnWidget}
+      attribute="content"
+      className={classNames.join(' ')}
+    />
+  )
 })
