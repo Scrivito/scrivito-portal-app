@@ -26,7 +26,7 @@ provideEditingConfig(Page, {
     linkIcon: {
       title: 'Link icon name',
       description:
-        'This icon is shown e.g. when linked from the "portal" section of the navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
+        'This icon is shown e.g. when used in a vertical navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
     },
     showAsLandingPage: {
       title: 'Display this page as a landing page?',

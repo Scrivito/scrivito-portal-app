@@ -7,6 +7,7 @@ export const Homepage = provideObjClass('Homepage', {
     baseUrl: 'stringlist',
     body: 'widgetlist',
     contentTitle: 'string',
+    linkIcon: 'string',
     pisaUrl: 'string',
     siteCartPage: 'reference',
     siteColorPrimary: 'string',
