@@ -39,7 +39,7 @@ Now call `npm install` in the command line to install all JS dependencies (which
 
 ### Specify the Scrivito CMS to use
 
-The Scrivito Portal App requires the tenant ID of your CMS. The ID is taken from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
+The Scrivito Portal App requires the instance ID of your CMS. The ID is taken from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
 
 See `.env.example` for an example.
 
