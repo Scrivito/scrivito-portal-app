@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { objTitle } from '../../../utils/objTitle'
+import { isRedirect } from '../../../Objs/Redirect/RedirectObjClass'
 
 export const NavItem = connect(function ScrivitoNavItem({
   eventKey,
@@ -41,9 +42,11 @@ export const NavItem = connect(function ScrivitoNavItem({
 })
 
 function itemProps(obj: Obj) {
+  const target = (isRedirect(obj) && obj.get('link')?.obj()) || obj
+
   return {
-    active: isOnCurrentPath(obj),
+    active: isOnCurrentPath(target),
     as: LinkTag,
-    to: obj,
+    to: target,
   }
 }
