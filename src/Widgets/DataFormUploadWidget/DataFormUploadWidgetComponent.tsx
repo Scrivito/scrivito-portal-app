@@ -8,13 +8,24 @@ import { DataFormUploadWidget } from './DataFormUploadWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { useDropzone } from 'react-dropzone'
 import { Attachment } from '../../Components/Attachment'
-import { useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import prettyBytes from 'pretty-bytes'
+
+const MAX_FILE_SIZE = 50 * 1000 * 1000
 
 provideComponent(DataFormUploadWidget, ({ widget }) => {
   const id = ['DataFormUploadWidget', widget.id()].join('-')
   const attributeName = widget.get('attributeName')
+  const [isTooLarge, setIsTooLarge] = useState(false)
 
-  const { acceptedFiles, getRootProps, getInputProps, inputRef } = useDropzone()
+  const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
+  const onDropRejected = useCallback(() => setIsTooLarge(true), [])
+
+  const { acceptedFiles, getRootProps, getInputProps, inputRef } = useDropzone({
+    maxSize: MAX_FILE_SIZE,
+    onDropAccepted,
+    onDropRejected,
+  })
 
   useEffect(() => {
     if (!inputRef.current) return
@@ -87,6 +98,12 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
         />
         {getDropMessage(widget.get('multiple'))}
       </div>
+      {isTooLarge && (
+        <div>
+          <i className="bi bi-exclamation-diamond" aria-hidden="true" />{' '}
+          {getTooLargeMessage()}
+        </div>
+      )}
       <div>
         <div className="d-flex flex-wrap mt-2 gap-2">
           {attachments.map((attachment) => (
@@ -104,5 +121,20 @@ function getDropMessage(multiple: boolean) {
       return `Wählen oder legen Sie ${multiple ? 'Dateien' : 'eine Datei'} hier ab.`
     default:
       return `Choose or drop ${multiple ? 'files' : 'a file'} here.`
+  }
+}
+
+function getTooLargeMessage() {
+  switch (currentLanguage()) {
+    case 'de':
+      return `Eine oder mehrere Dateien sind zu groß. Bitte Dateien bis maximal ${prettyBytes(
+        MAX_FILE_SIZE,
+        { locale: 'de' },
+      )} hochladen.`
+    default:
+      return `One or more files are too large. Please upload files up to ${prettyBytes(
+        MAX_FILE_SIZE,
+        { locale: 'en' },
+      )} in size.`
   }
 }
