@@ -4,7 +4,7 @@
 
 [Scrivito](https://www.scrivito.com/?utm_source=github&utm_medium=natural&utm_campaign=github_portal_app) is the world's most secure, serverless JavaScript CMS. Based on ReactJS, it is completely maintenance-free, cost-effective, and has unprecedented security. Learn more about Scrivito at [scrivito.com](https://www.scrivito.com/?utm_source=github&utm_medium=natural&utm_campaign=github_portal_app).
 
-This portal app shows Scrivito’s features and is a great basis for your own Scrivito website projects.
+The Scrivito Portal App shows Scrivito’s features and is a great basis for your own Scrivito website projects.
 
 ## Features
 
@@ -39,7 +39,7 @@ Now call `npm install` in the command line to install all JS dependencies (which
 
 ### Specify the Scrivito CMS to use
 
-The Scrivito portal app requires the tenant ID of your CMS. The ID is taken from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
+The Scrivito Portal App requires the tenant ID of your CMS. The ID is taken from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
 
 See `.env.example` for an example.
 
