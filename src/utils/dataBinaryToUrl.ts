@@ -1,3 +1,4 @@
+import { fileToDataUrl } from './fileToDataUrl'
 import { isOptionalString } from './isOptionalString'
 import { pisaDataBinaryToUrl } from './pisaDataBinaryToUrl'
 
@@ -6,6 +7,10 @@ export async function dataBinaryToUrl(
 ): Promise<{ url: string; maxAge: number }> {
   if (isUrlDataBinary(binary)) {
     return { url: binary.url, maxAge: Number.MAX_VALUE }
+  }
+
+  if (binary.file) {
+    return { url: await fileToDataUrl(binary.file), maxAge: Number.MAX_VALUE }
   }
 
   if (binary.dataBase64) {
@@ -36,6 +41,7 @@ export interface FullDataBinary {
   filename: string
   url?: string
   dataBase64?: string
+  file?: File
 }
 
 export function isDataBinary(item: unknown): item is DataBinary {
