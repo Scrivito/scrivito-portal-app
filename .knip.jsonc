@@ -12,6 +12,7 @@
   ],
   "ignore": [
     "src/Data/localStorageDataConnection.ts", // TODO: Remove from knip, once searchLocalStorageDataConnections is in use
+    "design/**",
     "public/scrivito/**",
     "src/assets/stylesheets/vendor/**",
     "vendor/**",
