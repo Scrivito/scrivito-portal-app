@@ -5,8 +5,10 @@ import { FullDataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
 
 export const Attachment = connect(function Attachment({
   attachment,
+  readonly,
 }: {
   attachment: FullDataBinary
+  readonly?: boolean
 }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
   const [trigger, setTrigger] = useState<number>(0)
@@ -23,12 +25,8 @@ export const Attachment = connect(function Attachment({
     }
   }, [attachment, trigger])
 
-  return (
-    <a
-      href={binaryUrl}
-      className="box-attachment"
-      title={`Download ${attachment.filename}`}
-    >
+  const content = (
+    <>
       <div className="box-preview">
         <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
       </div>
@@ -40,6 +38,18 @@ export const Attachment = connect(function Attachment({
           })}
         </span>
       </div>
+    </>
+  )
+
+  return readonly ? (
+    <div className="box-attachment">{content}</div>
+  ) : (
+    <a
+      href={binaryUrl}
+      className="box-attachment"
+      title={`Download ${attachment.filename}`}
+    >
+      {content}
     </a>
   )
 })
