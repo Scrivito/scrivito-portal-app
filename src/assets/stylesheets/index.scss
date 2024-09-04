@@ -1190,6 +1190,9 @@ section:focus >,
     box-shadow 0.15s ease-in-out;
   &.dropzone {
     cursor: pointer;
+    &.drag-active {
+      border: 0.15rem dashed;
+    }
   }
 }
 .form-select {
