@@ -21,11 +21,6 @@ provideEditingConfig(Homepage, {
       description:
         'Under which URL is this site reachable? E.g. "https://www.tynacoon.com/en"',
     },
-    linkIcon: {
-      title: 'Link icon name',
-      description:
-        'This icon is shown e.g. when used in a vertical navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
-    },
     pisaUrl: {
       title: 'PisaSales Portal API URL',
     },
@@ -91,7 +86,7 @@ provideEditingConfig(Homepage, {
     },
     ...defaultPagePropertiesGroups,
   ],
-  properties: [...defaultPageProperties, 'linkIcon'],
+  properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
     siteDropShadow: true,

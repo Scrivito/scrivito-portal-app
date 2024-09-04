@@ -1,5 +1,6 @@
 export const defaultPageAttributes = {
   title: 'string',
+  linkIcon: 'string',
   // Layout widgets
   layoutHeader: 'widgetlist',
   layoutShowHeader: 'boolean',

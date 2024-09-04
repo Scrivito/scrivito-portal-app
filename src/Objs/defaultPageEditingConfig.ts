@@ -6,6 +6,11 @@ export const defaultPageEditingConfigAttributes = {
     title: 'Title',
     description: 'Limit to 55 characters.',
   },
+  linkIcon: {
+    title: 'Link icon name',
+    description:
+      'This icon is shown e.g. when used in a vertical navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
+  },
   metaDataDescription: {
     title: 'Page description',
     description: 'Limit to 175, ideally 150 characters.',
@@ -92,7 +97,7 @@ export const defaultPagePropertiesGroups = [
   },
 ] as const
 
-export const defaultPageProperties = ['title']
+export const defaultPageProperties = ['title', 'linkIcon']
 
 export const defaultPageValidations = [
   [

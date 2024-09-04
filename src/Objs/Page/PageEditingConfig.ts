@@ -23,11 +23,6 @@ provideEditingConfig(Page, {
       title: 'Hide in navigation?',
       description: 'Default: No',
     },
-    linkIcon: {
-      title: 'Link icon name',
-      description:
-        'This icon is shown e.g. when used in a vertical navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
-    },
     showAsLandingPage: {
       title: 'Display this page as a landing page?',
       description:
@@ -40,7 +35,6 @@ provideEditingConfig(Page, {
   properties: [
     ...defaultPageProperties,
     'hideInNavigation',
-    'linkIcon',
     'excludeFromSearch',
     'showAsLandingPage',
   ],
