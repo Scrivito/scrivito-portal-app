@@ -2,9 +2,13 @@ import { Obj, connect } from 'scrivito'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { Helmet } from 'react-helmet-async'
 
-export const DesignAdjustments = connect(function DesignAdjustments() {
+export const DesignAdjustments = connect(function DesignAdjustments({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const root = Obj.root()
-  if (!isHomepage(root)) return null
+  if (!isHomepage(root)) return children
 
   const styles: string[] = []
 
@@ -26,7 +30,9 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
   }
 
   const secondaryDarken = root.get('siteColorSecondaryDarken')
-  if (secondaryDarken) styles.push(`--bs-secondary-darken: ${secondaryDarken};`)
+  if (secondaryDarken) {
+    styles.push(`--bs-secondary-darken: ${secondaryDarken};`)
+  }
 
   const dropShadow = root.get('siteDropShadow')
   if (!dropShadow) styles.push('--jr-box-shadow: none;')
@@ -35,9 +41,12 @@ export const DesignAdjustments = connect(function DesignAdjustments() {
   if (!roundedCorners) styles.push('--jr-border-radius: 0;')
 
   return (
-    <Helmet>
-      {/* @ts-expect-error helmet bug: https://github.com/nfl/react-helmet/issues/344*/}
-      <body style={styles.join(' ')}></body>
-    </Helmet>
+    <>
+      <Helmet>
+        {/* @ts-expect-error helmet bug: https://github.com/nfl/react-helmet/issues/344*/}
+        <body style={styles.join(' ')}></body>
+      </Helmet>
+      {children}
+    </>
   )
 })

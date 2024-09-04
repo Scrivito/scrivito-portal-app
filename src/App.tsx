@@ -24,13 +24,14 @@ export function App({
           <a href="#main" className="btn skip-to-content">
             Skip to Content
           </a>
-          <CurrentPage />
-          <ScrivitoNotFoundErrorPage>
-            <NotFoundErrorPage />
-          </ScrivitoNotFoundErrorPage>
+          <DesignAdjustments>
+            <CurrentPage />
+            <ScrivitoNotFoundErrorPage>
+              <NotFoundErrorPage />
+            </ScrivitoNotFoundErrorPage>
+          </DesignAdjustments>
           <CurrentPageMetadata />
           <Toasts />
-          <DesignAdjustments />
         </div>
       </ErrorBoundary>
     </HelmetProvider>
