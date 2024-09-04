@@ -121,11 +121,20 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
 })
 
 function getDropMessage(multiple: boolean) {
+  if (multiple) {
+    switch (currentLanguage()) {
+      case 'de':
+        return 'Dateien auswählen oder hierher ziehen.'
+      default:
+        return 'Choose files or drag them here.'
+    }
+  }
+
   switch (currentLanguage()) {
     case 'de':
-      return `Wählen oder legen Sie ${multiple ? 'Dateien' : 'eine Datei'} hier ab.`
+      return 'Datei auswählen oder hierher ziehen.'
     default:
-      return `Choose or drop ${multiple ? 'files' : 'a file'} here.`
+      return 'Choose a file or drag it here.'
   }
 }
 
