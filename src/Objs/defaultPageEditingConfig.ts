@@ -9,7 +9,7 @@ export const defaultPageEditingConfigAttributes = {
   linkIcon: {
     title: 'Link icon name',
     description:
-      'This icon is shown e.g. when used in a vertical navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
+      'This icon appears, for example, within a vertical navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
   },
   metaDataDescription: {
     title: 'Page description',
