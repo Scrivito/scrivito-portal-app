@@ -141,10 +141,10 @@ function getDropMessage(multiple: boolean) {
 function getTooLargeMessage() {
   switch (currentLanguage()) {
     case 'de':
-      return `Eine oder mehrere Dateien sind zu groß. Bitte Dateien bis maximal ${prettyBytes(
+      return `Eine oder mehrere Dateien sind zu groß. Bitte laden Sie Dateien bis maximal ${prettyBytes(
         MAX_FILE_SIZE,
         { locale: 'de' },
-      )} hochladen.`
+      )} hoch.`
     default:
       return `One or more files are too large. Please upload files up to ${prettyBytes(
         MAX_FILE_SIZE,
