@@ -21,12 +21,11 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
   const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
   const onDropRejected = useCallback(() => setIsTooLarge(true), [])
 
-  const { acceptedFiles, getRootProps, getInputProps, inputRef, isDragActive } =
-    useDropzone({
-      maxSize: MAX_FILE_SIZE,
-      onDropAccepted,
-      onDropRejected,
-    })
+  const { acceptedFiles, getRootProps, getInputProps, inputRef } = useDropzone({
+    maxSize: MAX_FILE_SIZE,
+    onDropAccepted,
+    onDropRejected,
+  })
 
   useEffect(() => {
     if (!inputRef.current) return
@@ -90,7 +89,8 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
 
       <div
         {...getRootProps({
-          className: `dropzone ${isDragActive ? 'border border-3 rounded-3' : ''}`,
+          className: 'dropzone form-control',
+          style: { cursor: 'pointer' },
         })}
       >
         <input
