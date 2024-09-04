@@ -1,6 +1,6 @@
 import Color from 'color'
 import { ColorPicker, useColor } from 'react-color-palette'
-import { connect, uiContext } from 'scrivito'
+import { canEdit, connect, uiContext } from 'scrivito'
 import { HomepageInstance } from './HomepageObjClass'
 import './SiteColorsPicker.scss'
 import { useState } from 'react'
@@ -24,6 +24,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           </div>
           <AdvancedColorPicker
             color={page.get('siteColorPrimary') || '#274486'}
+            disabled={!canEdit(page)}
             setColor={(color) => {
               page.update({
                 siteColorPrimary: color,
@@ -40,6 +41,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           </div>
           <AdvancedColorPicker
             color={page.get('siteColorSecondary') || '#39a9eb'}
+            disabled={!canEdit(page)}
             setColor={(color) => {
               page.update({
                 siteColorSecondary: color,
@@ -56,25 +58,30 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
 
 function AdvancedColorPicker({
   color,
+  disabled,
   setColor,
 }: {
   color: string
+  disabled: boolean
   setColor: (color: string) => void
 }) {
   const [iColor] = useColor(color)
   const [highResIColor, setHighResIColor] = useState(iColor)
 
+  // The wrapper div is a temporary workaround until https://github.com/Wondermarin/react-color-palette/pull/72 lands
   return (
-    <ColorPicker
-      height={100}
-      color={iColor.hex === highResIColor.hex ? highResIColor : iColor}
-      hideInput={['hsv']}
-      hideAlpha={true}
-      onChange={(newIColor) => {
-        setHighResIColor(newIColor)
-        setColor(newIColor.hex)
-      }}
-    />
+    <div className={disabled ? 'pe-none' : undefined}>
+      <ColorPicker
+        height={100}
+        color={iColor.hex === highResIColor.hex ? highResIColor : iColor}
+        hideInput={['hsv']}
+        hideAlpha={true}
+        onChange={(newIColor) => {
+          setHighResIColor(newIColor)
+          setColor(newIColor.hex)
+        }}
+      />
+    </div>
   )
 }
 
