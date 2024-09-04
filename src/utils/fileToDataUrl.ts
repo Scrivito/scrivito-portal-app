@@ -1,8 +1,17 @@
 export async function fileToDataUrl(file: File) {
-  return new Promise<string>((resolve) => {
+  return new Promise<string>((resolve, reject) => {
     const reader = new FileReader()
+
+    reader.onabort = (e) => reject(e)
+    reader.onerror = (e) => reject(e)
     reader.onload = () => {
-      resolve(reader.result as string)
+      const dataUrl = reader.result
+      if (typeof dataUrl !== 'string') {
+        reject(new Error(`FileReader result is not a string: ${dataUrl}`))
+        return
+      }
+
+      resolve(dataUrl)
     }
     reader.readAsDataURL(file)
   })
