@@ -17,6 +17,7 @@
     "prerender-precompress": "precompress --include '(**).(css|html|js)' --types br dist-ssr",
     "prerender-preview": "ws",
     "prettier": "prettier --check .",
+    "start-design": "vite --config design/vite-design.config.ts",
     "start": "vite"
   },
   "dependencies": {

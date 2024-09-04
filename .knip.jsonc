@@ -11,6 +11,7 @@
     "src/Widgets/**/*{Component,EditingConfig,WidgetClass}.{ts,tsx}",
   ],
   "ignore": [
+    "design/**",
     "public/scrivito/**",
     "src/assets/stylesheets/vendor/**",
     "vendor/**",
