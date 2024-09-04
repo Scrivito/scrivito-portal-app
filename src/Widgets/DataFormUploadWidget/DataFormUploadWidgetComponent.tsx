@@ -90,7 +90,6 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
       <div
         {...getRootProps({
           className: 'dropzone form-control',
-          style: { cursor: 'pointer' },
         })}
       >
         <input

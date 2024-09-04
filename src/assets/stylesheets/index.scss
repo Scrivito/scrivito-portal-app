@@ -1188,6 +1188,9 @@ section:focus >,
   transition:
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
+  &.dropzone {
+    cursor: pointer;
+  }
 }
 .form-select {
   font-size: 0.9rem;
