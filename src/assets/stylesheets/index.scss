@@ -1190,9 +1190,6 @@ section:focus >,
     box-shadow 0.15s ease-in-out;
   &.dropzone {
     cursor: pointer;
-    &.drag-active {
-      border: 0.15rem dashed;
-    }
   }
 }
 .form-select {
@@ -1203,6 +1200,7 @@ section:focus >,
   cursor: not-allowed;
 }
 
+.form-control.drag-active,
 .form-control:focus {
   color: #1e2022;
   background-color: #fff;
@@ -1833,6 +1831,7 @@ header .navbar.navbar-expand-lg {
   .box-attachment {
     border: 1px solid #777;
   }
+  .form-control.drag-active,
   .form-control:focus {
     border: 1px solid var(--bs-primary);
   }
