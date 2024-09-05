@@ -41,7 +41,7 @@ async function blobToBase64(blob: Blob): Promise<string> {
         return
       }
 
-      const dataPrefix = `data:${blob.type};base64,`
+      const dataPrefix = `data:${blob.type || 'application/octet-stream'};base64,`
       if (!dataUrl.startsWith(dataPrefix)) {
         reject(
           new Error(
