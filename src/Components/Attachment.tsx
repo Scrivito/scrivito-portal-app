@@ -47,7 +47,7 @@ export const Attachment = connect(function Attachment({
     <a
       href={binaryUrl}
       className="box-attachment"
-      title={`Download ${attachment.filename}`}
+      title={getDownloadMessage(attachment.filename)}
     >
       {content}
     </a>
@@ -77,4 +77,13 @@ function BoxPreviewContent({
   if (filename.endsWith('.md')) iconName = 'bi-filetype-md'
 
   return <i className={`bi ${iconName}`}></i>
+}
+
+function getDownloadMessage(subject: string) {
+  switch (currentLanguage()) {
+    case 'de':
+      return `${subject} herunterladen`
+    default:
+      return `Download ${subject}`
+  }
 }
