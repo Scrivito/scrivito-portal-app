@@ -1,10 +1,25 @@
 import { useEffect } from 'react'
-import { connect, ContentTag, Obj } from 'scrivito'
+import {
+  connect,
+  ContentTag,
+  Obj,
+  NotFoundErrorPage as ScrivitoNotFoundErrorPage,
+} from 'scrivito'
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(function NotFoundErrorPage() {
+  return (
+    <>
+      <ScrivitoNotFoundErrorPage>
+        <NotFound />
+      </ScrivitoNotFoundErrorPage>
+    </>
+  )
+})
+
+const NotFound = connect(function NotFound() {
   const root = Obj.root()
 
   // Workaround for issue #10292
