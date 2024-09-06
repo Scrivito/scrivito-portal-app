@@ -41,7 +41,7 @@ export function siteForUrl(
     : undefined
   const languageSiteId = languageSite?.siteId()
 
-  if (!languageSiteId) return findSiteForUrl(url)
+  if (!languageSiteId) return findSiteForUrlExpensive(url)
 
   return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId: languageSiteId }
 }
@@ -53,7 +53,7 @@ function languageForUrl(url: string) {
   return regex.exec(url)?.groups?.lang
 }
 
-function findSiteForUrl(url: string) {
+function findSiteForUrlExpensive(url: string) {
   return Obj.onAllSites()
     .where('_path', 'equals', '/')
     .andNot('_siteId', 'equals', [NEOLETTER_MAILINGS_SITE_ID, null])
