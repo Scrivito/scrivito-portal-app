@@ -34,13 +34,13 @@ export function siteForUrl(
   }
 
   const language = languageForUrl(url)
-  const languageSiteId = appWebsites()
+  const websites = appWebsites()
+  const siteId = websites
     ?.find((site) => site.language() === language)
     ?.siteId()
 
-  if (!languageSiteId) return findSiteForUrlExpensive(url)
-
-  return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId: languageSiteId }
+  if (siteId) return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
+  if (websites?.length) return findSiteForUrlExpensive(url)
 }
 
 function languageForUrl(url: string) {
