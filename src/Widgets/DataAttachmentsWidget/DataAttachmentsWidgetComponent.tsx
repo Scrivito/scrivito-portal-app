@@ -1,18 +1,7 @@
-import {
-  ContentTag,
-  connect,
-  currentLanguage,
-  provideComponent,
-  useData,
-} from 'scrivito'
+import { ContentTag, provideComponent, useData } from 'scrivito'
 import { DataAttachmentsWidget } from './DataAttachmentsWidgetClass'
-import {
-  dataBinaryToUrl,
-  FullDataBinary,
-  isFullDataBinary,
-} from '../../utils/dataBinaryToUrl'
-import { useEffect, useState } from 'react'
-import prettyBytes from 'pretty-bytes'
+import { FullDataBinary, isFullDataBinary } from '../../utils/dataBinaryToUrl'
+import { Attachment } from '../../Components/Attachment'
 
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
   const dataItemAttribute = useData().dataItemAttribute()
@@ -37,72 +26,6 @@ provideComponent(DataAttachmentsWidget, ({ widget }) => {
     </div>
   )
 })
-
-const Attachment = connect(function Attachment({
-  attachment,
-}: {
-  attachment: FullDataBinary
-}) {
-  const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
-  const [trigger, setTrigger] = useState<number>(0)
-
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout
-    dataBinaryToUrl(attachment).then(({ url, maxAge }) => {
-      setBinaryUrl(url)
-      timeoutId = setTimeout(() => setTrigger(Date.now()), maxAge * 1000)
-    })
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId)
-    }
-  }, [attachment, trigger])
-
-  return (
-    <a
-      href={binaryUrl}
-      className="box-attachment"
-      title={`Download ${attachment.filename}`}
-    >
-      <div className="box-preview">
-        <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
-      </div>
-      <div className="box-meta">
-        <span className="box-name">{attachment.filename}</span>
-        <span className="box-size">
-          {prettyBytes(attachment.contentLength, {
-            locale: currentLanguage() ?? 'en',
-          })}
-        </span>
-      </div>
-    </a>
-  )
-})
-
-function BoxPreviewContent({
-  binaryUrl,
-  attachment,
-}: {
-  binaryUrl?: string
-  attachment: FullDataBinary
-}) {
-  if (binaryUrl && attachment.contentType.startsWith('image/')) {
-    return <img src={binaryUrl} alt="" />
-  }
-
-  let iconName = 'bi-file-earmark'
-  const filename = attachment.filename
-  if (filename.endsWith('.pdf')) iconName = 'bi-filetype-pdf'
-  if (filename.endsWith('.docx')) iconName = 'bi-filetype-docx'
-  if (filename.endsWith('.doc')) iconName = 'bi-filetype-doc'
-  if (filename.endsWith('.csv')) iconName = 'bi-filetype-csv'
-  if (filename.endsWith('.json')) iconName = 'bi-filetype-json'
-  if (filename.endsWith('.xml')) iconName = 'bi-filetype-xml'
-  if (filename.endsWith('.txt')) iconName = 'bi-filetype-txt'
-  if (filename.endsWith('.md')) iconName = 'bi-filetype-md'
-
-  return <i className={`bi ${iconName}`}></i>
-}
 
 function isFullBinaryArray(input: unknown): input is FullDataBinary[] {
   return Array.isArray(input) && input.every(isFullDataBinary)

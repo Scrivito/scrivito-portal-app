@@ -6,10 +6,13 @@
   background: white;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
-  cursor: pointer;
 
-  &:hover {
-    background: var(--light-grey);
+  a {
+    cursor: pointer;
+
+    &:hover {
+      background: var(--light-grey);
+    }
   }
 
   .box-preview {
