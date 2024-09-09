@@ -16,7 +16,7 @@ import { useEffect, useState } from 'react'
 
 provideComponent(VerticalNavigationWidget, ({ widget }) => {
   const page = widget.obj()
-  const showGrandChildren = widget.get('showGrandChildren')
+  const showGrandChildren = widget.get('showGrandChildren') ? 2 : 0
 
   return (
     <Navbar expand="lg" collapseOnSelect>
@@ -63,12 +63,12 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
   )
 })
 
-const Child = connect(function Child({
+const Child = connect(function ({
   child,
   showGrandChildren,
 }: {
   child: Obj
-  showGrandChildren: boolean
+  showGrandChildren: number
 }) {
   const [expanded, setExpanded] = useState(false)
   const grandChildren = showGrandChildren
@@ -110,7 +110,16 @@ const Child = connect(function Child({
           className="nav-bordered"
           tag="ul"
           parent={child}
-          renderChild={(grandChild) => <GrandChild grandChild={grandChild} />}
+          renderChild={(grandChild) =>
+            showGrandChildren === 1 ? (
+              <GrandChild grandChild={grandChild} />
+            ) : (
+              <Child
+                child={grandChild}
+                showGrandChildren={showGrandChildren - 1}
+              />
+            )
+          }
         />
       )}
     </li>
