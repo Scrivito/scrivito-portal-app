@@ -14,6 +14,7 @@ import { EditorNote } from '../../Components/EditorNote'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { useState } from 'react'
 import { ModalSpinner } from '../../Components/ModalSpinner'
+import { errorToast } from '../../Data/CurrentUser/errorToast'
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -58,13 +59,7 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
       navigateTo(result)
       if (successMessage) toast.success(successMessage)
     } catch (error) {
-      if (!(error instanceof Error)) return
-      toast.error(
-        <div>
-          <h6>{error.message}</h6>
-          <p>{errorMessage}</p>
-        </div>,
-      )
+      errorToast(errorMessage, error)
     } finally {
       setIsSubmitting(false)
     }
