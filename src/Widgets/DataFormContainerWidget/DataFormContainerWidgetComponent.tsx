@@ -14,6 +14,7 @@ import { useRef, useState } from 'react'
 import './DataFormContainerWidget.scss'
 import { ModalSpinner } from '../../Components/ModalSpinner'
 import { blobToBinary, DataBinaryUpload } from '../../utils/blobToBinary'
+import { errorToast } from '../../Data/CurrentUser/errorToast'
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataScope = useData()
@@ -27,6 +28,8 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')
   const submitOnChange = widget.get('submitOnChange')
   const submittedMessage = widget.get('submittedMessage')
+
+  const errorMessage = getErrorMessage()
 
   return (
     <WidgetTag className="data-form-container-widget">
@@ -68,14 +71,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
         formRef.current.reset()
       }
     } catch (error) {
-      if (!(error instanceof Error)) return
-
-      toast.error(
-        <div>
-          <h6>{error.message}</h6>
-          <p>{getErrorMessage()}</p>
-        </div>,
-      )
+      errorToast(errorMessage, error)
     } finally {
       setIsSubmitting(false)
     }
