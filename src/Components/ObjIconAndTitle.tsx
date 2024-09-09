@@ -12,7 +12,7 @@ export const ObjIconAndTitle = connect(function ObjIconAndTitle({
   return (
     <>
       {linkIcon ? <i className={`bi ${linkIcon}`}></i> : null}
-      {objTitle(obj)}
+      <span>{objTitle(obj)}</span>
     </>
   )
 })
