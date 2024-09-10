@@ -9,7 +9,7 @@ export async function pisaUrl(): Promise<string> {
 
   const url = defaultRoot.get('pisaUrl')
   if (!url) {
-    console.log('Please configure a pisaUrl on the default homepage.')
+    console.error('Please configure a pisaUrl on the default homepage.')
     return never()
   }
 
