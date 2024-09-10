@@ -92,18 +92,18 @@ const Child = connect(function ({
   return (
     <li className={isOnCurrentPath(child) ? 'active' : ''}>
       <Nav.Link as={LinkTag} eventKey={key} key={key} to={child}>
+        {hasGrandChildren && (
+          <button
+            className={`dropdown-toggle nav-link${expanded ? ' show' : ''}`}
+            onClick={(e) => {
+              e.preventDefault()
+
+              setExpanded((expanded) => !expanded)
+            }}
+          ></button>
+        )}
         <ObjIconAndTitle obj={child} />
       </Nav.Link>
-      {hasGrandChildren && (
-        <button
-          className={`dropdown-toggle nav-link${expanded ? ' show' : ''}`}
-          onClick={(e) => {
-            e.preventDefault()
-
-            setExpanded((expanded) => !expanded)
-          }}
-        ></button>
-      )}
 
       {hasGrandChildren && expanded && (
         <ChildListTag
