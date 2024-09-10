@@ -10,6 +10,9 @@ provideEditingConfig(DataColumnListWidget, {
       title: 'Number of columns',
       description: 'Default: 2',
     },
+    content: {
+      iteratesOver: 'data',
+    },
   },
   properties: ['columnsCount'],
   initialContent: {
