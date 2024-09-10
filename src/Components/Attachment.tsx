@@ -46,6 +46,8 @@ export const Attachment = connect(function Attachment({
   ) : (
     <a
       href={binaryUrl}
+      target="_blank"
+      rel="noreferrer"
       className="box-attachment"
       title={getDownloadMessage(attachment.filename)}
     >
