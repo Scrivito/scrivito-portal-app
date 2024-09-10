@@ -145,7 +145,7 @@ export function provideLocalStorageDataClass(
         localStorage.setItem(initializedKey, initializedValue)
       }
     } catch (e) {
-      console.log('An error occurred during initializing', e)
+      console.error('An error occurred during initializing', e)
     }
   }
 
