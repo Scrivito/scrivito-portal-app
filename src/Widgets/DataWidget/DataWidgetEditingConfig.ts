@@ -5,4 +5,9 @@ import Thumbnail from './thumbnail.svg'
 provideEditingConfig(DataWidget, {
   title: 'Data',
   thumbnail: Thumbnail,
+  attributes: {
+    content: {
+      iteratesOver: 'data',
+    },
+  },
 })
