@@ -711,10 +711,18 @@ section {
     .btn-outline-primary {
       color: var(--bs-primary);
       border-color: var(--bs-primary);
+      &:hover,
+      &:active {
+        color: white;
+      }
     }
     .btn-outline-secondary {
       color: var(--bs-secondary);
       border-color: var(--bs-secondary);
+      &:hover,
+      &:active {
+        color: white;
+      }
     }
     .text-primary {
       color: var(--bs-primary);
