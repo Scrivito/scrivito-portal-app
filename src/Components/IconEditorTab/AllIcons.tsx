@@ -35,7 +35,7 @@ export const AllIcons: React.FC<AllIconsProps> = ({
 
 const Icons: React.FC<IconsProps> = ({ icons, currentIcon, setWidgetIcon }) => {
   return (
-    <div className="row">
+    <div className="icon-grid">
       {icons.map((icon, innerIndex) => {
         const cssIcon = `bi-${icon}`
         const aClassNames: string[] = []

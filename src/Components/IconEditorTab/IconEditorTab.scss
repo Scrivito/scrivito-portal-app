@@ -8,23 +8,10 @@
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
-@mixin icons() {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-0.5 * var(--bs-gutter-x));
-  margin-left: calc(-0.5 * var(--bs-gutter-x));
-}
-@mixin activeIcon() {
-  background-color: #fff;
-  color: #333;
-  text-decoration: none;
-  box-shadow: 0 0 0 2px #ff6b6b inset;
-}
+
 .neoletter-form-icon-editor-tab {
   .icon-editor-preview {
+    position: relative;
     background: rgba(255, 255, 255, 0.8);
     padding: 14px 10px 10px 10px;
     border-radius: 4px;
@@ -33,12 +20,34 @@
     width: 60px;
     text-align: center;
     line-height: 1.3em;
+    &:hover {
+      .button-del {
+        opacity: 1;
+      }
+    }
     .bs-icon {
       font-size: 26px;
+      height: 30px;
+      display: block;
+    }
+    .button-del {
+      opacity: 0;
+      cursor: pointer;
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #b44040;
+      color: #fff;
+      font-size: 14px;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      line-height: 18px;
+      box-shadow: 0 0 4px 1px rgba(255, 255, 255, 0.2);
+      font-weight: bold;
     }
   }
   .icon-container {
-    width: 25%;
     a {
       display: flex;
       align-items: center;
@@ -50,40 +59,37 @@
       line-height: 33px;
       padding: 2px 10px;
       border-radius: 4px;
-      font-size: 13px;
+      font-size: 14px;
       margin: 2px 0;
       .sr-only {
         @include srOnly();
       }
+      i,
       .bs-icon {
         margin-right: 10px;
-        color: var(--bs-primary, #5c9dcd);
+        color: #507ab5;
         font: normal normal normal 14px 'bootstrap-icons';
       }
       &:hover {
-        background-color: #fff;
+        background: #fafafa;
         color: #333;
         text-decoration: none;
+        box-shadow:
+          0 0 4px 1px rgba(0, 0, 0, 0.1),
+          0 0 0 2px #507ab5 inset;
         .bs-icon {
-          font-size: 23px;
-        }
-        .text-muted {
-          color: #bbe2d5;
+          font-size: 14px;
         }
       }
       &.active {
-        @include activeIcon();
-        .bs-icon {
-          font-size: 24px;
-        }
-        .text-muted {
-          color: #bbe2d5;
-        }
+        background: fff;
+        color: #555;
+        text-decoration: none;
+        box-shadow:
+          0 0 4px 1px rgba(0, 0, 0, 0.1),
+          0 0 0 2px #507ab5 inset;
       }
     }
-  }
-  .row {
-    @include icons();
   }
 }
 #neoletter-icon-search {
@@ -119,11 +125,6 @@
   .sr-only {
     @include srOnly();
   }
-  #search-results {
-    .row {
-      @include icons();
-    }
-  }
 }
 
 // -- dark mode -- //
@@ -136,27 +137,72 @@
   .neoletter-form-icon-editor-tab .icon-editor-preview .bs-icon {
     color: #eee;
   }
+
+  .neoletter-form-icon-editor-tab .icon-editor-preview .button-del {
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.8);
+  }
+
   #neoletter-icon-search .bs-icon {
     color: #aaa;
   }
   #neoletter-icon-search #search-input {
-    background: #333;
+    background: rgba(222, 222, 222, 0.2);
     border: 1px solid #333;
-    color: #777;
+    color: #ddd;
   }
+
+  input::placeholder {
+    color: #999 !important;
+  }
+
   .neoletter-form-icon-editor-tab .icon-container a {
     color: #eee;
     &:hover,
     &:active {
-      background: #eee;
-      color: black;
+      background: rgba(222, 222, 222, 0.2);
+      color: #fff;
       text-decoration: none;
       box-shadow:
-        0 0 3px rgba(0, 0, 0, 0.2),
-        0 0 0 2px #426698 inset;
+        0 0 4px 1px rgba(0, 0, 0, 0.1),
+        0 0 0 2px #507ab5 inset;
+      .bs-icon {
+        font-size: 14px;
+      }
     }
     &.active {
-      @include activeIcon();
+      background: rgba(222, 222, 222, 0.1);
+      color: #eee;
+      text-decoration: none;
+      box-shadow:
+        0 0 4px 1px rgba(0, 0, 0, 0.1),
+        0 0 0 2px #507ab5 inset;
+      .bs-icon {
+        font-size: 14px;
+      }
     }
+  }
+}
+
+// -- Layout -- //
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row dense;
+  align-content: start;
+  .icon-container {
+    overflow: hidden;
+    width: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 300px) {
+  .icon-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
