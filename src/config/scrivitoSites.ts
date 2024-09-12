@@ -17,9 +17,7 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (siteRoot.contentId() !== rootContentId()) {
-    return baseUrlsFor(siteRoot)[0]
-  }
+  if (siteRoot.contentId() !== rootContentId()) return baseUrlsFor(siteRoot)[0]
 
   const language = siteRoot.language()
   if (!language) return
@@ -36,14 +34,13 @@ export function siteForUrl(
   }
 
   const language = languageForUrl(url)
-  const languageSite = language
-    ? appWebsites()?.and('_language', 'equals', language).first()
-    : undefined
-  const languageSiteId = languageSite?.siteId()
+  const websites = appWebsites()
+  const siteId = websites
+    ?.find((site) => site.language() === language)
+    ?.siteId()
 
-  if (!languageSiteId) return findSiteForUrl(url)
-
-  return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId: languageSiteId }
+  if (siteId) return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
+  if (websites?.length) return findSiteForUrlExpensive(url)
 }
 
 function languageForUrl(url: string) {
@@ -53,7 +50,7 @@ function languageForUrl(url: string) {
   return regex.exec(url)?.groups?.lang
 }
 
-function findSiteForUrl(url: string) {
+function findSiteForUrlExpensive(url: string) {
   return Obj.onAllSites()
     .where('_path', 'equals', '/')
     .andNot('_siteId', 'equals', [NEOLETTER_MAILINGS_SITE_ID, null])
@@ -78,7 +75,7 @@ function baseUrlsFor(site: Obj) {
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
     navigateTo(() => {
-      const websites = appWebsites()?.toArray() || []
+      const websites = appWebsites() || []
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
       for (const language of preferredLanguageOrder) {
@@ -98,10 +95,9 @@ function getBaseAppUrl(): string {
 }
 
 function appWebsites() {
-  const contentId = rootContentId()
-  return contentId
-    ? Obj.onAllSites().where('_contentId', 'equals', contentId)
-    : undefined
+  return Obj.onAllSites()
+    .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
+    ?.versionsOnAllSites()
 }
 
 function rootContentId() {
