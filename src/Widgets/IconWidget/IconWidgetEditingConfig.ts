@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { IconWidget } from './IconWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { IconEditorTab } from '../../Components/IconEditorTab/IconEditorTab'
 
 provideEditingConfig(IconWidget, {
   title: 'Icon',
@@ -28,7 +29,18 @@ provideEditingConfig(IconWidget, {
       title: 'Size',
     },
   },
-  properties: ['icon', 'size', 'alignment', 'link'],
+  propertiesGroups: [
+    {
+      title: 'Icon',
+      component: IconEditorTab,
+      key: 'icon-group',
+    },
+    {
+      title: 'Optional attributes',
+      properties: ['size', 'alignment', 'link'],
+      key: 'optional-attributes-group',
+    },
+  ],
   initialContent: {
     icon: 'bi-box',
     size: 'bi-1x',
