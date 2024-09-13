@@ -50,14 +50,13 @@ const ClearSearchButton: React.FC<ClearSearchButtonProps> = ({
   if (!searchValue.length) return null
 
   return (
-    <a
+    <button
       id="search-clear"
-      href="#"
       className="bs-icon bi-x-circle"
       aria-hidden="true"
       onClick={() => setSearchValue('')}
     >
       <span className="sr-only">Clear search</span>
-    </a>
+    </button>
   )
 }

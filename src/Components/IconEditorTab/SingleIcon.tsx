@@ -17,15 +17,14 @@ export const SingleIcon: React.FC<SingleIconProps> = ({
 
   return (
     <div className="icon-container">
-      <a
-        href="#"
+      <button
         className={aClassNames.join(' ')}
         onClick={(e) => setWidgetIcon(e, cssIcon)}
       >
         <i className={`bs-icon ${cssIcon}`}></i>
         <span className="sr-only">Example of </span>
-        {icon}
-      </a>
+        <span>{icon}</span>
+      </button>
     </div>
   )
 }

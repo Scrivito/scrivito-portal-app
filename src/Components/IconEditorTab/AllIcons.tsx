@@ -43,8 +43,7 @@ const Icons: React.FC<IconsProps> = ({ icons, currentIcon, setWidgetIcon }) => {
 
         return (
           <div key={`${icon}-${innerIndex}`} className="icon-container">
-            <a
-              href="#"
+            <button
               className={aClassNames.join(' ')}
               onClick={(e) => setWidgetIcon(e, cssIcon)}
             >
@@ -53,8 +52,8 @@ const Icons: React.FC<IconsProps> = ({ icons, currentIcon, setWidgetIcon }) => {
                 aria-hidden="true"
               />
               <span className="sr-only">Example of </span>
-              {icon}
-            </a>
+              <span>{icon}</span>
+            </button>
           </div>
         )
       })}

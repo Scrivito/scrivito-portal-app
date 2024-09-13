@@ -29,7 +29,7 @@ export const IconSearchResults: React.FC<IconSearchResultsProps> = ({
       <div className="scrivito_detail_label">
         <span>{`Search for '${searchValue}'`}</span>
       </div>
-      <div className="row">
+      <div className="icon-grid">
         {results.map((result, index) => {
           const icon = result.item
           return (

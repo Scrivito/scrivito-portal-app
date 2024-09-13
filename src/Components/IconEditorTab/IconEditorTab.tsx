@@ -33,9 +33,9 @@ export const IconEditorTab: React.FC<IconEditorTabProps> = ({ widget }) => {
                     color: color,
                   }}
                 ></i>
-                <span className="button-del" title="Clear icon">
+                <button className="button-del" title="Clear icon">
                   －
-                </span>
+                </button>
               </div>
             </div>
             <div className="col">
