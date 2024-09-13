@@ -1,4 +1,11 @@
-import { Obj, currentSiteId, getInstanceId, load, navigateTo } from 'scrivito'
+import {
+  Obj,
+  currentSiteId,
+  ensureUserIsLoggedIn,
+  getInstanceId,
+  load,
+  navigateTo,
+} from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
 import { ensureString } from '../utils/ensureString'
 
@@ -72,8 +79,17 @@ function baseUrlsFor(site: Obj) {
   )
 }
 
+export function isNoSitePresent(): boolean {
+  return !appWebsites()?.length
+}
+
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
+    if (await load(isNoSitePresent)) {
+      ensureUserIsLoggedIn()
+      return
+    }
+
     navigateTo(() => {
       const websites = appWebsites() || []
       const preferredLanguageOrder = [...window.navigator.languages, 'en', null]

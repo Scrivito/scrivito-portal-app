@@ -1,7 +1,4 @@
-import {
-  CurrentPage,
-  NotFoundErrorPage as ScrivitoNotFoundErrorPage,
-} from 'scrivito'
+import { CurrentPage } from 'scrivito'
 import { HelmetProvider, HelmetServerState } from 'react-helmet-async'
 
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
@@ -26,9 +23,7 @@ export function App({
           </a>
           <DesignAdjustments>
             <CurrentPage />
-            <ScrivitoNotFoundErrorPage>
-              <NotFoundErrorPage />
-            </ScrivitoNotFoundErrorPage>
+            <NotFoundErrorPage />
           </DesignAdjustments>
           <CurrentPageMetadata />
           <Toasts />
