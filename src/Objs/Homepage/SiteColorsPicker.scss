@@ -30,7 +30,7 @@
       border-radius: 3px;
       border: none;
       padding: 4px 0;
-      &:focus {
+      &:focus:not(:read-only) {
         box-shadow: 0 0 0 2px #426698 inset;
         color: #555;
       }
@@ -51,9 +51,12 @@
       --rcp-field-label-color: #eee;
       .rcp-field-input {
         background: rgba(222, 222, 222, 0.1);
-        &:focus {
+        &:focus:not(:read-only) {
           box-shadow: 0 0 0 2px #577fb6 inset;
           color: #fff;
+        }
+        &:read-only {
+          color: rgb(187, 187, 187);
         }
       }
       .rcp-field-label {
