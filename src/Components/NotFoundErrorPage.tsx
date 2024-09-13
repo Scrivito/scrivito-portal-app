@@ -2,22 +2,30 @@ import { useEffect } from 'react'
 import {
   connect,
   ContentTag,
+  isUserLoggedIn,
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
+import { Loading } from './Loading'
+import { isNoSitePresent } from '../config/scrivitoSites'
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']
 
-export const NotFoundErrorPage = connect(function NotFoundErrorPage() {
-  return (
-    <>
-      <ScrivitoNotFoundErrorPage>
-        <NotFound />
-      </ScrivitoNotFoundErrorPage>
-    </>
-  )
-})
+export const NotFoundErrorPage = connect(
+  function NotFoundErrorPage() {
+    if (isUserLoggedIn() && isNoSitePresent()) return <NotFound />
+
+    return (
+      <>
+        <ScrivitoNotFoundErrorPage>
+          <NotFound />
+        </ScrivitoNotFoundErrorPage>
+      </>
+    )
+  },
+  { loading: Loading },
+)
 
 const NotFound = connect(function NotFound() {
   const root = Obj.root()
