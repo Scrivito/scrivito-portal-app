@@ -17,11 +17,9 @@ export const NotFoundErrorPage = connect(
     if (isUserLoggedIn() && isNoSitePresent()) return <NotFound />
 
     return (
-      <>
-        <ScrivitoNotFoundErrorPage>
-          <NotFound />
-        </ScrivitoNotFoundErrorPage>
-      </>
+      <ScrivitoNotFoundErrorPage>
+        <NotFound />
+      </ScrivitoNotFoundErrorPage>
     )
   },
   { loading: Loading },
