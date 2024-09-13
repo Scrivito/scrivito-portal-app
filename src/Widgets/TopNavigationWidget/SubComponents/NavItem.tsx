@@ -15,9 +15,13 @@ export const NavItem = connect(function ScrivitoNavItem({
   if (obj.get('hideInNavigation') === true) return null
 
   if (obj.objClass() === 'Dropdown') {
+    const shownChildren = obj
+      .orderedChildren()
+      .filter((child) => child.get('hideInNavigation') !== true)
+
     return (
       <NavDropdown title={objTitle(obj)} active={isOnCurrentPath(obj)}>
-        {obj.orderedChildren().map((child) => (
+        {shownChildren.map((child) => (
           <NavDropdown.Item
             {...itemProps(child)}
             eventKey={`NavItem-${eventKey}-${child.id()}`}
