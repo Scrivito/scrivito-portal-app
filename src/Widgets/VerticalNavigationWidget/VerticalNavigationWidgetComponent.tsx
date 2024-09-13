@@ -1,8 +1,10 @@
 import {
   ChildListTag,
+  connect,
   isCurrentPage,
   isOnCurrentPath,
   LinkTag,
+  Obj,
   provideComponent,
 } from 'scrivito'
 import Navbar from 'react-bootstrap/Navbar'
@@ -34,39 +36,38 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
           // TODO: Make official styling & make it work in mobile as well
           style={{ margin: '0', borderBottom: '1px solid var(--border)' }}
         >
-          <li className={isCurrentPage(page) ? 'active' : ''}>
-            <Nav.Link
-              as={LinkTag}
-              eventKey={`VerticalNavigationWidget-${widget.id()}-${page.id()}`}
-              key={`VerticalNavigationWidget-${widget.id()}-${page.id()}`}
-              to={page}
-            >
-              <ObjIconAndTitle obj={page} />
-            </Nav.Link>
-          </li>
+          <NavItem obj={page} isActive={isCurrentPage(page)} />
         </ul>
-        <ChildListTag
-          className="nav-bordered"
-          tag="ul"
-          parent={page}
-          renderChild={(child) =>
-            child.get('hideInNavigation') === true ? (
-              <></>
-            ) : (
-              <li className={isOnCurrentPath(child) ? 'active' : ''}>
-                <Nav.Link
-                  as={LinkTag}
-                  eventKey={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
-                  key={`VerticalNavigationWidget-${widget.id()}-${page.id()}-${child.id()}`}
-                  to={child}
-                >
-                  <ObjIconAndTitle obj={child} />
-                </Nav.Link>
-              </li>
-            )
-          }
-        />
+        <SubNavItems parent={page} />
       </Navbar.Collapse>
     </Navbar>
+  )
+})
+
+const NavItem = connect(
+  ({ obj, isActive }: { obj: Obj; isActive: boolean }) => {
+    if (obj.get('hideInNavigation') === true) return null
+
+    const key = `VerticalNavigationWidget-${obj.id()}`
+
+    return (
+      <li className={isActive ? 'active' : ''}>
+        <Nav.Link as={LinkTag} eventKey={key} key={key} to={obj}>
+          <ObjIconAndTitle obj={obj} />
+        </Nav.Link>
+      </li>
+    )
+  },
+)
+
+const SubNavItems = connect(({ parent }: { parent: Obj }) => {
+  return (
+    <ChildListTag
+      className="nav-bordered"
+      parent={parent}
+      renderChild={(child) => (
+        <NavItem obj={child} isActive={isOnCurrentPath(child)} />
+      )}
+    />
   )
 })
