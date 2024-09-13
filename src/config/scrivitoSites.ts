@@ -86,7 +86,10 @@ export function isNoSitePresent(): boolean {
 export async function ensureSiteIsPresent() {
   if ((await load(currentSiteId)) === null) {
     if (await load(isNoSitePresent)) {
-      ensureUserIsLoggedIn()
+      // TODO: remove window check after #11101 is implemented
+      if (typeof window !== 'undefined') {
+        ensureUserIsLoggedIn()
+      }
       return
     }
 
