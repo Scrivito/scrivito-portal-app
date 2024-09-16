@@ -33,13 +33,15 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
         </Navbar.Toggle>
       </div>
       <Navbar.Collapse id="nav-sidebar" className="card mb-3">
-        <ul
-          className="nav-bordered"
-          // TODO: Make official styling & make it work in mobile as well
-          style={{ margin: '0', borderBottom: '1px solid var(--border)' }}
-        >
-          <NavItem obj={page} isActive={isCurrentPage(page)} />
-        </ul>
+        {widget.get('showParentLink') && (
+          <ul
+            className="nav-bordered"
+            // TODO: Make official styling & make it work in mobile as well
+            style={{ margin: '0', borderBottom: '1px solid var(--border)' }}
+          >
+            <NavItem obj={page} isActive={isCurrentPage(page)} />
+          </ul>
+        )}
         <SubNavItems navigationDepth={navigationDepth} parent={page} />
       </Navbar.Collapse>
     </Navbar>
