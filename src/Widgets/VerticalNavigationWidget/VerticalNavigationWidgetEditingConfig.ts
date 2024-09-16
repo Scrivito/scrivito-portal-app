@@ -15,7 +15,11 @@ provideEditingConfig(VerticalNavigationWidget, {
         { value: '2', title: 'Three levels' },
       ],
     },
+    showParentLink: {
+      title: 'Show link to parent page?',
+      description: 'Default: No',
+    },
   },
-  properties: ['navigationDepth'],
+  properties: ['showParentLink', 'navigationDepth'],
   initialContent: { navigationDepth: '0' },
 })
