@@ -7,6 +7,9 @@ provideEditingConfig(DataFormHiddenFieldWidget, {
   thumbnail: Thumbnail,
   attributes: {
     attributeName: { title: 'Attribute name' },
+    data: {
+      restrictDataTo: ['scopeAttribute', 'itemAttribute'],
+    },
     hiddenValue: {
       title: 'Hidden value',
       description: 'This value is sent on every submission of the data form.',

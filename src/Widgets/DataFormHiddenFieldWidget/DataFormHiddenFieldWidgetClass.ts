@@ -6,6 +6,7 @@ export const DataFormHiddenFieldWidget = provideWidgetClass(
     onlyInside: 'DataFormContainerWidget',
     attributes: {
       attributeName: 'string',
+      data: 'datalocator',
       hiddenValue: 'string',
     },
   },
