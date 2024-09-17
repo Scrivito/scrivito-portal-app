@@ -8,14 +8,13 @@ import {
 import { DataFormInputFieldWidget } from './DataFormInputFieldWidgetClass'
 
 provideComponent(DataFormInputFieldWidget, ({ widget }) => {
-  const dataItem = useData().dataItem()
+  const dataItemAttribute = useData().dataItemAttribute()
+  const attributeName = useData().attributeName()
 
-  const id = ['DataFormInputFieldWidget', widget.id(), dataItem?.id()].join('-')
-
-  const attributeName = widget.get('attributeName')
+  const id = ['DataFormInputFieldWidget', widget.id(), attributeName].join('-')
 
   return (
-    <div className="mb-3" key={[id, attributeName].join('-')}>
+    <div className="mb-3" key={id}>
       <ContentTag
         content={widget}
         attribute="label"
@@ -60,7 +59,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
         <textarea
           className="form-control"
           id={id}
-          name={attributeName}
+          name={attributeName ?? ''}
           rows={3}
           defaultValue={getDefaultValue()}
           placeholder={widget.get('placeholder')}
@@ -70,7 +69,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
         <input
           className="form-control"
           id={id}
-          name={attributeName}
+          name={attributeName ?? ''}
           defaultValue={getDefaultValue()}
           maxLength={250}
           placeholder={widget.get('placeholder')}
@@ -82,9 +81,8 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
   )
 
   function getDefaultValue() {
-    if (!attributeName) return
-    const value = dataItem?.get(attributeName)
-    if (value) return `${value}`
+    const dataValue = dataItemAttribute?.get()
+    if (dataValue) return `${dataValue}`
   }
 })
 
