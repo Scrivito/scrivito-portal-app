@@ -5,6 +5,8 @@ import { storeResult } from './storeResult'
 import { getSiteIds } from './getSiteIds'
 import { load, Obj, urlFor } from 'scrivito'
 
+const prerenderObjId = process.env.PRERENDER_OBJ_ID
+
 export async function prerenderObjs(
   targetDir: string,
   objClassesBlacklist: string[],
@@ -31,6 +33,8 @@ export async function prerenderObjs(
         const prerenderedFiles = await prerenderObj(obj, baseHtmlTemplate)
         await asyncForEachSequential(prerenderedFiles, storeFile)
       } catch (e) {
+        if (prerenderObjId) throw e
+
         failedCount += 1
         const pageId = obj.id()
         const pageUrl = urlFor(obj)
@@ -50,7 +54,6 @@ export async function prerenderObjs(
 }
 
 function allObjs(objClassesBlacklist: string[]) {
-  const prerenderObjId = process.env.PRERENDER_OBJ_ID
   if (prerenderObjId) {
     const root = Obj.onAllSites().get(prerenderObjId)
     if (root) return [root]
