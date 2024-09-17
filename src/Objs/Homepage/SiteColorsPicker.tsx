@@ -68,20 +68,18 @@ function AdvancedColorPicker({
   const [iColor] = useColor(color)
   const [highResIColor, setHighResIColor] = useState(iColor)
 
-  // The wrapper div is a temporary workaround until https://github.com/Wondermarin/react-color-palette/pull/72 lands
   return (
-    <div className={disabled ? 'pe-none' : undefined}>
-      <ColorPicker
-        height={100}
-        color={iColor.hex === highResIColor.hex ? highResIColor : iColor}
-        hideInput={['hsv']}
-        hideAlpha={true}
-        onChange={(newIColor) => {
-          setHighResIColor(newIColor)
-          setColor(newIColor.hex)
-        }}
-      />
-    </div>
+    <ColorPicker
+      height={100}
+      color={iColor.hex === highResIColor.hex ? highResIColor : iColor}
+      disabled={disabled}
+      hideInput={['hsv']}
+      hideAlpha={true}
+      onChange={(newIColor) => {
+        setHighResIColor(newIColor)
+        setColor(newIColor.hex)
+      }}
+    />
   )
 }
 

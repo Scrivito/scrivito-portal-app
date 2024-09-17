@@ -1704,7 +1704,9 @@ header .navbar.navbar-expand-lg {
 .nav-bordered li:first-child {
   border: 0px;
 }
-.nav-bordered li {
+.nav-bordered li,
+.nav-bordered li .nav-bordered li {
+  position: relative;
   display: block;
   margin: 0;
   padding: 0;
@@ -1719,15 +1721,36 @@ header .navbar.navbar-expand-lg {
   display: flex;
 }
 
+.nav-bordered li .dropdown-toggle.nav-link {
+  margin: auto 5px auto -10px;
+  &::after {
+    font-size: 12px;
+    transform: rotate(-90deg);
+  }
+  &.show::after {
+    transform: rotate(0deg);
+  }
+}
+
+.nav-bordered li li .dropdown-toggle.nav-link {
+  margin: auto 5px auto -5px;
+}
+
+.nav-bordered li a:hover + .dropdown-toggle.nav-link,
+.nav-bordered li.active > .dropdown-toggle.nav-link {
+  color: #fff;
+}
+
 .nav-bordered li.active > a {
   background: var(--bs-primary);
   color: #fff !important;
 }
 
-.nav-bordered li.active li.active a {
-  background: var(--bs-primary-lighten);
-  color: #fff !important;
+.nav-bordered li.active:has(li.active) > a:not(:hover) {
+  background: inherit;
+  color: inherit !important;
 }
+
 .nav-bordered li a:hover,
 .nav-bordered li a:active {
   background: var(--bs-primary-lighten);
@@ -1737,7 +1760,7 @@ header .navbar.navbar-expand-lg {
 
 .nav-bordered li a .bi {
   font-size: 1.2rem;
-  margin: auto 1rem auto 0;
+  margin: auto 8px auto 0;
   display: flex;
   flex-grow: 0;
 }
@@ -1746,18 +1769,23 @@ header .navbar.navbar-expand-lg {
 }
 
 .nav-bordered li ul {
-  background: #fff;
+  background: rgba(0, 0, 188, 0.04);
   margin: 0;
   padding: 0;
 }
 
 .nav-bordered li ul a {
   font-size: 12px;
-  padding: 5px 10px 5px 20px;
+  padding: 5px 10px 5px 25px;
   margin: 0;
-  display: block;
+  display: flex;
+  .bi {
+    font-size: 12px;
+  }
 }
-
+.nav-bordered li ul ul a {
+  padding: 5px 10px 5px 40px;
+}
 .navbar-toggler.collapsed .bi-list:before {
   content: '\f479';
 }
