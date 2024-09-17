@@ -13,7 +13,7 @@ import { localizeAttributeValue } from '../../utils/dataValuesConfig'
 import { ensureString } from '../../utils/ensureString'
 
 provideComponent(DataIconWidget, ({ widget }) => {
-  const dataItemAttribute = useData().dataItemAttribute()
+  const dataItemAttribute = useData().dataItemAttribute() // TODO: Inline
   const attributeValue = ensureString(dataItemAttribute?.get())
 
   const size = widget.get('size') || 'bi-2x'

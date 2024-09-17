@@ -8,10 +8,11 @@ import {
 import { DataFormInputFieldWidget } from './DataFormInputFieldWidgetClass'
 
 provideComponent(DataFormInputFieldWidget, ({ widget }) => {
-  const dataItemAttribute = useData().dataItemAttribute()
   const attributeName = useData().attributeName()
-
   const id = ['DataFormInputFieldWidget', widget.id(), attributeName].join('-')
+
+  const value = useData().dataItemAttribute()?.get()
+  const defaultValue = value ? `${value}` : ''
 
   return (
     <div className="mb-3" key={id}>
@@ -61,7 +62,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           id={id}
           name={attributeName ?? ''}
           rows={3}
-          defaultValue={getDefaultValue()}
+          defaultValue={defaultValue}
           placeholder={widget.get('placeholder')}
           required={widget.get('required')}
         />
@@ -70,7 +71,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           className="form-control"
           id={id}
           name={attributeName ?? ''}
-          defaultValue={getDefaultValue()}
+          defaultValue={defaultValue}
           maxLength={250}
           placeholder={widget.get('placeholder')}
           type={calculateType(widget.get('type'))}
@@ -79,11 +80,6 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
       )}
     </div>
   )
-
-  function getDefaultValue() {
-    const dataValue = dataItemAttribute?.get()
-    if (dataValue) return `${dataValue}`
-  }
 })
 
 function calculateType(type: string | null): string {

@@ -9,16 +9,12 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 import './DataFormBooleanWidget.scss'
 
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
-  const dataItemAttribute = useData().dataItemAttribute()
   const attributeName = useData().attributeName()
-
   const id = ['DataFormBooleanWidget', widget.id(), attributeName].join('-')
 
-  const attributeValue = dataItemAttribute?.get()
+  const value = useData().dataItemAttribute()?.get()
   const defaultChecked =
-    typeof attributeValue === 'boolean'
-      ? attributeValue
-      : widget.get('defaultValue')
+    typeof value === 'boolean' ? value : widget.get('defaultValue')
 
   const classNames = ['data-form-boolean-widget', 'mb-3', 'form-check']
   if (widget.get('style') === 'switch') classNames.push('form-switch')

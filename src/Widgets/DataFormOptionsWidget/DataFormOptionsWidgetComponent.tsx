@@ -12,16 +12,12 @@ import {
 } from '../../utils/dataValuesConfig'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
-  const dataItemAttribute = useData().dataItemAttribute()
   const attributeName = useData().attributeName()
-
   const id = ['DataFormOptionsWidget', widget.id(), attributeName].join('-')
 
-  const attributeValue = dataItemAttribute?.get()
+  const value = useData().dataItemAttribute()?.get()
   const defaultValue =
-    typeof attributeValue === 'string'
-      ? attributeValue
-      : widget.get('defaultValue')
+    typeof value === 'string' ? value : widget.get('defaultValue')
 
   const dataClass = useData().dataClass()
   if (!dataClass) return null
@@ -29,8 +25,8 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const options = new Set(
     attributeName ? dataValues(dataClass, attributeName) : [],
   )
-  if (typeof attributeValue === 'string' && attributeValue) {
-    options.add(attributeValue)
+  if (typeof value === 'string' && value) {
+    options.add(value)
   }
 
   return (

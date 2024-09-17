@@ -9,14 +9,11 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
 
 provideComponent(DataFormNumberWidget, ({ widget }) => {
-  const dataItemAttribute = useData().dataItemAttribute()
   const attributeName = useData().attributeName()
-
   const id = ['DataFormNumberWidget', widget.id(), attributeName].join('-')
 
-  const attributeValue = dataItemAttribute?.get()
-  const defaultValue =
-    typeof attributeValue === 'number' ? attributeValue : undefined
+  const value = useData().dataItemAttribute()?.get()
+  const defaultValue = typeof value === 'number' ? value : undefined
 
   return (
     <div className="mb-3" key={[id, defaultValue].join('-')}>
