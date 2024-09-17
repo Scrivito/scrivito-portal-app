@@ -9,13 +9,16 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 import './DataFormBooleanWidget.scss'
 
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
-  const dataItem = useData().dataItem()
+  const dataItemAttribute = useData().dataItemAttribute()
+  const attributeName = useData().attributeName()
 
-  const id = ['DataFormBooleanWidget', widget.id(), dataItem?.id()].join('-')
+  const id = ['DataFormBooleanWidget', widget.id(), attributeName].join('-')
 
-  const attributeName = widget.get('attributeName')
-  const attributeValue = dataItem?.get(attributeName)
-  const defaultChecked = !!(attributeValue ?? widget.get('defaultValue'))
+  const attributeValue = dataItemAttribute?.get()
+  const defaultChecked =
+    typeof attributeValue === 'boolean'
+      ? attributeValue
+      : widget.get('defaultValue')
 
   const classNames = ['data-form-boolean-widget', 'mb-3', 'form-check']
   if (widget.get('style') === 'switch') classNames.push('form-switch')
@@ -23,12 +26,12 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   return (
     <div
       className={classNames.join(' ')}
-      key={[id, attributeName, defaultChecked].join('-')}
+      key={[id, widget.get('defaultValue')].join('-')}
     >
       <input
         id={id}
         className="form-check-input"
-        name={attributeName}
+        name={attributeName || ''}
         type="checkbox"
         required={widget.get('required')}
         defaultChecked={defaultChecked}

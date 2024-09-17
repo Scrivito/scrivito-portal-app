@@ -9,6 +9,9 @@ provideEditingConfig(DataFormBooleanWidget, {
     attributeName: {
       title: 'Name of the data attribute in question',
     },
+    data: {
+      restrictDataTo: ['scopeAttribute', 'itemAttribute'],
+    },
     required: { title: 'Mandatory?' },
     defaultValue: {
       title: 'Default value',

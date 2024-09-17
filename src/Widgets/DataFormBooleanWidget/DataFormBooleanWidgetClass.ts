@@ -5,6 +5,7 @@ export const DataFormBooleanWidget = provideWidgetClass(
   {
     attributes: {
       attributeName: 'string',
+      data: 'datalocator',
       defaultValue: 'boolean',
       helpText: 'html',
       label: 'string',
