@@ -6,27 +6,32 @@ import {
   useData,
 } from 'scrivito'
 import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
-import { ensureString } from '../../utils/ensureString'
 import {
   dataValues,
   localizeAttributeValue,
 } from '../../utils/dataValuesConfig'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
-  const dataScope = useData()
-  const dataItem = dataScope.dataItem()
+  const dataItemAttribute = useData().dataItemAttribute()
+  const attributeName = useData().attributeName()
 
-  const id = ['DataFormOptionsWidget', widget.id(), dataItem?.id()].join('-')
+  const id = ['DataFormOptionsWidget', widget.id(), attributeName].join('-')
 
-  const attributeName = widget.get('attributeName')
-  const attributeValue = ensureString(dataItem?.get(attributeName))
-  const defaultValue = dataItem ? attributeValue : widget.get('defaultValue')
+  const attributeValue = dataItemAttribute?.get()
+  const defaultValue =
+    typeof attributeValue === 'string'
+      ? attributeValue
+      : widget.get('defaultValue')
 
-  const dataClass = dataScope.dataClass()
+  const dataClass = useData().dataClass()
   if (!dataClass) return null
 
-  const options = new Set(dataValues(dataClass, attributeName))
-  if (attributeValue) options.add(attributeValue)
+  const options = new Set(
+    attributeName ? dataValues(dataClass, attributeName) : [],
+  )
+  if (typeof attributeValue === 'string' && attributeValue) {
+    options.add(attributeValue)
+  }
 
   return (
     <div className="mb-3" key={[id, attributeName, defaultValue].join('-')}>
@@ -75,7 +80,7 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
           className="form-select"
           defaultValue={defaultValue}
           id={id}
-          name={attributeName}
+          name={attributeName ?? ''}
           required={widget.get('required')}
         >
           {widget.get('required') ? (
@@ -86,18 +91,19 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
             <option value=""></option>
           )}
 
-          {[...options].map((attributeValue, index) => (
-            <option
-              value={attributeValue}
-              key={[id, 'option', attributeValue, index].join('-')}
-            >
-              {localizeAttributeValue({
-                dataClass,
-                attributeName,
-                attributeValue,
-              })}
-            </option>
-          ))}
+          {attributeName &&
+            [...options].map((attributeValue, index) => (
+              <option
+                value={attributeValue}
+                key={[id, 'option', attributeValue, index].join('-')}
+              >
+                {localizeAttributeValue({
+                  dataClass,
+                  attributeName,
+                  attributeValue,
+                })}
+              </option>
+            ))}
         </select>
       </div>
     </div>
