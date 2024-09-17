@@ -40,7 +40,8 @@ provideEditingConfig(DataFormHiddenFieldWidget, {
   ],
   titleForContent: (widget) =>
     `Hidden Data Form Field: ${[
-      widget.get('attributeName'),
+      // @ts-expect-error until out of private beta
+      widget.get('data').field(),
       widget.get('hiddenValue'),
     ]
       .filter((e) => e)
