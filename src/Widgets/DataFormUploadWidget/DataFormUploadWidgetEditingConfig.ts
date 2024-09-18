@@ -9,6 +9,9 @@ provideEditingConfig(DataFormUploadWidget, {
     attributeName: {
       title: 'Name of the data attribute in question',
     },
+    data: {
+      restrictDataTo: ['scopeAttribute'],
+    },
     required: { title: 'Mandatory?' },
     multiple: { title: 'Allow multiple files?' },
     helpText: { title: 'Help text' },

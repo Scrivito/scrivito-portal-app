@@ -7,6 +7,9 @@ provideEditingConfig(DataFormHiddenFieldWidget, {
   thumbnail: Thumbnail,
   attributes: {
     attributeName: { title: 'Attribute name' },
+    data: {
+      restrictDataTo: ['scopeAttribute', 'itemAttribute'],
+    },
     hiddenValue: {
       title: 'Hidden value',
       description: 'This value is sent on every submission of the data form.',
@@ -37,7 +40,8 @@ provideEditingConfig(DataFormHiddenFieldWidget, {
   ],
   titleForContent: (widget) =>
     `Hidden Data Form Field: ${[
-      widget.get('attributeName'),
+      // @ts-expect-error until out of private beta
+      widget.get('data').field(),
       widget.get('hiddenValue'),
     ]
       .filter((e) => e)

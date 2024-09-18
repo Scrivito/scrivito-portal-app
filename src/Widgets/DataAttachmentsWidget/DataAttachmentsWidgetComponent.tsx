@@ -4,8 +4,7 @@ import { FullDataBinary, isFullDataBinary } from '../../utils/dataBinaryToUrl'
 import { Attachment } from '../../Components/Attachment'
 
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
-  const dataItemAttribute = useData().dataItemAttribute()
-  const value = dataItemAttribute?.get()
+  const value = useData().dataItemAttribute()?.get()
   const attachments = isFullDataBinary(value) ? [value] : value
   if (!isFullBinaryArray(attachments)) return null
   if (attachments.length === 0) return null

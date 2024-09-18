@@ -9,6 +9,9 @@ provideEditingConfig(DataFormNumberWidget, {
     attributeName: {
       title: 'Name of the data attribute in question',
     },
+    data: {
+      restrictDataTo: ['scopeAttribute', 'itemAttribute'],
+    },
     required: { title: 'Mandatory?' },
     helpText: { title: 'Help text' },
     minValue: { title: 'Minimum value' },
