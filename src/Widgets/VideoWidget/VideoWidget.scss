@@ -1,0 +1,27 @@
+.video-widget {
+  object-fit: cover;
+
+  &.aspect-ratio-21to9 {
+    aspect-ratio: calc(21 / 9);
+  }
+
+  &.aspect-ratio-16to9 {
+    aspect-ratio: calc(16 / 9);
+  }
+
+  &.aspect-ratio-4to3 {
+    aspect-ratio: calc(4 / 3);
+  }
+
+  &.aspect-ratio-1to1 {
+    aspect-ratio: calc(1 / 1);
+  }
+
+  &.aspect-ratio-3to4 {
+    aspect-ratio: calc(3 / 4);
+  }
+
+  &.aspect-ratio-9to16 {
+    aspect-ratio: calc(9 / 16);
+  }
+}

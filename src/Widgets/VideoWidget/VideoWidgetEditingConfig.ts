@@ -5,6 +5,18 @@ provideEditingConfig('VideoWidget', {
   title: 'Video',
   thumbnail: Thumbnail,
   attributes: {
+    aspectRatio: {
+      title: 'Aspect ratio',
+      description: 'Default: HD TV (16:9)',
+      values: [
+        { value: '21to9', title: 'CinemaScope (21:9)' },
+        { value: '16to9', title: 'HD TV (16:9)' },
+        { value: '4to3', title: 'Traditional TV (4:3)' },
+        { value: '1to1', title: 'Square (1:1)' },
+        { value: '3to4', title: 'Portrait traditional TV (3:4)' },
+        { value: '9to16', title: 'Portrait HD TV (9:16)' },
+      ],
+    },
     source: {
       title: 'Video',
       description:
@@ -17,7 +29,10 @@ provideEditingConfig('VideoWidget', {
         ' Without an poster image, the browser may show the first frame of the video.',
     },
   },
-  properties: ['source', 'poster'],
+  properties: ['source', 'poster', 'aspectRatio'],
+  initialContent: {
+    aspectRatio: '16to9',
+  },
   validations: [
     [
       'source',
