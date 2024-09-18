@@ -8,13 +8,13 @@ import {
 } from 'scrivito'
 import { DataLabelWidget } from './DataLabelWidgetClass'
 import { RelativeDate } from './RelativeDate'
-import { localizeAttributeValue } from '../../utils/dataValuesConfig'
 import {
   formatDateMonthAndYear,
   formatDateTime,
   formatFullDateTime,
   formatFullDayAndMonth,
 } from '../../utils/formatDate'
+import { useEnumOptions } from '../../utils/useEnumOptions'
 
 const CURRENCY = 'EUR' // ISO 4217 Code
 
@@ -57,10 +57,14 @@ const AttributeValue = connect(function AttributeValue({
   datetimeFormat: string | null
   showAs: string | null
 }) {
-  const dataItemAttribute = useData().dataItemAttribute()
-  if (!dataItemAttribute) return localizeNotAvailable()
+  const rawAttributeValue = useData().dataItemAttribute()?.get()
 
-  const attributeValue = dataItemAttribute.get()
+  const enumOptions = useEnumOptions()
+  const matchingOption = enumOptions.find(
+    ({ value }) => value === rawAttributeValue,
+  )
+
+  const attributeValue = matchingOption?.title ?? rawAttributeValue
 
   if (showAs === 'currency') return <Currency value={attributeValue} />
   if (showAs === 'datetime') {
@@ -72,16 +76,7 @@ const AttributeValue = connect(function AttributeValue({
     return <NumberText value={attributeValue} />
   }
 
-  const value =
-    typeof attributeValue === 'string'
-      ? localizeAttributeValue({
-          dataClass: dataItemAttribute.dataClass(),
-          attributeName: dataItemAttribute.attributeName(),
-          attributeValue,
-        })
-      : attributeValue
-
-  return <Text value={value} />
+  return <Text value={attributeValue} />
 })
 
 function Text({ value }: { value: unknown }) {

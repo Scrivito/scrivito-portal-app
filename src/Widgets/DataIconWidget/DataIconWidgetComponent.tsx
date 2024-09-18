@@ -9,21 +9,25 @@ import { DataIconWidget } from './DataIconWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { isDataIconConditionWidget } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
 import { IconComponent } from '../../Components/Icon'
-import { localizeAttributeValue } from '../../utils/dataValuesConfig'
 import { ensureString } from '../../utils/ensureString'
+import { useEnumOptions } from '../../utils/useEnumOptions'
 
 provideComponent(DataIconWidget, ({ widget }) => {
-  const dataItemAttribute = useData().dataItemAttribute() // TODO: Inline
-  const attributeValue = ensureString(dataItemAttribute?.get())
+  const attributeValue = ensureString(useData().dataItemAttribute()?.get())
 
   const size = widget.get('size') || 'bi-2x'
 
   const conditions = widget.get('conditions').filter(isDataIconConditionWidget)
   const matchingCondition =
-    dataItemAttribute &&
+    attributeValue &&
     conditions.find(
       (condition) => condition.get('attributeValue') === attributeValue,
     )
+
+  const matchingOption = useEnumOptions().find(
+    ({ value }) => value === attributeValue,
+  )
+  const title = matchingOption?.title ?? attributeValue
 
   return (
     <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
@@ -38,11 +42,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={matchingCondition.get('icon') || 'bi-box'}
             size={size}
             link={null}
-            title={localizeAttributeValue({
-              dataClass: dataItemAttribute.dataClass(),
-              attributeName: dataItemAttribute.attributeName(),
-              attributeValue,
-            })}
+            title={title}
           />
         </>
       ) : (
@@ -51,7 +51,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
             icon={widget.get('fallbackIcon') || 'bi-question-octagon'}
             size={size}
             link={null}
-            title={attributeValue || localizeNotAvailable()}
+            title={title || localizeNotAvailable()}
           />
         </>
       )}
