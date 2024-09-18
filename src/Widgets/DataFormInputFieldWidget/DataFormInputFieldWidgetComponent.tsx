@@ -8,14 +8,14 @@ import {
 import { DataFormInputFieldWidget } from './DataFormInputFieldWidgetClass'
 
 provideComponent(DataFormInputFieldWidget, ({ widget }) => {
-  const dataItem = useData().dataItem()
+  const attributeName = useData().attributeName()
+  const id = ['DataFormInputFieldWidget', widget.id(), attributeName].join('-')
 
-  const id = ['DataFormInputFieldWidget', widget.id(), dataItem?.id()].join('-')
-
-  const attributeName = widget.get('attributeName')
+  const value = useData().dataItemAttribute()?.get()
+  const defaultValue = value ? `${value}` : ''
 
   return (
-    <div className="mb-3" key={[id, attributeName].join('-')}>
+    <div className="mb-3" key={id}>
       <ContentTag
         content={widget}
         attribute="label"
@@ -60,9 +60,9 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
         <textarea
           className="form-control"
           id={id}
-          name={attributeName}
+          name={attributeName ?? ''}
           rows={3}
-          defaultValue={getDefaultValue()}
+          defaultValue={defaultValue}
           placeholder={widget.get('placeholder')}
           required={widget.get('required')}
         />
@@ -70,8 +70,8 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
         <input
           className="form-control"
           id={id}
-          name={attributeName}
-          defaultValue={getDefaultValue()}
+          name={attributeName ?? ''}
+          defaultValue={defaultValue}
           maxLength={250}
           placeholder={widget.get('placeholder')}
           type={calculateType(widget.get('type'))}
@@ -80,12 +80,6 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
       )}
     </div>
   )
-
-  function getDefaultValue() {
-    if (!attributeName) return
-    const value = dataItem?.get(attributeName)
-    if (value) return `${value}`
-  }
 })
 
 function calculateType(type: string | null): string {

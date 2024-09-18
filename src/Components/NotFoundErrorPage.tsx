@@ -14,7 +14,14 @@ const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (isUserLoggedIn() && isNoSitePresent()) return <NotFound />
+    // TODO: remove window check after #11101 is implemented
+    if (
+      typeof window !== 'undefined' &&
+      isUserLoggedIn() &&
+      isNoSitePresent()
+    ) {
+      return <NotFound />
+    }
 
     return (
       <ScrivitoNotFoundErrorPage>

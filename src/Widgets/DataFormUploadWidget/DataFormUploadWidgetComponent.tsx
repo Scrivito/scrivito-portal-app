@@ -3,6 +3,7 @@ import {
   currentLanguage,
   InPlaceEditingOff,
   provideComponent,
+  useData,
 } from 'scrivito'
 import { DataFormUploadWidget } from './DataFormUploadWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
@@ -15,7 +16,7 @@ const MAX_FILE_SIZE = 50 * 1000 * 1000
 
 provideComponent(DataFormUploadWidget, ({ widget }) => {
   const id = ['DataFormUploadWidget', widget.id()].join('-')
-  const attributeName = widget.get('attributeName')
+  const attributeName = useData().attributeName()
   const [isTooLarge, setIsTooLarge] = useState(false)
 
   const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
@@ -97,7 +98,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
           {...getInputProps({
             id,
             multiple: widget.get('multiple'),
-            name: attributeName,
+            name: attributeName ?? '',
             required: widget.get('required'),
           })}
         />

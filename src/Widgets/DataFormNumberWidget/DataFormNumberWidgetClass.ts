@@ -2,13 +2,13 @@ import { provideWidgetClass } from 'scrivito'
 
 export const DataFormNumberWidget = provideWidgetClass('DataFormNumberWidget', {
   attributes: {
-    attributeName: 'string',
-    placeholder: 'string',
-    minValue: 'float',
-    maxValue: 'float',
-    stepValue: 'float',
+    data: 'datalocator',
     helpText: 'html',
     label: 'string',
+    maxValue: 'float',
+    minValue: 'float',
+    placeholder: 'string',
     required: 'boolean',
+    stepValue: 'float',
   },
 })
