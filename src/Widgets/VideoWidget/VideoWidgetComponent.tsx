@@ -7,8 +7,10 @@ import {
 } from 'scrivito'
 import { VideoWidget } from './VideoWidgetObjClass'
 import { videoPlaceholder } from './videoPlaceholder'
+import './VideoWidget.scss'
 
 provideComponent(VideoWidget, ({ widget }) => {
+  const aspectRatio = widget.get('aspectRatio') || '16to9'
   const sourceUrl = urlFromBinaryObj(widget.get('source'))
   const posterUrl = urlFromBinaryObj(widget.get('poster'))
 
@@ -21,6 +23,7 @@ provideComponent(VideoWidget, ({ widget }) => {
     <ContentTag
       tag="video"
       key={`${src}${posterUrl}`}
+      className={`video-widget aspect-ratio-${aspectRatio}`}
       src={src}
       content={widget}
       attribute="source"

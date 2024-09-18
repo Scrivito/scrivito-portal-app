@@ -5,7 +5,6 @@ export const videoPlaceholder = {
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'center',
   boxShadow: '0 0 0 2px #999',
-  height: 90,
   opacity: 0.5,
   width: '100%',
 }
