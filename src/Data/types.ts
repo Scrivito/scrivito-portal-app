@@ -20,3 +20,6 @@ export type DataConnection = Parameters<
 type ProvideDataClassFunction = typeof provideDataClass
 type Params = Parameters<ProvideDataClassFunction>[1]
 export type DataClassAttributes = NonNullable<Params['attributes']>
+
+type ExtractDataClassSchema<T> = T extends Promise<infer U> ? U : never
+export type DataClassSchema = ExtractDataClassSchema<DataClassAttributes>
