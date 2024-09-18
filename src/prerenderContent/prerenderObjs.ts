@@ -35,7 +35,7 @@ export async function prerenderObjs(
         const pageId = obj.id()
         const pageUrl = urlFor(obj)
         reportError(
-          `Error while processing obj ${pageId} (${pageUrl}). Skipping file.`,
+          `Error while processing obj ${pageId} (${pageUrl}).`,
           e instanceof Object && 'message' in e ? e.message : '',
           e,
         )
@@ -44,7 +44,9 @@ export async function prerenderObjs(
   )
 
   console.timeEnd('[prerenderObjs]')
-  if (failedCount) reportError(`Skipped ${failedCount} objs due to failures.`)
+  if (failedCount) {
+    throw new Error(`${failedCount} objs failed to prerender.`)
+  }
 
   return files
 }
