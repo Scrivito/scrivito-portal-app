@@ -10,7 +10,7 @@ async function attributes(): Promise<DataClassSchema> {
     'enum',
     lang === 'de'
       ? {
-          title: 'Kategorie',
+          title: 'Vertragsart',
           values: [
             { value: 'PSA_CTR_KND_70', title: 'Wartungs- und Supportvertrag' },
             { value: 'PSA_CTR_KND_10', title: 'Kaufvertrag' },
@@ -32,7 +32,7 @@ async function attributes(): Promise<DataClassSchema> {
           ],
         }
       : {
-          title: 'Category',
+          title: 'Contract category',
           values: [
             { value: 'PSA_CTR_KND_10', title: 'Sales contract' },
             { value: 'PSA_CTR_KND_20', title: 'Shareholders agreement' },
@@ -65,7 +65,7 @@ async function attributes(): Promise<DataClassSchema> {
     'enum',
     lang === 'de'
       ? {
-          title: 'Mindestlaufzeit',
+          title: 'Einheit der Mindestlaufzeit',
           values: [{ value: 'PSA_CTR_CYC_YEA', title: 'Jahre' }],
         }
       : {
@@ -121,7 +121,7 @@ async function attributes(): Promise<DataClassSchema> {
     'enum',
     lang === 'de'
       ? {
-          title: 'Type',
+          title: 'Vertragstyp',
           values: [
             { value: 'PSA_CTR_TYP_10', title: 'Rahmenvertrag' },
             { value: 'PSA_CTR_TYP_20', title: 'Einzelvertrag' },
@@ -131,7 +131,7 @@ async function attributes(): Promise<DataClassSchema> {
           ],
         }
       : {
-          title: 'Type',
+          title: 'Contract type',
           values: [
             { value: 'PSA_CTR_TYP_10', title: 'Basic agreement' },
             { value: 'PSA_CTR_TYP_20', title: 'Single contract' },
@@ -143,19 +143,70 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    cancelationEndAt: 'date',
+    _id: ['string', { title: 'ID' }],
+    cancelationEndAt: [
+      'date',
+      { title: lang === 'de' ? 'Kündigungsfrist' : 'Cancelation period' },
+    ],
     category,
-    endAt: 'date',
-    internalDepartment: 'string',
-    keyword: 'string',
-    minimumTerm: 'number',
+    endAt: ['date', { title: lang === 'de' ? 'Vertragsende' : 'Contract end' }],
+    // TODO: pisa schema: remove internalDepartment for now
+    keyword: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
+    minimumTerm: [
+      'number',
+      { title: lang === 'de' ? 'Mindestlaufzeit' : 'Minimum term' },
+    ],
     minimumTermUnit,
-    number: 'string',
-    partner: 'string',
-    startAt: 'date',
+    number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    partner: [
+      'string',
+      { title: lang === 'de' ? 'Vertragspartner' : 'Sales partner' },
+    ],
+    startAt: [
+      'date',
+      { title: lang === 'de' ? 'Vertragsbeginn' : 'Contract start' },
+    ],
     status,
-    termExtensionEndAt: 'date',
-    totalPrice: 'number',
+    termExtensionDays: [
+      'number',
+      {
+        title:
+          lang === 'de'
+            ? 'Laufzeitverlängerung (Tage)'
+            : 'Term extension (days)',
+      },
+    ],
+    termExtensionEndAt: [
+      'date',
+      {
+        title:
+          lang === 'de'
+            ? 'Ende der Laufzeitverlängerung'
+            : 'End of the term extension',
+      },
+    ],
+    termExtensionMonths: [
+      'number',
+      {
+        title:
+          lang === 'de'
+            ? 'Laufzeitverlängerung (Monate)'
+            : 'Term extension (months)',
+      },
+    ],
+    termExtensionYears: [
+      'number',
+      {
+        title:
+          lang === 'de'
+            ? 'Laufzeitverlängerung (Jahre)'
+            : 'Term extension (years)',
+      },
+    ],
+    totalPrice: [
+      'number',
+      { title: lang === 'de' ? 'Eingangswert' : 'Total value' },
+    ],
     type,
   }
 }
