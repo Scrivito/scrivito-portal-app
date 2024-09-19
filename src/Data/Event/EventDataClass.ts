@@ -67,18 +67,31 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    attendanceFee: 'number',
-    beginsAt: 'date',
-    description: 'string',
-    endsAt: 'date',
-    freeSeats: 'number',
-    keyword: 'string',
+    _id: ['string', { title: 'ID' }],
+    attendanceFee: [
+      'number',
+      { title: lang === 'de' ? 'Teilnehmergebühr' : 'Attendance fee' },
+    ],
+    beginsAt: ['date', { title: lang === 'de' ? 'Beginnt am' : 'Begins  at' }],
+    description: [
+      'string',
+      { title: lang === 'de' ? 'Beschreibung' : 'Description' },
+    ],
+    endsAt: ['date', { title: lang === 'de' ? 'Endet am' : 'Ends at' }],
+    freeSeats: [
+      'number',
+      { title: lang === 'de' ? 'Freie Plätze' : 'Free seats' },
+    ],
+    keyword: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
     language,
-    location: 'string',
-    number: 'string',
-    organizer: 'string',
+    location: ['string', { title: lang === 'de' ? 'Ort' : 'Location' }],
+    number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    organizer: [
+      'string',
+      { title: lang === 'de' ? 'Veranstalter' : 'Organizer' },
+    ],
     status,
-    url: 'string',
+    url: ['string', { title: 'URL' }],
   }
 }
 
