@@ -20,10 +20,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
   if (widget.get('style') === 'switch') classNames.push('form-switch')
 
   return (
-    <div
-      className={classNames.join(' ')}
-      key={[id, widget.get('defaultValue')].join('-')}
-    >
+    <div className={classNames.join(' ')} key={[id, defaultChecked].join('-')}>
       <input
         id={id}
         className="form-check-input"
