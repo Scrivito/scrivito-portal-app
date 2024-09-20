@@ -1,7 +1,21 @@
+import { currentLanguage, load } from 'scrivito'
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
-import { DataClassAttributes } from '../../types'
+import { DataClassSchema } from '../../types'
 
-export function localStorageGdprDataClass(attributes: DataClassAttributes) {
+async function attributes(): Promise<DataClassSchema> {
+  const lang = await load(currentLanguage)
+
+  return {
+    _id: ['string', { title: 'ID' }],
+    description: [
+      'string',
+      { title: lang === 'de' ? 'Beschreibung' : 'Description' },
+    ],
+    name: ['string', { title: 'Name' }],
+  }
+}
+
+export function localStorageGdprDataClass() {
   return provideLocalStorageDataClass('Gdpr', {
     attributes,
     prepareData: async (data) => ({
