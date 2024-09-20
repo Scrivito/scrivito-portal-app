@@ -128,14 +128,24 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    createdAt: 'date',
-    description: 'string',
-    number: 'string',
-    referenceNumber: 'string',
+    _id: ['string', { title: 'ID' }],
+    createdAt: ['date', { title: lang === 'de' ? 'Erzeugt am' : 'Created at' }],
+    description: [
+      'string',
+      { title: lang === 'de' ? 'Beschreibung' : 'Description' },
+    ],
+    number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    referenceNumber: [
+      'string',
+      { title: lang === 'de' ? 'Referenznummer' : 'Reference number' },
+    ],
     status,
-    title: 'string',
+    title: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
     type,
-    updatedAt: 'date',
+    updatedAt: [
+      'date',
+      { title: lang === 'de' ? 'Geändert am' : 'Updated at' },
+    ],
   }
 }
 

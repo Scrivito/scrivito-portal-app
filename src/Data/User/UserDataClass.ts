@@ -1,16 +1,62 @@
-import { load } from 'scrivito'
+import { currentLanguage, load } from 'scrivito'
 import { localStorageUserDataClass } from './LocalStorage/localStorageUserDataClass'
 import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
-import { DataClassAttributes, RawItem } from '../types'
+import { DataClassSchema, RawItem } from '../types'
 import { pisaUserDataClass } from './Pisa/pisaUserDataClass'
 
-const attributes: DataClassAttributes = {
-  email: 'string',
-  familyName: 'string',
-  givenName: 'string',
-  name: 'string',
-  position: 'string',
-  salutation: 'string',
+async function attributes(): Promise<DataClassSchema> {
+  const lang = await load(currentLanguage)
+
+  const salutation = [
+    'enum',
+    lang === 'de'
+      ? {
+          title: 'Anrede',
+          values: [
+            { value: 'M', title: 'Herr' },
+            { value: 'F', title: 'Frau' },
+            { value: 'ME', title: 'Mr.' },
+            { value: 'FE', title: 'Ms.' },
+            { value: 'MS', title: 'Hr.' },
+            { value: 'FS', title: 'Fr.' },
+            { value: 'MSP', title: 'Señor' },
+            { value: 'FSP', title: 'Señora' },
+            { value: 'MF', title: 'Monsieur' },
+            { value: 'FF', title: 'Madame' },
+          ],
+        }
+      : {
+          title: 'Saluation',
+          values: [
+            { value: 'M', title: 'Herr' },
+            { value: 'F', title: 'Frau' },
+            { value: 'ME', title: 'Mr.' },
+            { value: 'FE', title: 'Ms.' },
+            { value: 'MS', title: 'Hr.' },
+            { value: 'FS', title: 'Fr.' },
+            { value: 'MSP', title: 'Señor' },
+            { value: 'FSP', title: 'Señora' },
+            { value: 'MF', title: 'Monsieur' },
+            { value: 'FF', title: 'Madame' },
+          ],
+        },
+  ] as const
+
+  return {
+    _id: ['string', { title: 'ID' }],
+    email: [
+      'string',
+      { title: lang === 'de' ? 'E-Mailadresse' : 'Email address' },
+    ],
+    familyName: [
+      'string',
+      { title: lang === 'de' ? 'Nachname' : 'Family name' },
+    ],
+    givenName: ['string', { title: lang === 'de' ? 'Vorname' : 'Given name' }],
+    name: ['string', { title: 'Name' }],
+    position: ['string', { title: 'Position' }],
+    salutation,
+  }
 }
 
 export const User = import.meta.env.ENABLE_PISA

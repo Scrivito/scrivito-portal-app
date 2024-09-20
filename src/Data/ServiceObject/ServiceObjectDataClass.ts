@@ -6,11 +6,72 @@ import { pisaServiceObjectDataClass } from './Pisa/pisaServiceObjectDataClass'
 async function attributes(): Promise<DataClassSchema> {
   const lang = await load(currentLanguage)
 
+  const category = [
+    'enum',
+    lang === 'de'
+      ? {
+          title: 'Kategorie',
+          values: [
+            { value: 'PSA_ART_TXT', title: 'Text' },
+            { value: 'PSA_ART_EXP', title: 'Kosten' },
+            { value: 'PSA_ART_TRV', title: 'Reise' },
+            { value: 'PSA_ART_ART', title: 'Artikel' },
+            { value: 'PSA_ART_MAI', title: 'Wartung' },
+            { value: 'PSA_ART_CAT_SVC_PCK', title: 'Leistungspaket' },
+            { value: 'PSA_ART_CAT_SVC', title: 'Leistung' },
+            { value: 'PSA_ART_CAT_SPR', title: 'Ersatzteil' },
+            {
+              value: 'PSA_ART_FRN_CAT_SVC_PCK',
+              title: 'Leistungspaket (Fremd)',
+            },
+            { value: 'PSA_ART_FRN_ART', title: 'Artikel (Fremd)' },
+            { value: 'PSA_ART_FRN_MAI', title: 'Wartung (Fremd)' },
+            { value: 'PSA_ART_FRN_CAT_SVC', title: 'Leistung (Fremd)' },
+            { value: 'PSA_ART_SVC', title: 'Serviceobjekt' },
+            { value: 'PSA_ART_OPE', title: 'Tätigkeit' },
+            { value: 'PSA_ART_MAI_PCK', title: 'Wartungspaket' },
+            { value: 'PSA_ART_FRN_CAT_COM', title: 'Baugruppe (Fremd)' },
+            { value: 'PSA_ART_CAT_COM', title: 'Baugruppe' },
+            { value: 'PSA_ART_FRN_CAT_SPR', title: 'Ersatzteil (Fremd)' },
+            { value: 'PSA_ART_CHP', title: 'Kapitel' },
+            { value: 'PSA_ART_SUM', title: 'Summe' },
+          ],
+        }
+      : {
+          title: 'Category',
+          values: [
+            { value: 'PSA_ART_TXT', title: 'Text' },
+            { value: 'PSA_ART_EXP', title: 'Expenses' },
+            { value: 'PSA_ART_TRV', title: 'Travel' },
+            { value: 'PSA_ART_ART', title: 'Article' },
+            { value: 'PSA_ART_MAI', title: 'Maintenance' },
+            { value: 'PSA_ART_CAT_SVC_PCK', title: 'Service package' },
+            { value: 'PSA_ART_CAT_SVC', title: 'Service' },
+            { value: 'PSA_ART_CAT_SPR', title: 'Spare part' },
+            {
+              value: 'PSA_ART_FRN_CAT_SVC_PCK',
+              title: 'Service package (competitor)',
+            },
+            { value: 'PSA_ART_FRN_ART', title: 'Article (competitor)' },
+            { value: 'PSA_ART_FRN_MAI', title: 'Maintenance (competitor)' },
+            { value: 'PSA_ART_FRN_CAT_SVC', title: 'Service (competitor)' },
+            { value: 'PSA_ART_SVC', title: 'Service object' },
+            { value: 'PSA_ART_OPE', title: 'Operation' },
+            { value: 'PSA_ART_MAI_PCK', title: 'Maintenance package' },
+            { value: 'PSA_ART_FRN_CAT_COM', title: 'Component (competitor)' },
+            { value: 'PSA_ART_CAT_COM', title: 'Component' },
+            { value: 'PSA_ART_FRN_CAT_SPR', title: 'Spare part (competitor)' },
+            { value: 'PSA_ART_CHP', title: 'Chapter' },
+            { value: 'PSA_ART_SUM', title: 'Sum' },
+          ],
+        },
+  ] as const
+
   const locationCountry = [
     'enum',
     lang === 'de'
       ? {
-          title: 'Land',
+          title: 'Standort: Land',
           values: [
             { value: 'ABW', title: 'Aruba' },
             { value: 'AFG', title: 'Afghanistan' },
@@ -274,7 +335,7 @@ async function attributes(): Promise<DataClassSchema> {
           ],
         }
       : {
-          title: 'Country',
+          title: 'Location country',
           values: [
             { value: 'ABW', title: 'Aruba' },
             { value: 'AFG', title: 'Afghanistan' },
@@ -539,6 +600,36 @@ async function attributes(): Promise<DataClassSchema> {
         },
   ] as const
 
+  const productType = [
+    'enum',
+    lang === 'de'
+      ? {
+          title: 'Produkttyp',
+          values: [
+            { value: 'PSA_MEN_ART_TYP_10', title: 'Fristaustauschteil' },
+            { value: 'PSA_MEN_ART_TYP_20', title: 'Verschleißteil' },
+            { value: 'PSA_MEN_ART_TYP_30', title: 'Sollbruchteil' },
+            { value: 'PSA_MEN_ART_TYP_40', title: 'Reserveteil' },
+            { value: 'PSA_MEN_ART_TYP_50', title: 'Verbrauchsteil' },
+            { value: 'PSA_MEN_ART_TYP_60', title: 'Kleinteil' },
+          ],
+        }
+      : {
+          title: 'Product type',
+          values: [
+            { value: 'PSA_MEN_ART_TYP_10', title: 'Replacement part' },
+            { value: 'PSA_MEN_ART_TYP_20', title: 'Wearing part' },
+            {
+              value: 'PSA_MEN_ART_TYP_30',
+              title: 'Predetermined breaking part',
+            },
+            { value: 'PSA_MEN_ART_TYP_40', title: 'Spare part' },
+            { value: 'PSA_MEN_ART_TYP_50', title: 'Expendable item' },
+            { value: 'PSA_MEN_ART_TYP_60', title: 'Small part' },
+          ],
+        },
+  ] as const
+
   const status = [
     'enum',
     lang === 'de'
@@ -558,23 +649,79 @@ async function attributes(): Promise<DataClassSchema> {
         },
   ] as const
 
+  const type = [
+    'enum',
+    lang === 'de'
+      ? {
+          title: 'Type',
+          values: [
+            { value: 'PSA_SVC_OBJ_TYP_FAC', title: 'Anlage' },
+            { value: 'PSA_SVC_OBJ_TYP_DEV', title: 'Gerät' },
+            { value: 'PSA_SVC_OBJ_TYP_MOD', title: 'Baugruppe' },
+            { value: 'PSA_SVC_OBJ_TYP_VEC', title: 'Fahrzeug' },
+            { value: 'PSA_SVC_OBJ_TYP_SFT', title: 'Software' },
+          ],
+        }
+      : {
+          title: 'Type',
+          values: [
+            { value: 'PSA_SVC_OBJ_TYP_FAC', title: 'Plant' },
+            { value: 'PSA_SVC_OBJ_TYP_DEV', title: 'Device' },
+            { value: 'PSA_SVC_OBJ_TYP_MOD', title: 'Module' },
+            { value: 'PSA_SVC_OBJ_TYP_VEC', title: 'Vehicle' },
+            { value: 'PSA_SVC_OBJ_TYP_SFT', title: 'Software' },
+          ],
+        },
+  ] as const
+
   return {
-    carrier: 'string',
-    customer: 'string',
-    information: 'string',
-    installedAt: 'date',
-    keyword: 'string',
-    locationCity: 'string',
+    _id: ['string', { title: 'ID' }],
+    carrier: ['string', { title: lang === 'de' ? 'Betreiber' : 'Carrier' }],
+    category,
+    customer: ['string', { title: lang === 'de' ? 'Kunde' : 'Customer' }],
+    information: ['string', { title: 'Information' }],
+    installedAt: [
+      'date',
+      { title: lang === 'de' ? 'Installiert am' : 'Installed at' },
+    ],
+    keyword: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
+    locationCity: [
+      'string',
+      { title: lang === 'de' ? 'Standort: Stadt' : 'Location: city' },
+    ],
     locationCountry,
-    locationPostalCode: 'string',
-    locationStreet: 'string',
-    modelNumber: 'string',
-    number: 'string',
-    product: 'string',
-    serialNumber: 'string',
+    locationPostalCode: [
+      'string',
+      {
+        title:
+          lang === 'de' ? 'Standort: Postleitzahl' : 'Location: postal code',
+      },
+    ],
+    locationStreet: [
+      'string',
+      { title: lang === 'de' ? 'Standort: Straße' : 'Location: street' },
+    ],
+    modelNumber: [
+      'string',
+      { title: lang === 'de' ? 'Modellnummer' : 'Model number' },
+    ],
+    number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    product: [
+      'string',
+      { title: lang === 'de' ? 'Produktname' : 'Product name' },
+    ],
+    productType,
+    serialNumber: [
+      'string',
+      { title: lang === 'de' ? 'Seriennummer' : 'Serial number' },
+    ],
     status,
-    supplier: 'string',
-    warrentyEndsAt: 'date',
+    supplier: ['string', { title: lang === 'de' ? 'Lieferant' : 'Supplier' }],
+    type,
+    warrantyEndsAt: [
+      'date',
+      { title: lang === 'de' ? 'Gewährleistung endet am' : 'Warranty ends at' },
+    ],
   }
 }
 

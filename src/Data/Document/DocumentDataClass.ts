@@ -35,7 +35,7 @@ async function attributes(): Promise<DataClassSchema> {
     'enum',
     lang === 'de'
       ? {
-          title: 'Type',
+          title: 'Art',
           values: [
             { value: 'CSO_CER', title: 'Zertifikat' },
             { value: 'CSO_ORG_CCP', title: 'Unternehmenscockpit' },
@@ -157,14 +157,21 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    createdAt: 'date',
-    format: 'string',
+    _id: ['string', { title: 'ID' }],
+    createdAt: ['date', { title: lang === 'de' ? 'Erzeugt am' : 'Created at' }],
+    format: [
+      'string',
+      { title: lang === 'de' ? 'Dateiformat' : 'File format' },
+    ],
     language,
-    number: 'string',
-    size: 'number',
-    title: 'string',
+    number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    size: [
+      'number',
+      { title: lang === 'de' ? 'Dateigröße in MB' : 'File size in MB' },
+    ],
+    title: ['string', { title: lang === 'de' ? 'Titel' : 'Title' }],
     type,
-    version: 'string',
+    version: ['string', { title: 'Version' }],
   }
 }
 
