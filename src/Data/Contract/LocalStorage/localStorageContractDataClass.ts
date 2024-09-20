@@ -210,7 +210,7 @@ async function attributes(): Promise<DataClassSchema> {
   }
 }
 
-export function localContractDataClass() {
+export function localStorageContractDataClass() {
   return provideLocalStorageDataClass('Contract', {
     attributes,
     initialContent: [
