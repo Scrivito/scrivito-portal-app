@@ -701,7 +701,7 @@ async function attributes(): Promise<DataClassSchema> {
   }
 }
 
-export function localQuoteDataClass() {
+export function localStorageQuoteDataClass() {
   return provideLocalStorageDataClass('Quote', {
     attributes,
     initialContent: [
