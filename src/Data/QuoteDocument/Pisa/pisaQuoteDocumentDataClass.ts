@@ -1,10 +1,10 @@
 import { provideDataClass } from 'scrivito'
 import { pisaConfig } from '../../pisaClient'
-import { DataClassAttributes } from '../../types'
+import { filterSchema } from '../../filterSchema'
 
-export function pisaQuoteDocumentDataClass(attributes: DataClassAttributes) {
+export function pisaQuoteDocumentDataClass() {
   return provideDataClass('QuoteDocument', {
     restApi: pisaConfig('quote-document'),
-    attributes,
+    attributes: () => filterSchema('quote-document'),
   })
 }
