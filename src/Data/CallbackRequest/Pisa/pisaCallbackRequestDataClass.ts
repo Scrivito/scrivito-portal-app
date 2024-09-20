@@ -1,16 +1,12 @@
 import { ClientError, provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
-import {
-  DataClassAttributes,
-  DataConnection,
-  DataIndexResponse,
-  RawItem,
-} from '../../types'
+import { DataConnection, DataIndexResponse, RawItem } from '../../types'
+import { filterSchema } from '../../filterSchema'
 
-export function pisaCallbackRequestDataClass(attributes: DataClassAttributes) {
+export function pisaCallbackRequestDataClass() {
   // callback-request is more or less a "singleton". It only offers PUT, GET and DELETE.
   return provideDataClass('CallbackRequest', {
-    attributes,
+    attributes: () => filterSchema('callback-request'),
     connection: pisaClient('callback-request').then(
       (apiClient): DataConnection => ({
         index: async () => {
