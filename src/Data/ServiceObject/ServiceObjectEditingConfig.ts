@@ -7,8 +7,8 @@ provideEditingConfig(ServiceObject, {
     isCarrier: { title: 'Is carrier?' },
     isCustomer: { title: 'Is customer?' },
     isSupplier: { title: 'Is supplier?' },
-    parentId: { title: 'Parent service object (ID)' },
+    parentId: { title: 'Parent service object ID' },
     picture: { title: 'Picture' },
-    responsibleAgent: { title: 'Responsible agent (ID)' },
+    responsibleAgent: { title: 'Responsible agent ID' },
   },
 })

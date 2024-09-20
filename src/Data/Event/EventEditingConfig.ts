@@ -5,6 +5,6 @@ provideEditingConfig(Event, {
   title: 'Event',
   attributes: {
     logo: { title: 'Logo' },
-    responsibleAgent: { title: 'Responsible agent (ID)' },
+    responsibleAgent: { title: 'Responsible agent ID' },
   },
 })

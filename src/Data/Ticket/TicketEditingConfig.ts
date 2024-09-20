@@ -5,8 +5,8 @@ provideEditingConfig(Ticket, {
   title: 'Ticket',
   attributes: {
     attachments: { title: 'Attachments' },
-    createdBy: { title: 'Created by (ID)' },
+    createdBy: { title: 'Created by ID' },
     open: { title: 'Open?' },
-    responsibleAgent: { title: 'Responsible agent (ID)' },
+    responsibleAgent: { title: 'Responsible agent ID' },
   },
 })
