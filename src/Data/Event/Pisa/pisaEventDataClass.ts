@@ -1,10 +1,10 @@
 import { provideDataClass } from 'scrivito'
 import { pisaConfig } from '../../pisaClient'
-import { DataClassAttributes } from '../../types'
+import { filterSchema } from '../../filterSchema'
 
-export function pisaEventDataClass(attributes: DataClassAttributes) {
+export function pisaEventDataClass() {
   return provideDataClass('Event', {
     restApi: pisaConfig('event'),
-    attributes,
+    attributes: () => filterSchema('event'),
   })
 }
