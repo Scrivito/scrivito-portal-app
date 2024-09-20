@@ -6,7 +6,7 @@
     "functions/auth/*.ts",
 
     // Workaround for https://github.com/webpro-nl/knip/issues/168
-    "src/Data/**/*{DataClass,DataItem,EditingConfig,ValuesConfig}.{ts,tsx}",
+    "src/Data/**/*{DataClass,DataItem,EditingConfig}.{ts,tsx}",
     "src/Objs/**/*{Component,EditingConfig,LayoutComponent,ObjClass}.{ts,tsx}",
     "src/Widgets/**/*{Component,EditingConfig,WidgetClass}.{ts,tsx}",
   ],
