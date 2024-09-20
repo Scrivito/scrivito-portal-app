@@ -1,10 +1,10 @@
 import { provideDataClass } from 'scrivito'
 import { pisaConfig } from '../../pisaClient'
-import { DataClassAttributes } from '../../types'
+import { filterSchema } from '../../filterSchema'
 
-export function pisaOpportunityDataClass(attributes: DataClassAttributes) {
+export function pisaOpportunityDataClass() {
   return provideDataClass('Opportunity', {
     restApi: pisaConfig('opportunity'),
-    attributes,
+    attributes: () => filterSchema('opportunity'),
   })
 }
