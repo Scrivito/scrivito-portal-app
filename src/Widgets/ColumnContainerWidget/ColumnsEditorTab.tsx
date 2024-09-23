@@ -66,7 +66,7 @@ const ColumnsEditor = connect(
         <Switch
           className="two_valued"
           labels={['Grid', 'Flex']}
-          onClick={() =>
+          onChange={() =>
             widget.update({ layoutMode: isFlex ? 'grid' : 'flex' })
           }
           title="Display mode"
@@ -191,7 +191,7 @@ const ColumnsEditor = connect(
 
         <Switch
           labels={['No', 'Yes']}
-          onClick={() =>
+          onChange={() =>
             widget.update({
               disableResponsiveAdaption: !disableResponsiveAdaption,
             })
@@ -656,13 +656,13 @@ function AlignmentDescription({ alignment }: { alignment: string | null }) {
 function Switch({
   className,
   labels,
-  onClick,
+  onChange,
   title,
   value,
 }: {
   className?: string
   labels: string[]
-  onClick: () => void
+  onChange: () => void
   title: string
   value: number
 }) {
@@ -682,7 +682,7 @@ function Switch({
               type="checkbox"
               className="btn-check"
               checked={!!value}
-              onClick={onClick}
+              onChange={onChange}
             />
             <div className="pill-wrapper">
               <div className="cell pill"></div>
