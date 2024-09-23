@@ -13,7 +13,7 @@ export async function filterSchema(subPath: string) {
 
   return Object.fromEntries(
     Object.entries(schema.attributes).filter(
-      ([_, attribute]) => !['boolean', 'reference'].includes(attribute[0]),
+      ([_, [type]]) => !['boolean', 'reference'].includes(type),
     ),
   )
 }
