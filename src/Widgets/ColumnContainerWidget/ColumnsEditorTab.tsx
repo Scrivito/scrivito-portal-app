@@ -503,6 +503,7 @@ class GridLayoutEditor extends Component<
       if (nextColSize) {
         const leftBound = -(colSize - 1)
         const rightBound = nextColSize - 1
+        const nodeRef = createRef<HTMLDivElement>()
 
         innerContent.unshift(
           <Draggable
@@ -521,8 +522,12 @@ class GridLayoutEditor extends Component<
                 deltaColSize: Math.round(x / this.state.draggableGrid),
               })
             }
+            nodeRef={nodeRef}
           >
-            <div className={this.props.readOnly ? '' : 'grid-handle'} />
+            <div
+              ref={nodeRef}
+              className={this.props.readOnly ? '' : 'grid-handle'}
+            />
           </Draggable>,
         )
       } else if (colIndex < 5 && !this.props.readOnly) {
