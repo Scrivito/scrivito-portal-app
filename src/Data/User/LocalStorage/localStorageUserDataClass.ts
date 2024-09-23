@@ -4,9 +4,65 @@ import braschauImage from './FakeBinaries/braschau.jpg'
 import fuchsImage from './FakeBinaries/fuchs.jpg'
 import bachImage from './FakeBinaries/bach.jpg'
 import { postProcessUserData } from '../UserDataClass'
-import { DataClassAttributes } from '../../types'
+import { DataClassSchema } from '../../types'
+import { currentLanguage, load } from 'scrivito'
 
-export function localStorageUserDataClass(attributes: DataClassAttributes) {
+async function attributes(): Promise<DataClassSchema> {
+  const lang = await load(currentLanguage)
+
+  const salutation = [
+    'enum',
+    lang === 'de'
+      ? {
+          title: 'Anrede',
+          values: [
+            { value: 'M', title: 'Herr' },
+            { value: 'F', title: 'Frau' },
+            { value: 'ME', title: 'Mr.' },
+            { value: 'FE', title: 'Ms.' },
+            { value: 'MS', title: 'Hr.' },
+            { value: 'FS', title: 'Fr.' },
+            { value: 'MSP', title: 'Señor' },
+            { value: 'FSP', title: 'Señora' },
+            { value: 'MF', title: 'Monsieur' },
+            { value: 'FF', title: 'Madame' },
+          ],
+        }
+      : {
+          title: 'Saluation',
+          values: [
+            { value: 'M', title: 'Herr' },
+            { value: 'F', title: 'Frau' },
+            { value: 'ME', title: 'Mr.' },
+            { value: 'FE', title: 'Ms.' },
+            { value: 'MS', title: 'Hr.' },
+            { value: 'FS', title: 'Fr.' },
+            { value: 'MSP', title: 'Señor' },
+            { value: 'FSP', title: 'Señora' },
+            { value: 'MF', title: 'Monsieur' },
+            { value: 'FF', title: 'Madame' },
+          ],
+        },
+  ] as const
+
+  return {
+    _id: ['string', { title: 'ID' }],
+    email: [
+      'string',
+      { title: lang === 'de' ? 'E-Mailadresse' : 'Email address' },
+    ],
+    familyName: [
+      'string',
+      { title: lang === 'de' ? 'Nachname' : 'Family name' },
+    ],
+    givenName: ['string', { title: lang === 'de' ? 'Vorname' : 'Given name' }],
+    name: ['string', { title: 'Name' }],
+    position: ['string', { title: 'Position' }],
+    salutation,
+  }
+}
+
+export function localStorageUserDataClass() {
   return provideLocalStorageDataClass('User', {
     attributes,
     postProcessData: postProcessUserData,

@@ -1,10 +1,10 @@
 import { provideDataClass } from 'scrivito'
 import { pisaConfig } from '../../pisaClient'
-import { DataClassAttributes } from '../../types'
+import { fetchAndFilterAttributes } from '../../fetchAndFilterAttributes'
 
-export function pisaGdprDataClass(attributes: DataClassAttributes) {
+export function pisaGdprDataClass() {
   return provideDataClass('Gdpr', {
     restApi: pisaConfig('gdpr'),
-    attributes,
+    attributes: () => fetchAndFilterAttributes('gdpr'),
   })
 }

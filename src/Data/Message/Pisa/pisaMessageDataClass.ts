@@ -1,10 +1,10 @@
 import { provideDataClass } from 'scrivito'
 import { pisaConfig } from '../../pisaClient'
-import { DataClassAttributes } from '../../types'
+import { fetchAndFilterAttributes } from '../../fetchAndFilterAttributes'
 
-export function pisaMessageDataClass(attributes: DataClassAttributes) {
+export function pisaMessageDataClass() {
   return provideDataClass('Message', {
     restApi: pisaConfig('message'),
-    attributes,
+    attributes: () => fetchAndFilterAttributes('message'),
   })
 }

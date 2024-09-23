@@ -1,10 +1,10 @@
 import { provideDataClass } from 'scrivito'
 import { pisaConfig } from '../../pisaClient'
-import { DataClassAttributes } from '../../types'
+import { fetchAndFilterAttributes } from '../../fetchAndFilterAttributes'
 
-export function pisaTicketDataClass(attributes: DataClassAttributes) {
+export function pisaTicketDataClass() {
   return provideDataClass('Ticket', {
     restApi: pisaConfig('ticket'),
-    attributes,
+    attributes: () => fetchAndFilterAttributes('ticket'),
   })
 }

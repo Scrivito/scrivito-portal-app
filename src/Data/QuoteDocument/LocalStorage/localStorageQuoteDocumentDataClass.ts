@@ -1,9 +1,11 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 import { DataClassAttributes } from '../../types'
 
-export function localStorageQuoteDocumentDataClass(
-  attributes: DataClassAttributes,
-) {
+const attributes: DataClassAttributes = {
+  _id: ['string', { title: 'ID' }],
+}
+
+export function localStorageQuoteDocumentDataClass() {
   return provideLocalStorageDataClass('QuoteDocument', {
     attributes,
     initialContent: [

@@ -1,10 +1,10 @@
 import { provideDataClass } from 'scrivito'
 import { pisaConfig } from '../../pisaClient'
-import { DataClassAttributes } from '../../types'
+import { fetchAndFilterAttributes } from '../../fetchAndFilterAttributes'
 
-export function pisaOrderDataClass(attributes: DataClassAttributes) {
+export function pisaOrderDataClass() {
   return provideDataClass('Order', {
     restApi: pisaConfig('order'),
-    attributes,
+    attributes: () => fetchAndFilterAttributes('order'),
   })
 }

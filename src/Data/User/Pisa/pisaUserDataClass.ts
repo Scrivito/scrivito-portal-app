@@ -1,11 +1,12 @@
 import { DataConnectionError, provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
 import { postProcessUserData } from '../UserDataClass'
-import { DataClassAttributes, DataConnection } from '../../types'
+import { DataConnection } from '../../types'
+import { fetchAndFilterAttributes } from '../../fetchAndFilterAttributes'
 
-export function pisaUserDataClass(attributes: DataClassAttributes) {
+export function pisaUserDataClass() {
   return provideDataClass('User', {
-    attributes,
+    attributes: () => fetchAndFilterAttributes('user'),
     connection: pisaClient('user').then(
       (apiClient): DataConnection => ({
         index: async () => {
