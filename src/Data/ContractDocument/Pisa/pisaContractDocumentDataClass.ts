@@ -1,10 +1,10 @@
 import { provideDataClass } from 'scrivito'
 import { pisaConfig } from '../../pisaClient'
-import { filterSchema } from '../../filterSchema'
+import { fetchAndFilterAttributes } from '../../fetchAndFilterAttributes'
 
 export function pisaContractDocumentDataClass() {
   return provideDataClass('ContractDocument', {
     restApi: pisaConfig('contract-document'),
-    attributes: () => filterSchema('contract-document'),
+    attributes: () => fetchAndFilterAttributes('contract-document'),
   })
 }
