@@ -6,19 +6,14 @@ export function useEnumOptions(): Array<{ title: string; value: string }> {
 
   if (attributeDefinition[0] !== 'enum') return []
 
-  const enumValues = attributeDefinition[1].values
-  if (enumValues.every((enumValue) => isLocalizedEnumValueConfig(enumValue))) {
-    return enumValues
-  }
+  return attributeDefinition[1].values.map((enumValue) => {
+    if (isLocalizedEnumValueConfig(enumValue)) return enumValue
 
-  if (enumValues.every((enumValue) => typeof enumValue === 'string')) {
-    return enumValues.map((flatValue) => ({
-      title: flatValue,
-      value: flatValue,
-    }))
-  }
-
-  throw new Error('Invalid enum values')
+    return {
+      title: enumValue,
+      value: enumValue,
+    }
+  })
 }
 
 function isLocalizedEnumValueConfig(
