@@ -71,40 +71,53 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   )
 })
 
-const Select = connect(function Select({
-  defaultValue,
-  id,
-  isRequired,
-  name,
-}: {
-  defaultValue: string
-  id: string
-  isRequired: boolean
-  name: string
-}) {
-  const options = useEnumOptions()
+const Select = connect(
+  function Select({
+    defaultValue,
+    id,
+    isRequired,
+    name,
+  }: {
+    defaultValue: string
+    id: string
+    isRequired: boolean
+    name: string
+  }) {
+    const options = useEnumOptions()
 
-  return (
-    <select
-      className="form-select"
-      defaultValue={defaultValue}
-      id={id}
-      name={name}
-      required={isRequired}
-    >
-      {isRequired ? (
-        <option value="" disabled>
-          Select an option
-        </option>
-      ) : (
-        <option value=""></option>
-      )}
+    return (
+      <select
+        className="form-select"
+        defaultValue={defaultValue}
+        id={id}
+        name={name}
+        required={isRequired}
+      >
+        {isRequired ? (
+          <option value="" disabled>
+            Select an option
+          </option>
+        ) : (
+          <option value=""></option>
+        )}
 
-      {options.map(({ value, title }, index) => (
-        <option value={value} key={[id, 'option', value, index].join('-')}>
-          {title}
-        </option>
-      ))}
-    </select>
-  )
-})
+        {options.map(({ value, title }, index) => (
+          <option value={value} key={[id, 'option', value, index].join('-')}>
+            {title}
+          </option>
+        ))}
+      </select>
+    )
+  },
+  {
+    loading: ({ isRequired }: { isRequired: boolean }) => (
+      <div
+        aria-busy="true"
+        className="w-100 loading-placeholder"
+        role="progressbar"
+      >
+        <select className="form-select" required={isRequired} />
+      </div>
+    ),
+  },
+)
