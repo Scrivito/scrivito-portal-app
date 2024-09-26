@@ -15,6 +15,7 @@ import {
 } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
 import { ProductPreview } from './ProductPreviewComponent'
 import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
+import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -33,6 +34,7 @@ provideComponent(Product, ({ page }) => {
                   content={page}
                   attribute="image"
                   className="img-background"
+                  alt={alternativeTextForObj(page.get('image'))}
                 />
               </div>
             </div>

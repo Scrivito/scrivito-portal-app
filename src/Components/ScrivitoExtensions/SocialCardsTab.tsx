@@ -55,7 +55,12 @@ const TwitterInput = connect(({ obj }: { obj: Obj }) => (
     <div className="scrivito_detail_label">
       <span>Image</span>
     </div>
-    <ImageTag content={obj} attribute="tcImage" className="social_card_img" />
+    <ImageTag
+      alt=""
+      attribute="tcImage"
+      className="social_card_img"
+      content={obj}
+    />
     <div className="scrivito_notice_body">Add or replace the image here.</div>
     <ContentProperty content={obj} attribute="tcTitle" title="Title" />
     <ContentProperty
@@ -75,7 +80,12 @@ const FacebookInput = connect(({ obj }) => (
     <div className="scrivito_detail_label">
       <span>Image</span>
     </div>
-    <ImageTag content={obj} attribute="ogImage" className="social_card_img" />
+    <ImageTag
+      alt=""
+      attribute="ogImage"
+      className="social_card_img"
+      content={obj}
+    />
     <div className="scrivito_notice_body">Add or replace the image here.</div>
     <ContentProperty
       content={obj}

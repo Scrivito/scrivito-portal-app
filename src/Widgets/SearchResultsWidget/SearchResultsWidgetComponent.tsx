@@ -41,9 +41,10 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
     <InPlaceEditingOff>
       <section className="bg-primary py-5">
         <ImageTag
-          content={widget}
+          alt=""
           attribute="topBannerBackground"
           className="img-background"
+          content={widget}
         />
         <div className="container">
           <form
