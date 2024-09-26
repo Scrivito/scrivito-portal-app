@@ -15,6 +15,7 @@ import {
 import { IconComponent } from '../../Components/Icon'
 import { ensureString } from '../../utils/ensureString'
 import { useEnumOptions } from '../../utils/useEnumOptions'
+import { Loading } from '../../Components/Loading'
 
 provideComponent(DataIconWidget, ({ widget }) => {
   return (
@@ -33,40 +34,43 @@ provideComponent(DataIconWidget, ({ widget }) => {
   )
 })
 
-const AttributeValue = connect(function AttributeValue({
-  conditions,
-  fallbackIcon,
-  size,
-}: {
-  conditions: DataIconConditionWidgetInstance[]
-  fallbackIcon: string
-  size: string
-}) {
-  const attributeValue = ensureString(useData().dataItemAttribute()?.get())
-  const matchingCondition =
-    attributeValue &&
-    conditions.find(
-      (condition) => condition.get('attributeValue') === attributeValue,
+const AttributeValue = connect(
+  function AttributeValue({
+    conditions,
+    fallbackIcon,
+    size,
+  }: {
+    conditions: DataIconConditionWidgetInstance[]
+    fallbackIcon: string
+    size: string
+  }) {
+    const attributeValue = ensureString(useData().dataItemAttribute()?.get())
+    const matchingCondition =
+      attributeValue &&
+      conditions.find(
+        (condition) => condition.get('attributeValue') === attributeValue,
+      )
+
+    const matchingOption = useEnumOptions().find(
+      ({ value }) => value === attributeValue,
     )
+    const title = matchingOption?.title ?? attributeValue
 
-  const matchingOption = useEnumOptions().find(
-    ({ value }) => value === attributeValue,
-  )
-  const title = matchingOption?.title ?? attributeValue
-
-  return (
-    <IconComponent
-      icon={
-        matchingCondition
-          ? matchingCondition.get('icon') || 'bi-box'
-          : fallbackIcon
-      }
-      size={size}
-      link={null}
-      title={title || localizeNotAvailable()}
-    />
-  )
-})
+    return (
+      <IconComponent
+        icon={
+          matchingCondition
+            ? matchingCondition.get('icon') || 'bi-box'
+            : fallbackIcon
+        }
+        size={size}
+        link={null}
+        title={title || localizeNotAvailable()}
+      />
+    )
+  },
+  { loading: Loading },
+)
 
 function localizeNotAvailable(): string {
   switch (currentLanguage()) {
