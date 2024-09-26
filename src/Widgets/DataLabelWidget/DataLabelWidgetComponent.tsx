@@ -79,9 +79,9 @@ const AttributeValue = connect(function AttributeValue({
   return <Text value={attributeValue} />
 })
 
-function Text({ value }: { value: unknown }) {
+const Text = connect(function Text({ value }: { value: unknown }) {
   return value ? value.toString() : localizeNotAvailable()
-}
+})
 
 const NumberText = connect(function NumberText({ value }: { value: number }) {
   return new Intl.NumberFormat(currentLanguage() ?? 'en', {
