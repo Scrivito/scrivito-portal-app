@@ -15,6 +15,7 @@ import {
   formatFullDayAndMonth,
 } from '../../utils/formatDate'
 import { useEnumOptions } from '../../utils/useEnumOptions'
+import { Loading } from '../../Components/Loading'
 
 const CURRENCY = 'EUR' // ISO 4217 Code
 
@@ -50,34 +51,37 @@ provideComponent(DataLabelWidget, ({ widget }) => {
   )
 })
 
-const AttributeValue = connect(function AttributeValue({
-  datetimeFormat,
-  showAs,
-}: {
-  datetimeFormat: string | null
-  showAs: string | null
-}) {
-  const rawAttributeValue = useData().dataItemAttribute()?.get()
+const AttributeValue = connect(
+  function AttributeValue({
+    datetimeFormat,
+    showAs,
+  }: {
+    datetimeFormat: string | null
+    showAs: string | null
+  }) {
+    const rawAttributeValue = useData().dataItemAttribute()?.get()
 
-  const enumOptions = useEnumOptions()
-  const matchingOption = enumOptions.find(
-    ({ value }) => value === rawAttributeValue,
-  )
+    const enumOptions = useEnumOptions()
+    const matchingOption = enumOptions.find(
+      ({ value }) => value === rawAttributeValue,
+    )
 
-  const attributeValue = matchingOption?.title ?? rawAttributeValue
+    const attributeValue = matchingOption?.title ?? rawAttributeValue
 
-  if (showAs === 'currency') return <Currency value={attributeValue} />
-  if (showAs === 'datetime') {
-    return <Datetime value={attributeValue} datetimeFormat={datetimeFormat} />
-  }
-  if (showAs === 'link') return <Link value={attributeValue} />
+    if (showAs === 'currency') return <Currency value={attributeValue} />
+    if (showAs === 'datetime') {
+      return <Datetime value={attributeValue} datetimeFormat={datetimeFormat} />
+    }
+    if (showAs === 'link') return <Link value={attributeValue} />
 
-  if (typeof attributeValue === 'number') {
-    return <NumberText value={attributeValue} />
-  }
+    if (typeof attributeValue === 'number') {
+      return <NumberText value={attributeValue} />
+    }
 
-  return <Text value={attributeValue} />
-})
+    return <Text value={attributeValue} />
+  },
+  { loading: Loading },
+)
 
 const Text = connect(function Text({ value }: { value: unknown }) {
   return value ? value.toString() : localizeNotAvailable()
