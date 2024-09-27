@@ -1,15 +1,29 @@
+import { PropsWithChildren } from 'react'
 import { connect, currentLanguage } from 'scrivito'
 
-export const Loading = connect(function Loading() {
+export const Loading = (
+  props: object | PropsWithChildren<{ className?: string }> = {},
+) => <LoadingPlaceholder {...props} />
+
+const LoadingPlaceholder = connect(function LoadingPlaceholder({
+  children,
+  className,
+}: PropsWithChildren<{ className?: string }>) {
+  const classNames = ['loading-placeholder']
+  if (className) classNames.push(className)
+
   const message = getMessage()
+
   return (
     <div
       aria-busy="true"
       aria-valuetext={message}
-      className="loading-placeholder"
+      className={classNames.join(' ')}
       role="progressbar"
       title={message}
-    />
+    >
+      {children}
+    </div>
   )
 })
 

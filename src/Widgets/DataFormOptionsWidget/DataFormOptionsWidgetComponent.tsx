@@ -8,6 +8,7 @@ import {
 } from 'scrivito'
 import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
 import { useEnumOptions } from '../../utils/useEnumOptions'
+import { Loading } from '../../Components/Loading'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
@@ -111,13 +112,9 @@ const Select = connect(
   },
   {
     loading: ({ isRequired }: { isRequired: boolean }) => (
-      <div
-        aria-busy="true"
-        className="w-100 loading-placeholder"
-        role="progressbar"
-      >
+      <Loading className="w-100">
         <select className="form-select" required={isRequired} />
-      </div>
+      </Loading>
     ),
   },
 )
