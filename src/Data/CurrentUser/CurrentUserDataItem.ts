@@ -133,21 +133,21 @@ function isNeoletterData(input: unknown): input is NeoletterData {
 
 interface WhoAmI {
   _id: string
-  name: string
-  salutation: string
-  givenName: string
-  familyName: string
-  email: string
-  position: string
-  staff: boolean
-  image: {
+  name?: string
+  salutation?: string
+  givenName?: string
+  familyName?: string
+  email?: string
+  position?: string
+  staff?: boolean
+  image?: {
     _id: string
     filename: string
     contentType: string
     contentLength: number
   } | null
-  salesUserId: string | null
-  serviceUserId: string | null
+  salesUserId?: string | null
+  serviceUserId?: string | null
 }
 
 function isWhoAmI(item: unknown): item is WhoAmI {
@@ -164,20 +164,18 @@ function isWhoAmI(item: unknown): item is WhoAmI {
     position,
     staff,
     // image, // TODO: Check image as well
-    salesUserId,
-    serviceUserId,
+    // salesUserId, // TODO: Check reference more strictly
+    // serviceUserId, // TODO: Check reference more strictly
   } = item as WhoAmI
 
   return (
     typeof _id === 'string' &&
-    typeof name === 'string' &&
-    typeof salutation === 'string' &&
-    typeof givenName === 'string' &&
-    typeof familyName === 'string' &&
-    typeof email === 'string' &&
-    typeof position === 'string' &&
-    typeof staff === 'boolean' &&
-    (salesUserId === null || typeof salesUserId === 'string') &&
-    (serviceUserId === null || typeof serviceUserId === 'string')
+    isOptionalString(name) &&
+    isOptionalString(salutation) &&
+    isOptionalString(givenName) &&
+    isOptionalString(familyName) &&
+    isOptionalString(email) &&
+    isOptionalString(position) &&
+    typeof staff === 'boolean'
   )
 }
