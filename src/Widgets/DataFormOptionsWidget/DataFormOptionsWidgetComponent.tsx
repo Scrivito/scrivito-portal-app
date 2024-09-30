@@ -1,5 +1,6 @@
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
+  connect,
   ContentTag,
   InPlaceEditingOff,
   provideComponent,
@@ -7,6 +8,7 @@ import {
 } from 'scrivito'
 import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
 import { useEnumOptions } from '../../utils/useEnumOptions'
+import { Loading } from '../../Components/Loading'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
@@ -15,8 +17,6 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const value = useData().dataItemAttribute()?.get()
   const defaultValue =
     typeof value === 'string' ? value : widget.get('defaultValue')
-
-  const options = useEnumOptions()
 
   return (
     <div className="mb-3" key={[id, attributeName, defaultValue].join('-')}>
@@ -61,28 +61,60 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
       ) : null}
 
       <div>
-        <select
-          className="form-select"
+        <Select
           defaultValue={defaultValue}
           id={id}
+          isRequired={widget.get('required')}
           name={attributeName ?? ''}
-          required={widget.get('required')}
-        >
-          {widget.get('required') ? (
-            <option value="" disabled>
-              Select an option
-            </option>
-          ) : (
-            <option value=""></option>
-          )}
-
-          {options.map(({ value, title }, index) => (
-            <option value={value} key={[id, 'option', value, index].join('-')}>
-              {title}
-            </option>
-          ))}
-        </select>
+        />
       </div>
     </div>
   )
 })
+
+const Select = connect(
+  function Select({
+    defaultValue,
+    id,
+    isRequired,
+    name,
+  }: {
+    defaultValue: string
+    id: string
+    isRequired: boolean
+    name: string
+  }) {
+    const options = useEnumOptions()
+
+    return (
+      <select
+        className="form-select"
+        defaultValue={defaultValue}
+        id={id}
+        name={name}
+        required={isRequired}
+      >
+        {isRequired ? (
+          <option value="" disabled>
+            Select an option
+          </option>
+        ) : (
+          <option value=""></option>
+        )}
+
+        {options.map(({ value, title }, index) => (
+          <option value={value} key={[id, 'option', value, index].join('-')}>
+            {title}
+          </option>
+        ))}
+      </select>
+    )
+  },
+  {
+    loading: ({ isRequired }: { isRequired: boolean }) => (
+      <Loading className="w-100">
+        <select className="form-select" required={isRequired} />
+      </Loading>
+    ),
+  },
+)
