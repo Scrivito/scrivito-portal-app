@@ -33,6 +33,7 @@ provideComponent(Product, ({ page }) => {
                   content={page}
                   attribute="image"
                   className="img-background"
+                  alt=""
                 />
               </div>
             </div>

@@ -16,6 +16,11 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "jsx-a11y": {
+      "components": {
+        "ImageTag": "img"
+      }
     }
   },
   "rules": {
