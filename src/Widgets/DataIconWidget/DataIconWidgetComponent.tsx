@@ -25,7 +25,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
         attribute="label"
         className="text-bold opacity-60 text-extra-small text-uppercase"
       />
-      <AttributeValue
+      <Icon
         conditions={widget.get('conditions').filter(isDataIconConditionWidget)}
         fallbackIcon={widget.get('fallbackIcon') || 'bi-question-octagon'}
         size={widget.get('size') || 'bi-2x'}
@@ -34,8 +34,8 @@ provideComponent(DataIconWidget, ({ widget }) => {
   )
 })
 
-const AttributeValue = connect(
-  function AttributeValue({
+const Icon = connect(
+  function Icon({
     conditions,
     fallbackIcon,
     size,
