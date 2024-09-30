@@ -15,7 +15,6 @@ import {
 import { IconComponent } from '../../Components/Icon'
 import { ensureString } from '../../utils/ensureString'
 import { useEnumOptions } from '../../utils/useEnumOptions'
-import { Loading } from '../../Components/Loading'
 
 provideComponent(DataIconWidget, ({ widget }) => {
   return (
@@ -69,7 +68,7 @@ const Icon = connect(
       />
     )
   },
-  { loading: Loading },
+  { loading: () => null },
 )
 
 function localizeNotAvailable(): string {
