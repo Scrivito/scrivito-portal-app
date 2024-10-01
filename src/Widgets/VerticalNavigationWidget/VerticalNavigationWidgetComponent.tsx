@@ -4,6 +4,7 @@ import {
   isCurrentPage,
   isOnCurrentPath,
   LinkTag,
+  navigateTo,
   Obj,
   provideComponent,
 } from 'scrivito'
@@ -99,6 +100,11 @@ const ExpandableNavItem = connect(
         <Nav.Link as={LinkTag} eventKey={key} key={key} to={obj}>
           <button
             className={`dropdown-toggle nav-link${isActive ? ' show' : ''}`}
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              navigateTo(obj, { hash: '›' })
+            }}
           />
           <ObjIconAndTitle obj={obj} />
         </Nav.Link>
