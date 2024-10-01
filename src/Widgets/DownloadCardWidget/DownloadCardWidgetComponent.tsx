@@ -13,7 +13,7 @@ provideComponent(DownloadCardWidget, ({ widget }) => {
       <ContentTag
         content={widget}
         attribute="label"
-        className="text-bold opacity-60 text-extra-small text-uppercase"
+        className="text-bold text-extra-small text-uppercase"
       />
       <div className="card mb-4 bg-white no-color-adaption">
         <LinkTag to={widget.get('link')} draggable={!isInPlaceEditingActive()}>
@@ -39,7 +39,7 @@ provideComponent(DownloadCardWidget, ({ widget }) => {
                 <ContentTag
                   content={widget}
                   attribute="details"
-                  className="text-bold opacity-60 text-extra-small text-uppercase"
+                  className="text-bold text-extra-small text-uppercase"
                 />
               </div>
             </div>

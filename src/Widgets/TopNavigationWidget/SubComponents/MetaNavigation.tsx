@@ -44,7 +44,7 @@ export const MetaNavigation = connect(function MetaNavigation({
             >
               <ObjIconAndTitle obj={siteCartPage} />{' '}
               {itemsCount && (
-                <span className="badge rounded-pill text-bg-secondary">
+                <span className="badge rounded-pill bg-secondary">
                   {itemsCount}
                 </span>
               )}

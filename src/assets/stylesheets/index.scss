@@ -19,20 +19,20 @@
   --border: rgba(0, 0, 0, 0.1);
 
   // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
-  --bs-primary: #274486;
+  --bs-primary: #072b46; // #274486 before
 
   // The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`.
-  --bs-secondary: #39a9eb;
+  --bs-secondary: #0e5588; // #39a9eb before
 
   // TODO: Use newer "from" variant, once it is supported by all browsers. See https://caniuse.com/?search=relative%20color
   // --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
   // --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
   // --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
   // --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
-  --bs-primary-lighten: #3054a6;
-  --bs-primary-darken: #1e3466;
-  --bs-secondary-lighten: #5eb9ef;
-  --bs-secondary-darken: #1798e4;
+  --bs-primary-lighten: #063d66;
+  --bs-primary-darken: #071d2d;
+  --bs-secondary-lighten: #0b5f9b;
+  --bs-secondary-darken: #0d4166;
 
   --bs-success: #21704b;
   --bs-info: #39a9eb;
@@ -57,7 +57,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 500;
   --bs-body-line-height: 1.75;
-  --bs-body-color: #677788;
+  --bs-body-color: #4f557a; // #677788; before
 
   --bs-body-bg: #fff;
   --bs-body-bg-rgb: 255, 255, 255;
@@ -525,7 +525,7 @@ main {
  ================================================== */
 
 .text-muted {
-  opacity: 0.7;
+  opacity: 0.9;
   color: inherit !important;
 }
 .text-bold {
@@ -1360,7 +1360,6 @@ section:focus >,
   }
   .nav-link {
     font-size: 0.75rem;
-    opacity: 0.9;
   }
   .nav-link:hover,
   .nav-link:focus {
