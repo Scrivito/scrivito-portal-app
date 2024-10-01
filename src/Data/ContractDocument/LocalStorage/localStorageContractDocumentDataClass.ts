@@ -1,9 +1,7 @@
 import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
 import { DataClassAttributes } from '../../types'
 
-const attributes: DataClassAttributes = {
-  _id: ['string', { title: 'ID' }],
-}
+const attributes: DataClassAttributes = {}
 
 export function localStorageContractDocumentDataClass() {
   return provideLocalStorageDataClass('ContractDocument', {

@@ -142,7 +142,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     cancelationEndAt: [
       'date',
       { title: lang === 'de' ? 'Kündigungsfrist' : 'Cancelation period' },

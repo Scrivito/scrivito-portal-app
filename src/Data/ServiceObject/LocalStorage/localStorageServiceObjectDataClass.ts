@@ -676,7 +676,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     carrier: ['string', { title: lang === 'de' ? 'Betreiber' : 'Carrier' }],
     category,
     customer: ['string', { title: lang === 'de' ? 'Kunde' : 'Customer' }],

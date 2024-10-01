@@ -159,7 +159,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     createdAt: ['date', { title: lang === 'de' ? 'Erzeugt am' : 'Created at' }],
     format: [
       'string',
