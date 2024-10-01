@@ -512,7 +512,7 @@ main {
  ================================================== */
 
 .text-muted {
-  opacity: 0.7;
+  opacity: 0.9;
   color: inherit !important;
 }
 .text-bold {
@@ -1347,7 +1347,6 @@ section:focus >,
   }
   .nav-link {
     font-size: 0.75rem;
-    opacity: 0.9;
   }
   .nav-link:hover,
   .nav-link:focus {
