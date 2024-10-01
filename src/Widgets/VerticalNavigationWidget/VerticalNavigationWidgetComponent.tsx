@@ -72,7 +72,7 @@ const SubNavItems = connect(
         parent={parent}
         renderChild={(child) =>
           navigationDepth > 0 ? (
-            <ExpandableNavItem obj={child} navigationDepth={navigationDepth} />
+            <NestedNavItem obj={child} navigationDepth={navigationDepth} />
           ) : (
             <NavItem obj={child} isActive={isOnCurrentPath(child)} />
           )
@@ -82,7 +82,7 @@ const SubNavItems = connect(
   },
 )
 
-const ExpandableNavItem = connect(
+const NestedNavItem = connect(
   ({ obj, navigationDepth }: { obj: Obj; navigationDepth: number }) => {
     if (obj.get('hideInNavigation') === true) return null
 
