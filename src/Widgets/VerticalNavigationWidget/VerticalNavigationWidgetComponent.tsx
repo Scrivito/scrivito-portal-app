@@ -11,7 +11,6 @@ import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
 import { VerticalNavigationWidget } from './VerticalNavigationWidgetClass'
-import { useEffect, useState } from 'react'
 
 provideComponent(VerticalNavigationWidget, ({ widget }) => {
   const page = widget.obj()
@@ -84,22 +83,14 @@ const SubNavItems = connect(
 
 const ExpandableNavItem = connect(
   ({ obj, navigationDepth }: { obj: Obj; navigationDepth: number }) => {
-    const [isExpanded, setIsExpanded] = useState(false)
+    if (obj.get('hideInNavigation') === true) return null
+
     const children = obj
       .orderedChildren()
       .filter((c) => c.get('hideInNavigation') !== true)
-
-    const hasChildren = children.length > 0
     const isActive = isOnCurrentPath(obj)
-    const isInitiallyExpanded = hasChildren && isActive && !isCurrentPage(obj)
 
-    useEffect(() => {
-      if (isInitiallyExpanded) setIsExpanded(true)
-    }, [isInitiallyExpanded])
-
-    if (obj.get('hideInNavigation') === true) return null
-
-    if (!hasChildren) return <NavItem obj={obj} isActive={isActive} />
+    if (children.length === 0) return <NavItem obj={obj} isActive={isActive} />
 
     const key = `VerticalNavigationWidget-expandable-${obj.id()}`
 
@@ -107,17 +98,12 @@ const ExpandableNavItem = connect(
       <li className={isActive ? 'active' : ''}>
         <Nav.Link as={LinkTag} eventKey={key} key={key} to={obj}>
           <button
-            className={`dropdown-toggle nav-link${isExpanded ? ' show' : ''}`}
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              setIsExpanded((isExpanded) => !isExpanded)
-            }}
-          ></button>
+            className={`dropdown-toggle nav-link${isActive ? ' show' : ''}`}
+          />
           <ObjIconAndTitle obj={obj} />
         </Nav.Link>
 
-        {isExpanded && (
+        {isActive && (
           <SubNavItems parent={obj} navigationDepth={navigationDepth - 1} />
         )}
       </li>
