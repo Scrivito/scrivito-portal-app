@@ -58,6 +58,10 @@ async function attributes(): Promise<DataClassSchema> {
     name: ['string', { title: 'Name' }],
     position: ['string', { title: 'Position' }],
     salutation,
+    staff: [
+      'boolean',
+      { title: lang === 'de' ? 'Interner Mitarbeiter' : 'Internal staff' },
+    ],
   }
 }
 
