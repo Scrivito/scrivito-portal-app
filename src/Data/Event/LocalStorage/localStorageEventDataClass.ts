@@ -68,7 +68,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     attendanceFee: [
       'number',
       { title: lang === 'de' ? 'Teilnehmergebühr' : 'Attendance fee' },

@@ -6,7 +6,6 @@ async function attributes(): Promise<DataClassSchema> {
   const lang = await load(currentLanguage)
 
   return {
-    _id: ['string', { title: 'ID' }],
     text: ['string', { title: 'Text' }],
     createdAt: ['string', { title: lang === 'de' ? 'Gesendet am' : 'Sent at' }],
   }
