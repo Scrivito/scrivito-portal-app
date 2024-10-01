@@ -65,21 +65,19 @@ const NavItem = connect(
 )
 
 const SubNavItems = connect(
-  ({ parent, navigationDepth }: { parent: Obj; navigationDepth: number }) => {
-    return (
-      <ChildListTag
-        className="nav-bordered"
-        parent={parent}
-        renderChild={(child) =>
-          navigationDepth > 0 ? (
-            <NestedNavItem obj={child} navigationDepth={navigationDepth} />
-          ) : (
-            <NavItem obj={child} isActive={isOnCurrentPath(child)} />
-          )
-        }
-      />
-    )
-  },
+  ({ parent, navigationDepth }: { parent: Obj; navigationDepth: number }) => (
+    <ChildListTag
+      className="nav-bordered"
+      parent={parent}
+      renderChild={(child) =>
+        navigationDepth > 0 ? (
+          <NestedNavItem obj={child} navigationDepth={navigationDepth} />
+        ) : (
+          <NavItem obj={child} isActive={isOnCurrentPath(child)} />
+        )
+      }
+    />
+  ),
 )
 
 const NestedNavItem = connect(
