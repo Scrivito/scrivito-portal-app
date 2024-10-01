@@ -6,6 +6,7 @@ async function attributes(): Promise<DataClassSchema> {
   const lang = await load(currentLanguage)
 
   return {
+    active: ['boolean', { title: lang === 'de' ? 'Aktiv' : 'Active' }],
     description: [
       'string',
       { title: lang === 'de' ? 'Beschreibung' : 'Description' },
