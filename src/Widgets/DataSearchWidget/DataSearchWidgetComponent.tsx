@@ -1,4 +1,5 @@
 import {
+  currentLanguage,
   currentPage,
   currentPageParams,
   navigateTo,
@@ -43,7 +44,11 @@ provideComponent(DataSearchWidget, ({ widget }) => {
         defaultValue={search}
       />
       <span className="input-group-btn">
-        <button className={`btn ${buttonColor}`} type="submit">
+        <button
+          className={`btn ${buttonColor}`}
+          type="submit"
+          aria-label={localizeSearchInputLabel()}
+        >
           <i className="bi bi-search" aria-hidden="true" />
         </button>
       </span>
@@ -62,3 +67,12 @@ provideComponent(DataSearchWidget, ({ widget }) => {
     navigateTo(currentPage(), { params })
   }
 })
+
+function localizeSearchInputLabel(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Suche'
+    default:
+      return 'Search'
+  }
+}
