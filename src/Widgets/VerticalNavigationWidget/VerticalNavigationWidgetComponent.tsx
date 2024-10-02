@@ -91,7 +91,7 @@ const NestedNavItem = connect(
 
     if (children.length === 0) return <NavItem obj={obj} isActive={isActive} />
 
-    const key = `VerticalNavigationWidget-expandable-${obj.id()}`
+    const key = `VerticalNavigationWidget-nested-${obj.id()}`
 
     return (
       <li className={isActive ? 'active' : ''}>
