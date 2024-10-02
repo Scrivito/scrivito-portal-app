@@ -867,6 +867,19 @@ header section {
 .card.bg-white .bi {
   color: var(--bs-primary) !important;
 }
+.card.bg-primary,
+.card.bg-secondary,
+.card.bg-success,
+.card.bg-info,
+.card.bg-warning,
+.card.bg-danger {
+  .bi {
+    color: #fff !important;
+  }
+}
+.card.bg-transparent {
+  box-shadow: none;
+}
 
 .card-body {
   position: relative;

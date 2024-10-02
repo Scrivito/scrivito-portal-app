@@ -31,9 +31,7 @@ provideComponent(CardWidget, ({ widget }) => {
   cardClassNames.push(margin ? margin : 'mb-4')
 
   const backgroundColor = widget.get('backgroundColor') || 'white'
-  if (backgroundColor && backgroundColor !== 'transparent') {
-    cardClassNames.push(`bg-${backgroundColor}`)
-  }
+  cardClassNames.push(`bg-${backgroundColor}`)
 
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
 
