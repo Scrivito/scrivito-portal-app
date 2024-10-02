@@ -1,5 +1,4 @@
 import {
-  currentLanguage,
   currentPage,
   currentPageParams,
   navigateTo,
@@ -47,7 +46,7 @@ provideComponent(DataSearchWidget, ({ widget }) => {
         <button
           className={`btn ${buttonColor}`}
           type="submit"
-          aria-label={localizeSearchInputLabel()}
+          aria-label={placeholder}
         >
           <i className="bi bi-search" aria-hidden="true" />
         </button>
@@ -67,12 +66,3 @@ provideComponent(DataSearchWidget, ({ widget }) => {
     navigateTo(currentPage(), { params })
   }
 })
-
-function localizeSearchInputLabel(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Suche'
-    default:
-      return 'Search'
-  }
-}
