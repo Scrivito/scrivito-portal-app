@@ -19,23 +19,23 @@
   --border: rgba(0, 0, 0, 0.1);
 
   // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
-  --bs-primary: #072b46; // #274486 before
+  --bs-primary: #072b46;
 
   // The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`.
-  --bs-secondary: #0e5588; // #39a9eb before
+  --bs-secondary: #0e5588;
 
   // TODO: Use newer "from" variant, once it is supported by all browsers. See https://caniuse.com/?search=relative%20color
   // --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
   // --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
   // --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
   // --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
-  --bs-primary-lighten: #063d66;
-  --bs-primary-darken: #071d2d;
-  --bs-secondary-lighten: #0b5f9b;
-  --bs-secondary-darken: #0d4166;
+  --bs-primary-lighten: #0b426b;
+  --bs-primary-darken: #031421;
+  --bs-secondary-lighten: #126cad;
+  --bs-secondary-darken: #0a3e63;
 
   --bs-success: #21704b;
-  --bs-info: #39a9eb;
+  --bs-info: #0e5588;
   --bs-warning: #f9bf29;
   --bs-danger: #9b1d1d;
 
@@ -57,7 +57,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 500;
   --bs-body-line-height: 1.75;
-  --bs-body-color: #4f557a; // #677788; before
+  --bs-body-color: #4f557a;
 
   --bs-body-bg: #fff;
   --bs-body-bg-rgb: 255, 255, 255;

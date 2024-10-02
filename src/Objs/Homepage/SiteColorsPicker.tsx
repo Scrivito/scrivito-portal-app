@@ -23,7 +23,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             <span>Primary color</span>
           </div>
           <AdvancedColorPicker
-            color={page.get('siteColorPrimary') || '#274486'}
+            color={page.get('siteColorPrimary') || '#072b46'}
             disabled={!canEdit(page)}
             setColor={(color) => {
               page.update({
@@ -40,7 +40,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             <span>Secondary color</span>
           </div>
           <AdvancedColorPicker
-            color={page.get('siteColorSecondary') || '#39a9eb'}
+            color={page.get('siteColorSecondary') || '#0e5588'}
             disabled={!canEdit(page)}
             setColor={(color) => {
               page.update({
