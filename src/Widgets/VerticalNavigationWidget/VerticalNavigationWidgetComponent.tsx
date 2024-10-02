@@ -4,7 +4,6 @@ import {
   isCurrentPage,
   isOnCurrentPath,
   LinkTag,
-  navigateTo,
   Obj,
   provideComponent,
 } from 'scrivito'
@@ -96,13 +95,8 @@ const NestedNavItem = connect(
     return (
       <li className={isActive ? 'active' : ''}>
         <Nav.Link as={LinkTag} eventKey={key} key={key} to={obj}>
-          <button
+          <span
             className={`dropdown-toggle nav-link${isActive ? ' show' : ''}`}
-            onClick={(e) => {
-              e.preventDefault()
-              e.stopPropagation()
-              navigateTo(obj, { hash: '›' })
-            }}
           />
           <ObjIconAndTitle obj={obj} />
         </Nav.Link>
