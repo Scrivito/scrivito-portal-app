@@ -20,7 +20,7 @@ provideEditingConfig(DataSearchWidget, {
     placeholder: {
       title: 'Placeholder text',
       description:
-        'This value is also utilized for the aria label of the search button.',
+        'This value is also utilized for the ARIA label of the search button.',
     },
     urlParamName: {
       title: 'URL parameter name',
