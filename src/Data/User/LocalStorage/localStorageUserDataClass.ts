@@ -60,7 +60,7 @@ async function attributes(): Promise<DataClassSchema> {
     salutation,
     staff: [
       'boolean',
-      { title: lang === 'de' ? 'Interner Mitarbeiter' : 'Internal staff' },
+      { title: lang === 'de' ? 'Interner Mitarbeiter?' : 'Internal staff?' },
     ],
   }
 }
