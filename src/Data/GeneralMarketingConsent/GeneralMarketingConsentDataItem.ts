@@ -6,7 +6,7 @@ const GENERAL_TOPIC_ID = 'general'
 export const GeneralMarketingConsent = provideDataItem(
   'GeneralMarketingConsent',
   {
-    attributes: {},
+    attributes: { isConsentGiven: 'boolean' },
     connection: {
       async get() {
         const mySubscribedTopicIds = await fetchMySubscribedTopicIds()

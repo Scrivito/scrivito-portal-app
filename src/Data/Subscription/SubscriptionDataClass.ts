@@ -10,6 +10,7 @@ interface Topic {
 export const Subscription = provideDataClass('Subscription', {
   attributes: {
     description: 'string',
+    isConsentGiven: 'boolean',
     title: 'string',
   },
   connection: {
