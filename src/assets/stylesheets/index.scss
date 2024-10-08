@@ -404,19 +404,6 @@ h6 {
   margin-bottom: 0.7rem;
 }
 
-div {
-  &.h1,
-  &.h2,
-  &.h3,
-  &.h4,
-  &.h5,
-  &.h6 {
-    line-height: 1.4;
-    letter-spacing: -0.5px;
-    margin-bottom: 0;
-  }
-}
-
 a {
   color: var(--bs-primary);
   text-decoration: underline;

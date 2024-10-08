@@ -32,6 +32,7 @@ provideEditingConfig(HeadlineWidget, {
         { value: 'h4', title: 'h4' },
         { value: 'h5', title: 'h5' },
         { value: 'h6', title: 'h6' },
+        { value: 'div', title: 'No semantic tag' },
       ],
     },
     alignment: {
