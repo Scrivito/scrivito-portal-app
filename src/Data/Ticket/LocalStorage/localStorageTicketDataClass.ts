@@ -130,6 +130,7 @@ async function attributes(): Promise<DataClassSchema> {
       { title: lang === 'de' ? 'Beschreibung' : 'Description' },
     ],
     number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    open: ['boolean', { title: lang === 'de' ? 'Offen?' : 'Open?' }],
     referenceNumber: [
       'string',
       { title: lang === 'de' ? 'Referenznummer' : 'Reference number' },

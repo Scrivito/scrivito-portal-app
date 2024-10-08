@@ -684,6 +684,20 @@ async function attributes(): Promise<DataClassSchema> {
       'date',
       { title: lang === 'de' ? 'Installiert am' : 'Installed at' },
     ],
+    isCarrier: [
+      'boolean',
+      { title: lang === 'de' ? 'Bin ich der Betreiber?' : 'Am I the carrier?' },
+    ],
+    isCustomer: [
+      'boolean',
+      { title: lang === 'de' ? 'Bin ich der Kunde?' : 'Am I the customer?' },
+    ],
+    isSupplier: [
+      'boolean',
+      {
+        title: lang === 'de' ? 'Bin ich der Lieferant?' : 'Am I the supplier?',
+      },
+    ],
     keyword: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
     locationCity: [
       'string',
