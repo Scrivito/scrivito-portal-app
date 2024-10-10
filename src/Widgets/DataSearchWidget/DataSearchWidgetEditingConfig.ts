@@ -17,7 +17,11 @@ provideEditingConfig(DataSearchWidget, {
         { value: 'btn-secondary', title: 'Secondary color' },
       ],
     },
-    placeholder: { title: 'Placeholder text' },
+    placeholder: {
+      title: 'Placeholder text',
+      description:
+        'This value is also utilized for the ARIA label of the search button.',
+    },
     urlParamName: {
       title: 'URL parameter name',
       description: 'Default: search',
@@ -27,6 +31,7 @@ provideEditingConfig(DataSearchWidget, {
   initialContent: {
     buttonColor: 'btn-primary',
     urlParamName: DEFAULT_URL_PARAM_NAME,
+    placeholder: 'Search',
   },
   validations: [
     [

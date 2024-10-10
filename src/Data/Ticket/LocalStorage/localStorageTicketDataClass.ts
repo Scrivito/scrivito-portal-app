@@ -1,5 +1,5 @@
 import { currentLanguage, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import { pseudoRandom32CharHex } from '../../../utils/pseudoRandom32CharHex'
 import { DataClassSchema } from '../../types'
 
@@ -108,33 +108,29 @@ async function attributes(): Promise<DataClassSchema> {
       ? {
           title: 'Type',
           values: [
-            { value: 'PSA_SVC_C8D', title: 'Reklamation / 8D' },
             { value: 'PSA_SVC_CAL', title: 'Anfrage' },
             { value: 'PSA_SVC_CPL', title: 'Reklamation' },
-            { value: 'PSA_SVC_SUP_CPL', title: 'Lieferantenreklamation' },
             { value: 'PSA_SVC_TRB', title: 'Störung' },
           ],
         }
       : {
           title: 'Type',
           values: [
-            { value: 'PSA_SVC_C8D', title: 'Claim / 8D' },
             { value: 'PSA_SVC_CAL', title: 'Question' },
             { value: 'PSA_SVC_CPL', title: 'Claim' },
-            { value: 'PSA_SVC_SUP_CPL', title: 'Supplier claim' },
             { value: 'PSA_SVC_TRB', title: 'Fault' },
           ],
         },
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     createdAt: ['date', { title: lang === 'de' ? 'Erzeugt am' : 'Created at' }],
     description: [
       'string',
       { title: lang === 'de' ? 'Beschreibung' : 'Description' },
     ],
     number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    open: ['boolean', { title: lang === 'de' ? 'Offen?' : 'Open?' }],
     referenceNumber: [
       'string',
       { title: lang === 'de' ? 'Referenznummer' : 'Reference number' },

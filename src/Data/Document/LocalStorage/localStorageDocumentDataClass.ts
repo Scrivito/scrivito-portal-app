@@ -1,4 +1,4 @@
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import penImage from './FakeBinaries/pen.jpg'
 import kmkPdf from './FakeBinaries/KMK-overview_(Karlsruhe_Exhibition_Centre).pdf'
 import orderPdf from './FakeBinaries/ORDER.pdf'
@@ -159,7 +159,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     createdAt: ['date', { title: lang === 'de' ? 'Erzeugt am' : 'Created at' }],
     format: [
       'string',

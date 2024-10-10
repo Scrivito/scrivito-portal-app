@@ -1,4 +1,4 @@
-import { provideDataClass } from 'scrivito'
+import { currentLanguage, load, provideDataClass } from 'scrivito'
 import { neoletterClient } from '../neoletterClient'
 
 interface Topic {
@@ -8,9 +8,23 @@ interface Topic {
 }
 
 export const Subscription = provideDataClass('Subscription', {
-  attributes: {
-    description: 'string',
-    title: 'string',
+  attributes: async () => {
+    const lang = await load(currentLanguage)
+
+    return {
+      description: [
+        'string',
+        { title: lang === 'de' ? 'Beschreibung' : 'Description' },
+      ],
+      isConsentGiven: [
+        'boolean',
+        {
+          title:
+            lang === 'de' ? 'Einverständnis gegeben?' : 'Is consent given?',
+        },
+      ],
+      title: ['string', { title: lang === 'de' ? 'Titel' : 'Title' }],
+    }
   },
   connection: {
     async index() {

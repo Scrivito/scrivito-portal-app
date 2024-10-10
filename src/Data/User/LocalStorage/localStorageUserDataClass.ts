@@ -1,4 +1,4 @@
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import richterImage from './FakeBinaries/richter.jpg'
 import braschauImage from './FakeBinaries/braschau.jpg'
 import fuchsImage from './FakeBinaries/fuchs.jpg'
@@ -46,7 +46,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     email: [
       'string',
       { title: lang === 'de' ? 'E-Mailadresse' : 'Email address' },
@@ -59,6 +58,10 @@ async function attributes(): Promise<DataClassSchema> {
     name: ['string', { title: 'Name' }],
     position: ['string', { title: 'Position' }],
     salutation,
+    staff: [
+      'boolean',
+      { title: lang === 'de' ? 'Interner Mitarbeiter?' : 'Internal staff?' },
+    ],
   }
 }
 

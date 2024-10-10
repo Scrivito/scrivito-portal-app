@@ -1,5 +1,5 @@
 import { currentLanguage, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import { DataClassSchema } from '../../types'
 
 async function attributes(): Promise<DataClassSchema> {
@@ -669,7 +669,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     customer: ['string', { title: lang === 'de' ? 'Kunde' : 'Customer' }],
     deliveryAt: [
       'date',
@@ -682,6 +681,7 @@ async function attributes(): Promise<DataClassSchema> {
     keyword: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
     mainStatus,
     number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    open: ['boolean', { title: lang === 'de' ? 'Offen?' : 'Open?' }],
     orderAt: ['date', { title: lang === 'de' ? 'Auftrag am' : 'Order at' }],
     quoteAt: ['date', { title: lang === 'de' ? 'Angebot am' : 'Quote at' }],
     salesPartner: [

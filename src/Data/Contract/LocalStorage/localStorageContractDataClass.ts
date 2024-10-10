@@ -1,5 +1,5 @@
 import { currentLanguage, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import { DataClassSchema } from '../../types'
 
 async function attributes(): Promise<DataClassSchema> {
@@ -142,7 +142,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     cancelationEndAt: [
       'date',
       { title: lang === 'de' ? 'Kündigungsfrist' : 'Cancelation period' },

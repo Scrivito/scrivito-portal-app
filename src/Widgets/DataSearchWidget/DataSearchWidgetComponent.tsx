@@ -43,7 +43,11 @@ provideComponent(DataSearchWidget, ({ widget }) => {
         defaultValue={search}
       />
       <span className="input-group-btn">
-        <button className={`btn ${buttonColor}`} type="submit">
+        <button
+          className={`btn ${buttonColor}`}
+          type="submit"
+          aria-label={placeholder}
+        >
           <i className="bi bi-search" aria-hidden="true" />
         </button>
       </span>

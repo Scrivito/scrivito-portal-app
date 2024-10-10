@@ -1,12 +1,11 @@
 import { currentLanguage, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import { DataClassSchema } from '../../types'
 
 async function attributes(): Promise<DataClassSchema> {
   const lang = await load(currentLanguage)
 
   return {
-    _id: ['string', { title: 'ID' }],
     text: ['string', { title: 'Text' }],
     createdAt: ['string', { title: lang === 'de' ? 'Gesendet am' : 'Sent at' }],
   }

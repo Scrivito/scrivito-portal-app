@@ -1,5 +1,5 @@
 import { currentLanguage, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import { DataClassSchema } from '../../types'
 import machineImage from './FakeBinaries/machine.jpg'
 import pumpImage from './FakeBinaries/pump.jpg'
@@ -676,7 +676,6 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
-    _id: ['string', { title: 'ID' }],
     carrier: ['string', { title: lang === 'de' ? 'Betreiber' : 'Carrier' }],
     category,
     customer: ['string', { title: lang === 'de' ? 'Kunde' : 'Customer' }],
@@ -684,6 +683,20 @@ async function attributes(): Promise<DataClassSchema> {
     installedAt: [
       'date',
       { title: lang === 'de' ? 'Installiert am' : 'Installed at' },
+    ],
+    isCarrier: [
+      'boolean',
+      { title: lang === 'de' ? 'Bin ich der Betreiber?' : 'Am I the carrier?' },
+    ],
+    isCustomer: [
+      'boolean',
+      { title: lang === 'de' ? 'Bin ich der Kunde?' : 'Am I the customer?' },
+    ],
+    isSupplier: [
+      'boolean',
+      {
+        title: lang === 'de' ? 'Bin ich der Lieferant?' : 'Am I the supplier?',
+      },
     ],
     keyword: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
     locationCity: [

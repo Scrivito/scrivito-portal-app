@@ -3,7 +3,7 @@ import { DataClassAttributes, DataClassSchema } from './types'
 
 /**
  * Fetches the schema for `subPath`.
- * Filters out boolean and reference attributes, since they are currently not fully supported.
+ * Filters out reference attributes, since they are currently not fully supported.
  **/
 export async function fetchAndFilterAttributes(
   subPath: string,
@@ -15,7 +15,7 @@ export async function fetchAndFilterAttributes(
 
   return Object.fromEntries(
     Object.entries(schema.attributes).filter(
-      ([_, [type]]) => !['boolean', 'reference'].includes(type),
+      ([_, [type]]) => type !== 'reference',
     ),
   )
 }
