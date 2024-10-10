@@ -74,6 +74,9 @@
   "overrides": {
     "@lhci/cli": {
       "rimraf": "3"
+    },
+    "@sentry/node": {
+      "cookie": "^0.7.0"
     }
   }
 }
