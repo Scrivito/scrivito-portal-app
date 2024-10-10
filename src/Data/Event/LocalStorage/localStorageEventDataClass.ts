@@ -1,5 +1,5 @@
 import { currentLanguage, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import { DataClassSchema } from '../../types'
 import spiderImage from './FakeBinaries/Schulung_Spider_30.png'
 import roadshowImage from './FakeBinaries/TYNACOON_Roadshow.jpg'

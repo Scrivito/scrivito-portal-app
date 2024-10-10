@@ -1,3 +1,3 @@
-import { provideLocalStorageDataClass } from '../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../provideLocalStorageDataClass'
 
 export const CartItem = provideLocalStorageDataClass('CartItem')

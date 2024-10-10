@@ -1,8 +1,9 @@
 import { provideDataClass } from 'scrivito'
-import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
+import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
-import { ensureString } from './ensureString'
-import { DataClassAttributes } from '../Data/types'
+import { ensureString } from '../utils/ensureString'
+import { DataClassAttributes } from './types'
+import { scrivitoTenantId } from '../config/scrivitoTenants'
 
 interface DataItem {
   _id: string
@@ -25,7 +26,7 @@ export function provideLocalStorageDataClass(
     attributes?: DataClassAttributes
   } = {},
 ) {
-  const recordKey = `localDataClass-${className}`
+  const recordKey = `localDataClass-${scrivitoTenantId()}-${className}`
 
   if (initialContent) initializeContent(initialContent)
 
