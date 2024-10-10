@@ -1,4 +1,4 @@
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import { DataClassAttributes } from '../../types'
 
 const attributes: DataClassAttributes = {}

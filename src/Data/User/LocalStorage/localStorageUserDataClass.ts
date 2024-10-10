@@ -1,4 +1,4 @@
-import { provideLocalStorageDataClass } from '../../../utils/provideLocalStorageDataClass'
+import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import richterImage from './FakeBinaries/richter.jpg'
 import braschauImage from './FakeBinaries/braschau.jpg'
 import fuchsImage from './FakeBinaries/fuchs.jpg'
