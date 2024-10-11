@@ -22,7 +22,7 @@ provideComponent(DataIconWidget, ({ widget }) => {
       <ContentTag
         content={widget}
         attribute="label"
-        className="text-bold opacity-60 text-extra-small text-uppercase"
+        className="text-bold text-extra-small text-uppercase"
       />
       <Icon
         conditions={widget.get('conditions').filter(isDataIconConditionWidget)}
