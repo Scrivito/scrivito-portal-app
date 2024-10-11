@@ -125,6 +125,13 @@ async function attributes(): Promise<DataClassSchema> {
 
   return {
     createdAt: ['date', { title: lang === 'de' ? 'Erzeugt am' : 'Created at' }],
+    createdBy: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Erzeugt von' : 'Created by',
+        to: 'User',
+      },
+    ],
     description: [
       'string',
       { title: lang === 'de' ? 'Beschreibung' : 'Description' },
@@ -134,6 +141,20 @@ async function attributes(): Promise<DataClassSchema> {
     referenceNumber: [
       'string',
       { title: lang === 'de' ? 'Referenznummer' : 'Reference number' },
+    ],
+    responsibleAgent: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Zuständiger Agent' : 'Responsible agent',
+        to: 'User',
+      },
+    ],
+    serviceObject: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Serviceobjekt' : 'Service object',
+        to: 'ServiceObject',
+      },
     ],
     status,
     title: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
