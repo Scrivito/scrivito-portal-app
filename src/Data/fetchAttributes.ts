@@ -5,7 +5,7 @@ import { DataClassAttributes, DataClassSchema } from './types'
  * Fetches the schema for `subPath`.
  * Filters out reference attributes, since they are currently not fully supported.
  **/
-export async function fetchAndFilterAttributes(
+export async function fetchAttributes(
   subPath: string,
 ): Promise<DataClassSchema> {
   const client = await pisaClient(subPath)
