@@ -1,7 +1,27 @@
+import { currentLanguage, load } from 'scrivito'
 import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
-import { DataClassAttributes } from '../../types'
+import { DataClassSchema } from '../../types'
 
-const attributes: DataClassAttributes = {}
+async function attributes(): Promise<DataClassSchema> {
+  const lang = await load(currentLanguage)
+
+  return {
+    documentId: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Dokument' : 'Document',
+        to: 'Document',
+      },
+    ],
+    quoteId: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Angebot' : 'Quote',
+        to: 'Quote',
+      },
+    ],
+  }
+}
 
 export function localStorageQuoteDocumentDataClass() {
   return provideLocalStorageDataClass('QuoteDocument', {
