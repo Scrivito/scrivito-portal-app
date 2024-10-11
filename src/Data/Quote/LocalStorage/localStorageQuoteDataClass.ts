@@ -669,6 +669,13 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
+    commercialAgent: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Kaufmännischer Bearbeiter' : 'Commercial agent',
+        to: 'User',
+      },
+    ],
     customer: ['string', { title: lang === 'de' ? 'Kunde' : 'Customer' }],
     deliveryAt: [
       'date',
@@ -689,6 +696,13 @@ async function attributes(): Promise<DataClassSchema> {
       { title: lang === 'de' ? 'Vertriebspartner' : 'Sales partner' },
     ],
     status,
+    technicalAgent: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Technischer Bearbeiter' : 'Techincal agent',
+        to: 'User',
+      },
+    ],
     termsOfDelivery,
     termsOfPayment,
     totalPrice: ['number', { title: lang === 'de' ? 'Umsatz' : 'Revenue' }],
