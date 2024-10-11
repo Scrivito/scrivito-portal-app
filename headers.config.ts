@@ -22,17 +22,7 @@ function headers(environment: string) {
         ),
         'object-src': "'none'",
         'block-all-mixed-content': true,
-        'frame-ancestors':
-          environment === 'development'
-            ? ['*']
-            : [
-                "'self'",
-                'https://*.scrivito.com',
-
-                // TODO: Remove later on:
-                'http://localhost:8090',
-                'https://*.scrivito-ui.pages.dev',
-              ],
+        'frame-ancestors': '*',
       },
     }),
     'X-Frame-Options': 'sameorigin',
