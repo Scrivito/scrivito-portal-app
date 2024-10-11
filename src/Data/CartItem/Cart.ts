@@ -5,21 +5,23 @@ import {
   isUserLoggedIn,
   load,
 } from 'scrivito'
-import { Product, ProductInstance } from '../../Objs/Product/ProductObjClass'
+import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
 
-  await CartItem.create({ productId })
+  await CartItem.create({ product: productId })
 }
 
 export async function removeFromCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
 
   const items: DataItem[] = await load(() =>
-    CartItem.all().transform({ filters: { productId } }).take(),
+    CartItem.all()
+      .transform({ filters: { product: productId } })
+      .take(),
   )
 
   items.forEach((item) => item.delete())
@@ -30,7 +32,9 @@ export function isInCart(product: ProductInstance): boolean {
 
   const productId = product.id()
 
-  return CartItem.all().transform({ filters: { productId } }).containsData()
+  return CartItem.all()
+    .transform({ filters: { product: productId } })
+    .containsData()
 }
 
 export function containsItems(): boolean {
@@ -48,14 +52,9 @@ export function numberOfCartItems(): number | null {
 export async function checkoutCart(): Promise<DataItem> {
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
 
-  const products: ProductInstance[] = []
-  for (const item of cartItems) {
-    const productId = item.get('productId')
-    if (typeof productId !== 'string') continue
-
-    const product = await load(() => Product.get(productId))
-    if (product) products.push(product)
-  }
+  const products: DataItem[] = cartItems.map(
+    (item) => item.get('product') as DataItem,
+  )
 
   const keyword = await getTitle()
   const description = products
