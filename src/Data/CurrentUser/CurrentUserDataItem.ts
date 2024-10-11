@@ -16,7 +16,9 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     name: 'string',
     phoneNumber: 'string',
     picture: 'string',
+    salesUserId: ['reference', { to: 'User' }],
     salutation: 'string',
+    serviceUserId: ['reference', { to: 'User' }],
   },
   connection: {
     async get() {
