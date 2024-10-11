@@ -90,6 +90,13 @@ async function attributes(): Promise<DataClassSchema> {
       'string',
       { title: lang === 'de' ? 'Veranstalter' : 'Organizer' },
     ],
+    responsibleAgent: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Zuständiger Bearbeiter' : 'Responsible agent',
+        to: 'User',
+      },
+    ],
     status,
     url: ['string', { title: 'URL' }],
   }
