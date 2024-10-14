@@ -10,7 +10,7 @@ async function attributes(): Promise<DataClassSchema> {
     createdBy: [
       'reference',
       {
-        title: lang === 'de' ? 'Gesendet von' : 'Send by',
+        title: lang === 'de' ? 'Gesendet von' : 'Sent by',
         to: 'User',
       },
     ],
