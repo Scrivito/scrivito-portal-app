@@ -738,7 +738,7 @@ async function attributes(): Promise<DataClassSchema> {
     responsibleAgent: [
       'reference',
       {
-        title: lang === 'de' ? 'Responsible agent' : 'Verantwortlicher',
+        title: lang === 'de' ? 'Verantwortlicher' : 'Responsible agent',
         to: 'User',
       },
     ],
