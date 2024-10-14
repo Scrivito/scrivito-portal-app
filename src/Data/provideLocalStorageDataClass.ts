@@ -5,7 +5,7 @@ import { ensureString } from '../utils/ensureString'
 import { DataClassAttributes } from './types'
 import { scrivitoTenantId } from '../config/scrivitoTenants'
 
-interface DataItem {
+interface RawDataItem {
   _id: string
   [key: string]: unknown
 }
@@ -18,11 +18,11 @@ export function provideLocalStorageDataClass(
     postProcessData,
     attributes,
   }: {
-    initialContent?: DataItem[]
+    initialContent?: RawDataItem[]
     prepareData?: (
       data: Record<string, unknown>,
     ) => Promise<Record<string, unknown>>
-    postProcessData?: (data: DataItem) => Promise<DataItem>
+    postProcessData?: (data: RawDataItem) => Promise<RawDataItem>
     attributes?: DataClassAttributes
   } = {},
 ) {
@@ -34,7 +34,7 @@ export function provideLocalStorageDataClass(
     attributes,
     connection: {
       async index(params): Promise<{
-        results: DataItem[]
+        results: RawDataItem[]
         count?: number
         continuation?: string
       }> {
@@ -82,7 +82,7 @@ export function provideLocalStorageDataClass(
         return { results, continuation, count: orderedItems.length }
       },
 
-      async get(id: string): Promise<DataItem | null> {
+      async get(id: string): Promise<RawDataItem | null> {
         const rawItem = restoreRecord()[id]
         if (!rawItem) return null
 
@@ -94,7 +94,7 @@ export function provideLocalStorageDataClass(
 
         const _id = pseudoRandom32CharHex()
         const newData = prepareData ? await prepareData(data) : data
-        const storedData: DataItem = { ...newData, _id }
+        const storedData: RawDataItem = { ...newData, _id }
         record[_id] = storedData
 
         persistRecord(record)
@@ -108,7 +108,7 @@ export function provideLocalStorageDataClass(
       ): Promise<unknown> {
         const record = restoreRecord()
         const newData = prepareData ? await prepareData(data) : data
-        const storedData: DataItem = { ...newData, _id: id }
+        const storedData: RawDataItem = { ...newData, _id: id }
         record[id] = storedData
 
         persistRecord(record)
@@ -124,7 +124,7 @@ export function provideLocalStorageDataClass(
     },
   })
 
-  async function initializeContent(initialContent: DataItem[]) {
+  async function initializeContent(initialContent: RawDataItem[]) {
     if (typeof localStorage === 'undefined') return
 
     const initializedKey = `${recordKey}-initialized-with`
@@ -132,7 +132,7 @@ export function provideLocalStorageDataClass(
 
     try {
       if (localStorage.getItem(initializedKey) !== initializedValue) {
-        const initialRecord: Record<string, DataItem> = {}
+        const initialRecord: Record<string, RawDataItem> = {}
         initialContent.forEach((item) => {
           const id = item._id
 
@@ -150,7 +150,7 @@ export function provideLocalStorageDataClass(
     }
   }
 
-  function restoreRecord(): Record<string, DataItem> {
+  function restoreRecord(): Record<string, RawDataItem> {
     let item: string | null | undefined
     try {
       item = localStorage.getItem(recordKey)
@@ -170,27 +170,29 @@ export function provideLocalStorageDataClass(
     }
   }
 
-  function persistRecord(record: Record<string, DataItem>): void {
+  function persistRecord(record: Record<string, RawDataItem>): void {
     localStorage.setItem(recordKey, JSON.stringify(record))
   }
 }
 
-function isDataItemRecord(input: unknown): input is Record<string, DataItem> {
+function isDataItemRecord(
+  input: unknown,
+): input is Record<string, RawDataItem> {
   if (!input) return false
   if (typeof input !== 'object') return false
   return Object.values(input).every((item) => isDataItem(item))
 }
 
-function isDataItem(item: unknown): item is DataItem {
+function isDataItem(item: unknown): item is RawDataItem {
   if (!item) return false
   if (typeof item !== 'object') return false
-  return typeof (item as DataItem)._id === 'string'
+  return typeof (item as RawDataItem)._id === 'string'
 }
 
 function orderItems(
-  items: DataItem[],
+  items: RawDataItem[],
   order: Array<[string, 'asc' | 'desc']>,
-): DataItem[] {
+): RawDataItem[] {
   if (order.length === 0) return items
 
   return orderBy(
