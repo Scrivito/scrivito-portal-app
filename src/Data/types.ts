@@ -24,6 +24,7 @@ export type DataClassAttributes = NonNullable<Params['attributes']>
 type ExtractDataClassSchema<T> = T extends Promise<infer U> ? U : never
 export type DataClassSchema = ExtractDataClassSchema<DataClassAttributes>
 
+// TODO: Remove `isDataItem` once `item instanceof DataItem` is available (#11300)
 export function isDataItem(item: unknown): item is DataItem {
   if (typeof item !== 'object' || item === null) return false
 
