@@ -649,6 +649,7 @@ async function attributes(): Promise<DataClassSchema> {
     totalPrice: ['number', { title: lang === 'de' ? 'Umsatz' : 'Revenue' }],
     totalPriceCurrency,
     type,
+    url: ['string', { title: 'URL' }],
   }
 }
 
