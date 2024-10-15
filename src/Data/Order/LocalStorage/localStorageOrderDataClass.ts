@@ -640,7 +640,7 @@ async function attributes(): Promise<DataClassSchema> {
     technicalAgent: [
       'reference',
       {
-        title: lang === 'de' ? 'Technischer Bearbeiter' : 'Techincal agent',
+        title: lang === 'de' ? 'Technischer Bearbeiter' : 'Technical agent',
         to: 'User',
       },
     ],
