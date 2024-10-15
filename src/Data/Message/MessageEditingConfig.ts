@@ -5,5 +5,6 @@ provideEditingConfig(Message, {
   title: 'Message',
   attributes: {
     attachments: { title: 'Attachments' },
+    subjectId: { title: 'Subject ID' },
   },
 })
