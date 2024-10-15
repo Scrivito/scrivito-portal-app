@@ -1,7 +1,20 @@
+import { currentLanguage, load } from 'scrivito'
 import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
-import { DataClassAttributes } from '../../types'
+import { DataClassSchema } from '../../types'
 
-const attributes: DataClassAttributes = {}
+async function attributes(): Promise<DataClassSchema> {
+  const lang = await load(currentLanguage)
+
+  return {
+    eventId: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Veranstaltung' : 'Event',
+        to: 'Event',
+      },
+    ],
+  }
+}
 
 export function localStorageEventRegistrationDataClass() {
   return provideLocalStorageDataClass('EventRegistration', { attributes })

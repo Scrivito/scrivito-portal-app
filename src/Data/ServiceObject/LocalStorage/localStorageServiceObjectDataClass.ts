@@ -720,11 +720,28 @@ async function attributes(): Promise<DataClassSchema> {
       { title: lang === 'de' ? 'Modellnummer' : 'Model number' },
     ],
     number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
+    parentId: [
+      'reference',
+      {
+        title:
+          lang === 'de'
+            ? 'Übergeordnetes Serviceobjekt'
+            : 'Parent service object',
+        to: 'ServiceObject',
+      },
+    ],
     product: [
       'string',
       { title: lang === 'de' ? 'Produktname' : 'Product name' },
     ],
     productType,
+    responsibleAgent: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Verantwortlicher' : 'Responsible agent',
+        to: 'User',
+      },
+    ],
     serialNumber: [
       'string',
       { title: lang === 'de' ? 'Seriennummer' : 'Serial number' },

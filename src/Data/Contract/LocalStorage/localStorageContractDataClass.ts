@@ -142,13 +142,26 @@ async function attributes(): Promise<DataClassSchema> {
   ] as const
 
   return {
+    agent: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Bearbeiter' : 'Agent',
+        to: 'User',
+      },
+    ],
     cancelationEndAt: [
       'date',
       { title: lang === 'de' ? 'Kündigungsfrist' : 'Cancelation period' },
     ],
     category,
     endAt: ['date', { title: lang === 'de' ? 'Vertragsende' : 'Contract end' }],
-    // TODO: pisa schema: remove internalDepartment for now
+    internalDepartment: [
+      'reference',
+      {
+        title: lang === 'de' ? 'Abteilung' : 'Department',
+        to: 'User',
+      },
+    ],
     keyword: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
     minimumTerm: [
       'number',
