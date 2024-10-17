@@ -5,7 +5,7 @@ import './TickListWidget.scss'
 provideComponent(TickListWidget, ({ widget }) => (
   <ContentTag
     tag="ul"
-    className="tick-list-widget"
+    className="tick-list-widget list-unstyled"
     content={widget}
     attribute="items"
   />
