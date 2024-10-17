@@ -43,7 +43,7 @@ const ColumnsEditor = connect(
   }) => {
     const originalContents = useMemo(() => calculateContents(widget), [widget])
 
-    const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
+    const responsiveAdaption = !widget.get('disableResponsiveAdaption')
     const isFlex = widget.get('layoutMode') === 'flex'
 
     function isActive(grid: number[]) {
@@ -193,11 +193,11 @@ const ColumnsEditor = connect(
           labels={['No', 'Yes']}
           onChange={() =>
             widget.update({
-              disableResponsiveAdaption: !disableResponsiveAdaption,
+              disableResponsiveAdaption: !!responsiveAdaption,
             })
           }
-          title="Disable responsive adaption?"
-          value={disableResponsiveAdaption ? 1 : 0}
+          title="Responsive adaption?"
+          value={responsiveAdaption ? 1 : 0}
         />
       </div>
     )
