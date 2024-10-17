@@ -45,6 +45,7 @@ const ColumnsEditor = connect(
 
     const responsiveAdaption = !widget.get('disableResponsiveAdaption')
     const isFlex = widget.get('layoutMode') === 'flex'
+    const showGutters = !widget.get('noGutters')
 
     function isActive(grid: number[]) {
       return isFlex
@@ -198,6 +199,19 @@ const ColumnsEditor = connect(
           }
           title="Responsive adaption?"
           value={responsiveAdaption ? 1 : 0}
+        />
+
+        <Switch
+          labels={['No', 'Yes']}
+          onChange={() =>
+            widget.update({
+              noGutters: !!showGutters,
+            })
+          }
+          title="Show gutters?"
+          description="Gutters are the spaces between columns in a layout."
+          value={showGutters ? 1 : 0}
+          disabled={isFlex}
         />
       </div>
     )
