@@ -660,12 +660,14 @@ function AlignmentDescription({ alignment }: { alignment: string | null }) {
 
 function Switch({
   className,
+  description,
   labels,
   onChange,
   title,
   value,
 }: {
   className?: string
+  description?: string
   labels: string[]
   onChange: () => void
   title: string
@@ -701,6 +703,12 @@ function Switch({
           </label>
         </div>
       </div>
+
+      {description && (
+        <div className="scrivito_notice_body">
+          <span>{description}</span>
+        </div>
+      )}
     </>
   )
 }
