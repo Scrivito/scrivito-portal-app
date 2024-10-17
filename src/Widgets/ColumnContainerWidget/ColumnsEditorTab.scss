@@ -575,6 +575,13 @@
   color: #fff;
 }
 
+// -- generic scrivito_disabled editors -- //
+
+.scrivito_detail_content .scrivito_disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 // -- scrivito_dark adaptons -- //
 
 .scrivito_dark {

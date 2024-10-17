@@ -665,6 +665,7 @@ function Switch({
   onChange,
   title,
   value,
+  disabled,
 }: {
   className?: string
   description?: string
@@ -672,9 +673,10 @@ function Switch({
   onChange: () => void
   title: string
   value: number
+  disabled?: boolean
 }) {
   return (
-    <>
+    <div className={disabled ? 'scrivito_disabled' : undefined}>
       <div className="scrivito_detail_label">
         <span>{title}</span>
       </div>
@@ -690,6 +692,7 @@ function Switch({
               className="btn-check"
               checked={!!value}
               onChange={onChange}
+              disabled={disabled}
             />
             <div className="pill-wrapper">
               <div className="cell pill"></div>
@@ -709,6 +712,6 @@ function Switch({
           <span>{description}</span>
         </div>
       )}
-    </>
+    </div>
   )
 }
