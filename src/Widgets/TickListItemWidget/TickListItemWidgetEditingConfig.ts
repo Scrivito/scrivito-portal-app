@@ -15,7 +15,6 @@ provideEditingConfig(TickListItemWidget, {
   properties: ['icon'],
   initialContent: {
     icon: 'bi-check',
-    statement: 'A statement',
   },
   validations: [
     [
