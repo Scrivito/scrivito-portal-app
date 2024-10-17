@@ -1,0 +1,16 @@
+.tick-list-widget {
+  list-style-type: none;
+  margin: 0 0 0.7rem 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      color: var(--bs-primary);
+      margin-right: 0.5rem;
+      padding: 0.3rem 0;
+    }
+  }
+}
