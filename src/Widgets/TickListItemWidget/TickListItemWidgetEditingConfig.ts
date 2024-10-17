@@ -5,17 +5,6 @@ import { TickListItemWidget } from './TickListItemWidgetClass'
 provideEditingConfig(TickListItemWidget, {
   title: 'Tick List Item',
   thumbnail,
-  attributes: {
-    icon: {
-      title: 'Icon',
-      description:
-        'Default: "bi-check". The full list of names can be found at https://icons.getbootstrap.com/',
-    },
-  },
-  properties: ['icon'],
-  initialContent: {
-    icon: 'bi-check',
-  },
   validations: [
     [
       'statement',
