@@ -33,8 +33,11 @@ export function baseUrlForSite(siteId: string): string | undefined {
 }
 
 export function siteForUrl(
-  url: string,
+  fullUrl: string,
 ): { baseUrl: string; siteId: string } | undefined {
+  const parsedUrl = new URL(fullUrl)
+  const url = `${parsedUrl.origin}${parsedUrl.pathname}`
+
   const neoletterBaseUrl = `https://mailing.neoletter.com/${getInstanceId()}`
   if (url.startsWith(neoletterBaseUrl)) {
     return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
