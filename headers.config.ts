@@ -7,6 +7,7 @@ function headers(environment: string) {
         'base-uri': "'none'",
         'default-src': ["'self'", 'data:', 'https:', 'wss:'],
         'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
+        'worker-src': ["'self'", 'blob:'],
         'script-src': [
           "'self'",
           'https://api.scrivito.com',
