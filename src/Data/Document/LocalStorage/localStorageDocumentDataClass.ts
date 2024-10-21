@@ -2,10 +2,10 @@ import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass
 import penImage from './FakeBinaries/pen.jpg'
 import kmkPdf from './FakeBinaries/KMK-overview_(Karlsruhe_Exhibition_Centre).pdf'
 import orderPdf from './FakeBinaries/ORDER.pdf'
-import { DataClassSchema } from '../../types'
+import { ReadonlyDataClassSchema } from '../../types'
 import { currentLanguage, load } from 'scrivito'
 
-async function attributes(): Promise<DataClassSchema> {
+async function attributes(): Promise<ReadonlyDataClassSchema> {
   const lang = await load(currentLanguage)
 
   const language = [

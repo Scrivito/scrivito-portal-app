@@ -1,9 +1,9 @@
 import { currentLanguage, load } from 'scrivito'
 import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
 import { pseudoRandom32CharHex } from '../../../utils/pseudoRandom32CharHex'
-import { DataClassSchema } from '../../types'
+import { ReadonlyDataClassSchema } from '../../types'
 
-async function attributes(): Promise<DataClassSchema> {
+async function attributes(): Promise<ReadonlyDataClassSchema> {
   const lang = await load(currentLanguage)
 
   const status = [
