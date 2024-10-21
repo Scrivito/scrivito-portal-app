@@ -8,7 +8,6 @@ import {
 import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
-import { isDataItem } from '../types'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
@@ -55,7 +54,7 @@ export async function checkoutCart(): Promise<DataItem> {
 
   const products: DataItem[] = cartItems
     .map((item) => item.get('product'))
-    .filter(isDataItem)
+    .filter((item) => item instanceof DataItem)
 
   const keyword = await getTitle()
   const description = products

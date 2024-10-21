@@ -1,4 +1,4 @@
-import type { DataItem, provideDataClass } from 'scrivito'
+import type { provideDataClass } from 'scrivito'
 
 export interface RawItem {
   _id: string
@@ -23,20 +23,3 @@ export type DataClassAttributes = NonNullable<Params['attributes']>
 
 type ExtractDataClassSchema<T> = T extends Promise<infer U> ? U : never
 export type DataClassSchema = ExtractDataClassSchema<DataClassAttributes>
-
-// TODO: Remove `isDataItem` once `item instanceof DataItem` is available (#11300)
-export function isDataItem(item: unknown): item is DataItem {
-  if (typeof item !== 'object' || item === null) return false
-
-  const dataItem = item as DataItem
-  return (
-    typeof dataItem.attributeDefinitions === 'function' &&
-    typeof dataItem.dataClass === 'function' &&
-    typeof dataItem.dataClassName === 'function' &&
-    typeof dataItem.delete === 'function' &&
-    typeof dataItem.get === 'function' &&
-    typeof dataItem.id === 'function' &&
-    typeof dataItem.obj === 'function' &&
-    typeof dataItem.update === 'function'
-  )
-}
