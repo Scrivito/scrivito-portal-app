@@ -22,7 +22,7 @@ provideComponent(IconContainerWidget, ({ widget }) => {
         if (!isLinkOrNull(link)) return null
 
         return (
-          <li className="list-inline-item btn" key={iconListItem.id()}>
+          <li className="list-inline-item px-2" key={iconListItem.id()}>
             <IconComponent
               icon={ensureString(iconListItem.get('icon'))}
               size={ensureString(iconListItem.get('size'))}

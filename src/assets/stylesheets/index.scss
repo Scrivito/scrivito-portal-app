@@ -872,13 +872,14 @@ header section {
   color: var(--bs-primary) !important;
 }
 .card,
-.card .card {
-  .card.bg-primary,
-  .card.bg-secondary,
-  .card.bg-dark-grey,
-  .card.bg-success,
-  .card.bg-info,
-  .card.bg-danger {
+.card .card,
+.card .card .card {
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-dark-grey,
+  &.bg-success,
+  &.bg-info,
+  &.bg-danger {
     .bi {
       color: #fff !important;
     }
