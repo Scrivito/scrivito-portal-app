@@ -23,7 +23,10 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
       'column-container-widget--flex-wrapper',
       isResponsive ? 'd-md-flex' : 'd-flex',
     )
-  } else classNames.push('row')
+  } else {
+    classNames.push('row')
+    if (widget.get('disableGutters')) classNames.push('g-0')
+  }
 
   return (
     <div className={classNames.join(' ')}>

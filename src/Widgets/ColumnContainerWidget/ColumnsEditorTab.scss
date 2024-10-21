@@ -569,10 +569,9 @@
 .scrivito_disabled .scrivito_switch {
   cursor: default !important;
 }
-.scrivito_disabled .scrivito_switch.active .pill,
-.scrivito_disabled .scrivito_switch.active:hover .pill {
-  background: #555;
-  color: #fff;
+.scrivito_disabled .scrivito_switch.active .pill {
+  background: #555 !important;
+  color: #fff !important;
 }
 
 // -- scrivito_dark adaptons -- //
