@@ -19,7 +19,13 @@ export type DataConnection = Parameters<
 
 type ProvideDataClassFunction = typeof provideDataClass
 type Params = Parameters<ProvideDataClassFunction>[1]
-export type DataClassAttributes = NonNullable<Params['attributes']>
+export type DataClassAttributes = Readonly<Params['attributes']>
 
 type ExtractDataClassSchema<T> = T extends Promise<infer U> ? U : never
 export type DataClassSchema = ExtractDataClassSchema<DataClassAttributes>
+
+// TODO: Remove when #11321 is resolved
+type ExtractReadonlyDataClassSchema<T> =
+  T extends Promise<infer U> ? { [K in keyof U]: Readonly<U[K]> } : never
+export type ReadonlyDataClassSchema =
+  ExtractReadonlyDataClassSchema<DataClassAttributes>
