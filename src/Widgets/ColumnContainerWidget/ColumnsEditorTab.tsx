@@ -43,7 +43,7 @@ const ColumnsEditor = connect(
   }) => {
     const originalContents = useMemo(() => calculateContents(widget), [widget])
 
-    const responsiveAdaption = !widget.get('disableResponsiveAdaption')
+    const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
     const isFlex = widget.get('layoutMode') === 'flex'
     const showGutters = !widget.get('noGutters')
 
@@ -194,11 +194,11 @@ const ColumnsEditor = connect(
           labels={['No', 'Yes']}
           onChange={() =>
             widget.update({
-              disableResponsiveAdaption: !!responsiveAdaption,
+              disableResponsiveAdaption: !disableResponsiveAdaption,
             })
           }
           title="Responsive adaption?"
-          value={responsiveAdaption ? 1 : 0}
+          value={disableResponsiveAdaption ? 0 : 1}
         />
 
         <Switch
