@@ -430,6 +430,10 @@ a.card {
   text-decoration: none !important;
 }
 
+a.btn {
+  text-decoration: none !important;
+}
+
 ::selection {
   background: var(--bs-secondary);
   color: #fff;
@@ -867,18 +871,23 @@ header section {
 .card.bg-white .bi {
   color: var(--bs-primary) !important;
 }
-.card.bg-primary,
-.card.bg-secondary,
-.card.bg-success,
-.card.bg-info,
-.card.bg-warning,
-.card.bg-danger {
-  .bi {
-    color: #fff !important;
+.card,
+.card .card {
+  .card.bg-primary,
+  .card.bg-secondary,
+  .card.bg-dark-grey,
+  .card.bg-success,
+  .card.bg-info,
+  .card.bg-danger {
+    .bi {
+      color: #fff !important;
+    }
   }
 }
+
 .card.bg-transparent {
   box-shadow: none;
+  color: inherit !important;
 }
 
 .card-body {
@@ -1169,7 +1178,7 @@ section:focus >,
 
 // -- general badges -- //
 
-.bg-middle-grey {
+.bagde.bg-middle-grey {
   color: var(--bs-secondary);
 }
 
