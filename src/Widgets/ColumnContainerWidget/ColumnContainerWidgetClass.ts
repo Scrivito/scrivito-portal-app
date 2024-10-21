@@ -4,11 +4,11 @@ export const ColumnContainerWidget = provideWidgetClass(
   'ColumnContainerWidget',
   {
     attributes: {
-      columns: ['widgetlist', { only: 'ColumnWidget' }],
       alignment: ['enum', { values: ['start', 'center', 'end', 'stretch'] }],
+      columns: ['widgetlist', { only: 'ColumnWidget' }],
+      disableGutters: 'boolean',
       disableResponsiveAdaption: 'boolean',
       layoutMode: ['enum', { values: ['grid', 'flex'] }],
-      noGutters: 'boolean',
     },
     extractTextAttributes: ['columns'],
   },

@@ -25,7 +25,7 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
     )
   } else {
     classNames.push('row')
-    if (widget.get('noGutters')) classNames.push('g-0')
+    if (widget.get('disableGutters')) classNames.push('g-0')
   }
 
   return (
