@@ -6,17 +6,8 @@
     align-items: center;
 
     .icon.bi {
-      color: var(--bs-primary);
       margin-right: 0.5rem;
       padding: 0.3rem 0;
     }
   }
-}
-
-.bg-primary .tick-list-widget .icon.bi {
-  color: var(--bs-secondary) !important;
-}
-
-.bg-white .tick-list-widget .icon.bi {
-  color: var(--bs-primary) !important;
 }
