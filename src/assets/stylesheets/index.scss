@@ -868,12 +868,7 @@ header section {
   --bs-card-bg: transparent;
   box-shadow: var(--jr-box-shadow);
 }
-.card.bg-white .bi {
-  color: var(--bs-primary) !important;
-}
-.card,
-.card .card,
-.card .card .card {
+.card {
   &.bg-primary,
   &.bg-secondary,
   &.bg-dark-grey,
@@ -881,16 +876,23 @@ header section {
   &.bg-info,
   &.bg-danger {
     .bi {
-      color: #fff !important;
+      color: #fff;
     }
   }
-}
 
-.card.bg-transparent {
-  box-shadow: none;
-  color: inherit !important;
-}
+  &.bg-white,
+  &.bg-middle-grey,
+  &.bg-light-grey {
+    .bi {
+      color: var(--bs-primary);
+    }
+  }
 
+  &.bg-transparent {
+    box-shadow: none;
+    color: inherit;
+  }
+}
 .card-body {
   position: relative;
   z-index: 1;
@@ -1175,12 +1177,6 @@ section:focus >,
       margin: 3px 0;
     }
   }
-}
-
-// -- general badges -- //
-
-.bagde.bg-middle-grey {
-  color: var(--bs-secondary);
 }
 
 // -- general form-control -- //
