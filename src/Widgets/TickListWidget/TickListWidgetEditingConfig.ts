@@ -1,18 +1,19 @@
 import thumbnail from './thumbnail.svg'
 import { TickListItemWidget } from '../TickListItemWidget/TickListItemWidgetClass'
 import { provideEditingConfig } from 'scrivito'
+import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 
 provideEditingConfig('TickListWidget', {
   title: 'Tick List',
   thumbnail,
-  attributes: {
-    icon: {
+  propertiesGroups: [
+    {
       title: 'Icon',
-      description:
-        'Default: "bi-check". The full list of names can be found at https://icons.getbootstrap.com/',
+      component: ScrivitoBootstrapIconEditor,
+      properties: ['icon'],
+      key: 'icon-group',
     },
-  },
-  properties: ['icon'],
+  ],
   initialContent: {
     icon: 'bi-check',
     items: [
