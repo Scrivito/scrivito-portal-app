@@ -1,15 +1,12 @@
+import { Obj } from 'scrivito'
 import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
+import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 import { ensureString } from '../utils/ensureString'
 
 export const defaultPageEditingConfigAttributes = {
   title: {
     title: 'Title',
     description: 'Limit to 55 characters.',
-  },
-  linkIcon: {
-    title: 'Link icon name',
-    description:
-      'This icon appears, for example, within a vertical navigation widget. The full list of names can be found at https://icons.getbootstrap.com/',
   },
   metaDataDescription: {
     title: 'Page description',
@@ -66,6 +63,19 @@ export const defaultPageInitialContent = {
 
 export const defaultPagePropertiesGroups = [
   {
+    title: 'Link icon',
+    component: (props: { page: Obj }) => (
+      <ScrivitoBootstrapIconEditor
+        attribute="linkIcon"
+        description="This icon may appear in a vertical navigation widget, for example."
+        showClearButton
+        {...props}
+      />
+    ),
+    properties: ['linkIcon'],
+    key: 'icon-group',
+  },
+  {
     title: 'Layout',
     properties: [
       'layoutMainBackgroundColor',
@@ -97,7 +107,7 @@ export const defaultPagePropertiesGroups = [
   },
 ] as const
 
-export const defaultPageProperties = ['title', 'linkIcon']
+export const defaultPageProperties = ['title']
 
 export const defaultPageValidations = [
   [

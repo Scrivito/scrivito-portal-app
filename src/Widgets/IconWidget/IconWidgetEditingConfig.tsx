@@ -1,6 +1,7 @@
-import { provideEditingConfig } from 'scrivito'
+import { provideEditingConfig, Widget } from 'scrivito'
 import { IconWidget } from './IconWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 
 provideEditingConfig(IconWidget, {
   title: 'Icon',
@@ -15,11 +16,6 @@ provideEditingConfig(IconWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
-    icon: {
-      title: 'Icon',
-      description:
-        'Default: "bi-box". The full list of names can be found at https://icons.getbootstrap.com/',
-    },
     link: {
       title: 'Link (optional)',
       description: 'The link where this icon should lead.',
@@ -28,7 +24,21 @@ provideEditingConfig(IconWidget, {
       title: 'Size',
     },
   },
-  properties: ['icon', 'size', 'alignment', 'link'],
+  propertiesGroups: [
+    {
+      title: 'Icon',
+      component: (props: { widget: Widget }) => (
+        <ScrivitoBootstrapIconEditor defaultValue="box" {...props} />
+      ),
+      properties: ['icon'],
+      key: 'icon-group',
+    },
+    {
+      title: 'Optional attributes',
+      properties: ['size', 'alignment', 'link'],
+      key: 'optional-attributes-group',
+    },
+  ],
   initialContent: {
     icon: 'bi-box',
     size: 'bi-1x',

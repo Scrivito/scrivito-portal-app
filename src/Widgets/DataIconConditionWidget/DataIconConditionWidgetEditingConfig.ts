@@ -1,21 +1,29 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataIconConditionWidget } from './DataIconConditionWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 
 provideEditingConfig(DataIconConditionWidget, {
   title: 'Data Icon Condition',
   thumbnail: Thumbnail,
   attributes: {
     attributeValue: { title: 'Attribute value' },
-    icon: {
-      title: 'Icon',
-      description:
-        'Default: "bi-box". The full list of names can be found at https://icons.getbootstrap.com/',
-    },
   },
   titleForContent: (content) =>
     `${content.get('attributeValue')} => ${content.get('icon')}`,
-  properties: ['attributeValue', 'icon'],
+  propertiesGroups: [
+    {
+      title: 'Value',
+      properties: ['attributeValue'],
+      key: 'value-group',
+    },
+    {
+      title: 'Icon',
+      component: ScrivitoBootstrapIconEditor,
+      properties: ['icon'],
+      key: 'icon-group',
+    },
+  ],
   initialContent: {
     icon: 'bi-box',
   },

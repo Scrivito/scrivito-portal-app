@@ -1,18 +1,20 @@
 import { provideEditingConfig } from 'scrivito'
 import { DownloadCardWidget } from './DownloadCardWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 
 provideEditingConfig(DownloadCardWidget, {
   title: 'Download Card',
   thumbnail: Thumbnail,
-  attributes: {
-    icon: {
+  properties: ['link'],
+  propertiesGroups: [
+    {
       title: 'Icon',
-      description:
-        'Default: "bi-filetype-pdf". The full list of names can be found at https://icons.getbootstrap.com/',
+      component: ScrivitoBootstrapIconEditor,
+      properties: ['icon'],
+      key: 'icon-group',
     },
-  },
-  properties: ['link', 'icon'],
+  ],
   initialContent: {
     icon: 'bi-filetype-pdf',
   },
