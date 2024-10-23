@@ -1,8 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
 import { IconWidget } from '../IconWidget/IconWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { IconContainerWidget } from './IconContainerWidgetClass'
 
-provideEditingConfig('IconContainerWidget', {
+provideEditingConfig(IconContainerWidget, {
   title: 'Icon List',
   thumbnail: Thumbnail,
   attributes: {
