@@ -1,8 +1,7 @@
 import { currentLanguage, load } from 'scrivito'
 import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
-import { ReadonlyDataClassSchema } from '../../types'
 
-async function attributes(): Promise<ReadonlyDataClassSchema> {
+async function attributes() {
   const lang = await load(currentLanguage)
 
   const category = [
