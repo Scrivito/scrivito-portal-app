@@ -32,6 +32,7 @@ provideEditingConfig(DataIconWidget, {
       component: (props: { widget: DataIconConditionWidgetInstance }) => (
         <ScrivitoBootstrapIconEditor
           attribute="fallbackIcon"
+          defaultValue="question-octagon"
           description="This icon is used if no condition is met."
           {...props}
         />

@@ -1,6 +1,6 @@
 import thumbnail from './thumbnail.svg'
 import { TickListItemWidget } from '../TickListItemWidget/TickListItemWidgetClass'
-import { provideEditingConfig } from 'scrivito'
+import { provideEditingConfig, Widget } from 'scrivito'
 import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 import { TickListWidget } from './TickListWidgetClass'
 
@@ -10,7 +10,9 @@ provideEditingConfig(TickListWidget, {
   propertiesGroups: [
     {
       title: 'Icon',
-      component: ScrivitoBootstrapIconEditor,
+      component: (props: { widget: Widget }) => (
+        <ScrivitoBootstrapIconEditor defaultValue="check" {...props} />
+      ),
       properties: ['icon'],
       key: 'icon-group',
     },

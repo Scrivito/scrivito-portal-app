@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { provideEditingConfig, Widget } from 'scrivito'
 import { DataIconConditionWidget } from './DataIconConditionWidgetClass'
 import Thumbnail from './thumbnail.svg'
 import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
@@ -19,7 +19,9 @@ provideEditingConfig(DataIconConditionWidget, {
     },
     {
       title: 'Icon',
-      component: ScrivitoBootstrapIconEditor,
+      component: (props: { widget: Widget }) => (
+        <ScrivitoBootstrapIconEditor defaultValue="box" {...props} />
+      ),
       properties: ['icon'],
       key: 'icon-group',
     },
