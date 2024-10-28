@@ -15,6 +15,7 @@ provideEditingConfig(ColumnContainerWidget, {
       properties: [
         'alignment',
         'columns',
+        'disableGutters',
         'disableResponsiveAdaption',
         'layoutMode',
       ],
