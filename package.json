@@ -33,7 +33,7 @@
     "react-dropzone": "^14.2.3",
     "react-helmet-async": "^2.0.5",
     "react-toastify": "^10.0.5",
-    "scrivito": "^1.45.0-rc1",
+    "scrivito": "^1.45.0",
     "scrivito-neoletter-form-widgets": "^0.0.25",
     "scroll-to-fragment": "^1.0.12",
     "speakingurl": "^14.0.1"
