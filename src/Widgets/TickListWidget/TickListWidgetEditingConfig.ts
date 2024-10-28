@@ -2,8 +2,9 @@ import thumbnail from './thumbnail.svg'
 import { TickListItemWidget } from '../TickListItemWidget/TickListItemWidgetClass'
 import { provideEditingConfig } from 'scrivito'
 import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
+import { TickListWidget } from './TickListWidgetClass'
 
-provideEditingConfig('TickListWidget', {
+provideEditingConfig(TickListWidget, {
   title: 'Tick List',
   thumbnail,
   propertiesGroups: [

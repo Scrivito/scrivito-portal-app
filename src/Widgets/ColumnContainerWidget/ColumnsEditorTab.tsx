@@ -45,6 +45,7 @@ const ColumnsEditor = connect(
 
     const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
     const isFlex = widget.get('layoutMode') === 'flex'
+    const disableGutters = widget.get('disableGutters')
 
     function isActive(grid: number[]) {
       return isFlex
@@ -196,8 +197,17 @@ const ColumnsEditor = connect(
               disableResponsiveAdaption: !disableResponsiveAdaption,
             })
           }
-          title="Disable responsive adaption?"
-          value={disableResponsiveAdaption ? 1 : 0}
+          title="Responsive adaption?"
+          value={disableResponsiveAdaption ? 0 : 1}
+        />
+
+        <Switch
+          labels={['No', 'Yes']}
+          onChange={() => widget.update({ disableGutters: !disableGutters })}
+          title="Show gutters?"
+          description="Gutters are the spaces between columns in a layout."
+          value={disableGutters ? 0 : 1}
+          disabled={isFlex}
         />
       </div>
     )
@@ -660,19 +670,23 @@ function AlignmentDescription({ alignment }: { alignment: string | null }) {
 
 function Switch({
   className,
+  description,
   labels,
   onChange,
   title,
   value,
+  disabled,
 }: {
   className?: string
+  description?: string
   labels: string[]
   onChange: () => void
   title: string
   value: number
+  disabled?: boolean
 }) {
   return (
-    <>
+    <div className={disabled ? 'scrivito_disabled' : undefined}>
       <div className="scrivito_detail_label">
         <span>{title}</span>
       </div>
@@ -688,6 +702,7 @@ function Switch({
               className="btn-check"
               checked={!!value}
               onChange={onChange}
+              disabled={disabled}
             />
             <div className="pill-wrapper">
               <div className="cell pill"></div>
@@ -701,6 +716,12 @@ function Switch({
           </label>
         </div>
       </div>
-    </>
+
+      {description && (
+        <div className="scrivito_notice_body">
+          <span>{description}</span>
+        </div>
+      )}
+    </div>
   )
 }

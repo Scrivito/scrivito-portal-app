@@ -1,7 +1,8 @@
 import { provideEditingConfig } from 'scrivito'
 import redirectObjIcon from './thumbnail.svg'
+import { Redirect } from './RedirectObjClass'
 
-provideEditingConfig('Redirect', {
+provideEditingConfig(Redirect, {
   title: 'Redirect',
   thumbnail: redirectObjIcon,
   hideInSelectionDialogs: true,
