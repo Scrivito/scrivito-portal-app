@@ -25,7 +25,7 @@ provideComponent(IconContainerWidget, ({ widget }) => {
           <li className="list-inline-item px-2" key={iconListItem.id()}>
             <IconComponent
               icon={ensureString(iconListItem.get('icon'))}
-              size={ensureString(iconListItem.get('size'))}
+              size={ensureString(iconListItem.get('size') || 'bi-2x')}
               link={link}
             />
           </li>
