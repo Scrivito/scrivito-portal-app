@@ -19,7 +19,14 @@ provideEditingConfig(DataIconWidget, {
     },
     size: {
       title: 'Size',
-      description: 'Default: bi-2x',
+      description: 'Default: 150%',
+      values: [
+        { value: 'bi-1x', title: '100% (Normal)' },
+        { value: 'bi-2x', title: '150%' },
+        { value: 'bi-3x', title: '200%' },
+        { value: 'bi-4x', title: '250%' },
+        { value: 'bi-5x', title: '300% (Biggest)' },
+      ],
     },
     data: {
       restrictDataTo: ['itemAttribute'],

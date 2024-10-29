@@ -22,6 +22,14 @@ provideEditingConfig(IconWidget, {
     },
     size: {
       title: 'Size',
+      description: 'Default: 150%',
+      values: [
+        { value: 'bi-1x', title: '100% (Normal)' },
+        { value: 'bi-2x', title: '150%' },
+        { value: 'bi-3x', title: '200%' },
+        { value: 'bi-4x', title: '250%' },
+        { value: 'bi-5x', title: '300% (Biggest)' },
+      ],
     },
   },
   propertiesGroups: [
@@ -41,7 +49,7 @@ provideEditingConfig(IconWidget, {
   ],
   initialContent: {
     icon: 'bi-box',
-    size: 'bi-1x',
+    size: 'bi-2x',
     alignment: 'left',
   },
 })
