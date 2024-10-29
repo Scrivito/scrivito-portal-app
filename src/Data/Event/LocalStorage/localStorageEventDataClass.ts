@@ -72,7 +72,7 @@ async function attributes(): Promise<ReadonlyDataClassSchema> {
       'number',
       { title: lang === 'de' ? 'Teilnehmergebühr' : 'Attendance fee' },
     ],
-    beginsAt: ['date', { title: lang === 'de' ? 'Beginnt am' : 'Begins  at' }],
+    beginsAt: ['date', { title: lang === 'de' ? 'Beginnt am' : 'Begins at' }],
     description: [
       'string',
       { title: lang === 'de' ? 'Beschreibung' : 'Description' },
