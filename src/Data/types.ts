@@ -10,12 +10,12 @@ type CreateCallback = NonNullable<DataConnection['create']>
 export type ExternalData = Parameters<CreateCallback>[0]
 export type ResultItem = UnPromise<ReturnType<CreateCallback>>
 
-export type DataClassAttributes = Readonly<ProvideDataClassParams['attributes']>
-
+type DataClassAttributes = ProvideDataClassParams['attributes']
 export type DataClassSchema = UnPromise<DataClassAttributes>
 
 // TODO: Remove when #11321 is resolved
+export type ReadonlyDataClassAttributes = Readonly<DataClassAttributes>
 type ExtractReadonlyDataClassSchema<T> =
   T extends Promise<infer U> ? { [K in keyof U]: Readonly<U[K]> } : never
 export type ReadonlyDataClassSchema =
-  ExtractReadonlyDataClassSchema<DataClassAttributes>
+  ExtractReadonlyDataClassSchema<ReadonlyDataClassAttributes>

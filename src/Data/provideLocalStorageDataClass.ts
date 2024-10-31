@@ -2,7 +2,7 @@ import { provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
 import { ensureString } from '../utils/ensureString'
-import { DataClassAttributes, ResultItem, ExternalData } from './types'
+import { ReadonlyDataClassAttributes, ResultItem, ExternalData } from './types'
 import { scrivitoTenantId } from '../config/scrivitoTenants'
 
 interface RawDataItem {
@@ -21,7 +21,7 @@ export function provideLocalStorageDataClass(
     initialContent?: RawDataItem[]
     prepareData?: (data: ExternalData) => Promise<ExternalData>
     postProcessData?: (data: ResultItem) => Promise<ResultItem>
-    attributes?: DataClassAttributes
+    attributes?: ReadonlyDataClassAttributes
   } = {},
 ) {
   const recordKey = `localDataClass-${scrivitoTenantId()}-${className}`
