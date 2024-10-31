@@ -20,7 +20,6 @@ import { Loading } from '../../Components/Loading'
 
 const BLACKLIST_OBJ_CLASSES = ['Image', 'Redirect', 'Video']
 
-// TODO: Add "loading" state, once #7242 is available
 provideComponent(SearchResultsWidget, ({ widget }) => {
   const query = ensureString(currentPageParams().q).trim()
 
