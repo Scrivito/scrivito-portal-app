@@ -2,7 +2,7 @@ import { provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
 import { ensureString } from '../utils/ensureString'
-import { DataClassAttributes } from './types'
+import { ReadonlyDataClassAttributes, ResultItem, ExternalData } from './types'
 import { scrivitoTenantId } from '../config/scrivitoTenants'
 
 interface RawDataItem {
@@ -19,11 +19,9 @@ export function provideLocalStorageDataClass(
     attributes,
   }: {
     initialContent?: RawDataItem[]
-    prepareData?: (
-      data: Record<string, unknown>,
-    ) => Promise<Record<string, unknown>>
-    postProcessData?: (data: RawDataItem) => Promise<RawDataItem>
-    attributes?: DataClassAttributes
+    prepareData?: (data: ExternalData) => Promise<ExternalData>
+    postProcessData?: (data: ResultItem) => Promise<ResultItem>
+    attributes?: ReadonlyDataClassAttributes
   } = {},
 ) {
   const recordKey = `localDataClass-${scrivitoTenantId()}-${className}`
@@ -33,11 +31,7 @@ export function provideLocalStorageDataClass(
   return provideDataClass(className, {
     attributes,
     connection: {
-      async index(params): Promise<{
-        results: RawDataItem[]
-        count?: number
-        continuation?: string
-      }> {
+      async index(params) {
         const record = restoreRecord()
         const rawItems = Object.values(record)
         const items = postProcessData
@@ -82,14 +76,14 @@ export function provideLocalStorageDataClass(
         return { results, continuation, count: orderedItems.length }
       },
 
-      async get(id: string): Promise<RawDataItem | null> {
+      async get(id) {
         const rawItem = restoreRecord()[id]
         if (!rawItem) return null
 
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
-      async create(data: Record<string, unknown>): Promise<{ _id: string }> {
+      async create(data) {
         const record = restoreRecord()
 
         const _id = pseudoRandom32CharHex()
@@ -102,10 +96,7 @@ export function provideLocalStorageDataClass(
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
-      async update(
-        id: string,
-        data: Record<string, unknown>,
-      ): Promise<unknown> {
+      async update(id, data) {
         const record = restoreRecord()
         const newData = prepareData ? await prepareData(data) : data
         const storedData: RawDataItem = { ...newData, _id: id }
@@ -116,7 +107,7 @@ export function provideLocalStorageDataClass(
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
-      async delete(id: string): Promise<void> {
+      async delete(id) {
         const record = restoreRecord()
         delete record[id]
         persistRecord(record)
@@ -162,7 +153,7 @@ export function provideLocalStorageDataClass(
 
     try {
       const parsed = JSON.parse(item)
-      if (!isDataItemRecord(parsed)) return {}
+      if (!isRawDataItemRecord(parsed)) return {}
 
       return parsed
     } catch {
@@ -175,24 +166,24 @@ export function provideLocalStorageDataClass(
   }
 }
 
-function isDataItemRecord(
+function isRawDataItemRecord(
   input: unknown,
 ): input is Record<string, RawDataItem> {
   if (!input) return false
   if (typeof input !== 'object') return false
-  return Object.values(input).every((item) => isDataItem(item))
+  return Object.values(input).every((item) => isRawDataItem(item))
 }
 
-function isDataItem(item: unknown): item is RawDataItem {
+function isRawDataItem(item: unknown): item is RawDataItem {
   if (!item) return false
   if (typeof item !== 'object') return false
   return typeof (item as RawDataItem)._id === 'string'
 }
 
 function orderItems(
-  items: RawDataItem[],
+  items: ResultItem[],
   order: Array<[string, 'asc' | 'desc']>,
-): RawDataItem[] {
+): ResultItem[] {
   if (order.length === 0) return items
 
   return orderBy(
