@@ -19,6 +19,12 @@
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
     "local-web-server", // used by Lighthouse
+
+    // used by eslint.config.mjs; Workaround for https://github.com/webpro-nl/knip/issues/818
+    "@arabasta/eslint-plugin-require-useeffect-dependency-array",
+    "eslint-plugin-import",
+    "eslint-plugin-react",
+    "eslint-plugin-react-hooks",
   ],
   "project": ["**/*.{js,ts,tsx}"],
 }
