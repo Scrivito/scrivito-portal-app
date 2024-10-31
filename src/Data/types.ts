@@ -15,7 +15,6 @@ export type DataClassSchema = UnPromise<DataClassAttributes>
 
 // TODO: Remove when #11321 is resolved
 export type ReadonlyDataClassAttributes = Readonly<DataClassAttributes>
-type ExtractReadonlyDataClassSchema<T> =
-  T extends Promise<infer U> ? { [K in keyof U]: Readonly<U[K]> } : never
-export type ReadonlyDataClassSchema =
-  ExtractReadonlyDataClassSchema<ReadonlyDataClassAttributes>
+export type ReadonlyDataClassSchema = {
+  readonly [K in keyof DataClassSchema]: Readonly<DataClassSchema[K]>
+}
