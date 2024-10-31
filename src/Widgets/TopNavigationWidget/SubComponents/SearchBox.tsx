@@ -48,6 +48,10 @@ function localizeSearchInputLabel(): string {
   switch (currentLanguage()) {
     case 'de':
       return 'Suche'
+    case 'fr':
+      return 'Recherche'
+    case 'pl':
+      return 'Szukaj'
     default:
       return 'Search'
   }

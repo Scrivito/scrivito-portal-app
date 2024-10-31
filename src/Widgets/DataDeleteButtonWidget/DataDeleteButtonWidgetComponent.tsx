@@ -120,6 +120,10 @@ function getErrorMessage(): string {
   switch (currentLanguage()) {
     case 'de':
       return 'Aktion fehlgeschlagen. Wir bedauern die Unannehmlichkeiten.'
+    case 'fr':
+      return 'L’opération a échoué. Nous sommes désolés pour le désagrément.'
+    case 'pl':
+      return 'Operacja nie powiodła się. Przepraszamy za utrudnienia.'
     default:
       return 'Operation failed. We’re sorry for the inconvenience.'
   }

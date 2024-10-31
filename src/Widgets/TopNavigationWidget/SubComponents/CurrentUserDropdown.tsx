@@ -139,6 +139,10 @@ function localizeLogOutLabel(): string {
   switch (currentLanguage()) {
     case 'de':
       return 'Abmelden'
+    case 'fr':
+      return 'Déconnexion'
+    case 'pl':
+      return 'Wyloguj się'
     default:
       return 'Log out'
   }

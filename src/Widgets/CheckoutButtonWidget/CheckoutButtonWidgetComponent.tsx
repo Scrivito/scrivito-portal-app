@@ -70,6 +70,10 @@ function getErrorMessage(): string {
   switch (currentLanguage()) {
     case 'de':
       return 'Wir bedauern die Unannehmlichkeiten.'
+    case 'fr':
+      return 'Nous sommes désolés pour le dérangement.'
+    case 'pl':
+      return 'Przepraszamy za utrudnienia.'
     default:
       return 'We’re sorry for the inconvenience.'
   }

@@ -153,6 +153,10 @@ function localizeNotAvailable(): string {
   switch (currentLanguage()) {
     case 'de':
       return 'k.A.'
+    case 'fr':
+      return 'N/D'
+    case 'pl':
+      return 'bd.'
     default:
       return 'N/A'
   }

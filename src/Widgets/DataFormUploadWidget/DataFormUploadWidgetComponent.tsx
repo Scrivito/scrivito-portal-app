@@ -126,6 +126,10 @@ function getDropMessage(multiple: boolean) {
     switch (currentLanguage()) {
       case 'de':
         return 'Dateien auswählen oder hierher ziehen.'
+      case 'fr':
+        return 'Choisissez des fichiers ou faites-les glisser ici.'
+      case 'pl':
+        return 'Wybierz pliki lub przeciągnij je tutaj.'
       default:
         return 'Choose files or drag them here.'
     }
@@ -134,6 +138,10 @@ function getDropMessage(multiple: boolean) {
   switch (currentLanguage()) {
     case 'de':
       return 'Datei auswählen oder hierher ziehen.'
+    case 'fr':
+      return 'Choisissez un fichier ou faites-le glisser ici.'
+    case 'pl':
+      return 'Wybierz plik lub przeciągnij go tutaj.'
     default:
       return 'Choose a file or drag it here.'
   }
@@ -146,6 +154,16 @@ function getTooLargeMessage() {
         MAX_FILE_SIZE,
         { locale: 'de' },
       )} hoch.`
+    case 'fr':
+      return `Un ou plusieurs fichiers sont trop volumineux. Veuillez télécharger des fichiers d'une taille maximale de ${prettyBytes(
+        MAX_FILE_SIZE,
+        { locale: 'fr' },
+      )}.`
+    case 'pl':
+      return `Jeden lub kilka plików jest za duży. Proszę przesłać pliki o maksymalnym rozmiarze ${prettyBytes(
+        MAX_FILE_SIZE,
+        { locale: 'pl' },
+      )}.`
     default:
       return `One or more files are too large. Please upload files up to ${prettyBytes(
         MAX_FILE_SIZE,
