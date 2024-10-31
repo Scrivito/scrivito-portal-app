@@ -155,7 +155,7 @@ export function provideLocalStorageDataClass(
 
     try {
       const parsed = JSON.parse(item)
-      if (!isDataItemRecord(parsed)) return {}
+      if (!isRawDataItemRecord(parsed)) return {}
 
       return parsed
     } catch {
@@ -168,15 +168,15 @@ export function provideLocalStorageDataClass(
   }
 }
 
-function isDataItemRecord(
+function isRawDataItemRecord(
   input: unknown,
 ): input is Record<string, RawDataItem> {
   if (!input) return false
   if (typeof input !== 'object') return false
-  return Object.values(input).every((item) => isDataItem(item))
+  return Object.values(input).every((item) => isRawDataItem(item))
 }
 
-function isDataItem(item: unknown): item is RawDataItem {
+function isRawDataItem(item: unknown): item is RawDataItem {
   if (!item) return false
   if (typeof item !== 'object') return false
   return typeof (item as RawDataItem)._id === 'string'
