@@ -2,20 +2,13 @@ import type { provideDataClass } from 'scrivito'
 
 type UnPromise<T> = T extends Promise<infer U> ? U : never
 
-export interface RawItem {
-  _id: string
-  [key: string]: unknown
-}
-
-export interface DataIndexResponse {
-  results: RawItem[]
-  count?: number
-  continuation?: string
-}
-
 type ProvideDataClassParams = Parameters<typeof provideDataClass>[1]
 
 export type DataConnection = UnPromise<ProvideDataClassParams['connection']>
+
+type CreateCallback = NonNullable<DataConnection['create']>
+export type ExternalData = Parameters<CreateCallback>[0]
+export type ResultItem = UnPromise<ReturnType<CreateCallback>>
 
 export type DataClassAttributes = Readonly<ProvideDataClassParams['attributes']>
 
