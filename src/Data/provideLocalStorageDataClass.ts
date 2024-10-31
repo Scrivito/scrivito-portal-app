@@ -33,11 +33,7 @@ export function provideLocalStorageDataClass(
   return provideDataClass(className, {
     attributes,
     connection: {
-      async index(params): Promise<{
-        results: RawDataItem[]
-        count?: number
-        continuation?: string
-      }> {
+      async index(params) {
         const record = restoreRecord()
         const rawItems = Object.values(record)
         const items = postProcessData
@@ -82,14 +78,14 @@ export function provideLocalStorageDataClass(
         return { results, continuation, count: orderedItems.length }
       },
 
-      async get(id: string): Promise<RawDataItem | null> {
+      async get(id) {
         const rawItem = restoreRecord()[id]
         if (!rawItem) return null
 
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
-      async create(data: Record<string, unknown>): Promise<{ _id: string }> {
+      async create(data) {
         const record = restoreRecord()
 
         const _id = pseudoRandom32CharHex()
@@ -102,10 +98,7 @@ export function provideLocalStorageDataClass(
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
-      async update(
-        id: string,
-        data: Record<string, unknown>,
-      ): Promise<unknown> {
+      async update(id, data) {
         const record = restoreRecord()
         const newData = prepareData ? await prepareData(data) : data
         const storedData: RawDataItem = { ...newData, _id: id }
@@ -116,7 +109,7 @@ export function provideLocalStorageDataClass(
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
-      async delete(id: string): Promise<void> {
+      async delete(id) {
         const record = restoreRecord()
         delete record[id]
         persistRecord(record)
