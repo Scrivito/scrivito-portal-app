@@ -160,7 +160,7 @@ function getTooLargeMessage() {
         { locale: 'fr' },
       )}.`
     case 'pl':
-      return `Jeden lub kilka plików jest za duży. Proszę przesłać pliki o maksymalnym rozmiarze ${prettyBytes(
+      return `Za duży rozmiar pliku lub plików. Maksymalny rozmiar to ${prettyBytes(
         MAX_FILE_SIZE,
         { locale: 'pl' },
       )}.`

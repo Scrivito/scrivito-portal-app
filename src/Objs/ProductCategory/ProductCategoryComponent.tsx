@@ -77,6 +77,6 @@ const LOCALIZERS = {
     headline: 'Kategoria produktu',
     items0: 'Brak produktów',
     items1: '1 produkt',
-    itemsMany: '__count__ produktów',
+    itemsMany: 'Liczba produktów: __count__',
   },
 }
