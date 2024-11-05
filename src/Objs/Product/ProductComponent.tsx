@@ -191,13 +191,13 @@ const CartActionButton = connect(function CartActionButton({
   const cartRemovedMessage = getMessage('cartRemovedMessage')
   const cartRemoveLabel = getMessage('cartRemoveLabel')
   const cartLoginLabel = getMessage('cartLoginLabel')
-  const cartUnvailableMessage = getMessage('cartUnvailableMessage')
+  const cartUnavailableMessage = getMessage('cartUnavailableMessage')
 
   if (!isUserLoggedIn()) {
     return (
       <button
         className="btn btn-sm btn-outline-primary"
-        title={cartUnvailableMessage}
+        title={cartUnavailableMessage}
         onClick={ensureUserIsLoggedIn}
       >
         <i className="bi bi-cart"></i>
@@ -276,7 +276,7 @@ const LOCALIZERS = {
     cartRemovedMessage: '__product__ wurde aus dem Warenkorb entfernt.',
     cartRemoveLabel: 'Aus dem Warenkorb entfernen',
     cartLoginLabel: 'Anmelden',
-    cartUnvailableMessage:
+    cartUnavailableMessage:
       'Bitte melden Sie sich an, um __product__ zum Warenkorb hinzuzufügen.',
     data: 'Daten',
     description: 'Beschreibung',
@@ -289,10 +289,35 @@ const LOCALIZERS = {
     cartRemovedMessage: 'Removed __product__ from cart.',
     cartRemoveLabel: 'Remove from cart',
     cartLoginLabel: 'Log in',
-    cartUnvailableMessage: 'Please log in to add __product__ to cart.',
+    cartUnavailableMessage: 'Please log in to add __product__ to cart.',
     data: 'Data',
     description: 'Description',
     downloads: 'Downloads',
     suitableAccessories: 'Suitable accessories',
+  },
+  fr: {
+    cartAddedMessage: '__product__ a été ajouté au panier.',
+    cartAddLabel: 'Ajouter au panier',
+    cartRemovedMessage: '__product__ a été retiré du panier.',
+    cartRemoveLabel: 'Retirer du panier',
+    cartLoginLabel: 'Se connecter',
+    cartUnavailableMessage:
+      'Veuillez vous connecter pour ajouter __product__ dans le panier.',
+    data: 'Données',
+    description: 'Description',
+    downloads: 'Téléchargements',
+    suitableAccessories: 'Accessoires appropriés',
+  },
+  pl: {
+    cartAddedMessage: '__product__ został dodany do koszyka.',
+    cartAddLabel: 'Dodaj do koszyka',
+    cartRemovedMessage: '__product__ został usunięty z koszyka.',
+    cartRemoveLabel: 'Usuń z koszyka',
+    cartLoginLabel: 'Zaloguj się',
+    cartUnavailableMessage: 'Zaloguj się, aby dodać __product__ do koszyka.',
+    data: 'Dane',
+    description: 'Opis',
+    downloads: 'Pobrania',
+    suitableAccessories: 'Odpowiednie akcesoria',
   },
 }

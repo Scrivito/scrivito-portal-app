@@ -31,6 +31,10 @@ function getMessage(): string {
   switch (currentLanguage()) {
     case 'de':
       return 'Daten werden geladen…'
+    case 'fr':
+      return 'Chargement des données…'
+    case 'pl':
+      return 'Ładowanie danych…'
     default:
       return 'Loading data…'
   }

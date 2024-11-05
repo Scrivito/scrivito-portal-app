@@ -67,4 +67,16 @@ const LOCALIZERS = {
     items1: '1 item',
     itemsMany: '__count__ items',
   },
+  fr: {
+    headline: 'Catégorie de produit',
+    items0: 'Aucun article',
+    items1: '1 article',
+    itemsMany: '__count__ articles',
+  },
+  pl: {
+    headline: 'Kategoria produktu',
+    items0: 'Brak produktów',
+    items1: '1 produkt',
+    itemsMany: 'Liczba produktów: __count__',
+  },
 }

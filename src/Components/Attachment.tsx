@@ -85,6 +85,10 @@ function getDownloadMessage(subject: string) {
   switch (currentLanguage()) {
     case 'de':
       return `${subject} herunterladen`
+    case 'fr':
+      return `Télécharger ${subject}`
+    case 'pl':
+      return `Pobierz ${subject}`
     default:
       return `Download ${subject}`
   }
