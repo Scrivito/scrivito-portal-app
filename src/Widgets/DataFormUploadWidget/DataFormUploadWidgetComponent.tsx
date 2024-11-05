@@ -127,7 +127,7 @@ function getDropMessage(multiple: boolean) {
       case 'de':
         return 'Dateien auswählen oder hierher ziehen.'
       case 'fr':
-        return 'Choisissez des fichiers ou faites-les glisser ici.'
+        return 'Choisissez des fichiers ou glissez-les ici.'
       case 'pl':
         return 'Wybierz pliki lub przeciągnij je tutaj.'
       default:
@@ -139,7 +139,7 @@ function getDropMessage(multiple: boolean) {
     case 'de':
       return 'Datei auswählen oder hierher ziehen.'
     case 'fr':
-      return 'Choisissez un fichier ou faites-le glisser ici.'
+      return 'Choisissez un fichier ou glissez-le ici.'
     case 'pl':
       return 'Wybierz plik lub przeciągnij go tutaj.'
     default:

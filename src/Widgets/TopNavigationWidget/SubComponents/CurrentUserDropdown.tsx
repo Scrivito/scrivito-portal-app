@@ -140,7 +140,7 @@ function localizeLogOutLabel(): string {
     case 'de':
       return 'Abmelden'
     case 'fr':
-      return 'Déconnexion'
+      return 'Se déconnecter'
     case 'pl':
       return 'Wyloguj się'
     default:

@@ -76,7 +76,7 @@ function localizeNotAvailable(): string {
     case 'de':
       return 'k.A.'
     case 'fr':
-      return 'N/D'
+      return 'ND'
     case 'pl':
       return 'bd.'
     default:
