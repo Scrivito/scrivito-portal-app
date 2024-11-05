@@ -6,7 +6,6 @@ import {
   useData,
 } from 'scrivito'
 import { DataMessageWidget } from './DataMessageWidgetClass'
-import { User } from '../../Data/User/UserDataClass'
 import { CurrentUser } from '../../Data/CurrentUser/CurrentUserDataItem'
 import { DataBinary, isDataBinary } from '../../utils/dataBinaryToUrl'
 
@@ -16,9 +15,9 @@ import { ensureString } from '../../utils/ensureString'
 
 provideComponent(DataMessageWidget, ({ widget }) => {
   const dataItem = useData().dataItem()
-  const createdBy = ensureString(dataItem?.get('createdBy'))
+  const createdBy = dataItem?.get('createdBy')
 
-  const user: DataItem | null = createdBy ? User.get(createdBy) : null
+  const user = createdBy instanceof DataItem ? createdBy : null
 
   const classNames = ['box-comment']
 
