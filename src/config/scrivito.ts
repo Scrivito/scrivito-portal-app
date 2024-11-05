@@ -4,6 +4,7 @@ import { scrivitoTenantId } from './scrivitoTenants'
 
 export function configureScrivito(options?: { priority?: 'background' }) {
   configure({
+    activateDataIntegration: true,
     adoptUi: true,
     autoConvertAttributes: true,
     baseUrlForSite,
