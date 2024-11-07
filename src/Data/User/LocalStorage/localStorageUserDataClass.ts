@@ -88,7 +88,6 @@ export function localStorageUserDataClass() {
         givenName: 'Adrian',
         familyName: 'Schärli',
         email: 'asc@example.com',
-        position: '',
         staff: true,
       },
       {
@@ -143,11 +142,7 @@ export function localStorageUserDataClass() {
       {
         _id: '4668C6ADEF0443BE80FB4049097A901A',
         name: 'Administrator',
-        salutation: '',
-        givenName: '',
         familyName: 'Administrator',
-        email: '',
-        position: '',
         staff: true,
       },
       {
