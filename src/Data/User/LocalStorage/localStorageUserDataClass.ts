@@ -73,7 +73,7 @@ export function localStorageUserDataClass() {
       {
         _id: '052601BEBCEC39C8E040A8C00D0107AC',
         name: 'Thomas Richter',
-        salutation: 'Herr',
+        salutation: 'M',
         givenName: 'Thomas',
         familyName: 'Richter',
         staff: true,
@@ -84,7 +84,7 @@ export function localStorageUserDataClass() {
       {
         _id: '18EEEAEC56D37397E040A8C00F012319',
         name: 'Adrian Schärli',
-        salutation: 'Herr',
+        salutation: 'M',
         givenName: 'Adrian',
         familyName: 'Schärli',
         email: 'asc@example.com',
@@ -93,7 +93,7 @@ export function localStorageUserDataClass() {
       {
         _id: '228C5C6067EF486FB72F8D4BAAE6AB08',
         name: 'Olaf Behrends',
-        salutation: 'Herr',
+        salutation: 'M',
         givenName: 'Olaf',
         familyName: 'Behrends',
         email: 'behrends@example.de',
@@ -103,7 +103,7 @@ export function localStorageUserDataClass() {
       {
         _id: 'D38D7FBFA277856DE030A8C02A010460',
         name: 'Frank Goosens',
-        salutation: 'Herr',
+        salutation: 'M',
         givenName: 'Frank',
         familyName: 'Goosens',
         email: 'goosens@example.de',
@@ -113,7 +113,7 @@ export function localStorageUserDataClass() {
       {
         _id: 'D456ACF6FF405922E030A8C02A010C68',
         name: 'Benjamin Braschau',
-        salutation: 'Herr',
+        salutation: 'M',
         givenName: 'Benjamin',
         familyName: 'Braschau',
         staff: true,
@@ -124,7 +124,7 @@ export function localStorageUserDataClass() {
       {
         _id: 'F87BDC400E41D630E030A8C00D01158A',
         name: 'Markus Neumann',
-        salutation: 'Herr',
+        salutation: 'M',
         givenName: 'Markus',
         familyName: 'Neumann',
         staff: false,
@@ -132,7 +132,7 @@ export function localStorageUserDataClass() {
       {
         _id: 'F9E1B255870E5EEEE030A8C00D012D39',
         name: 'Heinrich Siebert',
-        salutation: 'Herr',
+        salutation: 'M',
         givenName: 'Heinrich',
         familyName: 'Siebert',
         email: 'siebert@example.com',
@@ -148,7 +148,7 @@ export function localStorageUserDataClass() {
       {
         _id: 'F203EF15869B46509B2BE0AB12D480D2',
         name: 'Martin Fuchs',
-        salutation: 'Herr',
+        salutation: 'M',
         givenName: 'Martin',
         familyName: 'Fuchs',
         email: 'm.fuchs@tynacoon.com',
@@ -159,7 +159,7 @@ export function localStorageUserDataClass() {
       {
         _id: '0BD5DC0F9DA442C5946FA7ECAF870D7B',
         name: 'Irene Bach',
-        salutation: 'Frau',
+        salutation: 'F',
         givenName: 'Irene',
         familyName: 'Bach',
         email: 'bach@tynacoon.de',
