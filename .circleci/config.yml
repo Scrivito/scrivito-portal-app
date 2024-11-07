@@ -37,6 +37,9 @@ workflows:
           npm-run-command: build
           setup:
             - run: node --version
+            - run:
+                name: Set ENABLE_PISA
+                command: echo 'export ENABLE_PISA=true' >> $BASH_ENV
       - execute-npm:
           name: npm run types
           npm-run-command: types
