@@ -113,15 +113,11 @@ export function localStorageEventDataClass() {
         beginsAt: '2024-04-29T13:30:00Z',
         endsAt: '2024-04-29T14:30:00Z',
         location: 'Schulungszentrum 1',
-        organizer: '',
         responsibleAgent: '0BD5DC0F9DA442C5946FA7ECAF870D7B',
         status: 'PSA_PRO_EVT_REG_OPN',
-        url: '',
         logo: { url: spiderImage },
         language: 'GER',
-        freeSeats: null,
         attendanceFee: 0.0,
-        description: '',
       },
       {
         _id: '4100600152A8FFCBE040007F01002CE3',
@@ -136,7 +132,6 @@ export function localStorageEventDataClass() {
         url: 'http://www.tynacoon-roadshow.de',
         logo: { url: roadshowImage },
         language: 'GER',
-        freeSeats: null,
         attendanceFee: 0.0,
         description:
           'Pilotveranstaltung: Roadshow mit einem Show-Truck. Auf dem Truck sind Maschinen und Geräte installiert und können von den Besuchern teilweise im Betrieb begutachtet werden. Der Show-Truck fährt eine Woche die aktuellen Interessenten ab.',
