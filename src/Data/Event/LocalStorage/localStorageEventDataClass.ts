@@ -117,7 +117,6 @@ export function localStorageEventDataClass() {
         status: 'PSA_PRO_EVT_REG_OPN',
         logo: { url: spiderImage },
         language: 'GER',
-        freeSeats: null,
         attendanceFee: 0.0,
       },
       {
@@ -133,7 +132,6 @@ export function localStorageEventDataClass() {
         url: 'http://www.tynacoon-roadshow.de',
         logo: { url: roadshowImage },
         language: 'GER',
-        freeSeats: null,
         attendanceFee: 0.0,
         description:
           'Pilotveranstaltung: Roadshow mit einem Show-Truck. Auf dem Truck sind Maschinen und Geräte installiert und können von den Besuchern teilweise im Betrieb begutachtet werden. Der Show-Truck fährt eine Woche die aktuellen Interessenten ab.',
