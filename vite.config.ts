@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     build: {
+      chunkSizeWarningLimit: 900,
       outDir,
       rollupOptions: {
         input: {
