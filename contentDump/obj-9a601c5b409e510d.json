@@ -1,0 +1,815 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Event details"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "509cd1b9",
+      "9026037d",
+      "972e27ad"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "9a601c5b409e510d",
+  "_created_at": "20240307093708",
+  "_data_param": [
+    "Event"
+  ],
+  "_editing_asset": false,
+  "_first_published_at": "20240318105630",
+  "_id": "9a601c5b409e510d",
+  "_language": "en",
+  "_last_changed": "20240808071734",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/7516c8021fa03851/ebabde125c44e563",
+  "_permalink": null,
+  "_published_at": "20240808072537",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "56a14d0750cc844e",
+  "_version": "20240808072537000000000000000019dcd31e21d00e85",
+  "_widget_pool": {
+    "34156763": {
+      "_obj_class": "DataImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "logo",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "5d6e5487": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h3"
+      ],
+      "details": [
+        "string",
+        "__Event.number__"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "keyword",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "56b35228": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Location"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "location",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "139ffba0": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "f08762ab": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Language"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "language",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "0c3bb1de": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Attendance FEE"
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "attendanceFee",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "fc53c80f": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Organizer"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "organizer",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "303bd277": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "URL"
+      ],
+      "show_as": [
+        "string",
+        "link"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "url",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "02c38d9d": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Begins At"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "datetime_format": [
+        "string",
+        "datetime"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "beginsAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "505f8cc5": {
+      "_obj_class": "DataLabelWidget",
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "label": [
+        "string",
+        "Ends At"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "datetime_format": [
+        "string",
+        "datetime"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "endsAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "cb347e5a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "text": [
+        "html",
+        "<p>You are registered for the event.</p>"
+      ]
+    },
+    "509cd1b9": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "5d6e5487",
+          "940781e8",
+          "09e888c8"
+        ]
+      ]
+    },
+    "940781e8": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "9310a2a7",
+          "88955be9",
+          "923ff7ab"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "9310a2a7": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "34156763"
+        ]
+      ]
+    },
+    "88955be9": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "02c38d9d",
+          "505f8cc5",
+          "56b35228",
+          "fc53c80f"
+        ]
+      ]
+    },
+    "923ff7ab": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        5
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f08762ab",
+          "139ffba0",
+          "0c3bb1de",
+          "303bd277"
+        ]
+      ]
+    },
+    "23d7ede5": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "66fb37b4",
+          "2819baa8"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "66fb37b4": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "dce4528e"
+        ]
+      ]
+    },
+    "2819baa8": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        9
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a77932e9",
+          "e770cfb7"
+        ]
+      ]
+    },
+    "a77932e9": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Responsible Agent"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "name",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "e770cfb7": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Position"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "position",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "8d907da7": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "cd6f32a5"
+        ]
+      ]
+    },
+    "9026037d": {
+      "_obj_class": "DataGroupWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8d907da7"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Event",
+                "field": "responsibleAgent"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "cd6f32a5": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "23d7ede5"
+        ]
+      ]
+    },
+    "efa78128": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "cb347e5a",
+          "2128996e"
+        ]
+      ]
+    },
+    "15cf884b": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "reset_title": [
+        "string",
+        "cancel"
+      ],
+      "size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "block"
+      ],
+      "submit_title": [
+        "string",
+        "Attend Event"
+      ]
+    },
+    "e637ec38": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "15cf884b"
+        ]
+      ],
+      "submitted_message": [
+        "string",
+        "Attendance confirmed"
+      ]
+    },
+    "8b84d8f0": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "e637ec38"
+        ]
+      ]
+    },
+    "09e888c8": {
+      "_obj_class": "DataGroupWidget",
+      "content": [
+        "widgetlist",
+        [
+          "efa78128",
+          "8b84d8f0"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "EventRegistration",
+          "query": [
+            {
+              "field": "eventId",
+              "value_via": {
+                "class": "Event",
+                "field": "_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "2128996e": {
+      "_obj_class": "DataDeleteButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "cancel_title": [
+        "string",
+        "Never mind"
+      ],
+      "deleted_message": [
+        "string",
+        "Attendance canceled"
+      ],
+      "title": [
+        "string",
+        "Cancel My Attendance"
+      ],
+      "require_confirmation": [
+        "boolean",
+        true
+      ],
+      "confirm_title": [
+        "string",
+        "Yes, Cancel My Attendance"
+      ]
+    },
+    "dce4528e": {
+      "_obj_class": "DataImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "image",
+          "via_ref": "single"
+        }
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "e21c0199": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Downloads"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "6d7aeff6": {
+      "_obj_class": "DataAttachmentsWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "field": "body",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "083fd50e": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6d7aeff6"
+        ]
+      ]
+    },
+    "24b0dc83": {
+      "_obj_class": "DataGroupWidget",
+      "content": [
+        "widgetlist",
+        [
+          "083fd50e"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "EventDocument",
+                "field": "documentId"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "737f5cbf": {
+      "_obj_class": "DataColumnListWidget",
+      "content": [
+        "widgetlist",
+        [
+          "24b0dc83"
+        ]
+      ],
+      "columns_count": [
+        "string",
+        "4"
+      ]
+    },
+    "8b3d61de": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "EventDocument",
+          "query": [
+            {
+              "field": "eventId",
+              "value_via": {
+                "class": "Event",
+                "field": "_id"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "737f5cbf",
+          "a3b637c2"
+        ]
+      ]
+    },
+    "972e27ad": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "e21c0199",
+          "8b3d61de"
+        ]
+      ]
+    },
+    "a3b637c2": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8fc56747"
+        ]
+      ]
+    },
+    "8fc56747": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>No downloads found.</p>"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

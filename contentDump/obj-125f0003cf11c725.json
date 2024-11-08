@@ -1,0 +1,461 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Tickets"
+  ],
+  "link_icon": [
+    "string",
+    "bi-headset"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "9766deb4",
+      "22db8bd5",
+      "cd9ca015",
+      "0ad80f22",
+      "53b8e363",
+      "41799769",
+      "7dd638c1",
+      "76f10444"
+    ]
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Ticket",
+      "order_by": [
+        [
+          "createdAt",
+          "desc"
+        ]
+      ],
+      "query": [
+        {
+          "field": "open",
+          "value": true
+        }
+      ],
+      "size": 10
+    }
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "125f0003cf11c725",
+  "_created_at": "20240109075802",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240112090022",
+  "_id": "125f0003cf11c725",
+  "_language": "en",
+  "_last_changed": "20241001091845",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/125f0003cf11c725",
+  "_permalink": "tickets",
+  "_published_at": "20241008122928",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "56a14d0750cc844e",
+  "_version": "2024100812292800000000000000005896ecd5c33e5a21",
+  "_widget_pool": {
+    "41799769": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c0ab533b"
+        ]
+      ]
+    },
+    "81576325": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Updated At"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Ticket",
+          "field": "updatedAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "0ad80f22": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8eeab309"
+        ]
+      ]
+    },
+    "8eeab309": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "e7118807488a6364",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "faaf3a93"
+        ]
+      ]
+    },
+    "faaf3a93": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "6cdf739b",
+          "b92ac671",
+          "7ad53c43",
+          "858c7d95"
+        ]
+      ]
+    },
+    "6cdf739b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7e5176c5",
+          "2354ed9f"
+        ]
+      ]
+    },
+    "b92ac671": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        7
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "dc7e3d9f"
+        ]
+      ]
+    },
+    "7ad53c43": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "81576325"
+        ]
+      ]
+    },
+    "858c7d95": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "04149359"
+        ]
+      ]
+    },
+    "9766deb4": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "right"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "f909e9691db27360",
+          "query": null,
+          "target": null,
+          "title": "Create new ticket",
+          "url": null
+        }
+      ]
+    },
+    "dc7e3d9f": {
+      "_obj_class": "DataLabelWidget",
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "label": [
+        "string",
+        "Ticket"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "details": [
+        "string",
+        "__Ticket.number__"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Ticket",
+          "field": "title",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "2354ed9f": {
+      "_obj_class": "DataIconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "fallback_icon": [
+        "string",
+        "bi-question-octagon"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "conditions": [
+        "widgetlist",
+        [
+          "98c1876e",
+          "cf491940",
+          "1132bf60"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Ticket",
+          "field": "type",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "cf491940": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-bug"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_TRB"
+      ]
+    },
+    "1132bf60": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-journal-check"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_CPL"
+      ]
+    },
+    "98c1876e": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-question-circle"
+      ],
+      "attribute_value": [
+        "string",
+        "PSA_SVC_CAL"
+      ]
+    },
+    "22db8bd5": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "c0ab533b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No tickets found.</p>"
+      ]
+    },
+    "04149359": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Ticket",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "7e5176c5": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        0.5
+      ]
+    },
+    "7dd638c1": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "76f10444": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "7f5d7c4c3879174f",
+          "query": null,
+          "target": null,
+          "title": "Tickets archive",
+          "url": null
+        }
+      ]
+    },
+    "53b8e363": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ]
+    },
+    "cd9ca015": {
+      "_obj_class": "DataSearchWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "placeholder": [
+        "string",
+        "Search for ticket"
+      ],
+      "url_param_name": [
+        "string",
+        "search"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

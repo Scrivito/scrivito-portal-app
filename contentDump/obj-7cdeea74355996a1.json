@@ -1,0 +1,275 @@
+{
+  "_obj_class": "Product",
+  "title": [
+    "string",
+    "Siebbecher"
+  ],
+  "image": [
+    "reference",
+    "89494e7dcdff932b"
+  ],
+  "suitable_accessories": [
+    "referencelist",
+    [
+      "6c31d6fed5dc2915",
+      "dae0df2517e9f6c6",
+      "140dc93f827a36a4"
+    ]
+  ],
+  "subtitle": [
+    "string",
+    "Effiziente Flüssigkeitsfiltration"
+  ],
+  "parameters": [
+    "widgetlist",
+    [
+      "236a1a86",
+      "5a69e732",
+      "9e3c4d93",
+      "ce344ecf"
+    ]
+  ],
+  "description_section": [
+    "widgetlist",
+    [
+      "c88ee54b"
+    ]
+  ],
+  "data_section": [
+    "widgetlist",
+    [
+      "e0448434"
+    ]
+  ],
+  "downloads_section": [
+    "widgetlist",
+    [
+      "c562182d"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "8252c6d5cff8c608",
+  "_created_at": "20240405112846",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "7cdeea74355996a1",
+  "_language": "de",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/ed043d1606eaf539/93ed03e1af1c242d/7cdeea74355996a1",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "5a69e732": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Verkaufseinheit"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "10 Stück"
+        ]
+      ]
+    },
+    "9e3c4d93": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Gewicht"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "0,02 kg"
+        ]
+      ]
+    },
+    "ce344ecf": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Material"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "Edelstahl"
+        ]
+      ]
+    },
+    "c88ee54b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Wir stellen den Siebbecher vor – eine durchdachte Lösung zur Optimierung Ihres Flüssigkeitsversorgungssystems. Mit seinem einzigartigen kubischen Design bietet dieses Sieb eine effiziente Filtration, verhindert Verstopfungen und gewährleistet, dass Ihre Düsen über die Zeit hinweg konsistent funktionieren.</p><p>Sagen Sie aufwendigen Wartungsroutinen Lebewohl. Der Siebbecher zeichnet sich durch ein benutzerfreundliches Design aus, das die Reinigung zu einer einfachen Aufgabe macht. Es ist für Langlebigkeit konzipiert und stellt eine zuverlässige Wahl in verschiedenen Umgebungen dar – industriell, kommerziell oder im Wohnbereich.</p><p>Verbessern Sie Ihre Düsenkonfiguration mit dem Siebbecher. Freuen Sie sich über einen reibungsarmen Flüssigkeitsfluss und verlängern Sie die Lebensdauer Ihrer Ausrüstung. Erleben Sie heute den Unterschied.</p>"
+      ]
+    },
+    "e0448434": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c3570e788bbaf414"
+      ],
+      "link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "#"
+        }
+      ]
+    },
+    "be3525ad": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "title": [
+        "string",
+        "Siebbecher"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "subtitle": [
+        "string",
+        "Technische Daten"
+      ],
+      "link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "#"
+        }
+      ]
+    },
+    "7f5dc2ee": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "be3525ad"
+        ]
+      ]
+    },
+    "2486b4e0": {
+      "_obj_class": "DownloadCardWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "details": [
+        "string",
+        "PDF"
+      ],
+      "title": [
+        "string",
+        "Siebbecher"
+      ],
+      "subtitle": [
+        "string",
+        "Zertifikate"
+      ],
+      "link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "#"
+        }
+      ]
+    },
+    "97f248d5": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "2486b4e0"
+        ]
+      ]
+    },
+    "47c16fdb": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "c562182d": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "7f5dc2ee",
+          "97f248d5",
+          "47c16fdb"
+        ]
+      ]
+    },
+    "236a1a86": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Anzahl der Maschen"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "20",
+          "40",
+          "100"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

@@ -1,0 +1,573 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Dienstleistungen"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "44b4a147",
+      "bb2cad0c",
+      "127d08b1",
+      "cafac6d2",
+      "f37d943c"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "f5993d6de3609ac0",
+  "_created_at": "20240405095255",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "81ebb90e42af884b",
+  "_language": "de",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/81ebb90e42af884b",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "bb2cad0c": {
+      "_obj_class": "SectionWidget",
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "fff5089f",
+          "57b7c8aa"
+        ]
+      ]
+    },
+    "57b7c8aa": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p id=\"isPasted\">Bei Tynacoon verstehen wir, dass Ihre Düsen- und Fülllinien wesentliche Bestandteile Ihres Produktionsprozesses sind, die direkten Einfluss auf Qualität und Effizienz Ihrer Produkte haben. Daher ist unser Expertenteam darauf spezialisiert, Ihnen professionelle Dienstleistungen zu bieten, die genau für diese Branche entwickelt wurden. Mit jahrelanger Erfahrung in der Gestaltung, Herstellung, Installation und Wartung von Düsen- und Fülllinien haben wir uns als vertrauenswürdiger Partner für Unternehmen weltweit etabliert, die bei ihren Produktionsanforderungen nichts weniger als das Beste erwarten.</p>"
+      ]
+    },
+    "44b4a147": {
+      "_obj_class": "SectionWidget",
+      "background_image": [
+        "reference",
+        "efb46cb2c7fa3cb5"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d6a7f970"
+        ]
+      ]
+    },
+    "fff5089f": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Ihr zuverlässiger Partner für Düsen- und Fülllinienlösungen"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "7762616a": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "d628d197",
+          "9db058b1",
+          "48a51614"
+        ]
+      ]
+    },
+    "d628d197": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7e22697d"
+        ]
+      ]
+    },
+    "9db058b1": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9781e90d"
+        ]
+      ]
+    },
+    "48a51614": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "2416a1cc"
+        ]
+      ]
+    },
+    "7e22697d": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "ab2921d83b66edb5"
+      ]
+    },
+    "9781e90d": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "1409db9bede134fb"
+      ]
+    },
+    "2416a1cc": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "image": [
+        "reference",
+        "518864722dad1deb"
+      ]
+    },
+    "abbf21da": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Warum sollten Sie Tynacoon wählen?"
+      ]
+    },
+    "b3652576": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>Mit jahrelanger Erfahrung in der Branche für Düsen- und Fülllinien verfügt unser Team über einzigartiges Wissen und Fähigkeiten, um Ihnen bei der Optimierung Ihres Produktionsprozesses zu helfen. Wir bleiben auf dem Laufenden über die neuesten Fortschritte in Technologie und bewährten Verfahren, damit wir innovative Lösungen für Ihre betrieblichen Bedürfnisse bereitstellen können.</p><p>Da wir erkennen, dass keine zwei Unternehmen gleich sind, bieten wir maßgeschneiderte Dienstleistungen an, die speziell auf Ihre einzigartigen Anforderungen zugeschnitten sind. Von der Beratung über die Gestaltung bis hin zu Wartungsplänen ist es unser Ziel, kundenspezifische Lösungen zu liefern, die Ihren genauen Spezifikationen entsprechen und gleichzeitig Effizienz und Rentabilität maximieren.</p><p>Bei Tynacoon steht Qualität im Mittelpunkt all dessen, was wir tun. Wir halten uns während jedes Produktionsschritts an strenge Qualitätsstandards, um sicherzustellen, dass jede von uns hergestellte Düsen- und Fülllinie die Industriestandards für Leistung und Haltbarkeit erfüllt oder sogar übertrifft.</p><p>Als Geschäftspartner ist Ihr Erfolg unser Hauptanliegen. Deshalb bemühen wir uns, langfristige Beziehungen zu unseren Kunden aufzubauen, indem wir hervorragende Dienstleistungen, schnelle Unterstützung und transparente Kommunikation während des gesamten Prozesses bieten. Ihre Zufriedenheit ist immer unsere oberste Priorität.</p><p>Wir verstehen, dass die Investition in Düsen- und Fülllinien eine bedeutende finanzielle Entscheidung für Ihr Unternehmen sein kann. Deshalb bieten wir wettbewerbsfähige Preise ohne Abstriche bei Qualität oder Service. Unser Ziel ist es, Ihnen kostengünstige Lösungen zu bieten, die einen maximalen Wert pro Geldeinheit liefern.</p>"
+      ]
+    },
+    "f37d943c": {
+      "_obj_class": "SectionWidget",
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c0786b72",
+          "abbf21da",
+          "b3652576",
+          "d7099c04"
+        ]
+      ]
+    },
+    "6d077677": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "EXPO 2024"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "aea3ca38": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Entdecken Sie hier unsere Produkte und mehr</p>"
+      ]
+    },
+    "39f3c89a": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "bdbb81709c5e1c63",
+          "query": null,
+          "target": null,
+          "title": "Tickets buchen",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "5179904a": {
+      "_obj_class": "CardWidget",
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "background_color": [
+        "string",
+        "success"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "6d077677",
+          "aea3ca38",
+          "39f3c89a"
+        ]
+      ]
+    },
+    "80ac888d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5179904a"
+        ]
+      ]
+    },
+    "8a34076f": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hannoverer Industriemesse 2024"
+      ]
+    },
+    "242e0101": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Entdecken Sie hier unsere Produkte und mehr</p>"
+      ]
+    },
+    "300a2a18": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "bdbb81709c5e1c63",
+          "query": null,
+          "target": null,
+          "title": "Tickets buchen",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "03388235": {
+      "_obj_class": "CardWidget",
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "8a34076f",
+          "242e0101",
+          "300a2a18"
+        ]
+      ]
+    },
+    "5ccf1d22": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "03388235"
+        ]
+      ]
+    },
+    "d7099c04": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "80ac888d",
+          "5ccf1d22"
+        ]
+      ]
+    },
+    "d6a7f970": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "db82f764"
+        ]
+      ]
+    },
+    "db82f764": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "headline": [
+        "string",
+        "Dienstleistungen"
+      ]
+    },
+    "98d38e7b": {
+      "_obj_class": "YoutubeVideoWidget",
+      "youtube_video_id": [
+        "string",
+        "O_f7U7DpvSM"
+      ],
+      "aspect_ratio": [
+        "string",
+        "16to9"
+      ]
+    },
+    "c0786b72": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "fc290027": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "c820d56f",
+          "771b5537",
+          "6500294e"
+        ]
+      ]
+    },
+    "c820d56f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "771b5537": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "98d38e7b"
+        ]
+      ]
+    },
+    "6500294e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "cafac6d2": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "61b19822",
+          "44b6117b",
+          "fc290027"
+        ]
+      ]
+    },
+    "127d08b1": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7762616a"
+        ]
+      ]
+    },
+    "61b19822": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>Unser Team aus Ingenieuren arbeitet eng mit Ihnen zusammen, um maßgeschneiderte Düsen- und Fülllinien zu entwickeln, die Ihren spezifischen Anforderungen entsprechen und eine optimale Leistung und Effizienz in Ihrem Produktionsprozess gewährleisten. Wir berücksichtigen dabei Faktoren wie Produkttyp, Volumenkapazität und gewünschte Geschwindigkeit bei der Entwicklung der perfekten Lösung für Ihre betrieblichen Anforderungen.</p><p>Mit modernsten Einrichtungen, die mit fortschrittlicher Maschinerie und Werkzeugen ausgestattet sind, fertigen wir hochwertige Düsen- und Fülllinien, die strengen Qualitätsstandards entsprechen. Unsere erfahrenen Techniker stellen jede Komponente sorgfältig her, um Langlebigkeit und Zuverlässigkeit bei jedem unserer gelieferten Produkte sicherzustellen.</p><p>Unsere erfahrenen Fachleute kümmern sich um den gesamten Installationsprozess für Ihre neuen Düsen- und Fülllinien, minimieren Ausfallzeiten und Störungen in Ihrem Produktionsplan. Wir stellen sicher, dass alle Komponenten korrekt installiert und kalibriert sind, um einen reibungslosen Betrieb von Anfang an zu gewährleisten.</p><p>Um die optimale Leistung Ihrer Düsen- und Fülllinien aufrechtzuerhalten, bieten wir umfassende Wartungsservices speziell für diese Geräte an. Unsere Techniker führen regelmäßige Inspektionen durch, führen routinemäßige Reinigungen und Schmierung durch, identifizieren potenzielle Probleme, bevor sie zu größeren Problemen werden, und geben Ihnen Expertenratschläge zur Maximierung der Lebensdauer Ihrer Maschinen.</p><p>Sollte ein Komponente in Ihren Düsen- und Fülllinien repariert oder ersetzt werden müssen, steht unser Team bereit, um Ihnen schnell zu helfen. Wir führen eine breite Palette von Originalersatzteilen für alle wichtigen Marken, um sicherzustellen, dass wir Probleme schnell lösen können, ohne dabei Qualität oder Leistung zu beeinträchtigen.</p>"
+      ]
+    },
+    "44b6117b": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

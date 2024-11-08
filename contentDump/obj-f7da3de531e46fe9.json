@@ -1,0 +1,418 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Quotes"
+  ],
+  "link_icon": [
+    "string",
+    "bi-file-earmark-text"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "09ea403d",
+      "7a835890",
+      "f6c36068",
+      "4516000e",
+      "41e5900f",
+      "0ace6796"
+    ]
+  ],
+  "meta_data_description": [
+    "string",
+    "Easily organize your quotes with Tynacoon! Access detailed info like ID, date, status, and total price. View your complete quote history in seconds."
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Quote",
+      "order_by": [
+        [
+          "quoteAt",
+          "desc"
+        ]
+      ],
+      "query": [
+        {
+          "field": "open",
+          "value": true
+        }
+      ],
+      "size": 10
+    }
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "f7da3de531e46fe9",
+  "_created_at": "20230626084910",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230626113100",
+  "_id": "f7da3de531e46fe9",
+  "_language": "en",
+  "_last_changed": "20241007082232",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/f7da3de531e46fe9",
+  "_permalink": "quotes",
+  "_published_at": "20241008122928",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "56a14d0750cc844e",
+  "_version": "2024100812292800000000000000005896ecd5c33e5a21",
+  "_widget_pool": {
+    "39707421": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "02218669"
+        ]
+      ]
+    },
+    "7a835890": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8cec2938"
+        ]
+      ]
+    },
+    "1da39b82": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "bee2ef48",
+          "39707421",
+          "1bfb554e",
+          "cee0a9b2",
+          "b80f93f1"
+        ]
+      ]
+    },
+    "bee2ef48": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "42e7c4e6",
+          "a6093541"
+        ]
+      ]
+    },
+    "1bfb554e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ac8fbec9"
+        ]
+      ]
+    },
+    "cee0a9b2": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "2f0790e1"
+        ]
+      ]
+    },
+    "a6093541": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-file-earmark-text"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "8cec2938": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "0092ff67875b69f8",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "1da39b82"
+        ]
+      ]
+    },
+    "b80f93f1": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4fb4b95d"
+        ]
+      ]
+    },
+    "02218669": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__Quote.number__"
+      ],
+      "label": [
+        "string",
+        "Quote"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "keyword",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "ac8fbec9": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Created At"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "quoteAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "4fb4b95d": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Total"
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "value_size": [
+        "string",
+        "h4"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "totalPrice",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "2f0790e1": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "2ca69985": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No quotes found.</p>"
+      ]
+    },
+    "42e7c4e6": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "0ace6796": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "ec9a22125e28ddcc",
+          "query": null,
+          "target": null,
+          "title": "Quotes archive",
+          "url": null
+        }
+      ]
+    },
+    "41e5900f": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "4516000e": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "2ca69985"
+        ]
+      ]
+    },
+    "f6c36068": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "09ea403d": {
+      "_obj_class": "DataSearchWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "url_param_name": [
+        "string",
+        "search"
+      ],
+      "placeholder": [
+        "string",
+        "Search for quote"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

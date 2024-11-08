@@ -1,0 +1,450 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Documents"
+  ],
+  "link_icon": [
+    "string",
+    "bi-file-earmark-medical"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "0a3f8cf3",
+      "ed8d9e2b",
+      "4a8ad374",
+      "6c2e26b8"
+    ]
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Document",
+      "order_by": [
+        [
+          "createdAt",
+          "desc"
+        ]
+      ],
+      "size": 10
+    }
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "78d1e6ccd971faf3",
+  "_created_at": "20240130131732",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240130134453",
+  "_id": "78d1e6ccd971faf3",
+  "_language": "en",
+  "_last_changed": "20240808071734",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/c6db14f1d824259c",
+  "_permalink": "documents",
+  "_published_at": "20240808072537",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "56a14d0750cc844e",
+  "_version": "20240808072537000000000000000019dcd31e21d00e85",
+  "_widget_pool": {
+    "ed8d9e2b": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d57772e8"
+        ]
+      ]
+    },
+    "d57772e8": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "b4387b19"
+        ]
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "8d6e2ff3001b9a03",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ]
+    },
+    "b4387b19": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "0746cb2b",
+          "a6a6683b",
+          "612bc781",
+          "c7831624",
+          "066f1505"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "0746cb2b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6b1bc438",
+          "0d4abc1e"
+        ]
+      ]
+    },
+    "a6a6683b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        5
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "cf7c4f5c"
+        ]
+      ]
+    },
+    "612bc781": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8d8232bf"
+        ]
+      ]
+    },
+    "cf7c4f5c": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__Document.number__"
+      ],
+      "label": [
+        "string",
+        "Document"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "field": "title",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "8d8232bf": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Created at"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "field": "createdAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "ae7a379f": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Language"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "field": "language",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "c7831624": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ae7a379f"
+        ]
+      ]
+    },
+    "6b1bc438": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "066f1505": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b88bb48c"
+        ]
+      ]
+    },
+    "b88bb48c": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Type"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "field": "type",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "0d4abc1e": {
+      "_obj_class": "DataIconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "fallback_icon": [
+        "string",
+        "bi-file-earmark-medical"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "conditions": [
+        "widgetlist",
+        [
+          "5e4008c8",
+          "6316b460",
+          "c823ddea",
+          "d3463799",
+          "e464eba6",
+          "840d0508"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "field": "format",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "5e4008c8": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-filetype-pdf"
+      ],
+      "attribute_value": [
+        "string",
+        "pdf"
+      ]
+    },
+    "6316b460": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-filetype-doc"
+      ],
+      "attribute_value": [
+        "string",
+        "doc"
+      ]
+    },
+    "c823ddea": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-filetype-docx"
+      ],
+      "attribute_value": [
+        "string",
+        "docx"
+      ]
+    },
+    "d3463799": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-filetype-jpg"
+      ],
+      "attribute_value": [
+        "string",
+        "jpeg"
+      ]
+    },
+    "e464eba6": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-filetype-png"
+      ],
+      "attribute_value": [
+        "string",
+        "png"
+      ]
+    },
+    "840d0508": {
+      "_obj_class": "DataIconConditionWidget",
+      "icon": [
+        "string",
+        "bi-filetype-svg"
+      ],
+      "attribute_value": [
+        "string",
+        "svg"
+      ]
+    },
+    "ffa34a78": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No documents found.</p>"
+      ]
+    },
+    "6c2e26b8": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ffa34a78"
+        ]
+      ]
+    },
+    "4a8ad374": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "0a3f8cf3": {
+      "_obj_class": "DataSearchWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "placeholder": [
+        "string",
+        "Search for document"
+      ],
+      "url_param_name": [
+        "string",
+        "search"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

@@ -1,0 +1,432 @@
+{
+  "_obj_class": "Page",
+  "data": [
+    "datalocator",
+    {
+      "class": "Event",
+      "order_by": [
+        [
+          "beginsAt",
+          "asc"
+        ]
+      ],
+      "size": 10
+    }
+  ],
+  "title": [
+    "string",
+    "Veranstaltungen"
+  ],
+  "link_icon": [
+    "string",
+    "bi-calendar4-event"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "a08bf41f",
+      "0d13ed4b",
+      "95d7b130"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "fb302b23c46fea41",
+  "_created_at": "20240405113048",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "410885f6410a0e68",
+  "_language": "de",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/410885f6410a0e68",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "a08bf41f": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8dca5134"
+        ]
+      ]
+    },
+    "8dca5134": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "a212a3739b74db01",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "632d7fb3"
+        ]
+      ]
+    },
+    "fa9f4f23": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h5"
+      ],
+      "details": [
+        "string",
+        "__Event.number__"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "keyword",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "52251bf8": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Datum"
+      ],
+      "datetime_format": [
+        "string",
+        "date"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "beginsAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "5dda04c9": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "05980399": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Ort"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "location",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "95d7b130": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "e7421ede"
+        ]
+      ]
+    },
+    "e7421ede": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>Keine Veranstaltungen gefunden.</p>"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "632d7fb3": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "d23402f0",
+          "16921eab",
+          "04467256"
+        ]
+      ]
+    },
+    "d23402f0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "60afb534"
+        ]
+      ]
+    },
+    "16921eab": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "fa9f4f23",
+          "05980399"
+        ]
+      ]
+    },
+    "04467256": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "52251bf8",
+          "5dda04c9",
+          "824000b6"
+        ]
+      ]
+    },
+    "f8be3752": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8634d2f2"
+        ]
+      ]
+    },
+    "c163db82": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a4bc0409"
+        ]
+      ]
+    },
+    "824000b6": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "EventRegistration",
+          "query": [
+            {
+              "field": "eventId",
+              "value_via": {
+                "class": "Event",
+                "field": "_id"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8df3637b",
+          "1db140b4",
+          "f8be3752",
+          "c163db82"
+        ]
+      ]
+    },
+    "8df3637b": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "1db140b4": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Teilnahme"
+      ],
+      "style": [
+        "string",
+        "label-headline"
+      ],
+      "uppercase": [
+        "boolean",
+        true
+      ]
+    },
+    "a4bc0409": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-square"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "8634d2f2": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-check2-square"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "#"
+        }
+      ]
+    },
+    "0d13ed4b": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Mehr laden"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "60afb534": {
+      "_obj_class": "DataImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "logo",
+          "via_ref": "single"
+        }
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

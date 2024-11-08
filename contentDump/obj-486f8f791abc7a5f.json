@@ -1,0 +1,379 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Ausrüstung"
+  ],
+  "link_icon": [
+    "string",
+    "bi-wrench-adjustable"
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "ServiceObject",
+      "order_by": [
+        [
+          "product",
+          "asc"
+        ]
+      ],
+      "query": [
+        {
+          "field": "isCustomer",
+          "value": true
+        },
+        {
+          "field": "parentId",
+          "value": null
+        }
+      ],
+      "size": 10
+    }
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "4d6efd7d",
+      "0df0fe53",
+      "5d12cae5",
+      "cae4899a"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "046cc19cf0f87d9d",
+  "_created_at": "20240405113124",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "486f8f791abc7a5f",
+  "_language": "de",
+  "_last_changed": "20241018143208",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/486f8f791abc7a5f",
+  "_permalink": null,
+  "_published_at": "20241018143645",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "2024101814364500000000000000005f363f96c9d5c0a8",
+  "_widget_pool": {
+    "23550928": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Keine Ausrüstung gefunden.</p>"
+      ]
+    },
+    "0df0fe53": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "b68f837a"
+        ]
+      ]
+    },
+    "77b05d6e": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "3d2a7ab2",
+          "3af9caf2",
+          "764ad2b1",
+          "6642bb5a",
+          "da8dc9c0"
+        ]
+      ]
+    },
+    "3d2a7ab2": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "1cdd788f",
+          "eca59918"
+        ]
+      ]
+    },
+    "3af9caf2": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "eabee948"
+        ]
+      ]
+    },
+    "764ad2b1": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a755585d"
+        ]
+      ]
+    },
+    "6642bb5a": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "2fcc7c20"
+        ]
+      ]
+    },
+    "eca59918": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-wrench-adjustable-circle"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "b68f837a": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "28387df3419314b8",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "77b05d6e"
+        ]
+      ]
+    },
+    "da8dc9c0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "090a0763"
+        ]
+      ]
+    },
+    "eabee948": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__ServiceObject.number__\n__ServiceObject.information__"
+      ],
+      "label": [
+        "string",
+        "Ausrüstungsgegenstand"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "product",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "2fcc7c20": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Installiert am"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "installedAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "1cdd788f": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        0.8
+      ]
+    },
+    "090a0763": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "cae4899a": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "23550928"
+        ]
+      ]
+    },
+    "5d12cae5": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Mehr laden"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "a755585d": {
+      "_obj_class": "DataImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "picture",
+          "via_ref": "single"
+        }
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "4d6efd7d": {
+      "_obj_class": "DataSearchWidget",
+      "placeholder": [
+        "string",
+        "Nach Ausrüstungsgegenstand suchen"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "url_param_name": [
+        "string",
+        "search"
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_published_by": "scrivito:943667111e7b464abf6dba5382978956"
+}
