@@ -14,8 +14,6 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const outDir = 'dist'
 
-  const enablePisa = env.ENABLE_PISA === 'true'
-
   return {
     build: {
       chunkSizeWarningLimit: 900,
@@ -28,12 +26,10 @@ export default defineConfig(({ mode }) => {
       },
     },
     define: {
-      'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(scrivitoOrigin(env)),
-      'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
       'import.meta.env.SCRIVITO_ROOT_OBJ_ID': JSON.stringify(
         env.SCRIVITO_ROOT_OBJ_ID || 'c2a0aab78be05a4e',
       ),
-      'import.meta.env.ENABLE_PISA': JSON.stringify(enablePisa),
+      'import.meta.env.ENABLE_PISA': JSON.stringify(true),
     },
     optimizeDeps: {
       force: true,
