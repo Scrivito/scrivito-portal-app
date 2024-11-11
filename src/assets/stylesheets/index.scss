@@ -476,7 +476,8 @@ html,
 body {
   height: 100%;
 }
-#root {
+#root,
+#app-wrapper {
   display: flex;
   height: 100%;
   flex-flow: column;

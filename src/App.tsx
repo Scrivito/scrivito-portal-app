@@ -17,7 +17,7 @@ export function App({
   return (
     <HelmetProvider context={helmetContext}>
       <ErrorBoundary>
-        <div ref={appWrapperRef}>
+        <div ref={appWrapperRef} id="app-wrapper">
           <a href="#main" className="btn skip-to-content">
             Skip to Content
           </a>
