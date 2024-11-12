@@ -24,6 +24,6 @@ export async function postProcessUserData(
     givenName: await load(() => CurrentUser.get('givenName')),
     image: { url: await load(() => CurrentUser.get('picture')) },
     name: await load(() => CurrentUser.get('name')),
-    salutation: await load(() => CurrentUser.get('salutation')),
+    // Ignoring `salutation`, since neoletter's attribute is a plain string (e.g. `Frau` or `Herr`), whereas PisaSales responds with an enum value such as `F` or `M`.
   }
 }
