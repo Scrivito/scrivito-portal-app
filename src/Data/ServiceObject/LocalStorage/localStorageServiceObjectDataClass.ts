@@ -720,16 +720,17 @@ async function attributes(): Promise<ReadonlyDataClassSchema> {
       { title: lang === 'de' ? 'Modellnummer' : 'Model number' },
     ],
     number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
-    parentId: [
-      'reference',
-      {
-        title:
-          lang === 'de'
-            ? 'Übergeordnetes Serviceobjekt'
-            : 'Parent service object',
-        to: 'ServiceObject',
-      },
-    ],
+    // TODO: Remove workaround for #11367 once available
+    // parentId: [
+    //   'reference',
+    //   {
+    //     title:
+    //       lang === 'de'
+    //         ? 'Übergeordnetes Serviceobjekt'
+    //         : 'Parent service object',
+    //     to: 'ServiceObject',
+    //   },
+    // ],
     product: [
       'string',
       { title: lang === 'de' ? 'Produktname' : 'Product name' },
