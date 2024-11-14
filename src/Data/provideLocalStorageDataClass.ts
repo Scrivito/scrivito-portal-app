@@ -226,7 +226,9 @@ function compare({
 
   const eq =
     itemValue === filterValue ||
+    (filterValue === null && itemValue === undefined) ||
     (filterValue === 'null' && itemValue === null) ||
+    (filterValue === 'null' && itemValue === undefined) ||
     (filterValue === 'true' && itemValue === true) ||
     (filterValue === 'false' && itemValue === false)
 
