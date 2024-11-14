@@ -25,7 +25,7 @@
         },
         {
           "field": "parentId",
-          "value": null
+          "value": "null"
         }
       ],
       "size": 10
@@ -56,16 +56,16 @@
   "_first_published_at": "20240405121103",
   "_id": "486f8f791abc7a5f",
   "_language": "de",
-  "_last_changed": "20241018143208",
+  "_last_changed": "20241114115809",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/486f8f791abc7a5f",
   "_permalink": null,
-  "_published_at": "20241018143645",
+  "_published_at": "20241114120539",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2024101814364500000000000000005f363f96c9d5c0a8",
+  "_version": "202411141205390000000000000000ce8afe6eb88ef9bd",
   "_widget_pool": {
     "23550928": {
       "_obj_class": "TextWidget",
@@ -374,6 +374,6 @@
   },
   "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
-  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
-  "_published_by": "scrivito:943667111e7b464abf6dba5382978956"
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
 }
