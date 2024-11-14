@@ -841,11 +841,14 @@ img.img-flag {
 /* section / card background upgrades
  ================================================== */
 
-section:has(.img-background),
+section:has(.img-background) {
+  position: relative;
+  z-index: 1;
+}
 .card,
 .carousel-item {
-  position: relative;
   overflow: hidden;
+  position: relative;
   z-index: 1;
 }
 header section {
