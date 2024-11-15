@@ -1341,6 +1341,7 @@ section:focus >,
   max-height: 81px;
   min-height: 37px;
   object-fit: contain;
+  width: min-content;
 }
 .navbar {
   padding: 0;
