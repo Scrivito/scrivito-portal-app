@@ -914,7 +914,7 @@ header section {
   position: absolute;
   left: 0;
   top: 0;
-  transition: all 1.5s;
+  transition: all 1s ease-in-out;
   z-index: -1;
 }
 
@@ -930,7 +930,7 @@ header section {
 .bg-white {
   > .img-background {
     opacity: 0.2;
-    filter: grayscale(0.8), blur(0px);
+    filter: blur(0px) grayscale(0.8);
   }
 }
 
