@@ -86,7 +86,7 @@ provideEditingConfig(Homepage, {
     },
     ...defaultPagePropertiesGroups,
   ],
-  properties: [...defaultPageProperties],
+  properties: ['links', ...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
     siteDropShadow: true,
