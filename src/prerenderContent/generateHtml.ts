@@ -17,7 +17,7 @@ export async function generateHtml(
   }, baseHtmlTemplate)
 }
 
-const replacements = {
+const replacements: Record<(typeof keys)[number], RegExp> = {
   bodyAttributes: /data-bodyAttributes/,
   bodyContent: /\n *<!-- bodyContent start -->[^!]*<!-- bodyContent end -->\s*/,
   htmlAttributes: /data-htmlAttributes/,
