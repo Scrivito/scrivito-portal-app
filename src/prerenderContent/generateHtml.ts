@@ -7,6 +7,7 @@ export async function generateHtml(
     link: string
     meta: string
     preloadDumpScript: string
+    style: string
     title: string
   },
 ): Promise<string> {
@@ -24,6 +25,7 @@ const replacements: Record<(typeof keys)[number], RegExp> = {
   link: /<!-- link -->/,
   meta: /<!-- meta -->/,
   preloadDumpScript: /<!-- preloadDumpScript -->/,
+  style: /<!-- style -->/,
   title: /<!-- title -->/,
 }
 
@@ -34,5 +36,6 @@ const keys = [
   'link',
   'meta',
   'preloadDumpScript',
+  'style',
   'title',
 ] as const
