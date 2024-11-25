@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import {
   connect,
   ContentTag,
+  isEditorLoggedIn,
   isUserLoggedIn,
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
@@ -42,7 +43,16 @@ const NotFound = connect(function NotFound() {
   }, [])
 
   if (!root) {
-    return <div>Page not found.</div>
+    return (
+      <main id="main">
+        <section className="py-1">
+          <div className="container">
+            <div>Page not found.</div>
+            <GetStartedButton />
+          </div>
+        </section>
+      </main>
+    )
   }
 
   // TODO: Consolidate with HomepageLayoutComponent
@@ -64,3 +74,20 @@ const NotFound = connect(function NotFound() {
     </>
   )
 })
+
+const GetStartedButton = connect(
+  function GetStartedButton() {
+    if (isEditorLoggedIn()) return null
+    if (Obj.onAllSites().all().count() > 0) return null
+
+    return (
+      <a
+        className="btn btn-primary"
+        href={`https://edit.scrivito.com/${location.href}`}
+      >
+        Get started with your CMS
+      </a>
+    )
+  },
+  { loading: Loading },
+)
