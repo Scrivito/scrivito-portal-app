@@ -50,6 +50,14 @@ provideEditingConfig(Homepage, {
       description: 'Needs to be approved at https://cards-dev.x.com/validator',
     },
     siteUserProfilePage: { title: 'Location of user profile page' },
+    siteFontHeadline: {
+      title: 'Headline font',
+      description: 'Default: "Fira Sans"',
+    },
+    siteFontBody: {
+      title: 'Body font',
+      description: 'Default: "Manrope"',
+    },
   },
   propertiesGroups: (site) => [
     {
@@ -83,6 +91,11 @@ provideEditingConfig(Homepage, {
         'siteColorSecondaryDarken',
       ],
       key: 'site-colors-group',
+    },
+    {
+      title: 'Site fonts',
+      properties: ['siteFontHeadline', 'siteFontBody'],
+      key: 'site-fonts-group',
     },
     ...defaultPagePropertiesGroups,
   ],
