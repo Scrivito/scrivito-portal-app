@@ -29,8 +29,12 @@ provideEditingConfig(VideoWidget, {
         'This poster image is shown, until the video is loaded.' +
         ' Without an poster image, the browser may show the first frame of the video.',
     },
+    noDownload: {
+      title: 'Hide download button?',
+      description: 'Only supported by some browsers.',
+    },
   },
-  properties: ['source', 'poster', 'aspectRatio'],
+  properties: ['source', 'poster', 'aspectRatio', 'noDownload'],
   initialContent: {
     aspectRatio: '16to9',
   },
