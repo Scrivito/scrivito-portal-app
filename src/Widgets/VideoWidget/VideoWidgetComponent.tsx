@@ -26,6 +26,7 @@ provideComponent(VideoWidget, ({ widget }) => {
       className={`video-widget aspect-ratio-${aspectRatio}`}
       src={src}
       content={widget}
+      controlsList={widget.get('noDownload') ? 'nodownload' : undefined}
       attribute="source"
       poster={posterUrl}
       controls={!isPlaceholderActive}
