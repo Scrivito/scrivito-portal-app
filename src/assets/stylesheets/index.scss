@@ -464,7 +464,7 @@ mark {
 
 b,
 strong {
-  font-weight: 800;
+  font-weight: bolder;
 }
 
 .max-width-350 {
@@ -505,7 +505,7 @@ main {
     0 8px 26px -4px rgba(20, 20, 20, 0.15),
     0 8px 9px -5px rgba(20, 20, 20, 0.06);
   font-size: 14px;
-  font-weight: 500;
+  font-weight: var(--bs-body-font-weight);
   line-height: 16px;
   margin: 10px 0;
   padding: 15px;
@@ -523,7 +523,7 @@ main {
   color: inherit !important;
 }
 .text-bold {
-  font-weight: 700;
+  font-weight: bolder;
 }
 .text-small {
   font-size: 0.75rem;
@@ -1149,7 +1149,7 @@ section:focus >,
   border-radius: 50%;
   line-height: 60px;
   text-align: center;
-  font-weight: 500;
+  font-weight: var(--bs-body-font-weight);
 }
 
 //-- carousel & headline with background --//
@@ -1188,8 +1188,8 @@ section:focus >,
 // -- general form-control -- //
 
 .form-label {
-  font-family: var(--jr-headline-font-family), sans-serif;
-  font-weight: var(--jr-headline-font-weight);
+  font-family: var(--bs-body-font-family), sans-serif;
+  font-weight: var(--bs-body-font-weight);
   color: var(--headline);
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
@@ -1199,7 +1199,7 @@ section:focus >,
   display: block;
   width: 100%;
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: var(--bs-body-font-weight);
   line-height: 1.5;
   color: var(--bs-body-color);
   background-color: #fff;
@@ -1307,7 +1307,7 @@ section:focus >,
 .dropdown-toggle:after {
   display: inline-block;
   font-style: normal;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
@@ -1439,7 +1439,7 @@ section:focus >,
 .navbar-landing {
   .nav-link {
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: var(--jr-headline-font-weight);
   }
 }
 // -- second line in items -- //
@@ -1457,7 +1457,7 @@ section:focus >,
     color: var(--bs-primary);
     font-size: 9px;
     line-height: 12px;
-    font-weight: 500;
+    font-weight: var(--jr-headline-font-weight);
     opacity: 0.9;
   }
 }
@@ -1832,7 +1832,7 @@ header .navbar.navbar-expand-lg {
 
 .list-label {
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: var(--bs-body-font-weight);
   font-size: 0.65rem;
   display: block;
   opacity: 0.6;
