@@ -4,5 +4,5 @@
   --toastify-color-warning: var(--bs-warning);
   --toastify-color-error: var(--bs-danger);
 
-  --toastify-font-family: var(--jr-headline-font-family);
+  --toastify-font-family: var(--bs-body-font-family);
 }
