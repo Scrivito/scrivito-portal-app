@@ -1,6 +1,28 @@
 /* fonts
 ================================================== */
 
+/* FiraSans-Light 300 */
+@font-face {
+  font-family: 'Fira Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+  src:
+    local(''),
+    url('../fonts/FiraSans-Light-300.woff2') format('woff2');
+}
+
+/* FiraSans-Regular 400 */
+@font-face {
+  font-family: 'Fira Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local(''),
+    url('../fonts/FiraSans-Regular-400.woff2') format('woff2');
+}
+
 /* FiraSans Medium 500 */
 @font-face {
   font-family: 'Fira Sans';
@@ -10,6 +32,37 @@
   src:
     local(''),
     url('../fonts/FiraSans-Medium-500.woff2') format('woff2');
+}
+
+/* FiraSans-SemiBold 600 */
+@font-face {
+  font-family: 'Fira Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+  src:
+    local(''),
+    url('../fonts/FiraSans-SemiBold-600.woff2') format('woff2');
+}
+/* FiraSans-Bold 700 */
+@font-face {
+  font-family: 'Fira Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  src:
+    local(''),
+    url('../fonts/FiraSans-Bold-700.woff2') format('woff2');
+}
+/* FiraSans-ExtraBold 800 */
+@font-face {
+  font-family: 'Fira Sans';
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+  src:
+    local(''),
+    url('../fonts/FiraSans-ExtraBold-800.woff2') format('woff2');
 }
 
 @font-face {
