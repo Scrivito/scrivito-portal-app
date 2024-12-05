@@ -152,6 +152,7 @@ async function attributes(): Promise<ReadonlyDataClassSchema> {
     serviceObject: [
       'reference',
       {
+        reverseTitle: lang === 'de' ? 'Tickets' : 'Tickets',
         title: lang === 'de' ? 'Serviceobjekt' : 'Service object',
         to: 'ServiceObject',
       },

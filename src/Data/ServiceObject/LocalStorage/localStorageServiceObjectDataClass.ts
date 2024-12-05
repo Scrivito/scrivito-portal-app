@@ -724,6 +724,10 @@ async function attributes(): Promise<ReadonlyDataClassSchema> {
     // parentId: [
     //   'reference',
     //   {
+    //     reverseTitle:
+    //       lang === 'de'
+    //         ? 'Untergeordnete Serviceobjekte'
+    //         : 'Children service objects',
     //     title:
     //       lang === 'de'
     //         ? 'Übergeordnetes Serviceobjekt'

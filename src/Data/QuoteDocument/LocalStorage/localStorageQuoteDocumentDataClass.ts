@@ -9,6 +9,7 @@ async function attributes(): Promise<DataClassSchema> {
     documentId: [
       'reference',
       {
+        reverseTitle: lang === 'de' ? 'Angebotsdokumente' : 'Quote documents',
         title: lang === 'de' ? 'Dokument' : 'Document',
         to: 'Document',
       },
@@ -16,6 +17,7 @@ async function attributes(): Promise<DataClassSchema> {
     quoteId: [
       'reference',
       {
+        reverseTitle: lang === 'de' ? 'Angebotsdokumente' : 'Quote documents',
         title: lang === 'de' ? 'Angebot' : 'Quote',
         to: 'Quote',
       },

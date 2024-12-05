@@ -9,6 +9,7 @@ async function attributes(): Promise<DataClassSchema> {
     eventId: [
       'reference',
       {
+        reverseTitle: lang === 'de' ? 'Anmeldungen' : 'Registrations',
         title: lang === 'de' ? 'Veranstaltung' : 'Event',
         to: 'Event',
       },
