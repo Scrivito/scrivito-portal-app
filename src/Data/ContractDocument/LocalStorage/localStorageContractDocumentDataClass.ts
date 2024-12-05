@@ -20,7 +20,7 @@ async function attributes(): Promise<DataClassSchema> {
       {
         reverseTitle:
           lang === 'de' ? 'Vertragsdokumente' : 'Contract documents',
-        title: lang === 'en' ? 'Dokument' : 'Document',
+        title: lang === 'de' ? 'Dokument' : 'Document',
         to: 'Document',
       },
     ],
