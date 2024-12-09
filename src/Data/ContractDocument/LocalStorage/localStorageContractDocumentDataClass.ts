@@ -9,6 +9,8 @@ async function attributes(): Promise<DataClassSchema> {
     contractId: [
       'reference',
       {
+        reverseTitle:
+          lang === 'de' ? 'Vertragsdokumente' : 'Contract documents',
         title: lang === 'de' ? 'Vertrag' : 'Contract',
         to: 'Contract',
       },
@@ -16,7 +18,9 @@ async function attributes(): Promise<DataClassSchema> {
     documentId: [
       'reference',
       {
-        title: lang === 'en' ? 'Dokument' : 'Document',
+        reverseTitle:
+          lang === 'de' ? 'Vertragsdokumente' : 'Contract documents',
+        title: lang === 'de' ? 'Dokument' : 'Document',
         to: 'Document',
       },
     ],

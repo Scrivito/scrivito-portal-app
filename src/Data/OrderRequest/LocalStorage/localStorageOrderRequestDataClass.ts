@@ -9,6 +9,7 @@ async function attributes(): Promise<DataClassSchema> {
     quoteId: [
       'reference',
       {
+        reverseTitle: lang === 'de' ? 'Angebotsanfragen' : 'Quote requests',
         title: lang === 'de' ? 'Angebot' : 'Quote',
         to: 'Quote',
       },
