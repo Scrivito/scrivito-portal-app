@@ -5,6 +5,7 @@ import {
   getInstanceId,
   load,
   navigateTo,
+  urlFor,
 } from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
 import { ensureString } from '../utils/ensureString'
@@ -84,24 +85,40 @@ export function isNoSitePresent(): boolean {
 }
 
 export async function ensureSiteIsPresent() {
-  if ((await load(currentSiteId)) === null) {
-    if (await load(isNoSitePresent)) {
-      ensureUserIsLoggedIn()
-      return
-    }
+  if (await load(currentSiteId)) return
 
-    navigateTo(() => {
-      const websites = appWebsites() || []
-      const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
-
-      for (const language of preferredLanguageOrder) {
-        const site = websites.find((site) => siteHasLanguage(site, language))
-        if (site) return site
-      }
-
-      return websites[0] || null
-    })
+  if (await load(isNoSitePresent)) {
+    ensureUserIsLoggedIn()
+    return
   }
+
+  const site = await load(getPreferredSite)
+  if (!site) return
+
+  const language = languageForUrl(window.location.href)
+  const slashesCount = language ? 2 : 1
+  const prefixLength = (language?.length || 0) + slashesCount
+  const path = window.location.pathname.substring(prefixLength)
+
+  if (!path) {
+    navigateTo(site)
+    return
+  }
+
+  const url = await load(() => urlFor(site))
+  window.location.assign([url, path].join(url.endsWith('/') ? '' : '/'))
+}
+
+function getPreferredSite() {
+  const websites = appWebsites() || []
+  const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
+
+  for (const language of preferredLanguageOrder) {
+    const site = websites.find((site) => siteHasLanguage(site, language))
+    if (site) return site
+  }
+
+  return websites[0] || null
 }
 
 function getBaseAppUrl(): string {
