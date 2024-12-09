@@ -91,17 +91,22 @@ export async function ensureSiteIsPresent() {
     }
 
     navigateTo(() => {
-      const websites = appWebsites() || []
-      const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
-
-      for (const language of preferredLanguageOrder) {
-        const site = websites.find((site) => siteHasLanguage(site, language))
-        if (site) return site
-      }
-
-      return websites[0] || null
+      const site = getPreferredSite()
+      return site
     })
   }
+}
+
+function getPreferredSite() {
+  const websites = appWebsites() || []
+  const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
+
+  for (const language of preferredLanguageOrder) {
+    const site = websites.find((site) => siteHasLanguage(site, language))
+    if (site) return site
+  }
+
+  return websites[0] || null
 }
 
 function getBaseAppUrl(): string {
