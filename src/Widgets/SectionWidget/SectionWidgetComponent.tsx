@@ -55,7 +55,7 @@ const ImageOrVideo = connect(function ImageOrVideo({
     // TODO: remove work around
     background.contentType().startsWith('video/') &&
       background.contentUrl().startsWith('https://') ? (
-      <video className={classNames.join(' ')} autoPlay loop muted>
+      <video className={classNames.join(' ')} autoPlay loop muted playsInline>
         <source src={background.contentUrl()} type={background.contentType()} />
       </video>
     ) : (
