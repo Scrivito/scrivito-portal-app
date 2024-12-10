@@ -37,6 +37,10 @@ export const DesignAdjustments = connect(
     const roundedCorners = root.get('siteRoundedCorners')
     if (!roundedCorners) styles.push('--jr-border-radius: 0;')
 
+    const fontHeadlineWeight = root.get('siteFontHeadlineWeight') || '500'
+    styles.push(`--jr-headline-font-weight: ${fontHeadlineWeight};`)
+    const fontBodyWeight = root.get('siteFontBodyWeight') || '500'
+    styles.push(`--bs-body-font-weight: ${fontBodyWeight};`)
     return (
       <>
         <Helmet>

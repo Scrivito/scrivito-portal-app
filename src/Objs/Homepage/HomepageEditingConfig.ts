@@ -50,6 +50,14 @@ provideEditingConfig(Homepage, {
       description: 'Needs to be approved at https://cards-dev.x.com/validator',
     },
     siteUserProfilePage: { title: 'Location of user profile page' },
+    siteFontBodyWeight: {
+      title: 'Body weight',
+      description: 'Default: 500',
+    },
+    siteFontHeadlineWeight: {
+      title: 'Headline weight',
+      description: 'Default: 500',
+    },
   },
   propertiesGroups: (site) => [
     {
@@ -84,12 +92,22 @@ provideEditingConfig(Homepage, {
       ],
       key: 'site-colors-group',
     },
+    {
+      title: 'Site fonts',
+      properties: [
+        'siteFontHeadlineWeight',
+        'siteFontBodyWeight',
+      ],
+      key: 'site-fonts-group',
+    },
     ...defaultPagePropertiesGroups,
   ],
   properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
     siteDropShadow: true,
+    siteFontBodyWeight: '500',
+    siteFontHeadlineWeight: '500',
     siteRoundedCorners: true,
   },
   validations: defaultPageValidations,
