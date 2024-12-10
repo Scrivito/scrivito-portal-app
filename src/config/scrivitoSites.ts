@@ -4,7 +4,6 @@ import {
   ensureUserIsLoggedIn,
   getInstanceId,
   load,
-  navigateTo,
   urlFor,
 } from 'scrivito'
 import { isMultitenancyEnabled } from './scrivitoTenants'
@@ -95,18 +94,11 @@ export async function ensureSiteIsPresent() {
   const site = await load(getPreferredSite)
   if (!site) return
 
-  const language = languageForUrl(window.location.href)
-  const slashesCount = language ? 2 : 1
-  const prefixLength = (language?.length || 0) + slashesCount
-  const path = window.location.pathname.substring(prefixLength)
+  const siteUrl = await load(() => urlFor(site))
+  const { pathname, search, hash } = window.location
+  const path = pathname === '/' ? '' : pathname
 
-  if (!path) {
-    navigateTo(site)
-    return
-  }
-
-  const url = await load(() => urlFor(site))
-  window.location.assign([url, path].join(url.endsWith('/') ? '' : '/'))
+  window.location.assign(`${siteUrl}${path}${search}${hash}`)
 }
 
 function getPreferredSite() {
