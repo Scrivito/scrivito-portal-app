@@ -1,6 +1,8 @@
 import { Obj, connect } from 'scrivito'
-import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { Helmet } from 'react-helmet-async'
+import { isHomepage, HomepageInstance } from '../Objs/Homepage/HomepageObjClass'
+import { isFont } from '../Objs/Font/FontObjClass'
+import { FontComponent } from '../Objs/Font/FontComponent'
 
 export const DesignAdjustments = connect(
   function DesignAdjustments({ children }: { children: React.ReactNode }) {
@@ -39,17 +41,49 @@ export const DesignAdjustments = connect(
 
     const fontHeadlineWeight = root.get('siteFontHeadlineWeight') || '500'
     styles.push(`--jr-headline-font-weight: ${fontHeadlineWeight};`)
+    const fontHeadline = root.get('siteFontHeadline')[0]
+    if (isFont(fontHeadline)) {
+      styles.push(`--jr-headline-font-family: ${fontHeadline.get('family')};`)
+    }
+
     const fontBodyWeight = root.get('siteFontBodyWeight') || '500'
     styles.push(`--bs-body-font-weight: ${fontBodyWeight};`)
+    const fontBody = root.get('siteFontBody')[0]
+    if (isFont(fontBody)) {
+      styles.push(`--bs-body-font-family: ${fontBody.get('family')};`)
+      styles.push(`--toastify-font-family: ${fontBody.get('family')};`)
+    }
+
     return (
       <>
         <Helmet>
           {/* @ts-expect-error helmet bug: https://github.com/nfl/react-helmet/issues/344*/}
           <body style={styles.join(' ')}></body>
         </Helmet>
+
+        <CustomFonts root={root} />
         {children}
       </>
     )
   },
   { loading: () => null },
 )
+
+const CustomFonts = connect(function CustomFonts({
+  root,
+}: {
+  root: HomepageInstance
+}) {
+  return (
+    <>
+      {[...root.get('siteFontHeadline'), ...root.get('siteFontBody')]
+        .filter(
+          (font, index, self) =>
+            index === self.findIndex((f) => f.id() === font.id()),
+        )
+        .map((font) => (
+          <FontComponent page={font} key={font.id()} />
+        ))}
+    </>
+  )
+})

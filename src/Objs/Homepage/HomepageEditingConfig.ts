@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { Obj, provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 import { SiteColorsPicker } from './SiteColorsPicker'
 import {
@@ -8,6 +8,7 @@ import {
   defaultPagePropertiesGroups,
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
+import { isFont } from '../Font/FontObjClass'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -50,9 +51,20 @@ provideEditingConfig(Homepage, {
       description: 'Needs to be approved at https://cards-dev.x.com/validator',
     },
     siteUserProfilePage: { title: 'Location of user profile page' },
+    siteFontBody: {
+      title: 'Body font',
+      description:
+        'Please ensure that you have an appropriate license for the selected font. Default: "Manrope"',
+    },
     siteFontBodyWeight: {
       title: 'Body weight',
       description: 'Default: 500',
+    },
+    siteFontHeadline: {
+      title: 'Headline font',
+      description: `Please ensure that you have an appropriate license for the selected font.
+        This font is also used in the navigation and for buttons.
+        Default: "Fira Sans"`,
     },
     siteFontHeadlineWeight: {
       title: 'Headline weight',
@@ -95,7 +107,9 @@ provideEditingConfig(Homepage, {
     {
       title: 'Site fonts',
       properties: [
+        'siteFontHeadline',
         'siteFontHeadlineWeight',
+        'siteFontBody',
         'siteFontBodyWeight',
       ],
       key: 'site-fonts-group',
@@ -110,5 +124,37 @@ provideEditingConfig(Homepage, {
     siteFontHeadlineWeight: '500',
     siteRoundedCorners: true,
   },
-  validations: defaultPageValidations,
+  validations: [
+    ...defaultPageValidations,
+    [
+      'siteFontHeadline',
+      (objs: Obj[]) => {
+        const familyNames = uniqueFamilyNames(objs)
+        if (familyNames.length <= 1) return
+
+        return {
+          message: `Headline font family names need to be equal. Current family names: ${Array.from(familyNames).join(', ')}`,
+          severity: 'error',
+        }
+      },
+    ],
+    [
+      'siteFontBody',
+      (objs: Obj[]) => {
+        const familyNames = uniqueFamilyNames(objs)
+        if (familyNames.length <= 1) return
+
+        return {
+          message: `Body font family names need to be equal. Current family names: ${Array.from(familyNames).join(', ')}`,
+          severity: 'error',
+        }
+      },
+    ],
+  ],
 })
+
+function uniqueFamilyNames(objs: Obj[]): string[] {
+  return Array.from(
+    new Set(objs.filter(isFont).map((font) => font.get('family'))),
+  )
+}

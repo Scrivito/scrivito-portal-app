@@ -19,12 +19,14 @@ export const Homepage = provideObjClass('Homepage', {
     siteDropShadow: 'boolean',
     siteFacebookAppId: 'string',
     siteFavicon: ['reference', { only: 'Image' }],
+    siteFontBody: ['referencelist', { only: 'Font' }],
     siteFontBodyWeight: [
       'enum',
       {
         values: ['300', '400', '500', '600', '700', '800'],
       },
     ],
+    siteFontHeadline: ['referencelist', { only: 'Font' }],
     siteFontHeadlineWeight: [
       'enum',
       {
