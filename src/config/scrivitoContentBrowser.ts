@@ -79,6 +79,7 @@ function defaultFilters() {
         },
         Download: filterOptionForObjClass('Download'),
         Video: filterOptionForObjClass('Video'),
+        Font: filterOptionForObjClass('Font'),
       },
     },
     _modification: {
@@ -120,6 +121,7 @@ function isFilterPresentationsKey(
 // Icons are listed at https://www.scrivito.com/js-sdk/configureContentBrowser#filter-definition
 const FILTER_PRESENTATIONS = {
   Download: { title: 'Downloads', icon: 'pdf' },
+  Font: { title: 'Fonts', icon: 'pen' },
   Homepage: { title: 'Homepage', icon: 'inbox' },
   Image: { title: 'Images', icon: 'image' },
   Page: { title: 'Standard pages', icon: 'sheet' },
