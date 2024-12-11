@@ -85,7 +85,7 @@ const GetStartedButton = connect(
         className="btn btn-primary"
         href={`https://edit.scrivito.com/${location.href}`}
       >
-        Get started with your CMS
+        Get started with your Interface Builder
       </a>
     )
   },
