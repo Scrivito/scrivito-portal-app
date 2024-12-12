@@ -13,16 +13,7 @@ export const FontComponent = connect(
     const imageUrl = page.get('blob')?.url()
     if (!imageUrl) return null
 
-    const format = 'woff2'
     const weight = page.get('weight')
-
-    const src = ["local('')"]
-    if (page.get('variations')) {
-      src.push(`url('${imageUrl}') format('${format}') tech('variations')`)
-      src.push(`url('${imageUrl}') format('${format}-variations')`)
-    } else {
-      src.push(`url('${imageUrl}') format('${format}')`)
-    }
 
     return (
       <Helmet>
@@ -30,7 +21,7 @@ export const FontComponent = connect(
         @font-face {
           font-family: '${family}';
           font-display: swap;
-          src: ${src.join(', ')};
+          src: local(''), url('${imageUrl}');
           ${weight ? `font-weight: ${weight};` : ''}
         }
       `}</style>

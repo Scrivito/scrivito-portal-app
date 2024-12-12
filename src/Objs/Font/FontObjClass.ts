@@ -4,7 +4,6 @@ export const Font = provideObjClass('Font', {
   attributes: {
     blob: 'binary',
     family: 'string',
-    variations: 'boolean',
     weight: 'string',
   },
 })

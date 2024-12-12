@@ -5,18 +5,13 @@ provideEditingConfig(Font, {
   title: 'Font',
   attributes: {
     family: { title: 'font-family' },
-    variations: {
-      title: 'Variable font?',
-      description:
-        'Does this file contain multiple font variations? See https://fonts.google.com/knowledge/glossary/variable_fonts for details.',
-    },
     weight: {
       title: 'font-weight (optional)',
       description:
         'Either a single value (e.g. "400") or a range (e.g. "100 1000").',
     },
   },
-  properties: ['family', 'weight', 'variations'],
+  properties: ['family', 'weight'],
   validations: [
     [
       'blob',
