@@ -1,4 +1,3 @@
-import Color from 'color'
 import { ColorPicker, useColor } from 'react-color-palette'
 import { canEdit, connect, uiContext } from 'scrivito'
 import { HomepageInstance } from './HomepageObjClass'
@@ -25,13 +24,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           <AdvancedColorPicker
             color={page.get('siteColorPrimary') || '#274486'}
             disabled={!canEdit(page)}
-            setColor={(color) => {
-              page.update({
-                siteColorPrimary: color,
-                siteColorPrimaryDarken: darken(color),
-                siteColorPrimaryLighten: lighten(color),
-              })
-            }}
+            setColor={(siteColorPrimary) => page.update({ siteColorPrimary })}
           />
         </div>
 
@@ -42,13 +35,9 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           <AdvancedColorPicker
             color={page.get('siteColorSecondary') || '#39a9eb'}
             disabled={!canEdit(page)}
-            setColor={(color) => {
-              page.update({
-                siteColorSecondary: color,
-                siteColorSecondaryDarken: darken(color),
-                siteColorSecondaryLighten: lighten(color),
-              })
-            }}
+            setColor={(siteColorSecondary) =>
+              page.update({ siteColorSecondary })
+            }
           />
         </div>
       </div>
@@ -81,14 +70,4 @@ function AdvancedColorPicker({
       }}
     />
   )
-}
-
-function lighten(inputColor: string): string {
-  const color = Color(inputColor)
-  return color.lightness(color.lightness() + 8).hex()
-}
-
-function darken(inputColor: string): string {
-  const color = Color(inputColor)
-  return color.lightness(color.lightness() - 8).hex()
 }

@@ -24,15 +24,10 @@
   // The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-secondary: #39a9eb;
 
-  // TODO: Use newer "from" variant, once it is supported by all browsers. See https://caniuse.com/?search=relative%20color
-  // --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
-  // --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
-  // --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
-  // --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
-  --bs-primary-lighten: #3054a6;
-  --bs-primary-darken: #1e3466;
-  --bs-secondary-lighten: #5eb9ef;
-  --bs-secondary-darken: #1798e4;
+  --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
+  --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
+  --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
+  --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
 
   --bs-success: #21704b;
   --bs-info: #39a9eb;
