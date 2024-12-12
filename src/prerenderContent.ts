@@ -12,6 +12,7 @@ configureScrivito({ priority: 'background' })
 const PRERENDER_OBJ_CLASSES_BLACKLIST = [
   'Download',
   'Dropdown',
+  'Font',
   'Image',
   'Redirect',
   'Video',
