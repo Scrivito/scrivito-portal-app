@@ -26,12 +26,40 @@ provideEditingConfig(Font, {
     ],
     [
       'family',
-      (family) => {
-        if (family) return
+      (family: string) => {
+        if (!family) {
+          return {
+            message: 'The font-family name must be set.',
+            severity: 'error',
+          }
+        }
 
-        return {
-          message: 'The font-family must be set.',
-          severity: 'error',
+        if (family !== family.trim()) {
+          return {
+            message:
+              'Invalid font-family name: The name must not start or end with a space.',
+            severity: 'error',
+          }
+        }
+
+        if (family.match(/ {2}/)) {
+          return {
+            message:
+              'Invalid font-family name: The name must not contain consecutive spaces.',
+            severity: 'error',
+          }
+        }
+
+        if (
+          !family
+            .split(' ')
+            .every((part) => part.match(/^[a-zA-Z_-][a-zA-Z0-9_-]*$/))
+        ) {
+          return {
+            message:
+              'Invalid font-family name: Only letters (a-z, A-Z), numbers, spaces, _ or - are allowed.',
+            severity: 'error',
+          }
         }
       },
     ],

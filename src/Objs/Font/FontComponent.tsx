@@ -6,7 +6,7 @@ export const FontComponent = connect(
   function FontComponent({ page }: { page: Obj }) {
     if (!isFont(page)) return null
 
-    const family = CSS.escape(page.get('family'))
+    const family = page.get('family')
     if (!family) return null
 
     const fontUrl = page.get('blob')?.url()
