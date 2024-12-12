@@ -10,8 +10,8 @@ export const FontComponent = connect(
     const family = CSS.escape(page.get('family'))
     if (!family) return null
 
-    const imageUrl = page.get('blob')?.url()
-    if (!imageUrl) return null
+    const fontUrl = page.get('blob')?.url()
+    if (!fontUrl) return null
 
     const weight = page.get('weight')
 
@@ -21,7 +21,7 @@ export const FontComponent = connect(
         @font-face {
           font-family: '${family}';
           font-display: swap;
-          src: local(''), url('${imageUrl}');
+          src: local(''), url('${fontUrl}');
           ${weight ? `font-weight: ${weight};` : ''}
         }
       `}</style>
