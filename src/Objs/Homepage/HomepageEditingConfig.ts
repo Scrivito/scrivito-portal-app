@@ -54,7 +54,7 @@ provideEditingConfig(Homepage, {
     siteFontBody: {
       title: 'Body font',
       description:
-        'Please ensure that you have an appropriate license for the selected font. Default: "Manrope"',
+        'Please ensure that you have an appropriate license for the selected font. Default: Manrope',
     },
     siteFontBodyWeight: {
       title: 'Body weight',
@@ -64,7 +64,7 @@ provideEditingConfig(Homepage, {
       title: 'Headline font',
       description: `Please ensure that you have an appropriate license for the selected font.
         This font is also used in the navigation and for buttons.
-        Default: "Fira Sans"`,
+        Default: Fira Sans`,
     },
     siteFontHeadlineWeight: {
       title: 'Headline weight',
