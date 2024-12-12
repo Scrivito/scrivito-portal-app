@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { isHomepage, HomepageInstance } from '../Objs/Homepage/HomepageObjClass'
 import { isFont } from '../Objs/Font/FontObjClass'
 import { FontComponent } from '../Objs/Font/FontComponent'
+import { uniqBy } from 'lodash-es'
 
 export const DesignAdjustments = connect(
   function DesignAdjustments({ children }: { children: React.ReactNode }) {
@@ -76,14 +77,12 @@ const CustomFonts = connect(function CustomFonts({
 }) {
   return (
     <>
-      {[...root.get('siteFontHeadline'), ...root.get('siteFontBody')]
-        .filter(
-          (font, index, self) =>
-            index === self.findIndex((f) => f.id() === font.id()),
-        )
-        .map((font) => (
-          <FontComponent page={font} key={font.id()} />
-        ))}
+      {uniqBy(
+        [...root.get('siteFontHeadline'), ...root.get('siteFontBody')],
+        (obj) => obj.id(),
+      ).map((font) => (
+        <FontComponent page={font} key={font.id()} />
+      ))}
     </>
   )
 })
