@@ -21,7 +21,7 @@ export const FontComponent = connect(
         @font-face {
           font-family: '${family}';
           font-display: swap;
-          src: local(''), url('${fontUrl}');
+          src: url('${fontUrl}');
           ${weight ? `font-weight: ${weight};` : ''}
         }
       `}</style>
