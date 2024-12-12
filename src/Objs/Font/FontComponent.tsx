@@ -2,7 +2,6 @@ import { connect, Obj } from 'scrivito'
 import { Helmet } from 'react-helmet-async'
 import { isFont } from './FontObjClass'
 
-// FontComponent is rendered via the DesignAdjustments component
 export const FontComponent = connect(
   function FontComponent({ page }: { page: Obj }) {
     if (!isFont(page)) return null
