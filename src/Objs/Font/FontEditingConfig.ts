@@ -11,7 +11,7 @@ provideEditingConfig(Font, {
         'Does this file contain multiple font variations? See https://fonts.google.com/knowledge/glossary/variable_fonts for details.',
     },
     weight: {
-      title: 'font-weight',
+      title: 'font-weight (optional)',
       description:
         'Either a single value (e.g. "400") or a range (e.g. "100 1000").',
     },
@@ -43,12 +43,7 @@ provideEditingConfig(Font, {
     [
       'weight',
       (weight: string) => {
-        if (!weight) {
-          return {
-            message: 'The font-weight must be set.',
-            severity: 'error',
-          }
-        }
+        if (!weight) return
 
         if (weight.match(/^[1-9]\d{0,3}$/)) return
         if (weight.match(/^[1-9]\d{0,3} [1-9]\d{0,3}$/)) return

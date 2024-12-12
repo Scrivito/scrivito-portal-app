@@ -10,13 +10,11 @@ export const FontComponent = connect(
     const family = CSS.escape(page.get('family'))
     if (!family) return null
 
-    const weight = page.get('weight')
-    if (!weight) return null
-
     const imageUrl = page.get('blob')?.url()
     if (!imageUrl) return null
 
     const format = 'woff2'
+    const weight = page.get('weight')
 
     const src = ["local('')"]
     if (page.get('variations')) {
@@ -33,7 +31,7 @@ export const FontComponent = connect(
           font-family: '${family}';
           font-display: swap;
           src: ${src.join(', ')};
-          font-weight: ${weight};
+          ${weight ? `font-weight: ${weight};` : ''}
         }
       `}</style>
       </Helmet>
