@@ -36,7 +36,6 @@ export const DesignAdjustments = connect(
     const fontBody = root.get('siteFontBody')[0]
     if (isFont(fontBody)) {
       styles.push(`--bs-body-font-family: ${fontBody.get('family')};`)
-      styles.push(`--toastify-font-family: ${fontBody.get('family')};`)
     }
 
     return (
