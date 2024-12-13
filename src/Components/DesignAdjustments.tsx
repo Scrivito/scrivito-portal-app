@@ -10,22 +10,10 @@ export const DesignAdjustments = connect(
     const styles: string[] = []
 
     const primary = root.get('siteColorPrimary')
-    if (primary) {
-      styles.push(`--bs-primary: ${primary};`)
-      styles.push(`--bs-primary-lighten: hsl(from ${primary} h s calc(l + 8));`)
-      styles.push(`--bs-primary-darken: hsl(from ${primary} h s calc(l - 8));`)
-    }
+    if (primary) styles.push(`--bs-primary: ${primary};`)
 
     const secondary = root.get('siteColorSecondary')
-    if (secondary) {
-      styles.push(`--bs-secondary: ${secondary};`)
-      styles.push(
-        `--bs-secondary-lighten: hsl(from ${secondary} h s calc(l + 8));`,
-      )
-      styles.push(
-        `--bs-secondary-darken: hsl(from ${secondary} h s calc(l - 8));`,
-      )
-    }
+    if (secondary) styles.push(`--bs-secondary: ${secondary};`)
 
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none;')
@@ -36,8 +24,7 @@ export const DesignAdjustments = connect(
     return (
       <>
         <Helmet>
-          {/* @ts-expect-error helmet bug: https://github.com/nfl/react-helmet/issues/344*/}
-          <body style={styles.join(' ')}></body>
+          <style type="text/css">{`:root{\n  ${styles.join('\n  ')}\n}`}</style>
         </Helmet>
         {children}
       </>
