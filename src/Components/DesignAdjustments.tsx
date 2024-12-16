@@ -47,7 +47,7 @@ export const DesignAdjustments = connect(
           <FontFace
             font={font}
             fontFamily={headlineFontFamily}
-            key={`custom-headline-font-family${font.id()}`}
+            key={`${headlineFontFamily}-${font.id()}`}
           />
         ))}
 
@@ -55,7 +55,7 @@ export const DesignAdjustments = connect(
           <FontFace
             font={font}
             fontFamily={bodyFontFamily}
-            key={`custom-headline-font-family${font.id()}`}
+            key={`${bodyFontFamily}-${font.id()}`}
           />
         ))}
 
