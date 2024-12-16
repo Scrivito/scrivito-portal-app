@@ -68,10 +68,10 @@ export const DesignAdjustments = connect(
 
 const FontFace = connect(
   function FontFace({ font, fontFamily }: { font: Obj; fontFamily: string }) {
-    if (!isFont(font)) return ''
+    if (!isFont(font)) return null
 
     const fontUrl = font.get('blob')?.url()
-    if (!fontUrl) return ''
+    if (!fontUrl) return null
 
     const weight = font.get('weight')
 
