@@ -16,10 +16,10 @@ provideEditingConfig(Font, {
     [
       'blob',
       (blob: Binary | null) => {
-        if (blob?.raw().contentType() === 'font/woff2') return
+        if (blob?.raw().contentType().startsWith('font/')) return
 
         return {
-          message: 'Only WOFF2 font files are supported.',
+          message: 'The uploaded file is not a font file.',
           severity: 'error',
         }
       },
