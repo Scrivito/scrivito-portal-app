@@ -1,4 +1,4 @@
-import { Binary, provideEditingConfig } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Font } from './FontObjClass'
 
 provideEditingConfig(Font, {
@@ -12,17 +12,6 @@ provideEditingConfig(Font, {
   },
   properties: ['weight'],
   validations: [
-    [
-      'blob',
-      (blob: Binary | null) => {
-        if (blob?.raw().contentType().startsWith('font/')) return
-
-        return {
-          message: 'The uploaded file is not a font file.',
-          severity: 'error',
-        }
-      },
-    ],
     [
       'weight',
       (weight: string) => {
