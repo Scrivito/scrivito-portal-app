@@ -1,4 +1,4 @@
-import { Obj, provideEditingConfig } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 import { SiteColorsPicker } from './SiteColorsPicker'
 import {
@@ -8,7 +8,6 @@ import {
   defaultPagePropertiesGroups,
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
-import { isFont } from '../Font/FontObjClass'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -117,37 +116,5 @@ provideEditingConfig(Homepage, {
     siteFontHeadlineWeight: '500',
     siteRoundedCorners: true,
   },
-  validations: [
-    ...defaultPageValidations,
-    [
-      'siteFontHeadline',
-      (objs: Obj[]) => {
-        const familyNames = uniqueFamilyNames(objs)
-        if (familyNames.length <= 1) return
-
-        return {
-          message: `Headline font family names need to be equal. Current family names: ${Array.from(familyNames).join(', ')}`,
-          severity: 'error',
-        }
-      },
-    ],
-    [
-      'siteFontBody',
-      (objs: Obj[]) => {
-        const familyNames = uniqueFamilyNames(objs)
-        if (familyNames.length <= 1) return
-
-        return {
-          message: `Body font family names need to be equal. Current family names: ${Array.from(familyNames).join(', ')}`,
-          severity: 'error',
-        }
-      },
-    ],
-  ],
+  validations: defaultPageValidations,
 })
-
-function uniqueFamilyNames(objs: Obj[]): string[] {
-  return Array.from(
-    new Set(objs.filter(isFont).map((font) => font.get('family'))),
-  )
-}

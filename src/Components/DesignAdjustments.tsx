@@ -1,9 +1,10 @@
 import { Obj, connect } from 'scrivito'
 import { Helmet } from 'react-helmet-async'
-import { isHomepage, HomepageInstance } from '../Objs/Homepage/HomepageObjClass'
 import { isFont } from '../Objs/Font/FontObjClass'
-import { FontComponent } from '../Objs/Font/FontComponent'
-import { uniqBy } from 'lodash-es'
+import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
+
+const bodyFontFamily = 'custom-body-font-family'
+const headlineFontFamily = 'custom-headline-font-family'
 
 export const DesignAdjustments = connect(
   function DesignAdjustments({ children }: { children: React.ReactNode }) {
@@ -24,18 +25,16 @@ export const DesignAdjustments = connect(
     const roundedCorners = root.get('siteRoundedCorners')
     if (!roundedCorners) styles.push('--jr-border-radius: 0;')
 
-    const fontHeadlineWeight = root.get('siteFontHeadlineWeight') || '500'
-    styles.push(`--jr-headline-font-weight: ${fontHeadlineWeight};`)
-    const fontHeadline = root.get('siteFontHeadline')[0]
-    if (isFont(fontHeadline)) {
-      styles.push(`--jr-headline-font-family: ${fontHeadline.get('family')};`)
-    }
-
     const fontBodyWeight = root.get('siteFontBodyWeight') || '500'
     styles.push(`--bs-body-font-weight: ${fontBodyWeight};`)
-    const fontBody = root.get('siteFontBody')[0]
-    if (isFont(fontBody)) {
-      styles.push(`--bs-body-font-family: ${fontBody.get('family')};`)
+    if (root.get('siteFontBody').length > 0) {
+      styles.push(`--bs-body-font-family: ${bodyFontFamily};`)
+    }
+
+    const fontHeadlineWeight = root.get('siteFontHeadlineWeight') || '500'
+    styles.push(`--jr-headline-font-weight: ${fontHeadlineWeight};`)
+    if (root.get('siteFontHeadline').length > 0) {
+      styles.push(`--jr-headline-font-family: ${headlineFontFamily};`)
     }
 
     return (
@@ -44,7 +43,22 @@ export const DesignAdjustments = connect(
           <style type="text/css">{`:root{\n  ${styles.join('\n  ')}\n}`}</style>
         </Helmet>
 
-        <CustomFonts root={root} />
+        {root.get('siteFontHeadline').map((font) => (
+          <FontFace
+            font={font}
+            fontFamily={headlineFontFamily}
+            key={`custom-headline-font-family${font.id()}`}
+          />
+        ))}
+
+        {root.get('siteFontBody').map((font) => (
+          <FontFace
+            font={font}
+            fontFamily={bodyFontFamily}
+            key={`custom-headline-font-family${font.id()}`}
+          />
+        ))}
+
         {children}
       </>
     )
@@ -52,19 +66,29 @@ export const DesignAdjustments = connect(
   { loading: () => null },
 )
 
-const CustomFonts = connect(function CustomFonts({
-  root,
-}: {
-  root: HomepageInstance
-}) {
-  return (
-    <>
-      {uniqBy(
-        [...root.get('siteFontHeadline'), ...root.get('siteFontBody')],
-        (obj) => obj.id(),
-      ).map((font) => (
-        <FontComponent page={font} key={font.id()} />
-      ))}
-    </>
-  )
-})
+const FontFace = connect(
+  function FontFace({ font, fontFamily }: { font: Obj; fontFamily: string }) {
+    if (!isFont(font)) return ''
+
+    const fontUrl = font.get('blob')?.url()
+    if (!fontUrl) return ''
+
+    const weight = font.get('weight')
+
+    return (
+      <Helmet>
+        <style type="text/css">
+          {`
+          @font-face {
+            font-family: '${fontFamily}';
+            font-display: swap;
+            src: url('${encodeURI(fontUrl)}');
+            ${weight ? `font-weight: ${weight};` : ''}
+          }
+        `}
+        </style>
+      </Helmet>
+    )
+  },
+  { loading: () => null },
+)
