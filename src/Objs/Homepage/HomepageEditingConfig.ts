@@ -53,21 +53,23 @@ provideEditingConfig(Homepage, {
     siteFontBody: {
       title: 'Body font',
       description:
-        'Please ensure that you have an appropriate license for the selected font. Default: Manrope',
+        'Ensure you have a proper license for the selected font. Default: Manrope',
     },
     siteFontBodyWeight: {
-      title: 'Body weight',
-      description: 'Default: 500',
+      title: 'Body font weight',
+      description:
+        'If your chosen font supports multiple weights, pick the one that best fits your design. Default: 500',
     },
     siteFontHeadline: {
       title: 'Headline font',
-      description: `Please ensure that you have an appropriate license for the selected font.
-        This font is also used in the navigation and for buttons.
+      description: `This font will also be applied to navigation menus and buttons.
+        Ensure you have a proper license for the selected font.
         Default: Fira Sans`,
     },
     siteFontHeadlineWeight: {
-      title: 'Headline weight',
-      description: 'Default: 500',
+      title: 'Headline font weight',
+      description:
+        'If your chosen font supports multiple weights, pick the one that best fits your design. Default: 500',
     },
   },
   propertiesGroups: (site) => [
@@ -100,8 +102,8 @@ provideEditingConfig(Homepage, {
       title: 'Site fonts',
       properties: [
         'siteFontHeadline',
-        'siteFontHeadlineWeight',
         'siteFontBody',
+        'siteFontHeadlineWeight',
         'siteFontBodyWeight',
       ],
       key: 'site-fonts-group',
