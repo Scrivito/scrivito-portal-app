@@ -64,7 +64,7 @@ provideEditingConfig(Homepage, {
       title: 'Headline font',
       description: `This font will also be applied to navigation menus and buttons.
         Ensure you have a proper license for the selected font.
-        Default: Fira Sans`,
+        Default: Firava`,
     },
     siteFontHeadlineWeight: {
       title: 'Headline font weight',
