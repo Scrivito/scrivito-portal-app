@@ -50,6 +50,27 @@ provideEditingConfig(Homepage, {
       description: 'Needs to be approved at https://cards-dev.x.com/validator',
     },
     siteUserProfilePage: { title: 'Location of user profile page' },
+    siteFontBody: {
+      title: 'Body font',
+      description:
+        'Ensure you have a proper license for the selected font. Default: Manrope',
+    },
+    siteFontBodyWeight: {
+      title: 'Body font weight',
+      description:
+        'If your chosen font supports multiple weights, pick the one that best fits your design. Default: 500',
+    },
+    siteFontHeadline: {
+      title: 'Headline font',
+      description: `This font will also be applied to navigation menus and buttons.
+        Ensure you have a proper license for the selected font.
+        Default: Fira Sans`,
+    },
+    siteFontHeadlineWeight: {
+      title: 'Headline font weight',
+      description:
+        'If your chosen font supports multiple weights, pick the one that best fits your design. Default: 500',
+    },
   },
   propertiesGroups: (site) => [
     {
@@ -77,12 +98,24 @@ provideEditingConfig(Homepage, {
       properties: ['siteColorPrimary', 'siteColorSecondary'],
       key: 'site-colors-group',
     },
+    {
+      title: 'Site fonts',
+      properties: [
+        'siteFontHeadline',
+        'siteFontBody',
+        'siteFontHeadlineWeight',
+        'siteFontBodyWeight',
+      ],
+      key: 'site-fonts-group',
+    },
     ...defaultPagePropertiesGroups,
   ],
   properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
     siteDropShadow: true,
+    siteFontBodyWeight: '500',
+    siteFontHeadlineWeight: '500',
     siteRoundedCorners: true,
   },
   validations: defaultPageValidations,

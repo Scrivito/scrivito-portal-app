@@ -2,6 +2,7 @@ import { configureObjClassForContentType as scrivitoConfigureObjClassForContentT
 
 export function configureObjClassForContentType() {
   scrivitoConfigureObjClassForContentType({
+    'font/*': 'Font',
     'image/*': 'Image',
     'video/*': 'Video',
     '*/*': 'Download',
