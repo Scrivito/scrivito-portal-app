@@ -95,7 +95,10 @@ export async function ensureSiteIsPresent() {
   if (!site) return
 
   const siteUrl = await load(() => urlFor(site))
-  const { pathname, search, hash } = window.location
+  const { pathname: rawPathname, search, hash } = window.location
+  const pathname = isMultitenancyEnabled()
+    ? rawPathname.slice(getInstanceId().length + 1)
+    : rawPathname
   const path = pathname === '/' ? '' : pathname
 
   window.location.assign(`${siteUrl}${path}${search}${hash}`)
