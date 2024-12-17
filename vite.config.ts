@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
       outDir,
       rollupOptions: {
         input: {
-          main: resolve(__dirname, 'index.html'),
+          index: resolve(__dirname, 'index.html'),
           _scrivito_extensions: resolve(__dirname, '_scrivito_extensions.html'),
         },
         output: {
