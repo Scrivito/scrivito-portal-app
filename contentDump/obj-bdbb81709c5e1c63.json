@@ -127,6 +127,14 @@
     "string",
     "portal-app:5"
   ],
+  "site_font_headline_weight": [
+    "string",
+    "500"
+  ],
+  "site_font_body_weight": [
+    "string",
+    "500"
+  ],
   "_conflicts": null,
   "_content_id": "c2a0aab78be05a4e",
   "_created_at": "20240405091747",
@@ -135,14 +143,14 @@
   "_first_published_at": "20240405121103",
   "_id": "bdbb81709c5e1c63",
   "_language": "de",
-  "_last_changed": "20241105132057",
+  "_last_changed": "20241210143226",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20241107103100",
+  "_published_at": "20241216140516",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20241107103100000000000000000091a13793f6df5746",
+  "_version": "20241216140516000000000000000025befbd743cdd64a",
   "_widget_pool": {
     "43891776": {
       "_obj_class": "ColumnWidget",

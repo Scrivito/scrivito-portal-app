@@ -31,16 +31,16 @@
   "_first_published_at": "20240112090022",
   "_id": "e7118807488a6364",
   "_language": "en",
-  "_last_changed": "20240917092814",
+  "_last_changed": "20241213094104",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/125f0003cf11c725/e7118807488a6364",
-  "_permalink": null,
-  "_published_at": "20240918082734",
+  "_permalink": "ticket-details",
+  "_published_at": "20241213094222",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202409180827340000000000000000b13b69f57525b4db",
+  "_version": "202412130942220000000000000000d9606519b9d9db1f",
   "_widget_pool": {
     "62381b16": {
       "_obj_class": "DataLabelWidget",
