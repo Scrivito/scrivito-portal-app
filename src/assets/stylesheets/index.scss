@@ -674,7 +674,9 @@ section {
 // -- new override -- //
 
 .card,
-.card .card {
+.card .card,
+.slide,
+.slide .card {
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -724,7 +726,9 @@ section {
 }
 
 .card,
-.card .card {
+.card .card,
+.slide,
+.slide .card {
   &.bg-primary,
   &.bg-dark-grey,
   &.bg-secondary,
@@ -842,8 +846,7 @@ section:has(.img-background) {
   position: relative;
   z-index: 1;
 }
-.card,
-.carousel-item {
+.card {
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -869,7 +872,8 @@ header section {
   --bs-card-bg: transparent;
   box-shadow: var(--jr-box-shadow);
 }
-.card {
+.card,
+.slide {
   &.bg-primary,
   &.bg-secondary,
   &.bg-dark-grey,
@@ -931,8 +935,6 @@ header section {
   }
 }
 
-.carousel-item:hover,
-.carousel-item:focus,
 section:hover >,
 section:focus >,
 .card:not([data-scrivito-private-widget]):hover,
@@ -943,8 +945,6 @@ section:focus >,
   }
 }
 
-.carousel-item:hover >,
-.carousel-item:focus >,
 section:hover >,
 section:focus >,
 .card:hover,
@@ -1146,14 +1146,9 @@ section:focus >,
   text-align: center;
 }
 
-//-- carousel & headline with background --//
+//-- headline with background --//
 
-.carousel-item {
-  height: 400px;
-}
-
-.header-caption,
-.carousel-caption {
+.header-caption {
   text-align: left;
   .h1,
   .h2,
