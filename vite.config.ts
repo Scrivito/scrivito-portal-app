@@ -26,7 +26,12 @@ export default defineConfig(({ mode }) => {
         },
         output: {
           manualChunks: {
-            react: ['react-bootstrap', 'react-helmet-async', 'react-toastify'],
+            react: [
+              'react-bootstrap',
+              'react-dropzone',
+              'react-helmet-async',
+              'react-toastify',
+            ],
             scrivito: ['scrivito-neoletter-form-widgets'],
           },
         },
