@@ -16,7 +16,7 @@ import './SliderWidget.scss'
 provideComponent(SliderWidget, ({ widget }) => {
   return (
     <Carousel
-      className="slider-widget"
+      className={`slider-widget ${widget.get('margin') || 'mb-4'}`}
       controls={widget.get('controls')}
       indicators={widget.get('controls')}
       interval={widget.get('autoPlay') ? 5000 : null}
