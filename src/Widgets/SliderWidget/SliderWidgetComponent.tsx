@@ -29,7 +29,6 @@ provideComponent(SliderWidget, ({ widget }) => {
           <Carousel.Item
             key={item.id()}
             className={[
-              'slide',
               `bg-${item.get('backgroundColor') || 'transparent'}`,
               widget.get('controls') ? 'has-controls' : '',
             ].join(' ')}
