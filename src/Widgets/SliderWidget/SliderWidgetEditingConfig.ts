@@ -13,13 +13,18 @@ provideEditingConfig(SliderWidget, {
       title: 'Show controls?',
       description: 'Shows arrows and indicators. Default: Yes',
     },
+    margin: {
+      title: 'Margin',
+      description: 'Outer space to next item (bottom). Default: "mb-4"',
+    },
     slides: {
       title: 'Slides',
     },
   },
-  properties: ['slides', 'controls', 'autoPlay'],
+  properties: ['slides', 'controls', 'autoPlay', 'margin'],
   initialContent: {
     controls: true,
+    margin: 'mb-4',
     slides: [new SlideWidget({}), new SlideWidget({})],
   },
   validations: [
