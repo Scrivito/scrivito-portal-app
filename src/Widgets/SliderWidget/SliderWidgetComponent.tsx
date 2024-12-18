@@ -20,6 +20,7 @@ provideComponent(SliderWidget, ({ widget }) => {
       controls={widget.get('controls')}
       indicators={widget.get('controls')}
       interval={widget.get('autoPlay') ? 5000 : null}
+      data-bs-theme="dark"
     >
       {widget
         .get('slides')
