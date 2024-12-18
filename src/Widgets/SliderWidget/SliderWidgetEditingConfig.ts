@@ -20,7 +20,7 @@ provideEditingConfig(SliderWidget, {
   properties: ['slides', 'controls', 'autoPlay'],
   initialContent: {
     controls: true,
-    slides: [new SlideWidget({})],
+    slides: [new SlideWidget({}), new SlideWidget({})],
   },
   validations: [
     [
