@@ -1,17 +1,17 @@
 .slider-widget {
-  .slide {
+  .carousel-item {
     border-radius: var(--jr-border-radius);
     min-height: 400px;
     overflow: hidden;
-    padding: 17px;
+    padding: 1.5rem;
     position: relative;
     z-index: 1;
 
     &.has-controls {
-      padding-bottom: 50px;
+      padding-bottom: calc(23px + 1rem);
       padding-left: 15%;
       padding-right: 15%;
-      padding-top: 17px;
+      padding-top: 1.5rem;
     }
   }
 }

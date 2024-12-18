@@ -675,8 +675,8 @@ section {
 
 .card,
 .card .card,
-.slide,
-.slide .card {
+.carousel-item,
+.carousel-item .card {
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -727,8 +727,8 @@ section {
 
 .card,
 .card .card,
-.slide,
-.slide .card {
+.carousel-item,
+.carousel-item .card {
   &.bg-primary,
   &.bg-dark-grey,
   &.bg-secondary,
@@ -873,7 +873,7 @@ header section {
   box-shadow: var(--jr-box-shadow);
 }
 .card,
-.slide {
+.carousel-item {
   &.bg-primary,
   &.bg-secondary,
   &.bg-dark-grey,
