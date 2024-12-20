@@ -32,7 +32,7 @@ export function provideLocalStorageDataClass(
     attributes,
     connection: {
       async index(params) {
-        const record = restoreRecord()
+        const record = restoreRecord(recordKey)
         const rawItems = Object.values(record)
         const items = postProcessData
           ? await Promise.all(rawItems.map((item) => postProcessData(item)))
@@ -77,40 +77,40 @@ export function provideLocalStorageDataClass(
       },
 
       async get(id) {
-        const rawItem = restoreRecord()[id]
+        const rawItem = restoreRecord(recordKey)[id]
         if (!rawItem) return null
 
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async create(data) {
-        const record = restoreRecord()
+        const record = restoreRecord(recordKey)
 
         const _id = pseudoRandom32CharHex()
         const newData = prepareData ? await prepareData(data) : data
         const storedData: RawDataItem = { ...newData, _id }
         record[_id] = storedData
 
-        persistRecord(record)
+        persistRecord(recordKey, record)
         const rawItem = { ...newData, _id }
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async update(id, data) {
-        const record = restoreRecord()
+        const record = restoreRecord(recordKey)
         const newData = prepareData ? await prepareData(data) : data
         const storedData: RawDataItem = { ...newData, _id: id }
         record[id] = storedData
 
-        persistRecord(record)
+        persistRecord(recordKey, record)
         const rawItem = { ...newData, _id: id }
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async delete(id) {
-        const record = restoreRecord()
+        const record = restoreRecord(recordKey)
         delete record[id]
-        persistRecord(record)
+        persistRecord(recordKey, record)
       },
     },
   })
@@ -133,37 +133,40 @@ export function provideLocalStorageDataClass(
 
           initialRecord[id] = item
         })
-        persistRecord(initialRecord)
+        persistRecord(recordKey, initialRecord)
         localStorage.setItem(initializedKey, initializedValue)
       }
     } catch (e) {
       console.error('An error occurred during initializing', e)
     }
   }
+}
 
-  function restoreRecord(): Record<string, RawDataItem> {
-    let item: string | null | undefined
-    try {
-      item = localStorage.getItem(recordKey)
-    } catch {
-      return {}
-    }
-
-    if (!item) return {}
-
-    try {
-      const parsed = JSON.parse(item)
-      if (!isRawDataItemRecord(parsed)) return {}
-
-      return parsed
-    } catch {
-      return {}
-    }
+function restoreRecord(recordKey: string): Record<string, RawDataItem> {
+  let item: string | null | undefined
+  try {
+    item = localStorage.getItem(recordKey)
+  } catch {
+    return {}
   }
 
-  function persistRecord(record: Record<string, RawDataItem>): void {
-    localStorage.setItem(recordKey, JSON.stringify(record))
+  if (!item) return {}
+
+  try {
+    const parsed = JSON.parse(item)
+    if (!isRawDataItemRecord(parsed)) return {}
+
+    return parsed
+  } catch {
+    return {}
   }
+}
+
+function persistRecord(
+  recordKey: string,
+  record: Record<string, RawDataItem>,
+): void {
+  localStorage.setItem(recordKey, JSON.stringify(record))
 }
 
 function isRawDataItemRecord(
