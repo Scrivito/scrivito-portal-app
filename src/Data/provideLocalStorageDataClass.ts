@@ -10,6 +10,8 @@ interface RawDataItem {
   [key: string]: unknown
 }
 
+const recordKeys: Set<{ recordKey: string; className: string }> = new Set()
+
 export function provideLocalStorageDataClass(
   className: string,
   {
@@ -25,6 +27,7 @@ export function provideLocalStorageDataClass(
   } = {},
 ) {
   const recordKey = `localDataClass-${scrivitoTenantId()}-${className}`
+  recordKeys.add({ className, recordKey })
 
   if (initialContent) initializeContent(initialContent)
 
@@ -140,6 +143,34 @@ export function provideLocalStorageDataClass(
       console.error('An error occurred during initializing', e)
     }
   }
+}
+
+export function searchLocalStorageDataClasses(
+  search: string,
+  blackListEntities: string[] = [],
+): Array<{ _id: string; entity: string; title: string }> {
+  const results: Array<{ _id: string; entity: string; title: string }> = []
+
+  const lowerCaseSearchTerm = search.toLowerCase()
+  const matchesSearchTerm = (value: unknown) =>
+    typeof value === 'string' &&
+    value.toLowerCase().includes(lowerCaseSearchTerm)
+
+  recordKeys.forEach(({ className: entity, recordKey }) => {
+    if (blackListEntities.includes(entity)) return
+
+    Object.entries(restoreRecord(recordKey)).forEach(([_id, item]) => {
+      if (Object.values(item).some(matchesSearchTerm)) {
+        results.push({
+          _id,
+          entity,
+          title: ensureString(item.title) || ensureString(item.keyword),
+        })
+      }
+    })
+  })
+
+  return results
 }
 
 function restoreRecord(recordKey: string): Record<string, RawDataItem> {
