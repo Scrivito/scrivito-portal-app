@@ -33,6 +33,7 @@ export default defineConfig(({ mode }) => {
               'react-toastify',
             ],
             scrivito: ['scrivito-neoletter-form-widgets'],
+            index: ['src/main.tsx', 'vite/modulepreload-polyfill'],
           },
         },
       },
