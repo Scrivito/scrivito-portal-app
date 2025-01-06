@@ -40,16 +40,16 @@
   "_first_published_at": "20240405121103",
   "_id": "cb4df3bce5e37dd3",
   "_language": "de",
-  "_last_changed": "20241011105749",
+  "_last_changed": "20250106103622",
   "_modification": null,
   "_path": "/ed043d1606eaf539/cb4df3bce5e37dd3",
   "_permalink": null,
-  "_published_at": "20241015082512",
+  "_published_at": "20250106125006",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20241015082512000000000000000063693d22fae05744",
+  "_version": "202501061250060000000000000000267ad98a761ce2d2",
   "_widget_pool": {
     "d543e2f2": {
       "_obj_class": "SectionWidget",
@@ -316,7 +316,7 @@
       ],
       "deleted_message": [
         "string",
-        "Artikel aus dem Warenkorb entfernt"
+        "Artikel aus dem Warenkorb entfernt."
       ],
       "title": [
         "string",
