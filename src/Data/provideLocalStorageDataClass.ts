@@ -147,20 +147,20 @@ export function provideLocalStorageDataClass(
 
 export function searchLocalStorageDataClasses(
   search: string,
-): Array<{ _id: string; entity: string; title: string }> {
-  const results: Array<{ _id: string; entity: string; title: string }> = []
+): Array<{ _id: string; className: string; title: string }> {
+  const results: Array<{ _id: string; className: string; title: string }> = []
 
   const lowerCaseSearchTerm = search.toLowerCase()
   const matchesSearchTerm = (value: unknown) =>
     typeof value === 'string' &&
     value.toLowerCase().includes(lowerCaseSearchTerm)
 
-  recordKeys.forEach(({ className: entity, recordKey }) => {
+  recordKeys.forEach(({ className, recordKey }) => {
     Object.entries(restoreRecord(recordKey)).forEach(([_id, item]) => {
       if (Object.values(item).some(matchesSearchTerm)) {
         results.push({
           _id,
-          entity,
+          className,
           title: ensureString(item.title) || ensureString(item.keyword),
         })
       }
