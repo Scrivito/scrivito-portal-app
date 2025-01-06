@@ -106,7 +106,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
 
     try {
       await dataItem?.delete()
-      if (deletedMessage) toast.success(deletedMessage)
+      if (deletedMessage) toast.info(deletedMessage)
       if (redirectAfterDelete) navigateTo(redirectAfterDelete)
     } catch (error) {
       errorToast(errorMessage, error)
