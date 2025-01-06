@@ -147,7 +147,6 @@ export function provideLocalStorageDataClass(
 
 export function searchLocalStorageDataClasses(
   search: string,
-  blackListEntities: string[] = [],
 ): Array<{ _id: string; entity: string; title: string }> {
   const results: Array<{ _id: string; entity: string; title: string }> = []
 
@@ -157,8 +156,6 @@ export function searchLocalStorageDataClasses(
     value.toLowerCase().includes(lowerCaseSearchTerm)
 
   recordKeys.forEach(({ className: entity, recordKey }) => {
-    if (blackListEntities.includes(entity)) return
-
     Object.entries(restoreRecord(recordKey)).forEach(([_id, item]) => {
       if (Object.values(item).some(matchesSearchTerm)) {
         results.push({
