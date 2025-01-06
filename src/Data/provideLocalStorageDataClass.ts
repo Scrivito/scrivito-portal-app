@@ -146,32 +146,18 @@ export function searchLocalStorageDataClasses(
   search: string,
   classNames: string[],
 ): Array<{ _id: string; className: string; rawItem: Record<string, unknown> }> {
-  const results: Array<{
-    _id: string
-    className: string
-    rawItem: Record<string, unknown>
-  }> = []
-
   const lowerCaseSearchTerm = search.toLowerCase()
   const matchesSearchTerm = (value: unknown) =>
     typeof value === 'string' &&
     value.toLowerCase().includes(lowerCaseSearchTerm)
 
-  classNames.forEach((className) => {
-    Object.entries(restoreRecord(recordKeyForClassName(className))).forEach(
-      ([_id, rawItem]) => {
-        if (Object.values(rawItem).some(matchesSearchTerm)) {
-          results.push({
-            _id,
-            className,
-            rawItem,
-          })
-        }
-      },
-    )
-  })
-
-  return results
+  return classNames.flatMap((className) =>
+    Object.entries(restoreRecord(recordKeyForClassName(className)))
+      .filter(([_id, rawItem]) =>
+        Object.values(rawItem).some(matchesSearchTerm),
+      )
+      .map(([_id, rawItem]) => ({ _id, className, rawItem })),
+  )
 }
 
 function recordKeyForClassName(className: string): string {
