@@ -10,8 +10,6 @@ interface RawDataItem {
   [key: string]: unknown
 }
 
-const recordKeys: Set<{ recordKey: string; className: string }> = new Set()
-
 export function provideLocalStorageDataClass(
   className: string,
   {
@@ -26,8 +24,7 @@ export function provideLocalStorageDataClass(
     attributes?: ReadonlyDataClassAttributes
   } = {},
 ) {
-  const recordKey = `localDataClass-${scrivitoTenantId()}-${className}`
-  recordKeys.add({ className, recordKey })
+  const recordKey = recordKeyForClassName(className)
 
   if (initialContent) initializeContent(initialContent)
 
@@ -147,6 +144,7 @@ export function provideLocalStorageDataClass(
 
 export function searchLocalStorageDataClasses(
   search: string,
+  classNames: string[],
 ): Array<{ _id: string; className: string; title: string }> {
   const results: Array<{ _id: string; className: string; title: string }> = []
 
@@ -155,19 +153,25 @@ export function searchLocalStorageDataClasses(
     typeof value === 'string' &&
     value.toLowerCase().includes(lowerCaseSearchTerm)
 
-  recordKeys.forEach(({ className, recordKey }) => {
-    Object.entries(restoreRecord(recordKey)).forEach(([_id, item]) => {
-      if (Object.values(item).some(matchesSearchTerm)) {
-        results.push({
-          _id,
-          className,
-          title: ensureString(item.title) || ensureString(item.keyword),
-        })
-      }
-    })
+  classNames.forEach((className) => {
+    Object.entries(restoreRecord(recordKeyForClassName(className))).forEach(
+      ([_id, item]) => {
+        if (Object.values(item).some(matchesSearchTerm)) {
+          results.push({
+            _id,
+            className,
+            title: ensureString(item.title) || ensureString(item.keyword),
+          })
+        }
+      },
+    )
   })
 
   return results
+}
+
+function recordKeyForClassName(className: string): string {
+  return `localDataClass-${scrivitoTenantId()}-${className}`
 }
 
 function restoreRecord(recordKey: string): Record<string, RawDataItem> {
