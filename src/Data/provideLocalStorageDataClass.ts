@@ -24,7 +24,7 @@ export function provideLocalStorageDataClass(
     attributes?: ReadonlyDataClassAttributes
   } = {},
 ) {
-  const recordKey = `localDataClass-${scrivitoTenantId()}-${className}`
+  const recordKey = recordKeyForClassName(className)
 
   if (initialContent) initializeContent(initialContent)
 
@@ -32,7 +32,7 @@ export function provideLocalStorageDataClass(
     attributes,
     connection: {
       async index(params) {
-        const record = restoreRecord()
+        const record = restoreRecord(recordKey)
         const rawItems = Object.values(record)
         const items = postProcessData
           ? await Promise.all(rawItems.map((item) => postProcessData(item)))
@@ -77,40 +77,40 @@ export function provideLocalStorageDataClass(
       },
 
       async get(id) {
-        const rawItem = restoreRecord()[id]
+        const rawItem = restoreRecord(recordKey)[id]
         if (!rawItem) return null
 
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async create(data) {
-        const record = restoreRecord()
+        const record = restoreRecord(recordKey)
 
         const _id = pseudoRandom32CharHex()
         const newData = prepareData ? await prepareData(data) : data
         const storedData: RawDataItem = { ...newData, _id }
         record[_id] = storedData
 
-        persistRecord(record)
+        persistRecord(recordKey, record)
         const rawItem = { ...newData, _id }
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async update(id, data) {
-        const record = restoreRecord()
+        const record = restoreRecord(recordKey)
         const newData = prepareData ? await prepareData(data) : data
         const storedData: RawDataItem = { ...newData, _id: id }
         record[id] = storedData
 
-        persistRecord(record)
+        persistRecord(recordKey, record)
         const rawItem = { ...newData, _id: id }
         return postProcessData ? postProcessData(rawItem) : rawItem
       },
 
       async delete(id) {
-        const record = restoreRecord()
+        const record = restoreRecord(recordKey)
         delete record[id]
-        persistRecord(record)
+        persistRecord(recordKey, record)
       },
     },
   })
@@ -133,37 +133,62 @@ export function provideLocalStorageDataClass(
 
           initialRecord[id] = item
         })
-        persistRecord(initialRecord)
+        persistRecord(recordKey, initialRecord)
         localStorage.setItem(initializedKey, initializedValue)
       }
     } catch (e) {
       console.error('An error occurred during initializing', e)
     }
   }
+}
 
-  function restoreRecord(): Record<string, RawDataItem> {
-    let item: string | null | undefined
-    try {
-      item = localStorage.getItem(recordKey)
-    } catch {
-      return {}
-    }
+export function searchLocalStorageDataClasses(
+  search: string,
+  classNames: string[],
+): Array<{ _id: string; className: string; rawItem: Record<string, unknown> }> {
+  const lowerCaseSearchTerm = search.toLowerCase()
+  const matchesSearchTerm = (value: unknown) =>
+    typeof value === 'string' &&
+    value.toLowerCase().includes(lowerCaseSearchTerm)
 
-    if (!item) return {}
+  return classNames.flatMap((className) =>
+    Object.entries(restoreRecord(recordKeyForClassName(className)))
+      .filter(([_id, rawItem]) =>
+        Object.values(rawItem).some(matchesSearchTerm),
+      )
+      .map(([_id, rawItem]) => ({ _id, className, rawItem })),
+  )
+}
 
-    try {
-      const parsed = JSON.parse(item)
-      if (!isRawDataItemRecord(parsed)) return {}
+function recordKeyForClassName(className: string): string {
+  return `localDataClass-${scrivitoTenantId()}-${className}`
+}
 
-      return parsed
-    } catch {
-      return {}
-    }
+function restoreRecord(recordKey: string): Record<string, RawDataItem> {
+  let item: string | null | undefined
+  try {
+    item = localStorage.getItem(recordKey)
+  } catch {
+    return {}
   }
 
-  function persistRecord(record: Record<string, RawDataItem>): void {
-    localStorage.setItem(recordKey, JSON.stringify(record))
+  if (!item) return {}
+
+  try {
+    const parsed = JSON.parse(item)
+    if (!isRawDataItemRecord(parsed)) return {}
+
+    return parsed
+  } catch {
+    return {}
   }
+}
+
+function persistRecord(
+  recordKey: string,
+  record: Record<string, RawDataItem>,
+): void {
+  localStorage.setItem(recordKey, JSON.stringify(record))
 }
 
 function isRawDataItemRecord(
