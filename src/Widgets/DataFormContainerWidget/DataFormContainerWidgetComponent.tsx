@@ -1,12 +1,13 @@
 import {
   ContentTag,
+  currentLanguage,
   DataItem,
   InPlaceEditingOff,
-  WidgetTag,
+  navigateTo,
   provideComponent,
   useData,
-  currentLanguage,
-  navigateTo,
+  useResolvedStringValue,
+  WidgetTag,
 } from 'scrivito'
 import { DataFormContainerWidget } from './DataFormContainerWidgetClass'
 import { toast } from 'react-toastify'
@@ -27,7 +28,9 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
 
   const redirectAfterSubmit = widget.get('redirectAfterSubmit')
   const submitOnChange = widget.get('submitOnChange')
-  const submittedMessage = widget.get('submittedMessage')
+  const submittedMessage = useResolvedStringValue(
+    widget.get('submittedMessage'),
+  )
 
   const errorMessage = getErrorMessage()
 
