@@ -273,7 +273,7 @@ const LOCALIZERS = {
   de: {
     cartAddedMessage: '__product__ wurde dem Warenkorb hinzugefügt.',
     cartAddLabel: 'In den Warenkorb',
-    cartRemovedMessage: 'Artikel aus dem Warenkorb entfernt.',
+    cartRemovedMessage: '__product__ wurde aus dem Warenkorb entfernt.',
     cartRemoveLabel: 'Aus dem Warenkorb entfernen',
     cartLoginLabel: 'Anmelden',
     cartUnavailableMessage:
@@ -286,7 +286,7 @@ const LOCALIZERS = {
   en: {
     cartAddedMessage: 'Added __product__ to cart.',
     cartAddLabel: 'Add to cart',
-    cartRemovedMessage: 'Removed item from cart.',
+    cartRemovedMessage: 'Removed __product__ from cart.',
     cartRemoveLabel: 'Remove from cart',
     cartLoginLabel: 'Log in',
     cartUnavailableMessage: 'Please log in to add __product__ to cart.',

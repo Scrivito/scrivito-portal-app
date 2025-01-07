@@ -1,11 +1,12 @@
 import {
   ContentTag,
-  InPlaceEditingOff,
-  WidgetTag,
   currentLanguage,
+  InPlaceEditingOff,
   navigateTo,
   provideComponent,
   useData,
+  useResolvedStringValue,
+  WidgetTag,
 } from 'scrivito'
 import { DataDeleteButtonWidget } from './DataDeleteButtonWidgetClass'
 import { useState } from 'react'
@@ -29,7 +30,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
     cancelButtonClassNames.push(buttonSize)
   }
 
-  const deletedMessage = widget.get('deletedMessage')
+  const deletedMessage = useResolvedStringValue(widget.get('deletedMessage'))
   const errorMessage = getErrorMessage()
   const redirectAfterDelete = widget.get('redirectAfterDelete')
   const buttonColor = widget.get('buttonColor') || 'btn-danger'

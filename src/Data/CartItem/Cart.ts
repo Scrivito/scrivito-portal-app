@@ -12,7 +12,7 @@ import { Opportunity } from '../Opportunity/OpportunityDataClass'
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
 
-  await CartItem.create({ product: productId })
+  await CartItem.create({ product: productId, title: product.get('title') })
 }
 
 export async function removeFromCart(product: ProductInstance): Promise<void> {
