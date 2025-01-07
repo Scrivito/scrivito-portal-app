@@ -40,16 +40,16 @@
   "_first_published_at": "20240405121103",
   "_id": "cb4df3bce5e37dd3",
   "_language": "de",
-  "_last_changed": "20250106103622",
+  "_last_changed": "20250107090344",
   "_modification": null,
   "_path": "/ed043d1606eaf539/cb4df3bce5e37dd3",
   "_permalink": null,
-  "_published_at": "20250106125006",
+  "_published_at": "20250107101045",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202501061250060000000000000000267ad98a761ce2d2",
+  "_version": "2025010710104500000000000000008a22e2b0b5b083da",
   "_widget_pool": {
     "d543e2f2": {
       "_obj_class": "SectionWidget",
@@ -316,7 +316,7 @@
       ],
       "deleted_message": [
         "string",
-        "Artikel aus dem Warenkorb entfernt."
+        "__CartItem.title__ wurde aus dem Warenkorb entfernt."
       ],
       "title": [
         "string",

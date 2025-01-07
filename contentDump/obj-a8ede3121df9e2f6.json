@@ -40,16 +40,16 @@
   "_first_published_at": "20231011133244",
   "_id": "a8ede3121df9e2f6",
   "_language": "en",
-  "_last_changed": "20250106103635",
+  "_last_changed": "20250107090743",
   "_modification": null,
   "_path": "/587d96465c3c69c4/efab2b0cce535d8a",
   "_permalink": null,
-  "_published_at": "20250106125006",
+  "_published_at": "20250107101045",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202501061250060000000000000000267ad98a761ce2d2",
+  "_version": "2025010710104500000000000000008a22e2b0b5b083da",
   "_widget_pool": {
     "60166490": {
       "_obj_class": "CardWidget",
@@ -316,7 +316,7 @@
       ],
       "deleted_message": [
         "string",
-        "Removed item from cart."
+        "Removed __CartItem.title__ from cart."
       ],
       "title": [
         "string",
