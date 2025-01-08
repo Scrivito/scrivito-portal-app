@@ -29,14 +29,14 @@
   "_first_published_at": "20240405121103",
   "_id": "d4967853cd3565f8",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250108105948",
   "_modification": null,
   "_path": "/1f555d6a877a7662/d4967853cd3565f8",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250108110557",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "202501081105570000000000000000cef87379c55b0ebc",
   "_widget_pool": {
     "f959f264": {
       "_obj_class": "SectionWidget",
@@ -315,7 +315,7 @@
       ],
       "headline": [
         "string",
-        "EXPO 2024"
+        "EXPO 2025"
       ],
       "alignment": [
         "string",
@@ -407,7 +407,7 @@
       ],
       "headline": [
         "string",
-        "Hannover Industriemesse 2024"
+        "Hannover Industriemesse 2025"
       ]
     },
     "53dd53b7": {

@@ -142,14 +142,14 @@
   "_first_published_at": "20230509091931",
   "_id": "c2a0aab78be05a4e",
   "_language": "en",
-  "_last_changed": "20241210143219",
+  "_last_changed": "20250108105645",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20241216140516",
+  "_published_at": "20250108110557",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20241216140516000000000000000025befbd743cdd64a",
+  "_version": "202501081105570000000000000000cef87379c55b0ebc",
   "_widget_pool": {
     "10914562": {
       "_obj_class": "ColumnContainerWidget",
@@ -1424,7 +1424,7 @@
       ],
       "text": [
         "html",
-        "<p>© Tynacoon 2024 All rights reserved.</p>"
+        "<p>© Tynacoon 2025 All rights reserved.</p>"
       ]
     },
     "c385ac43": {
