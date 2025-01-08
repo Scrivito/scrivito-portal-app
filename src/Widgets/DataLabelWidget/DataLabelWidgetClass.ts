@@ -11,6 +11,12 @@ export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
       'enum',
       {
         values: [
+          'display-1',
+          'display-2',
+          'display-3',
+          'display-4',
+          'display-5',
+          'display-6',
           'h1',
           'h2',
           'h3',

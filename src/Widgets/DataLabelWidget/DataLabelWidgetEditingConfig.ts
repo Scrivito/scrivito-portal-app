@@ -28,6 +28,26 @@ provideEditingConfig(DataLabelWidget, {
     marginBottom: {
       title: 'Add margin bottom?',
     },
+    valueSize: {
+      title: 'Value size',
+      description: 'Size and font of this value. Default: Body font size',
+      values: [
+        { value: 'display-1', title: 'Display 1' },
+        { value: 'display-2', title: 'Display 2' },
+        { value: 'display-3', title: 'Display 3' },
+        { value: 'display-4', title: 'Display 4' },
+        { value: 'display-5', title: 'Display 5' },
+        { value: 'display-6', title: 'Display 6' },
+        { value: 'h1', title: 'Heading 1' },
+        { value: 'h2', title: 'Heading 2' },
+        { value: 'h3', title: 'Heading 3' },
+        { value: 'h4', title: 'Heading 4' },
+        { value: 'h5', title: 'Heading 5' },
+        { value: 'h6', title: 'Heading 6' },
+        { value: 'text-small', title: 'Text small' },
+        { value: 'body-font-size', title: 'Body font size' },
+      ],
+    },
     data: {
       restrictDataTo: ['itemAttribute'],
     },
