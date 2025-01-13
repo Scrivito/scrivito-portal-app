@@ -7,7 +7,11 @@ export async function fileToDataUrl(file: File) {
     reader.onload = () => {
       const dataUrl = reader.result
       if (typeof dataUrl !== 'string') {
-        reject(new Error(`FileReader result is not a string: ${dataUrl}`))
+        reject(
+          new Error(
+            `FileReader result is not a string (${dataUrl?.constructor.name || JSON.stringify(dataUrl)})`,
+          ),
+        )
         return
       }
 

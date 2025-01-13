@@ -7,7 +7,7 @@ export async function pisaDataBinaryToUrl(
   const dataBinaryClient = await pisaClient('binary-access-token')
   const accessTokens = await dataBinaryClient.get(binary._id)
   if (!isAccessToken(accessTokens)) {
-    throw new Error(`Unexpected result: ${accessTokens}`)
+    throw new Error(`Unexpected result: ${JSON.stringify(accessTokens)}`)
   }
 
   return {
