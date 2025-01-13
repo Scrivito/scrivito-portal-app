@@ -1,3 +1,5 @@
+// TODO: remove workaround for #11474
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import {
   Obj,
   uiContext,

@@ -78,6 +78,17 @@ export default [
           argsIgnorePattern: '^_',
         },
       ],
+
+      '@typescript-eslint/restrict-template-expressions': [
+        'error',
+        {
+          allowAny: false,
+          allowBoolean: false,
+          allowNever: false,
+          allowNullish: false,
+          allowRegExp: false,
+        },
+      ],
     },
   },
   {
