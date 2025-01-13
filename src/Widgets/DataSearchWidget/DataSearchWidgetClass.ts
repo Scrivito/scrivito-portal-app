@@ -8,4 +8,6 @@ export const DataSearchWidget = provideWidgetClass('DataSearchWidget', {
   },
 })
 
+export type DataSearchWidgetInstance = InstanceType<typeof DataSearchWidget>
+
 export const DEFAULT_URL_PARAM_NAME = 'search'

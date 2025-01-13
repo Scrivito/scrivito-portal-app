@@ -2,6 +2,7 @@ import { provideEditingConfig } from 'scrivito'
 import {
   DEFAULT_URL_PARAM_NAME,
   DataSearchWidget,
+  DataSearchWidgetInstance,
 } from './DataSearchWidgetClass'
 import thumbnail from './thumbnail.svg'
 
@@ -36,7 +37,10 @@ provideEditingConfig(DataSearchWidget, {
   validations: [
     [
       'urlParamName',
-      (urlParamName, { widget }) => {
+      (
+        urlParamName: string,
+        { widget }: { widget: DataSearchWidgetInstance },
+      ) => {
         const name = urlParamName || DEFAULT_URL_PARAM_NAME
         const duplicatesCount = widget
           .obj()
