@@ -30,7 +30,7 @@ provideEditingConfig(DataLabelWidget, {
     },
     valueSize: {
       title: 'Value size',
-      description: 'Size and font of this value. Default: Body font size',
+      description: 'Default: Body font size',
       values: [
         { value: 'h1', title: 'Heading 1' },
         { value: 'h2', title: 'Heading 2' },

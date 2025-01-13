@@ -8,7 +8,7 @@ provideEditingConfig(HeadlineWidget, {
   attributes: {
     style: {
       title: 'Style',
-      description: 'Size and font of this headline. Default: Heading 2',
+      description: 'Default: Heading 2',
       values: [
         { value: 'h1', title: 'Heading 1' },
         { value: 'h2', title: 'Heading 2' },
