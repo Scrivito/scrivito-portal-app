@@ -1,7 +1,8 @@
 import { Obj, urlFor } from 'scrivito'
+import { ensureString } from '../utils/ensureString'
 
 export function getSiteIds(): string[] {
-  const origin = import.meta.env.SCRIVITO_ORIGIN
+  const origin = ensureString(import.meta.env.SCRIVITO_ORIGIN)
   if (!origin) throw new Error('Missing SCRIVITO_ORIGIN.')
 
   const allSites = Obj.onAllSites().where('_path', 'equals', '/').toArray()
