@@ -22,7 +22,7 @@ provideComponent(VideoWidget, ({ widget }) => {
   return (
     <ContentTag
       tag="video"
-      key={`${src}${posterUrl}`}
+      key={`${src || ''}${posterUrl || ''}`}
       className={`video-widget aspect-ratio-${aspectRatio}`}
       src={src}
       content={widget}
