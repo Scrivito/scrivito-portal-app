@@ -22,7 +22,7 @@ provideComponent(VideoWidget, ({ widget }) => {
   return (
     <ContentTag
       tag="video"
-      key={`${src || ''}${posterUrl || ''}`}
+      key={`${src}${posterUrl}`}
       className={`video-widget aspect-ratio-${aspectRatio}`}
       src={src}
       content={widget}
@@ -36,5 +36,5 @@ provideComponent(VideoWidget, ({ widget }) => {
 
 function urlFromBinaryObj(binary: Obj | null) {
   const blob = binary?.get('blob')
-  return blob instanceof Binary ? blob.url() || null : null
+  return blob instanceof Binary ? blob.url() || '' : ''
 }
