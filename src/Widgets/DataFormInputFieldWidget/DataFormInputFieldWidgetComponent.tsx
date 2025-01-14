@@ -12,7 +12,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
   const id = ['DataFormInputFieldWidget', widget.id(), attributeName].join('-')
 
   const value = useData().dataItemAttribute()?.get()
-  const defaultValue = value ? `${value}` : ''
+  const defaultValue = value ? value.toString() : ''
 
   return (
     <div className="mb-3" key={id}>

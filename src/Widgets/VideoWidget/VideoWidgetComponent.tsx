@@ -36,5 +36,5 @@ provideComponent(VideoWidget, ({ widget }) => {
 
 function urlFromBinaryObj(binary: Obj | null) {
   const blob = binary?.get('blob')
-  return blob instanceof Binary ? blob.url() || null : null
+  return blob instanceof Binary ? blob.url() || '' : ''
 }

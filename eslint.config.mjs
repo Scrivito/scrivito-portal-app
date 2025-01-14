@@ -37,6 +37,10 @@ export default [
 
     languageOptions: {
       parser: tsParser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
 
     settings: {
@@ -72,6 +76,17 @@ export default [
           args: 'all',
           varsIgnorePattern: '^_',
           argsIgnorePattern: '^_',
+        },
+      ],
+
+      '@typescript-eslint/restrict-template-expressions': [
+        'error',
+        {
+          allowAny: false,
+          allowBoolean: false,
+          allowNever: false,
+          allowNullish: false,
+          allowRegExp: false,
         },
       ],
     },

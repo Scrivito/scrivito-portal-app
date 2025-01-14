@@ -694,7 +694,7 @@ function Switch({
       <div className="item_content">
         <div className="boolean_attribute_component">
           <label
-            className={`scrivito_switch ${className} ${value ? 'active' : ''}`}
+            className={`scrivito_switch ${className || ''} ${value ? 'active' : ''}`}
             aria-label={labels[value]}
           >
             <input

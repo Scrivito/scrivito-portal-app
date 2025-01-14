@@ -37,7 +37,11 @@ async function blobToBase64(blob: Blob): Promise<string> {
     reader.onload = () => {
       const dataUrl = reader.result
       if (typeof dataUrl !== 'string') {
-        reject(new Error(`FileReader result is not a string: ${dataUrl}`))
+        reject(
+          new Error(
+            `FileReader result is not a string: ${dataUrl?.constructor.name || JSON.stringify(dataUrl)}`,
+          ),
+        )
         return
       }
 

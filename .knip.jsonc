@@ -18,7 +18,6 @@
   "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
-    "local-web-server", // used by Lighthouse
 
     // used by eslint.config.mjs; Workaround for https://github.com/webpro-nl/knip/issues/818
     "@arabasta/eslint-plugin-require-useeffect-dependency-array",

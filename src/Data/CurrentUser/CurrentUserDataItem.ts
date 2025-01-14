@@ -66,7 +66,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
         ...otherArgs
       } = params
       if (Object.keys(otherArgs).length > 0) {
-        throw new Error(`Unknown keys - ${Object.keys(otherArgs)}`)
+        throw new Error(`Unknown keys - ${Object.keys(otherArgs).join(', ')}`)
       }
 
       await neoletterClient().put('my/profile', {

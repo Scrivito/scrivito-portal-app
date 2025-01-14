@@ -242,7 +242,7 @@ function compare({
       )
     ) {
       throw new Error(
-        `Invalid comparison: ${itemValue} and ${filterValue} must be numbers or strings.`,
+        `Invalid comparison: ${JSON.stringify(itemValue)} and ${JSON.stringify(filterValue)} must be numbers or strings.`,
       )
     }
 

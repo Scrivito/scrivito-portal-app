@@ -46,7 +46,9 @@ export function siteForUrl(
     ?.find((site) => site.language() === language)
     ?.siteId()
 
-  if (siteId) return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
+  if (language && siteId) {
+    return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
+  }
   if (websites?.length) return findSiteForUrlExpensive(url)
 }
 

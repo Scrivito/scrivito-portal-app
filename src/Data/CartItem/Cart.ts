@@ -8,6 +8,7 @@ import {
 import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
+import { ensureString } from '../../utils/ensureString'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
@@ -58,7 +59,10 @@ export async function checkoutCart(): Promise<DataItem> {
 
   const keyword = await getTitle()
   const description = products
-    .map((product) => `1 × ${product.get('title')} (ID: ${product.id()})`)
+    .map(
+      (product) =>
+        `1 × ${ensureString(product.get('title'))} (ID: ${product.id()})`,
+    )
     .join('\n')
 
   const opportunity = await Opportunity.create({ keyword, description })
@@ -71,6 +75,8 @@ export async function checkoutCart(): Promise<DataItem> {
 
 async function getTitle() {
   const name = await load(() => currentUser()?.name())
+
+  if (name === undefined) throw new Error('Missing current user.')
 
   switch (await load(currentLanguage)) {
     case 'de':
