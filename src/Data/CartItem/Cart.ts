@@ -76,7 +76,7 @@ export async function checkoutCart(): Promise<DataItem> {
 async function getTitle() {
   const name = await load(() => currentUser()?.name())
 
-  if (name === undefined) return
+  if (name === undefined) throw new Error('Missing current user.')
 
   switch (await load(currentLanguage)) {
     case 'de':
