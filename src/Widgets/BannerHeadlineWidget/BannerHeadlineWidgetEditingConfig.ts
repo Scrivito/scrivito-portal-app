@@ -24,7 +24,7 @@ provideEditingConfig(BannerHeadlineWidget, {
     },
     style: {
       title: 'Style',
-      description: 'Size and font of this headline. Default: Heading 2',
+      description: 'Default: Heading 2',
       values: [
         { value: 'h1', title: 'Heading 1' },
         { value: 'h2', title: 'Heading 2' },
@@ -32,6 +32,12 @@ provideEditingConfig(BannerHeadlineWidget, {
         { value: 'h4', title: 'Heading 4' },
         { value: 'h5', title: 'Heading 5' },
         { value: 'h6', title: 'Heading 6' },
+        { value: 'display-1', title: 'Display heading 1' },
+        { value: 'display-2', title: 'Display heading 2' },
+        { value: 'display-3', title: 'Display heading 3' },
+        { value: 'display-4', title: 'Display heading 4' },
+        { value: 'display-5', title: 'Display heading 5' },
+        { value: 'display-6', title: 'Display heading 6' },
       ],
     },
     level: {
