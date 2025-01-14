@@ -28,14 +28,14 @@
   "_first_published_at": "20240405121103",
   "_id": "d11017df5d1aaf49",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250114094227",
   "_modification": null,
   "_path": "/84435b45662730da/d11017df5d1aaf49",
   "_permalink": "veranstaltungen",
-  "_published_at": "20240716121536",
+  "_published_at": "20250114094616",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "2025011409461600000000000000002e58c9007dff871b",
   "_widget_pool": {
     "51448137": {
       "_obj_class": "ColumnContainerWidget",
@@ -568,6 +568,10 @@
       ],
       "style": [
         "string",
+        "display-6"
+      ],
+      "level": [
+        "string",
         "h1"
       ]
     },
@@ -577,7 +581,7 @@
         "link",
         {
           "fragment": null,
-          "obj_id": "bdbb81709c5e1c63",
+          "obj_id": "df208b86b908e06d",
           "query": null,
           "target": null,
           "title": "Abonnieren Sie jetzt und erhalten Sie unser Whitepaper",

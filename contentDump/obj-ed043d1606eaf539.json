@@ -47,14 +47,14 @@
   "_first_published_at": "20240405121103",
   "_id": "ed043d1606eaf539",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250114094045",
   "_modification": null,
   "_path": "/ed043d1606eaf539",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250114094616",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "2025011409461600000000000000002e58c9007dff871b",
   "_widget_pool": {
     "cbc01229": {
       "_obj_class": "SectionWidget",
@@ -95,6 +95,10 @@
       ],
       "style": [
         "string",
+        "display-6"
+      ],
+      "level": [
+        "string",
         "h3"
       ]
     },
@@ -106,7 +110,7 @@
       ],
       "button_size": [
         "string",
-        "medium"
+        "large"
       ],
       "target": [
         "link",

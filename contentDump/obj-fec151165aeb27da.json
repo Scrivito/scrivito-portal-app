@@ -28,14 +28,14 @@
   "_first_published_at": "20230516091834",
   "_id": "fec151165aeb27da",
   "_language": "en",
-  "_last_changed": "20250108105715",
+  "_last_changed": "20250114091338",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/3cc07265490102de",
   "_permalink": null,
-  "_published_at": "20250108110557",
+  "_published_at": "20250114094616",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202501081105570000000000000000cef87379c55b0ebc",
+  "_version": "2025011409461600000000000000002e58c9007dff871b",
   "_widget_pool": {
     "74168031": {
       "_obj_class": "HeadlineWidget",
@@ -386,6 +386,10 @@
       ],
       "style": [
         "string",
+        "display-6"
+      ],
+      "level": [
+        "string",
         "h2"
       ]
     },
@@ -395,7 +399,7 @@
         "link",
         {
           "fragment": null,
-          "obj_id": "c2a0aab78be05a4e",
+          "obj_id": "648a0682c458d492",
           "query": null,
           "target": null,
           "title": "Subscibe now and get our White-Paper",
@@ -412,7 +416,7 @@
       ],
       "button_size": [
         "string",
-        "medium"
+        "large"
       ]
     },
     "d5b77a02": {

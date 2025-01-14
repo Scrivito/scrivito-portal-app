@@ -35,14 +35,14 @@
   "_first_published_at": "20240514080213",
   "_id": "df208b86b908e06d",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250114094459",
   "_modification": null,
   "_path": "/84435b45662730da/6a5898770a646824/df208b86b908e06d",
   "_permalink": "whitepaper/hochmoderne-abfuellanlagen",
-  "_published_at": "20240716121536",
+  "_published_at": "20250114094616",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "2025011409461600000000000000002e58c9007dff871b",
   "_widget_pool": {
     "86887669": {
       "_obj_class": "ColumnContainerWidget",
@@ -174,7 +174,7 @@
       "_obj_class": "BannerHeadlineWidget",
       "style": [
         "string",
-        "h1"
+        "display-5"
       ],
       "background_color": [
         "string",
@@ -731,7 +731,7 @@
       "_obj_class": "BannerHeadlineWidget",
       "style": [
         "string",
-        "h1"
+        "display-5"
       ],
       "headline": [
         "string",
