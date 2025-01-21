@@ -1,14 +1,19 @@
-import { DataConnectionResultItem, provideDataClass } from 'scrivito'
+import {
+  DataAttributeDefinitions,
+  DataConnectionResultItem,
+  provideDataClass,
+} from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
 import { ensureString } from '../utils/ensureString'
-import { ReadonlyDataClassAttributes } from './types'
 import { scrivitoTenantId } from '../config/scrivitoTenants'
 
 interface RawDataItem {
   _id: string
   [key: string]: unknown
 }
+
+type DataAttributeDefinitionsCallback = () => Promise<DataAttributeDefinitions>
 
 export function provideLocalStorageDataClass(
   className: string,
@@ -25,7 +30,10 @@ export function provideLocalStorageDataClass(
     postProcessData?: (
       data: DataConnectionResultItem,
     ) => Promise<DataConnectionResultItem>
-    attributes?: ReadonlyDataClassAttributes
+    attributes?:
+      | DataAttributeDefinitions
+      | Promise<DataAttributeDefinitions>
+      | DataAttributeDefinitionsCallback
   } = {},
 ) {
   const recordKey = recordKeyForClassName(className)
