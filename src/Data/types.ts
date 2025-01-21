@@ -1,10 +1,8 @@
-import type { provideDataClass } from 'scrivito'
+import type { DataConnection, provideDataClass } from 'scrivito'
 
 type UnPromise<T> = T extends Promise<infer U> ? U : never
 
 type ProvideDataClassParams = Parameters<typeof provideDataClass>[1]
-
-export type DataConnection = UnPromise<ProvideDataClassParams['connection']>
 
 type CreateCallback = NonNullable<DataConnection['create']>
 export type ResultItem = UnPromise<ReturnType<CreateCallback>>

@@ -1,6 +1,6 @@
-import { ClientError, provideDataClass } from 'scrivito'
+import { ClientError, DataConnection, provideDataClass } from 'scrivito'
 import { pisaClient } from '../../pisaClient'
-import { DataConnection, ResultItem } from '../../types'
+import { ResultItem } from '../../types'
 import { fetchAttributes } from '../../fetchAttributes'
 
 export function pisaCallbackRequestDataClass() {
