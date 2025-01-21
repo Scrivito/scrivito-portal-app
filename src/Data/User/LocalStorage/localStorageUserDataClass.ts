@@ -4,10 +4,9 @@ import braschauImage from './FakeBinaries/braschau.jpg'
 import fuchsImage from './FakeBinaries/fuchs.jpg'
 import bachImage from './FakeBinaries/bach.jpg'
 import { postProcessUserData } from '../UserDataClass'
-import { ReadonlyDataClassSchema } from '../../types'
-import { currentLanguage, load } from 'scrivito'
+import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 
-async function attributes(): Promise<ReadonlyDataClassSchema> {
+async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
 
   const salutation = [

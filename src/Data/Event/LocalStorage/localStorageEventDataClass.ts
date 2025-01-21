@@ -1,10 +1,9 @@
-import { currentLanguage, load } from 'scrivito'
+import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
-import { ReadonlyDataClassSchema } from '../../types'
 import spiderImage from './FakeBinaries/Schulung_Spider_30.png'
 import roadshowImage from './FakeBinaries/TYNACOON_Roadshow.jpg'
 
-async function attributes(): Promise<ReadonlyDataClassSchema> {
+async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
 
   const language = [
