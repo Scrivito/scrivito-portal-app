@@ -1,8 +1,7 @@
-import { currentLanguage, load } from 'scrivito'
+import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 import { provideLocalStorageDataClass } from '../provideLocalStorageDataClass'
-import { DataClassSchema } from '../types'
 
-async function attributes(): Promise<DataClassSchema> {
+async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
 
   return {

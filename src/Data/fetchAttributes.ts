@@ -1,5 +1,5 @@
+import { DataAttributeDefinitions } from 'scrivito'
 import { pisaClient } from './pisaClient'
-import { DataClassSchema } from './types'
 
 /**
  * Fetches the schema for `subPath`.
@@ -8,10 +8,10 @@ import { DataClassSchema } from './types'
 export async function fetchAttributes(
   subPath: string,
   ignoreAttributes: string[] = [],
-): Promise<DataClassSchema> {
+): Promise<DataAttributeDefinitions> {
   const client = await pisaClient(subPath)
   const schema = (await client.get('schema')) as {
-    attributes: DataClassSchema
+    attributes: DataAttributeDefinitions
   }
 
   return Object.fromEntries(
