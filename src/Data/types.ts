@@ -7,7 +7,6 @@ type ProvideDataClassParams = Parameters<typeof provideDataClass>[1]
 export type DataConnection = UnPromise<ProvideDataClassParams['connection']>
 
 type CreateCallback = NonNullable<DataConnection['create']>
-export type ExternalData = Parameters<CreateCallback>[0]
 export type ResultItem = UnPromise<ReturnType<CreateCallback>>
 
 type DataClassAttributes = ProvideDataClassParams['attributes']
