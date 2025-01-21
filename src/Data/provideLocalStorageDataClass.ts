@@ -1,8 +1,8 @@
-import { provideDataClass } from 'scrivito'
+import { DataConnectionResultItem, provideDataClass } from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
 import { ensureString } from '../utils/ensureString'
-import { ReadonlyDataClassAttributes, ResultItem } from './types'
+import { ReadonlyDataClassAttributes } from './types'
 import { scrivitoTenantId } from '../config/scrivitoTenants'
 
 interface RawDataItem {
@@ -22,7 +22,9 @@ export function provideLocalStorageDataClass(
     prepareData?: (
       data: Record<string, unknown>,
     ) => Promise<Record<string, unknown>>
-    postProcessData?: (data: ResultItem) => Promise<ResultItem>
+    postProcessData?: (
+      data: DataConnectionResultItem,
+    ) => Promise<DataConnectionResultItem>
     attributes?: ReadonlyDataClassAttributes
   } = {},
 ) {
@@ -208,9 +210,9 @@ function isRawDataItem(item: unknown): item is RawDataItem {
 }
 
 function orderItems(
-  items: ResultItem[],
+  items: DataConnectionResultItem[],
   order: Array<[string, 'asc' | 'desc']>,
-): ResultItem[] {
+): DataConnectionResultItem[] {
   if (order.length === 0) return items
 
   return orderBy(

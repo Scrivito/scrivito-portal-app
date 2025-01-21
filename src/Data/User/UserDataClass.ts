@@ -1,7 +1,6 @@
-import { load } from 'scrivito'
+import { DataConnectionResultItem, load } from 'scrivito'
 import { localStorageUserDataClass } from './LocalStorage/localStorageUserDataClass'
 import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
-import { ResultItem } from '../types'
 import { pisaUserDataClass } from './Pisa/pisaUserDataClass'
 
 export const User = import.meta.env.ENABLE_PISA
@@ -9,8 +8,8 @@ export const User = import.meta.env.ENABLE_PISA
   : localStorageUserDataClass()
 
 export async function postProcessUserData(
-  data: ResultItem,
-): Promise<ResultItem> {
+  data: DataConnectionResultItem,
+): Promise<DataConnectionResultItem> {
   // Use the data item cached by Scrivito instead of connecting to the backend directly
   const pisaUserId = await load(() => CurrentUser.get('pisaUserId'))
   if (data._id !== pisaUserId) return data
