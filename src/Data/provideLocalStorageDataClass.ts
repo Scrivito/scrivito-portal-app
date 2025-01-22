@@ -13,8 +13,6 @@ interface RawDataItem {
   [key: string]: unknown
 }
 
-type DataAttributeDefinitionsCallback = () => Promise<DataAttributeDefinitions>
-
 export function provideLocalStorageDataClass(
   className: string,
   {
@@ -33,7 +31,7 @@ export function provideLocalStorageDataClass(
     attributes?:
       | DataAttributeDefinitions
       | Promise<DataAttributeDefinitions>
-      | DataAttributeDefinitionsCallback
+      | (() => Promise<DataAttributeDefinitions>)
   } = {},
 ) {
   const recordKey = recordKeyForClassName(className)
