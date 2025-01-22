@@ -245,6 +245,8 @@ function compare({
   opCode: 'eq' | 'neq' | 'gt' | 'lt' | 'gte' | 'lte'
 }): boolean {
   if (opCode !== 'eq' && opCode !== 'neq') {
+    if (filterValue === null) return false
+
     if (
       !(
         (typeof itemValue === 'number' || typeof itemValue === 'string') &&
