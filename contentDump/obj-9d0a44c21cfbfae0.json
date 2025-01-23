@@ -35,14 +35,14 @@
   "_first_published_at": "20240506115331",
   "_id": "9d0a44c21cfbfae0",
   "_language": "de",
-  "_last_changed": "20241104093436",
+  "_last_changed": "20250123102225",
   "_modification": null,
   "_path": "/84435b45662730da/6a5898770a646824/9d0a44c21cfbfae0",
   "_permalink": null,
-  "_published_at": "20241104093502",
+  "_published_at": "20250123102545",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202411040935020000000000000000bc61d39ff172d171",
+  "_version": "20250123102545000000000000000089a41c276aa9f645",
   "_widget_pool": {
     "41627572": {
       "_obj_class": "BannerHeadlineWidget",
@@ -267,7 +267,7 @@
       ],
       "text": [
         "html",
-        "<p><span lang=\"de\" id=\"isPasted\">Alle Service-Tickets auf einen Blick – nahtlose, schnelle Kommunikation</span></p>"
+        "<p><span lang=\"de\">Alle Service-Tickets auf einen Blick – nahtlose, schnelle Kommunikation</span></p>"
       ]
     },
     "79c1f11d": {
@@ -509,7 +509,7 @@
       ],
       "text": [
         "html",
-        "<p><span lang=\"de\" id=\"isPasted\">Teilnahme an Veranstaltungen und Pflege aller Events</span></p>"
+        "<p><span lang=\"de\">Teilnahme an Veranstaltungen und Pflege aller Events</span></p>"
       ]
     },
     "86f342f7": {
