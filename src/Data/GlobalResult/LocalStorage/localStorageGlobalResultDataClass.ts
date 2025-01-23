@@ -12,6 +12,7 @@ export function localStorageGlobalResultDataClass(): DataClass {
         title: ['string', { title: lang === 'de' ? 'Titel' : 'Title' }],
         entity: ['string', { title: lang === 'de' ? 'Entität' : 'Entity' }],
         url: ['string', { title: 'URL' }],
+        snippet: ['string', { title: lang === 'de' ? 'Schnipsel' : 'Snippet' }],
       }
     },
     connection: {
@@ -36,7 +37,13 @@ export function localStorageGlobalResultDataClass(): DataClass {
             const title =
               ensureString(rawItem.title) || ensureString(rawItem.keyword)
 
-            return { _id, entity, title, url: await calculateUrl(_id, entity) }
+            return {
+              _id,
+              entity,
+              title,
+              url: await calculateUrl(_id, entity),
+              snippet: '', // TODO: add more meaningful snippet
+            }
           }),
         )
 
