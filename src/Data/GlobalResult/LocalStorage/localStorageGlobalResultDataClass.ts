@@ -1,14 +1,7 @@
-import {
-  currentLanguage,
-  DataClass,
-  load,
-  Obj,
-  provideDataClass,
-  urlFor,
-} from 'scrivito'
-import { snakeCase } from 'lodash-es'
+import { currentLanguage, DataClass, load, provideDataClass } from 'scrivito'
 import { searchLocalStorageDataConnections } from '../../localStorageDataConnection'
 import { ensureString } from '../../../utils/ensureString'
+import { calculateUrl } from '../calculateUrl'
 
 export function localStorageGlobalResultDataClass(): DataClass {
   return provideDataClass('GlobalResult', {
@@ -51,13 +44,4 @@ export function localStorageGlobalResultDataClass(): DataClass {
       },
     },
   })
-}
-
-async function calculateUrl(_id: string, className: string): Promise<string> {
-  const detailsPage = await load(() =>
-    Obj.where('_dataParam', 'equals', className).first(),
-  )
-  return detailsPage
-    ? urlFor(detailsPage, { query: `${snakeCase(className)}_id=${_id}` })
-    : ''
 }
