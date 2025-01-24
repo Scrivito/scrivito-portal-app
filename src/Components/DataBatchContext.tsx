@@ -49,6 +49,8 @@ export const DataBatchContextProvider = connect(
     const transform = { limit, search }
 
     const hasMore = () => {
+      if (!search) return false
+
       try {
         return (
           dataScope.transform({ ...transform, limit: limit + 1 }).take()
