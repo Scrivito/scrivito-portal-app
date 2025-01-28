@@ -11,6 +11,7 @@
     "src/Widgets/**/*{Component,EditingConfig,WidgetClass}.{ts,tsx}",
   ],
   "ignore": [
+    "src/Data/localStorageDataConnection.ts", // TODO: Remove from knip, once searchLocalStorageDataConnections is in use
     "public/scrivito/**",
     "src/assets/stylesheets/vendor/**",
     "vendor/**",
