@@ -1,6 +1,16 @@
-import { localStorageOpportunityDataClass } from './LocalStorage/localStorageOpportunityDataClass'
-import { pisaOpportunityDataClass } from './Pisa/pisaOpportunityDataClass'
+import { provideDataClass } from 'scrivito'
+import { pisaConfig } from '../pisaClient'
 
-export const Opportunity = import.meta.env.ENABLE_PISA
-  ? pisaOpportunityDataClass()
-  : localStorageOpportunityDataClass()
+export const Opportunity = provideDataClass(
+  'Opportunity',
+  (async () => {
+    const restApi = await pisaConfig('opportunity')
+    if (!restApi) {
+      return (
+        await import('./opportunityParamsFallback')
+      ).opportunityParamsFallback()
+    }
+
+    return { restApi }
+  })(),
+)
