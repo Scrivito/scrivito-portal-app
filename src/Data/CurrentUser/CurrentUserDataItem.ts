@@ -1,4 +1,10 @@
-import { currentUser, load, provideDataItem } from 'scrivito'
+import {
+  currentLanguage,
+  currentUser,
+  DataAttributeDefinitions,
+  load,
+  provideDataItem,
+} from 'scrivito'
 import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
@@ -6,20 +12,51 @@ import { neoletterClient } from '../neoletterClient'
 import { pisaClient } from '../pisaClient'
 import { errorToast } from './errorToast'
 
+async function attributes(): Promise<DataAttributeDefinitions> {
+  const lang = await load(currentLanguage)
+
+  return {
+    company: ['string', { title: lang === 'de' ? 'Firma' : 'Company' }],
+    email: ['string', { title: lang === 'de' ? 'E-Mail' : 'Email' }],
+    familyName: [
+      'string',
+      { title: lang === 'de' ? 'Nachname' : 'Family name' },
+    ],
+    givenName: ['string', { title: lang === 'de' ? 'Vorname' : 'Given name' }],
+    jrUserId: [
+      'string',
+      { title: lang === 'de' ? 'JustRelate Nutzer ID' : 'JustRelate user ID' },
+    ],
+    name: ['string', { title: lang === 'de' ? 'Name' : 'Name' }],
+    phoneNumber: [
+      'string',
+      { title: lang === 'de' ? 'Telefonnummer' : 'Phone number' },
+    ],
+    picture: ['string', { title: lang === 'de' ? 'Bild' : 'Picture' }],
+    pisaUserId: [
+      'string',
+      { title: lang === 'de' ? 'PisaSales Nutzer ID' : 'PisaSales user ID' },
+    ],
+    salesUserId: [
+      'reference',
+      {
+        to: 'User',
+        title: lang === 'de' ? 'Vertriebskontakt' : 'Sales representative',
+      },
+    ],
+    salutation: ['string', { title: lang === 'de' ? 'Anrede' : 'Salutation' }],
+    serviceUserId: [
+      'reference',
+      {
+        to: 'User',
+        title: lang === 'de' ? 'Servicekontakt' : 'Support contact',
+      },
+    ],
+  }
+}
+
 export const CurrentUser = provideDataItem('CurrentUser', {
-  attributes: {
-    company: 'string',
-    email: 'string',
-    familyName: 'string',
-    givenName: 'string',
-    jrUserId: 'string',
-    name: 'string',
-    phoneNumber: 'string',
-    picture: 'string',
-    salesUserId: ['reference', { to: 'User' }],
-    salutation: 'string',
-    serviceUserId: ['reference', { to: 'User' }],
-  },
+  attributes,
   connection: {
     async get() {
       const user = await load(currentUser)
