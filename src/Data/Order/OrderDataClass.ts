@@ -1,6 +1,14 @@
-import { localStorageOrderDataClass } from './LocalStorage/localStorageOrderDataClass'
-import { pisaOrderDataClass } from './Pisa/pisaOrderDataClass'
+import { provideDataClass } from 'scrivito'
+import { pisaConfig } from '../pisaClient'
 
-export const Order = import.meta.env.ENABLE_PISA
-  ? pisaOrderDataClass()
-  : localStorageOrderDataClass()
+export const Order = provideDataClass(
+  'Order',
+  (async () => {
+    const restApi = await pisaConfig('order')
+    if (!restApi) {
+      return (await import('./orderParamsFallback')).orderParamsFallback()
+    }
+
+    return { restApi }
+  })(),
+)
