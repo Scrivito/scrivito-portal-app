@@ -3,10 +3,9 @@ import {
   ContentTag,
   CurrentPage,
   Obj,
+  ObjClass,
   provideLayoutComponent,
 } from 'scrivito'
-
-type ObjClass = Parameters<typeof provideLayoutComponent>[0]
 
 export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
   provideLayoutComponent(objClass, ({ page }) => {

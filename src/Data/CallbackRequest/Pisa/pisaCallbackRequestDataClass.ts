@@ -1,6 +1,10 @@
-import { ClientError, provideDataClass } from 'scrivito'
+import {
+  ClientError,
+  DataConnection,
+  DataConnectionResultItem,
+  provideDataClass,
+} from 'scrivito'
 import { pisaClient } from '../../pisaClient'
-import { DataConnection, ResultItem } from '../../types'
 import { fetchAttributes } from '../../fetchAttributes'
 
 export function pisaCallbackRequestDataClass() {
@@ -12,7 +16,7 @@ export function pisaCallbackRequestDataClass() {
         index: async () => {
           try {
             return {
-              results: [(await apiClient.get('')) as ResultItem],
+              results: [(await apiClient.get('')) as DataConnectionResultItem],
             }
           } catch (error) {
             if (
@@ -27,7 +31,7 @@ export function pisaCallbackRequestDataClass() {
         },
         get: () => apiClient.get(''),
         create: async (data) =>
-          apiClient.put('', { data }) as Promise<ResultItem>,
+          apiClient.put('', { data }) as Promise<DataConnectionResultItem>,
         update: async (_id, data) => apiClient.put('', { data }),
         delete: (id) => apiClient.delete(id),
       }),

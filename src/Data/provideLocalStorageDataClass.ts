@@ -1,8 +1,11 @@
-import { provideDataClass } from 'scrivito'
+import {
+  DataAttributeDefinitions,
+  DataConnectionResultItem,
+  provideDataClass,
+} from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
 import { ensureString } from '../utils/ensureString'
-import { ReadonlyDataClassAttributes, ResultItem, ExternalData } from './types'
 import { scrivitoTenantId } from '../config/scrivitoTenants'
 
 interface RawDataItem {
@@ -19,9 +22,16 @@ export function provideLocalStorageDataClass(
     attributes,
   }: {
     initialContent?: RawDataItem[]
-    prepareData?: (data: ExternalData) => Promise<ExternalData>
-    postProcessData?: (data: ResultItem) => Promise<ResultItem>
-    attributes?: ReadonlyDataClassAttributes
+    prepareData?: (
+      data: Record<string, unknown>,
+    ) => Promise<Record<string, unknown>>
+    postProcessData?: (
+      data: DataConnectionResultItem,
+    ) => Promise<DataConnectionResultItem>
+    attributes?:
+      | DataAttributeDefinitions
+      | Promise<DataAttributeDefinitions>
+      | (() => Promise<DataAttributeDefinitions>)
   } = {},
 ) {
   const recordKey = recordKeyForClassName(className)
@@ -206,9 +216,9 @@ function isRawDataItem(item: unknown): item is RawDataItem {
 }
 
 function orderItems(
-  items: ResultItem[],
+  items: DataConnectionResultItem[],
   order: Array<[string, 'asc' | 'desc']>,
-): ResultItem[] {
+): DataConnectionResultItem[] {
   if (order.length === 0) return items
 
   return orderBy(
@@ -235,6 +245,8 @@ function compare({
   opCode: 'eq' | 'neq' | 'gt' | 'lt' | 'gte' | 'lte'
 }): boolean {
   if (opCode !== 'eq' && opCode !== 'neq') {
+    if (filterValue === null) return false
+
     if (
       !(
         (typeof itemValue === 'number' || typeof itemValue === 'string') &&
