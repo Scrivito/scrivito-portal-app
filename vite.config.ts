@@ -18,12 +18,22 @@ export default defineConfig(({ mode }) => {
 
   return {
     build: {
-      chunkSizeWarningLimit: 900,
       outDir,
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
           _scrivito_extensions: resolve(__dirname, '_scrivito_extensions.html'),
+        },
+        output: {
+          manualChunks: {
+            react: [
+              'react-bootstrap',
+              'react-dropzone',
+              'react-helmet-async',
+              'react-toastify',
+            ],
+            scrivito: ['scrivito-neoletter-form-widgets'],
+          },
         },
       },
     },
