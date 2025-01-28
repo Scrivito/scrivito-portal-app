@@ -21,7 +21,11 @@ provideComponent(TopNavigationWidget, ({ widget }) => {
       <WidgetTag tag="section" className={classNames.join(' ')}>
         <div className="container">
           <Navbar expand="lg" collapseOnSelect>
-            <Brand root={root} linkClassName="navbar-brand m-auto pt-3" />
+            <Brand
+              root={root}
+              linkTo={widget.get('brandLink') || root}
+              linkClassName="navbar-brand m-auto pt-3"
+            />
           </Navbar>
         </div>
       </WidgetTag>
@@ -34,7 +38,11 @@ provideComponent(TopNavigationWidget, ({ widget }) => {
     <WidgetTag tag="section" className={classNames.join(' ')}>
       <div className="container">
         <Navbar expand="lg" collapseOnSelect>
-          <Brand root={root} linkClassName="navbar-brand" />
+          <Brand
+            root={root}
+            linkTo={widget.get('brandLink') || root}
+            linkClassName="navbar-brand"
+          />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <MetaNavigation widget={widget} root={root} />
