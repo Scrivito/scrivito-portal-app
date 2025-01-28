@@ -1,6 +1,16 @@
-import { localStorageEventRegistrationDataClass } from './LocalStorage/localStorageEventRegistrationDataClass'
-import { pisaEventRegistrationDataClass } from './Pisa/pisaEventRegistrationDataClass'
+import { provideDataClass } from 'scrivito'
+import { pisaConfig } from '../pisaClient'
 
-export const EventRegistration = import.meta.env.ENABLE_PISA
-  ? pisaEventRegistrationDataClass()
-  : localStorageEventRegistrationDataClass()
+export const EventRegistration = provideDataClass(
+  'EventRegistration',
+  (async () => {
+    const restApi = await pisaConfig('event-registration')
+    if (!restApi) {
+      return (
+        await import('./eventRegistrationParamsFallback')
+      ).eventRegistrationParamsFallback()
+    }
+
+    return { restApi }
+  })(),
+)
