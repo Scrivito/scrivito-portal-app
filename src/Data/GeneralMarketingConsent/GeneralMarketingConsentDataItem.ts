@@ -1,12 +1,28 @@
-import { provideDataItem } from 'scrivito'
+import {
+  currentLanguage,
+  DataAttributeDefinitions,
+  load,
+  provideDataItem,
+} from 'scrivito'
 import { neoletterClient } from '../neoletterClient'
 
 const GENERAL_TOPIC_ID = 'general'
 
+async function attributes(): Promise<DataAttributeDefinitions> {
+  const lang = await load(currentLanguage)
+
+  return {
+    isConsentGiven: [
+      'boolean',
+      { title: lang === 'de' ? 'Zustimmung erteilt?' : 'Is consent given?' },
+    ],
+  }
+}
+
 export const GeneralMarketingConsent = provideDataItem(
   'GeneralMarketingConsent',
   {
-    attributes: { isConsentGiven: 'boolean' },
+    attributes,
     connection: {
       async get() {
         const mySubscribedTopicIds = await fetchMySubscribedTopicIds()
