@@ -1,5 +1,5 @@
 import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
+import { localStorageDataConnection } from '../localStorageDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -24,15 +24,17 @@ async function attributes(): Promise<DataAttributeDefinitions> {
   }
 }
 
-export function localStorageEventDocumentDataClass() {
-  return provideLocalStorageDataClass('EventDocument', {
+export function eventDocumentParamsFallback() {
+  return {
     attributes,
-    initialContent: [
-      {
-        _id: '1',
-        documentId: '217C72335FC70467E040A8C00F013355',
-        eventId: '4100600152A8FFCBE040007F01002CE3',
-      },
-    ],
-  })
+    connection: localStorageDataConnection('EventDocument', {
+      initialContent: [
+        {
+          _id: '1',
+          documentId: '217C72335FC70467E040A8C00F013355',
+          eventId: '4100600152A8FFCBE040007F01002CE3',
+        },
+      ],
+    }),
+  }
 }
