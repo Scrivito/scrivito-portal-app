@@ -1,5 +1,5 @@
 import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../../provideLocalStorageDataClass'
+import { localStorageDataConnection } from '../localStorageDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -9,6 +9,9 @@ async function attributes(): Promise<DataAttributeDefinitions> {
   }
 }
 
-export function localStorageCallbackRequestDataClass() {
-  return provideLocalStorageDataClass('CallbackRequest', { attributes })
+export function callbackRequestParamsFallback() {
+  return {
+    attributes,
+    connection: localStorageDataConnection('CallbackRequest'),
+  }
 }
