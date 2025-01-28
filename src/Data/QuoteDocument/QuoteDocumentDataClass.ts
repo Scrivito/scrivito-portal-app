@@ -1,6 +1,16 @@
-import { localStorageQuoteDocumentDataClass } from './LocalStorage/localStorageQuoteDocumentDataClass'
-import { pisaQuoteDocumentDataClass } from './Pisa/pisaQuoteDocumentDataClass'
+import { provideDataClass } from 'scrivito'
+import { pisaConfig } from '../pisaClient'
 
-export const QuoteDocument = import.meta.env.ENABLE_PISA
-  ? pisaQuoteDocumentDataClass()
-  : localStorageQuoteDocumentDataClass()
+export const QuoteDocument = provideDataClass(
+  'QuoteDocument',
+  (async () => {
+    const restApi = await pisaConfig('quote-document')
+    if (!restApi) {
+      return (
+        await import('./quoteDocumentParamsFallback')
+      ).quoteDocumentParamsFallback()
+    }
+
+    return { restApi }
+  })(),
+)
