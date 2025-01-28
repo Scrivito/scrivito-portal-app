@@ -21,11 +21,7 @@ export async function dataBinaryToUrl(
     }
   }
 
-  if (import.meta.env.ENABLE_PISA) {
-    return pisaDataBinaryToUrl(binary)
-  } else {
-    throw new Error('Not yet implemented!')
-  }
+  return pisaDataBinaryToUrl(binary)
 }
 
 export type DataBinary = UrlDataBinary | FullDataBinary

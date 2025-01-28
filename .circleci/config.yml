@@ -22,8 +22,6 @@ jobs:
       setup:
         type: steps
         default: []
-    environment:
-      - ENABLE_PISA: true
     executor: << parameters.executor >>
     steps:
       - checkout
