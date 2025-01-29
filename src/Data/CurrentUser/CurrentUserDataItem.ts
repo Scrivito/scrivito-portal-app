@@ -49,7 +49,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
       'reference',
       {
         to: 'User',
-        title: lang === 'de' ? 'Servicekontakt' : 'Support contact',
+        title: lang === 'de' ? 'Supportkontakt' : 'Support contact',
       },
     ],
   }
