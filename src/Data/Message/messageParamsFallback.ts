@@ -20,6 +20,8 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function messageParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de' ? 'Nachricht' : 'Message',
     connection: localStorageDataConnection('Message', {
       prepareData: async (data) => ({
         ...data,
