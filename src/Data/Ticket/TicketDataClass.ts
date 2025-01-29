@@ -1,6 +1,15 @@
-import { localStorageTicketDataClass } from './LocalStorage/localStorageTicketDataClass'
-import { pisaTicketDataClass } from './Pisa/pisaTicketDataClass'
+import { provideDataClass } from 'scrivito'
+import { pisaConfig } from '../pisaClient'
 
-export const Ticket = import.meta.env.ENABLE_PISA
-  ? pisaTicketDataClass()
-  : localStorageTicketDataClass()
+export const Ticket = provideDataClass(
+  'Ticket',
+  (async () => {
+    const restApi = await pisaConfig('ticket')
+
+    if (!restApi) {
+      return (await import('./ticketParamsFallback')).ticketParamsFallback()
+    }
+
+    return { restApi }
+  })(),
+)

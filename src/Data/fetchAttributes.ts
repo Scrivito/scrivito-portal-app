@@ -10,6 +10,10 @@ export async function fetchAttributes(
   ignoreAttributes: string[] = [],
 ): Promise<DataAttributeDefinitions> {
   const client = await pisaClient(subPath)
+  if (!client) {
+    throw new Error('Please configure a pisaUrl on the default homepage.')
+  }
+
   const schema = (await client.get('schema')) as {
     attributes: DataAttributeDefinitions
   }

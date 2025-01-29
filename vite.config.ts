@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const outDir = 'dist'
 
-  const enablePisa = env.ENABLE_PISA === 'true'
+  const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
 
   return {
     build: {
@@ -43,7 +43,7 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.SCRIVITO_ROOT_OBJ_ID': JSON.stringify(
         env.SCRIVITO_ROOT_OBJ_ID || 'c2a0aab78be05a4e',
       ),
-      'import.meta.env.ENABLE_PISA': JSON.stringify(enablePisa),
+      'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
     },
     optimizeDeps: {
       force: true,

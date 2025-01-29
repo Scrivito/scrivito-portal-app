@@ -121,7 +121,8 @@ export const CurrentUser = provideDataItem('CurrentUser', {
 })
 
 async function pisaIds() {
-  if (!import.meta.env.ENABLE_PISA) {
+  const whoamiClient = await pisaClient('whoami')
+  if (!whoamiClient) {
     return {
       pisaUserId: 'F87BDC400E41D630E030A8C00D01158A',
       salesUserId: '052601BEBCEC39C8E040A8C00D0107AC',
@@ -129,7 +130,6 @@ async function pisaIds() {
     }
   }
 
-  const whoamiClient = await pisaClient('whoami')
   let whoAmI
   try {
     whoAmI = await whoamiClient.get('')

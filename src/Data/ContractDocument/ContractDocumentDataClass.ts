@@ -1,6 +1,16 @@
-import { localStorageContractDocumentDataClass } from './LocalStorage/localStorageContractDocumentDataClass'
-import { pisaContractDocumentDataClass } from './Pisa/pisaContractDocumentDataClass'
+import { provideDataClass } from 'scrivito'
+import { pisaConfig } from '../pisaClient'
 
-export const ContractDocument = import.meta.env.ENABLE_PISA
-  ? pisaContractDocumentDataClass()
-  : localStorageContractDocumentDataClass()
+export const ContractDocument = provideDataClass(
+  'ContractDocument',
+  (async () => {
+    const restApi = await pisaConfig('contract-document')
+    if (!restApi) {
+      return (
+        await import('./contractDocumentParamsFallback')
+      ).contractDocumentParamsFallback()
+    }
+
+    return { restApi }
+  })(),
+)

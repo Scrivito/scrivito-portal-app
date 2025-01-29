@@ -1,3 +1,4 @@
+import { pisaUrl } from '../Data/pisaClient'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
 
 export interface DataBinaryUpload {
@@ -18,7 +19,9 @@ export async function blobToBinary(
     filename: blob instanceof File ? blob.name : 'unknown-name',
   }
 
-  return import.meta.env.ENABLE_PISA
+  const connectedToPisa = (await pisaUrl()) !== null
+
+  return connectedToPisa
     ? binary
     : {
         ...binary,

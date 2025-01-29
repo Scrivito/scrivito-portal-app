@@ -1,6 +1,16 @@
-import { localStorageServiceObjectDocumentDataClass } from './LocalStorage/localStorageServiceObjectDocumentDataClass'
-import { pisaServiceObjectDocumentDataClass } from './Pisa/pisaServiceObjectDocumentDataClass'
+import { provideDataClass } from 'scrivito'
+import { pisaConfig } from '../pisaClient'
 
-export const ServiceObjectDocument = import.meta.env.ENABLE_PISA
-  ? pisaServiceObjectDocumentDataClass()
-  : localStorageServiceObjectDocumentDataClass()
+export const ServiceObjectDocument = provideDataClass(
+  'ServiceObjectDocument',
+  (async () => {
+    const restApi = await pisaConfig('service-object-document')
+    if (!restApi) {
+      return (
+        await import('./serviceObjectDocumentParamsFallback')
+      ).serviceObjectDocumentParamsFallback()
+    }
+
+    return { restApi }
+  })(),
+)

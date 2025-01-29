@@ -1,11 +1,37 @@
-import { DataConnectionResultItem, load } from 'scrivito'
-import { localStorageUserDataClass } from './LocalStorage/localStorageUserDataClass'
+import {
+  DataConnectionError,
+  DataConnectionResultItem,
+  load,
+  provideDataClass,
+} from 'scrivito'
 import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
-import { pisaUserDataClass } from './Pisa/pisaUserDataClass'
+import { fetchAttributes } from '../fetchAttributes'
+import { pisaClient } from '../pisaClient'
 
-export const User = import.meta.env.ENABLE_PISA
-  ? pisaUserDataClass()
-  : localStorageUserDataClass()
+export const User = provideDataClass(
+  'User',
+  (async () => {
+    const apiClient = await pisaClient('user')
+    if (!apiClient) {
+      return (await import('./userParamsFallback')).userParamsFallback()
+    }
+
+    return {
+      attributes: () => fetchAttributes('user'),
+      connection: {
+        index: async () => {
+          throw new DataConnectionError(
+            'Listing users is not supported due to data protection reasons.',
+          )
+        },
+        get: async (id) => {
+          const item = await apiClient.get(id)
+          return item ? postProcessUserData(item as { _id: string }) : item
+        },
+      },
+    }
+  })(),
+)
 
 export async function postProcessUserData(
   data: DataConnectionResultItem,

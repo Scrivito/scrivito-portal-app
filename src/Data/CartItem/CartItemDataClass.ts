@@ -1,5 +1,10 @@
-import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
-import { provideLocalStorageDataClass } from '../provideLocalStorageDataClass'
+import {
+  currentLanguage,
+  DataAttributeDefinitions,
+  load,
+  provideDataClass,
+} from 'scrivito'
+import { localStorageDataConnection } from '../localStorageDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -15,4 +20,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
   }
 }
 
-export const CartItem = provideLocalStorageDataClass('CartItem', { attributes })
+export const CartItem = provideDataClass('CartItem', {
+  attributes,
+  connection: localStorageDataConnection('CartItem'),
+})
