@@ -25,7 +25,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
     givenName: ['string', { title: lang === 'de' ? 'Vorname' : 'Given name' }],
     jrUserId: [
       'string',
-      { title: lang === 'de' ? 'JustRelate Nutzer ID' : 'JustRelate user ID' },
+      { title: lang === 'de' ? 'JustRelate-Nutzer-ID' : 'JustRelate user ID' },
     ],
     name: ['string', { title: lang === 'de' ? 'Name' : 'Name' }],
     phoneNumber: [
@@ -35,7 +35,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
     picture: ['string', { title: lang === 'de' ? 'Bild' : 'Picture' }],
     pisaUserId: [
       'string',
-      { title: lang === 'de' ? 'PisaSales Nutzer ID' : 'PisaSales user ID' },
+      { title: lang === 'de' ? 'PisaSales-Nutzer-ID' : 'PisaSales user ID' },
     ],
     salesUserId: [
       'reference',
