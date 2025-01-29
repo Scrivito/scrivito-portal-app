@@ -169,6 +169,8 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function ticketParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de' ? 'Ticket' : 'Ticket',
     connection: localStorageDataConnection('Ticket', {
       prepareData: async (data) => ({
         ...data,
