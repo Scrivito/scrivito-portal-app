@@ -70,7 +70,7 @@
     "prettier": "^3.4.2",
     "sass": "^1.77.6",
     "typescript": "^5.7.2",
-    "vite": "^6.0.6",
+    "vite": "^6.0.11",
     "vite-node": "^2.1.8"
   },
   "overrides": {
