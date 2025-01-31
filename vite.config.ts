@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const outDir = 'dist'
 
-  const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
+  const forceLocalStorage = false
   const privateJrPlatform = env.PRIVATE_JR_PLATFORM === 'true'
 
   const HONEYBADGER_API_KEY = env.HONEYBADGER_API_KEY || ''
