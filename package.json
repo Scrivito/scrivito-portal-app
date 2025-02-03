@@ -75,7 +75,7 @@
   },
   "overrides": {
     "@lhci/cli": {
-      "rimraf": "3",
+      "rimraf": "4",
       "cookie": "^0.7.0"
     }
   }
