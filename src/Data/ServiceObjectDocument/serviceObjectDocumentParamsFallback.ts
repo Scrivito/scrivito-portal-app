@@ -9,7 +9,9 @@ async function attributes(): Promise<DataAttributeDefinitions> {
       'reference',
       {
         reverseTitle:
-          lang === 'de' ? 'Serviceobjektdokumente' : 'Service object documents',
+          lang === 'de'
+            ? 'Serviceobjekt-Dokumente'
+            : 'Service object documents',
         title: lang === 'de' ? 'Dokument' : 'Document',
         to: 'Document',
       },
@@ -18,7 +20,9 @@ async function attributes(): Promise<DataAttributeDefinitions> {
       'reference',
       {
         reverseTitle:
-          lang === 'de' ? 'Serviceobjektdokumente' : 'Service object documents',
+          lang === 'de'
+            ? 'Serviceobjekt-Dokumente'
+            : 'Service object documents',
         title: lang === 'de' ? 'Serviceobjekt' : 'Service object',
         to: 'ServiceObject',
       },
@@ -31,7 +35,7 @@ export function serviceObjectDocumentParamsFallback() {
     attributes,
     title: async () =>
       (await load(currentLanguage)) === 'de'
-        ? 'Serviceobjektdokument'
+        ? 'Serviceobjekt-Dokument'
         : 'Service object document',
     connection: localStorageDataConnection('ServiceObjectDocument', {
       initialContent: [
