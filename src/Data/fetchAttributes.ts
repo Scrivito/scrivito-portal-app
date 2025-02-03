@@ -1,10 +1,6 @@
 import { DataAttributeDefinitions } from 'scrivito'
 import { pisaClient } from './pisaClient'
 
-/**
- * Fetches the schema for `subPath`.
- * Allows optionally to `ignoreAttributes`.
- * */
 export async function fetchAttributes(
   subPath: string,
   ignoreAttributes: string[] = [],

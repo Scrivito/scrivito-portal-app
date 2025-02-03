@@ -1,8 +1,5 @@
 import { pisaClient } from './pisaClient'
 
-/**
- * Fetches the schema for `subPath`.
- * */
 export async function fetchTitle(subPath: string): Promise<string | undefined> {
   const client = await pisaClient(subPath)
   if (!client) {
