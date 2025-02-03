@@ -17,7 +17,9 @@ export function opportunityParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de' ? 'Chance' : 'Opportunity',
+      (await load(currentLanguage)) === 'de'
+        ? 'Geschäftschance'
+        : 'Opportunity',
     connection: localStorageDataConnection('Opportunity'),
   }
 }
