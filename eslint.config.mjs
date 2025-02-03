@@ -19,7 +19,7 @@ export default [
   ...fixupConfigRules(
     compat.extends(
       'eslint:recommended',
-      'plugin:@arabasta/require-useeffect-dependency-array/recommended-legacy',
+      'plugin:@arabasta/react/recommended-legacy',
       'plugin:@typescript-eslint/recommended',
       'plugin:react/recommended',
       'plugin:react/jsx-runtime',

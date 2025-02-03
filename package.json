@@ -39,7 +39,7 @@
     "speakingurl": "^14.0.1"
   },
   "devDependencies": {
-    "@arabasta/eslint-plugin-require-useeffect-dependency-array": "^1.0.9",
+    "@arabasta/eslint-plugin-react": "^1.0.0",
     "@cloudflare/workers-types": "^4.20250129.0",
     "@eslint/compat": "^1.2.6",
     "@eslint/eslintrc": "^3.2.0",

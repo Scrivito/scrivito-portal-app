@@ -21,7 +21,7 @@
     "@cloudflare/workers-types", // used by functions/*
 
     // used by eslint.config.mjs; Workaround for https://github.com/webpro-nl/knip/issues/818
-    "@arabasta/eslint-plugin-require-useeffect-dependency-array",
+    "@arabasta/eslint-plugin-react",
     "eslint-plugin-import",
     "eslint-plugin-react",
     "eslint-plugin-react-hooks",
