@@ -19,6 +19,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function eventRegistrationParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de'
+        ? 'Veranstaltungsanmeldung'
+        : 'Event registration',
     connection: localStorageDataConnection('EventRegistration'),
   }
 }

@@ -12,6 +12,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function callbackRequestParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de'
+        ? 'Rückrufanfrage'
+        : 'Callback request',
     connection: localStorageDataConnection('CallbackRequest'),
   }
 }

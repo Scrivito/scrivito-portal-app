@@ -19,6 +19,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function orderRequestParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de'
+        ? 'Bestellanfrage'
+        : 'Order request',
     connection: localStorageDataConnection('OrderRequest'),
   }
 }

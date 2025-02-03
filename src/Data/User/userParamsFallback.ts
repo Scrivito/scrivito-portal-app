@@ -67,6 +67,8 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function userParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de' ? 'Benutzer' : 'User',
     connection: localStorageDataConnection('User', {
       postProcessData: postProcessUserData,
       initialContent: [

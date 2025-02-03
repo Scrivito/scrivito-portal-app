@@ -718,6 +718,8 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function quoteParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de' ? 'Angebot' : 'Quote',
     connection: localStorageDataConnection('Quote', {
       initialContent: [
         {

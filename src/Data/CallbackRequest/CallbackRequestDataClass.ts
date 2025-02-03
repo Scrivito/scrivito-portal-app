@@ -5,6 +5,7 @@ import {
 } from 'scrivito'
 import { pisaClient } from '../pisaClient'
 import { fetchAttributes } from '../fetchAttributes'
+import { fetchTitle } from '../fetchTitle'
 
 export const CallbackRequest = provideDataClass(
   'CallbackRequest',
@@ -19,6 +20,7 @@ export const CallbackRequest = provideDataClass(
     // callback-request is more or less a "singleton". It only offers PUT, GET and DELETE.
     return {
       attributes: () => fetchAttributes('callback-request'),
+      title: () => fetchTitle('callback-request'),
       connection: {
         index: async () => {
           try {

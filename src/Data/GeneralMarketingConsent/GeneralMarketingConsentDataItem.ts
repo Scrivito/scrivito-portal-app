@@ -23,6 +23,10 @@ export const GeneralMarketingConsent = provideDataItem(
   'GeneralMarketingConsent',
   {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de'
+        ? 'Allgemeine Marketingzustimmung'
+        : 'General marketing consent',
     connection: {
       async get() {
         const mySubscribedTopicIds = await fetchMySubscribedTopicIds()

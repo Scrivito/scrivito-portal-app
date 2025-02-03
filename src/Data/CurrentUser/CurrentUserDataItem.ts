@@ -57,6 +57,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 
 export const CurrentUser = provideDataItem('CurrentUser', {
   attributes,
+  title: async () =>
+    (await load(currentLanguage)) === 'de'
+      ? 'Aktueller Benutzer'
+      : 'Current user',
   connection: {
     async get() {
       const user = await load(currentUser)

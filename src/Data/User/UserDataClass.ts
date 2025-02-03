@@ -6,6 +6,7 @@ import {
 } from 'scrivito'
 import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
 import { fetchAttributes } from '../fetchAttributes'
+import { fetchTitle } from '../fetchTitle'
 import { pisaClient } from '../pisaClient'
 
 export const User = provideDataClass(
@@ -18,6 +19,7 @@ export const User = provideDataClass(
 
     return {
       attributes: () => fetchAttributes('user'),
+      title: () => fetchTitle('user'),
       connection: {
         index: async () => {
           throw new DataConnectionError(
