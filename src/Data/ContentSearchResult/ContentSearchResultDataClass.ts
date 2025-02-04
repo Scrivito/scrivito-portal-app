@@ -11,7 +11,7 @@ import { ensureString } from '../../utils/ensureString'
 
 const BLACKLIST_OBJ_CLASSES = ['Image', 'Redirect', 'Video']
 
-export const CmsSearchResult = provideDataClass('CmsSearchResult', {
+export const ContentSearchResult = provideDataClass('ContentSearchResult', {
   attributes: async () => {
     const lang = await load(currentLanguage)
 
@@ -23,8 +23,8 @@ export const CmsSearchResult = provideDataClass('CmsSearchResult', {
   },
   title: async () =>
     (await load(currentLanguage)) === 'de'
-      ? 'CMS-Such-Ergebnis'
-      : 'CMS Search Result',
+      ? 'Inhalts-Suchergebnis'
+      : 'Content Search Result',
   connection: {
     async index(params) {
       if (Object.keys(params.filters()).length > 0) {
