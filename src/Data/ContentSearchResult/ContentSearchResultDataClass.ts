@@ -81,11 +81,18 @@ function pagination(
 function objToResult(obj: Obj) {
   return {
     _id: obj.id(),
-    title: objTitle(obj),
+    title: removePlaceholders(objTitle(obj)),
     url: urlFor(obj),
-    snippet:
+    snippet: removePlaceholders(
       extractText(obj, { length: 300 }) ||
-      ensureString(obj.get('metaDataDescription')),
+        ensureString(obj.get('metaDataDescription')),
+    ),
     image: obj.get('image'),
   }
+}
+
+function removePlaceholders(text: string): string {
+  // This is only a "good enough" implementation.
+  // It might remove more than just SDK placeholders.
+  return text.replace(/__.+?__/gi, '')
 }
