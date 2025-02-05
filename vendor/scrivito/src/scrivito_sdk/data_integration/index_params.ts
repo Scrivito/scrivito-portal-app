@@ -21,7 +21,8 @@ export interface AndFilterSpec {
   value: FilterSpec[];
 }
 
-export type IndexParamsFilters = Record<string, FilterSpec | AndFilterSpec>;
+/** @public */
+export type DataConnectionFilters = Record<string, FilterSpec | AndFilterSpec>;
 
 /** @public */
 export class DataConnectionIndexParams {
@@ -34,7 +35,7 @@ export class DataConnectionIndexParams {
     return this._continuation;
   }
 
-  filters(): IndexParamsFilters {
+  filters(): DataConnectionFilters {
     return Object.entries(this._params.filters || {}).reduce(
       (filters, [name, operatorSpec]) => {
         if (!name) return filters;

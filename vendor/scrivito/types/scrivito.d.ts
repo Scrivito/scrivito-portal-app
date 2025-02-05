@@ -542,12 +542,15 @@ export declare class DataConnectionError extends ScrivitoError {
 }
 
 /** @public */
+export declare type DataConnectionFilters = Record<string, FilterSpec | AndFilterSpec>;
+
+/** @public */
 export declare class DataConnectionIndexParams {
     private readonly _continuation;
     private readonly _params;
     constructor(_continuation: string | undefined, _params: Params);
     continuation(): string | undefined;
-    filters(): IndexParamsFilters;
+    filters(): DataConnectionFilters;
     search(): string;
     order(): OrderSpec;
     limit(): number;
@@ -834,8 +837,6 @@ declare type ImageTagType = {
 
 /** @public */
 declare type IndexCallback = (params: DataConnectionIndexParams) => Promise<IndexResult | DataConnectionError>;
-
-declare type IndexParamsFilters = Record<string, FilterSpec | AndFilterSpec>;
 
 /** @public */
 declare interface IndexResult {

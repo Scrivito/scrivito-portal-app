@@ -3,8 +3,8 @@ import { ArgumentError } from 'scrivito_sdk/common';
 import { DataItem } from 'scrivito_sdk/data_integration/data_class';
 import {
   AndFilterSpec,
+  DataConnectionFilters,
   FilterSpec,
-  IndexParamsFilters,
   isAndFilterSpec,
 } from 'scrivito_sdk/data_integration/index_params';
 import { SINGLETON_DATA_ID } from 'scrivito_sdk/data_integration/provide_external_data_item';
@@ -12,7 +12,7 @@ import { load } from 'scrivito_sdk/loadable';
 
 export async function filterExternalDataItem(
   dataItem: DataItem,
-  filters: IndexParamsFilters
+  filters: DataConnectionFilters
 ) {
   const doesMatch = await load(() =>
     Object.entries(filters).every(([name, filter]) => {

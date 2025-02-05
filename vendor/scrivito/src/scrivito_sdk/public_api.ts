@@ -78,6 +78,7 @@ export {
 export type {
   DataAttributeDefinitions,
   DataConnection,
+  DataConnectionFilters,
   DataConnectionIndexParams,
   DataConnectionResultItem,
 } from 'scrivito_sdk/data_integration';

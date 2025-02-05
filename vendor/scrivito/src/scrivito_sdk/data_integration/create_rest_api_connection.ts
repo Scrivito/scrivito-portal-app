@@ -3,9 +3,9 @@ import { ArgumentError } from 'scrivito_sdk/common';
 import { OrderSpec } from 'scrivito_sdk/data_integration/data_class';
 import { UncheckedDataConnection } from 'scrivito_sdk/data_integration/external_data_connection';
 import {
+  DataConnectionFilters,
   DataConnectionIndexParams,
   FilterSpec,
-  IndexParamsFilters,
 } from 'scrivito_sdk/data_integration/index_params';
 
 export function createRestApiConnectionForClass(
@@ -38,7 +38,9 @@ interface ClientFilterParams {
   [name: string]: string;
 }
 
-function toClientFilterParam(filters: IndexParamsFilters): ClientFilterParams {
+function toClientFilterParam(
+  filters: DataConnectionFilters
+): ClientFilterParams {
   const params: ClientFilterParams = {};
 
   Object.keys(filters).forEach((name) => {

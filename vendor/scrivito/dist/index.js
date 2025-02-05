@@ -4386,7 +4386,7 @@ function create_rest_api_client_fetch(_0) {
 
 
 function getClientVersion() {
-  const clientVersion = "jssdk/1.29.0-dev-1-gf1d807accd93";
+  const clientVersion = "jssdk/1.29.0-dev-1-g7b716b6087e5";
   if (!clientVersion)
     throw new common/* InternalError */.Gd();
   return clientVersion;
@@ -5841,7 +5841,7 @@ function runAndCatchException(fn) {
 
 
 function getScrivitoVersion() {
-  const version = "1.29.0-dev-1-gf1d807accd93";
+  const version = "1.29.0-dev-1-g7b716b6087e5";
   if (!version) {
     throw new InternalError();
   }
