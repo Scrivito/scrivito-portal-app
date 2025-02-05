@@ -1,5 +1,4 @@
 import { provideDataClass } from 'scrivito'
-import { fetchAttributes } from '../fetchAttributes'
 import { pisaConfig } from '../pisaClient'
 
 export const ServiceObject = provideDataClass(
@@ -12,9 +11,6 @@ export const ServiceObject = provideDataClass(
       ).serviceObjectParamsFallback()
     }
 
-    return {
-      attributes: () => fetchAttributes('service-object', ['parentId']), // TODO: Remove workaround for #11367 once available
-      restApi,
-    }
+    return { restApi }
   })(),
 )
