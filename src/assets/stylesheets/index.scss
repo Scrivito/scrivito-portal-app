@@ -752,7 +752,9 @@ section {
     th,
     td,
     .form-label,
-    .text-mandatory {
+    .text-mandatory,
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
       color: rgba(255, 255, 255, 0.9);
     }
     .btn-outline-primary,
@@ -801,6 +803,46 @@ section .card.no-color-adaption {
   td {
     color: var(--bs-body-color) !important;
   }
+}
+
+/* inverting carousel controls for brighter backgrounds
+ ======================================================= */
+
+.carousel-inner:has(
+    .bg-transparent.active,
+    .bg-white.active,
+    .bg-transparent.active,
+    .bg-light-grey.active,
+    .bg-middle-grey.active
+  )
+  + .carousel-control-prev
+  .carousel-control-prev-icon {
+  filter: invert(100%);
+  transition: all 0.2s;
+}
+
+.carousel-inner:has(
+    .bg-transparent.active,
+    .bg-white.active,
+    .bg-light-grey.active,
+    .bg-middle-grey.active
+  )
+  + *
+  + .carousel-control-next
+  .carousel-control-next-icon {
+  filter: invert(100%);
+  transition: all 0.2s;
+}
+
+.carousel-indicators:has(
+    + .carousel-inner .bg-transparent.active,
+    + .carousel-inner .bg-white.active,
+    + .carousel-inner .bg-light-grey.active,
+    + .carousel-inner .bg-middle-grey.active
+  )
+  [data-bs-target] {
+  filter: invert(70%);
+  transition: all 0.2s;
 }
 
 /* Language Icon
