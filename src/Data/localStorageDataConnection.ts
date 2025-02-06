@@ -38,6 +38,7 @@ export function localStorageDataConnection(
         : rawItems
 
       const filters = params.filters()
+      console.log('connection#index with params', JSON.stringify(params))
       const filteredItems =
         Object.keys(filters).length === 0
           ? items
