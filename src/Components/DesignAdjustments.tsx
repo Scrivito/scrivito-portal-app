@@ -1,7 +1,15 @@
-import { Obj, connect } from 'scrivito'
+import {
+  connect,
+  currentPage,
+  isEditorLoggedIn,
+  load,
+  Obj,
+  urlFor,
+} from 'scrivito'
 import { Helmet } from 'react-helmet-async'
 import { isFont } from '../Objs/Font/FontObjClass'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
+import { useEffect } from 'react'
 
 const bodyFontFamily = 'custom-body-font-family'
 const headlineFontFamily = 'custom-headline-font-family'
@@ -9,6 +17,31 @@ const headlineFontFamily = 'custom-headline-font-family'
 export const DesignAdjustments = connect(
   function DesignAdjustments({ children }: { children: React.ReactNode }) {
     const root = Obj.root()
+    const limitToSinglePage =
+      (isHomepage(root) && root.get('siteLimitToSinglePage')) || null
+
+    const limitToSinglePagePath = limitToSinglePage?.path()
+    const currentPageObjPath = currentPage()?.path()
+
+    const redirectNeeded =
+      !!root &&
+      !!limitToSinglePage &&
+      !!limitToSinglePagePath &&
+      !!currentPageObjPath &&
+      currentPageObjPath !== limitToSinglePagePath
+
+    useEffect(() => {
+      redirectIfNeeded()
+
+      async function redirectIfNeeded() {
+        if (!redirectNeeded) return
+        // if (isEditorLoggedIn()) return
+
+        const url = await load(() => urlFor(limitToSinglePage))
+        window.location.replace(url)
+      }
+    }, [redirectNeeded, limitToSinglePage])
+
     if (!isHomepage(root)) return children
 
     const styles: string[] = []

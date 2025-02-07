@@ -89,6 +89,7 @@ provideEditingConfig(Homepage, {
         'siteRoundedCorners',
         'siteFacebookAppId',
         'siteTwitterSite',
+        'siteLimitToSinglePage',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },

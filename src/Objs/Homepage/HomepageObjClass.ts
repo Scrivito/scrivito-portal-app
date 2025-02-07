@@ -32,6 +32,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteFooter: ['widgetlist', { only: 'SectionWidget' }],
     siteHeader: 'widgetlist',
     siteLanguageIcon: ['reference', { only: 'Image' }],
+    siteLimitToSinglePage: 'reference',
     siteLogoDark: ['reference', { only: 'Image' }],
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
     siteRoundedCorners: 'boolean',
