@@ -438,12 +438,8 @@ a.btn {
 }
 
 ::selection {
-  background: var(--bs-secondary);
-  color: #fff;
-}
-::-moz-selection {
-  background: var(--bs-secondary);
-  color: #fff;
+  background: rgba(255, 204, 0, 0.761);
+  color: #333;
 }
 
 .text-clamp {
