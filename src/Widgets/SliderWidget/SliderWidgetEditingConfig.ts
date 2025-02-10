@@ -1,9 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { SliderWidget } from './SliderWidgetClass'
 import { SlideWidget } from '../SlideWidget/SlideWidgetClass'
+import thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SliderWidget, {
   title: 'Slider',
+  thumbnail,
   attributes: {
     autoPlay: {
       title: 'Auto play?',

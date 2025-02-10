@@ -1,9 +1,11 @@
 import { provideEditingConfig } from 'scrivito'
 import { SlideWidget } from './SlideWidgetClass'
 import { HeadlineWidget } from '../HeadlineWidget/HeadlineWidgetClass'
+import thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SlideWidget, {
   title: 'Slide',
+  thumbnail,
   attributes: {
     backgroundColor: {
       title: 'Background color',
