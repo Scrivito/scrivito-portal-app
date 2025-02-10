@@ -14,7 +14,11 @@ import {
   toPlainParameter,
 } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
 import { ProductPreview } from './ProductPreviewComponent'
-import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
+import {
+  addToCart,
+  quantityInCart,
+  removeFromCart,
+} from '../../Data/CartItem/Cart'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -206,7 +210,8 @@ const CartActionButton = connect(function CartActionButton({
     )
   }
 
-  if (isInCart(product)) {
+  const quantity = quantityInCart(product)
+  if (quantity) {
     return (
       <button
         className="btn btn-sm btn-primary"

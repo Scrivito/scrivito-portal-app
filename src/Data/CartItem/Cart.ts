@@ -33,14 +33,17 @@ export async function removeFromCart(product: ProductInstance): Promise<void> {
   items.forEach((item) => item.delete())
 }
 
-export function isInCart(product: ProductInstance): boolean {
-  if (!isUserLoggedIn()) return false // TODO: remove, once CartItem itself requires a login
+export function quantityInCart(product: ProductInstance): number {
+  if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
 
   const productId = product.id()
 
-  return CartItem.all()
-    .transform({ filters: { product: productId } })
-    .containsData()
+  return Number(
+    CartItem.all()
+      .transform({ filters: { product: productId }, limit: 1 })
+      .take()?.[0]
+      ?.get('quantity'),
+  )
 }
 
 export function containsItems(): boolean {
