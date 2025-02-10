@@ -13,7 +13,11 @@ import { ensureString } from '../../utils/ensureString'
 export async function addToCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
 
-  await CartItem.create({ product: productId, title: product.get('title') })
+  await CartItem.create({
+    product: productId,
+    quantity: 1,
+    title: product.get('title'),
+  })
 }
 
 export async function removeFromCart(product: ProductInstance): Promise<void> {
@@ -53,23 +57,25 @@ export function numberOfCartItems(): number | null {
 export async function checkoutCart(): Promise<DataItem> {
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
 
-  const cartItemDetails: { id: string; title: string }[] = await load(() =>
-    cartItems
-      .map((item) => {
-        const product = item.get('product')
-        return product instanceof DataItem
-          ? {
-              id: product.id(),
-              title: ensureString(product.get('title')),
-            }
-          : null
-      })
-      .filter((value) => !!value),
-  )
+  const cartItemDetails: { id: string; quantity: number; title: string }[] =
+    await load(() =>
+      cartItems
+        .map((item) => {
+          const product = item.get('product')
+          return product instanceof DataItem
+            ? {
+                id: product.id(),
+                quantity: Number(item.get('quantity')),
+                title: ensureString(product.get('title')),
+              }
+            : null
+        })
+        .filter((value) => !!value),
+    )
 
   const keyword = await getTitle()
   const description = cartItemDetails
-    .map(({ id, title }) => `1 × ${title} (ID: ${id})`)
+    .map(({ id, quantity, title }) => `${quantity} × ${title} (ID: ${id})`)
     .join('\n')
 
   const opportunity = await Opportunity.create({ keyword, description })
