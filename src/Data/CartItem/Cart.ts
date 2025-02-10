@@ -53,16 +53,23 @@ export function numberOfCartItems(): number | null {
 export async function checkoutCart(): Promise<DataItem> {
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
 
-  const products: DataItem[] = cartItems
-    .map((item) => item.get('product'))
-    .filter((item) => item instanceof DataItem)
+  const cartItemDetails: { id: string; title: string }[] = await load(() =>
+    cartItems
+      .map((item) => {
+        const product = item.get('product')
+        return product instanceof DataItem
+          ? {
+              id: product.id(),
+              title: ensureString(product.get('title')),
+            }
+          : null
+      })
+      .filter((value) => !!value),
+  )
 
   const keyword = await getTitle()
-  const description = products
-    .map(
-      (product) =>
-        `1 × ${ensureString(product.get('title'))} (ID: ${product.id()})`,
-    )
+  const description = cartItemDetails
+    .map(({ id, title }) => `1 × ${title} (ID: ${id})`)
     .join('\n')
 
   const opportunity = await Opportunity.create({ keyword, description })
