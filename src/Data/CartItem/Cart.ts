@@ -12,6 +12,13 @@ import { ensureString } from '../../utils/ensureString'
 import { sum } from 'lodash-es'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
+  const item = await load(() => findInCart(product))
+
+  if (item) {
+    item.update({ quantity: Number(item.get('quantity')) + 1 })
+    return
+  }
+
   const productId = product.id()
 
   await CartItem.create({
@@ -19,6 +26,16 @@ export async function addToCart(product: ProductInstance): Promise<void> {
     quantity: 1,
     title: product.get('title'),
   })
+}
+
+export async function subtractFromCart(
+  product: ProductInstance,
+): Promise<void> {
+  const item = await load(() => findInCart(product))
+  const quantity = Number(item?.get('quantity'))
+
+  if (quantity <= 1) return removeFromCart(product)
+  return item?.update({ quantity: quantity - 1 })
 }
 
 export async function removeFromCart(product: ProductInstance): Promise<void> {
@@ -34,16 +51,15 @@ export async function removeFromCart(product: ProductInstance): Promise<void> {
 }
 
 export function quantityInCart(product: ProductInstance): number {
-  if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
+  return Number(findInCart(product)?.get('quantity'))
+}
 
-  const productId = product.id()
+function findInCart(product: ProductInstance) {
+  if (!isUserLoggedIn()) return // TODO: remove, once CartItem itself requires a login
 
-  return Number(
-    CartItem.all()
-      .transform({ filters: { product: productId }, limit: 1 })
-      .take()?.[0]
-      ?.get('quantity'),
-  )
+  return CartItem.all()
+    .transform({ filters: { product: product.id() }, limit: 1 })
+    .take()?.[0]
 }
 
 export function containsItems(): boolean {
