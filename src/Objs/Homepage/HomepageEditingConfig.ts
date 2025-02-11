@@ -71,6 +71,9 @@ provideEditingConfig(Homepage, {
       description:
         'If your chosen font supports multiple weights, pick the one that best fits your design. Default: 500',
     },
+    siteRestrictedAccess: {
+      title: 'Restricted access',
+    },
   },
   propertiesGroups: (site) => [
     {
@@ -89,6 +92,7 @@ provideEditingConfig(Homepage, {
         'siteRoundedCorners',
         'siteFacebookAppId',
         'siteTwitterSite',
+        'siteRestrictedAccess',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },

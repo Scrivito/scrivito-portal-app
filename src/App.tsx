@@ -6,6 +6,7 @@ import { ErrorBoundary } from './Components/ErrorBoundary'
 import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
+import { RestrictedAccess } from './Components/RestrictedAccess'
 
 export const helmetContext: { helmet?: HelmetServerState } = {}
 
@@ -22,10 +23,12 @@ export function App({
             Skip to Content
           </a>
           <DesignAdjustments>
-            <CurrentPage />
-            <NotFoundErrorPage />
+            <RestrictedAccess>
+              <CurrentPage />
+              <NotFoundErrorPage />
+              <CurrentPageMetadata />
+            </RestrictedAccess>
           </DesignAdjustments>
-          <CurrentPageMetadata />
           <Toasts />
         </div>
       </ErrorBoundary>
