@@ -203,7 +203,7 @@ function findHighestSeverity(
     validationResults.find((v) => v.severity === 'error') ||
     validationResults.find((v) => v.severity === 'warning') ||
     validationResults.find((v) => v.severity === 'info')
-  return highestSeverityValidation?.severity ?? null
+  return highestSeverityValidation?.severity
 }
 
 function lookupMetadata(obj: Obj, value: string) {
