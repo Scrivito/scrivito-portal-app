@@ -1,5 +1,3 @@
-// TODO: remove workaround for #11474
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import {
   Obj,
   uiContext,
@@ -164,7 +162,7 @@ const ContentProperty = connect(
   }) => {
     const validationResults = validationResultsFor(content, attribute)
     const highestSeverity = findHighestSeverity(validationResults)
-    const severityClass = highestSeverity && `scrivito_${highestSeverity}`
+    const severityClass = highestSeverity ? `scrivito_${highestSeverity}` : ''
 
     return (
       <>
@@ -198,14 +196,14 @@ const ContentProperty = connect(
 function findHighestSeverity(
   validationResults: {
     message: string
-    severity?: 'error' | 'warning' | 'info'
+    severity: 'error' | 'warning' | 'info'
   }[],
 ) {
   const highestSeverityValidation =
     validationResults.find((v) => v.severity === 'error') ||
     validationResults.find((v) => v.severity === 'warning') ||
     validationResults.find((v) => v.severity === 'info')
-  return highestSeverityValidation?.severity
+  return highestSeverityValidation?.severity ?? null
 }
 
 function lookupMetadata(obj: Obj, value: string) {
