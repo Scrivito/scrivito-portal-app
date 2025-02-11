@@ -4,9 +4,11 @@ export const ImageWidget = provideWidgetClass('ImageWidget', {
   attributes: {
     alignment: ['enum', { values: ['left', 'center', 'right'] }],
     alternativeText: 'string',
-    roundCorners: 'boolean',
+    height: 'string',
     image: ['reference', { only: 'Image' }],
     link: 'link',
+    roundCorners: 'boolean',
+    width: 'string',
   },
 })
 

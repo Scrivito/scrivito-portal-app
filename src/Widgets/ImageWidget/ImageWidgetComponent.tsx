@@ -10,11 +10,18 @@ import {
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget } from './ImageWidgetClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
+import { CSSProperties } from 'react'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const classNames = ['image-widget']
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
+
+  const height = widget.get('height')
+  const width = widget.get('width')
+
+  let style: CSSProperties | undefined = height ? { height } : undefined
+  if (width) style = { ...style, width }
 
   return (
     <WidgetTag className={classNames.join(' ')}>
@@ -27,6 +34,7 @@ provideComponent(ImageWidget, ({ widget }) => {
           className={widget.get('roundCorners') ? 'rounded' : undefined}
           attribute="image"
           content={widget}
+          style={style}
         />
       </LinkWrapper>
     </WidgetTag>

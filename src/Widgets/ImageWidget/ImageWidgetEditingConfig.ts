@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { DimensionsPicker } from './DimensionsPicker'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
@@ -36,6 +37,13 @@ provideEditingConfig(ImageWidget, {
     },
   },
   properties: ['alignment', 'alternativeText', 'link', 'roundCorners'],
+  propertiesGroups: [
+    {
+      title: 'Dimensions',
+      properties: ['height', 'width'],
+      key: 'dimensions-group',
+    },
+  ],
   initialContent: {
     alignment: 'left',
   },
