@@ -28,6 +28,10 @@ provideEditingConfig(Page, {
       description:
         'Removes the header navigation and only centers the logo instead. Default: No',
     },
+    hideFooter: {
+      title: 'Hide footer?',
+      description: 'Hide all layout footers for this page. Default: No',
+    },
     data: {
       restrictDataTo: ['scope', 'item'],
     },
@@ -37,6 +41,7 @@ provideEditingConfig(Page, {
     'hideInNavigation',
     'excludeFromSearch',
     'showAsLandingPage',
+    'hideFooter',
   ],
   propertiesGroups: defaultPagePropertiesGroups,
   initialContent: defaultPageInitialContent,

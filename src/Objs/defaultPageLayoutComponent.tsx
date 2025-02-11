@@ -1,6 +1,7 @@
 import {
   connect,
   ContentTag,
+  currentPage,
   CurrentPage,
   Obj,
   ObjClass,
@@ -16,7 +17,7 @@ export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
     return (
       <>
         {!!page.get('layoutShowHeader') && (
-          <ContentTag tag="header" content={page} attribute="layoutHeader" />
+            <ContentTag tag="header" content={page} attribute="layoutHeader" />
         )}
 
         <BackgroundWrapper
@@ -33,9 +34,10 @@ export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
           )}
         </BackgroundWrapper>
 
-        {!!page.get('layoutShowFooter') && (
-          <ContentTag tag="footer" content={page} attribute="layoutFooter" />
-        )}
+        {!!page.get('layoutShowFooter') &&
+          currentPage()?.get('hideFooter') !== true && (
+            <ContentTag tag="footer" content={page} attribute="layoutFooter" />
+          )}
       </>
     )
   })
