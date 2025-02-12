@@ -27,6 +27,7 @@ provideComponent(SliderWidget, ({ widget }) => {
         .map((item) => (
           <Carousel.Item
             key={item.id()}
+            style={{ minHeight: `${widget.get('minHeight') || 400}px` }}
             className={[
               `bg-${item.get('backgroundColor') || 'transparent'}`,
               widget.get('controls') ? 'has-controls' : '',

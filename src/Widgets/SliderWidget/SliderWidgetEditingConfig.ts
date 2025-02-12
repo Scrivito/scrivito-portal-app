@@ -19,14 +19,19 @@ provideEditingConfig(SliderWidget, {
       title: 'Margin',
       description: 'Outer space to next item (bottom). Default: "mb-4"',
     },
+    minHeight: {
+      title: 'Minimum height (in px)',
+      description: 'Default: 400',
+    },
     slides: {
       title: 'Slides',
     },
   },
-  properties: ['slides', 'controls', 'autoPlay', 'margin'],
+  properties: ['slides', 'controls', 'autoPlay', 'minHeight', 'margin'],
   initialContent: {
     controls: true,
     margin: 'mb-4',
+    minHeight: 400,
     slides: [new SlideWidget({}), new SlideWidget({})],
   },
   validations: [
