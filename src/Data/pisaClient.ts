@@ -25,14 +25,28 @@ export async function pisaConfig(subPath: string) {
   const baseUrl = await pisaUrl()
   if (!baseUrl) return null
 
+  const headers: { 'Accept-Language': string; Authorization?: string } = {
+    'Accept-Language': await load(() => currentLanguage() ?? 'en'),
+  }
+
+  const authorization = await authorizationPromise
+  if (authorization) headers.Authorization = authorization
+
   return {
     url: `${baseUrl}/${subPath}`,
-    headers: {
-      'Accept-Language': await load(() => currentLanguage() ?? 'en'),
-    },
+    headers,
   }
 }
 
 function never() {
   return new Promise<never>(() => {})
+}
+
+let resolveAuthorization: (authorization: string | null) => void
+const authorizationPromise = new Promise<string | null>((resolve) => {
+  resolveAuthorization = resolve
+})
+
+export function setPisaAuthorization(authorization: string | null) {
+  resolveAuthorization(authorization)
 }

@@ -6,6 +6,7 @@ import { ErrorBoundary } from './Components/ErrorBoundary'
 import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
+import { ExtractJwtToken } from './Components/ExtractJwtToken'
 
 export const helmetContext: { helmet?: HelmetServerState } = {}
 
@@ -17,6 +18,7 @@ export function App({
   return (
     <HelmetProvider context={helmetContext}>
       <ErrorBoundary>
+        <ExtractJwtToken />
         <div ref={appWrapperRef} id="app-wrapper">
           <a href="#main" className="btn skip-to-content">
             Skip to Content
