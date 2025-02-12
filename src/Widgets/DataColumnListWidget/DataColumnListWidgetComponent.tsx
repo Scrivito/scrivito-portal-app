@@ -3,11 +3,15 @@ import { DataColumnListWidget } from './DataColumnListWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { Loading } from '../../Components/Loading'
 import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
+import { useContext } from 'react'
+import { DataBatchContext } from '../../Components/DataBatchContext'
+import { CombinedLoader } from '../DataWidget/CombinedLoader'
 
 provideComponent(
   DataColumnListWidget,
   ({ widget }) => {
     const dataScope = useData()
+    const { combinedLoaderKey, hasMore } = useContext(DataBatchContext)
     let dataError: unknown
 
     try {
@@ -31,17 +35,24 @@ provideComponent(
     const columnsCount = widget.get('columnsCount') || '2'
 
     return (
-      <div className={`row row-cols-1 row-cols-md-${columnsCount}`}>
-        {dataItems.map((dataItem) => (
-          <ContentTag
-            content={widget}
-            attribute="content"
-            className="col"
-            dataContext={dataItem}
-            key={dataItem.id()}
-          />
-        ))}
-      </div>
+      <>
+        <div className={`row row-cols-1 row-cols-md-${columnsCount}`}>
+          {dataItems.map((dataItem) => (
+            <ContentTag
+              content={widget}
+              attribute="content"
+              className="col"
+              dataContext={dataItem}
+              key={dataItem.id()}
+            />
+          ))}
+        </div>
+        <CombinedLoader
+          dataScope={dataScope}
+          hasMore={hasMore}
+          key={combinedLoaderKey}
+        />
+      </>
     )
   },
   { loading: Loading },

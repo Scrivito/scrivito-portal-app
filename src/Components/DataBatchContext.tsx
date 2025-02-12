@@ -1,11 +1,13 @@
-import { createContext, useState } from 'react'
+import { createContext, useCallback, useState } from 'react'
 import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
+  combinedLoaderKey: string
   hasMore: () => boolean
   loadMore: () => void
   setSearch?: (query: string) => void
 }>({
+  combinedLoaderKey: '',
   hasMore: () => true,
   loadMore: () => {
     throw new Error('loadMore is not provided!')
@@ -28,14 +30,22 @@ export const DataBatchContextProvider = connect(
     const configuredLimit = dataScope.limit() ?? 20
     const [limit, setLimit] = useState(configuredLimit)
     const [initialLimit, setInitialLimit] = useState(configuredLimit)
-    const [search, setSearch] = useState('')
+    const [search, setSearchState] = useState('')
+
+    const setSearch = useCallback(
+      (query: string) => {
+        setSearchState(query)
+        setLimit(configuredLimit)
+      },
+      [configuredLimit],
+    )
 
     if (initialLimit !== configuredLimit) {
       setInitialLimit(configuredLimit)
       setLimit(configuredLimit)
     }
 
-    const key = [
+    const baseKeys = [
       'DataBatchContextProvider',
       content.id(),
       attribute,
@@ -43,7 +53,9 @@ export const DataBatchContextProvider = connect(
       tag,
       search,
       // limit is intentionally not included in the key. Otherwise the component would show a loading spinner on every "load more" click.
-    ].join('-')
+    ]
+
+    const combinedLoaderKey = [...baseKeys, limit].join('-')
 
     const transform = { limit, search }
 
@@ -61,11 +73,13 @@ export const DataBatchContextProvider = connect(
     const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
 
     return (
-      <DataBatchContext.Provider value={{ hasMore, loadMore, setSearch }}>
+      <DataBatchContext.Provider
+        value={{ combinedLoaderKey, hasMore, loadMore, setSearch }}
+      >
         <ContentTag
           tag={tag}
           id={id}
-          key={key}
+          key={baseKeys.join('-')}
           content={content}
           attribute={attribute}
           dataContext={dataScope.transform(transform)}
