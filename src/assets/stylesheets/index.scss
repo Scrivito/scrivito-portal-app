@@ -831,49 +831,6 @@ section .card.no-color-adaption {
   }
 }
 
-/* inverting carousel controls for brighter backgrounds
- ======================================================= */
-
-.carousel-inner:has(
-    .bg-transparent.active,
-    .bg-white.active,
-    .bg-transparent.active,
-    .bg-light-grey.active,
-    .bg-middle-grey.active,
-    .bg-warning.active
-  )
-  + .carousel-control-prev
-  .carousel-control-prev-icon {
-  filter: invert(100%);
-  transition: all 0.2s;
-}
-
-.carousel-inner:has(
-    .bg-transparent.active,
-    .bg-white.active,
-    .bg-light-grey.active,
-    .bg-middle-grey.active,
-    .bg-warning.active
-  )
-  + *
-  + .carousel-control-next
-  .carousel-control-next-icon {
-  filter: invert(100%);
-  transition: all 0.2s;
-}
-
-.carousel-indicators:has(
-    + .carousel-inner .bg-transparent.active,
-    + .carousel-inner .bg-white.active,
-    + .carousel-inner .bg-light-grey.active,
-    + .carousel-inner .bg-middle-grey.active,
-    + .carousel-inner .bg-warning.active
-  )
-  [data-bs-target] {
-  filter: invert(70%);
-  transition: all 0.2s;
-}
-
 /* Language Icon
  ================================================== */
 
