@@ -7,6 +7,8 @@ import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 
+import { PortalBot } from './portal_bot'
+
 export const helmetContext: { helmet?: HelmetServerState } = {}
 
 export function App({
@@ -28,6 +30,7 @@ export function App({
           <CurrentPageMetadata />
           <Toasts />
         </div>
+        <PortalBot />
       </ErrorBoundary>
     </HelmetProvider>
   )
