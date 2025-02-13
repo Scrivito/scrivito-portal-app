@@ -35,7 +35,10 @@ export const Subscription = provideDataClass('Subscription', {
         unfilteredSubscriptions,
       )
 
-      return { results: subscriptions, count: subscriptions.length }
+      return {
+        results: subscriptions.slice(0, params.limit()),
+        count: subscriptions.length,
+      }
     },
     async get(id: string) {
       return (await fetchSubscriptions()).find((sub) => sub._id === id) || null
