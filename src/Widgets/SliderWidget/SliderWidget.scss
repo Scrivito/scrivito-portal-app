@@ -1,4 +1,6 @@
 .slider-widget {
+  --jr-border-radius: 0;
+
   .carousel-item {
     border-radius: var(--jr-border-radius);
     overflow: hidden;
