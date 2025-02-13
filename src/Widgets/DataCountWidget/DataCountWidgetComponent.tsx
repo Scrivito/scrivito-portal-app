@@ -7,7 +7,7 @@ import { EditorNote } from '../../Components/EditorNote'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 
 provideComponent(DataCountWidget, ({ widget }) => {
-  const classNames: string[] = []
+  const classNames: string[] = [widget.get('margin') ?? 'mb-2']
 
   const style =
     (widget.get('style') as

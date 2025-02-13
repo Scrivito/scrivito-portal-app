@@ -23,6 +23,10 @@ provideEditingConfig(DataCountWidget, {
       description:
         'The placeholder __count__ represents the total number of items.',
     },
+    margin: {
+      title: 'Margin',
+      description: 'Outer space to next item (bottom). Default: "mb-2"',
+    },
     level: {
       title: 'Heading tag (optional)',
       description:
@@ -67,6 +71,7 @@ provideEditingConfig(DataCountWidget, {
     'alignment',
     'style',
     'level',
+    'margin',
   ],
   initialContent: {
     alignment: 'left',
@@ -75,6 +80,7 @@ provideEditingConfig(DataCountWidget, {
     headline1: '1 item',
     loadingHeadline: 'Items',
     style: 'body-font-size',
+    margin: 'mb-2',
   },
   validations: [
     [
