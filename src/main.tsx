@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
-import { isEditorLoggedIn, preload, updateContent } from 'scrivito'
+import { currentUser, isEditorLoggedIn, preload, updateContent } from 'scrivito'
 
 import './Data'
 import './Objs'
@@ -61,6 +61,8 @@ if (isEditorLoggedIn()) {
 setPisaAuthorization(authorization())
 
 function authorization(): string | null {
+  if (currentUser()) return null
+
   if (typeof window === 'undefined') return null
 
   const urlParams = new URLSearchParams(window.location.search)
