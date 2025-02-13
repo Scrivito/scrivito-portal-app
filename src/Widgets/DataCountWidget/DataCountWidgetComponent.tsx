@@ -32,7 +32,7 @@ const TotalCountSummary = connect(
   },
   {
     loading: ({ widget }) => (
-      <ContentTag content={widget} attribute="resultsLoadingHeadline" />
+      <ContentTag content={widget} attribute="loadingHeadline" />
     ),
   },
 )
