@@ -9,11 +9,33 @@ import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
 import { ensureString } from '../../utils/ensureString'
+import { sum } from 'lodash-es'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
+  const item = await load(() => findInCart(product))
+
+  if (item) {
+    item.update({ quantity: Number(item.get('quantity')) + 1 })
+    return
+  }
+
   const productId = product.id()
 
-  await CartItem.create({ product: productId, title: product.get('title') })
+  await CartItem.create({
+    product: productId,
+    quantity: 1,
+    title: product.get('title'),
+  })
+}
+
+export async function subtractFromCart(
+  product: ProductInstance,
+): Promise<void> {
+  const item = await load(() => findInCart(product))
+  const quantity = Number(item?.get('quantity'))
+
+  if (quantity <= 1) return removeFromCart(product)
+  return item?.update({ quantity: quantity - 1 })
 }
 
 export async function removeFromCart(product: ProductInstance): Promise<void> {
@@ -28,14 +50,16 @@ export async function removeFromCart(product: ProductInstance): Promise<void> {
   items.forEach((item) => item.delete())
 }
 
-export function isInCart(product: ProductInstance): boolean {
-  if (!isUserLoggedIn()) return false // TODO: remove, once CartItem itself requires a login
+export function quantityInCart(product: ProductInstance): number {
+  return Number(findInCart(product)?.get('quantity'))
+}
 
-  const productId = product.id()
+function findInCart(product: ProductInstance) {
+  if (!isUserLoggedIn()) return // TODO: remove, once CartItem itself requires a login
 
   return CartItem.all()
-    .transform({ filters: { product: productId } })
-    .containsData()
+    .transform({ filters: { product: product.id() }, limit: 1 })
+    .take()?.[0]
 }
 
 export function containsItems(): boolean {
@@ -47,22 +71,35 @@ export function containsItems(): boolean {
 export function numberOfCartItems(): number | null {
   if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
 
-  return CartItem.all().count()
+  return sum(
+    CartItem.all()
+      .take()
+      .map((item) => item.get('quantity')),
+  )
 }
 
 export async function checkoutCart(): Promise<DataItem> {
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
 
-  const products: DataItem[] = cartItems
-    .map((item) => item.get('product'))
-    .filter((item) => item instanceof DataItem)
+  const cartItemDetails: { id: string; quantity: number; title: string }[] =
+    await load(() =>
+      cartItems
+        .map((item) => {
+          const product = item.get('product')
+          return product instanceof DataItem
+            ? {
+                id: product.id(),
+                quantity: Number(item.get('quantity')),
+                title: ensureString(product.get('title')),
+              }
+            : null
+        })
+        .filter((value) => !!value),
+    )
 
   const keyword = await getTitle()
-  const description = products
-    .map(
-      (product) =>
-        `1 × ${ensureString(product.get('title'))} (ID: ${product.id()})`,
-    )
+  const description = cartItemDetails
+    .map(({ id, quantity, title }) => `${quantity} × ${title} (ID: ${id})`)
     .join('\n')
 
   const opportunity = await Opportunity.create({ keyword, description })

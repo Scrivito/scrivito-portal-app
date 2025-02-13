@@ -14,7 +14,12 @@ import {
   toPlainParameter,
 } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
 import { ProductPreview } from './ProductPreviewComponent'
-import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
+import {
+  addToCart,
+  quantityInCart,
+  removeFromCart,
+  subtractFromCart,
+} from '../../Data/CartItem/Cart'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -206,24 +211,55 @@ const CartActionButton = connect(function CartActionButton({
     )
   }
 
-  if (isInCart(product)) {
+  const quantity = quantityInCart(product)
+  if (quantity) {
     return (
-      <button
-        className="btn btn-sm btn-primary"
-        onClick={() => {
-          removeFromCart(product)
-          toast.info(cartRemovedMessage)
-        }}
-      >
-        <i className="bi bi-x-lg"></i>
-        {cartRemoveLabel}
-      </button>
+      <>
+        <button
+          className="btn btn-sm btn-primary my-1"
+          onClick={async () => {
+            await subtractFromCart(product)
+            toast.info(cartRemovedMessage)
+          }}
+        >
+          <i className="bi bi-dash-lg px-0" />
+          <span className="d-none" aria-hidden>
+            -
+          </span>
+        </button>
+
+        <strong className="px-2">{quantity}</strong>
+
+        <button
+          className="btn btn-sm btn-primary my-1 me-5"
+          onClick={async () => {
+            await addToCart(product)
+            toast.success(cartAddedMessage)
+          }}
+        >
+          <i className="bi bi-plus-lg px-0" />
+          <span className="d-none" aria-hidden>
+            +
+          </span>
+        </button>
+
+        <button
+          className="btn btn-sm btn-primary my-1"
+          onClick={() => {
+            removeFromCart(product)
+            toast.info(cartRemovedMessage)
+          }}
+        >
+          <i className="bi bi-x-lg"></i>
+          {cartRemoveLabel}
+        </button>
+      </>
     )
   }
 
   return (
     <button
-      className="btn btn-sm btn-primary"
+      className="btn btn-sm btn-primary my-1"
       onClick={async () => {
         await addToCart(product)
         toast.success(cartAddedMessage)

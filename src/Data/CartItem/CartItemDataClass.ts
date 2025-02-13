@@ -17,6 +17,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
         to: 'Product',
       },
     ],
+    quantity: ['number', { title: lang === 'de' ? 'Menge' : 'Quantity' }],
   }
 }
 
