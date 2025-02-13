@@ -2,7 +2,7 @@
   --jr-border-radius: 0;
 
   .carousel-item {
-    border-radius: var(--jr-border-radius);
+    border-radius: 0;
     overflow: hidden;
     padding: 1.5rem;
     position: relative;
@@ -22,7 +22,6 @@
   .carousel-inner:has(
       .bg-transparent.active,
       .bg-white.active,
-      .bg-transparent.active,
       .bg-light-grey.active,
       .bg-middle-grey.active,
       .bg-warning.active
