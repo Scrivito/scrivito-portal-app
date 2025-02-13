@@ -29,6 +29,10 @@ export const Subscription = provideDataClass('Subscription', {
   },
   connection: {
     async index(params) {
+      if (params.search()) {
+        throw new Error('Searching is not supported for subscriptions.')
+      }
+
       const unfilteredSubscriptions = await fetchSubscriptions()
       const subscriptions = filterDataItems(
         params.filters(),
