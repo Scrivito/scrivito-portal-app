@@ -1,5 +1,7 @@
 import { currentLanguage, load, provideDataClass } from 'scrivito'
 import { neoletterClient } from '../neoletterClient'
+import { filterDataItems } from '../filterDataItems'
+import { orderDataItems } from '../orderDataItems'
 
 interface Topic {
   id: string
@@ -27,9 +29,27 @@ export const Subscription = provideDataClass('Subscription', {
     }
   },
   connection: {
-    async index() {
+    async index(params) {
+      if (params.search()) {
+        throw new Error('Searching is not supported for subscriptions.')
+      }
+
       const subscriptions = await fetchSubscriptions()
-      return { results: subscriptions, count: subscriptions.length }
+
+      const filteredSubscriptions = filterDataItems(
+        params.filters(),
+        subscriptions,
+      )
+
+      const orderedSubscriptions = orderDataItems(
+        params.order(),
+        filteredSubscriptions,
+      )
+
+      return {
+        results: orderedSubscriptions.slice(0, params.limit()),
+        count: orderedSubscriptions.length,
+      }
     },
     async get(id: string) {
       return (await fetchSubscriptions()).find((sub) => sub._id === id) || null
