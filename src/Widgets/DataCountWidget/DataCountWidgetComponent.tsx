@@ -7,12 +7,12 @@ import { EditorNote } from '../../Components/EditorNote'
 
 provideComponent(DataCountWidget, ({ widget }) => (
   <h1 className="h3 text-center">
-    <TotalCountSummary widget={widget} />
+    <Count widget={widget} />
   </h1>
 ))
 
-const TotalCountSummary = connect(
-  function TotalCountSummary({ widget }: { widget: DataCountWidgetInstance }) {
+const Count = connect(
+  function Count({ widget }: { widget: DataCountWidgetInstance }) {
     const dataScope = useData()
     const totalCount = dataScope.count()
 
