@@ -6,21 +6,21 @@ provideEditingConfig(DataCountWidget, {
   title: 'Data Count',
   thumbnail,
   attributes: {
-    loadingHeadline: { title: 'Headline while loading results' },
-    headline0: { title: 'Headline for 0 results' },
-    headline1: { title: 'Headline for 1 result' },
+    loadingHeadline: { title: 'Headline while loading items' },
+    headline0: { title: 'Headline for 0 items' },
+    headline1: { title: 'Headline for 1 item' },
     headline: {
-      title: 'Headline for multiple results',
+      title: 'Headline for multiple items',
       description:
-        'The placeholder __count__ represents the total number of results.',
+        'The placeholder __count__ represents the total number of items.',
     },
   },
   properties: ['loadingHeadline', 'headline0', 'headline1', 'headline'],
   initialContent: {
-    headline: '__count__ search results',
-    headline0: 'No search results',
-    headline1: '1 search result',
-    loadingHeadline: 'Search results',
+    headline: '__count__ items',
+    headline0: 'No items',
+    headline1: '1 item',
+    loadingHeadline: 'Items',
   },
   validations: [
     [
