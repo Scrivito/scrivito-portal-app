@@ -1,5 +1,6 @@
 import { currentLanguage, load, provideDataClass } from 'scrivito'
 import { neoletterClient } from '../neoletterClient'
+import { filterDataItems } from '../filterDataItems'
 
 interface Topic {
   id: string
@@ -27,8 +28,13 @@ export const Subscription = provideDataClass('Subscription', {
     }
   },
   connection: {
-    async index() {
-      const subscriptions = await fetchSubscriptions()
+    async index(params) {
+      const unfilteredSubscriptions = await fetchSubscriptions()
+      const subscriptions = filterDataItems(
+        params.filters(),
+        unfilteredSubscriptions,
+      )
+
       return { results: subscriptions, count: subscriptions.length }
     },
     async get(id: string) {
