@@ -36,7 +36,11 @@ provideComponent(DataSearchWidget, ({ widget }) => {
   useEffect(() => setSearch(search), [setSearch, search])
 
   return (
-    <form className="input-group mb-3" role="search" onSubmit={onSubmit}>
+    <form
+      className={`input-group ${widget.get('margin') ?? 'mb-3'}`}
+      role="search"
+      onSubmit={onSubmit}
+    >
       <input
         key={search}
         className="form-control"
