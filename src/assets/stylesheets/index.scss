@@ -682,7 +682,9 @@ section {
 // -- new override -- //
 
 .card,
-.card .card {
+.card .card,
+.carousel-item,
+.carousel-item .card {
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
@@ -738,7 +740,9 @@ section {
 }
 
 .card,
-.card .card {
+.card .card,
+.carousel-item,
+.carousel-item .card {
   &.bg-primary,
   &.bg-dark-grey,
   &.bg-secondary,
@@ -768,7 +772,9 @@ section {
     th,
     td,
     .form-label,
-    .text-mandatory {
+    .text-mandatory,
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
       color: rgba(255, 255, 255, 0.9);
     }
     .btn-outline-primary,
@@ -868,8 +874,7 @@ section:has(.img-background) {
   position: relative;
   z-index: 1;
 }
-.card,
-.carousel-item {
+.card {
   overflow: hidden;
   position: relative;
   z-index: 1;
@@ -895,7 +900,8 @@ header section {
   --bs-card-bg: transparent;
   box-shadow: var(--jr-box-shadow);
 }
-.card {
+.card,
+.carousel-item {
   &.bg-primary,
   &.bg-secondary,
   &.bg-dark-grey,
@@ -957,8 +963,6 @@ header section {
   }
 }
 
-.carousel-item:hover,
-.carousel-item:focus,
 section:hover >,
 section:focus >,
 .card:not([data-scrivito-private-widget]):hover,
@@ -969,8 +973,6 @@ section:focus >,
   }
 }
 
-.carousel-item:hover >,
-.carousel-item:focus >,
 section:hover >,
 section:focus >,
 .card:hover,
@@ -1172,14 +1174,9 @@ section:focus >,
   text-align: center;
 }
 
-//-- carousel & headline with background --//
+//-- headline with background --//
 
-.carousel-item {
-  height: 400px;
-}
-
-.header-caption,
-.carousel-caption {
+.header-caption {
   text-align: left;
   .display-1,
   .display-2,
