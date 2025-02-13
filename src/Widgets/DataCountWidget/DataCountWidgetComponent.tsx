@@ -4,6 +4,7 @@ import {
   DataCountWidgetInstance,
 } from './DataCountWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
+import { alignmentClassName } from '../../utils/alignmentClassName'
 
 provideComponent(DataCountWidget, ({ widget }) => {
   const classNames: string[] = []
@@ -26,6 +27,9 @@ provideComponent(DataCountWidget, ({ widget }) => {
       | 'body-font-size'
       | null) ?? 'body-font-size'
   if (style !== 'body-font-size') classNames.push(style)
+
+  const alignment = alignmentClassName(widget.get('alignment'))
+  if (alignment) classNames.push(alignment)
 
   const level = widget.get('level') as
     | 'h1'

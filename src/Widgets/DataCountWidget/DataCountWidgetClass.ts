@@ -2,6 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const DataCountWidget = provideWidgetClass('DataCountWidget', {
   attributes: {
+    alignment: ['enum', { values: ['left', 'center', 'right'] }],
     headline: 'string',
     headline0: 'string',
     headline1: 'string',

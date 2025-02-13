@@ -6,6 +6,15 @@ provideEditingConfig(DataCountWidget, {
   title: 'Data Count',
   thumbnail,
   attributes: {
+    alignment: {
+      title: 'Alignment',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
+    },
     loadingHeadline: { title: 'Headline while loading items' },
     headline0: { title: 'Headline for 0 items' },
     headline1: { title: 'Headline for 1 item' },
@@ -55,10 +64,12 @@ provideEditingConfig(DataCountWidget, {
     'headline0',
     'headline1',
     'headline',
+    'alignment',
     'style',
     'level',
   ],
   initialContent: {
+    alignment: 'left',
     headline: '__count__ items',
     headline0: 'No items',
     headline1: '1 item',
