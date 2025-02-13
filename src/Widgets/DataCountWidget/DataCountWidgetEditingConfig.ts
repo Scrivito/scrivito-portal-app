@@ -1,9 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
-import { DataSearchCountWidget } from './DataSearchCountWidgetClass'
+import { DataCountWidget } from './DataCountWidgetClass'
 import thumbnail from './thumbnail.svg'
 
-provideEditingConfig(DataSearchCountWidget, {
-  title: 'Data Search Count',
+provideEditingConfig(DataCountWidget, {
+  title: 'Data Count',
   thumbnail,
   attributes: {
     loadingHeadline: { title: 'Headline while loading results' },

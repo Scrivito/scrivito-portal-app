@@ -1,22 +1,18 @@
 import { connect, ContentTag, provideComponent, useData } from 'scrivito'
 import {
-  DataSearchCountWidget,
-  DataSearchCountWidgetInstance,
-} from './DataSearchCountWidgetClass'
+  DataCountWidget,
+  DataCountWidgetInstance,
+} from './DataCountWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 
-provideComponent(DataSearchCountWidget, ({ widget }) => (
+provideComponent(DataCountWidget, ({ widget }) => (
   <h1 className="h3 text-center">
     <TotalCountSummary widget={widget} />
   </h1>
 ))
 
 const TotalCountSummary = connect(
-  function TotalCountSummary({
-    widget,
-  }: {
-    widget: DataSearchCountWidgetInstance
-  }) {
+  function TotalCountSummary({ widget }: { widget: DataCountWidgetInstance }) {
     const dataScope = useData()
     const totalCount = dataScope.count()
 
