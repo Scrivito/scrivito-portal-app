@@ -1,9 +1,9 @@
 import { DataConnection, DataConnectionResultItem } from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
-import { orderBy } from 'lodash-es'
 import { ensureString } from '../utils/ensureString'
 import { scrivitoTenantId } from '../config/scrivitoTenants'
 import { filterDataItems } from './filterDataItems'
+import { orderDataItems } from './orderDataItems'
 
 interface RawDataItem {
   _id: string
@@ -47,7 +47,7 @@ export function localStorageDataConnection(
           .some((value) => value.toLowerCase().includes(search)),
       )
 
-      const orderedItems = orderItems(matchingItems, params.order())
+      const orderedItems = orderDataItems(params.order(), matchingItems)
 
       const offset =
         params.continuation() === undefined ? 0 : Number(params.continuation())
@@ -186,17 +186,4 @@ function isRawDataItem(item: unknown): item is RawDataItem {
   if (!item) return false
   if (typeof item !== 'object') return false
   return typeof (item as RawDataItem)._id === 'string'
-}
-
-function orderItems(
-  items: DataConnectionResultItem[],
-  order: Array<[string, 'asc' | 'desc']>,
-): DataConnectionResultItem[] {
-  if (order.length === 0) return items
-
-  return orderBy(
-    items,
-    order.map(([attr]) => attr),
-    order.map(([_, ascOrDesc]) => ascOrDesc),
-  )
 }
