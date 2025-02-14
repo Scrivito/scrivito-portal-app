@@ -8,7 +8,7 @@ export const DataBatchLoadingIndicator = connect(
     const dataScope = useData()
     const { hasMore } = useContext(DataBatchContext)
 
-    // use side-effects to trigger loading
+    // subscribe to dataScope.take() and hasMore() to trigger Loading
     dataScope.take()
     hasMore()
 
