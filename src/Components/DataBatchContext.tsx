@@ -30,11 +30,11 @@ export const DataBatchContextProvider = connect(
     const configuredLimit = dataScope.limit() ?? 20
     const [limit, setLimit] = useState(configuredLimit)
     const [initialLimit, setInitialLimit] = useState(configuredLimit)
-    const [search, setSearchState] = useState('')
+    const [query, setQuery] = useState('')
 
     const setSearch = useCallback(
       (query: string) => {
-        setSearchState(query)
+        setQuery(query)
         setLimit(configuredLimit)
       },
       [configuredLimit],
@@ -51,13 +51,13 @@ export const DataBatchContextProvider = connect(
       attribute,
       id,
       tag,
-      search,
+      query,
       // limit is intentionally not included in the key. Otherwise the component would show a loading spinner on every "load more" click.
     ]
 
     const combinedLoaderKey = [...baseKeys, limit].join('-')
 
-    const transform = { limit, search }
+    const transform = { limit, search: query }
 
     const hasMore = () => {
       try {
