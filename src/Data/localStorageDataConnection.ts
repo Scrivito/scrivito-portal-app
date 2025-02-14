@@ -62,13 +62,13 @@ export function localStorageDataConnection(
 
       const orderedItems = orderItems(matchingItems, params.order())
 
-      const offset =
-        params.continuation() === undefined ? 0 : Number(params.continuation())
-      const newOffset = offset + 10
-
-      const results = orderedItems.slice(offset, newOffset)
+      const limit = params.limit()
+      const results = orderedItems.slice(
+        Number(params.continuation() ?? 0),
+        limit,
+      )
       const continuation =
-        newOffset < orderedItems.length ? newOffset.toString() : undefined
+        limit < orderedItems.length ? limit.toString() : undefined
 
       return { results, continuation, count: orderedItems.length }
     },
