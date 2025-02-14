@@ -31,16 +31,16 @@ export const ContentSearchResult = provideDataClass('ContentSearchResult', {
   },
   title: async () =>
     (await load(currentLanguage)) === 'de'
-      ? 'Inhalts-Suchergebnis'
-      : 'Content Search Result',
+      ? 'Suchtreffer (Content)'
+      : 'Search result (content)',
   connection: {
     async index(params) {
       if (Object.keys(params.filters()).length > 0) {
-        throw new Error('Filtering is not supported for CMS Search Results.')
+        throw new Error('Search result (content) does not support filtering.')
       }
 
       if (params.order().length > 0) {
-        throw new Error('Sorting is not supported for CMS Search Results.')
+        throw new Error('Search result (content) does not support sorting.')
       }
 
       const search = params.search()
