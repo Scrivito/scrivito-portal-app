@@ -1,6 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
-import { isEditorLoggedIn, preload, updateContent } from 'scrivito'
+import {
+  isEditorLoggedIn,
+  isUserLoggedIn,
+  preload,
+  updateContent,
+} from 'scrivito'
 
 import './Data'
 import './Objs'
@@ -8,6 +13,9 @@ import './Widgets'
 import { App } from './App'
 import { configure } from './config'
 import { ensureSiteIsPresent } from './config/scrivitoSites'
+import { setPisaAuthorization } from './Data/pisaClient'
+
+const JwtTokenName = 'token'
 
 configure()
 ensureSiteIsPresent()
@@ -53,4 +61,17 @@ if (isEditorLoggedIn()) {
   import('./Data/editingConfigs')
   import('./Objs/editingConfigs')
   import('./Widgets/editingConfigs')
+}
+
+setPisaAuthorization(authorization())
+
+function authorization(): string | null {
+  if (isUserLoggedIn()) return null
+
+  if (typeof window === 'undefined') return null
+
+  const urlParams = new URLSearchParams(window.location.search)
+  const token = urlParams.get(JwtTokenName)
+
+  return token ? `JWT ${token}` : null
 }
