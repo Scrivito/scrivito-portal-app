@@ -11,7 +11,7 @@ provideComponent(
   DataWidget,
   ({ widget }) => {
     const dataScope = useData()
-    const { combinedLoaderKey, hasMore } = useContext(DataBatchContext)
+    const { combinedLoaderKey } = useContext(DataBatchContext)
     let dataError: unknown
 
     try {
@@ -41,11 +41,7 @@ provideComponent(
             key={dataItem.id()}
           />
         ))}
-        <DataBatchLoadingIndicator
-          dataScope={dataScope}
-          hasMore={hasMore}
-          key={combinedLoaderKey}
-        />
+        <DataBatchLoadingIndicator key={combinedLoaderKey} />
       </>
     )
   },

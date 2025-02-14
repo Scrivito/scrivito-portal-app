@@ -11,7 +11,7 @@ provideComponent(
   DataColumnListWidget,
   ({ widget }) => {
     const dataScope = useData()
-    const { combinedLoaderKey, hasMore } = useContext(DataBatchContext)
+    const { combinedLoaderKey } = useContext(DataBatchContext)
     let dataError: unknown
 
     try {
@@ -47,11 +47,7 @@ provideComponent(
             />
           ))}
         </div>
-        <DataBatchLoadingIndicator
-          dataScope={dataScope}
-          hasMore={hasMore}
-          key={combinedLoaderKey}
-        />
+        <DataBatchLoadingIndicator key={combinedLoaderKey} />
       </>
     )
   },
