@@ -3,11 +3,15 @@ import { DataWidget } from './DataWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { Loading } from '../../Components/Loading'
 import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
+import { DataBatchContext } from '../../Components/DataBatchContext'
+import { useContext } from 'react'
+import { DataBatchLoadingIndicator } from './DataBatchLoadingIndicator'
 
 provideComponent(
   DataWidget,
   ({ widget }) => {
     const dataScope = useData()
+    const { batchLoaderKey } = useContext(DataBatchContext)
     let dataError: unknown
 
     try {
@@ -37,6 +41,7 @@ provideComponent(
             key={dataItem.id()}
           />
         ))}
+        <DataBatchLoadingIndicator key={batchLoaderKey} />
       </>
     )
   },
