@@ -45,17 +45,16 @@ export const DataBatchContextProvider = connect(
       setLimit(configuredLimit)
     }
 
-    const baseKeys = [
+    const dataKeys = [
       'DataBatchContextProvider',
       content.id(),
       attribute,
       id,
       tag,
       query,
-      // limit is intentionally not included in the key. Otherwise the component would show a loading spinner on every "load more" click.
     ]
 
-    const batchLoaderKey = [...baseKeys, limit].join('-')
+    const batchLoaderKey = [...dataKeys, limit].join('-')
 
     const transform = { limit, search: query }
 
@@ -79,7 +78,7 @@ export const DataBatchContextProvider = connect(
         <ContentTag
           tag={tag}
           id={id}
-          key={baseKeys.join('-')}
+          key={dataKeys.join('-')}
           content={content}
           attribute={attribute}
           dataContext={dataScope.transform(transform)}
