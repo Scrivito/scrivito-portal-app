@@ -13,7 +13,7 @@ provideEditingConfig(ProductCategory, {
   title: 'Product Category',
   thumbnail: Thumbnail,
   attributes: defaultPageEditingConfigAttributes,
-  properties: [...defaultPageProperties, 'description', 'image'],
+  properties: [...defaultPageProperties, 'image'],
   propertiesGroups: defaultPagePropertiesGroups,
   thumbnailForContent: (obj) => obj.get('image'),
   initialContent: defaultPageInitialContent,
