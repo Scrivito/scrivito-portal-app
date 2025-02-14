@@ -2,12 +2,12 @@ import { createContext, useCallback, useState } from 'react'
 import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
-  combinedLoaderKey: string
+  batchLoaderKey: string
   hasMore: () => boolean
   loadMore: () => void
   setSearch?: (query: string) => void
 }>({
-  combinedLoaderKey: '',
+  batchLoaderKey: '',
   hasMore: () => true,
   loadMore: () => {
     throw new Error('loadMore is not provided!')
@@ -55,7 +55,7 @@ export const DataBatchContextProvider = connect(
       // limit is intentionally not included in the key. Otherwise the component would show a loading spinner on every "load more" click.
     ]
 
-    const combinedLoaderKey = [...baseKeys, limit].join('-')
+    const batchLoaderKey = [...baseKeys, limit].join('-')
 
     const transform = { limit, search: query }
 
@@ -74,7 +74,7 @@ export const DataBatchContextProvider = connect(
 
     return (
       <DataBatchContext.Provider
-        value={{ combinedLoaderKey, hasMore, loadMore, setSearch }}
+        value={{ batchLoaderKey, hasMore, loadMore, setSearch }}
       >
         <ContentTag
           tag={tag}
