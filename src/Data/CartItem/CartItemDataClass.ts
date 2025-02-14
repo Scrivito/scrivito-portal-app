@@ -22,5 +22,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 
 export const CartItem = provideDataClass('CartItem', {
   attributes,
+  title: async () =>
+    (await load(currentLanguage)) === 'de' ? 'Warenkorb-Element' : 'Cart item',
   connection: localStorageDataConnection('CartItem'),
 })

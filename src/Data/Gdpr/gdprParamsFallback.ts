@@ -17,6 +17,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function gdprParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de'
+        ? 'DSGVO-Einwilligung'
+        : 'GDPR consent',
     connection: localStorageDataConnection('Gdpr', {
       prepareData: async (data) => ({
         active: data.active,

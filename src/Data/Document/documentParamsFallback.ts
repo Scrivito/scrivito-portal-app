@@ -178,6 +178,8 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function documentParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de' ? 'Dokument' : 'Document',
     connection: localStorageDataConnection('Document', {
       initialContent: [
         {

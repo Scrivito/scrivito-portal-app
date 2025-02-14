@@ -26,6 +26,8 @@ export const Subscription = provideDataClass('Subscription', {
       title: ['string', { title: lang === 'de' ? 'Titel' : 'Title' }],
     }
   },
+  title: async () =>
+    (await load(currentLanguage)) === 'de' ? 'Abonnement' : 'Subscription',
   connection: {
     async index() {
       const subscriptions = await fetchSubscriptions()
