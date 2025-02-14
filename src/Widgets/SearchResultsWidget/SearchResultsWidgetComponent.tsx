@@ -18,7 +18,7 @@ import {
 } from './SearchResultsWidgetClass'
 import { Loading } from '../../Components/Loading'
 
-const BLACKLIST_OBJ_CLASSES = ['Image', 'Redirect', 'Video']
+const BLACKLIST_OBJ_CLASSES = ['Dropdown', 'Font', 'Image', 'Redirect', 'Video']
 
 provideComponent(SearchResultsWidget, ({ widget }) => {
   const query = ensureString(currentPageParams().q).trim()

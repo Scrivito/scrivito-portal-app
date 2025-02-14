@@ -10,7 +10,7 @@ import { objTitle } from '../../utils/objTitle'
 import { ensureString } from '../../utils/ensureString'
 import { isImage } from '../../Objs/Image/ImageObjClass'
 
-const BLACKLIST_OBJ_CLASSES = ['Image', 'Redirect', 'Video']
+const BLACKLIST_OBJ_CLASSES = ['Dropdown', 'Font', 'Image', 'Redirect', 'Video']
 
 export const ContentSearchResult = provideDataClass('ContentSearchResult', {
   attributes: async () => {
