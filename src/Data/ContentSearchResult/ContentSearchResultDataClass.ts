@@ -21,7 +21,10 @@ export const ContentSearchResult = provideDataClass('ContentSearchResult', {
         'reference',
         { title: lang === 'de' ? 'Bild' : 'Image', to: 'Image' },
       ],
-      snippet: ['string', { title: lang === 'de' ? 'Schnipsel' : 'Snippet' }],
+      snippet: [
+        'string',
+        { title: lang === 'de' ? 'Textausschnitt' : 'Snippet' },
+      ],
       title: ['string', { title: lang === 'de' ? 'Titel' : 'Title' }],
       url: ['string', { title: 'URL' }],
     }
