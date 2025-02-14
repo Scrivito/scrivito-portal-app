@@ -1,8 +1,8 @@
 import { connect, DataScope } from 'scrivito'
 import { Loading } from '../../Components/Loading'
 
-export const CombinedLoader = connect(
-  function CombinedLoader({
+export const DataBatchLoadingIndicator = connect(
+  function DataBatchLoadingIndicator({
     dataScope,
     hasMore,
   }: {

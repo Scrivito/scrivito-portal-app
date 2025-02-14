@@ -5,7 +5,7 @@ import { Loading } from '../../Components/Loading'
 import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 import { DataBatchContext } from '../../Components/DataBatchContext'
 import { useContext } from 'react'
-import { CombinedLoader } from './CombinedLoader'
+import { DataBatchLoadingIndicator } from './DataBatchLoadingIndicator'
 
 provideComponent(
   DataWidget,
@@ -41,7 +41,7 @@ provideComponent(
             key={dataItem.id()}
           />
         ))}
-        <CombinedLoader
+        <DataBatchLoadingIndicator
           dataScope={dataScope}
           hasMore={hasMore}
           key={combinedLoaderKey}
