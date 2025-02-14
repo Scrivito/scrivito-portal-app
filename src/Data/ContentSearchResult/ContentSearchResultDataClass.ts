@@ -70,7 +70,7 @@ export const ContentSearchResult = provideDataClass('ContentSearchResult', {
 
 function objToResult(obj: Obj) {
   const imageReference = obj.get('image')
-  const image = isImage(imageReference) ? imageReference.id() : null
+  const imageId = isImage(imageReference) ? imageReference.id() : null
 
   const snippet =
     extractText(obj, { length: 300 }) ||
@@ -78,7 +78,7 @@ function objToResult(obj: Obj) {
 
   return {
     _id: obj.id(),
-    image,
+    image: imageId,
     snippet: removePlaceholders(snippet),
     title: removePlaceholders(objTitle(obj)),
     url: urlFor(obj),
