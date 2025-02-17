@@ -49,8 +49,11 @@ provideComponent(DataCountWidget, ({ widget }) => {
   )
 })
 
-const Count = connect(
-  function Count({ widget }: { widget: DataCountWidgetInstance }) {
+const Count = connect<
+  { widget: DataCountWidgetInstance },
+  { widget: DataCountWidgetInstance }
+>(
+  function Count({ widget }) {
     const dataScope = useData()
     const totalCount = dataScope.count()
 
