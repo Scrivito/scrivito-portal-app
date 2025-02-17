@@ -48,7 +48,7 @@ export const ContentSearchResult = provideDataClass('ContentSearchResult', {
 
       const objSearch = Obj.whereFullTextOf('*', 'matches', search)
         .andNot('_objClass', 'equals', BLACKLIST_OBJ_CLASSES)
-        .and('_dataParam', 'equals', null) // Ignore data details pages
+        .and('_dataParam', 'equals', null) // Ignore data details pages. See issue #11592.
         .andNot('excludeFromSearch', 'equals', true)
 
       const limit = params.limit()

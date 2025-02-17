@@ -28,7 +28,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
 
   const search = Obj.whereFullTextOf('*', 'matches', query)
     .andNot('_objClass', 'equals', BLACKLIST_OBJ_CLASSES)
-    .and('_dataParam', 'equals', null) // Ignore data details pages
+    .and('_dataParam', 'equals', null) // Ignore data details pages. See issue #11592.
     .andNot('excludeFromSearch', 'equals', true)
 
   const readMoreLabel = widget.get('readMoreLabel')
