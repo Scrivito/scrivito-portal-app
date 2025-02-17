@@ -15,8 +15,6 @@ import { configure } from './config'
 import { ensureSiteIsPresent } from './config/scrivitoSites'
 import { setPisaAuthorization } from './Data/pisaClient'
 
-const JwtTokenName = 'token'
-
 configure()
 ensureSiteIsPresent()
 
@@ -71,7 +69,7 @@ function authorization(): string | null {
   if (typeof window === 'undefined') return null
 
   const urlParams = new URLSearchParams(window.location.search)
-  const token = urlParams.get(JwtTokenName)
+  const token = urlParams.get('token')
 
   return token ? `JWT ${token}` : null
 }
