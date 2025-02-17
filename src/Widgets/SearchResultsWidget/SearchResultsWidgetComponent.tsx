@@ -18,7 +18,7 @@ import {
 } from './SearchResultsWidgetClass'
 import { Loading } from '../../Components/Loading'
 
-const BLACKLIST_OBJ_CLASSES = ['Image', 'Redirect', 'Video']
+const BLACKLIST_OBJ_CLASSES = ['Dropdown', 'Font', 'Image', 'Redirect', 'Video']
 
 provideComponent(SearchResultsWidget, ({ widget }) => {
   const query = ensureString(currentPageParams().q).trim()
@@ -28,7 +28,7 @@ provideComponent(SearchResultsWidget, ({ widget }) => {
 
   const search = Obj.whereFullTextOf('*', 'matches', query)
     .andNot('_objClass', 'equals', BLACKLIST_OBJ_CLASSES)
-    .and('_dataParam', 'equals', null) // Ignore data details pages
+    .and('_dataParam', 'equals', null) // Ignore data details pages. See issue #11592.
     .andNot('excludeFromSearch', 'equals', true)
 
   const readMoreLabel = widget.get('readMoreLabel')
