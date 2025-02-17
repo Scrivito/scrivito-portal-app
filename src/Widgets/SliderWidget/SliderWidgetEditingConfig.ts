@@ -7,8 +7,8 @@ provideEditingConfig(SliderWidget, {
   title: 'Slider',
   thumbnail,
   attributes: {
-    autoPlay: {
-      title: 'Auto play?',
+    autoplay: {
+      title: 'Autoplay?',
       description: 'Default: No',
     },
     controls: {
@@ -27,7 +27,7 @@ provideEditingConfig(SliderWidget, {
       title: 'Slides',
     },
   },
-  properties: ['slides', 'controls', 'autoPlay', 'minHeight', 'margin'],
+  properties: ['slides', 'controls', 'autoplay', 'minHeight', 'margin'],
   initialContent: {
     controls: true,
     margin: 'mb-4',
@@ -38,7 +38,7 @@ provideEditingConfig(SliderWidget, {
     [
       'controls',
       (controls, { widget }) => {
-        if (!controls && !widget.get('autoPlay')) {
+        if (!controls && !widget.get('autoplay')) {
           return {
             message: 'Either show controls or enable auto play.',
             severity: 'error',

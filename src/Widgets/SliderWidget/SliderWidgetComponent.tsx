@@ -19,7 +19,7 @@ provideComponent(SliderWidget, ({ widget }) => {
       className={`slider-widget ${widget.get('margin') || 'mb-4'}`}
       controls={widget.get('controls')}
       indicators={widget.get('controls')}
-      interval={widget.get('autoPlay') ? 5000 : null}
+      interval={widget.get('autoplay') ? 5000 : null}
       keyboard={false}
     >
       {widget
