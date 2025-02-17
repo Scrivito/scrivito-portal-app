@@ -1,4 +1,4 @@
-import { canEdit, connect, uiContext } from 'scrivito'
+import { canEdit, connect, isComparisonActive, uiContext } from 'scrivito'
 import { ImageWidgetInstance } from './ImageWidgetClass'
 import { useEffect, useState } from 'react'
 
@@ -33,7 +33,7 @@ const DimensionEditor = connect(function DimensionEditor({
   attribute: 'height' | 'width'
   label: string
 }) {
-  const readOnly = !canEdit(widget.obj())
+  const readOnly = !canEdit(widget.obj()) || isComparisonActive()
 
   const [unit, setUnit] = useState('%')
   const attributeValue = widget.get(attribute)
