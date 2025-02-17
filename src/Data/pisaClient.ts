@@ -35,7 +35,7 @@ export async function pisaConfig(subPath: string) {
     'Accept-Language': await load(() => currentLanguage() ?? 'en'),
   }
 
-  const authorization = await authorizationPromise
+  const authorization: string | null = getAuthorization()
   if (authorization) headers.Authorization = authorization
 
   return {
@@ -48,22 +48,20 @@ function never() {
   return new Promise<never>(() => {})
 }
 
-let resolveAuthorization: (authorization: string | null) => void
-const authorizationPromise = new Promise<string | null>((resolve) => {
-  resolveAuthorization = resolve
-})
+let cachedAuthorization: string | null | undefined = undefined
+function getAuthorization(): string | null {
+  if (cachedAuthorization === undefined) cachedAuthorization = calculate()
 
-export function configurePisaAuthorization() {
-  resolveAuthorization(authorization())
-}
+  return cachedAuthorization
 
-function authorization(): string | null {
-  if (isUserLoggedIn()) return null
+  function calculate() {
+    if (isUserLoggedIn()) return null
 
-  if (typeof window === 'undefined') return null
+    if (typeof window === 'undefined') return null
 
-  const urlParams = new URLSearchParams(window.location.search)
-  const token = urlParams.get('token')
+    const urlParams = new URLSearchParams(window.location.search)
+    const token = urlParams.get('token')
 
-  return token ? `JWT ${token}` : null
+    return token ? `JWT ${token}` : null
+  }
 }

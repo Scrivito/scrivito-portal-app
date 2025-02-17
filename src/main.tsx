@@ -8,10 +8,8 @@ import './Widgets'
 import { App } from './App'
 import { configure } from './config'
 import { ensureSiteIsPresent } from './config/scrivitoSites'
-import { configurePisaAuthorization } from './Data/pisaClient'
 
 configure()
-configurePisaAuthorization()
 ensureSiteIsPresent()
 
 declare global {
