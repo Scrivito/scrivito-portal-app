@@ -1,6 +1,5 @@
 import { canEdit, connect, uiContext } from 'scrivito'
 import { ImageWidgetInstance } from './ImageWidgetClass'
-import { upperFirst } from 'lodash-es'
 import { useEffect, useState } from 'react'
 
 import './DimensionsEditor.scss'
@@ -15,10 +14,10 @@ export function DimensionsEditor({ widget }: { widget: ImageWidgetInstance }) {
     >
       <div className="row">
         <div className="col-auto">
-          <DimensionEditor widget={widget} attribute="width" />
+          <DimensionEditor widget={widget} attribute="width" label="Width" />
         </div>
         <div className="col-auto">
-          <DimensionEditor widget={widget} attribute="height" />
+          <DimensionEditor widget={widget} attribute="height" label="Height" />
         </div>
       </div>
     </div>
@@ -28,9 +27,11 @@ export function DimensionsEditor({ widget }: { widget: ImageWidgetInstance }) {
 const DimensionEditor = connect(function DimensionEditor({
   widget,
   attribute,
+  label,
 }: {
   widget: ImageWidgetInstance
   attribute: 'height' | 'width'
+  label: string
 }) {
   const readOnly = !canEdit(widget.obj())
 
@@ -46,7 +47,7 @@ const DimensionEditor = connect(function DimensionEditor({
   return (
     <>
       <div className="scrivito_detail_label">
-        <span>{upperFirst(attribute)}</span>
+        <span>{label}</span>
       </div>
       <div className="item_content">
         <div className="input_group" aria-readonly={readOnly}>
