@@ -89,27 +89,27 @@
       cursor: unset;
     }
   }
-}
 
-.dimensions-editor.scrivito_dark {
-  .input_group input {
-    font-size: 13px;
-    padding: 4px 5px;
-    line-height: 18px;
-    background: rgba(222, 222, 222, 0.2);
-    color: #eee;
-  }
+  &.scrivito_dark {
+    .input_group input {
+      font-size: 13px;
+      padding: 4px 5px;
+      line-height: 18px;
+      background: rgba(222, 222, 222, 0.2);
+      color: #eee;
+    }
 
-  .input_group .input_group_text {
-    background: rgba(222, 222, 222, 0.3);
-    font-size: 13px;
-    padding: 4px 5px;
-    color: #eee;
-  }
+    .input_group .input_group_text {
+      background: rgba(222, 222, 222, 0.3);
+      font-size: 13px;
+      padding: 4px 5px;
+      color: #eee;
+    }
 
-  .input_group select {
-    background: rgba(222, 222, 222, 0.3);
-    font-size: 13px;
-    color: #eee;
+    .input_group select {
+      background: rgba(222, 222, 222, 0.3);
+      font-size: 13px;
+      color: #eee;
+    }
   }
 }
