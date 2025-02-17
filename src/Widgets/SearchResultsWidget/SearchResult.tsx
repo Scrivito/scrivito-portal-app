@@ -69,8 +69,8 @@ const TextDescription = connect(function TextResult({
   const searchWords = query.split(/\s+/)
 
   const description =
-    extractText(searchResult, { length: 300 }) ||
-    ensureString(searchResult.get('metaDataDescription'))
+    ensureString(searchResult.get('metaDataDescription')) ||
+    extractText(searchResult, { length: 300 })
 
   const shortDescription = truncate(useResolvedStringValue(description), {
     length: 200,
