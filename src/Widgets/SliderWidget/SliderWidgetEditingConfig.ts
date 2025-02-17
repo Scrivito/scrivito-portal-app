@@ -27,24 +27,17 @@ provideEditingConfig(SliderWidget, {
       title: 'Slides',
     },
   },
-  properties: ['slides', 'controls', 'autoplay', 'minHeight', 'margin'],
+  properties: (widget) => [
+    'slides',
+    'autoplay',
+    ['controls', { enabled: widget.get('autoplay') }],
+    'minHeight',
+    'margin',
+  ],
   initialContent: {
     controls: true,
     margin: 'mb-4',
     minHeight: 400,
     slides: [new SlideWidget({}), new SlideWidget({})],
   },
-  validations: [
-    [
-      'controls',
-      (controls, { widget }) => {
-        if (!controls && !widget.get('autoplay')) {
-          return {
-            message: 'Either show controls or enable auto play.',
-            severity: 'error',
-          }
-        }
-      },
-    ],
-  ],
 })

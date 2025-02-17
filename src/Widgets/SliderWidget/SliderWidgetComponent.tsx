@@ -14,11 +14,13 @@ import {
 import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
+  const showControls = widget.get('autoplay') ? widget.get('controls') : true
+
   return (
     <Carousel
       className={`slider-widget ${widget.get('margin') || 'mb-4'}`}
-      controls={widget.get('controls')}
-      indicators={widget.get('controls')}
+      controls={showControls}
+      indicators={showControls}
       interval={widget.get('autoplay') ? 5000 : null}
       keyboard={false}
     >
@@ -31,7 +33,7 @@ provideComponent(SliderWidget, ({ widget }) => {
             style={{ minHeight: `${widget.get('minHeight') || 400}px` }}
             className={[
               `bg-${item.get('backgroundColor') || 'transparent'}`,
-              widget.get('controls') ? 'has-controls' : '',
+              showControls ? 'has-controls' : '',
             ].join(' ')}
           >
             <ImageOrVideo widget={item} />
