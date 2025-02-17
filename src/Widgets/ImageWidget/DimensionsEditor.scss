@@ -1,0 +1,115 @@
+.dimensions-editor {
+  overflow: hidden;
+
+  .input_group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 130px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    white-space: pre-line;
+    word-break: break-all;
+  }
+
+  .input_group input[type='number'],
+  .input_group select {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    min-width: 0;
+    appearance: textfield;
+    -webkit-appearance: textfield;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  .input_group input {
+    font-size: 14px;
+    font-style: normal;
+    padding: 6px 8px;
+    line-height: 18px;
+    word-break: break-all;
+    background: #fff;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+    color: #555;
+    display: block;
+    min-height: 30px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &:focus {
+      background: #fff;
+
+      outline: none;
+    }
+  }
+  .input_group:not([aria-readonly]):focus-within {
+    box-shadow: 0 0 0 2px var(--jr-blue-light);
+    border-radius: 3px;
+  }
+
+  .input_group .input_group_text {
+    background: #eee;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 6px 8px;
+    line-height: 18px;
+    white-space: nowrap;
+    min-width: 40px;
+    border-radius: 0 3px 3px 0;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .input_group select {
+    background: #eee;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 14px;
+    outline: none;
+    padding: 0 5px;
+    margin: 0;
+    max-width: fit-content;
+    min-width: 40px;
+    text-align: center;
+
+    &[disabled] {
+      appearance: none;
+      cursor: unset;
+    }
+  }
+}
+
+.dimensions-editor.scrivito_dark {
+  .input_group input {
+    font-size: 13px;
+    padding: 4px 5px;
+    line-height: 18px;
+    background: rgba(222, 222, 222, 0.2);
+    color: #eee;
+  }
+
+  .input_group .input_group_text {
+    background: rgba(222, 222, 222, 0.3);
+    font-size: 13px;
+    padding: 4px 5px;
+    color: #eee;
+  }
+
+  .input_group select {
+    background: rgba(222, 222, 222, 0.3);
+    font-size: 13px;
+    color: #eee;
+  }
+}
