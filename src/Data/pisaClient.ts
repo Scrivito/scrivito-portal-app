@@ -1,4 +1,10 @@
-import { Obj, createRestApiClient, currentLanguage, load } from 'scrivito'
+import {
+  Obj,
+  createRestApiClient,
+  currentLanguage,
+  isUserLoggedIn,
+  load,
+} from 'scrivito'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 
 export async function pisaUrl(): Promise<string | null> {
@@ -47,6 +53,17 @@ const authorizationPromise = new Promise<string | null>((resolve) => {
   resolveAuthorization = resolve
 })
 
-export function setPisaAuthorization(authorization: string | null) {
-  resolveAuthorization(authorization)
+export function configurePisaAuthorization() {
+  resolveAuthorization(authorization())
+}
+
+function authorization(): string | null {
+  if (isUserLoggedIn()) return null
+
+  if (typeof window === 'undefined') return null
+
+  const urlParams = new URLSearchParams(window.location.search)
+  const token = urlParams.get('token')
+
+  return token ? `JWT ${token}` : null
 }
