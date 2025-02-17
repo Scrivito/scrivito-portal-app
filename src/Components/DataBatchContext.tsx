@@ -1,4 +1,4 @@
-import { createContext, useCallback, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
@@ -29,21 +29,11 @@ export const DataBatchContextProvider = connect(
     const dataScope = useData()
     const configuredLimit = dataScope.limit() ?? 20
     const [limit, setLimit] = useState(configuredLimit)
-    const [initialLimit, setInitialLimit] = useState(configuredLimit)
-    const [query, setQuery] = useState('')
+    const [search, setSearch] = useState('')
 
-    const setSearch = useCallback(
-      (query: string) => {
-        setQuery(query)
-        setLimit(configuredLimit)
-      },
-      [configuredLimit],
-    )
-
-    if (initialLimit !== configuredLimit) {
-      setInitialLimit(configuredLimit)
+    useEffect(() => {
       setLimit(configuredLimit)
-    }
+    }, [configuredLimit, search])
 
     const dataKeys = [
       'DataBatchContextProvider',
@@ -51,12 +41,12 @@ export const DataBatchContextProvider = connect(
       attribute,
       id,
       tag,
-      query,
+      search,
     ]
 
     const batchLoaderKey = [...dataKeys, limit].join('-')
 
-    const transform = { limit, search: query }
+    const transform = { limit, search }
 
     const hasMore = () => {
       try {
