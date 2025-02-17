@@ -17,10 +17,10 @@ provideComponent(ImageWidget, ({ widget }) => {
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
 
+  let style: CSSProperties | undefined
   const height = widget.get('height')
+  if (height) style = { ...style, height }
   const width = widget.get('width')
-
-  let style: CSSProperties | undefined = height ? { height } : undefined
   if (width) style = { ...style, width }
 
   return (
