@@ -28,11 +28,8 @@ provideComponent(DataCountWidget, ({ widget }) => {
   )
 })
 
-const Count = connect<
-  { widget: DataCountWidgetInstance },
-  { widget: DataCountWidgetInstance }
->(
-  function Count({ widget }) {
+const Count = connect(
+  function Count({ widget }: { widget: DataCountWidgetInstance }) {
     const dataScope = useData()
     const totalCount = dataScope.count()
 
@@ -51,7 +48,7 @@ const Count = connect<
     return widget.get(attribute).replaceAll('__count__', totalCount.toString())
   },
   {
-    loading: ({ widget }) => (
+    loading: ({ widget }: { widget: DataCountWidgetInstance }) => (
       <ContentTag content={widget} attribute="loadingHeadline" />
     ),
   },
