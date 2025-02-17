@@ -17,7 +17,12 @@ export function DimensionsEditor({ widget }: { widget: ImageWidgetInstance }) {
           <DimensionEditor widget={widget} attribute="width" label="Width" />
         </div>
         <div className="col-auto">
-          <DimensionEditor widget={widget} attribute="height" label="Height" />
+          <DimensionEditor
+            widget={widget}
+            attribute="height"
+            label="Height"
+            pxOnly
+          />
         </div>
       </div>
     </div>
@@ -28,16 +33,18 @@ const DimensionEditor = connect(function DimensionEditor({
   widget,
   attribute,
   label,
+  pxOnly,
 }: {
   widget: ImageWidgetInstance
   attribute: 'height' | 'width'
   label: string
+  pxOnly?: true
 }) {
   const readOnly = !canEdit(widget.obj()) || isComparisonActive()
 
-  const [unit, setUnit] = useState('%')
+  const [unit, setUnit] = useState(pxOnly ? 'px' : '%')
   const attributeValue = widget.get(attribute)
-  const valueUnit = attributeValue.match(/%$|px$/)?.toString()
+  const valueUnit = pxOnly ? 'px' : attributeValue.match(/%$|px$/)?.toString()
   const value = valueUnit ? Number.parseFloat(attributeValue) : ''
 
   useEffect(() => {
@@ -58,14 +65,18 @@ const DimensionEditor = connect(function DimensionEditor({
             type="number"
             value={value}
           />
-          <select
-            disabled={readOnly}
-            onChange={({ target: { value } }) => updateUnit(value)}
-            value={unit}
-          >
-            <option>px</option>
-            <option>%</option>
-          </select>
+          {pxOnly ? (
+            <span className="input_group_text">px</span>
+          ) : (
+            <select
+              disabled={readOnly}
+              onChange={({ target: { value } }) => updateUnit(value)}
+              value={unit}
+            >
+              <option>px</option>
+              <option>%</option>
+            </select>
+          )}
         </div>
       </div>
     </>
