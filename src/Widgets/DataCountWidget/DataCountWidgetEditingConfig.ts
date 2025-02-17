@@ -25,7 +25,7 @@ provideEditingConfig(DataCountWidget, {
     },
     margin: {
       title: 'Margin',
-      description: 'Outer space to next item (bottom). Default: "mb-2"',
+      description: 'Space below the widget. Default: "mb-2"',
     },
     level: {
       title: 'Heading tag (optional)',
