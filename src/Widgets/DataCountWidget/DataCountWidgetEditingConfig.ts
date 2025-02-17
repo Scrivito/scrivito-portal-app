@@ -27,21 +27,6 @@ provideEditingConfig(DataCountWidget, {
       title: 'Margin',
       description: 'Space below the widget. Default: "mb-2"',
     },
-    level: {
-      title: 'Heading tag (optional)',
-      description:
-        'May be used for SEO, for generating a table of contents,' +
-        ' or for improving accessibility. Default: Derived from Style',
-      values: [
-        { value: 'h1', title: 'h1' },
-        { value: 'h2', title: 'h2' },
-        { value: 'h3', title: 'h3' },
-        { value: 'h4', title: 'h4' },
-        { value: 'h5', title: 'h5' },
-        { value: 'h6', title: 'h6' },
-        { value: 'div', title: 'No semantic tag' },
-      ],
-    },
     style: {
       title: 'Style',
       description: 'Default: Body font size',
@@ -70,7 +55,6 @@ provideEditingConfig(DataCountWidget, {
     'headline',
     'alignment',
     'style',
-    'level',
     'margin',
   ],
   initialContent: {

@@ -6,7 +6,6 @@ export const DataCountWidget = provideWidgetClass('DataCountWidget', {
     headline: 'string',
     headline0: 'string',
     headline1: 'string',
-    level: ['enum', { values: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'] }],
     loadingHeadline: 'string',
     margin: [
       'enum',
