@@ -21,7 +21,8 @@ provideEditingConfig(SliderWidget, {
     },
     minHeight: {
       title: 'Minimum height (in px)',
-      description: 'Default: 400',
+      description:
+        'Maintains consistent slide appearance when content varies in height. Default: 400',
     },
     slides: {
       title: 'Slides',
