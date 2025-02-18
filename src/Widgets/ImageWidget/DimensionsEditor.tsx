@@ -44,7 +44,7 @@ const DimensionEditor = connect(function DimensionEditor({
 
   const [unit, setUnit] = useState(pxOnly ? 'px' : '%')
   const attributeValue = widget.get(attribute)
-  const valueUnit = pxOnly ? 'px' : attributeValue.match(/%$|px$/)?.toString()
+  const valueUnit = attributeValue.match(pxOnly ? /px$/ : /%$|px$/)?.toString()
   const value = valueUnit ? Number.parseFloat(attributeValue) : ''
 
   useEffect(() => {
