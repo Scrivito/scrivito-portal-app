@@ -59,9 +59,12 @@ const DimensionEditor = connect(function DimensionEditor({
       <div className="item_content">
         <div className="input_group" aria-readonly={readOnly}>
           <input
+            max={unit === '%' ? 100 : undefined}
+            min={0}
             onChange={({ target: { value } }) => updateValue(value)}
             placeholder={readOnly ? undefined : '100'}
             readOnly={readOnly}
+            step="any"
             type="number"
             value={value}
           />
