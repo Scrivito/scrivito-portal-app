@@ -8,6 +8,7 @@ import {
   WidgetTag,
   ImageTag,
   InPlaceEditingOff,
+  DataItem,
 } from 'scrivito'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import {
@@ -69,6 +70,13 @@ const ImageComponent = connect(function ImageComponent({
   }
 
   const attributeValue = dataItemAttribute.get()
+  if (attributeValue instanceof DataItem) {
+    const content = attributeValue.obj()
+    if (!content) return null
+
+    return <ImageTag content={content} className={className} alt="" />
+  }
+
   if (isDataBinary(attributeValue)) {
     return <DataBinaryImage dataBinary={attributeValue} className={className} />
   }

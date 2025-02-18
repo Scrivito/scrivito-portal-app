@@ -26,7 +26,9 @@ provideComponent(DataSearchWidget, ({ widget }) => {
   }
 
   const buttonColor = widget.get('buttonColor') || 'btn-primary'
+  const buttonLabel = widget.get('buttonLabel')
   const placeholder = widget.get('placeholder')
+  const buttonAriaLabel = buttonLabel || placeholder
   const urlParamName = widget.get('urlParamName') || DEFAULT_URL_PARAM_NAME
   const inputRef = useRef<HTMLInputElement>(null)
   const search = ensureString(currentPageParams()[urlParamName])
@@ -34,7 +36,11 @@ provideComponent(DataSearchWidget, ({ widget }) => {
   useEffect(() => setSearch(search), [setSearch, search])
 
   return (
-    <form className="input-group mb-3" role="search" onSubmit={onSubmit}>
+    <form
+      className={`input-group ${widget.get('margin') ?? 'mb-3'}`}
+      role="search"
+      onSubmit={onSubmit}
+    >
       <input
         key={search}
         className="form-control"
@@ -46,9 +52,10 @@ provideComponent(DataSearchWidget, ({ widget }) => {
         <button
           className={`btn ${buttonColor}`}
           type="submit"
-          aria-label={placeholder}
+          aria-label={buttonAriaLabel}
         >
           <i className="bi bi-search" aria-hidden="true" />
+          <span className="d-none d-sm-inline ps-1">{buttonLabel}</span>
         </button>
       </span>
     </form>

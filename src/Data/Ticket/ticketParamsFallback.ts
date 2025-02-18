@@ -151,7 +151,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
     serviceObject: [
       'reference',
       {
-        reverseTitle: lang === 'de' ? 'Tickets' : 'Tickets',
+        reverseTitle: 'Tickets',
         title: lang === 'de' ? 'Serviceobjekt' : 'Service object',
         to: 'ServiceObject',
       },
@@ -169,6 +169,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function ticketParamsFallback() {
   return {
     attributes,
+    title: 'Ticket',
     connection: localStorageDataConnection('Ticket', {
       prepareData: async (data) => ({
         ...data,

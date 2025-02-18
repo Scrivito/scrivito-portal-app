@@ -34,7 +34,7 @@ provideEditingConfig(CardWidget, {
     },
     margin: {
       title: 'Margin',
-      description: 'Outer space to next item (bottom). Default: "mb-4"',
+      description: 'Space below the widget. Default: "mb-4"',
     },
   },
   properties: (widget) => [

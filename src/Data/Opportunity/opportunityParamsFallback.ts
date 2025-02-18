@@ -16,6 +16,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function opportunityParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de'
+        ? 'Geschäftschance'
+        : 'Opportunity',
     connection: localStorageDataConnection('Opportunity'),
   }
 }

@@ -1,11 +1,13 @@
-import { createContext, useState } from 'react'
+import { createContext, useEffect, useState } from 'react'
 import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
+  batchLoaderKey: string
   hasMore: () => boolean
   loadMore: () => void
   setSearch?: (query: string) => void
 }>({
+  batchLoaderKey: '',
   hasMore: () => true,
   loadMore: () => {
     throw new Error('loadMore is not provided!')
@@ -27,23 +29,22 @@ export const DataBatchContextProvider = connect(
     const dataScope = useData()
     const configuredLimit = dataScope.limit() ?? 20
     const [limit, setLimit] = useState(configuredLimit)
-    const [initialLimit, setInitialLimit] = useState(configuredLimit)
     const [search, setSearch] = useState('')
 
-    if (initialLimit !== configuredLimit) {
-      setInitialLimit(configuredLimit)
+    useEffect(() => {
       setLimit(configuredLimit)
-    }
+    }, [configuredLimit, search])
 
-    const key = [
+    const dataKeys = [
       'DataBatchContextProvider',
       content.id(),
       attribute,
       id,
       tag,
       search,
-      // limit is intentionally not included in the key. Otherwise the component would show a loading spinner on every "load more" click.
-    ].join('-')
+    ]
+
+    const batchLoaderKey = [...dataKeys, limit].join('-')
 
     const transform = { limit, search }
 
@@ -61,11 +62,13 @@ export const DataBatchContextProvider = connect(
     const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
 
     return (
-      <DataBatchContext.Provider value={{ hasMore, loadMore, setSearch }}>
+      <DataBatchContext.Provider
+        value={{ batchLoaderKey, hasMore, loadMore, setSearch }}
+      >
         <ContentTag
           tag={tag}
           id={id}
-          key={key}
+          key={dataKeys.join('-')}
           content={content}
           attribute={attribute}
           dataContext={dataScope.transform(transform)}

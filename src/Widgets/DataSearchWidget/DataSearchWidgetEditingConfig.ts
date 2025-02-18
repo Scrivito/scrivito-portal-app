@@ -18,21 +18,33 @@ provideEditingConfig(DataSearchWidget, {
         { value: 'btn-secondary', title: 'Secondary color' },
       ],
     },
+    buttonLabel: {
+      title: 'Button label (optional)',
+    },
+    margin: {
+      title: 'Margin',
+      description: 'Space below the widget. Default: "mb-3"',
+    },
     placeholder: {
-      title: 'Placeholder text',
-      description:
-        'This value is also utilized for the ARIA label of the search button.',
+      title: 'Input placeholder text',
     },
     urlParamName: {
       title: 'URL parameter name',
       description: 'Default: search',
     },
   },
-  properties: ['buttonColor', 'placeholder', 'urlParamName'],
+  properties: [
+    'buttonColor',
+    'buttonLabel',
+    'placeholder',
+    'urlParamName',
+    'margin',
+  ],
   initialContent: {
     buttonColor: 'btn-primary',
-    urlParamName: DEFAULT_URL_PARAM_NAME,
+    margin: 'mb-3',
     placeholder: 'Search',
+    urlParamName: DEFAULT_URL_PARAM_NAME,
   },
   validations: [
     [
