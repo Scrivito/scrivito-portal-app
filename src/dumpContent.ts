@@ -125,7 +125,7 @@ function isBinaryAttribute(data: unknown): data is ['binary', { id: string }] {
     attributeType === 'binary' &&
     !!attributeValue &&
     typeof attributeValue === 'object' &&
-    typeof attributeValue.id === 'string'
+    typeof (attributeValue as { id: unknown }).id === 'string'
   )
 }
 
