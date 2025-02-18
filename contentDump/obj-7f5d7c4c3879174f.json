@@ -52,16 +52,16 @@
   "_first_published_at": "20240214090608",
   "_id": "7f5d7c4c3879174f",
   "_language": "en",
-  "_last_changed": "20241001091845",
+  "_last_changed": "20250217092223",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/125f0003cf11c725/7f5d7c4c3879174f",
   "_permalink": null,
-  "_published_at": "20241008122928",
+  "_published_at": "20250218083811",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2024100812292800000000000000005896ecd5c33e5a21",
+  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
   "_widget_pool": {
     "20115999": {
       "_obj_class": "DataLabelWidget",
@@ -317,24 +317,6 @@
         "PSA_SVC_CAL"
       ]
     },
-    "4dd4893c": {
-      "_obj_class": "SpaceWidget",
-      "size": [
-        "number",
-        1
-      ]
-    },
-    "3cbf729e": {
-      "_obj_class": "TextWidget",
-      "alignment": [
-        "string",
-        "left"
-      ],
-      "text": [
-        "html",
-        "<p>No tickets found.</p>"
-      ]
-    },
     "5c69c3da": {
       "_obj_class": "DataLabelWidget",
       "label": [
@@ -401,18 +383,9 @@
           "obj_id": "125f0003cf11c725",
           "query": null,
           "target": null,
-          "title": "Tickets Overview",
+          "title": "Tickets overview",
           "url": null
         }
-      ]
-    },
-    "7fbf1dd2": {
-      "_obj_class": "DataEmptyWidget",
-      "content": [
-        "widgetlist",
-        [
-          "3cbf729e"
-        ]
       ]
     },
     "d61e370a": {
@@ -446,12 +419,43 @@
       ],
       "placeholder": [
         "string",
-        "Search for ticket"
+        "Search for archived ticket"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
+      ]
+    },
+    "4dd4893c": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "7fbf1dd2": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3cbf729e"
+        ]
+      ]
+    },
+    "3cbf729e": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No tickets found.</p>"
       ]
     }
   },
   "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
 }

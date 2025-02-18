@@ -45,16 +45,16 @@
   "_first_published_at": "20240405121103",
   "_id": "410885f6410a0e68",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250217092734",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/410885f6410a0e68",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250218083811",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
   "_widget_pool": {
     "a08bf41f": {
       "_obj_class": "DataWidget",
@@ -77,7 +77,7 @@
       ],
       "margin": [
         "string",
-        "mb-4"
+        "mb-2"
       ],
       "link_to": [
         "link",
@@ -199,26 +199,6 @@
           "field": "location",
           "via_ref": "single"
         }
-      ]
-    },
-    "95d7b130": {
-      "_obj_class": "DataEmptyWidget",
-      "content": [
-        "widgetlist",
-        [
-          "e7421ede"
-        ]
-      ]
-    },
-    "e7421ede": {
-      "_obj_class": "TextWidget",
-      "text": [
-        "html",
-        "<p>Keine Veranstaltungen gefunden.</p>"
-      ],
-      "alignment": [
-        "string",
-        "left"
       ]
     },
     "632d7fb3": {
@@ -422,6 +402,26 @@
           "field": "logo",
           "via_ref": "single"
         }
+      ]
+    },
+    "95d7b130": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "e7421ede"
+        ]
+      ]
+    },
+    "e7421ede": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>Keine Veranstaltungen gefunden.</p>"
+      ],
+      "alignment": [
+        "string",
+        "left"
       ]
     }
   },

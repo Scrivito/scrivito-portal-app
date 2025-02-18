@@ -64,16 +64,16 @@
   "_first_published_at": "20240405121103",
   "_id": "b85ac625f1ab9db3",
   "_language": "de",
-  "_last_changed": "20241213094129",
+  "_last_changed": "20250217092652",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/b85ac625f1ab9db3",
   "_permalink": "tickets",
-  "_published_at": "20241213094222",
+  "_published_at": "20250218083811",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202412130942220000000000000000d9606519b9d9db1f",
+  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
   "_widget_pool": {
     "8b788ec7": {
       "_obj_class": "ButtonWidget",
@@ -320,17 +320,6 @@
         "PSA_SVC_CAL"
       ]
     },
-    "12edaa78": {
-      "_obj_class": "TextWidget",
-      "alignment": [
-        "string",
-        "left"
-      ],
-      "text": [
-        "html",
-        "<p>Keine Tickets gefunden.</p>"
-      ]
-    },
     "2f9e817c": {
       "_obj_class": "DataLabelWidget",
       "label": [
@@ -418,15 +407,6 @@
         }
       ]
     },
-    "cf47a1dc": {
-      "_obj_class": "DataEmptyWidget",
-      "content": [
-        "widgetlist",
-        [
-          "12edaa78"
-        ]
-      ]
-    },
     "696a82a2": {
       "_obj_class": "DataLoadMoreButtonWidget",
       "button_color": [
@@ -459,6 +439,30 @@
       "url_param_name": [
         "string",
         "search"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
+      ]
+    },
+    "cf47a1dc": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "12edaa78"
+        ]
+      ]
+    },
+    "12edaa78": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Keine Tickets gefunden.</p>"
       ]
     }
   },

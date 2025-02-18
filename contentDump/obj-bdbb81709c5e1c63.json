@@ -37,7 +37,7 @@
   "body": [
     "widgetlist",
     [
-      "8eb9713c",
+      "d2cc3c11",
       "1b6f4443",
       "39d3a71d",
       "220eeeca",
@@ -143,14 +143,14 @@
   "_first_published_at": "20240405121103",
   "_id": "bdbb81709c5e1c63",
   "_language": "de",
-  "_last_changed": "20250108105939",
+  "_last_changed": "20250213091939",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250108110557",
+  "_published_at": "20250218093446",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202501081105570000000000000000cef87379c55b0ebc",
+  "_version": "2025021809344600000000000000005a88547829e1de41",
   "_widget_pool": {
     "43891776": {
       "_obj_class": "ColumnWidget",
@@ -190,29 +190,6 @@
         "widgetlist",
         [
           "e67f8cda"
-        ]
-      ]
-    },
-    "8eb9713c": {
-      "_obj_class": "SectionWidget",
-      "background_image": [
-        "reference",
-        "22d9c6805af643eb"
-      ],
-      "container_width": [
-        "string",
-        "fixed"
-      ],
-      "background_color": [
-        "string",
-        "transparent"
-      ],
-      "content": [
-        "widgetlist",
-        [
-          "d1fc10f6",
-          "29f0d6b4",
-          "53914d0f"
         ]
       ]
     },
@@ -1413,13 +1390,6 @@
         "<p>© Tynacoon 2025 Alle Rechte vorbehalten.</p>"
       ]
     },
-    "53914d0f": {
-      "_obj_class": "SpaceWidget",
-      "size": [
-        "number",
-        5
-      ]
-    },
     "83a3d258": {
       "_obj_class": "SpaceWidget",
       "size": [
@@ -1725,13 +1695,6 @@
         }
       ]
     },
-    "d1fc10f6": {
-      "_obj_class": "SpaceWidget",
-      "size": [
-        "number",
-        5
-      ]
-    },
     "c0324f34": {
       "_obj_class": "AddressWidget",
       "location_locality": [
@@ -1944,7 +1907,7 @@
       "_obj_class": "CardWidget",
       "background_color": [
         "string",
-        "secondary"
+        "primary"
       ],
       "padding": [
         "string",
@@ -1964,40 +1927,6 @@
       "card_extended": [
         "boolean",
         true
-      ]
-    },
-    "29f0d6b4": {
-      "_obj_class": "ColumnContainerWidget",
-      "alignment": [
-        "string",
-        "center"
-      ],
-      "columns": [
-        "widgetlist",
-        [
-          "495c3b4a",
-          "aee80a65"
-        ]
-      ]
-    },
-    "495c3b4a": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        6
-      ],
-      "content": [
-        "widgetlist",
-        [
-          "a0ee864a"
-        ]
-      ]
-    },
-    "aee80a65": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        6
       ]
     },
     "65a5d8ff": {
@@ -2254,6 +2183,497 @@
       "size": [
         "number",
         3
+      ]
+    },
+    "46e06ae4": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        4
+      ]
+    },
+    "11d30a29": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "46e06ae4",
+          "a0ee864a"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "3d359f23": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "13c3487e": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "11d30a29",
+          "3d359f23"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "7c9f1ea4": {
+      "_obj_class": "SlideWidget",
+      "content": [
+        "widgetlist",
+        [
+          "13c3487e"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "background": [
+        "reference",
+        "22d9c6805af643eb"
+      ]
+    },
+    "86534dd2": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        4
+      ]
+    },
+    "090239e7": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Systeme für Industrie und Gewerbe"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ]
+    },
+    "8242281a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Sicherheitskritische Bauteile werden von der Forschungs- und Materialprüfungsanstalt für das Bauwesen (FMPA) auf Herz und Nieren geprüft.</p>"
+      ]
+    },
+    "bda0426d": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "090239e7",
+          "8242281a"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "padding": [
+        "string",
+        "p-5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "card_extended": [
+        "boolean",
+        true
+      ]
+    },
+    "31a11a1c": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "86534dd2",
+          "bda0426d"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "75d19bf3": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "4398080f": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "31a11a1c",
+          "75d19bf3"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "fd331596": {
+      "_obj_class": "SlideWidget",
+      "content": [
+        "widgetlist",
+        [
+          "4398080f"
+        ]
+      ],
+      "background": [
+        "reference",
+        "060918d8e44ae54f"
+      ],
+      "background_color": [
+        "string",
+        "dark-grey"
+      ]
+    },
+    "aaa0ea28": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        3
+      ]
+    },
+    "ad71abf5": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "display-5"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "headline": [
+        "string",
+        "Neuen, hochmodernen Abfüllanlagen"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ]
+    },
+    "cb9e2798": {
+      "_obj_class": "BannerHeadlineWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "style": [
+        "string",
+        "h4"
+      ],
+      "headline": [
+        "string",
+        "Erleben Sie die Kraft der Effizienz"
+      ]
+    },
+    "90782bed": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "ad71abf5",
+          "cb9e2798"
+        ]
+      ]
+    },
+    "c272fd33": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "e250eb3e": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c272fd33",
+          "fd9e2fc3"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "b86bdac0": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "e281f79b": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "b86bdac0",
+          "21f4f10c"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "dd50677d": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "e250eb3e",
+          "e281f79b"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "076b2471": {
+      "_obj_class": "SlideWidget",
+      "content": [
+        "widgetlist",
+        [
+          "aaa0ea28",
+          "90782bed",
+          "dd50677d"
+        ]
+      ],
+      "background": [
+        "reference",
+        "8652bdd9640b1c9b"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ]
+    },
+    "d2cc3c11": {
+      "_obj_class": "SliderWidget",
+      "slides": [
+        "widgetlist",
+        [
+          "7c9f1ea4",
+          "fd331596",
+          "076b2471"
+        ]
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "controls": [
+        "boolean",
+        true
+      ],
+      "min_height": [
+        "number",
+        566
+      ]
+    },
+    "ce7fb962": {
+      "_obj_class": "IconWidget",
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "icon": [
+        "string",
+        "bi-graph-up-arrow"
+      ]
+    },
+    "8e0093e0": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ce7fb962"
+        ]
+      ],
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "6879b850": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "40% Steigerung des Durchsatzes"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "82cc7ac9": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Durch unsere fortschrittlichen Abfüllanlagen können Sie Ihren Produktionsausstoß um bis zu 40% erhöhen. Verabschieden Sie sich von Engpässen und begrüßen Sie reibungslose Abläufe, die mit Ihrer wachsenden Nachfrage Schritt halten.</p>"
+      ]
+    },
+    "9ee450e8": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6879b850",
+          "82cc7ac9"
+        ]
+      ],
+      "col_size": [
+        "number",
+        10
+      ]
+    },
+    "fd9e2fc3": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "8e0093e0",
+          "9ee450e8"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "af79fdce": {
+      "_obj_class": "IconWidget",
+      "size": [
+        "string",
+        "bi-5x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "icon": [
+        "string",
+        "bi-hourglass-split"
+      ]
+    },
+    "b661cd8c": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "af79fdce"
+        ]
+      ],
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "fad3a1c7": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h5"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "30% Reduzierung der Stillstandszeiten"
+      ]
+    },
+    "cd38b903": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Erleben Sie reibungsarme Betriebsabläufe mit unseren zuverlässigen Abfüllanlagen. Mit integrierten Funktionen für die vorausschauende Wartung und der robusten Konstruktion können Sie die Stillstandszeiten um bis zu 30% reduzieren und Ihre Produktion auf Höchstleistung halten.</p>"
+      ]
+    },
+    "6a9bbaba": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "fad3a1c7",
+          "cd38b903"
+        ]
+      ],
+      "col_size": [
+        "number",
+        10
+      ]
+    },
+    "21f4f10c": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "b661cd8c",
+          "6a9bbaba"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
       ]
     }
   },

@@ -46,16 +46,16 @@
   "_first_published_at": "20240405121103",
   "_id": "5ea4d48ed6e829a7",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250217093122",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/5ea4d48ed6e829a7",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250218083811",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
   "_widget_pool": {
     "11245646": {
       "_obj_class": "DataLabelWidget",
@@ -97,6 +97,10 @@
       "url_param_name": [
         "string",
         "search"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
       ]
     },
     "3102b264": {
@@ -403,26 +407,6 @@
         "svg"
       ]
     },
-    "4b528fa5": {
-      "_obj_class": "TextWidget",
-      "alignment": [
-        "string",
-        "left"
-      ],
-      "text": [
-        "html",
-        "<p>Keine Dokumente gefunden.</p>"
-      ]
-    },
-    "097daacb": {
-      "_obj_class": "DataEmptyWidget",
-      "content": [
-        "widgetlist",
-        [
-          "4b528fa5"
-        ]
-      ]
-    },
     "f43ba8ef": {
       "_obj_class": "DataLoadMoreButtonWidget",
       "alignment": [
@@ -440,6 +424,26 @@
       "title": [
         "string",
         "Mehr laden"
+      ]
+    },
+    "097daacb": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "4b528fa5"
+        ]
+      ]
+    },
+    "4b528fa5": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Keine Dokumente gefunden.</p>"
       ]
     }
   },

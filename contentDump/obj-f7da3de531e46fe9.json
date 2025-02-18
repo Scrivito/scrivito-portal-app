@@ -58,16 +58,16 @@
   "_first_published_at": "20230626113100",
   "_id": "f7da3de531e46fe9",
   "_language": "en",
-  "_last_changed": "20241007082232",
+  "_last_changed": "20250217092336",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/f7da3de531e46fe9",
   "_permalink": "quotes",
-  "_published_at": "20241008122928",
+  "_published_at": "20250218083811",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2024100812292800000000000000005896ecd5c33e5a21",
+  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
   "_widget_pool": {
     "39707421": {
       "_obj_class": "ColumnWidget",
@@ -316,17 +316,6 @@
         }
       ]
     },
-    "2ca69985": {
-      "_obj_class": "TextWidget",
-      "alignment": [
-        "string",
-        "left"
-      ],
-      "text": [
-        "html",
-        "<p>No quotes found.</p>"
-      ]
-    },
     "42e7c4e6": {
       "_obj_class": "SpaceWidget",
       "size": [
@@ -367,15 +356,6 @@
         2
       ]
     },
-    "4516000e": {
-      "_obj_class": "DataEmptyWidget",
-      "content": [
-        "widgetlist",
-        [
-          "2ca69985"
-        ]
-      ]
-    },
     "f6c36068": {
       "_obj_class": "DataLoadMoreButtonWidget",
       "button_color": [
@@ -408,6 +388,30 @@
       "placeholder": [
         "string",
         "Search for quote"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
+      ]
+    },
+    "4516000e": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "2ca69985"
+        ]
+      ]
+    },
+    "2ca69985": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No quotes found.</p>"
       ]
     }
   },

@@ -56,16 +56,16 @@
   "_first_published_at": "20240402122425",
   "_id": "046cc19cf0f87d9d",
   "_language": "en",
-  "_last_changed": "20241114115150",
+  "_last_changed": "20250217092537",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/046cc19cf0f87d9d",
   "_permalink": "equipment",
-  "_published_at": "20241114120539",
+  "_published_at": "20250218083811",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202411141205390000000000000000ce8afe6eb88ef9bd",
+  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
   "_widget_pool": {
     "5795a282": {
       "_obj_class": "DataWidget",
@@ -298,26 +298,6 @@
         }
       ]
     },
-    "7a6072bf": {
-      "_obj_class": "TextWidget",
-      "alignment": [
-        "string",
-        "left"
-      ],
-      "text": [
-        "html",
-        "<p>No equipment found.</p>"
-      ]
-    },
-    "48eb5a15": {
-      "_obj_class": "DataEmptyWidget",
-      "content": [
-        "widgetlist",
-        [
-          "7a6072bf"
-        ]
-      ]
-    },
     "ffe2cecb": {
       "_obj_class": "DataLoadMoreButtonWidget",
       "alignment": [
@@ -369,6 +349,30 @@
       "url_param_name": [
         "string",
         "search"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
+      ]
+    },
+    "48eb5a15": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "7a6072bf"
+        ]
+      ]
+    },
+    "7a6072bf": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No equipment found.</p>"
       ]
     }
   },

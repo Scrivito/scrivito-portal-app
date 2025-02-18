@@ -56,16 +56,16 @@
   "_first_published_at": "20240405121103",
   "_id": "486f8f791abc7a5f",
   "_language": "de",
-  "_last_changed": "20241114115809",
+  "_last_changed": "20250217092944",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/486f8f791abc7a5f",
   "_permalink": null,
-  "_published_at": "20241114120539",
+  "_published_at": "20250218083811",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202411141205390000000000000000ce8afe6eb88ef9bd",
+  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
   "_widget_pool": {
     "23550928": {
       "_obj_class": "TextWidget",
@@ -309,15 +309,6 @@
         }
       ]
     },
-    "cae4899a": {
-      "_obj_class": "DataEmptyWidget",
-      "content": [
-        "widgetlist",
-        [
-          "23550928"
-        ]
-      ]
-    },
     "5d12cae5": {
       "_obj_class": "DataLoadMoreButtonWidget",
       "button_color": [
@@ -369,6 +360,19 @@
       "url_param_name": [
         "string",
         "search"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
+      ]
+    },
+    "cae4899a": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "23550928"
+        ]
       ]
     }
   },
