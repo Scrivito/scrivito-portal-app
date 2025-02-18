@@ -21,6 +21,10 @@ provideEditingConfig(DataSearchWidget, {
     buttonLabel: {
       title: 'Button label (optional)',
     },
+    margin: {
+      title: 'Margin',
+      description: 'Space below the widget. Default: "mb-3"',
+    },
     placeholder: {
       title: 'Input placeholder text',
     },
@@ -29,11 +33,18 @@ provideEditingConfig(DataSearchWidget, {
       description: 'Default: search',
     },
   },
-  properties: ['buttonColor', 'buttonLabel', 'placeholder', 'urlParamName'],
+  properties: [
+    'buttonColor',
+    'buttonLabel',
+    'placeholder',
+    'urlParamName',
+    'margin',
+  ],
   initialContent: {
     buttonColor: 'btn-primary',
-    urlParamName: DEFAULT_URL_PARAM_NAME,
+    margin: 'mb-3',
     placeholder: 'Search',
+    urlParamName: DEFAULT_URL_PARAM_NAME,
   },
   validations: [
     [
