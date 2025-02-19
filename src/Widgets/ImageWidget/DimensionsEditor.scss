@@ -2,26 +2,27 @@
   overflow: hidden;
 
   .input_group {
-    position: relative;
+    align-items: stretch;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
-    width: 130px;
     margin-bottom: 10px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    position: relative;
     white-space: pre-line;
+    width: 130px;
     word-break: break-all;
   }
 
   .input_group input[type='number'],
   .input_group select {
-    position: relative;
-    flex: 1 1 auto;
-    width: 1%;
-    min-width: 0;
-    appearance: textfield;
     -webkit-appearance: textfield;
+    appearance: textfield;
+    flex: 1 1 auto;
+    min-width: 0;
+    position: relative;
+    width: 1%;
   }
+
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button {
     appearance: none;
@@ -47,27 +48,27 @@
 
     &:focus {
       background: #fff;
-
       outline: none;
     }
   }
+
   .input_group:not([aria-readonly]):focus-within {
-    box-shadow: 0 0 0 2px var(--jr-blue-light);
     border-radius: 3px;
+    box-shadow: 0 0 0 2px var(--jr-blue-light);
   }
 
   .input_group .input_group_text {
-    background: #eee;
-    display: flex;
     align-items: center;
-    font-size: 14px;
-    padding: 6px 8px;
-    line-height: 18px;
-    white-space: nowrap;
-    min-width: 40px;
+    background: #eee;
     border-radius: 0 3px 3px 0;
-    text-align: center;
+    display: flex;
+    font-size: 14px;
     justify-content: center;
+    line-height: 18px;
+    min-width: 40px;
+    padding: 6px 8px;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .input_group select {
@@ -98,19 +99,19 @@
     grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
 
     button {
-      position: relative;
-      border-style: none;
-      border-radius: 3px;
+      background: #fafafa;
       border-left: 30px solid #f0f0f0;
+      border-radius: 3px;
+      border-style: none;
       box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
-      padding: 4px 8px;
-      line-height: 15px;
+      color: #555;
       display: flex;
       flex-flow: column;
-      background: #fafafa;
-      color: #555;
       font-size: 13px;
       font-weight: normal;
+      line-height: 15px;
+      padding: 4px 8px;
+      position: relative;
     }
 
     button .attribute-preview {
@@ -120,6 +121,7 @@
       &.contain {
         background: no-repeat center/ contain url('object-fit-contain.svg');
       }
+
       &.cover {
         background: no-repeat center/ contain url('object-fit-cover.svg');
       }
@@ -127,10 +129,10 @@
 
     button span {
       color: #555;
-      font-size: 11px;
-      text-align: center;
       display: block;
+      font-size: 11px;
       margin: auto;
+      text-align: center;
     }
 
     button:not(:disabled):hover {
@@ -148,12 +150,12 @@
     }
 
     button:before {
-      display: block;
-      position: absolute;
-      left: -22px;
-      top: 14px;
       content: url('radio.svg');
+      display: block;
       filter: brightness(0.6);
+      left: -22px;
+      position: absolute;
+      top: 14px;
     }
 
     button.enum_attribute_active:before {
@@ -164,24 +166,24 @@
 
   &.scrivito_dark {
     .input_group input {
-      font-size: 13px;
-      padding: 4px 5px;
-      line-height: 18px;
       background: rgba(222, 222, 222, 0.2);
       color: #eee;
+      font-size: 13px;
+      line-height: 18px;
+      padding: 4px 5px;
     }
 
     .input_group .input_group_text {
       background: rgba(222, 222, 222, 0.3);
+      color: #eee;
       font-size: 13px;
       padding: 4px 5px;
-      color: #eee;
     }
 
     .input_group select {
       background: rgba(222, 222, 222, 0.3);
-      font-size: 13px;
       color: #eee;
+      font-size: 13px;
     }
 
     .enum_attribute {
