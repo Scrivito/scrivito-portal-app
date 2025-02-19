@@ -8,13 +8,20 @@ export function DimensionsEditor({ widget }: { widget: ImageWidgetInstance }) {
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
+  const readOnly = !canEdit(widget.obj()) || isComparisonActive()
+
   return (
     <div
       className={`dimensions-editor scrivito_detail_content scrivito_${theme}`}
     >
       <div className="row">
         <div className="col-auto">
-          <DimensionEditor widget={widget} attribute="width" label="Width" />
+          <DimensionEditor
+            widget={widget}
+            attribute="width"
+            label="Width"
+            readOnly={readOnly}
+          />
         </div>
         <div className="col-auto">
           <DimensionEditor
@@ -22,10 +29,11 @@ export function DimensionsEditor({ widget }: { widget: ImageWidgetInstance }) {
             attribute="height"
             label="Height"
             pxOnly
+            readOnly={readOnly}
           />
         </div>
       </div>
-      <ObjectFit widget={widget} />
+      <ObjectFit widget={widget} readOnly={readOnly} />
     </div>
   )
 }
@@ -35,14 +43,14 @@ const DimensionEditor = connect(function DimensionEditor({
   attribute,
   label,
   pxOnly,
+  readOnly,
 }: {
   widget: ImageWidgetInstance
   attribute: 'height' | 'width'
   label: string
   pxOnly?: true
+  readOnly: boolean
 }) {
-  const readOnly = !canEdit(widget.obj()) || isComparisonActive()
-
   const [unit, setUnit] = useState(pxOnly ? 'px' : '%')
   const attributeValue = widget.get(attribute)
   const valueUnit = attributeValue.match(pxOnly ? /px$/ : /%$|px$/)?.toString()
@@ -101,10 +109,11 @@ const DimensionEditor = connect(function DimensionEditor({
 
 const ObjectFit = connect(function ObjectFit({
   widget,
+  readOnly,
 }: {
   widget: ImageWidgetInstance
+  readOnly: boolean
 }) {
-  const readOnly = !canEdit(widget.obj()) || isComparisonActive()
   const objectFit = widget.get('objectFit') ?? 'contain'
 
   return (
