@@ -112,55 +112,55 @@
       line-height: 15px;
       padding: 4px 8px;
       position: relative;
-    }
 
-    button .attribute-preview {
-      width: 45px;
-      height: 30px;
-      margin: 2px auto;
-      &.contain {
-        background: no-repeat center/ contain url('object-fit-contain.svg');
+      .attribute-preview {
+        width: 45px;
+        height: 30px;
+        margin: 2px auto;
+        &.contain {
+          background: no-repeat center/ contain url('object-fit-contain.svg');
+        }
+
+        &.cover {
+          background: no-repeat center/ contain url('object-fit-cover.svg');
+        }
       }
 
-      &.cover {
-        background: no-repeat center/ contain url('object-fit-cover.svg');
+      span {
+        color: #555;
+        display: block;
+        font-size: 11px;
+        margin: auto;
+        text-align: center;
       }
-    }
 
-    button span {
-      color: #555;
-      display: block;
-      font-size: 11px;
-      margin: auto;
-      text-align: center;
-    }
+      &:not(:disabled):hover {
+        background: #eee;
+        cursor: pointer;
+      }
 
-    button:not(:disabled):hover {
-      background: #eee;
-      cursor: pointer;
-    }
+      &.enum_attribute_active {
+        border-left: 30px solid var(--jr-blue) !important;
+        box-shadow: 0 0 0 2px var(--jr-blue) inset;
 
-    button.enum_attribute_active {
-      border-left: 30px solid var(--jr-blue) !important;
-      box-shadow: 0 0 0 2px var(--jr-blue) inset;
-    }
+        &:not(:disabled):hover {
+          background: #eee;
+        }
 
-    button:not(:disabled).enum_attribute_active:hover {
-      background: #eee;
-    }
+        &:before {
+          content: url('radio-selected.svg');
+          filter: brightness(1);
+        }
+      }
 
-    button:before {
-      content: url('radio.svg');
-      display: block;
-      filter: brightness(0.6);
-      left: -22px;
-      position: absolute;
-      top: 14px;
-    }
-
-    button.enum_attribute_active:before {
-      content: url('radio-selected.svg');
-      filter: brightness(1);
+      &:before {
+        content: url('radio.svg');
+        display: block;
+        filter: brightness(0.6);
+        left: -22px;
+        position: absolute;
+        top: 14px;
+      }
     }
   }
 
@@ -191,27 +191,28 @@
         border-left: 30px solid rgba(0, 0, 0, 0.1);
         background: rgba(222, 222, 222, 0.2);
         color: #eee;
+
         span {
           color: #eee;
         }
-      }
-
-      button.enum_attribute_active {
-        border-left: 30px solid var(--jr-blue-light) !important;
-        box-shadow: 0 0 0 2px var(--jr-blue-light) inset;
-      }
-
-      button:not(:disabled):hover {
-        background: rgba(222, 222, 222, 0.25);
-      }
-
-      button:disabled {
-        background: rgba(222, 222, 222, 0.2) !important;
-        opacity: 0.6;
 
         &.enum_attribute_active {
-          border-left: 30px solid #777 !important;
-          box-shadow: 0 0 0 2px #777 inset;
+          border-left: 30px solid var(--jr-blue-light) !important;
+          box-shadow: 0 0 0 2px var(--jr-blue-light) inset;
+        }
+
+        &:not(:disabled):hover {
+          background: rgba(222, 222, 222, 0.25);
+        }
+
+        &:disabled {
+          background: rgba(222, 222, 222, 0.2) !important;
+          opacity: 0.6;
+
+          &.enum_attribute_active {
+            border-left: 30px solid #777 !important;
+            box-shadow: 0 0 0 2px #777 inset;
+          }
         }
       }
     }
