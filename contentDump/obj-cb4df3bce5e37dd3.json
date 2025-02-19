@@ -40,16 +40,16 @@
   "_first_published_at": "20240405121103",
   "_id": "cb4df3bce5e37dd3",
   "_language": "de",
-  "_last_changed": "20250107090344",
+  "_last_changed": "20250219131824",
   "_modification": null,
   "_path": "/ed043d1606eaf539/cb4df3bce5e37dd3",
   "_permalink": null,
-  "_published_at": "20250107101045",
+  "_published_at": "20250219143838",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025010710104500000000000000008a22e2b0b5b083da",
+  "_version": "2025021914383800000000000000008c3e4fbf762a7983",
   "_widget_pool": {
     "d543e2f2": {
       "_obj_class": "SectionWidget",
@@ -110,13 +110,17 @@
           "f5147a5f",
           "7c4a832e"
         ]
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
       ]
     },
     "f5147a5f": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        1
+        6
       ],
       "content": [
         "widgetlist",
@@ -129,13 +133,17 @@
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        11
+        6
       ],
       "content": [
         "widgetlist",
         [
           "b34fab7e"
         ]
+      ],
+      "flex_grow": [
+        "boolean",
+        true
       ]
     },
     "257e5d12": {
@@ -150,26 +158,34 @@
           "7be249e1",
           "fc7f7f01"
         ]
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
       ]
     },
     "7be249e1": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        9
+        6
       ],
       "content": [
         "widgetlist",
         [
           "f30e05db"
         ]
+      ],
+      "flex_grow": [
+        "boolean",
+        true
       ]
     },
     "fc7f7f01": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        3
+        6
       ],
       "content": [
         "widgetlist",
@@ -348,6 +364,18 @@
           "field": "image",
           "via_ref": "single"
         }
+      ],
+      "height": [
+        "string",
+        "150px"
+      ],
+      "object_fit": [
+        "string",
+        "contain"
+      ],
+      "width": [
+        "string",
+        "150px"
       ]
     }
   },

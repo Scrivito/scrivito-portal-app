@@ -15,12 +15,20 @@
   "body": [
     "widgetlist",
     [
-      "84453744"
+      "44974849",
+      "cc444b89"
     ]
   ],
   "layout_main_background_color": [
     "string",
     "transparent"
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "ContentSearchResult",
+      "size": 10
+    }
   ],
   "_conflicts": null,
   "_content_id": "70f1003260d74f46",
@@ -30,52 +38,325 @@
   "_first_published_at": "20240405121103",
   "_id": "f70ac27424b4ba20",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250219141355",
   "_modification": null,
   "_path": "/f70ac27424b4ba20",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250219143844",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "202502191438440000000000000000e91cacc5486aa4dc",
   "_widget_pool": {
-    "84453744": {
-      "_obj_class": "SearchResultsWidget",
-      "top_banner_background": [
+    "44974849": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "b5d96aa1",
+          "d5d90b51"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_image": [
         "reference",
         "14c0a6ebac3c6e7b"
+      ]
+    },
+    "b5d96aa1": {
+      "_obj_class": "DataSearchWidget",
+      "button_color": [
+        "string",
+        "btn-secondary"
       ],
-      "search_input_placeholder": [
+      "margin": [
+        "string",
+        "mb-3"
+      ],
+      "placeholder": [
         "string",
         "Suche"
       ],
-      "search_button_label": [
+      "button_label": [
         "string",
         "Erneut suchen"
       ],
-      "results_headline0": [
+      "url_param_name": [
         "string",
-        "Keine Ergebnisse"
-      ],
-      "results_headline1": [
+        "q"
+      ]
+    },
+    "d5d90b51": {
+      "_obj_class": "DataCountWidget",
+      "alignment": [
         "string",
-        "1 Ergebnis"
+        "center"
       ],
-      "results_headline": [
+      "headline": [
         "string",
         "__count__ Ergebnisse"
       ],
-      "read_more_label": [
+      "headline0": [
         "string",
-        "Weiterlesen"
+        "Keine Ergebnisse"
       ],
-      "show_more_results_label": [
+      "headline1": [
+        "string",
+        "1 Ergebnis"
+      ],
+      "loading_headline": [
+        "string",
+        "Ergebnisse"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ]
+    },
+    "b550568d": {
+      "_obj_class": "DataImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "ContentSearchResult",
+          "field": "image",
+          "via_ref": "single"
+        }
+      ],
+      "object_fit": [
+        "string",
+        "cover"
+      ],
+      "width": [
+        "string",
+        "350px"
+      ],
+      "height": [
+        "string",
+        "300px"
+      ]
+    },
+    "c9b8b3e1": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "b550568d"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "34b4ae90": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "__ContentSearchResult.title__"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ]
+    },
+    "394c1388": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>__ContentSearchResult.snippet__</p>"
+      ]
+    },
+    "62ab06de": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": "Weiterlesen",
+          "url": "__ContentSearchResult.url__"
+        }
+      ]
+    },
+    "69adfa64": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "34b4ae90",
+          "394c1388",
+          "62ab06de"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "aef5b14b": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "69adfa64"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "c46d7e06": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "c9b8b3e1",
+          "aef5b14b"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
+      ]
+    },
+    "ecfd870c": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "c46d7e06"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "light-grey"
+      ],
+      "padding": [
+        "string",
+        "p-0"
+      ],
+      "margin": [
+        "string",
+        "mb-5"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": null,
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": "__ContentSearchResult.url__"
+        }
+      ]
+    },
+    "10d1e870": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ecfd870c"
+        ]
+      ]
+    },
+    "183c0fc8": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "title": [
         "string",
         "Mehr laden"
       ],
-      "results_loading_headline": [
+      "alignment": [
         "string",
-        "Ergebnisse"
+        "center"
+      ]
+    },
+    "cc444b89": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "10d1e870",
+          "183c0fc8"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
       ]
     }
   },

@@ -40,16 +40,16 @@
   "_first_published_at": "20231011133244",
   "_id": "a8ede3121df9e2f6",
   "_language": "en",
-  "_last_changed": "20250107090743",
+  "_last_changed": "20250219131959",
   "_modification": null,
   "_path": "/587d96465c3c69c4/efab2b0cce535d8a",
   "_permalink": null,
-  "_published_at": "20250107101045",
+  "_published_at": "20250219143838",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025010710104500000000000000008a22e2b0b5b083da",
+  "_version": "2025021914383800000000000000008c3e4fbf762a7983",
   "_widget_pool": {
     "60166490": {
       "_obj_class": "CardWidget",
@@ -131,13 +131,17 @@
       "alignment": [
         "string",
         "center"
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
       ]
     },
     "efc92f13": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        1
+        6
       ],
       "content": [
         "widgetlist",
@@ -150,13 +154,17 @@
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        11
+        6
       ],
       "content": [
         "widgetlist",
         [
           "a2097583"
         ]
+      ],
+      "flex_grow": [
+        "boolean",
+        true
       ]
     },
     "84c158fd": {
@@ -171,26 +179,34 @@
       "alignment": [
         "string",
         "center"
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
       ]
     },
     "7d05bea8": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        9
+        6
       ],
       "content": [
         "widgetlist",
         [
           "4df4da98"
         ]
+      ],
+      "flex_grow": [
+        "boolean",
+        true
       ]
     },
     "20968fba": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        3
+        6
       ],
       "content": [
         "widgetlist",
@@ -348,6 +364,14 @@
           "field": "image",
           "via_ref": "single"
         }
+      ],
+      "width": [
+        "string",
+        "150px"
+      ],
+      "height": [
+        "string",
+        "150px"
       ]
     }
   },
