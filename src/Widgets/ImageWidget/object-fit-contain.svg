@@ -1,0 +1,15 @@
+<svg viewBox="0 0 34 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="object-fit-contain">
+<rect id="square" x="2" y="2" width="30" height="20" rx="2" stroke="#BBBBBB" stroke-width="2"/>
+<g id="checker" opacity="0.5" clip-path="url(#clip0_62_34)">
+<rect id="Rectangle 17" y="-45" width="40" height="68" fill="#1D2229"/>
+<path id="Vector" d="M26 3H8V21H26V3Z" fill="#AAAAAA"/>
+<path id="Vector_2" fill-rule="evenodd" clip-rule="evenodd" d="M8 3V21H11.6V3H8ZM15.2 3V21H18.8V3H15.2ZM22.4 3V21H26V3H22.4ZM8 3H26V6.6H8V3ZM8 10.2H26V13.8H8V10.2ZM8 17.4H26V21H8V17.4Z" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_62_34">
+<rect width="18" height="18" fill="white" transform="translate(8 3)"/>
+</clipPath>
+</defs>
+</svg>
