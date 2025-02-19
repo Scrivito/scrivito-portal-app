@@ -134,6 +134,10 @@
         text-align: center;
       }
 
+      &:disabled {
+        opacity: 0.6;
+      }
+
       &:not(:disabled):hover {
         background: #eee;
         cursor: pointer;
@@ -207,7 +211,6 @@
 
         &:disabled {
           background: rgba(222, 222, 222, 0.2) !important;
-          opacity: 0.6;
 
           &.enum_attribute_active {
             border-left: 30px solid #777 !important;
