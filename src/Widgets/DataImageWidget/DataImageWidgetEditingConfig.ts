@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataImageWidget } from './DataImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { DimensionsEditor } from '../../Components/DimensionsEditor'
 
 provideEditingConfig(DataImageWidget, {
   title: 'Data Image',
@@ -27,6 +28,14 @@ provideEditingConfig(DataImageWidget, {
     },
   },
   properties: ['alignment', 'link', 'roundCorners'],
+  propertiesGroups: [
+    {
+      title: 'Dimensions',
+      properties: ['height', 'objectFit', 'width'],
+      component: DimensionsEditor,
+      key: 'dimensions-group',
+    },
+  ],
   initialContent: {
     alignment: 'left',
   },
