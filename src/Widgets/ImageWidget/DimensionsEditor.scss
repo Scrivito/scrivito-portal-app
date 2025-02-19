@@ -84,9 +84,81 @@
     min-width: 40px;
     text-align: center;
 
-    &[disabled] {
+    &:disabled {
       appearance: none;
       cursor: unset;
+    }
+  }
+
+  .enum_attribute {
+    margin: 0;
+    padding: 0 0 3px 0;
+    display: grid;
+    gap: 6px;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+
+    button {
+      position: relative;
+      border-style: none;
+      border-radius: 3px;
+      border-left: 30px solid #f0f0f0;
+      box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+      padding: 4px 8px;
+      line-height: 15px;
+      display: flex;
+      flex-flow: column;
+      background: #fafafa;
+      color: #555;
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    button .attribute-preview {
+      width: 45px;
+      height: 30px;
+      margin: 2px auto;
+      &.contain {
+        background: no-repeat center/ contain url('object-fit-contain.svg');
+      }
+      &.cover {
+        background: no-repeat center/ contain url('object-fit-cover.svg');
+      }
+    }
+
+    button span {
+      color: #555;
+      font-size: 11px;
+      text-align: center;
+      display: block;
+      margin: auto;
+    }
+
+    button:not(:disabled):hover {
+      background: #eee;
+      cursor: pointer;
+    }
+
+    button.enum_attribute_active {
+      border-left: 30px solid var(--jr-blue) !important;
+      box-shadow: 0 0 0 2px var(--jr-blue) inset;
+    }
+
+    button:not(:disabled).enum_attribute_active:hover {
+      background: #eee;
+    }
+
+    button:before {
+      display: block;
+      position: absolute;
+      left: -22px;
+      top: 14px;
+      content: url('radio.svg');
+      filter: brightness(0.6);
+    }
+
+    button.enum_attribute_active:before {
+      content: url('radio-selected.svg');
+      filter: brightness(1);
     }
   }
 
@@ -110,6 +182,36 @@
       background: rgba(222, 222, 222, 0.3);
       font-size: 13px;
       color: #eee;
+    }
+
+    .enum_attribute {
+      button {
+        border-left: 30px solid rgba(0, 0, 0, 0.1);
+        background: rgba(222, 222, 222, 0.2);
+        color: #eee;
+        span {
+          color: #eee;
+        }
+      }
+
+      button.enum_attribute_active {
+        border-left: 30px solid var(--jr-blue-light) !important;
+        box-shadow: 0 0 0 2px var(--jr-blue-light) inset;
+      }
+
+      button:not(:disabled):hover {
+        background: rgba(222, 222, 222, 0.25);
+      }
+
+      button:disabled {
+        background: rgba(222, 222, 222, 0.2) !important;
+        opacity: 0.6;
+
+        &.enum_attribute_active {
+          border-left: 30px solid #777 !important;
+          box-shadow: 0 0 0 2px #777 inset;
+        }
+      }
     }
   }
 }

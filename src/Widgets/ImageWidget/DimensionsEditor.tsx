@@ -25,6 +25,7 @@ export function DimensionsEditor({ widget }: { widget: ImageWidgetInstance }) {
           />
         </div>
       </div>
+      <ObjectFit widget={widget} />
     </div>
   )
 }
@@ -96,4 +97,50 @@ const DimensionEditor = connect(function DimensionEditor({
     setUnit(newUnit)
     if (value !== '') widget.update({ [attribute]: `${value}${newUnit}` })
   }
+})
+
+const ObjectFit = connect(function ObjectFit({
+  widget,
+}: {
+  widget: ImageWidgetInstance
+}) {
+  const readOnly = !canEdit(widget.obj()) || isComparisonActive()
+  const objectFit = widget.get('objectFit') ?? 'contain'
+
+  return (
+    <>
+      <div className="scrivito_detail_label">
+        <span>Object fit</span>
+      </div>
+      <div className="item_content">
+        <div className="enum_attribute">
+          <button
+            aria-current={objectFit === 'contain'}
+            className={
+              objectFit === 'contain' ? 'enum_attribute_active' : undefined
+            }
+            disabled={readOnly}
+            onClick={() => widget.update({ objectFit: 'contain' })}
+            title="The image is scaled to maintain its aspect ratio while fitting within the element’s content box."
+          >
+            <div className="attribute-preview contain"></div>
+            <span>Contain</span>
+          </button>
+          <button
+            aria-current={objectFit === 'cover'}
+            className={
+              objectFit === 'cover' ? 'enum_attribute_active' : undefined
+            }
+            disabled={readOnly}
+            onClick={() => widget.update({ objectFit: 'cover' })}
+            title="The image is sized to maintain its aspect ratio while filling the element’s entire content box. The image will be clipped to fit."
+          >
+            <div className="attribute-preview cover"></div>
+            <span>Cover</span>
+          </button>
+        </div>
+        <div className="scrivito_notice_body">Default: Contain</div>
+      </div>
+    </>
+  )
 })

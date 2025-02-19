@@ -40,7 +40,7 @@ provideEditingConfig(ImageWidget, {
   propertiesGroups: [
     {
       title: 'Dimensions',
-      properties: ['height', 'width'],
+      properties: ['height', 'objectFit', 'width'],
       component: DimensionsEditor,
       key: 'dimensions-group',
     },
