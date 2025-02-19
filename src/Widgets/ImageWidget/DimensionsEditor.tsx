@@ -121,7 +121,7 @@ const ObjectFit = connect(function ObjectFit({
             }
             disabled={readOnly}
             onClick={() => widget.update({ objectFit: 'contain' })}
-            title="The image is scaled to maintain its aspect ratio while fitting within the element’s content box."
+            title="The image is resized to fit within the space, keeping its original proportions, without being cut off."
           >
             <div className="attribute-preview contain"></div>
             <span>Contain</span>
@@ -133,7 +133,7 @@ const ObjectFit = connect(function ObjectFit({
             }
             disabled={readOnly}
             onClick={() => widget.update({ objectFit: 'cover' })}
-            title="The image is sized to maintain its aspect ratio while filling the element’s entire content box. The image will be clipped to fit."
+            title="The image is resized to fill the entire space, keeping its proportions, but may be cropped if necessary."
           >
             <div className="attribute-preview cover"></div>
             <span>Cover</span>
