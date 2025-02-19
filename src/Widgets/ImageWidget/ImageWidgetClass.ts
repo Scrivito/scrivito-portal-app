@@ -7,6 +7,7 @@ export const ImageWidget = provideWidgetClass('ImageWidget', {
     height: 'string',
     image: ['reference', { only: 'Image' }],
     link: 'link',
+    objectFit: ['enum', { values: ['cover', 'contain'] }],
     roundCorners: 'boolean',
     width: 'string',
   },
