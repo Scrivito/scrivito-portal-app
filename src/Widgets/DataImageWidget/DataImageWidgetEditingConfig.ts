@@ -1,7 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataImageWidget } from './DataImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { DimensionsEditor } from '../../Components/DimensionsEditor'
+import { DimensionsEditor } from '../../Components/ScrivitoExtensions/DimensionsEditor'
 
 provideEditingConfig(DataImageWidget, {
   title: 'Data Image',
