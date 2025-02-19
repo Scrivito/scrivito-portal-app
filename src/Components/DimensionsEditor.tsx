@@ -1,10 +1,21 @@
-import { canEdit, connect, isComparisonActive, uiContext } from 'scrivito'
-import { ImageWidgetInstance } from './ImageWidgetClass'
+import {
+  canEdit,
+  connect,
+  isComparisonActive,
+  uiContext,
+  Widget,
+} from 'scrivito'
 import { useEffect, useState } from 'react'
 
-import './DimensionsEditor.scss'
+import './DimensionsEditor/DimensionsEditor.scss'
 
-export function DimensionsEditor({ widget }: { widget: ImageWidgetInstance }) {
+type ImageWidget = Widget<{
+  height: 'string'
+  objectFit: ['enum', { values: ['cover', 'contain'] }]
+  width: 'string'
+}>
+
+export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
@@ -46,7 +57,7 @@ const DimensionEditor = connect(function DimensionEditor({
   pxOnly,
   readOnly,
 }: {
-  widget: ImageWidgetInstance
+  widget: ImageWidget
   attribute: 'height' | 'width'
   label: string
   pxOnly?: true
@@ -112,7 +123,7 @@ const ObjectFit = connect(function ObjectFit({
   widget,
   readOnly,
 }: {
-  widget: ImageWidgetInstance
+  widget: ImageWidget
   readOnly: boolean
 }) {
   const objectFit = widget.get('objectFit') ?? 'contain'

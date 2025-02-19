@@ -1,7 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { DimensionsEditor } from './DimensionsEditor'
+import { DimensionsEditor } from '../../Components/DimensionsEditor'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
