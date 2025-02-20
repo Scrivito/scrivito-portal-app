@@ -142,14 +142,14 @@
   "_first_published_at": "20230509091931",
   "_id": "c2a0aab78be05a4e",
   "_language": "en",
-  "_last_changed": "20250217130309",
+  "_last_changed": "20250220104238",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250218093446",
+  "_published_at": "20250220104510",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025021809344600000000000000005a88547829e1de41",
+  "_version": "20250220104510000000000000000012afafab1a41d916",
   "_widget_pool": {
     "10914562": {
       "_obj_class": "ColumnContainerWidget",
@@ -186,6 +186,14 @@
       "image": [
         "reference",
         "ab2921d83b66edb5"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "49323687": {
@@ -582,6 +590,10 @@
       "padding": [
         "string",
         "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "0a1c13fa": {
@@ -677,6 +689,10 @@
       "padding": [
         "string",
         "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "8bf53844": {
@@ -833,6 +849,14 @@
       "image": [
         "reference",
         "518864722dad1deb"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "0ae872ae": {
@@ -1051,6 +1075,14 @@
           "54d584b7",
           "c9341864"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "b258da2d": {
@@ -1138,6 +1170,14 @@
           "91c7c162",
           "9ae96b67"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "865a50e2": {
@@ -1231,6 +1271,10 @@
       "padding": [
         "string",
         "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "c79d0ad0": {

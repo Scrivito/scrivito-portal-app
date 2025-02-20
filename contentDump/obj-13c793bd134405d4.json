@@ -29,14 +29,14 @@
   "_first_published_at": "20240705083019",
   "_id": "13c793bd134405d4",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250220104300",
   "_modification": null,
   "_path": "/84435b45662730da/d11017df5d1aaf49/13c793bd134405d4",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250220104510",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "20250220104510000000000000000012afafab1a41d916",
   "_widget_pool": {
     "73717203": {
       "_obj_class": "TextWidget",
@@ -614,6 +614,14 @@
       "background_color": [
         "string",
         "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "8cc252f3": {
@@ -679,6 +687,14 @@
       "background_color": [
         "string",
         "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "8b9b2e93": {
@@ -744,6 +760,14 @@
       "background_color": [
         "string",
         "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "2c47e359": {
@@ -838,6 +862,14 @@
       "background_color": [
         "string",
         "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "74e8d519": {

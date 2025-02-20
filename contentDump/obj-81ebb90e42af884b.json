@@ -30,14 +30,14 @@
   "_first_published_at": "20240405121103",
   "_id": "81ebb90e42af884b",
   "_language": "de",
-  "_last_changed": "20250123102156",
+  "_last_changed": "20250220104300",
   "_modification": null,
   "_path": "/81ebb90e42af884b",
   "_permalink": null,
-  "_published_at": "20250123102545",
+  "_published_at": "20250220104510",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250123102545000000000000000089a41c276aa9f645",
+  "_version": "20250220104510000000000000000012afafab1a41d916",
   "_widget_pool": {
     "bb2cad0c": {
       "_obj_class": "SectionWidget",
@@ -163,6 +163,14 @@
       "image": [
         "reference",
         "ab2921d83b66edb5"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "9781e90d": {
@@ -174,6 +182,14 @@
       "image": [
         "reference",
         "1409db9bede134fb"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "2416a1cc": {
@@ -185,6 +201,14 @@
       "image": [
         "reference",
         "518864722dad1deb"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "abbf21da": {
@@ -306,6 +330,14 @@
           "aea3ca38",
           "39f3c89a"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "80ac888d": {
@@ -394,6 +426,14 @@
           "242e0101",
           "300a2a18"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "5ccf1d22": {

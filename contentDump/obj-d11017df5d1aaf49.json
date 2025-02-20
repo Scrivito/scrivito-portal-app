@@ -28,14 +28,14 @@
   "_first_published_at": "20240405121103",
   "_id": "d11017df5d1aaf49",
   "_language": "de",
-  "_last_changed": "20250114094227",
+  "_last_changed": "20250220104300",
   "_modification": null,
   "_path": "/84435b45662730da/d11017df5d1aaf49",
   "_permalink": "veranstaltungen",
-  "_published_at": "20250114094616",
+  "_published_at": "20250220104510",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025011409461600000000000000002e58c9007dff871b",
+  "_version": "20250220104510000000000000000012afafab1a41d916",
   "_widget_pool": {
     "51448137": {
       "_obj_class": "ColumnContainerWidget",
@@ -161,6 +161,14 @@
           "8cf62e8b",
           "8fcc46b1"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "009079db": {
@@ -249,6 +257,14 @@
           "76f1c861",
           "4c95383b"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "a44dfe64": {
@@ -337,6 +353,14 @@
           "f9204aaf",
           "a5190bad"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "bddb9227": {
@@ -421,6 +445,14 @@
           "050330d7",
           "a9ed14c7"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "a9c9b365": {
@@ -505,6 +537,14 @@
           "6090c84d",
           "0fa19829"
         ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "3ed2b2d5": {

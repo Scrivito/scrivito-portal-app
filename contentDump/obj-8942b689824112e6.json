@@ -29,14 +29,14 @@
   "_first_published_at": "20230516091834",
   "_id": "8942b689824112e6",
   "_language": "en",
-  "_last_changed": "20250108105706",
+  "_last_changed": "20250220104238",
   "_modification": null,
   "_path": "/55d682c23b93bd62/b5cfb74078461073",
   "_permalink": null,
-  "_published_at": "20250108110557",
+  "_published_at": "20250220104510",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202501081105570000000000000000cef87379c55b0ebc",
+  "_version": "20250220104510000000000000000012afafab1a41d916",
   "_widget_pool": {
     "5c228c75": {
       "_obj_class": "SectionWidget",
@@ -194,6 +194,14 @@
       "background_color": [
         "string",
         "primary"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "40ff39f8": {
@@ -380,6 +388,14 @@
       "background_color": [
         "string",
         "success"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "34b9db50": {
@@ -468,6 +484,14 @@
       "background_color": [
         "string",
         "secondary"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
       ]
     },
     "1890fb79": {
