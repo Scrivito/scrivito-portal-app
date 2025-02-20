@@ -20,7 +20,7 @@ export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
   if (!theme) return null
 
   const readOnly = !canEdit(widget.obj()) || isComparisonActive()
-  const muteObjectFit = !widget.get('height')
+  const showObjectFit = !!widget.get('height')
 
   return (
     <div
@@ -45,7 +45,7 @@ export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
           />
         </div>
       </div>
-      <ObjectFit widget={widget} readOnly={readOnly || muteObjectFit} />
+      {showObjectFit && <ObjectFit widget={widget} readOnly={readOnly} />}
     </div>
   )
 }
