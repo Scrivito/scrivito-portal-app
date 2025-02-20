@@ -18,12 +18,12 @@ provideComponent(ImageWidget, ({ widget }) => {
   if (alignment) classNames.push(alignment)
 
   let style: CSSProperties | undefined
-  const objectFit = widget.get('objectFit')
-  if (objectFit === 'cover') style = { ...style, objectFit }
   const height = widget.get('height')
   if (height) style = { ...style, height }
   const width = widget.get('width')
   if (width) style = { ...style, width }
+  const objectFit = widget.get('objectFit')
+  if (height && objectFit === 'cover') style = { ...style, objectFit }
 
   return (
     <WidgetTag className={classNames.join(' ')}>
