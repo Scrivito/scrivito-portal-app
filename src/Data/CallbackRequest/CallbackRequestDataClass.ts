@@ -29,6 +29,8 @@ export const CallbackRequest = provideDataClass(
 
     // callback-request is more or less a "singleton". It only offers PUT, GET and DELETE.
     return {
+      // attributes and title are defined as functions to trigger potential
+      // IAM login redirects only, when the information is actually needed.
       attributes: async () => (await pisaSchema()).attributes,
       title: async () => (await pisaSchema()).title,
       connection: {
