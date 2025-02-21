@@ -10,8 +10,8 @@ export async function fetchSchema(subPath: string): Promise<{
     throw new Error('Please configure a pisaUrl on the default homepage.')
   }
 
-  return (await client.get('schema')) as {
+  return client.get('schema') as Promise<{
     attributes: DataAttributeDefinitions
     title?: string
-  }
+  }>
 }
