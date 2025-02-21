@@ -1,13 +1,23 @@
 import {
+  DataAttributeDefinitions,
   DataConnectionError,
   DataConnectionResultItem,
   load,
   provideDataClass,
 } from 'scrivito'
 import { CurrentUser } from '../CurrentUser/CurrentUserDataItem'
-import { fetchAttributes } from '../fetchAttributes'
-import { fetchTitle } from '../fetchTitle'
 import { pisaClient } from '../pisaClient'
+import { fetchSchema } from '../fetchSchema'
+
+let pisaSchemaPromise: Promise<{
+  attributes: DataAttributeDefinitions
+  title?: string
+}>
+
+async function pisaSchema() {
+  pisaSchemaPromise ??= fetchSchema('user')
+  return pisaSchemaPromise
+}
 
 export const User = provideDataClass(
   'User',
@@ -18,8 +28,10 @@ export const User = provideDataClass(
     }
 
     return {
-      attributes: () => fetchAttributes('user'),
-      title: () => fetchTitle('user'),
+      // attributes and title are defined as functions to trigger potential
+      // IAM login redirects only, when the information is actually needed.
+      attributes: async () => (await pisaSchema()).attributes,
+      title: async () => (await pisaSchema()).title,
       connection: {
         index: async () => {
           throw new DataConnectionError(

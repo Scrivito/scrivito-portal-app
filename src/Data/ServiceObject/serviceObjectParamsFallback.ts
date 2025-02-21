@@ -719,21 +719,20 @@ async function attributes(): Promise<DataAttributeDefinitions> {
       { title: lang === 'de' ? 'Modellnummer' : 'Model number' },
     ],
     number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
-    // TODO: Remove workaround for #11367 once available
-    // parentId: [
-    //   'reference',
-    //   {
-    //     reverseTitle:
-    //       lang === 'de'
-    //         ? 'Untergeordnete Serviceobjekte'
-    //         : 'Children service objects',
-    //     title:
-    //       lang === 'de'
-    //         ? 'Übergeordnetes Serviceobjekt'
-    //         : 'Parent service object',
-    //     to: 'ServiceObject',
-    //   },
-    // ],
+    parentId: [
+      'reference',
+      {
+        reverseTitle:
+          lang === 'de'
+            ? 'Untergeordnete Serviceobjekte'
+            : 'Children service objects',
+        title:
+          lang === 'de'
+            ? 'Übergeordnetes Serviceobjekt'
+            : 'Parent service object',
+        to: 'ServiceObject',
+      },
+    ],
     product: [
       'string',
       { title: lang === 'de' ? 'Produktname' : 'Product name' },
