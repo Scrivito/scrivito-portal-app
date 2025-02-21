@@ -50,23 +50,46 @@ const ImageOrVideo = connect(function ImageOrVideo({
   const classNames = ['img-background']
   if (widget.get('backgroundAnimateOnHover')) classNames.push('img-zoom')
 
-  return (
-    // Check is a working around for issue #4767
-    // TODO: remove work around
-    background.contentType().startsWith('video/') &&
-      background.contentUrl().startsWith('https://') ? (
-      <video className={classNames.join(' ')} autoPlay loop muted playsInline>
-        <source src={background.contentUrl()} type={background.contentType()} />
-      </video>
-    ) : (
-      <InPlaceEditingOff>
-        <ImageTag
-          content={widget}
-          attribute="backgroundImage"
-          className={classNames.join(' ')}
-          alt=""
-        />
-      </InPlaceEditingOff>
+  if (background.contentType().startsWith('video/')) {
+    return (
+      <Video
+        className={classNames.join(' ')}
+        contentUrl={background.contentUrl()}
+        contentType={background.contentType()}
+        key={[
+          'SectionWidget',
+          widget.id(),
+          'Video',
+          background.contentUrl(),
+          background.contentType(),
+        ].join('-')} // Ensure the video is reloaded when the content changes
+      />
     )
+  }
+  return (
+    <InPlaceEditingOff>
+      <ImageTag
+        content={widget}
+        attribute="backgroundImage"
+        className={classNames.join(' ')}
+        alt=""
+      />
+    </InPlaceEditingOff>
+  )
+})
+
+const Video = connect(function Video({
+  className,
+  contentType,
+  contentUrl,
+}: {
+  className?: string
+  contentType: string
+  contentUrl: string
+}) {
+  return (
+    <video className={className} autoPlay loop muted playsInline>
+      <source src={contentUrl} type={contentType} />
+    </video>
   )
 })

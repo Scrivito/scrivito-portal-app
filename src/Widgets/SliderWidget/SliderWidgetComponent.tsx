@@ -45,32 +45,52 @@ provideComponent(SliderWidget, ({ widget }) => {
   )
 })
 
-const ImageOrVideo = connect(
-  function ImageOrVideo({ widget }: { widget: SlideWidgetInstance }) {
-    const background = widget.get('background')
-    if (!background) return null
+const ImageOrVideo = connect(function ImageOrVideo({
+  widget,
+}: {
+  widget: SlideWidgetInstance
+}) {
+  const background = widget.get('background')
+  if (!background) return null
 
-    if (background.contentType().startsWith('video/')) {
-      return (
-        <video autoPlay loop muted playsInline className="img-background">
-          <source
-            src={background.contentUrl()}
-            type={background.contentType()}
-          />
-        </video>
-      )
-    }
-
+  if (background.contentType().startsWith('video/')) {
     return (
-      <InPlaceEditingOff>
-        <ImageTag
-          content={widget}
-          attribute="background"
-          alt=""
-          className="img-background"
-        />
-      </InPlaceEditingOff>
+      <Video
+        contentUrl={background.contentUrl()}
+        contentType={background.contentType()}
+        key={[
+          'SliderWidget',
+          widget.id(),
+          'Video',
+          background.contentUrl(),
+          background.contentType(),
+        ].join('-')} // Ensure the video is reloaded when the content changes
+      />
     )
-  },
-  { loading: () => null },
-)
+  }
+
+  return (
+    <InPlaceEditingOff>
+      <ImageTag
+        content={widget}
+        attribute="background"
+        alt=""
+        className="img-background"
+      />
+    </InPlaceEditingOff>
+  )
+})
+
+const Video = connect(function Video({
+  contentType,
+  contentUrl,
+}: {
+  contentType: string
+  contentUrl: string
+}) {
+  return (
+    <video autoPlay loop muted playsInline className="img-background">
+      <source src={contentUrl} type={contentType} />
+    </video>
+  )
+})
