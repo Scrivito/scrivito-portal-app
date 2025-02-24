@@ -216,6 +216,7 @@ const CartActionButton = connect(function CartActionButton({
     return (
       <>
         <button
+          aria-label="-"
           className="btn btn-sm btn-primary my-1"
           onClick={async () => {
             await subtractFromCart(product)
@@ -223,14 +224,12 @@ const CartActionButton = connect(function CartActionButton({
           }}
         >
           <i className="bi bi-dash-lg px-0" />
-          <span className="d-none" aria-hidden>
-            -
-          </span>
         </button>
 
         <strong className="px-2">{quantity}</strong>
 
         <button
+          aria-label="+"
           className="btn btn-sm btn-primary my-1 me-5"
           onClick={async () => {
             await addToCart(product)
@@ -238,9 +237,6 @@ const CartActionButton = connect(function CartActionButton({
           }}
         >
           <i className="bi bi-plus-lg px-0" />
-          <span className="d-none" aria-hidden>
-            +
-          </span>
         </button>
 
         <button
