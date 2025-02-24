@@ -3,6 +3,7 @@ import { provideWidgetClass } from 'scrivito'
 export const SliderWidget = provideWidgetClass('SliderWidget', {
   attributes: {
     autoplay: 'boolean',
+    autoplayInterval: 'integer',
     controls: 'boolean',
     margin: [
       'enum',

@@ -11,6 +11,10 @@ provideEditingConfig(SliderWidget, {
       title: 'Autoplay?',
       description: 'Default: No',
     },
+    autoplayInterval: {
+      title: 'Autoplay interval (in s)',
+      description: 'Default: 5 seconds',
+    },
     controls: {
       title: 'Show controls?',
       description: 'Shows arrows and indicators. Default: Yes',
@@ -32,10 +36,12 @@ provideEditingConfig(SliderWidget, {
     'slides',
     'autoplay',
     ['controls', { enabled: widget.get('autoplay') }],
+    ['autoplayInterval', { enabled: widget.get('autoplay') }],
     'minHeight',
     'margin',
   ],
   initialContent: {
+    autoplayInterval: 5,
     controls: true,
     margin: 'mb-4',
     minHeight: 400,
