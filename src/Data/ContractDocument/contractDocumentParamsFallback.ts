@@ -29,6 +29,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export function contractDocumentParamsFallback() {
   return {
     attributes,
+    title: async () =>
+      (await load(currentLanguage)) === 'de'
+        ? 'Vertragsdokument'
+        : 'Contract document',
     connection: localStorageDataConnection('ContractDocument', {
       initialContent: [
         {

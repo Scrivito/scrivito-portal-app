@@ -26,8 +26,22 @@ export const Subscription = provideDataClass('Subscription', {
       title: ['string', { title: lang === 'de' ? 'Titel' : 'Title' }],
     }
   },
+  title: async () =>
+    (await load(currentLanguage)) === 'de' ? 'Abonnement' : 'Subscription',
   connection: {
-    async index() {
+    async index(params) {
+      if (params.search()) {
+        throw new Error('Searching is not supported for subscriptions.')
+      }
+
+      if (Object.keys(params.filters()).length) {
+        throw new Error('Filtering is not supported for subscriptions.')
+      }
+
+      if (params.order().length) {
+        throw new Error('Sorting is not supported for subscriptions.')
+      }
+
       const subscriptions = await fetchSubscriptions()
       return { results: subscriptions, count: subscriptions.length }
     },
