@@ -9,7 +9,6 @@ import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
 import { ensureString } from '../../utils/ensureString'
-import { sum } from 'lodash-es'
 
 export async function addToCart(product: ProductInstance): Promise<void> {
   const item = await load(() => findInCart(product))
@@ -71,11 +70,10 @@ export function containsItems(): boolean {
 export function numberOfCartItems(): number | null {
   if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
 
-  return sum(
-    CartItem.all()
-      .take()
-      .map((item) => item.get('quantity')),
-  )
+  return CartItem.all()
+    .take()
+    .map((item) => Number(item.get('quantity')))
+    .reduce((a, b) => a + b, 0)
 }
 
 export async function checkoutCart(): Promise<DataItem> {
