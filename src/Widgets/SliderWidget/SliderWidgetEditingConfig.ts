@@ -11,6 +11,10 @@ provideEditingConfig(SliderWidget, {
       title: 'Autoplay?',
       description: 'Default: No',
     },
+    autoplayInterval: {
+      title: 'Time between slides (in seconds)',
+      description: 'Default: 5 seconds',
+    },
     controls: {
       title: 'Show controls?',
       description: 'Shows arrows and indicators. Default: Yes',
@@ -28,14 +32,25 @@ provideEditingConfig(SliderWidget, {
       title: 'Slides',
     },
   },
-  properties: (widget) => [
-    'slides',
-    'autoplay',
-    ['controls', { enabled: widget.get('autoplay') }],
-    'minHeight',
-    'margin',
+  properties: ['slides', 'minHeight'],
+  propertiesGroups: (widget) => [
+    {
+      title: 'Autoplay',
+      key: 'autoplay-group',
+      properties: [
+        'autoplay',
+        ['autoplayInterval', { enabled: widget.get('autoplay') }],
+        ['controls', { enabled: widget.get('autoplay') }],
+      ],
+    },
+    {
+      title: 'Margin',
+      key: 'margin-group',
+      properties: ['margin'],
+    },
   ],
   initialContent: {
+    autoplayInterval: 5,
     controls: true,
     margin: 'mb-4',
     minHeight: 400,
