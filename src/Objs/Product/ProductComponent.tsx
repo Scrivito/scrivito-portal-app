@@ -218,6 +218,7 @@ const CartActionButton = connect(function CartActionButton({
         <button
           aria-label="-"
           className="btn btn-sm btn-primary my-1"
+          disabled={quantity < 2}
           onClick={async () => {
             await subtractFromCart(product)
             toast.info(cartRemovedMessage)

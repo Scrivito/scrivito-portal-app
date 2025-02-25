@@ -32,8 +32,6 @@ export async function subtractFromCart(
 ): Promise<void> {
   const item = await load(() => findInCart(product))
   const quantity = Number(item?.get('quantity'))
-
-  if (quantity <= 1) return removeFromCart(product)
   return item?.update({ quantity: quantity - 1 })
 }
 
