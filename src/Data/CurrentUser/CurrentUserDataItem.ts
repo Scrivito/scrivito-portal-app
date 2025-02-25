@@ -204,7 +204,6 @@ function isWhoAmI(item: unknown): item is WhoAmI {
     givenName,
     familyName,
     email,
-    position,
     staff,
     // image, // TODO: Check image as well
     // salesUserId, // TODO: Check reference more strictly
@@ -218,7 +217,6 @@ function isWhoAmI(item: unknown): item is WhoAmI {
     isOptionalString(givenName) &&
     isOptionalString(familyName) &&
     isOptionalString(email) &&
-    isOptionalString(position) &&
     typeof staff === 'boolean'
   )
 }
