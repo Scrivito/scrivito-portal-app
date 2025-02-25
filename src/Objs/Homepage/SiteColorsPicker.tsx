@@ -1,5 +1,5 @@
 import { ColorPicker, useColor } from 'react-color-palette'
-import { canEdit, connect, uiContext } from 'scrivito'
+import { canEdit, connect, isComparisonActive, uiContext } from 'scrivito'
 import { HomepageInstance } from './HomepageObjClass'
 import './SiteColorsPicker.scss'
 import { useState } from 'react'
@@ -12,6 +12,8 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
+  const disabled = !canEdit(page) || isComparisonActive()
+
   return (
     <div
       className={`site-colors-picker scrivito_detail_content scrivito_${theme}`}
@@ -23,7 +25,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           </div>
           <AdvancedColorPicker
             color={page.get('siteColorPrimary') || '#274486'}
-            disabled={!canEdit(page)}
+            disabled={disabled}
             setColor={(siteColorPrimary) => page.update({ siteColorPrimary })}
           />
         </div>
@@ -34,7 +36,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           </div>
           <AdvancedColorPicker
             color={page.get('siteColorSecondary') || '#39a9eb'}
-            disabled={!canEdit(page)}
+            disabled={disabled}
             setColor={(siteColorSecondary) =>
               page.update({ siteColorSecondary })
             }

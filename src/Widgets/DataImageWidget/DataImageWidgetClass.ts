@@ -4,8 +4,11 @@ export const DataImageWidget = provideWidgetClass('DataImageWidget', {
   attributes: {
     alignment: ['enum', { values: ['left', 'center', 'right'] }],
     data: 'datalocator',
-    roundCorners: 'boolean',
+    height: 'string',
     link: 'link',
+    objectFit: ['enum', { values: ['cover', 'contain'] }],
+    roundCorners: 'boolean',
+    width: 'string',
   },
 })
 
