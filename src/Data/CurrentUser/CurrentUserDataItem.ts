@@ -9,8 +9,10 @@ import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
+import { getPisaAuthorization } from '../getPisaAuthorization'
 import { errorToast } from './errorToast'
 import { getWhoAmI } from './getWhoAmI'
+import { dataBinaryToUrl } from '../../utils/dataBinaryToUrl'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -63,6 +65,8 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       : 'Current user',
   connection: {
     async get() {
+      if (getPisaAuthorization()) return getWhoAmIOnlyUser()
+
       const user = await load(currentUser)
       if (!user) return null
 
@@ -97,6 +101,8 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       }
     },
     async update(params) {
+      if (getPisaAuthorization()) throw new Error('Update not supported.')
+
       const {
         company,
         familyName,
@@ -123,6 +129,41 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     },
   },
 })
+
+async function getWhoAmIOnlyUser(): Promise<{
+  company: string
+  email: string
+  familyName: string
+  givenName: string
+  jrUserId: string
+  name: string
+  phoneNumber: string
+  picture: string
+  pisaUserId: string
+  salesUserId: string | null
+  salutation: string
+  serviceUserId: string | null
+} | null> {
+  const whoAmI = await getWhoAmI()
+  if (!whoAmI) return null // TODO: Throw error instead?
+
+  return {
+    company: '',
+    email: whoAmI.email ?? '',
+    familyName: whoAmI.familyName ?? '',
+    givenName: whoAmI.givenName ?? '',
+    jrUserId: '',
+    name: whoAmI.name ?? '',
+    phoneNumber: '',
+    picture: whoAmI.image
+      ? (await dataBinaryToUrl(whoAmI.image)).url
+      : personCircle,
+    pisaUserId: whoAmI._id,
+    salesUserId: whoAmI.salesUserId ?? null,
+    salutation: whoAmI.salutation ?? '',
+    serviceUserId: whoAmI.serviceUserId ?? null,
+  }
+}
 
 async function pisaIds() {
   const whoAmI = await getWhoAmI()
