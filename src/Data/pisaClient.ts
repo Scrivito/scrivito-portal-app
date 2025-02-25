@@ -1,11 +1,6 @@
-import {
-  Obj,
-  createRestApiClient,
-  currentLanguage,
-  isUserLoggedIn,
-  load,
-} from 'scrivito'
+import { Obj, createRestApiClient, currentLanguage, load } from 'scrivito'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
+import { getPisaAuthorization } from './getPisaAuthorization'
 
 export async function pisaUrl(): Promise<string | null> {
   if (import.meta.env.FORCE_LOCAL_STORAGE) return null
@@ -35,7 +30,7 @@ export async function pisaConfig(subPath: string) {
     'Accept-Language': await load(() => currentLanguage() ?? 'en'),
   }
 
-  const authorization: string | null = getAuthorization()
+  const authorization: string | null = getPisaAuthorization()
   if (authorization) headers.Authorization = authorization
 
   return {
@@ -46,22 +41,4 @@ export async function pisaConfig(subPath: string) {
 
 function never() {
   return new Promise<never>(() => {})
-}
-
-let cachedAuthorization: string | null | undefined = undefined
-function getAuthorization(): string | null {
-  if (cachedAuthorization === undefined) cachedAuthorization = calculate()
-
-  return cachedAuthorization
-
-  function calculate() {
-    if (isUserLoggedIn()) return null
-
-    if (typeof window === 'undefined') return null
-
-    const urlParams = new URLSearchParams(window.location.search)
-    const token = urlParams.get('token')
-
-    return token ? `JWT ${token}` : null
-  }
 }
