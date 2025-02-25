@@ -9,8 +9,8 @@ import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
-import { pisaClient } from '../pisaClient'
 import { errorToast } from './errorToast'
+import { getWhoAmI } from './getWhoAmI'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -125,8 +125,8 @@ export const CurrentUser = provideDataItem('CurrentUser', {
 })
 
 async function pisaIds() {
-  const whoamiClient = await pisaClient('whoami')
-  if (!whoamiClient) {
+  const whoAmI = await getWhoAmI()
+  if (!whoAmI) {
     return {
       pisaUserId: 'F87BDC400E41D630E030A8C00D01158A',
       salesUserId: '052601BEBCEC39C8E040A8C00D0107AC',
@@ -134,19 +134,10 @@ async function pisaIds() {
     }
   }
 
-  let whoAmI
-  try {
-    whoAmI = await whoamiClient.get('')
-    if (!isWhoAmI(whoAmI)) throw new Error('Invalid user ID')
-  } catch (error) {
-    errorToast('Unable to connect to PisaSales', error)
-    throw error
-  }
-
   return {
     pisaUserId: whoAmI._id,
-    salesUserId: whoAmI.salesUserId,
-    serviceUserId: whoAmI.serviceUserId,
+    salesUserId: whoAmI.salesUserId ?? null,
+    serviceUserId: whoAmI.serviceUserId ?? null,
   }
 }
 
@@ -171,52 +162,5 @@ function isNeoletterData(input: unknown): input is NeoletterData {
     isOptionalString(item.name) &&
     isOptionalString(item.phone_number) &&
     isOptionalString(item.salutation)
-  )
-}
-
-interface WhoAmI {
-  _id: string
-  name?: string
-  salutation?: string
-  givenName?: string
-  familyName?: string
-  email?: string
-  position?: string
-  staff?: boolean
-  image?: {
-    _id: string
-    filename: string
-    contentType: string
-    contentLength: number
-  } | null
-  salesUserId?: string | null
-  serviceUserId?: string | null
-}
-
-function isWhoAmI(item: unknown): item is WhoAmI {
-  if (!item) return false
-  if (typeof item !== 'object') return false
-
-  const {
-    _id,
-    name,
-    salutation,
-    givenName,
-    familyName,
-    email,
-    staff,
-    // image, // TODO: Check image as well
-    // salesUserId, // TODO: Check reference more strictly
-    // serviceUserId, // TODO: Check reference more strictly
-  } = item as WhoAmI
-
-  return (
-    typeof _id === 'string' &&
-    isOptionalString(name) &&
-    isOptionalString(salutation) &&
-    isOptionalString(givenName) &&
-    isOptionalString(familyName) &&
-    isOptionalString(email) &&
-    typeof staff === 'boolean'
   )
 }
