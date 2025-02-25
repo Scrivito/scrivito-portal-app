@@ -52,20 +52,18 @@ const ImageOrVideo = connect(function ImageOrVideo({
 
   if (background.contentType().startsWith('video/')) {
     return (
-      <Video
+      <video
+        autoPlay
         className={classNames.join(' ')}
-        contentUrl={background.contentUrl()}
-        contentType={background.contentType()}
-        key={[
-          'SectionWidget',
-          widget.id(),
-          'Video',
-          background.contentUrl(),
-          background.contentType(),
-        ].join('-')} // Ensure the video is reloaded when the content changes
+        key={background.contentUrl()}
+        loop
+        muted
+        playsInline
+        src={background.contentUrl()}
       />
     )
   }
+
   return (
     <InPlaceEditingOff>
       <ImageTag
@@ -75,21 +73,5 @@ const ImageOrVideo = connect(function ImageOrVideo({
         alt=""
       />
     </InPlaceEditingOff>
-  )
-})
-
-const Video = connect(function Video({
-  className,
-  contentType,
-  contentUrl,
-}: {
-  className?: string
-  contentType: string
-  contentUrl: string
-}) {
-  return (
-    <video className={className} autoPlay loop muted playsInline>
-      <source src={contentUrl} type={contentType} />
-    </video>
   )
 })

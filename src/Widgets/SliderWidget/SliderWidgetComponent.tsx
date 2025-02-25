@@ -55,16 +55,14 @@ const ImageOrVideo = connect(function ImageOrVideo({
 
   if (background.contentType().startsWith('video/')) {
     return (
-      <Video
-        contentUrl={background.contentUrl()}
-        contentType={background.contentType()}
-        key={[
-          'SliderWidget',
-          widget.id(),
-          'Video',
-          background.contentUrl(),
-          background.contentType(),
-        ].join('-')} // Ensure the video is reloaded when the content changes
+      <video
+        autoPlay
+        className="img-background"
+        key={background.contentUrl()}
+        loop
+        muted
+        playsInline
+        src={background.contentUrl()}
       />
     )
   }
@@ -78,19 +76,5 @@ const ImageOrVideo = connect(function ImageOrVideo({
         className="img-background"
       />
     </InPlaceEditingOff>
-  )
-})
-
-const Video = connect(function Video({
-  contentType,
-  contentUrl,
-}: {
-  contentType: string
-  contentUrl: string
-}) {
-  return (
-    <video autoPlay loop muted playsInline className="img-background">
-      <source src={contentUrl} type={contentType} />
-    </video>
   )
 })
