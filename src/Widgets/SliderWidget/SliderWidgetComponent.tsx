@@ -15,7 +15,9 @@ import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
   const showControls = widget.get('autoplay') ? widget.get('controls') : true
-  const autoplayInterval = (widget.get('autoplayInterval') ?? 5) * 1000
+  const autoplayInterval = Math.round(
+    (widget.get('autoplayInterval') ?? 5) * 1000,
+  )
 
   return (
     <Carousel
