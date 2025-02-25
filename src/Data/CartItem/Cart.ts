@@ -70,10 +70,7 @@ export function containsItems(): boolean {
 export function numberOfCartItems(): number | null {
   if (!isUserLoggedIn()) return 0 // TODO: remove, once CartItem itself requires a login
 
-  return CartItem.all()
-    .take()
-    .map((item) => Number(item.get('quantity')))
-    .reduce((a, b) => a + b, 0)
+  return CartItem.all().count()
 }
 
 export async function checkoutCart(): Promise<DataItem> {
