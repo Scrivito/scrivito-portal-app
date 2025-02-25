@@ -32,13 +32,22 @@ provideEditingConfig(SliderWidget, {
       title: 'Slides',
     },
   },
-  properties: (widget) => [
-    'slides',
-    'autoplay',
-    ['controls', { enabled: widget.get('autoplay') }],
-    ['autoplayInterval', { enabled: widget.get('autoplay') }],
-    'minHeight',
-    'margin',
+  properties: ['slides', 'minHeight'],
+  propertiesGroups: (widget) => [
+    {
+      title: 'Autoplay',
+      key: 'autoplay-group',
+      properties: [
+        'autoplay',
+        ['autoplayInterval', { enabled: widget.get('autoplay') }],
+        ['controls', { enabled: widget.get('autoplay') }],
+      ],
+    },
+    {
+      title: 'Margin',
+      key: 'margin-group',
+      properties: ['margin'],
+    },
   ],
   initialContent: {
     autoplayInterval: 5,
