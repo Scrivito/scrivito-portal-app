@@ -13,7 +13,7 @@ provideEditingConfig(SliderWidget, {
     },
     autoplayInterval: {
       title: 'Time between slides (in seconds)',
-      description: 'Default: 5.0 seconds',
+      description: 'Default: 5 seconds',
     },
     controls: {
       title: 'Show controls?',
