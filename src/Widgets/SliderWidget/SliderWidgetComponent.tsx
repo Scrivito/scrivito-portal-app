@@ -15,16 +15,14 @@ import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
   const showControls = widget.get('autoplay') ? widget.get('controls') : true
-  const autoplayInterval = Math.round(
-    (widget.get('autoplayInterval') ?? 5) * 1000,
-  )
+  const intervalMs = Math.round((widget.get('autoplayInterval') ?? 5) * 1000)
 
   return (
     <Carousel
       className={`slider-widget ${widget.get('margin') || 'mb-4'}`}
       controls={showControls}
       indicators={showControls}
-      interval={widget.get('autoplay') ? autoplayInterval : null}
+      interval={widget.get('autoplay') ? intervalMs : null}
       keyboard={false}
     >
       {widget
