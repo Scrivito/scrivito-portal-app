@@ -1,13 +1,14 @@
+import { createRestApiClient } from 'scrivito'
 import { isOptionalString } from '../../utils/isOptionalString'
-import { pisaClient } from '../pisaClient'
+import { pisaConfig } from '../pisaClient'
 import { errorToast } from './errorToast'
 
 export async function getWhoAmI(): Promise<WhoAmI | null> {
-  const whoamiClient = await pisaClient('whoami')
-  if (!whoamiClient) return null
+  const whoAmIConfig = await pisaConfig('whoami') // TODO: switch back to pisaClient, once #11616 is resolved
+  if (!whoAmIConfig) return null
 
   try {
-    const whoAmI = await whoamiClient.get('')
+    const whoAmI = await requestPisa(whoAmIConfig.url, whoAmIConfig.headers)
     if (!isWhoAmI(whoAmI)) throw new Error('Invalid user ID')
 
     return whoAmI
@@ -15,6 +16,10 @@ export async function getWhoAmI(): Promise<WhoAmI | null> {
     errorToast('Unable to connect to PisaSales', error)
     throw error
   }
+}
+
+async function requestPisa(url: string, headers: Record<string, string>) {
+  return createRestApiClient(url, { headers }).get('')
 }
 
 interface WhoAmI {
