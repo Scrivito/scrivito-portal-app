@@ -28,14 +28,14 @@
   "_first_published_at": "20230516091834",
   "_id": "fec151165aeb27da",
   "_language": "en",
-  "_last_changed": "20250220104238",
+  "_last_changed": "20250220115822",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/3cc07265490102de",
   "_permalink": null,
-  "_published_at": "20250220104510",
+  "_published_at": "20250220120033",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "202502201200330000000000000000458fedd7e04fb45c",
   "_widget_pool": {
     "74168031": {
       "_obj_class": "HeadlineWidget",
@@ -60,7 +60,7 @@
       ],
       "text": [
         "html",
-        "<p>Products and much more</p>"
+        "<p>Tynacoon's groundbreaking machine sets new industry standards for productivity.</p>"
       ]
     },
     "4bd811c3": {
@@ -92,7 +92,7 @@
       ],
       "headline": [
         "string",
-        "Factory 3000 ​live"
+        "Factory 3000 Live"
       ],
       "style": [
         "string",
@@ -107,7 +107,7 @@
       ],
       "text": [
         "html",
-        "<p>Products and much more</p>"
+        "<p>Tynacoon's latest innovation promises to revolutionize manufacturing processes.</p>"
       ]
     },
     "f9f26331": {
@@ -131,7 +131,7 @@
           "obj_id": "c2a0aab78be05a4e",
           "query": null,
           "target": null,
-          "title": "More Infos",
+          "title": "Read full story",
           "url": null
         }
       ]
@@ -248,7 +248,7 @@
       ],
       "headline": [
         "string",
-        "Maschine 3000"
+        "Breakthrough Machine"
       ]
     },
     "529110e3": {
@@ -264,7 +264,7 @@
           "obj_id": "c2a0aab78be05a4e",
           "query": null,
           "target": null,
-          "title": "Get involved",
+          "title": "Read full story",
           "url": null
         }
       ],
@@ -320,7 +320,7 @@
       ],
       "headline": [
         "string",
-        "New Tynacoon Website"
+        "Website Redesign"
       ]
     },
     "b82bfabd": {
@@ -331,7 +331,7 @@
       ],
       "text": [
         "html",
-        "<p>Products and much more</p>"
+        "<p>Improved user experience and new features enhance online engagement for customers.</p>"
       ]
     },
     "3c469ee5": {
@@ -347,7 +347,7 @@
           "obj_id": "c2a0aab78be05a4e",
           "query": null,
           "target": null,
-          "title": "Get involved",
+          "title": "Read full story",
           "url": null
         }
       ],
@@ -408,13 +408,13 @@
         "string",
         "center"
       ],
-      "style": [
-        "string",
-        "display-6"
-      ],
       "level": [
         "string",
         "h2"
+      ],
+      "style": [
+        "string",
+        "display-6"
       ]
     },
     "aacfa3f9": {

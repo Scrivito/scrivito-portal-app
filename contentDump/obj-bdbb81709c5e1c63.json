@@ -143,14 +143,14 @@
   "_first_published_at": "20240405121103",
   "_id": "bdbb81709c5e1c63",
   "_language": "de",
-  "_last_changed": "20250220104300",
+  "_last_changed": "20250224083949",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250220104510",
+  "_published_at": "20250225133502",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "2025022513350200000000000000005d18e9dd56374674",
   "_widget_pool": {
     "43891776": {
       "_obj_class": "ColumnWidget",
@@ -2550,6 +2550,10 @@
       "min_height": [
         "number",
         566
+      ],
+      "autoplay_interval": [
+        "number",
+        5
       ]
     },
     "ce7fb962": {
@@ -2577,7 +2581,7 @@
       ],
       "col_size": [
         "number",
-        2
+        3
       ]
     },
     "6879b850": {
@@ -2621,7 +2625,11 @@
       ],
       "col_size": [
         "number",
-        10
+        9
+      ],
+      "flex_grow": [
+        "boolean",
+        true
       ]
     },
     "fd9e2fc3": {
@@ -2636,6 +2644,10 @@
       "alignment": [
         "string",
         "start"
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
       ]
     },
     "af79fdce": {
@@ -2650,7 +2662,7 @@
       ],
       "icon": [
         "string",
-        "bi-hourglass-split"
+        "bi-speedometer2"
       ]
     },
     "b661cd8c": {
@@ -2663,7 +2675,7 @@
       ],
       "col_size": [
         "number",
-        2
+        6
       ]
     },
     "fad3a1c7": {
@@ -2703,7 +2715,11 @@
       ],
       "col_size": [
         "number",
-        10
+        6
+      ],
+      "flex_grow": [
+        "boolean",
+        true
       ]
     },
     "21f4f10c": {
@@ -2718,6 +2734,10 @@
       "alignment": [
         "string",
         "start"
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
       ]
     }
   },
