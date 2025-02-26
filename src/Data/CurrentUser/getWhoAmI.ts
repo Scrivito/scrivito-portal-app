@@ -19,7 +19,14 @@ export async function getWhoAmI(): Promise<WhoAmI | null> {
 }
 
 async function requestPisa(url: string, headers: Record<string, string>) {
-  return createRestApiClient(url, { headers }).get('')
+  if (!headers.Authorization) {
+    return createRestApiClient(url, { headers }).get('')
+  }
+
+  const response = await fetch(url, { method: 'GET', headers })
+  if (!response.ok) throw new Error('Failed to fetch WhoAmI')
+
+  return response.json()
 }
 
 interface WhoAmI {
