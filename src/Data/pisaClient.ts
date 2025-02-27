@@ -30,13 +30,10 @@ export async function pisaConfig(subPath: string) {
     'Accept-Language': await load(() => currentLanguage() ?? 'en'),
   }
 
-  const authorization: string | null = getPisaAuthorization()
+  const authorization = getPisaAuthorization()
   if (authorization) headers.Authorization = authorization
 
-  return {
-    url: `${baseUrl}/${subPath}`,
-    headers,
-  }
+  return { url: `${baseUrl}/${subPath}`, headers }
 }
 
 function never() {
