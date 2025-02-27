@@ -12,7 +12,6 @@ import { neoletterClient } from '../neoletterClient'
 import { getPisaAuthorization } from '../getPisaAuthorization'
 import { errorToast } from './errorToast'
 import { getWhoAmI } from './getWhoAmI'
-import { dataBinaryToUrl } from '../../utils/dataBinaryToUrl'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -155,9 +154,7 @@ async function getWhoAmIOnlyUser(): Promise<{
     jrUserId: '',
     name: whoAmI.name ?? '',
     phoneNumber: '',
-    picture: whoAmI.image
-      ? (await dataBinaryToUrl(whoAmI.image)).url
-      : personCircle,
+    picture: personCircle,
     pisaUserId: whoAmI._id,
     salesUserId: whoAmI.salesUserId ?? null,
     salutation: whoAmI.salutation ?? '',
