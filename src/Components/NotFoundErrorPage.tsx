@@ -29,7 +29,7 @@ export const NotFoundErrorPage = connect(
 const NotFound = connect(function NotFound() {
   const root = Obj.root()
 
-  // Workaround for issue #10292
+  // TODO: Remove workaround for issue #10292
   useEffect(() => {
     if (
       RELOAD_SUBPATHS.some(
