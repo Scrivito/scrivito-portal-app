@@ -4,6 +4,7 @@ import {
   ContentTag,
   isEditorLoggedIn,
   isUserLoggedIn,
+  load,
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
@@ -42,13 +43,23 @@ const NotFound = connect(function NotFound() {
     }
   }, [])
 
+  useEffect(() => {
+    redirectIfNeeded()
+
+    async function redirectIfNeeded() {
+      if (await load(() => isEditorLoggedIn())) return
+      if (await load(() => Obj.onAllSites().all().count() > 0)) return
+
+      location.href = `https://edit.scrivito.com/${location.href}`
+    }
+  }, [])
+
   if (!root) {
     return (
       <main id="main">
         <section className="py-1">
           <div className="container">
             <div>Page not found.</div>
-            <GetStartedButton />
           </div>
         </section>
       </main>
@@ -74,20 +85,3 @@ const NotFound = connect(function NotFound() {
     </>
   )
 })
-
-const GetStartedButton = connect(
-  function GetStartedButton() {
-    if (isEditorLoggedIn()) return null
-    if (Obj.onAllSites().all().count() > 0) return null
-
-    return (
-      <a
-        className="btn btn-primary"
-        href={`https://edit.scrivito.com/${location.href}`}
-      >
-        Get started building your website
-      </a>
-    )
-  },
-  { loading: Loading },
-)
