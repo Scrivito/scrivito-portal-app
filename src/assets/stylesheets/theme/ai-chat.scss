@@ -1,0 +1,112 @@
+.ai-chat-button {
+  background: url(../images/chat-illustration.svg) var(--bs-primary) no-repeat
+    center / 70%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: block;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  z-index: 11111;
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transform: scale(1.1);
+  }
+  span {
+    visibility: hidden;
+  }
+}
+
+.ai-offcanvas {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  position: fixed;
+  bottom: 0;
+  z-index: $zindex-offcanvas;
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100% - 30px);
+  color: $offcanvas-color;
+  visibility: hidden;
+  background-color: #fff;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  background-clip: padding-box;
+  outline: 0;
+  transition: all 0.4s ease-in-out;
+
+  height: calc(100% - 30px);
+  margin: 15px;
+  border-radius: 6px;
+
+  position: fixed !important;
+  z-index: 11112;
+}
+
+.ai-offcanvas-footer {
+  border-radius: 0 0 6px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+.ai-offcanvas-header {
+  border-radius: 6px 6px 0 0;
+  color: var(--bs-primary) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  .ai-offcanvas-title * {
+    color: var(--bs-primary);
+    margin: 0;
+  }
+}
+.ai-offcanvas-footer {
+  border-radius: 0 0 5px 5px;
+}
+
+.ai-offcanvas-body {
+  flex-grow: 1;
+  padding: $offcanvas-padding-y $offcanvas-padding-x;
+  overflow-y: auto;
+}
+
+.ai-offcanvas-end {
+  top: 0;
+  right: 0;
+  transform: translateX(110%);
+}
+
+.ai-offcanvas.show {
+  transform: none;
+}
+
+@keyframes ai-ani {
+  0% {
+    border-color: rgba(0, 182, 248, 0.875);
+  }
+  50% {
+    border-color: rgba(40, 91, 243, 0.915);
+  }
+  100% {
+    border-color: rgba(0, 182, 248, 0.875);
+  }
+}
+
+@media (max-width: 800px) {
+  .ai-offcanvas {
+    width: 400px;
+  }
+}
+
+@media (max-width: 576px) {
+  .ai-offcanvas {
+    width: 100%;
+  }
+}
