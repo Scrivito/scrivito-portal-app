@@ -3,10 +3,12 @@ import {
   ContentTag,
   currentPage,
   isEditorLoggedIn,
+  LinkTag,
   Obj,
 } from 'scrivito'
 import { Loading } from './Loading'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
+import { ensureString } from '../utils/ensureString'
 
 export const SinglePageSite = connect(
   function SinglePageSite({ children }: { children: React.ReactNode }) {
@@ -29,8 +31,13 @@ export const SinglePageSite = connect(
               aria-hidden="true"
             ></i>
             <div className="my-auto mx-2">
-              <b>Editor note:</b> This page is not visible for visitors and
-              logged-in users, due to the &quot;Single page site&quot; setting.
+              <b>Editor note:</b> This page is hidden from both visitors and
+              logged-in users because the “Single page site” setting is
+              currently set to “
+              <LinkTag to={singeSitePage}>
+                {ensureString(singeSitePage.get('title'))}
+              </LinkTag>
+              ”.
             </div>
           </div>
 
