@@ -35,6 +35,14 @@ export async function subtractFromCart(
   return item?.update({ quantity: quantity - 1 })
 }
 
+export async function updateQuantityInCart(
+  product: ProductInstance,
+  quantity: number,
+): Promise<void> {
+  const item = await load(() => findInCart(product))
+  return item?.update({ quantity })
+}
+
 export async function removeFromCart(product: ProductInstance): Promise<void> {
   const productId = product.id()
 
