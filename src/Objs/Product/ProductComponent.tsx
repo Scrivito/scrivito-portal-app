@@ -19,6 +19,7 @@ import {
   quantityInCart,
   removeFromCart,
   subtractFromCart,
+  updateQuantityInCart,
 } from '../../Data/CartItem/Cart'
 
 provideComponent(Product, ({ page }) => {
@@ -214,43 +215,51 @@ const CartActionButton = connect(function CartActionButton({
   const quantity = quantityInCart(product)
   if (quantity) {
     return (
-      <>
-        <button
-          aria-label="-"
-          className="btn btn-sm btn-primary my-1"
-          disabled={quantity < 2}
-          onClick={async () => {
-            await subtractFromCart(product)
-            toast.info(cartRemovedMessage)
-          }}
-        >
-          <i className="bi bi-dash-lg px-0" />
-        </button>
-
-        <strong className="px-2">{quantity}</strong>
-
-        <button
-          aria-label="+"
-          className="btn btn-sm btn-primary my-1 me-5"
-          onClick={async () => {
-            await addToCart(product)
-            toast.success(cartAddedMessage)
-          }}
-        >
-          <i className="bi bi-plus-lg px-0" />
-        </button>
-
-        <button
-          className="btn btn-sm btn-primary my-1"
-          onClick={() => {
-            removeFromCart(product)
-            toast.info(cartRemovedMessage)
-          }}
-        >
-          <i className="bi bi-x-lg"></i>
-          {cartRemoveLabel}
-        </button>
-      </>
+      <div className="row mt-0 mb-1 g-1">
+        <div className="col-auto">
+          <div className="input-group input-group-sm flex-nowrap">
+            <button
+              aria-label="-"
+              className="btn btn-primary"
+              disabled={quantity < 2}
+              onClick={() => subtractFromCart(product)}
+            >
+              <i className="bi bi-dash-lg px-0" />
+            </button>
+            <input
+              className="form-control text-center flex-grow-0 w-25"
+              defaultValue={quantity}
+              key={quantity}
+              min={1}
+              onBlur={async (e) => {
+                const quantity = Math.floor(Number(e.target.value))
+                if (quantity > 0) updateQuantityInCart(product, quantity)
+              }}
+              step={1}
+              type="number"
+            />
+            <button
+              aria-label="+"
+              className="btn btn-primary"
+              onClick={() => addToCart(product)}
+            >
+              <i className="bi bi-plus-lg px-0" />
+            </button>
+          </div>
+        </div>
+        <div className="col-auto">
+          <button
+            className="btn btn-sm btn-primary"
+            onClick={() => {
+              removeFromCart(product)
+              toast.info(cartRemovedMessage)
+            }}
+          >
+            <i className="bi bi-x-lg"></i>
+            {cartRemoveLabel}
+          </button>
+        </div>
+      </div>
     )
   }
 
