@@ -2,8 +2,11 @@ import { Obj, urlFor, extractText } from 'scrivito'
 import { truncate } from 'lodash-es'
 import { ensureString } from './ensureString'
 import { isImage } from '../Objs/Image/ImageObjClass'
+import { isDropdown } from '../Objs/Dropdown/DropdownObjClass'
 
 export function getMetadata(page: Obj) {
+  if (isDropdown(page)) return [{ name: 'robots', content: 'noindex' }]
+
   const meta = [
     { name: 'twitter:card', content: 'summary_large_image' },
     { property: 'og:type', content: 'article' },
