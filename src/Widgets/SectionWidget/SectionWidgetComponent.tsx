@@ -50,23 +50,28 @@ const ImageOrVideo = connect(function ImageOrVideo({
   const classNames = ['img-background']
   if (widget.get('backgroundAnimateOnHover')) classNames.push('img-zoom')
 
-  return (
-    // Check is a working around for issue #4767
-    // TODO: remove work around
-    background.contentType().startsWith('video/') &&
-      background.contentUrl().startsWith('https://') ? (
-      <video className={classNames.join(' ')} autoPlay loop muted playsInline>
-        <source src={background.contentUrl()} type={background.contentType()} />
-      </video>
-    ) : (
-      <InPlaceEditingOff>
-        <ImageTag
-          content={widget}
-          attribute="backgroundImage"
-          className={classNames.join(' ')}
-          alt=""
-        />
-      </InPlaceEditingOff>
+  if (background.contentType().startsWith('video/')) {
+    return (
+      <video
+        autoPlay
+        className={classNames.join(' ')}
+        key={background.contentUrl()}
+        loop
+        muted
+        playsInline
+        src={background.contentUrl()}
+      />
     )
+  }
+
+  return (
+    <InPlaceEditingOff>
+      <ImageTag
+        content={widget}
+        attribute="backgroundImage"
+        className={classNames.join(' ')}
+        alt=""
+      />
+    </InPlaceEditingOff>
   )
 })

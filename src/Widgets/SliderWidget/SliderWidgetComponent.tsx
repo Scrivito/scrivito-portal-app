@@ -15,13 +15,14 @@ import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
   const showControls = widget.get('autoplay') ? widget.get('controls') : true
+  const intervalMs = Math.round((widget.get('autoplayInterval') ?? 5) * 1000)
 
   return (
     <Carousel
       className={`slider-widget ${widget.get('margin') || 'mb-4'}`}
       controls={showControls}
       indicators={showControls}
-      interval={widget.get('autoplay') ? 5000 : null}
+      interval={widget.get('autoplay') ? intervalMs : null}
       keyboard={false}
     >
       {widget
@@ -45,32 +46,36 @@ provideComponent(SliderWidget, ({ widget }) => {
   )
 })
 
-const ImageOrVideo = connect(
-  function ImageOrVideo({ widget }: { widget: SlideWidgetInstance }) {
-    const background = widget.get('background')
-    if (!background) return null
+const ImageOrVideo = connect(function ImageOrVideo({
+  widget,
+}: {
+  widget: SlideWidgetInstance
+}) {
+  const background = widget.get('background')
+  if (!background) return null
 
-    if (background.contentType().startsWith('video/')) {
-      return (
-        <video autoPlay loop muted playsInline className="img-background">
-          <source
-            src={background.contentUrl()}
-            type={background.contentType()}
-          />
-        </video>
-      )
-    }
-
+  if (background.contentType().startsWith('video/')) {
     return (
-      <InPlaceEditingOff>
-        <ImageTag
-          content={widget}
-          attribute="background"
-          alt=""
-          className="img-background"
-        />
-      </InPlaceEditingOff>
+      <video
+        autoPlay
+        className="img-background"
+        key={background.contentUrl()}
+        loop
+        muted
+        playsInline
+        src={background.contentUrl()}
+      />
     )
-  },
-  { loading: () => null },
-)
+  }
+
+  return (
+    <InPlaceEditingOff>
+      <ImageTag
+        content={widget}
+        attribute="background"
+        alt=""
+        className="img-background"
+      />
+    </InPlaceEditingOff>
+  )
+})

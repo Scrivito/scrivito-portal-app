@@ -1,26 +1,7 @@
-import { provideComponent, isEditorLoggedIn, load, Obj, urlFor } from 'scrivito'
+import { provideComponent, isEditorLoggedIn, Obj, ContentTag } from 'scrivito'
 import { Dropdown } from './DropdownObjClass'
-import { useEffect } from 'react'
 
-provideComponent(Dropdown, ({ page }) => {
-  useEffect(() => {
-    navigateAway()
-
-    async function navigateAway() {
-      if (isEditorLoggedIn()) return
-
-      const destination =
-        (await load(() => page.orderedChildren()[0])) ||
-        (await load(() => page.parent())) ||
-        (await load(() => Obj.root()))
-
-      if (!destination) return
-
-      const url = await load(() => urlFor(destination))
-      window.location.replace(url)
-    }
-  }, [page])
-
+provideComponent(Dropdown, () => {
   if (isEditorLoggedIn()) {
     return (
       <main id="main">
@@ -40,5 +21,12 @@ provideComponent(Dropdown, ({ page }) => {
     )
   }
 
-  return null
+  return (
+    <ContentTag
+      tag="main"
+      id="main"
+      content={Obj.root()}
+      attribute="siteNotFound"
+    />
+  )
 })
