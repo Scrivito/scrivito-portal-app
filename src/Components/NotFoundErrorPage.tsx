@@ -44,9 +44,9 @@ const NotFound = connect(function NotFound() {
   }, [])
 
   useEffect(() => {
-    redirectIfNeeded()
+    beginEditingIfContentIsEmpty()
 
-    async function redirectIfNeeded() {
+    async function beginEditingIfContentIsEmpty() {
       if (await load(() => isEditorLoggedIn())) return
       if (await load(() => Obj.onAllSites().all().count() > 0)) return
 
