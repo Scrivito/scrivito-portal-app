@@ -4,6 +4,7 @@ import {
   ContentTag,
   isEditorLoggedIn,
   isUserLoggedIn,
+  load,
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
@@ -29,7 +30,7 @@ export const NotFoundErrorPage = connect(
 const NotFound = connect(function NotFound() {
   const root = Obj.root()
 
-  // Workaround for issue #10292
+  // TODO: Remove workaround for issue #10292
   useEffect(() => {
     if (
       RELOAD_SUBPATHS.some(
@@ -42,13 +43,23 @@ const NotFound = connect(function NotFound() {
     }
   }, [])
 
+  useEffect(() => {
+    beginEditingIfContentIsEmpty()
+
+    async function beginEditingIfContentIsEmpty() {
+      if (await load(() => isEditorLoggedIn())) return
+      if (await load(() => Obj.onAllSites().all().count() > 0)) return
+
+      location.href = `https://edit.scrivito.com/${location.href}`
+    }
+  }, [])
+
   if (!root) {
     return (
       <main id="main">
         <section className="py-1">
           <div className="container">
             <div>Page not found.</div>
-            <GetStartedButton />
           </div>
         </section>
       </main>
@@ -74,20 +85,3 @@ const NotFound = connect(function NotFound() {
     </>
   )
 })
-
-const GetStartedButton = connect(
-  function GetStartedButton() {
-    if (isEditorLoggedIn()) return null
-    if (Obj.onAllSites().all().count() > 0) return null
-
-    return (
-      <a
-        className="btn btn-primary"
-        href={`https://edit.scrivito.com/${location.href}`}
-      >
-        Get started building your website
-      </a>
-    )
-  },
-  { loading: Loading },
-)
