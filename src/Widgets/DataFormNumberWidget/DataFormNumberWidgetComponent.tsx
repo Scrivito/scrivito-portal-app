@@ -7,6 +7,7 @@ import {
 
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
+import { useEffect, useState } from 'react'
 
 provideComponent(DataFormNumberWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
@@ -15,8 +16,15 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
   const value = useData().dataItemAttribute()?.get()
   const defaultValue = typeof value === 'number' ? value : undefined
 
+  const [hasFocus, setHasFocus] = useState(false)
+  const [key, setKey] = useState([id, defaultValue].join('-'))
+
+  useEffect(() => {
+    if (!hasFocus) setKey([id, defaultValue].join('-'))
+  }, [defaultValue, hasFocus, id])
+
   return (
-    <div className="mb-3" key={[id, defaultValue].join('-')}>
+    <div className="mb-3" key={key}>
       <ContentTag
         content={widget}
         attribute="label"
@@ -61,6 +69,8 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
         defaultValue={defaultValue}
         id={id}
         name={attributeName ?? ''}
+        onBlur={() => setHasFocus(false)}
+        onFocus={() => setHasFocus(true)}
         placeholder={widget.get('placeholder')}
         required={widget.get('required')}
         type="number"
