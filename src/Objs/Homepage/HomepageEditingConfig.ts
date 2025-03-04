@@ -71,6 +71,11 @@ provideEditingConfig(Homepage, {
       description:
         'If your chosen font supports multiple weights, pick the one that best fits your design. Default: 500',
     },
+    siteSinglePage: {
+      title: 'Single page site',
+      description:
+        'If activated, only the selected page will be accessible, even for logged-in users. All other pages will display a 404 not found page.',
+    },
   },
   propertiesGroups: (site) => [
     {
@@ -89,6 +94,7 @@ provideEditingConfig(Homepage, {
         'siteRoundedCorners',
         'siteFacebookAppId',
         'siteTwitterSite',
+        'siteSinglePage',
       ].filter((p): p is string => typeof p === 'string'),
       key: 'site-settings-group',
     },

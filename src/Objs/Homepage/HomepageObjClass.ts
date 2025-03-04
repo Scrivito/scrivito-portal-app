@@ -36,6 +36,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
     siteRoundedCorners: 'boolean',
     siteSearchResultsPage: 'reference',
+    siteSinglePage: 'reference',
     siteTwitterSite: 'string',
     siteUserProfilePage: 'reference',
   },
