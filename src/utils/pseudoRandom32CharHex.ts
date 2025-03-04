@@ -1,7 +1,12 @@
 import { times } from 'lodash-es'
 
 export function pseudoRandom32CharHex(): string {
-  return times(32).map(pseudoRandomHex).join('')
+  return pseudoRandomCharHex(32)
+}
+
+export function pseudoRandomCharHex(length: number): string {
+  if (length < 1) return ''
+  return times(length).map(pseudoRandomHex).join('')
 }
 
 function pseudoRandomHex() {
