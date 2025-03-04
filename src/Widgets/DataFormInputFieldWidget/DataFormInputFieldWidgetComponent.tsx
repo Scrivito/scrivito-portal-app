@@ -9,11 +9,10 @@ import { DataFormInputFieldWidget } from './DataFormInputFieldWidgetClass'
 
 provideComponent(DataFormInputFieldWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
-  const elementId = useData().dataItem()?.id()
   const id = [
     'DataFormInputFieldWidget',
     widget.id(),
-    elementId,
+    useData().dataItem()?.id(),
     attributeName,
   ].join('-')
 

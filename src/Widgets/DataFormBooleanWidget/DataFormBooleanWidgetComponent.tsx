@@ -10,11 +10,10 @@ import './DataFormBooleanWidget.scss'
 
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
-  const elementId = useData().dataItem()?.id()
   const id = [
     'DataFormBooleanWidget',
     widget.id(),
-    elementId,
+    useData().dataItem()?.id(),
     attributeName,
   ].join('-')
   const value = useData().dataItemAttribute()?.get()

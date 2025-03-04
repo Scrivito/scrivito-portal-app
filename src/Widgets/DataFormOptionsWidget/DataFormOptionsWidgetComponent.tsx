@@ -12,11 +12,10 @@ import { Loading } from '../../Components/Loading'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
-  const elementId = useData().dataItem()?.id()
   const id = [
     'DataFormOptionsWidget',
     widget.id(),
-    elementId,
+    useData().dataItem()?.id(),
     attributeName,
   ].join('-')
 
