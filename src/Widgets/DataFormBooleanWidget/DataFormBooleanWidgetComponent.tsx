@@ -7,20 +7,16 @@ import {
 import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import './DataFormBooleanWidget.scss'
-import { pseudoRandomCharHex } from '../../utils/pseudoRandom32CharHex'
-
-const ElementIdLength = 6
 
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
-  const randomElementId = pseudoRandomCharHex(ElementIdLength)
+  const elementId = useData().dataItem()?.id()
   const id = [
     'DataFormBooleanWidget',
     widget.id(),
-    randomElementId,
+    elementId,
     attributeName,
   ].join('-')
-
   const value = useData().dataItemAttribute()?.get()
   const defaultChecked =
     typeof value === 'boolean' ? value : widget.get('defaultValue')

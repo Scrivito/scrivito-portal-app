@@ -12,7 +12,13 @@ import { Loading } from '../../Components/Loading'
 
 provideComponent(DataFormOptionsWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
-  const id = ['DataFormOptionsWidget', widget.id(), attributeName].join('-')
+  const elementId = useData().dataItem()?.id()
+  const id = [
+    'DataFormOptionsWidget',
+    widget.id(),
+    elementId,
+    attributeName,
+  ].join('-')
 
   const value = useData().dataItemAttribute()?.get()
   const defaultValue =
