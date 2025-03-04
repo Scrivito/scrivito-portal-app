@@ -1,4 +1,10 @@
-import { Obj, createRestApiClient, currentLanguage, load } from 'scrivito'
+import {
+  Obj,
+  createRestApiClient,
+  currentLanguage,
+  isUserLoggedIn,
+  load,
+} from 'scrivito'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { getPisaAuthorization } from './getPisaAuthorization'
 
@@ -30,8 +36,10 @@ export async function pisaConfig(subPath: string) {
     'Accept-Language': await load(() => currentLanguage() ?? 'en'),
   }
 
-  const authorization = getPisaAuthorization()
-  if (authorization) headers.Authorization = authorization
+  if (!isUserLoggedIn()) {
+    const authorization = getPisaAuthorization()
+    if (authorization) headers.Authorization = authorization
+  }
 
   return { url: `${baseUrl}/${subPath}`, headers }
 }

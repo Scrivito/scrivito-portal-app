@@ -11,7 +11,7 @@ import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
 import { getPisaAuthorization } from '../getPisaAuthorization'
 import { errorToast } from './errorToast'
-import { getWhoAmI } from './getWhoAmI'
+import { getWhoAmI, verifySameWhoAmIUser } from './getWhoAmI'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -64,10 +64,12 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       : 'Current user',
   connection: {
     async get() {
-      if (getPisaAuthorization()) return getWhoAmIOnlyUser()
-
       const user = await load(currentUser)
-      if (!user) return null
+      if (!user) {
+        return getPisaAuthorization() ? getWhoAmIOnlyUser() : null
+      }
+
+      verifySameWhoAmIUser(user.email(), getPisaAuthorization())
 
       let neoletterProfile
       try {
