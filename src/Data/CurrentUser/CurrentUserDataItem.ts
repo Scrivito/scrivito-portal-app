@@ -78,7 +78,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
           throw new Error('Invalid user profile')
         }
       } catch (error) {
-        errorToast('Unable to connect to Neoletter', error)
+        errorToast('Failed to fetch user profile', error)
         throw error
       }
 

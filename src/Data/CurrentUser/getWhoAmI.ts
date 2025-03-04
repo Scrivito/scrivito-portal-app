@@ -13,7 +13,7 @@ export async function getWhoAmI(): Promise<WhoAmI | null> {
 
     return whoAmI
   } catch (error) {
-    errorToast('Unable to connect to PisaSales', error)
+    errorToast('Failed to fetch whoami', error)
     throw error
   }
 }

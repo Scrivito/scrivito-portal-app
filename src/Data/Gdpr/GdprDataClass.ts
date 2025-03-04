@@ -43,7 +43,7 @@ export const Gdpr = provideDataClass(
             const error = new DataConnectionError(
               'Failed to fetch GDPR consent',
             )
-            errorToast('Unable to connect to PisaSales', error)
+            errorToast(error.message, new Error(''))
             throw error
           }
 
@@ -59,7 +59,7 @@ export const Gdpr = provideDataClass(
             const error = new DataConnectionError(
               'Failed to update GDPR consent',
             )
-            errorToast('Unable to connect to PisaSales', error)
+            errorToast(error.message, new Error(''))
             throw error
           }
 
