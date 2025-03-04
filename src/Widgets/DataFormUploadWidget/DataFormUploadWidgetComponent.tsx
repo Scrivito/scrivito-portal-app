@@ -15,8 +15,11 @@ import prettyBytes from 'pretty-bytes'
 const MAX_FILE_SIZE = 50 * 1000 * 1000
 
 provideComponent(DataFormUploadWidget, ({ widget }) => {
-  const elementId = useData().dataItem()?.id()
-  const id = ['DataFormUploadWidget', widget.id(), elementId].join('-')
+  const id = [
+    'DataFormUploadWidget',
+    widget.id(),
+    useData().dataItem()?.id(),
+  ].join('-')
   const attributeName = useData().attributeName()
   const [isTooLarge, setIsTooLarge] = useState(false)
 
