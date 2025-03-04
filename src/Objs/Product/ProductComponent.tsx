@@ -227,7 +227,7 @@ const CartActionButton = connect(function CartActionButton({
               <i className="bi bi-dash-lg px-0" />
             </button>
             <input
-              className="form-control text-center flex-grow-0 w-25"
+              className="form-control text-center flex-grow-0 w-25 no-arrows"
               defaultValue={quantity}
               key={quantity}
               min={1}

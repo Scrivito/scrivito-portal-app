@@ -232,6 +232,15 @@ fieldset:disabled .btn {
     border-radius: var(--jr-border-radius);
     background: var(--light-grey);
     border-right: 0;
+
+    &.no-arrows {
+      appearance: textfield;
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        appearance: none;
+        margin: 0;
+      }
+    }
   }
 }
 .bg-light-grey {
