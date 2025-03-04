@@ -10,7 +10,12 @@ import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
 
 provideComponent(DataFormNumberWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
-  const id = ['DataFormNumberWidget', widget.id(), attributeName].join('-')
+  const id = [
+    'DataFormNumberWidget',
+    widget.id(),
+    useData().dataItem()?.id(),
+    attributeName,
+  ].join('-')
 
   const value = useData().dataItemAttribute()?.get()
   const defaultValue = typeof value === 'number' ? value : undefined

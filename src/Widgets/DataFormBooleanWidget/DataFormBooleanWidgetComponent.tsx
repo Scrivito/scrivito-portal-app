@@ -10,8 +10,12 @@ import './DataFormBooleanWidget.scss'
 
 provideComponent(DataFormBooleanWidget, ({ widget }) => {
   const attributeName = useData().attributeName()
-  const id = ['DataFormBooleanWidget', widget.id(), attributeName].join('-')
-
+  const id = [
+    'DataFormBooleanWidget',
+    widget.id(),
+    useData().dataItem()?.id(),
+    attributeName,
+  ].join('-')
   const value = useData().dataItemAttribute()?.get()
   const defaultChecked =
     typeof value === 'boolean' ? value : widget.get('defaultValue')
