@@ -15,12 +15,11 @@ import {
 } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
 import { ProductPreview } from './ProductPreviewComponent'
 import {
-  addToCart,
   quantityInCart,
   removeFromCart,
-  subtractFromCart,
   updateQuantityInCart,
 } from '../../Data/CartItem/Cart'
+import { useCallback, useRef } from 'react'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -186,6 +185,23 @@ const CartActionButton = connect(function CartActionButton({
 }: {
   product: ProductInstance
 }) {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const onChange = useCallback(() => {
+    const quantity = Math.floor(Number(inputRef.current?.value))
+    if (quantity > 0) updateQuantityInCart(product, quantity)
+  }, [inputRef, product])
+
+  const down = useCallback(() => {
+    inputRef.current?.stepDown()
+    onChange()
+  }, [inputRef, onChange])
+
+  const up = useCallback(() => {
+    inputRef.current?.stepUp()
+    onChange()
+  }, [inputRef, onChange])
+
   const productTitle = product.get('title')
 
   function getMessage(attribute: keyof (typeof LOCALIZERS)['en']) {
@@ -222,27 +238,20 @@ const CartActionButton = connect(function CartActionButton({
               aria-label="-"
               className="btn btn-primary"
               disabled={quantity < 2}
-              onClick={() => subtractFromCart(product)}
+              onClick={down}
             >
               <i className="bi bi-dash-lg px-0" />
             </button>
             <input
               className="form-control text-center flex-grow-0 w-25 no-arrows"
               defaultValue={quantity}
-              key={quantity}
               min={1}
-              onBlur={async (e) => {
-                const quantity = Math.floor(Number(e.target.value))
-                if (quantity > 0) updateQuantityInCart(product, quantity)
-              }}
+              onChange={onChange}
+              ref={inputRef}
               step={1}
               type="number"
             />
-            <button
-              aria-label="+"
-              className="btn btn-primary"
-              onClick={() => addToCart(product)}
-            >
+            <button aria-label="+" className="btn btn-primary" onClick={up}>
               <i className="bi bi-plus-lg px-0" />
             </button>
           </div>
@@ -267,7 +276,7 @@ const CartActionButton = connect(function CartActionButton({
     <button
       className="btn btn-sm btn-primary my-1"
       onClick={async () => {
-        await addToCart(product)
+        await updateQuantityInCart(product, 1)
         toast.success(cartAddedMessage)
       }}
     >

@@ -10,37 +10,19 @@ import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
 import { ensureString } from '../../utils/ensureString'
 
-export async function addToCart(product: ProductInstance): Promise<void> {
-  const item = await load(() => findInCart(product))
-
-  if (item) {
-    item.update({ quantity: Number(item.get('quantity')) + 1 })
-    return
-  }
-
-  const productId = product.id()
-
-  await CartItem.create({
-    product: productId,
-    quantity: 1,
-    title: product.get('title'),
-  })
-}
-
-export async function subtractFromCart(
-  product: ProductInstance,
-): Promise<void> {
-  const item = await load(() => findInCart(product))
-  const quantity = Number(item?.get('quantity'))
-  return item?.update({ quantity: quantity - 1 })
-}
-
 export async function updateQuantityInCart(
   product: ProductInstance,
   quantity: number,
 ): Promise<void> {
   const item = await load(() => findInCart(product))
-  return item?.update({ quantity })
+
+  if (item) return item.update({ quantity })
+
+  await CartItem.create({
+    product: product.id(),
+    quantity,
+    title: product.get('title'),
+  })
 }
 
 export async function removeFromCart(product: ProductInstance): Promise<void> {
