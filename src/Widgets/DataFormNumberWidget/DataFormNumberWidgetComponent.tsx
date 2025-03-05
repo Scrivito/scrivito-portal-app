@@ -10,6 +10,9 @@ import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
 import { useEffect, useState } from 'react'
 
 provideComponent(DataFormNumberWidget, ({ widget }) => {
+  const max = widget.get('maxValue') ?? undefined
+  const min = widget.get('minValue') ?? undefined
+
   const attributeName = useData().attributeName()
   const id = ['DataFormNumberWidget', widget.id(), attributeName].join('-')
 
@@ -74,8 +77,8 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
         placeholder={widget.get('placeholder')}
         required={widget.get('required')}
         type="number"
-        min={widget.get('minValue') ?? undefined}
-        max={widget.get('maxValue') ?? undefined}
+        min={min}
+        max={max}
         step={widget.get('stepValue') ?? undefined}
       />
     </div>
