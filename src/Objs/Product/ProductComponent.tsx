@@ -214,6 +214,7 @@ const CartActionButton = connect(function CartActionButton({
   const cartRemoveLabel = getMessage('cartRemoveLabel')
   const cartLoginLabel = getMessage('cartLoginLabel')
   const cartUnavailableMessage = getMessage('cartUnavailableMessage')
+  const quantityLabel = getMessage('quantityLabel')
 
   if (!isUserLoggedIn()) {
     return (
@@ -249,6 +250,7 @@ const CartActionButton = connect(function CartActionButton({
               onChange={onChange}
               ref={inputRef}
               step={1}
+              title={quantityLabel}
               type="number"
             />
             <button aria-label="+" className="btn btn-primary" onClick={up}>
@@ -332,6 +334,7 @@ const LOCALIZERS = {
     data: 'Daten',
     description: 'Beschreibung',
     downloads: 'Downloads',
+    quantityLabel: 'Anzahl',
     suitableAccessories: 'Passendes Zubehör',
   },
   en: {
@@ -344,6 +347,7 @@ const LOCALIZERS = {
     data: 'Data',
     description: 'Description',
     downloads: 'Downloads',
+    quantityLabel: 'Quantity',
     suitableAccessories: 'Suitable accessories',
   },
   fr: {
@@ -357,6 +361,7 @@ const LOCALIZERS = {
     data: 'Données',
     description: 'Description',
     downloads: 'Téléchargements',
+    quantityLabel: 'Quantité',
     suitableAccessories: 'Accessoires appropriés',
   },
   pl: {
@@ -369,6 +374,7 @@ const LOCALIZERS = {
     data: 'Dane',
     description: 'Opis',
     downloads: 'Pobrania',
+    quantityLabel: 'Ilość',
     suitableAccessories: 'Odpowiednie akcesoria',
   },
 }
