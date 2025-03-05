@@ -7,7 +7,7 @@ import {
 
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 provideComponent(DataFormNumberWidget, ({ widget }) => {
   const max = widget.get('maxValue') ?? undefined
@@ -25,6 +25,12 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
   useEffect(() => {
     if (!hasFocus) setKey([id, defaultValue].join('-'))
   }, [defaultValue, hasFocus, id])
+
+  const inputRef = useRef<HTMLInputElement>(null)
+  const down = useCallback(() => inputRef.current?.stepDown(), [inputRef])
+  const up = useCallback(() => inputRef.current?.stepUp(), [inputRef])
+
+  const hasValue = defaultValue !== undefined
 
   return (
     <div className="mb-3" key={key}>
@@ -67,20 +73,39 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
         </>
       ) : null}
       <br />
-      <input
-        className="form-control"
-        defaultValue={defaultValue}
-        id={id}
-        name={attributeName ?? ''}
-        onBlur={() => setHasFocus(false)}
-        onFocus={() => setHasFocus(true)}
-        placeholder={widget.get('placeholder')}
-        required={widget.get('required')}
-        type="number"
-        min={min}
-        max={max}
-        step={widget.get('stepValue') ?? undefined}
-      />
+      <div className="input-group flex-nowrap">
+        <button
+          aria-label="-"
+          className="btn btn-primary btn-sm"
+          disabled={hasValue && min !== undefined && defaultValue <= min}
+          onClick={down}
+        >
+          <i className="bi bi-dash-lg px-0 text-white" />
+        </button>
+        <input
+          className="form-control text-center no-arrows"
+          defaultValue={defaultValue}
+          id={id}
+          max={max}
+          min={min}
+          name={attributeName ?? ''}
+          onBlur={() => setHasFocus(false)}
+          onFocus={() => setHasFocus(true)}
+          placeholder={widget.get('placeholder')}
+          ref={inputRef}
+          required={widget.get('required')}
+          step={widget.get('stepValue') ?? undefined}
+          type="number"
+        />
+        <button
+          aria-label="+"
+          className="btn btn-primary btn-sm"
+          disabled={hasValue && max !== undefined && defaultValue >= max}
+          onClick={up}
+        >
+          <i className="bi bi-plus-lg px-0 text-white" />
+        </button>
+      </div>
     </div>
   )
 })
