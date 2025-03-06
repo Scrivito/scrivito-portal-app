@@ -21,15 +21,21 @@ export const Gdpr = provideDataClass(
           connection: {
             async index(params) {
               if (Object.keys(params.filters()).length > 0) {
-                throw new Error('GDPR consent does not support filtering.')
+                throw new DataConnectionError(
+                  'GDPR consent does not support filtering.',
+                )
               }
 
               if (params.order().length > 0) {
-                throw new Error('GDPR consent does not support sorting.')
+                throw new DataConnectionError(
+                  'GDPR consent does not support sorting.',
+                )
               }
 
               if (params.search()) {
-                throw new Error('GDPR consent does not support searching.')
+                throw new DataConnectionError(
+                  'GDPR consent does not support searching.',
+                )
               }
 
               const urlParams = new URLSearchParams()
