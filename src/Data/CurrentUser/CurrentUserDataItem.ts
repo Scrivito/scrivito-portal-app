@@ -2,6 +2,7 @@ import {
   currentLanguage,
   currentUser,
   DataAttributeDefinitions,
+  DataConnectionError,
   load,
   provideDataItem,
 } from 'scrivito'
@@ -89,7 +90,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       try {
         neoletterProfile = await neoletterClient().get('my/profile')
         if (!isNeoletterData(neoletterProfile)) {
-          throw new Error('Invalid user profile')
+          throw new DataConnectionError('Invalid user profile')
         }
       } catch (error) {
         errorToast('Failed to fetch user profile', error)
@@ -116,7 +117,9 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       }
     },
     async update(params) {
-      if (getPisaAuthorization()) throw new Error('Update not supported.')
+      if (getPisaAuthorization()) {
+        throw new DataConnectionError('Update not supported.')
+      }
 
       const {
         company,
@@ -128,7 +131,9 @@ export const CurrentUser = provideDataItem('CurrentUser', {
         ...otherArgs
       } = params
       if (Object.keys(otherArgs).length > 0) {
-        throw new Error(`Unknown keys - ${Object.keys(otherArgs).join(', ')}`)
+        throw new DataConnectionError(
+          `Unknown keys - ${Object.keys(otherArgs).join(', ')}`,
+        )
       }
 
       await neoletterClient().put('my/profile', {
