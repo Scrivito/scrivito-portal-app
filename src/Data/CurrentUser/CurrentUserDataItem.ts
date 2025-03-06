@@ -13,6 +13,7 @@ import { neoletterClient } from '../neoletterClient'
 import { getTokenAuthorization } from '../getTokenAuthorization'
 import { errorToast } from './errorToast'
 import { getWhoAmI, verifySameWhoAmIUser } from './getWhoAmI'
+import { pisaClient } from '../pisaClient'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -155,13 +156,31 @@ async function pisaIds(): Promise<{
   salesUserId: string | null
   serviceUserId: string | null
 }> {
-  return (
-    (await getWhoAmI()) ?? {
+  const whoamiClient = await pisaClient('whoami')
+  if (!whoamiClient) {
+    return {
       pisaUserId: 'F87BDC400E41D630E030A8C00D01158A',
       salesUserId: '052601BEBCEC39C8E040A8C00D0107AC',
       serviceUserId: 'D456ACF6FF405922E030A8C02A010C68',
     }
-  )
+  }
+
+  try {
+    const whoAmI = (await whoamiClient.get('')) as {
+      _id: string
+      salesUserId?: string
+      serviceUserId?: string
+    }
+
+    return {
+      pisaUserId: whoAmI._id,
+      salesUserId: whoAmI.salesUserId ?? null,
+      serviceUserId: whoAmI.serviceUserId ?? null,
+    }
+  } catch (error) {
+    errorToast('Unable to connect to PisaSales', error)
+    throw error
+  }
 }
 
 interface NeoletterData {
