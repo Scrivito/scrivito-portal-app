@@ -31,6 +31,7 @@ export async function getWhoAmI(): Promise<WhoAmI | null> {
   }
 }
 
+// TODO: Switch function to pisaClient, once #11616 is resolved
 export async function verifySameWhoAmIUser(
   email: string,
   pisaAuthorization: string | null,
@@ -60,6 +61,7 @@ export async function verifySameWhoAmIUser(
   )
 }
 
+// TODO: Remove function, once #11616 is resolved
 async function requestPisa(url: string, headers: Record<string, string>) {
   if (!headers.Authorization) {
     return createRestApiClient(url, { headers }).get('')
