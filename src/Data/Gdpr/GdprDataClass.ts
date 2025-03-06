@@ -1,6 +1,5 @@
 import { DataConnectionError, provideDataClass } from 'scrivito'
 import { pisaConfig } from '../pisaClient'
-import { errorToast } from '../CurrentUser/errorToast'
 
 export const Gdpr = provideDataClass(
   'Gdpr',
@@ -40,11 +39,7 @@ export const Gdpr = provideDataClass(
 
           const response = await fetch(url, { headers: restApi.headers })
           if (!response.ok) {
-            const error = new DataConnectionError(
-              'Failed to fetch GDPR consent',
-            )
-            errorToast(error.message, new Error(''))
-            throw error
+            throw new DataConnectionError('Failed to fetch GDPR consent')
           }
 
           return response.json()
@@ -56,11 +51,7 @@ export const Gdpr = provideDataClass(
             body: JSON.stringify(data),
           })
           if (!response.ok) {
-            const error = new DataConnectionError(
-              'Failed to update GDPR consent',
-            )
-            errorToast(error.message, new Error(''))
-            throw error
+            throw new DataConnectionError('Failed to update GDPR consent')
           }
 
           return response.json()
