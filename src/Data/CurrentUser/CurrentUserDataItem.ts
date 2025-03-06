@@ -233,7 +233,7 @@ function isNeoletterData(input: unknown): input is NeoletterData {
   )
 }
 
-interface WhoAmI {
+export interface WhoAmI {
   _id: string
   name?: string
   salutation?: string
