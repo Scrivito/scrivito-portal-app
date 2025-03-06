@@ -66,7 +66,21 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     async get() {
       const user = await load(currentUser)
       if (!user) {
-        return getPisaAuthorization() ? getWhoAmIOnlyUser() : null
+        if (getPisaAuthorization()) {
+          const whoAmI = await getWhoAmI()
+
+          return whoAmI
+            ? {
+                ...whoAmI,
+                company: '',
+                jrUserId: '',
+                phoneNumber: '',
+                picture: personCircle,
+              }
+            : null
+        }
+
+        return null
       }
 
       verifySameWhoAmIUser(user.email(), getPisaAuthorization())
@@ -130,32 +144,6 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     },
   },
 })
-
-async function getWhoAmIOnlyUser(): Promise<{
-  company: string
-  email: string
-  familyName: string
-  givenName: string
-  jrUserId: string
-  name: string
-  phoneNumber: string
-  picture: string
-  pisaUserId: string
-  salesUserId: string | null
-  salutation: string
-  serviceUserId: string | null
-} | null> {
-  const whoAmI = await getWhoAmI()
-  if (!whoAmI) return null // TODO: Throw error instead?
-
-  return {
-    ...whoAmI,
-    company: '',
-    jrUserId: '',
-    phoneNumber: '',
-    picture: personCircle,
-  }
-}
 
 async function pisaIds(): Promise<{
   pisaUserId: string
