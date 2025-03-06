@@ -1,7 +1,7 @@
 import { createRestApiClient, DataConnectionError } from 'scrivito'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { pisaConfig, pisaUrl } from '../pisaClient'
-import { errorToast } from './errorToast'
+import { errorToast, simpleErrorToast } from './errorToast'
 
 export async function getWhoAmI(): Promise<WhoAmI | null> {
   const whoAmIConfig = await pisaConfig('whoami') // TODO: switch back to pisaClient, once #11616 is resolved
@@ -44,9 +44,7 @@ export async function verifySameWhoAmIUser(
   const response = await fetch(`${baseUrl}/whoami`, {
     headers: { Authorization: pisaAuthorization },
   })
-  if (response.status === 401) {
-    errorToast('URL token is unauthorized', new Error(''))
-  }
+  if (response.status === 401) simpleErrorToast('URL token is unauthorized')
 
   if (!response.ok) return
 
@@ -55,10 +53,7 @@ export async function verifySameWhoAmIUser(
 
   if (result.email === email) return
 
-  errorToast(
-    `Ignoring URL token for user ${result?.email ?? ''}.`,
-    new Error(''),
-  )
+  simpleErrorToast(`Ignoring URL token for user ${result?.email ?? ''}.`)
 }
 
 // TODO: Remove function, once #11616 is resolved

@@ -22,3 +22,9 @@ export function errorToast(title: string, error: unknown): void {
     },
   )
 }
+
+export function simpleErrorToast(title: string): void {
+  console.error('simpleErrorToast', title)
+
+  toast.error(<div>{title}</div>, { autoClose: false })
+}
