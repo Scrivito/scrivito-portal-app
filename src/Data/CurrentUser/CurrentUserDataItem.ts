@@ -10,7 +10,7 @@ import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
-import { getPisaAuthorization } from '../getPisaAuthorization'
+import { getPisaAuthorization } from '../pisaClient'
 import { errorToast } from './errorToast'
 import { getWhoAmI, verifySameWhoAmIUser } from './getWhoAmI'
 
