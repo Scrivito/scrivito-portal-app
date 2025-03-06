@@ -1,7 +1,12 @@
-import { createRestApiClient, DataConnectionError } from 'scrivito'
+import {
+  createRestApiClient,
+  DataConnectionError,
+  isUserLoggedIn,
+} from 'scrivito'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { pisaConfig, pisaUrl } from '../pisaClient'
 import { errorToast, simpleErrorToast } from './errorToast'
+import { getTokenAuthorization } from '../getTokenAuthorization'
 
 export async function getWhoAmI(): Promise<WhoAmI | null> {
   const whoAmIConfig = await pisaConfig('whoami') // TODO: switch back to pisaClient, once #11616 is resolved
@@ -56,16 +61,21 @@ export async function verifySameWhoAmIUser(
   simpleErrorToast(`Ignoring URL token for user ${result?.email ?? ''}.`)
 }
 
-// TODO: Remove function, once #11616 is resolved
 async function requestPisa(url: string, headers: Record<string, string>) {
-  if (!headers.Authorization) {
-    return createRestApiClient(url, { headers }).get('')
+  if (!isUserLoggedIn()) {
+    const Authorization = getTokenAuthorization()
+    if (Authorization) {
+      // TODO: Replace fetch with pisaClient, once #11616 is resolved
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: { ...headers, Authorization },
+      })
+      if (!response.ok) throw new DataConnectionError('Failed to fetch WhoAmI')
+
+      return response.json()
+    }
   }
-
-  const response = await fetch(url, { method: 'GET', headers })
-  if (!response.ok) throw new DataConnectionError('Failed to fetch WhoAmI')
-
-  return response.json()
+  return createRestApiClient(url, { headers }).get('')
 }
 
 interface WhoAmI {
