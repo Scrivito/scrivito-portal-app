@@ -10,7 +10,7 @@ import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
-import { getPisaAuthorization } from '../pisaClient'
+import { getTokenAuthorization } from '../pisaClient'
 import { errorToast } from './errorToast'
 import { getWhoAmI, verifySameWhoAmIUser } from './getWhoAmI'
 
@@ -67,7 +67,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     async get() {
       const user = await load(currentUser)
       if (!user) {
-        if (getPisaAuthorization()) {
+        if (getTokenAuthorization()) {
           const whoAmI = await getWhoAmI()
 
           return whoAmI
@@ -84,7 +84,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
         return null
       }
 
-      verifySameWhoAmIUser(user.email(), getPisaAuthorization())
+      verifySameWhoAmIUser(user.email(), getTokenAuthorization())
 
       let neoletterProfile
       try {
@@ -117,7 +117,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       }
     },
     async update(params) {
-      if (getPisaAuthorization()) {
+      if (getTokenAuthorization()) {
         throw new DataConnectionError('Update not supported.')
       }
 

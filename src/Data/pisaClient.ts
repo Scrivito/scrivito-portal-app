@@ -36,7 +36,7 @@ export async function pisaConfig(subPath: string) {
   }
 
   if (!isUserLoggedIn()) {
-    const authorization = getPisaAuthorization()
+    const authorization = getTokenAuthorization()
     if (authorization) headers.Authorization = authorization
   }
 
@@ -48,7 +48,7 @@ function never() {
 }
 
 let cachedAuthorization: string | null | undefined = undefined
-export function getPisaAuthorization(): string | null {
+export function getTokenAuthorization(): string | null {
   if (cachedAuthorization === undefined) {
     cachedAuthorization = calculateAuthorization()
   }
