@@ -13,7 +13,7 @@ import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
 import { getTokenAuthorization } from '../getTokenAuthorization'
 import { errorToast } from './errorToast'
-import { verifySameWhoAmIUser } from './getWhoAmI'
+import { verifySameWhoAmIUser } from './verifySameWhoAmIUser'
 import { pisaClient, pisaConfig } from '../pisaClient'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
