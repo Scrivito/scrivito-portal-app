@@ -9,9 +9,22 @@ export async function getWhoAmI(): Promise<WhoAmI | null> {
 
   try {
     const whoAmI = await requestPisa(whoAmIConfig.url, whoAmIConfig.headers)
-    if (!isWhoAmI(whoAmI)) throw new DataConnectionError('Invalid user ID')
+    if (!isRawWhoAmI(whoAmI)) throw new DataConnectionError('Invalid user ID')
 
-    return whoAmI
+    return {
+      pisaUserId: whoAmI._id,
+
+      email: whoAmI.email ?? '',
+      familyName: whoAmI.familyName ?? '',
+      givenName: whoAmI.givenName ?? '',
+      image: whoAmI.image ?? null,
+      name: whoAmI.name ?? '',
+      position: whoAmI.position ?? '',
+      salesUserId: whoAmI.salesUserId ?? null,
+      salutation: whoAmI.salutation ?? '',
+      serviceUserId: whoAmI.serviceUserId ?? null,
+      staff: whoAmI.staff === true,
+    }
   } catch (error) {
     errorToast('Failed to fetch whoami', error)
     throw error
@@ -37,7 +50,7 @@ export async function verifySameWhoAmIUser(
   if (!response.ok) return
 
   const result = await response.json()
-  if (!isWhoAmI(result)) return
+  if (!isRawWhoAmI(result)) return
 
   if (result.email === email) return
 
@@ -59,25 +72,27 @@ async function requestPisa(url: string, headers: Record<string, string>) {
 }
 
 interface WhoAmI {
-  _id: string
-  name?: string
-  salutation?: string
-  givenName?: string
-  familyName?: string
-  email?: string
-  position?: string
-  staff?: boolean
-  image?: {
+  pisaUserId: string
+  name: string
+  salutation: string
+  givenName: string
+  familyName: string
+  email: string
+  position: string
+  staff: boolean
+  image: {
     _id: string
     filename: string
     contentType: string
     contentLength: number
   } | null
-  salesUserId?: string | null
-  serviceUserId?: string | null
+  salesUserId: string | null
+  serviceUserId: string | null
 }
 
-function isWhoAmI(item: unknown): item is WhoAmI {
+type RawWhoAmI = Partial<Omit<WhoAmI, 'pisaUserId'>> & { _id: string }
+
+function isRawWhoAmI(item: unknown): item is RawWhoAmI {
   if (!item) return false
   if (typeof item !== 'object') return false
 
@@ -92,7 +107,7 @@ function isWhoAmI(item: unknown): item is WhoAmI {
     // image, // TODO: Check image as well
     // salesUserId, // TODO: Check reference more strictly
     // serviceUserId, // TODO: Check reference more strictly
-  } = item as WhoAmI
+  } = item as RawWhoAmI
 
   return (
     typeof _id === 'string' &&

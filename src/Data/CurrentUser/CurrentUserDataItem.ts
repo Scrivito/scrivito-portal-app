@@ -149,36 +149,26 @@ async function getWhoAmIOnlyUser(): Promise<{
   if (!whoAmI) return null // TODO: Throw error instead?
 
   return {
+    ...whoAmI,
     company: '',
-    email: whoAmI.email ?? '',
-    familyName: whoAmI.familyName ?? '',
-    givenName: whoAmI.givenName ?? '',
     jrUserId: '',
-    name: whoAmI.name ?? '',
     phoneNumber: '',
     picture: personCircle,
-    pisaUserId: whoAmI._id,
-    salesUserId: whoAmI.salesUserId ?? null,
-    salutation: whoAmI.salutation ?? '',
-    serviceUserId: whoAmI.serviceUserId ?? null,
   }
 }
 
-async function pisaIds() {
-  const whoAmI = await getWhoAmI()
-  if (!whoAmI) {
-    return {
+async function pisaIds(): Promise<{
+  pisaUserId: string
+  salesUserId: string | null
+  serviceUserId: string | null
+}> {
+  return (
+    (await getWhoAmI()) ?? {
       pisaUserId: 'F87BDC400E41D630E030A8C00D01158A',
       salesUserId: '052601BEBCEC39C8E040A8C00D0107AC',
       serviceUserId: 'D456ACF6FF405922E030A8C02A010C68',
     }
-  }
-
-  return {
-    pisaUserId: whoAmI._id,
-    salesUserId: whoAmI.salesUserId ?? null,
-    serviceUserId: whoAmI.serviceUserId ?? null,
-  }
+  )
 }
 
 interface NeoletterData {
