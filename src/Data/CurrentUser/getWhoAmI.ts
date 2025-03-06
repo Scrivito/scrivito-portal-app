@@ -1,40 +1,6 @@
-import {
-  createRestApiClient,
-  DataConnectionError,
-  isUserLoggedIn,
-} from 'scrivito'
 import { isOptionalString } from '../../utils/isOptionalString'
-import { pisaConfig, pisaUrl } from '../pisaClient'
-import { errorToast, simpleErrorToast } from './errorToast'
-import { getTokenAuthorization } from '../getTokenAuthorization'
-
-export async function getWhoAmI(): Promise<WhoAmI | null> {
-  const whoAmIConfig = await pisaConfig('whoami') // TODO: switch back to pisaClient, once #11616 is resolved
-  if (!whoAmIConfig) return null
-
-  try {
-    const whoAmI = await requestPisa(whoAmIConfig.url, whoAmIConfig.headers)
-    if (!isRawWhoAmI(whoAmI)) throw new DataConnectionError('Invalid user ID')
-
-    return {
-      pisaUserId: whoAmI._id,
-
-      email: whoAmI.email ?? '',
-      familyName: whoAmI.familyName ?? '',
-      givenName: whoAmI.givenName ?? '',
-      image: whoAmI.image ?? null,
-      name: whoAmI.name ?? '',
-      position: whoAmI.position ?? '',
-      salesUserId: whoAmI.salesUserId ?? null,
-      salutation: whoAmI.salutation ?? '',
-      serviceUserId: whoAmI.serviceUserId ?? null,
-      staff: whoAmI.staff === true,
-    }
-  } catch (error) {
-    errorToast('Failed to fetch whoami', error)
-    throw error
-  }
-}
+import { pisaUrl } from '../pisaClient'
+import { simpleErrorToast } from './errorToast'
 
 // TODO: Switch function to pisaClient, once #11616 is resolved
 export async function verifySameWhoAmIUser(
@@ -59,23 +25,6 @@ export async function verifySameWhoAmIUser(
   if (result.email === email) return
 
   simpleErrorToast(`Ignoring URL token for user ${result?.email ?? ''}.`)
-}
-
-async function requestPisa(url: string, headers: Record<string, string>) {
-  if (!isUserLoggedIn()) {
-    const Authorization = getTokenAuthorization()
-    if (Authorization) {
-      // TODO: Replace fetch with pisaClient, once #11616 is resolved
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: { ...headers, Authorization },
-      })
-      if (!response.ok) throw new DataConnectionError('Failed to fetch WhoAmI')
-
-      return response.json()
-    }
-  }
-  return createRestApiClient(url, { headers }).get('')
 }
 
 interface WhoAmI {

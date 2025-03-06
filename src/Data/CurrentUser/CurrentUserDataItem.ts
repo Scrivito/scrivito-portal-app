@@ -3,6 +3,7 @@ import {
   currentUser,
   DataAttributeDefinitions,
   DataConnectionError,
+  isUserLoggedIn,
   load,
   provideDataItem,
 } from 'scrivito'
@@ -12,8 +13,8 @@ import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
 import { getTokenAuthorization } from '../getTokenAuthorization'
 import { errorToast } from './errorToast'
-import { getWhoAmI, verifySameWhoAmIUser } from './getWhoAmI'
-import { pisaClient } from '../pisaClient'
+import { verifySameWhoAmIUser } from './getWhoAmI'
+import { pisaClient, pisaConfig } from '../pisaClient'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -67,25 +68,14 @@ export const CurrentUser = provideDataItem('CurrentUser', {
   connection: {
     async get() {
       const user = await load(currentUser)
-      if (!user) {
-        if (getTokenAuthorization()) {
-          const whoAmI = await getWhoAmI()
 
-          return whoAmI
-            ? {
-                ...whoAmI,
-                company: '',
-                jrUserId: '',
-                phoneNumber: '',
-                picture: personCircle,
-              }
-            : null
-        }
-
-        return null
+      const Authorization = getTokenAuthorization()
+      if (Authorization) {
+        if (!user) return getTokenBasedCurrentUser(Authorization)
+        else verifySameWhoAmIUser(user.email(), Authorization)
       }
 
-      verifySameWhoAmIUser(user.email(), getTokenAuthorization())
+      if (!user) return null
 
       let neoletterProfile
       try {
@@ -166,11 +156,7 @@ async function pisaIds(): Promise<{
   }
 
   try {
-    const whoAmI = (await whoamiClient.get('')) as {
-      _id: string
-      salesUserId?: string
-      serviceUserId?: string
-    }
+    const whoAmI = (await whoamiClient.get('')) as WhoAmI
 
     return {
       pisaUserId: whoAmI._id,
@@ -180,6 +166,46 @@ async function pisaIds(): Promise<{
   } catch (error) {
     errorToast('Unable to connect to PisaSales', error)
     throw error
+  }
+}
+
+async function getTokenBasedCurrentUser(Authorization: string) {
+  if (!isUserLoggedIn()) return null // Save guard
+
+  const whoAmIConfig = await pisaConfig('whoami')
+  if (!whoAmIConfig) return null
+
+  const { url, headers: baseHeaders } = whoAmIConfig
+
+  const headers = { ...baseHeaders, Authorization }
+
+  // TODO: Replace fetch with pisaClient, once #11616 is resolved
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: { ...headers, Authorization },
+  })
+  if (!response.ok) throw new DataConnectionError('Failed to fetch WhoAmI')
+
+  const whoAmI = (await response.json()) as WhoAmI
+
+  return {
+    company: '',
+    jrUserId: '',
+    phoneNumber: '',
+    picture: personCircle,
+
+    pisaUserId: whoAmI._id,
+
+    email: whoAmI.email ?? '',
+    familyName: whoAmI.familyName ?? '',
+    givenName: whoAmI.givenName ?? '',
+    image: whoAmI.image ?? null,
+    name: whoAmI.name ?? '',
+    position: whoAmI.position ?? '',
+    salesUserId: whoAmI.salesUserId ?? null,
+    salutation: whoAmI.salutation ?? '',
+    serviceUserId: whoAmI.serviceUserId ?? null,
+    staff: whoAmI.staff === true,
   }
 }
 
@@ -205,4 +231,23 @@ function isNeoletterData(input: unknown): input is NeoletterData {
     isOptionalString(item.phone_number) &&
     isOptionalString(item.salutation)
   )
+}
+
+interface WhoAmI {
+  _id: string
+  name?: string
+  salutation?: string
+  givenName?: string
+  familyName?: string
+  email?: string
+  position?: string
+  staff?: boolean
+  image?: {
+    _id: string
+    filename: string
+    contentType: string
+    contentLength: number
+  } | null
+  salesUserId?: string | null
+  serviceUserId?: string | null
 }
