@@ -1,4 +1,7 @@
+import { provideLayoutComponent } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
-import { provideDefaultPageLayoutComponent } from '../defaultPageLayoutComponent'
+import { DefaultPageLayoutComponent } from '../defaultPageLayoutComponent'
 
-provideDefaultPageLayoutComponent(Homepage)
+provideLayoutComponent(Homepage, ({ page }) => {
+  return <DefaultPageLayoutComponent page={page} />
+})
