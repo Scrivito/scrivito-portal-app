@@ -23,6 +23,8 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
   const [key, setKey] = useState([id, defaultValue].join('-'))
 
   useEffect(() => {
+    // Force-rerender the uncontrolled input if the underlying data changes.
+    // Avoid losing the focus - the input itself may have triggered the update.
     if (!hasFocus) setKey([id, defaultValue].join('-'))
   }, [defaultValue, hasFocus, id])
 
