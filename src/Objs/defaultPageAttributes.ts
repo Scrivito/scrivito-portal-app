@@ -4,7 +4,7 @@ export const defaultPageAttributes = {
   // Layout widgets
   layoutHeader: 'widgetlist',
   layoutShowHeader: 'boolean',
-  layoutFooter: ['widgetlist', { only: 'SectionWidget' }],
+  layoutFooter: ['widgetlist', { only: ['FooterWidget', 'SectionWidget'] }],
   layoutShowFooter: 'boolean',
   layoutLeftSidebar: 'widgetlist',
   layoutShowLeftSidebar: 'boolean',
