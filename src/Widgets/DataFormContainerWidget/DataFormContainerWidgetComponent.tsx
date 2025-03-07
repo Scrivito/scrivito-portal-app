@@ -58,7 +58,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     e.preventDefault()
     e.stopPropagation()
 
-    if (!formRef.current.checkValidity()) return
+    if (!formRef.current.reportValidity()) return
 
     setIsSubmitting(true)
 

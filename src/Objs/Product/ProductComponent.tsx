@@ -188,6 +188,7 @@ const CartActionButton = connect(function CartActionButton({
   const inputRef = useRef<HTMLInputElement>(null)
 
   const onChange = useCallback(() => {
+    inputRef.current?.reportValidity()
     const quantity = Math.floor(Number(inputRef.current?.value))
     if (quantity > 0) updateQuantityInCart(product, quantity)
   }, [inputRef, product])
