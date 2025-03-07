@@ -10,10 +10,19 @@ import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
 import { ensureString } from '../../utils/ensureString'
 
-export async function addToCart(product: ProductInstance): Promise<void> {
-  const productId = product.id()
+export async function updateQuantityInCart(
+  product: ProductInstance,
+  quantity: number,
+): Promise<void> {
+  const item = await load(() => findInCart(product))
 
-  await CartItem.create({ product: productId, title: product.get('title') })
+  if (item) return item.update({ quantity })
+
+  await CartItem.create({
+    product: product.id(),
+    quantity,
+    title: product.get('title'),
+  })
 }
 
 export async function removeFromCart(product: ProductInstance): Promise<void> {
@@ -28,14 +37,16 @@ export async function removeFromCart(product: ProductInstance): Promise<void> {
   items.forEach((item) => item.delete())
 }
 
-export function isInCart(product: ProductInstance): boolean {
-  if (!isUserLoggedIn()) return false // TODO: remove, once CartItem itself requires a login
+export function quantityInCart(product: ProductInstance): number {
+  return Number(findInCart(product)?.get('quantity'))
+}
 
-  const productId = product.id()
+function findInCart(product: ProductInstance) {
+  if (!isUserLoggedIn()) return // TODO: remove, once CartItem itself requires a login
 
   return CartItem.all()
-    .transform({ filters: { product: productId } })
-    .containsData()
+    .transform({ filters: { product: product.id() }, limit: 1 })
+    .take()?.[0]
 }
 
 export function containsItems(): boolean {
@@ -53,16 +64,25 @@ export function numberOfCartItems(): number | null {
 export async function checkoutCart(): Promise<DataItem> {
   const cartItems: DataItem[] = await load(() => CartItem.all().take())
 
-  const products: DataItem[] = cartItems
-    .map((item) => item.get('product'))
-    .filter((item) => item instanceof DataItem)
+  const cartItemDetails: { id: string; quantity: number; title: string }[] =
+    await load(() =>
+      cartItems
+        .map((item) => {
+          const product = item.get('product')
+          return product instanceof DataItem
+            ? {
+                id: product.id(),
+                quantity: Number(item.get('quantity')),
+                title: ensureString(product.get('title')),
+              }
+            : null
+        })
+        .filter((value) => !!value),
+    )
 
   const keyword = await getTitle()
-  const description = products
-    .map(
-      (product) =>
-        `1 × ${ensureString(product.get('title'))} (ID: ${product.id()})`,
-    )
+  const description = cartItemDetails
+    .map(({ id, quantity, title }) => `${quantity} × ${title} (ID: ${id})`)
     .join('\n')
 
   const opportunity = await Opportunity.create({ keyword, description })
