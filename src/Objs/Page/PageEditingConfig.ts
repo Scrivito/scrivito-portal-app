@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { Obj, provideEditingConfig } from 'scrivito'
 import { Page } from './PageObjClass'
 import {
   defaultPageEditingConfigAttributes,
@@ -8,6 +8,23 @@ import {
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
 import Thumbnail from './thumbnail.svg'
+
+function propertiesGroups(page: Obj) {
+  if (page.path()?.split('/').length === 2) {
+    // Only show layoutIgnoreHomepageLayout for top-level pages
+    return defaultPagePropertiesGroups.map((group) =>
+      group.key === 'layout-group'
+        ? {
+            key: group.key,
+            title: group.title,
+            properties: [...group.properties, 'layoutIgnoreHomepageLayout'],
+          }
+        : group,
+    )
+  }
+
+  return defaultPagePropertiesGroups
+}
 
 provideEditingConfig(Page, {
   title: 'Page',
@@ -21,6 +38,10 @@ provideEditingConfig(Page, {
     },
     hideInNavigation: {
       title: 'Hide in navigation?',
+      description: 'Default: No',
+    },
+    layoutIgnoreHomepageLayout: {
+      title: 'Ignore homepage layout?',
       description: 'Default: No',
     },
     showAsLandingPage: {
@@ -38,7 +59,7 @@ provideEditingConfig(Page, {
     'excludeFromSearch',
     'showAsLandingPage',
   ],
-  propertiesGroups: defaultPagePropertiesGroups,
+  propertiesGroups,
   initialContent: defaultPageInitialContent,
   validations: defaultPageValidations,
 })
