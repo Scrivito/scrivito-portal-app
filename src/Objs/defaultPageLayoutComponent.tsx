@@ -8,7 +8,11 @@ import {
 } from 'scrivito'
 
 export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
-  provideLayoutComponent(objClass, ({ page }) => {
+  provideLayoutComponent(objClass, DefaultPageLayoutComponent)
+}
+
+export const DefaultPageLayoutComponent = connect(
+  function DefaultPageLayoutComponent({ page }: { page: Obj }) {
     const showLeftSidebar = !!page.get('layoutShowLeftSidebar')
     const showRightSidebar = !!page.get('layoutShowRightSidebar')
     const showSidebar = showLeftSidebar || showRightSidebar
@@ -38,8 +42,8 @@ export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
         )}
       </>
     )
-  })
-}
+  },
+)
 
 const BackgroundWrapper = connect(function BackgroundWrapper({
   backgroundColor,

@@ -10,7 +10,21 @@ provideEditingConfig(Dropdown, {
       title: 'Hide in navigation?',
       description: 'Default: No',
     },
+    layoutIgnoreHomepageLayout: {
+      title: 'Ignore homepage layout?',
+      description: 'Default: No',
+    },
     title: { title: 'Title' },
   },
   properties: ['title', 'hideInNavigation'],
+  propertiesGroups: (page) =>
+    [
+      page.path()?.split('/').length === 2 // Only show layoutIgnoreHomepageLayout for top-level pages
+        ? {
+            title: 'Layout',
+            properties: ['layoutIgnoreHomepageLayout'],
+            key: 'layout-group',
+          }
+        : null,
+    ].filter((i) => !!i),
 })
