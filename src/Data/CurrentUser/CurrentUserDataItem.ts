@@ -71,8 +71,8 @@ export const CurrentUser = provideDataItem('CurrentUser', {
 
       const tokenAuthorization = getTokenAuthorization()
       if (tokenAuthorization) {
-        if (!user) return getTokenBasedCurrentUser(tokenAuthorization)
-        else verifySameWhoAmIUser(user.email(), tokenAuthorization)
+        if (user) verifySameWhoAmIUser(user.email(), tokenAuthorization)
+        else return getTokenBasedCurrentUser(tokenAuthorization)
       }
 
       if (!user) return null
