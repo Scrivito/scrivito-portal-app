@@ -21,5 +21,7 @@ export async function verifySameWhoAmIUser(
 
   if (result.email === email) return
 
-  simpleErrorToast(`Ignoring URL token for user ${result.email ?? ''}.`)
+  simpleErrorToast(
+    `This link is for ${result.email ?? ''} but you are logged in as ${email}. Please log out first.`,
+  )
 }
