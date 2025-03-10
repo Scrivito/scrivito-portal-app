@@ -1,11 +1,21 @@
 import {
   ClientError,
+  DataAttributeDefinitions,
   DataConnectionResultItem,
   provideDataClass,
 } from 'scrivito'
 import { pisaClient } from '../pisaClient'
-import { fetchAttributes } from '../fetchAttributes'
-import { fetchTitle } from '../fetchTitle'
+import { fetchSchema } from '../fetchSchema'
+
+let pisaSchemaPromise: Promise<{
+  attributes: DataAttributeDefinitions
+  title?: string
+}>
+
+async function pisaSchema() {
+  pisaSchemaPromise ??= fetchSchema('callback-request')
+  return pisaSchemaPromise
+}
 
 export const CallbackRequest = provideDataClass(
   'CallbackRequest',
@@ -19,8 +29,10 @@ export const CallbackRequest = provideDataClass(
 
     // callback-request is more or less a "singleton". It only offers PUT, GET and DELETE.
     return {
-      attributes: () => fetchAttributes('callback-request'),
-      title: () => fetchTitle('callback-request'),
+      // attributes and title are defined as functions to trigger potential
+      // IAM login redirects only, when the information is actually needed.
+      attributes: async () => (await pisaSchema()).attributes,
+      title: async () => (await pisaSchema()).title,
       connection: {
         index: async () => {
           try {
