@@ -49,7 +49,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
         </InPlaceEditingOff>
 
         <ContentTag content={widget} attribute="content" />
-        {isSubmitting && <ModalSpinner />}
+        {isSubmitting && <Spinner isModal={!submitOnChange} />}
       </form>
     </WidgetTag>
   )
@@ -58,7 +58,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     e.preventDefault()
     e.stopPropagation()
 
-    if (!formRef.current.checkValidity()) return
+    if (!formRef.current.reportValidity()) return
 
     setIsSubmitting(true)
 
@@ -92,6 +92,10 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     if (redirectAfterSubmit) navigateTo(targetDataItem)
   }
 })
+
+function Spinner({ isModal }: { isModal: boolean }) {
+  return isModal ? <ModalSpinner /> : <div className="loader" />
+}
 
 async function attributesFromForm(formElement: HTMLFormElement) {
   const attributes: {
