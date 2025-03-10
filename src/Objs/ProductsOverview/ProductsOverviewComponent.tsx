@@ -36,7 +36,7 @@ provideComponent(ProductsOverview, ({ page }) => {
                         />
                         <ContentTag
                           content={category}
-                          attribute="description"
+                          attribute="metaDataDescription"
                           tag="p"
                           className="small text-center m-0"
                         />
