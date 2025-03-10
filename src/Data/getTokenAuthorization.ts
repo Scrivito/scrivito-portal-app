@@ -1,4 +1,4 @@
-let cachedAuthorization: string | null | undefined = undefined
+let cachedAuthorization: string | null | undefined
 export function getTokenAuthorization(): string | null {
   if (cachedAuthorization === undefined) {
     cachedAuthorization = calculateAuthorization()
