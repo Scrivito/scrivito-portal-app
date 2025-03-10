@@ -13,7 +13,6 @@ import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
 import { getTokenAuthorization } from '../getTokenAuthorization'
 import { errorToast, simpleErrorToast } from './errorToast'
-import { verifySameWhoAmIUser } from './verifySameWhoAmIUser'
 import { pisaClient, pisaConfig } from '../pisaClient'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
@@ -69,13 +68,14 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     async get() {
       const user = await load(currentUser)
 
-      const tokenAuthorization = getTokenAuthorization()
-      if (tokenAuthorization) {
-        if (user) verifySameWhoAmIUser(user.email(), tokenAuthorization)
-        else return getTokenBasedCurrentUser(tokenAuthorization)
-      }
+      if (!user) {
+        const tokenAuthorization = getTokenAuthorization()
+        if (tokenAuthorization) {
+          return getTokenBasedCurrentUser(tokenAuthorization)
+        }
 
-      if (!user) return null
+        return null
+      }
 
       let neoletterProfile
       try {

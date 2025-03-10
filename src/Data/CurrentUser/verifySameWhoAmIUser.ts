@@ -1,12 +1,17 @@
+import { currentUser, load } from 'scrivito'
 import { pisaUrl } from '../pisaClient'
 import { WhoAmI } from './CurrentUserDataItem'
 import { simpleErrorToast } from './errorToast'
+import { getTokenAuthorization } from '../getTokenAuthorization'
 
 // TODO: Switch function to pisaClient, once #11616 is resolved
-export async function verifySameWhoAmIUser(
-  email: string,
-  tokenAuthorization: string,
-) {
+export async function verifySameWhoAmIUser() {
+  const user = await load(currentUser)
+  if (!user) return
+
+  const tokenAuthorization = getTokenAuthorization()
+  if (!tokenAuthorization) return
+
   const baseUrl = await pisaUrl()
   if (!baseUrl) return
 
@@ -26,9 +31,10 @@ export async function verifySameWhoAmIUser(
 
   const result = (await response.json()) as WhoAmI
 
-  if (result.email === email) return
+  const currentUserEmail = user.email()
+  if (result.email === currentUserEmail) return
 
   simpleErrorToast(
-    `This link is for ${result.email ?? ''} but you are logged in as ${email}. Please log out first.`,
+    `This link is for ${result.email ?? ''} but you are logged in as ${currentUserEmail}. Please log out first.`,
   )
 }
