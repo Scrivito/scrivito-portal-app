@@ -69,10 +69,10 @@ export const CurrentUser = provideDataItem('CurrentUser', {
     async get() {
       const user = await load(currentUser)
 
-      const Authorization = getTokenAuthorization()
-      if (Authorization) {
-        if (!user) return getTokenBasedCurrentUser(Authorization)
-        else verifySameWhoAmIUser(user.email(), Authorization)
+      const tokenAuthorization = getTokenAuthorization()
+      if (tokenAuthorization) {
+        if (!user) return getTokenBasedCurrentUser(tokenAuthorization)
+        else verifySameWhoAmIUser(user.email(), tokenAuthorization)
       }
 
       if (!user) return null
@@ -169,7 +169,7 @@ async function pisaIds(): Promise<{
   }
 }
 
-async function getTokenBasedCurrentUser(Authorization: string) {
+async function getTokenBasedCurrentUser(tokenAuthorization: string) {
   if (!isUserLoggedIn()) return null // Save guard
 
   const whoAmIConfig = await pisaConfig('whoami')
@@ -177,13 +177,10 @@ async function getTokenBasedCurrentUser(Authorization: string) {
 
   const { url, headers: baseHeaders } = whoAmIConfig
 
-  const headers = { ...baseHeaders, Authorization }
+  const headers = { ...baseHeaders, Authorization: tokenAuthorization }
 
   // TODO: Replace fetch with pisaClient, once #11616 is resolved
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: { ...headers, Authorization },
-  })
+  const response = await fetch(url, { method: 'GET', headers })
   if (!response.ok) throw new DataConnectionError('Failed to fetch WhoAmI')
 
   const whoAmI = (await response.json()) as WhoAmI

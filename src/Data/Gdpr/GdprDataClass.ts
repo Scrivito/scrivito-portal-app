@@ -11,10 +11,10 @@ export const Gdpr = provideDataClass(
     }
 
     if (!isUserLoggedIn()) {
-      const Authorization = getTokenAuthorization()
-      if (Authorization) {
+      const tokenAuthorization = getTokenAuthorization()
+      if (tokenAuthorization) {
         const { url, headers: baseHeaders } = restApi
-        const headers = { ...baseHeaders, Authorization }
+        const headers = { ...baseHeaders, Authorization: tokenAuthorization }
 
         // TODO: Return { url, headers }, once #11616 is resolved
         return {

@@ -5,13 +5,13 @@ import { simpleErrorToast } from './errorToast'
 // TODO: Switch function to pisaClient, once #11616 is resolved
 export async function verifySameWhoAmIUser(
   email: string,
-  Authorization: string,
+  tokenAuthorization: string,
 ) {
   const baseUrl = await pisaUrl()
   if (!baseUrl) return
 
   const response = await fetch(`${baseUrl}/whoami`, {
-    headers: { Authorization },
+    headers: { Authorization: tokenAuthorization },
   })
   if (response.status === 401) simpleErrorToast('URL token is unauthorized')
 
