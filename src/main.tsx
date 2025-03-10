@@ -8,9 +8,11 @@ import './Widgets'
 import { App } from './App'
 import { configure } from './config'
 import { ensureSiteIsPresent } from './config/scrivitoSites'
+import { verifySameWhoAmIUser } from './Data/CurrentUser/verifySameWhoAmIUser'
 
 configure()
 ensureSiteIsPresent()
+verifySameWhoAmIUser()
 
 declare global {
   interface Window {

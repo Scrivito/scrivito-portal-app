@@ -2,6 +2,8 @@ import {
   currentLanguage,
   currentUser,
   DataAttributeDefinitions,
+  DataConnectionError,
+  isUserLoggedIn,
   load,
   provideDataItem,
 } from 'scrivito'
@@ -9,8 +11,9 @@ import personCircle from '../../assets/images/person-circle.svg'
 import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
-import { pisaClient } from '../pisaClient'
-import { errorToast } from './errorToast'
+import { getTokenAuthorization } from '../getTokenAuthorization'
+import { errorToast, simpleErrorToast } from './errorToast'
+import { pisaClient, pisaConfig } from '../pisaClient'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -64,16 +67,24 @@ export const CurrentUser = provideDataItem('CurrentUser', {
   connection: {
     async get() {
       const user = await load(currentUser)
-      if (!user) return null
+
+      if (!user) {
+        const tokenAuthorization = getTokenAuthorization()
+        if (tokenAuthorization) {
+          return getTokenBasedCurrentUser(tokenAuthorization)
+        }
+
+        return null
+      }
 
       let neoletterProfile
       try {
         neoletterProfile = await neoletterClient().get('my/profile')
         if (!isNeoletterData(neoletterProfile)) {
-          throw new Error('Invalid user profile')
+          throw new DataConnectionError('Invalid user profile')
         }
       } catch (error) {
-        errorToast('Unable to connect to Neoletter', error)
+        errorToast('Failed to fetch user profile', error)
         throw error
       }
 
@@ -97,6 +108,10 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       }
     },
     async update(params) {
+      if (getTokenAuthorization()) {
+        throw new DataConnectionError('Update not supported.')
+      }
+
       const {
         company,
         familyName,
@@ -107,7 +122,9 @@ export const CurrentUser = provideDataItem('CurrentUser', {
         ...otherArgs
       } = params
       if (Object.keys(otherArgs).length > 0) {
-        throw new Error(`Unknown keys - ${Object.keys(otherArgs).join(', ')}`)
+        throw new DataConnectionError(
+          `Unknown keys - ${Object.keys(otherArgs).join(', ')}`,
+        )
       }
 
       await neoletterClient().put('my/profile', {
@@ -124,7 +141,11 @@ export const CurrentUser = provideDataItem('CurrentUser', {
   },
 })
 
-async function pisaIds() {
+async function pisaIds(): Promise<{
+  pisaUserId: string
+  salesUserId: string | null
+  serviceUserId: string | null
+}> {
   const whoamiClient = await pisaClient('whoami')
   if (!whoamiClient) {
     return {
@@ -134,19 +155,62 @@ async function pisaIds() {
     }
   }
 
-  let whoAmI
   try {
-    whoAmI = await whoamiClient.get('')
-    if (!isWhoAmI(whoAmI)) throw new Error('Invalid user ID')
+    const whoAmI = (await whoamiClient.get('')) as WhoAmI
+
+    return {
+      pisaUserId: whoAmI._id,
+      salesUserId: whoAmI.salesUserId ?? null,
+      serviceUserId: whoAmI.serviceUserId ?? null,
+    }
   } catch (error) {
     errorToast('Unable to connect to PisaSales', error)
     throw error
   }
+}
+
+async function getTokenBasedCurrentUser(tokenAuthorization: string) {
+  if (isUserLoggedIn()) return null // Safeguard
+
+  const whoAmIConfig = await pisaConfig('whoami')
+  if (!whoAmIConfig) return null
+
+  const { url, headers: baseHeaders } = whoAmIConfig
+
+  const headers = { ...baseHeaders, Authorization: tokenAuthorization }
+
+  // TODO: Replace fetch with pisaClient, once #11616 is resolved
+  const response = await fetch(url, { method: 'GET', headers })
+  if (!response.ok) {
+    const errorMessage =
+      response.status === 401
+        ? 'The link you followed is invalid or has expired. Please request a new one.'
+        : 'Failed to fetch user profile.'
+    simpleErrorToast(errorMessage)
+
+    throw new DataConnectionError(errorMessage)
+  }
+
+  const whoAmI = (await response.json()) as WhoAmI
 
   return {
+    company: '',
+    jrUserId: '',
+    phoneNumber: '',
+    picture: personCircle,
+
     pisaUserId: whoAmI._id,
-    salesUserId: whoAmI.salesUserId,
-    serviceUserId: whoAmI.serviceUserId,
+
+    email: whoAmI.email ?? '',
+    familyName: whoAmI.familyName ?? '',
+    givenName: whoAmI.givenName ?? '',
+    image: whoAmI.image ?? null,
+    name: whoAmI.name ?? '',
+    position: whoAmI.position ?? '',
+    salesUserId: whoAmI.salesUserId ?? null,
+    salutation: whoAmI.salutation ?? '',
+    serviceUserId: whoAmI.serviceUserId ?? null,
+    staff: whoAmI.staff === true,
   }
 }
 
@@ -174,7 +238,7 @@ function isNeoletterData(input: unknown): input is NeoletterData {
   )
 }
 
-interface WhoAmI {
+export interface WhoAmI {
   _id: string
   name?: string
   salutation?: string
@@ -191,34 +255,4 @@ interface WhoAmI {
   } | null
   salesUserId?: string | null
   serviceUserId?: string | null
-}
-
-function isWhoAmI(item: unknown): item is WhoAmI {
-  if (!item) return false
-  if (typeof item !== 'object') return false
-
-  const {
-    _id,
-    name,
-    salutation,
-    givenName,
-    familyName,
-    email,
-    position,
-    staff,
-    // image, // TODO: Check image as well
-    // salesUserId, // TODO: Check reference more strictly
-    // serviceUserId, // TODO: Check reference more strictly
-  } = item as WhoAmI
-
-  return (
-    typeof _id === 'string' &&
-    isOptionalString(name) &&
-    isOptionalString(salutation) &&
-    isOptionalString(givenName) &&
-    isOptionalString(familyName) &&
-    isOptionalString(email) &&
-    isOptionalString(position) &&
-    typeof staff === 'boolean'
-  )
 }
