@@ -170,7 +170,7 @@ async function pisaIds(): Promise<{
 }
 
 async function getTokenBasedCurrentUser(tokenAuthorization: string) {
-  if (!isUserLoggedIn()) return null // Save guard
+  if (isUserLoggedIn()) return null // Safeguard
 
   const whoAmIConfig = await pisaConfig('whoami')
   if (!whoAmIConfig) return null
