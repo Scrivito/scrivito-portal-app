@@ -7,6 +7,7 @@ import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 import { SinglePageSite } from './Components/SinglePageSite'
+import { VerifyContentFormat } from './Components/VerifyContentFormat'
 
 export const helmetContext: { helmet?: HelmetServerState } = {}
 
@@ -22,13 +23,15 @@ export function App({
           <a href="#main" className="btn skip-to-content">
             Skip to Content
           </a>
-          <DesignAdjustments>
-            <SinglePageSite>
-              <CurrentPage />
-              <NotFoundErrorPage />
-              <CurrentPageMetadata />
-            </SinglePageSite>
-          </DesignAdjustments>
+          <VerifyContentFormat>
+            <DesignAdjustments>
+              <SinglePageSite>
+                <CurrentPage />
+                <NotFoundErrorPage />
+                <CurrentPageMetadata />
+              </SinglePageSite>
+            </DesignAdjustments>
+          </VerifyContentFormat>
           <Toasts />
         </div>
       </ErrorBoundary>

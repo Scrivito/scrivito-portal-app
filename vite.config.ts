@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
   const outDir = 'dist'
 
   const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
+  const verifyContentFormat = env.VERIFY_CONTENT_FORMAT === 'true'
 
   return {
     build: {
@@ -44,6 +45,8 @@ export default defineConfig(({ mode }) => {
         env.SCRIVITO_ROOT_OBJ_ID || 'c2a0aab78be05a4e',
       ),
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
+      'import.meta.env.VERIFY_CONTENT_FORMAT':
+        JSON.stringify(verifyContentFormat),
     },
     optimizeDeps: {
       force: true,
