@@ -8,6 +8,7 @@ export const Page = provideObjClass('Page', {
     data: 'datalocator',
     excludeFromSearch: 'boolean',
     hideInNavigation: 'boolean',
+    layoutIgnoreHomepageLayout: 'boolean',
     showAsLandingPage: 'boolean',
   },
   extractTextAttributes: ['body'],
