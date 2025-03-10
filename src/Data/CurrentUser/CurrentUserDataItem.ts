@@ -12,7 +12,7 @@ import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
 import { getTokenAuthorization } from '../getTokenAuthorization'
-import { errorToast } from './errorToast'
+import { errorToast, simpleErrorToast } from './errorToast'
 import { verifySameWhoAmIUser } from './verifySameWhoAmIUser'
 import { pisaClient, pisaConfig } from '../pisaClient'
 
@@ -181,7 +181,15 @@ async function getTokenBasedCurrentUser(tokenAuthorization: string) {
 
   // TODO: Replace fetch with pisaClient, once #11616 is resolved
   const response = await fetch(url, { method: 'GET', headers })
-  if (!response.ok) throw new DataConnectionError('Failed to fetch WhoAmI')
+  if (!response.ok) {
+    const errorMessage =
+      response.status === 401
+        ? 'The link you followed is invalid or has expired. Please request a new one.'
+        : 'Failed to fetch user profile.'
+    simpleErrorToast(errorMessage)
+
+    throw new DataConnectionError(errorMessage)
+  }
 
   const whoAmI = (await response.json()) as WhoAmI
 

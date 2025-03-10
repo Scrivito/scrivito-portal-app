@@ -13,9 +13,16 @@ export async function verifySameWhoAmIUser(
   const response = await fetch(`${baseUrl}/whoami`, {
     headers: { Authorization: tokenAuthorization },
   })
-  if (response.status === 401) simpleErrorToast('URL token is unauthorized')
 
-  if (!response.ok) return
+  if (!response.ok) {
+    const errorMessage =
+      response.status === 401
+        ? 'The link you followed is invalid or has expired. Please request a new one.'
+        : 'Failed to verify user profile.'
+    simpleErrorToast(errorMessage)
+
+    return
+  }
 
   const result = (await response.json()) as WhoAmI
 
