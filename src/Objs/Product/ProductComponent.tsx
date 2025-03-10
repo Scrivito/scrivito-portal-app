@@ -235,7 +235,7 @@ const CartActionButton = connect(function CartActionButton({
     return (
       <div className="row mt-0 mb-1 g-1">
         <div className="col-auto">
-          <div className="input-group input-group-sm flex-nowrap">
+          <div className="input-group input-group-sm flex-nowrap w-50">
             <button
               aria-label="-"
               className="btn btn-primary"
@@ -245,7 +245,7 @@ const CartActionButton = connect(function CartActionButton({
               <i className="bi bi-dash-lg px-0" />
             </button>
             <input
-              className="form-control text-center flex-grow-0 w-25 no-arrows"
+              className="form-control text-center no-arrows"
               defaultValue={quantity}
               min={1}
               onChange={onChange}

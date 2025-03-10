@@ -242,6 +242,18 @@ fieldset:disabled .btn {
       }
     }
   }
+  &:has(.btn + .form-control + .btn) {
+    border-radius: var(--jr-border-radius);
+    &:focus-within {
+      box-shadow: 0 0 1rem 0 rgba(140, 152, 164, 0.25);
+    }
+    .form-control {
+      &:focus {
+        box-shadow: unset;
+        z-index: unset;
+      }
+    }
+  }
 }
 .bg-light-grey {
   .input-group .form-control {
