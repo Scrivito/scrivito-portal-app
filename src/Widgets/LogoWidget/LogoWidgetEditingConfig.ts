@@ -7,7 +7,7 @@ provideEditingConfig(LogoWidget, {
   thumbnail: Thumbnail,
   attributes: {
     brandLink: {
-      title: 'Band link',
+      title: 'Brand link',
       description: 'Where should the logo link to?',
     },
   },
