@@ -95,8 +95,9 @@ export function localStorageDataConnection(
 
     async update(id, data) {
       const record = restoreRecord(recordKey)
+      const oldData = restoreRecord(recordKey)[id]
       const newData = prepareData ? await prepareData(data) : data
-      const storedData: RawDataItem = { ...newData, _id: id }
+      const storedData: RawDataItem = { ...oldData, ...newData, _id: id }
       record[id] = storedData
 
       persistRecord(recordKey, record)
