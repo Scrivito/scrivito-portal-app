@@ -14,20 +14,38 @@ export const Brand = connect(function Brand({
   root,
   linkClassName,
 }: {
-  linkTo: Obj | Link
+  linkTo: Obj | Link | null
   root: HomepageInstance
   linkClassName?: string
 }) {
   return (
     <InPlaceEditingOff>
-      <LinkTag to={linkTo} className={linkClassName}>
+      <LinkWrapper link={linkTo} className={linkClassName}>
         <ImageTag
           content={root}
           attribute="siteLogoDark"
           className="navbar-brand-logo"
           alt={alternativeTextForObj(root.get('siteLogoDark'))}
         />
-      </LinkTag>
+      </LinkWrapper>
     </InPlaceEditingOff>
+  )
+})
+
+const LinkWrapper = connect(function LinkWrapper({
+  children,
+  link,
+  className,
+}: {
+  children: React.ReactNode
+  link: Obj | Link | null
+  className?: string
+}) {
+  if (!link) return <div className={className}>{children}</div>
+
+  return (
+    <LinkTag to={link} className={className}>
+      {children}
+    </LinkTag>
   )
 })
