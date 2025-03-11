@@ -41,7 +41,7 @@ export async function verifySameWhoAmIUser() {
   )
 }
 
-function localizeExpiredMessage(language: string): string {
+export function localizeExpiredMessage(language: string): string {
   switch (language) {
     case 'de':
       return 'Der von Ihnen gefolgte Link ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen an.'
@@ -54,7 +54,7 @@ function localizeExpiredMessage(language: string): string {
   }
 }
 
-function localizeFailedVerify(language: string): string {
+export function localizeFailedVerify(language: string): string {
   switch (language) {
     case 'de':
       return 'Fehler beim Überprüfen des Benutzerprofils.'

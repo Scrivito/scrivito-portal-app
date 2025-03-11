@@ -14,6 +14,10 @@ import { neoletterClient } from '../neoletterClient'
 import { getTokenAuthorization } from '../getTokenAuthorization'
 import { errorToast, simpleErrorToast } from './errorToast'
 import { pisaClient, pisaConfig } from '../pisaClient'
+import {
+  localizeExpiredMessage,
+  localizeFailedVerify,
+} from './verifySameWhoAmIUser'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -175,6 +179,8 @@ async function getTokenBasedCurrentUser(tokenAuthorization: string) {
   const whoAmIConfig = await pisaConfig('whoami')
   if (!whoAmIConfig) return null
 
+  const lang = await load(() => currentLanguage() ?? '')
+
   const { url, headers: baseHeaders } = whoAmIConfig
 
   const headers = { ...baseHeaders, Authorization: tokenAuthorization }
@@ -184,8 +190,8 @@ async function getTokenBasedCurrentUser(tokenAuthorization: string) {
   if (!response.ok) {
     const errorMessage =
       response.status === 401
-        ? 'The link you followed is invalid or has expired. Please request a new one.'
-        : 'Failed to fetch user profile.'
+        ? localizeExpiredMessage(lang)
+        : localizeFailedVerify(lang)
     simpleErrorToast(errorMessage)
 
     throw new DataConnectionError(errorMessage)
