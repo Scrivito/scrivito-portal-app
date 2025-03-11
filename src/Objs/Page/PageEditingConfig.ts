@@ -11,13 +11,13 @@ import Thumbnail from './thumbnail.svg'
 
 function propertiesGroups(page: Obj) {
   if (page.path()?.split('/').length === 2) {
-    // Only show layoutIgnoreHomepageLayout for top-level pages
+    // Only show layoutIgnoreTopLevelLayout for top-level pages
     return defaultPagePropertiesGroups.map((group) =>
       group.key === 'layout-group'
         ? {
             key: group.key,
             title: group.title,
-            properties: [...group.properties, 'layoutIgnoreHomepageLayout'],
+            properties: [...group.properties, 'layoutIgnoreTopLevelLayout'],
           }
         : group,
     )
@@ -40,8 +40,8 @@ provideEditingConfig(Page, {
       title: 'Hide in navigation?',
       description: 'Default: No',
     },
-    layoutIgnoreHomepageLayout: {
-      title: 'Ignore homepage layout?',
+    layoutIgnoreTopLevelLayout: {
+      title: 'Ignore top-level layout?',
       description: 'Default: No',
     },
     showAsLandingPage: {

@@ -14,15 +14,15 @@ provideLayoutComponent(Homepage, ({ page }) => <HomepageLayout page={page} />)
 // TODO: Remove workaround for issue #11635 once it is fixed.
 const HomepageLayout = connect(
   function HomepageLayout({ page }: { page: HomepageInstance }) {
-    if (ignoreHomepageLayout()) return <CurrentPage />
+    if (ignoreTopLevelLayout()) return <CurrentPage />
 
     return <DefaultPageLayoutComponent page={page} />
   },
   { loading: Loading },
 )
 
-function ignoreHomepageLayout(): boolean {
-  return getFirstSubpage()?.get('layoutIgnoreHomepageLayout') === true
+function ignoreTopLevelLayout(): boolean {
+  return getFirstSubpage()?.get('layoutIgnoreTopLevelLayout') === true
 }
 
 function getFirstSubpage(): Obj | null {
