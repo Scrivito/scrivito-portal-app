@@ -22,16 +22,17 @@ const HomepageLayout = connect(
 )
 
 function ignoreHomepageLayout(): boolean {
+  return getFirstSubpage()?.get('layoutIgnoreHomepageLayout') === true
+}
+
+function getFirstSubpage(): Obj | null {
   const firstSubpagePath = currentPage()
     ?.path()
     ?.split('/')
     .slice(0, 2)
     .join('/')
-  if (!firstSubpagePath) return false
-  if (firstSubpagePath === '/') return false
+  if (!firstSubpagePath) return null
+  if (firstSubpagePath === '/') return null
 
-  const firstSubpage = Obj.getByPath(firstSubpagePath)
-  if (!firstSubpage) return false
-
-  return firstSubpage.get('layoutIgnoreHomepageLayout') === true
+  return Obj.getByPath(firstSubpagePath)
 }
