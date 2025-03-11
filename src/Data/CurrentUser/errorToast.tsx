@@ -22,3 +22,7 @@ export function errorToast(title: string, error: unknown): void {
     },
   )
 }
+
+export function simpleErrorToast(title: string): void {
+  toast.error(<div>{title}</div>, { autoClose: false })
+}
