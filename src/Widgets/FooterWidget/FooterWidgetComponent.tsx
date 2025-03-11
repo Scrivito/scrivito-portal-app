@@ -6,7 +6,6 @@ provideComponent(FooterWidget, ({ widget }) => {
   const root = Obj.root()
   if (!isHomepage(root)) return null
   if (widget.obj().id() === root.id()) return null // Prevents endless recursion
-  if (!root.get('layoutShowFooter')) return null
 
   return (
     <InPlaceEditingOff>
