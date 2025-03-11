@@ -12,10 +12,6 @@ export const defaultPageEditingConfigAttributes = {
     title: 'Page description',
     description: 'Limit to 175, ideally 150 characters.',
   },
-  metaDataDescription: {
-    title: 'Page description',
-    description: 'Limit to 175, ideally 150 characters.',
-  },
   robotsIndex: {
     title: 'Should this page be indexed?',
     description: 'If not, search engines will ignore this page. Default: Yes',
@@ -92,7 +88,7 @@ export const defaultPagePropertiesGroups = [
   },
   {
     title: 'Metadata',
-    properties: ['description', 'metaDataDescription', 'robotsIndex'],
+    properties: ['description', 'robotsIndex'],
     key: 'metadata-group',
   },
   {
@@ -131,18 +127,6 @@ export const defaultPageValidations = [
 
     (description: unknown) => {
       if (ensureString(description).length > 175) {
-        return {
-          message: 'The page description should not exceed 175 characters.',
-          severity: 'warning',
-        }
-      }
-    },
-  ],
-  [
-    'metaDataDescription',
-
-    (metaDataDescription: unknown) => {
-      if (ensureString(metaDataDescription).length > 175) {
         return {
           message: 'The page description should not exceed 175 characters.',
           severity: 'warning',
