@@ -1,0 +1,589 @@
+{
+  "_obj_class": "Page",
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "title": [
+    "string",
+    "DSGVO-Einwilligungsformular"
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Gdpr"
+    }
+  ],
+  "exclude_from_search": [
+    "boolean",
+    true
+  ],
+  "show_as_landing_page": [
+    "boolean",
+    true
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "641ee6d9"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "5b3756546b7462ba",
+  "_created_at": "20250226091046",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20250228133735",
+  "_id": "3fda98a107e6ae1a",
+  "_language": "de",
+  "_last_changed": "20250307122338",
+  "_modification": null,
+  "_path": "/84435b45662730da/6a5898770a646824/3fda98a107e6ae1a",
+  "_permalink": "dsgvo-einwilligungsformular",
+  "_published_at": "20250307122344",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "20250307122344000000000000000077379b5d050242aa",
+  "_widget_pool": {
+    "28707073": {
+      "_obj_class": "AddressWidget",
+      "location_locality": [
+        "string",
+        "Leipzig"
+      ],
+      "location_street_address": [
+        "string",
+        "Goethestraße 123"
+      ],
+      "location_postal_code": [
+        "string",
+        "04109"
+      ],
+      "location_country": [
+        "string",
+        "Deutschland"
+      ],
+      "phone": [
+        "string",
+        "+800 123 4567"
+      ],
+      "fax": [
+        "string",
+        "+800 466 4422"
+      ],
+      "email": [
+        "string",
+        "tynacoon@example.com"
+      ],
+      "phone_label": [
+        "string",
+        "Tel."
+      ],
+      "fax_label": [
+        "string",
+        "Fax"
+      ],
+      "email_label": [
+        "string",
+        "E-Mail"
+      ]
+    },
+    "60874706": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hallo __CurrentUser.name__"
+      ],
+      "style": [
+        "string",
+        "h1"
+      ]
+    },
+    "641ee6d9": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "471f4f107fd0d6d2"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d19c6480"
+        ]
+      ]
+    },
+    "03d26efa": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Mehr laden"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "6963f227": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "fb3d01f9"
+        ]
+      ]
+    },
+    "8ecd5769": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Einwilligung zur Erhebung und Verarbeitung Ihrer Daten durch uns"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ],
+      "level": [
+        "string",
+        "div"
+      ]
+    },
+    "8cbd14ee": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Bitte nehmen Sie sich einen Moment Zeit, um zu entscheiden, wie wir mit Ihnen in Kontakt treten und welche Ihrer Daten wir erfassen dürfen.</p>"
+      ]
+    },
+    "d19c6480": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "ac623dd3",
+          "23970a6f",
+          "6ae54e71"
+        ]
+      ]
+    },
+    "ac623dd3": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "23970a6f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "45b6ee9a",
+          "76e0cb5e",
+          "03d26efa",
+          "6963f227",
+          "5460733b",
+          "b255317b",
+          "ee939a2f",
+          "c7d1cb6d",
+          "dbdff90f",
+          "309aeae4",
+          "c8859e88",
+          "b4faefe8",
+          "28707073"
+        ]
+      ]
+    },
+    "6ae54e71": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "2174ae46": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d3176d78"
+        ]
+      ]
+    },
+    "f267496b": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1.5
+      ]
+    },
+    "9d26129c": {
+      "_obj_class": "DataFormBooleanWidget",
+      "data_for_no": [
+        "string",
+        "notGiven"
+      ],
+      "data_for_yes": [
+        "string",
+        "given"
+      ],
+      "submit_on_change": [
+        "boolean",
+        true
+      ],
+      "style": [
+        "string",
+        "switch"
+      ],
+      "label": [
+        "string",
+        "Einwilligung"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Gdpr",
+          "field": "active",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "d3176d78": {
+      "_obj_class": "DataFormContainerWidget",
+      "submit_on_change": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f267496b",
+          "9d26129c"
+        ]
+      ]
+    },
+    "6e5c9a40": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "dccdd8c3"
+        ]
+      ],
+      "col_size": [
+        "number",
+        8
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "dccdd8c3": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__Gdpr.description__"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Gdpr",
+          "field": "name",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "0e9f82f2": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "2174ae46",
+          "6e5c9a40"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "d74b34e5": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "0e9f82f2"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "76e0cb5e": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d74b34e5"
+        ]
+      ]
+    },
+    "fb3d01f9": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>Keine DSGVO-Einträge gefunden.</p>"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "ee939a2f": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Ihr gutes Recht"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "b255317b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Ihre personenbezogenen Daten werden auf der Grundlage geltender Gesetze erhoben und verarbeitet. Durch Ihre Einwilligung erklären Sie sich damit einverstanden, dass Tynacoon einige Ihrer &nbsp;personenbezogenen Daten (Name, Anschrift, Telefonnummer, E-Mail-Adresse) erhebt und verarbeitet.<br>Dies dient dem berechtigten Interesse einer Geschäftsanbahnung auf Basis beiderseitiger wirtschaftlicher Interessen. Damit verbunden sind erforderliche vorvertragliche Maßnahmen gem. Art. 6 der Europäischen Datenschutz-Grundverordnung (DSGVO), die nur mit einer natürlichen Person als Ansprechpartner getroffen werden können. Auf welche Weise wir Daten erfassen und verarbeiten, können Sie unserer Datenschutzerklärung entnehmen. Diese Daten werden gelöscht, sofern sie für den Zweck ihrer Verarbeitung nicht mehr erforderlich sind.</p>"
+      ]
+    },
+    "c7d1cb6d": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Sie haben das Recht, diese Einwilligung jederzeit ohne Angabe von Gründen per E-Mail an tynacoon@example.com, per Fax oder Brief (unter Angabe der betreffenden Kontaktdaten) zu widerrufen. Ferner können erhobene Daten bei Bedarf korrigiert, gelöscht oder deren Erhebung und Verarbeitung eingeschränkt werden. Auf Anfrage erhalten Sie Auskunft zu den bei uns zu Ihrer Person gespeicherten Daten. Sie können auch anfordern, dass Ihre Daten an eine dritte Partei übermittelt werden.</p>"
+      ]
+    },
+    "dbdff90f": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "‌Folgen der Nicht-Einwilligung"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "c8859e88": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Ansprechpartner"
+      ]
+    },
+    "b4faefe8": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Der Ansprechpartner und sogenannter Verantwortlicher für die Verarbeitung Ihrer personenbezogenen Daten im Sinne der EU-Datenschutz-Grundverordnung (DSGVO) ist die:</p>"
+      ]
+    },
+    "309aeae4": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Selbstverständlich haben Sie das Recht, der Erhebung und Verarbeitung Ihrer personenbezogenen Daten nicht zuzustimmen. Ohne eine solche Erhebung und Verarbeitung Ihrer Daten können wir Ihnen keine Informationen zu &nbsp;unseren Produkten und Leistungen zusenden. Eine Geschäftsanbahnung wäre somit nicht möglich. Auf dieser Website können Sie Ihre Einwilligung erteilen. Wenn Sie nicht zustimmen möchten, lassen Sie die betreffenden Optionen bitte abgewählt.</p>"
+      ]
+    },
+    "45b6ee9a": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "8ece3e33",
+          "7b158376"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "8ece3e33": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8685718d"
+        ]
+      ]
+    },
+    "7b158376": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "60874706",
+          "8ecd5769",
+          "8cbd14ee",
+          "14f471cd"
+        ]
+      ]
+    },
+    "8685718d": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "image": [
+        "reference",
+        "c1bcb692f44e9b9d"
+      ],
+      "width": [
+        "string",
+        "150px"
+      ]
+    },
+    "5460733b": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "14f471cd": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

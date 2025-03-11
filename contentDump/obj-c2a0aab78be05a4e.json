@@ -142,14 +142,14 @@
   "_first_published_at": "20230509091931",
   "_id": "c2a0aab78be05a4e",
   "_language": "en",
-  "_last_changed": "20250224084003",
+  "_last_changed": "20250307100716",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250225133502",
+  "_published_at": "20250310125541",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025022513350200000000000000005d18e9dd56374674",
+  "_version": "2025031012554100000000000000003b9689f9a3c2f707",
   "_widget_pool": {
     "10914562": {
       "_obj_class": "ColumnContainerWidget",
@@ -1459,14 +1459,14 @@
       "_obj_class": "SpaceWidget",
       "size": [
         "number",
-        5
+        5.5
       ]
     },
     "898de0e1": {
       "_obj_class": "SpaceWidget",
       "size": [
         "number",
-        5
+        5.5
       ]
     },
     "ec78f00a": {

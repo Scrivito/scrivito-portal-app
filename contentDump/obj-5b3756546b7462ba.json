@@ -1,0 +1,589 @@
+{
+  "_obj_class": "Page",
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "title": [
+    "string",
+    "GDPR consent form"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "1a9a9d04"
+    ]
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Gdpr"
+    }
+  ],
+  "exclude_from_search": [
+    "boolean",
+    true
+  ],
+  "show_as_landing_page": [
+    "boolean",
+    true
+  ],
+  "_conflicts": null,
+  "_content_id": "5b3756546b7462ba",
+  "_created_at": "20250225074722",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20250228133735",
+  "_id": "5b3756546b7462ba",
+  "_language": "en",
+  "_last_changed": "20250307122325",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/52140a4c9cae9b7c/1c2dea326d6cd4bb",
+  "_permalink": "gdpr-consent-form",
+  "_published_at": "20250307122344",
+  "_restriction": null,
+  "_site_id": "56a14d0750cc844e",
+  "_version": "20250307122344000000000000000077379b5d050242aa",
+  "_widget_pool": {
+    "1a9a9d04": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d3654ab8"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "471f4f107fd0d6d2"
+      ]
+    },
+    "7e52df36": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hello __CurrentUser.name__"
+      ],
+      "style": [
+        "string",
+        "h1"
+      ]
+    },
+    "bb7d1703": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1.5
+      ]
+    },
+    "054baeb9": {
+      "_obj_class": "DataFormBooleanWidget",
+      "data_for_no": [
+        "string",
+        "notGiven"
+      ],
+      "data_for_yes": [
+        "string",
+        "given"
+      ],
+      "submit_on_change": [
+        "boolean",
+        true
+      ],
+      "style": [
+        "string",
+        "switch"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Gdpr",
+          "field": "active",
+          "via_ref": "single"
+        }
+      ],
+      "label": [
+        "string",
+        "Consent"
+      ]
+    },
+    "b147c41e": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "bb7d1703",
+          "054baeb9"
+        ]
+      ],
+      "submit_on_change": [
+        "boolean",
+        true
+      ]
+    },
+    "6211adf1": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__Gdpr.description__"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Gdpr",
+          "field": "name",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "ebce2308": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "27e67f43"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "66a0c2a5": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ebce2308"
+        ]
+      ]
+    },
+    "0fba1505": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "a5c8c399": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>No GDPR entries found.</p>"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "8aa26a41": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a5c8c399"
+        ]
+      ]
+    },
+    "079f811c": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Consent to us collecting and processing your data"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ],
+      "level": [
+        "string",
+        "div"
+      ]
+    },
+    "cb45c955": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>We kindly ask you to take a moment to decide how we may contact you and which of your data we may collect.</p>"
+      ]
+    },
+    "27e67f43": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "dbf20f11",
+          "c2d8abc3"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "dbf20f11": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b147c41e"
+        ]
+      ]
+    },
+    "c2d8abc3": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6211adf1"
+        ]
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "d3654ab8": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "f659ec6c",
+          "4350803f",
+          "9e5fc990"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "f659ec6c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "4350803f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8778d802",
+          "66a0c2a5",
+          "0fba1505",
+          "8aa26a41",
+          "9a92ce8d",
+          "136a5531",
+          "fd99d8cf",
+          "50d1afa6",
+          "2bf3215e",
+          "6fc0c28b",
+          "7490b4e4",
+          "8ed0170d",
+          "9d35cf76"
+        ]
+      ]
+    },
+    "9e5fc990": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "136a5531": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>The extent to which we collect and process your personal data is based on applicable laws. By giving your consent, you agree that Tynacoon may collect and process some of your personal data (name, address, telephone number, email address).<br>This serves the legitimate interest of initiating business on the basis of mutual economic interests and involves necessary pre-contractual measures in accordance with Art. 6 of the European General Data Protection Regulation (GDPR), which can only be carried out with a natural person as the contact person. You can find out how we collect and process data in our privacy policy. This data will be deleted if it is no longer required for the purpose of its processing.</p>"
+      ]
+    },
+    "fd99d8cf": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Your right"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "50d1afa6": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>You have the right to revoke this consent at any time and without giving reasons by sending an email to tynacoon@example.com<span lang=\"en\">, or by fax or letter <span lang=\"en\">(including the relevant contact details)</span>. Furthermore, collected data can be corrected or deleted if necessary, or their collection and processing can be restricted. On request, we will provide you with information about your data we have stored. You can also request your data to be transferred to a third party.</span></p>"
+      ]
+    },
+    "2bf3215e": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Consequences of non-consent"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "6fc0c28b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><span lang=\"en\">Of course, you have the right not to consent to the collection and processing of your personal data. Without collecting and processing your data, we are unable to send you any information about our products and services. It would therefore not be possible to initiate business. You can give your consent on this website. If you do not wish to consent, please leave the options concerned deselected.</span></p>"
+      ]
+    },
+    "7490b4e4": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Contact person"
+      ]
+    },
+    "8ed0170d": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p><span lang=\"en\">The contact person and so-called controller for the processing of your personal data within the meaning of the EU General Data Protection Regulation (GDPR) is:</span></p>"
+      ]
+    },
+    "9d35cf76": {
+      "_obj_class": "AddressWidget",
+      "location_locality": [
+        "string",
+        "Leipzig"
+      ],
+      "location_street_address": [
+        "string",
+        "Goethestraße 123"
+      ],
+      "location_postal_code": [
+        "string",
+        "04109"
+      ],
+      "location_country": [
+        "string",
+        "Deutschland"
+      ],
+      "phone": [
+        "string",
+        "+800 123 4567"
+      ],
+      "fax": [
+        "string",
+        "+800 466 4422"
+      ],
+      "email": [
+        "string",
+        "tynacoon@example.com"
+      ],
+      "phone_label": [
+        "string",
+        "Tel."
+      ],
+      "fax_label": [
+        "string",
+        "Fax"
+      ],
+      "email_label": [
+        "string",
+        "E-Mail"
+      ]
+    },
+    "8778d802": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "52ce7f9f",
+          "cc67a829"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "52ce7f9f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "208470b0"
+        ]
+      ]
+    },
+    "cc67a829": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7e52df36",
+          "079f811c",
+          "cb45c955",
+          "b222ec08"
+        ]
+      ]
+    },
+    "208470b0": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "image": [
+        "reference",
+        "c1bcb692f44e9b9d"
+      ],
+      "width": [
+        "string",
+        "150px"
+      ]
+    },
+    "9a92ce8d": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "b222ec08": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

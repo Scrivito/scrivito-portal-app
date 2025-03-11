@@ -28,14 +28,14 @@
   "_first_published_at": "20240405121103",
   "_id": "d11017df5d1aaf49",
   "_language": "de",
-  "_last_changed": "20250220104300",
+  "_last_changed": "20250307100435",
   "_modification": null,
   "_path": "/84435b45662730da/d11017df5d1aaf49",
   "_permalink": "veranstaltungen",
-  "_published_at": "20250220104510",
+  "_published_at": "20250310125541",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "2025031012554100000000000000003b9689f9a3c2f707",
   "_widget_pool": {
     "51448137": {
       "_obj_class": "ColumnContainerWidget",
@@ -685,14 +685,14 @@
       "_obj_class": "SpaceWidget",
       "size": [
         "number",
-        5
+        5.5
       ]
     },
     "61979c13": {
       "_obj_class": "SpaceWidget",
       "size": [
         "number",
-        5
+        5.5
       ]
     },
     "f6b26159": {

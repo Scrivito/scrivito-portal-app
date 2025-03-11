@@ -40,16 +40,16 @@
   "_first_published_at": "20231011133244",
   "_id": "a8ede3121df9e2f6",
   "_language": "en",
-  "_last_changed": "20250219131959",
+  "_last_changed": "20250307174031",
   "_modification": null,
   "_path": "/587d96465c3c69c4/efab2b0cce535d8a",
   "_permalink": null,
-  "_published_at": "20250219143838",
+  "_published_at": "20250311075836",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025021914383800000000000000008c3e4fbf762a7983",
+  "_version": "2025031107583600000000000000006717af77ef09cbb6",
   "_widget_pool": {
     "60166490": {
       "_obj_class": "CardWidget",
@@ -68,7 +68,7 @@
       "card_body": [
         "widgetlist",
         [
-          "84c158fd"
+          "a8d379bd"
         ]
       ]
     },
@@ -141,7 +141,7 @@
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        6
+        3
       ],
       "content": [
         "widgetlist",
@@ -154,7 +154,7 @@
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        6
+        9
       ],
       "content": [
         "widgetlist",
@@ -211,6 +211,7 @@
       "content": [
         "widgetlist",
         [
+          "8cca90f6",
           "4530e870"
         ]
       ]
@@ -373,10 +374,50 @@
         "string",
         "150px"
       ]
+    },
+    "8cca90f6": {
+      "_obj_class": "DataFormNumberWidget",
+      "label": [
+        "string",
+        "Quantity"
+      ],
+      "min_value": [
+        "number",
+        1
+      ],
+      "step_value": [
+        "number",
+        1
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "CartItem",
+          "field": "quantity",
+          "via_ref": "single"
+        }
+      ],
+      "required": [
+        "boolean",
+        true
+      ]
+    },
+    "a8d379bd": {
+      "_obj_class": "DataFormContainerWidget",
+      "submit_on_change": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "84c158fd"
+        ]
+      ]
     }
   },
   "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
 }

@@ -28,14 +28,14 @@
   "_first_published_at": "20240405121103",
   "_id": "60ee30e12429563b",
   "_language": "de",
-  "_last_changed": "20250220115808",
+  "_last_changed": "20250307100833",
   "_modification": null,
   "_path": "/84435b45662730da/60ee30e12429563b",
   "_permalink": null,
-  "_published_at": "20250220120033",
+  "_published_at": "20250310125541",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202502201200330000000000000000458fedd7e04fb45c",
+  "_version": "2025031012554100000000000000003b9689f9a3c2f707",
   "_widget_pool": {
     "53956765": {
       "_obj_class": "TextWidget",
@@ -548,14 +548,14 @@
       "_obj_class": "SpaceWidget",
       "size": [
         "number",
-        5
+        5.5
       ]
     },
     "b2fd5b6a": {
       "_obj_class": "SpaceWidget",
       "size": [
         "number",
-        5
+        5.5
       ]
     },
     "727b5611": {

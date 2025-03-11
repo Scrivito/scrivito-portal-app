@@ -39,16 +39,16 @@
   "_first_published_at": "20240318105701",
   "_id": "e8f5370d6569478a",
   "_language": "en",
-  "_last_changed": "20240917092813",
+  "_last_changed": "20250228104523",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/4df09188b1541b70/e8f5370d6569478a",
   "_permalink": null,
-  "_published_at": "20240918082734",
+  "_published_at": "20250228133735",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202409180827340000000000000000b13b69f57525b4db",
+  "_version": "202502281337350000000000000000b4247ad6ae5b5935",
   "_widget_pool": {
     "25d8b24d": {
       "_obj_class": "DataWidget",
@@ -93,7 +93,7 @@
       ],
       "label": [
         "string",
-        "Consent given"
+        "Consent"
       ],
       "data": [
         "datalocator",

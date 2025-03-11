@@ -37,16 +37,16 @@
   "_first_published_at": "20240405121103",
   "_id": "40fcff128372c95a",
   "_language": "de",
-  "_last_changed": "20240917092818",
+  "_last_changed": "20250228104658",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/40fcff128372c95a",
   "_permalink": null,
-  "_published_at": "20240918082734",
+  "_published_at": "20250228133735",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202409180827340000000000000000b13b69f57525b4db",
+  "_version": "202502281337350000000000000000b4247ad6ae5b5935",
   "_widget_pool": {
     "ec1aa439": {
       "_obj_class": "DataWidget",
@@ -335,7 +335,7 @@
       ],
       "label": [
         "string",
-        "Abonniert"
+        "Einwilligung"
       ],
       "data": [
         "datalocator",
@@ -379,7 +379,7 @@
       ],
       "label": [
         "string",
-        "Abonniert"
+        "Abonnement"
       ],
       "data": [
         "datalocator",
@@ -430,7 +430,7 @@
       ],
       "text": [
         "html",
-        "<p>Wir können Mailings senden, die keinem Newsletter-Thema zugeordnet sind. Um diese E-Mails zu erhalten, ist Ihre Zustimmung für jedes einzelne Mailing erforderlich. Um diesen Prozess zu vereinfachen, können Sie hier Ihre Präferenz festlegen.</p>"
+        "<p>Wir können Mailings senden, die keinem Newsletter-Thema zugeordnet sind. Um diese E-Mails zu erhalten, ist Ihre Einwilligung für jedes einzelne Mailing erforderlich. Um diesen Prozess zu vereinfachen, können Sie hier Ihre Präferenz festlegen.</p>"
       ]
     },
     "0d9a46e5": {
