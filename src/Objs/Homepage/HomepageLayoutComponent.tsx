@@ -22,17 +22,17 @@ const HomepageLayout = connect(
 )
 
 function ignoreTopLevelLayout(): boolean {
-  return getFirstSubpage()?.get('layoutIgnoreTopLevelLayout') === true
+  return getHomepageSubpage()?.get('layoutIgnoreTopLevelLayout') === true
 }
 
-function getFirstSubpage(): Obj | null {
-  const firstSubpagePath = currentPage()
+function getHomepageSubpage(): Obj | null {
+  const homepageSubpagePath = currentPage()
     ?.path()
     ?.split('/')
     .slice(0, 2)
     .join('/')
-  if (!firstSubpagePath) return null
-  if (firstSubpagePath === '/') return null
+  if (!homepageSubpagePath) return null
+  if (homepageSubpagePath === '/') return null
 
-  return Obj.getByPath(firstSubpagePath)
+  return Obj.getByPath(homepageSubpagePath)
 }
