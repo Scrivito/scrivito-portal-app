@@ -33,5 +33,5 @@ function ignoreHomepageLayout(): boolean {
   const firstSubpage = Obj.getByPath(firstSubpagePath)
   if (!firstSubpage) return false
 
-  return firstSubpage.get('layoutIgnoreHomepageLayout') == true
+  return firstSubpage.get('layoutIgnoreHomepageLayout') === true
 }
