@@ -52,6 +52,14 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
     e.preventDefault()
     e.stopPropagation()
 
+    const invalidForm =
+      document.querySelector<HTMLFormElement>('form:not(:valid)')
+
+    if (invalidForm) {
+      invalidForm.reportValidity()
+      return
+    }
+
     setIsSubmitting(true)
 
     try {
