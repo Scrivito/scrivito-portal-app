@@ -58,6 +58,8 @@ export default [
     rules: {
       curly: ['error', 'multi-line'],
 
+      eqeqeq: ['warn'],
+
       quotes: [
         'warn',
         'single',
