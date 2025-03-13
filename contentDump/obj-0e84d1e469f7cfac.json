@@ -14,10 +14,6 @@
       "31a74e40"
     ]
   ],
-  "meta_data_description": [
-    "string",
-    "Effortlessly manage account details with Tynacoon: View and edit name, email, JustRelate ID, phone, company, and salutation for personalized service."
-  ],
   "robots_index": [
     "boolean",
     true
@@ -25,6 +21,10 @@
   "layout_main_background_color": [
     "string",
     "transparent"
+  ],
+  "description": [
+    "string",
+    "Effortlessly manage account details with Tynacoon: View and edit name, email, JustRelate ID, phone, company, and salutation for personalized service."
   ],
   "_conflicts": null,
   "_content_id": "0e84d1e469f7cfac",
@@ -36,16 +36,16 @@
   "_first_published_at": "20230620092020",
   "_id": "0e84d1e469f7cfac",
   "_language": "en",
-  "_last_changed": "20240808071734",
+  "_last_changed": "20250311120300",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/4df09188b1541b70",
   "_permalink": "my-profile",
-  "_published_at": "20240808072537",
+  "_published_at": "20250312091021",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "20240808072537000000000000000019dcd31e21d00e85",
+  "_version": "202503120910210000000000000000670cf7bf30d49b1a",
   "_widget_pool": {
     "31a74e40": {
       "_obj_class": "CardWidget",
@@ -362,6 +362,6 @@
   },
   "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
 }

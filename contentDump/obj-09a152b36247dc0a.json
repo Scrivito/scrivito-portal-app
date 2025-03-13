@@ -8,10 +8,6 @@
     "string",
     "bi-person-circle"
   ],
-  "meta_data_description": [
-    "string",
-    "Verwalten Sie Ihre Kontoinformationen einfach mit Tynacoon: Namen, E-Mail, JustRelate-ID ansehen und bearbeiten für optimale Kommunikation und Service."
-  ],
   "body": [
     "widgetlist",
     [
@@ -26,6 +22,10 @@
     "string",
     "transparent"
   ],
+  "description": [
+    "string",
+    "Verwalten Sie Ihre Kontoinformationen einfach mit Tynacoon: Namen, E-Mail, JustRelate-ID ansehen und bearbeiten für optimale Kommunikation und Service."
+  ],
   "_conflicts": null,
   "_content_id": "0e84d1e469f7cfac",
   "_created_at": "20240405113819",
@@ -36,16 +36,16 @@
   "_first_published_at": "20240405121103",
   "_id": "09a152b36247dc0a",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250311120251",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/09a152b36247dc0a",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250312091021",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "202503120910210000000000000000670cf7bf30d49b1a",
   "_widget_pool": {
     "23885504": {
       "_obj_class": "ColumnWidget",

@@ -19,10 +19,6 @@
     "string",
     "bi-envelope-paper"
   ],
-  "meta_data_description": [
-    "string",
-    "Easily manage your past orders at Tynacoon. Get detailed information on each order such as ID, date, payment method, and total price. Quickly access your order history."
-  ],
   "data": [
     "datalocator",
     {
@@ -50,6 +46,10 @@
     "string",
     "transparent"
   ],
+  "description": [
+    "string",
+    "Easily manage your past orders at Tynacoon. Get detailed information on each order such as ID, date, payment method, and total price. Quickly access your order history."
+  ],
   "_conflicts": null,
   "_content_id": "02d09ad2dd7d2332",
   "_created_at": "20230525073826",
@@ -58,16 +58,16 @@
   "_first_published_at": "20230526064258",
   "_id": "02d09ad2dd7d2332",
   "_language": "en",
-  "_last_changed": "20250217092439",
+  "_last_changed": "20250311120313",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/02d09ad2dd7d2332",
   "_permalink": "orders",
-  "_published_at": "20250218083811",
+  "_published_at": "20250312091021",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
+  "_version": "202503120910210000000000000000670cf7bf30d49b1a",
   "_widget_pool": {
     "44109464": {
       "_obj_class": "DataSearchWidget",

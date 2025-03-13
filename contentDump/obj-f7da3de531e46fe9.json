@@ -19,10 +19,6 @@
       "0ace6796"
     ]
   ],
-  "meta_data_description": [
-    "string",
-    "Easily organize your quotes with Tynacoon! Access detailed info like ID, date, status, and total price. View your complete quote history in seconds."
-  ],
   "data": [
     "datalocator",
     {
@@ -50,6 +46,10 @@
     "string",
     "transparent"
   ],
+  "description": [
+    "string",
+    "Easily organize your quotes with Tynacoon! Access detailed info like ID, date, status, and total price. View your complete quote history in seconds."
+  ],
   "_conflicts": null,
   "_content_id": "f7da3de531e46fe9",
   "_created_at": "20230626084910",
@@ -58,16 +58,16 @@
   "_first_published_at": "20230626113100",
   "_id": "f7da3de531e46fe9",
   "_language": "en",
-  "_last_changed": "20250217092336",
+  "_last_changed": "20250311120307",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/f7da3de531e46fe9",
   "_permalink": "quotes",
-  "_published_at": "20250218083811",
+  "_published_at": "20250312091021",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
+  "_version": "202503120910210000000000000000670cf7bf30d49b1a",
   "_widget_pool": {
     "39707421": {
       "_obj_class": "ColumnWidget",

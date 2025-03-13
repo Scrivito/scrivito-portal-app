@@ -8,10 +8,6 @@
     "boolean",
     true
   ],
-  "show_as_landing_page": [
-    "boolean",
-    true
-  ],
   "body": [
     "widgetlist",
     [
@@ -22,6 +18,26 @@
     "string",
     "transparent"
   ],
+  "layout_show_header": [
+    "boolean",
+    true
+  ],
+  "layout_show_footer": [
+    "boolean",
+    true
+  ],
+  "layout_header": [
+    "widgetlist",
+    [
+      "dd6c0109"
+    ]
+  ],
+  "layout_footer": [
+    "widgetlist",
+    [
+      "7e15cba2"
+    ]
+  ],
   "_conflicts": null,
   "_content_id": "3f4d1ebe4e291e04",
   "_created_at": "20240619122118",
@@ -30,14 +46,14 @@
   "_first_published_at": "20240620133534",
   "_id": "4b188044778bdb6e",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250311104701",
   "_modification": null,
-  "_path": "/84435b45662730da/6a5898770a646824/63a9473a132fba85",
+  "_path": "/6a5898770a646824/63a9473a132fba85",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250312090751",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "2025031209075100000000000000008e4953658358d065",
   "_widget_pool": {
     "ab6ec47c": {
       "_obj_class": "SectionWidget",
@@ -235,6 +251,40 @@
         "number",
         2
       ]
+    },
+    "dd6c0109": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "afdbf1bb"
+        ]
+      ]
+    },
+    "afdbf1bb": {
+      "_obj_class": "LogoWidget",
+      "brand_link": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "bdbb81709c5e1c63",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ]
+    },
+    "7e15cba2": {
+      "_obj_class": "HomepageFooterWidget"
     }
   },
   "_created_by": "scrivito:1ba850ffc8fb4adda8b34c00ca2b88af",

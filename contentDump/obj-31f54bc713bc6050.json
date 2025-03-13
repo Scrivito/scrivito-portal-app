@@ -8,10 +8,6 @@
     "string",
     "bi-envelope-paper"
   ],
-  "meta_data_description": [
-    "string",
-    "Behalten Sie den Überblick über Ihre Tynacoon-Bestellungen: IDs, Daten, Zahlungen und Preise einsehen. Einfacher Zugriff auf Ihre Bestellhistorie."
-  ],
   "data": [
     "datalocator",
     {
@@ -50,6 +46,10 @@
     "string",
     "transparent"
   ],
+  "description": [
+    "string",
+    "Behalten Sie den Überblick über Ihre Tynacoon-Bestellungen: IDs, Daten, Zahlungen und Preise einsehen. Einfacher Zugriff auf Ihre Bestellhistorie."
+  ],
   "_conflicts": null,
   "_content_id": "02d09ad2dd7d2332",
   "_created_at": "20240405114207",
@@ -58,16 +58,16 @@
   "_first_published_at": "20240405121103",
   "_id": "31f54bc713bc6050",
   "_language": "de",
-  "_last_changed": "20250217092856",
+  "_last_changed": "20250311120320",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/31f54bc713bc6050",
   "_permalink": null,
-  "_published_at": "20250218083811",
+  "_published_at": "20250312091021",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
+  "_version": "202503120910210000000000000000670cf7bf30d49b1a",
   "_widget_pool": {
     "6dd1ab80": {
       "_obj_class": "DataWidget",

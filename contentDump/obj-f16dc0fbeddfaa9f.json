@@ -8,10 +8,6 @@
     "string",
     "bi-file-earmark-text"
   ],
-  "meta_data_description": [
-    "string",
-    "Verwalten Sie Ihre Angebote effizient auf Tynacoon! Sehen Sie alle Details wie ID, Datum, Status und Preis ein, inklusive vollständiger Historie."
-  ],
   "data": [
     "datalocator",
     {
@@ -50,6 +46,10 @@
     "string",
     "transparent"
   ],
+  "description": [
+    "string",
+    "Verwalten Sie Ihre Angebote effizient auf Tynacoon! Sehen Sie alle Details wie ID, Datum, Status und Preis ein, inklusive vollständiger Historie."
+  ],
   "_conflicts": null,
   "_content_id": "f7da3de531e46fe9",
   "_created_at": "20240405114131",
@@ -58,16 +58,16 @@
   "_first_published_at": "20240405121103",
   "_id": "f16dc0fbeddfaa9f",
   "_language": "de",
-  "_last_changed": "20250217092806",
+  "_last_changed": "20250311120324",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/f16dc0fbeddfaa9f",
   "_permalink": null,
-  "_published_at": "20250218083811",
+  "_published_at": "20250312091021",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
+  "_version": "202503120910210000000000000000670cf7bf30d49b1a",
   "_widget_pool": {
     "94402649": {
       "_obj_class": "DataLabelWidget",
