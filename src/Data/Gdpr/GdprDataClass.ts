@@ -26,25 +26,24 @@ export const Gdpr = provideDataClass(
                 )
               }
 
-              if (params.order().length > 0) {
-                throw new DataConnectionError(
-                  'GDPR consent does not support sorting.',
-                )
-              }
-
-              if (params.search()) {
-                throw new DataConnectionError(
-                  'GDPR consent does not support searching.',
-                )
-              }
-
               const urlParams = new URLSearchParams()
+
+              const continuation = params.continuation()
+              if (continuation) urlParams.set('_continuation', continuation)
+
+              if (params.includeCount()) urlParams.set('_count', 'true')
 
               const limit = params.limit()
               if (limit) urlParams.set('_limit', limit.toString())
 
-              const continuation = params.continuation()
-              if (continuation) urlParams.set('_continuation', continuation)
+              const order = params
+                .order()
+                .map((o) => o.join('.'))
+                .join(',')
+              if (order) urlParams.set('_order', order)
+
+              const search = params.search()
+              if (search) urlParams.set('_search', search)
 
               const urlWithParams = `${url}?${urlParams.toString()}`
 
