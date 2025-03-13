@@ -48,9 +48,9 @@ function localizeExpiredMessage(language: string): string {
 function localizeFailedVerify(language: string): string {
   switch (language) {
     case 'de':
-      return 'Fehler beim Überprüfen des Benutzerprofils.'
+      return 'Fehler bei der Überprüfung des Benutzerprofils.'
     case 'fr':
-      return 'Échec de la vérification du profil utilisateur.'
+      return "Échec de la vérification du profil de l'utilisateur."
     case 'pl':
       return 'Nie udało się zweryfikować profilu użytkownika.'
     default:
