@@ -44,11 +44,6 @@ provideEditingConfig(Page, {
       title: 'Ignore top-level layout?',
       description: 'Default: No',
     },
-    showAsLandingPage: {
-      title: 'Display this page as a landing page?',
-      description:
-        'Removes the header navigation and only centers the logo instead. Default: No',
-    },
     data: {
       restrictDataTo: ['scope', 'item'],
     },
@@ -57,7 +52,6 @@ provideEditingConfig(Page, {
     ...defaultPageProperties,
     'hideInNavigation',
     'excludeFromSearch',
-    'showAsLandingPage',
   ],
   propertiesGroups,
   initialContent: defaultPageInitialContent,
