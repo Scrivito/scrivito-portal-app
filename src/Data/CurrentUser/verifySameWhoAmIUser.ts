@@ -27,12 +27,12 @@ function localizeEmailMismatch(
 ): string {
   switch (language) {
     case 'de':
-      return `Dieser Link ist für ${linkFor}, aber Sie haben sich als ${currentUserEmail} eingeloggt. Bitte melden Sie sich zuerst ab.`
+      return `Dieser Link ist für ${linkFor}, aber Sie sind als ${currentUserEmail} eingeloggt. Bitte melden Sie sich zuerst ab.`
     case 'fr':
       return `Ce lien est destiné à ${linkFor}, mais vous êtes connecté en tant que ${currentUserEmail}. Veuillez d'abord vous déconnecter.`
     case 'pl':
-      return `Ten link jest dla ${linkFor}, ale jesteś zalogowany jako ${currentUserEmail}. Prosimy najpierw wyloguj się.`
+      return `Ten link jest przeznaczony dla ${linkFor}, ale jesteś zalogowany jako ${currentUserEmail}. Najpierw się wyloguj.`
     default:
-      return `This link is for ${linkFor} but you are logged in as ${currentUserEmail}. Please log out first.`
+      return `This link is for ${linkFor}, but you are logged in as ${currentUserEmail}. Please log out first.`
   }
 }
