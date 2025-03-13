@@ -35,13 +35,13 @@ export async function fetchWhoAmIWithToken(): Promise<WhoAmI | null> {
 function localizeExpiredMessage(language: string): string {
   switch (language) {
     case 'de':
-      return 'Der von Ihnen gefolgte Link ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen an.'
+      return 'Der Link ist abgelaufen oder ungültig. Bitte fordern Sie einen neuen an.'
     case 'fr':
-      return 'Le lien que vous avez suivi est invalide ou a expiré. Veuillez en demander un nouveau.'
+      return 'Le lien est expiré ou invalide. Veuillez en demander un nouveau.'
     case 'pl':
-      return 'Link, któremu śledziłeś jest nieważny lub wygasł. Prosimy o poproszenie o nowy.'
+      return 'Link jest wygasły lub nieważny. Proszę o nowy.'
     default:
-      return 'The link you followed is invalid or has expired. Please request a new one.'
+      return 'The link is expired or invalid. Please request a new one.'
   }
 }
 
