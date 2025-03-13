@@ -1,8 +1,8 @@
 import { currentLanguage, currentUser, load } from 'scrivito'
-import { pisaUrl } from '../pisaClient'
 import { WhoAmI } from './CurrentUserDataItem'
 import { simpleErrorToast } from './errorToast'
 import { getTokenAuthorization } from '../getTokenAuthorization'
+import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
 
 // TODO: Switch function to pisaClient, once #11616 is resolved
 export async function verifySameWhoAmIUser() {
@@ -14,57 +14,15 @@ export async function verifySameWhoAmIUser() {
   const tokenAuthorization = getTokenAuthorization()
   if (!tokenAuthorization) return
 
-  const baseUrl = await pisaUrl()
-  if (!baseUrl) return
-
-  const response = await fetch(`${baseUrl}/whoami`, {
-    headers: { Authorization: tokenAuthorization },
-  })
-
-  if (!response.ok) {
-    const errorMessage =
-      response.status === 401
-        ? localizeExpiredMessage(lang)
-        : localizeFailedVerify(lang)
-    simpleErrorToast(errorMessage)
-
-    return
-  }
-
-  const result = (await response.json()) as WhoAmI
+  const whoAmI = await fetchWhoAmIWithToken(tokenAuthorization)
+  if (!whoAmI) return
 
   const currentUserEmail = user.email()
-  if (result.email === currentUserEmail) return
+  if (whoAmI.email === currentUserEmail) return
 
   simpleErrorToast(
-    localizeEmailMismatch(lang, result.email ?? '', currentUserEmail),
+    localizeEmailMismatch(lang, whoAmI.email ?? '', currentUserEmail),
   )
-}
-
-export function localizeExpiredMessage(language: string): string {
-  switch (language) {
-    case 'de':
-      return 'Der von Ihnen gefolgte Link ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen an.'
-    case 'fr':
-      return 'Le lien que vous avez suivi est invalide ou a expiré. Veuillez en demander un nouveau.'
-    case 'pl':
-      return 'Link, któremu śledziłeś jest nieważny lub wygasł. Prosimy o poproszenie o nowy.'
-    default:
-      return 'The link you followed is invalid or has expired. Please request a new one.'
-  }
-}
-
-export function localizeFailedVerify(language: string): string {
-  switch (language) {
-    case 'de':
-      return 'Fehler beim Überprüfen des Benutzerprofils.'
-    case 'fr':
-      return 'Échec de la vérification du profil utilisateur.'
-    case 'pl':
-      return 'Nie udało się zweryfikować profilu użytkownika.'
-    default:
-      return 'Failed to verify user profile.'
-  }
 }
 
 function localizeEmailMismatch(
