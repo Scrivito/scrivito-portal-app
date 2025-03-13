@@ -1,7 +1,5 @@
 import { currentLanguage, currentUser, load } from 'scrivito'
-import { WhoAmI } from './CurrentUserDataItem'
 import { simpleErrorToast } from './errorToast'
-import { getTokenAuthorization } from '../getTokenAuthorization'
 import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
 
 // TODO: Switch function to pisaClient, once #11616 is resolved
@@ -11,10 +9,7 @@ export async function verifySameWhoAmIUser() {
 
   const lang = await load(() => currentLanguage() ?? '')
 
-  const tokenAuthorization = getTokenAuthorization()
-  if (!tokenAuthorization) return
-
-  const whoAmI = await fetchWhoAmIWithToken(tokenAuthorization)
+  const whoAmI = await fetchWhoAmIWithToken()
   if (!whoAmI) return
 
   const currentUserEmail = user.email()

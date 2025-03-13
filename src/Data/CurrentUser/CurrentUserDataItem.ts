@@ -68,15 +68,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
   connection: {
     async get() {
       const user = await load(currentUser)
-
-      if (!user) {
-        const tokenAuthorization = getTokenAuthorization()
-        if (tokenAuthorization) {
-          return getTokenBasedCurrentUser(tokenAuthorization)
-        }
-
-        return null
-      }
+      if (!user) return getTokenBasedCurrentUser()
 
       let neoletterProfile
       try {
@@ -170,10 +162,10 @@ async function pisaIds(): Promise<{
   }
 }
 
-async function getTokenBasedCurrentUser(tokenAuthorization: string) {
+async function getTokenBasedCurrentUser() {
   if (isUserLoggedIn()) return null // Safeguard
 
-  const whoAmI = await fetchWhoAmIWithToken(tokenAuthorization)
+  const whoAmI = await fetchWhoAmIWithToken()
   if (!whoAmI) return null
 
   return {

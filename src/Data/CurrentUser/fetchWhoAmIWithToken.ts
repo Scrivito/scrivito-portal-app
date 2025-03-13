@@ -2,12 +2,14 @@ import { load, currentLanguage } from 'scrivito'
 import { pisaConfig } from '../pisaClient'
 import { WhoAmI } from './CurrentUserDataItem'
 import { simpleErrorToast } from './errorToast'
+import { getTokenAuthorization } from '../getTokenAuthorization'
 
-export async function fetchWhoAmIWithToken(
-  tokenAuthorization: string,
-): Promise<WhoAmI | null> {
+export async function fetchWhoAmIWithToken(): Promise<WhoAmI | null> {
   const whoAmIConfig = await pisaConfig('whoami')
   if (!whoAmIConfig) return null
+
+  const tokenAuthorization = getTokenAuthorization()
+  if (!tokenAuthorization) return null
 
   const lang = await load(() => currentLanguage() ?? '')
 
