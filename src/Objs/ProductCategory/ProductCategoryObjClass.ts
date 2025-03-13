@@ -4,7 +4,6 @@ import { defaultPageAttributes } from '../defaultPageAttributes'
 export const ProductCategory = provideObjClass('ProductCategory', {
   attributes: {
     ...defaultPageAttributes,
-    description: 'string',
     image: ['reference', { only: ['Image'] }],
   },
   extractTextAttributes: ['description'],

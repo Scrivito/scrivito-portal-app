@@ -4,6 +4,7 @@ export const Dropdown = provideObjClass('Dropdown', {
   attributes: {
     childOrder: 'referencelist',
     hideInNavigation: 'boolean',
+    layoutIgnoreTopLevelLayout: 'boolean',
     title: 'string',
   },
 })

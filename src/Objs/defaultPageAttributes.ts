@@ -32,7 +32,7 @@ export const defaultPageAttributes = {
     },
   ],
   // Meta tags
-  metaDataDescription: 'string',
+  description: 'string',
   robotsIndex: 'boolean',
   // Twitter attributes
   tcCreator: 'string',

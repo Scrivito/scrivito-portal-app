@@ -18,7 +18,7 @@ export function getMetadata(page: Obj) {
     meta.push({ name: 'robots', content: 'noindex' })
   }
 
-  const description = ensureString(page.get('metaDataDescription'))
+  const description = ensureString(page.get('description'))
   if (description) {
     meta.push({ name: 'description', content: description })
   }
