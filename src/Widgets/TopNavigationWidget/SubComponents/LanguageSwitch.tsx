@@ -64,15 +64,18 @@ const LanguageLabel = connect(function LanguageLabel({
   className?: string
   root: HomepageInstance
 }) {
+  const language = root.language()
+  const label = displayName(language)
+
   return (
-    <span aria-label={displayName(root.language())}>
+    <span aria-label={label}>
       <ImageTag
         alt=""
         content={root}
         attribute="siteLanguageIcon"
         className="img-flag"
       />
-      <span className={className}>{displayName(root.language())}</span>
+      <span className={className}>{label}</span>
     </span>
   )
 })
