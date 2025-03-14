@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
   const outDir = 'dist'
 
   const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
+  const privateJrPlatform = env.PRIVATE_JR_PLATFORM === 'true'
 
   return {
     build: {
@@ -44,6 +45,7 @@ export default defineConfig(({ mode }) => {
         env.SCRIVITO_ROOT_OBJ_ID || 'c2a0aab78be05a4e',
       ),
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
+      'import.meta.env.PRIVATE_JR_PLATFORM': JSON.stringify(privateJrPlatform),
     },
     optimizeDeps: {
       force: true,
