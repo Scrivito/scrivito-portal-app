@@ -68,7 +68,7 @@ const LanguageLabel = connect(function LanguageLabel({
   const label = displayName(language)
 
   return (
-    <span aria-label={label}>
+    <span aria-label={label} lang={language || undefined}>
       <ImageTag
         alt=""
         content={root}
