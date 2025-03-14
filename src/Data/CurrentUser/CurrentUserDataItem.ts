@@ -12,8 +12,9 @@ import { ensureString } from '../../utils/ensureString'
 import { isOptionalString } from '../../utils/isOptionalString'
 import { neoletterClient } from '../neoletterClient'
 import { getTokenAuthorization } from '../getTokenAuthorization'
-import { errorToast, simpleErrorToast } from './errorToast'
-import { pisaClient, pisaConfig } from '../pisaClient'
+import { errorToast } from './errorToast'
+import { pisaClient } from '../pisaClient'
+import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
@@ -67,15 +68,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
   connection: {
     async get() {
       const user = await load(currentUser)
-
-      if (!user) {
-        const tokenAuthorization = getTokenAuthorization()
-        if (tokenAuthorization) {
-          return getTokenBasedCurrentUser(tokenAuthorization)
-        }
-
-        return null
-      }
+      if (!user) return getTokenBasedCurrentUser()
 
       let neoletterProfile
       try {
@@ -169,29 +162,11 @@ async function pisaIds(): Promise<{
   }
 }
 
-async function getTokenBasedCurrentUser(tokenAuthorization: string) {
+async function getTokenBasedCurrentUser() {
   if (isUserLoggedIn()) return null // Safeguard
 
-  const whoAmIConfig = await pisaConfig('whoami')
-  if (!whoAmIConfig) return null
-
-  const { url, headers: baseHeaders } = whoAmIConfig
-
-  const headers = { ...baseHeaders, Authorization: tokenAuthorization }
-
-  // TODO: Replace fetch with pisaClient, once #11616 is resolved
-  const response = await fetch(url, { method: 'GET', headers })
-  if (!response.ok) {
-    const errorMessage =
-      response.status === 401
-        ? 'The link you followed is invalid or has expired. Please request a new one.'
-        : 'Failed to fetch user profile.'
-    simpleErrorToast(errorMessage)
-
-    throw new DataConnectionError(errorMessage)
-  }
-
-  const whoAmI = (await response.json()) as WhoAmI
+  const whoAmI = await fetchWhoAmIWithToken()
+  if (!whoAmI) return null
 
   return {
     company: '',
