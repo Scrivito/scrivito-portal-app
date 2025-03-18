@@ -31,7 +31,7 @@ if (typeof window.preloadDump === 'string') {
 } else renderApp()
 
 async function renderApp() {
-  const RootComponent = await getApp()
+  const RootComponent = await getRootComponent()
 
   createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
@@ -40,7 +40,7 @@ async function renderApp() {
   )
 }
 
-async function getApp() {
+async function getRootComponent() {
   if (import.meta.env.PRIVATE_JR_PLATFORM) return getJrPlatformApp()
 
   return App
