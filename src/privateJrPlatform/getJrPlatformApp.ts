@@ -29,6 +29,8 @@ async function isValidContentFormat(): Promise<boolean> {
   const redirectOrigin = KNOWN_CONTENT_FORMATS[siteContentFormat]
   if (!redirectOrigin) return false
 
+  if (location.origin === redirectOrigin) return false
+
   const url = location.href.replace(location.origin, redirectOrigin)
   location.replace(url)
 
