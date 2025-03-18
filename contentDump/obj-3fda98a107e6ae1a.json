@@ -11,7 +11,13 @@
   "data": [
     "datalocator",
     {
-      "class": "Gdpr"
+      "class": "Gdpr",
+      "order_by": [
+        [
+          "name",
+          "asc"
+        ]
+      ]
     }
   ],
   "exclude_from_search": [
@@ -42,14 +48,14 @@
   "_first_published_at": "20250228133735",
   "_id": "3fda98a107e6ae1a",
   "_language": "de",
-  "_last_changed": "20250307122814",
+  "_last_changed": "20250313130607",
   "_modification": null,
   "_path": "/6a5898770a646824/3fda98a107e6ae1a",
   "_permalink": "dsgvo-einwilligungsformular",
-  "_published_at": "20250312090751",
+  "_published_at": "20250318091443",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025031209075100000000000000008e4953658358d065",
+  "_version": "2025031809144300000000000000009b0d6a3a4b69f0a2",
   "_widget_pool": {
     "28707073": {
       "_obj_class": "AddressWidget",

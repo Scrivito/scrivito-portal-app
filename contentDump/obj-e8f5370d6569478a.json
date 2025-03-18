@@ -12,6 +12,12 @@
     "datalocator",
     {
       "class": "Gdpr",
+      "order_by": [
+        [
+          "name",
+          "asc"
+        ]
+      ],
       "size": 10
     }
   ],
@@ -39,16 +45,16 @@
   "_first_published_at": "20240318105701",
   "_id": "e8f5370d6569478a",
   "_language": "en",
-  "_last_changed": "20250228104523",
+  "_last_changed": "20250313130517",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/4df09188b1541b70/e8f5370d6569478a",
   "_permalink": null,
-  "_published_at": "20250228133735",
+  "_published_at": "20250318091443",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202502281337350000000000000000b4247ad6ae5b5935",
+  "_version": "2025031809144300000000000000009b0d6a3a4b69f0a2",
   "_widget_pool": {
     "25d8b24d": {
       "_obj_class": "DataWidget",

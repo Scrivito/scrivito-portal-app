@@ -12,6 +12,12 @@
     "datalocator",
     {
       "class": "Gdpr",
+      "order_by": [
+        [
+          "name",
+          "asc"
+        ]
+      ],
       "size": 10
     }
   ],
@@ -39,16 +45,16 @@
   "_first_published_at": "20240405121103",
   "_id": "86e7f2cb286063a6",
   "_language": "de",
-  "_last_changed": "20240917092816",
+  "_last_changed": "20250318094827",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/09a152b36247dc0a/86e7f2cb286063a6",
   "_permalink": null,
-  "_published_at": "20240918082734",
+  "_published_at": "20250318094904",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202409180827340000000000000000b13b69f57525b4db",
+  "_version": "2025031809490400000000000000000b252d370a2b5d6f",
   "_widget_pool": {
     "87639548": {
       "_obj_class": "DataLoadMoreButtonWidget",
@@ -112,7 +118,7 @@
       ],
       "label": [
         "string",
-        "Einwilligung gegeben"
+        "Einwilligung"
       ],
       "data": [
         "datalocator",

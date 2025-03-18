@@ -17,7 +17,13 @@
   "data": [
     "datalocator",
     {
-      "class": "Gdpr"
+      "class": "Gdpr",
+      "order_by": [
+        [
+          "name",
+          "asc"
+        ]
+      ]
     }
   ],
   "exclude_from_search": [
@@ -42,14 +48,14 @@
   "_first_published_at": "20250228133735",
   "_id": "5b3756546b7462ba",
   "_language": "en",
-  "_last_changed": "20250307122819",
+  "_last_changed": "20250313130628",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/1c2dea326d6cd4bb",
   "_permalink": "gdpr-consent-form",
-  "_published_at": "20250312090751",
+  "_published_at": "20250318091443",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025031209075100000000000000008e4953658358d065",
+  "_version": "2025031809144300000000000000009b0d6a3a4b69f0a2",
   "_widget_pool": {
     "1a9a9d04": {
       "_obj_class": "SectionWidget",
