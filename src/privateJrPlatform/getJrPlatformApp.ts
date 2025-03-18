@@ -15,7 +15,7 @@ const KNOWN_CONTENT_FORMATS: Record<string, string> = {
   // 'portal-app:6': 'https://scrivito-portal-app.pages.dev',
 }
 
-/** Redirects away, if content format is not valid. */
+/** Redirects away, if the content format does not match but is a known format. */
 async function isValidContentFormat(): Promise<boolean> {
   const root = await load(() => Obj.root())
   if (!root) return true
