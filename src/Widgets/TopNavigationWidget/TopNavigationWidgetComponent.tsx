@@ -1,4 +1,4 @@
-import { provideComponent, Obj, WidgetTag } from 'scrivito'
+import { provideComponent, Obj, currentPage, WidgetTag } from 'scrivito'
 import Navbar from 'react-bootstrap/Navbar'
 
 import { TopNavigationWidget } from './TopNavigationWidgetClass'
@@ -13,6 +13,24 @@ provideComponent(TopNavigationWidget, ({ widget }) => {
   if (!isHomepage(root)) return null
 
   const classNames = ['top-navigation-widget']
+
+  if (currentPage()?.get('showAsLandingPage')) {
+    classNames.push('bg-primary', 'pb-4')
+
+    return (
+      <WidgetTag tag="section" className={classNames.join(' ')}>
+        <div className="container">
+          <Navbar expand="lg" collapseOnSelect>
+            <Brand
+              root={root}
+              linkTo={widget.get('brandLink') || root}
+              linkClassName="navbar-brand m-auto pt-3"
+            />
+          </Navbar>
+        </div>
+      </WidgetTag>
+    )
+  }
 
   if (widget.get('slimDesign')) classNames.push('slim-nav')
 
