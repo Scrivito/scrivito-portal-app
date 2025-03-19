@@ -23,11 +23,6 @@
   <div id="root">
     <div id="app-wrapper">
 
-
-
-
-
-
       <!-- Skip to Content -->
       <a href="#main" class="btn skip-to-content">Skip to Content</a>
       <!-- End Skip to Content -->
@@ -599,47 +594,62 @@
     <div class="ai-offcanvas ai-offcanvas-end col-xxl-3 col-xl-4 col-md-6 col-sm-6" style="visibility: visible;">
       <div class="ai-offcanvas-header">
         <div class="ai-offcanvas-title mb-0 d-flex align-items-center">
-          <i class="bi bi-magic h4"></i>
-          <span class="h4 ps-2">AI chat</span>
+          <i class="bi bi-magic h5"></i>
+          <span class="h5 ps-2">AI chat</span>
         </div>
         <button class="btn-close" onclick="$('.ai-offcanvas').toggleClass('show');"></button>
       </div>
       <div class="ai-offcanvas-body">
-        <ul class="jr-list-bubble comments">
-          <li class="">
-            <div class="img-wrapper"><img class="img-profile sm cover" src="images/person-1.jpg" alt="Bot icon"></div>
+        <ul class="ai-list-bubble">
+          <li>
+            <div class="img-wrapper"><img class="img-profile" src="images/person-1.jpg" alt="Bot icon"></div>
             <div class="arrow-box">
               <p>👋 Hi, I’m your AI assistant! I’m here to help you craft the perfect email 🚀</p>
             </div>
           </li>
           <li class="right">
-            <div class="img-wrapper"><img class="img-profile sm cover" src="images/person-2.jpg" alt="Bot icon"></div>
+            <div class="img-wrapper"><img class="img-profile" src="images/person-2.jpg" alt="Bot icon"></div>
             <div class="arrow-box">
-              <p>Can you help me with an ticket issue?</p>
+              <p>Can you help me with a ticket issue?</p>
             </div>
           </li>
-          <li class="">
-            <div class="img-wrapper"><img class="img-profile sm cover" src="images/person-3.jpg" alt="Bot icon"></div>
+          <li>
+            <div class="img-wrapper"><img class="img-profile" src="images/person-3.jpg" alt="Bot icon"></div>
             <div class="arrow-box">
-              <p class="mb-3">I'll check out the template to help you better. If it has any sensitive info, just know it'll be shared with our AI model. Click 'OK' to go ahead, or feel free to edit out any private
+              <p>I'll check out the template to help you better. If it has any sensitive info, just know it'll be shared with our AI model. Click 'OK' to go ahead, or feel free to edit out any private
                 details
                 first.</p>
 
-              <button type="button" class="btn btn-outline-primary mb-2">Yes please send me more comtent.</button>
+              <button type="button" class="btn btn-outline-primary">Yes please send me more comtent.</button>
               <button type="button" class="btn btn-outline-primary">No, I am fine with this now.</button>
 
             </div>
           </li>
+          <li class="right">
+            <div class="img-wrapper"><img class="img-profile" src="images/person-2.jpg" alt="Bot icon"></div>
+            <div class="arrow-box">
+              <p>No I don't want more spam!</p>
+            </div>
+          </li>
+          <li>
+            <div class="img-wrapper"><i class="bi bi-chat-fill img-profile"></i></div>
+            <div class="arrow-box">
+              <p>Sure we find a solution.
+
+            </div>
+          </li>
         </ul>
-        <div></div>
       </div>
       <div class="ai-offcanvas-footer">
-        <div class="w-100 m-auto">
-          <form class="w-100">
-            <div class="input-group"><textarea id="ai-assistant-text-field" name="ai-assistant-text-field" class="form-control"></textarea><button type="submit"
-                class="btn btn-primary d-flex align-items-center justify-content-center"><i class="bi bi-send-fill p-0 mt-1"></i></button></div>
-          </form>
+
+        <div class="input-group">
+          <textarea id="ai-assistant-text-field" name="ai-assistant-text-field" class="form-control"></textarea>
+          <button type="submit" class="btn btn-primary d-flex align-items-center justify-content-center">
+            <i class="bi bi-send-fill p-0 mt-1"></i>
+          </button>
         </div>
+
+
       </div>
     </div>
     <!-- AI chat -->
