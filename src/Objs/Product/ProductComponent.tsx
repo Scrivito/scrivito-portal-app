@@ -44,7 +44,7 @@ provideComponent(Product, ({ page }) => {
             </div>
 
             <div className="col-md-8 mb-4">
-              <div className="card mb-4">
+              <div className="card">
                 <div className="card-body p-4">
                   <ContentTag
                     content={page}
@@ -234,8 +234,8 @@ const CartActionButton = connect(function CartActionButton({
   if (quantity) {
     return (
       <div className="row mt-0 mb-1 g-1">
-        <div className="col-auto">
-          <div className="input-group input-group-sm flex-nowrap w-50">
+        <div className="col-4 col-sm-3 col-md-3 col-xl-2">
+          <div className="input-group input-group-sm">
             <button
               aria-label="-"
               className="btn btn-primary"
