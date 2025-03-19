@@ -1,7 +1,7 @@
 import { configure } from 'scrivito'
 import { baseUrlForSite, siteForUrl } from './scrivitoSites'
-import { scrivitoTenantId } from './scrivitoTenants'
 import { getJrPlatformConfig } from '../privateJrPlatform/getJrPlatformConfig'
+import { getJrPlatformInstanceId } from '../privateJrPlatform/multiTenancy'
 
 export function configureScrivito(options?: { priority?: 'background' }) {
   configure({
@@ -18,4 +18,10 @@ export function configureScrivito(options?: { priority?: 'background' }) {
     ...(import.meta.env.PRIVATE_JR_PLATFORM ? getJrPlatformConfig() : {}),
     ...options,
   })
+}
+
+function scrivitoTenantId(): string {
+  if (import.meta.env.PRIVATE_JR_PLATFORM) return getJrPlatformInstanceId()
+
+  return import.meta.env.SCRIVITO_TENANT
 }
