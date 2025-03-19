@@ -38,7 +38,10 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
     <InPlaceEditingOff>
       <NavDropdown
         title={
-          <LanguageLabel root={activeSite} className="hidden-md hidden-lg" />
+          <LanguageLabel
+            root={activeSite}
+            className="hidden-xs hidden-sm hidden-md hidden-lg"
+          />
         }
       >
         {versions.map(({ version, root }) => (
