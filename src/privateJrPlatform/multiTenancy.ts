@@ -47,6 +47,6 @@ function isMultitenancyEnabled(): boolean {
   return !import.meta.env.SCRIVITO_TENANT && !instanceFromHostname()
 }
 
-function instanceFromHostname() {
+export function instanceFromHostname() {
   return (location && INSTANCE_ALIAS[location.hostname]) ?? null
 }

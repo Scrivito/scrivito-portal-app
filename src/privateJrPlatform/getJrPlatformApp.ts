@@ -1,6 +1,7 @@
 import { load, Obj } from 'scrivito'
 import { App } from '../App'
 import { WrongContentFormat } from './Components/WrongContentFormat'
+import { instanceFromHostname } from './multiTenancy'
 
 export async function getJrPlatformApp() {
   return (await isValidContentFormat()) ? App : WrongContentFormat
@@ -22,6 +23,9 @@ async function isValidContentFormat(): Promise<boolean> {
 
   const siteContentFormat = root.get('contentFormat')
   if (siteContentFormat === CONTENT_FORMAT) return true
+
+  // For alias instances it's better to show a half-broken app, then to show a full error page.
+  if (instanceFromHostname()) return true
 
   if (typeof siteContentFormat !== 'string') return false
   if (!siteContentFormat) return false
