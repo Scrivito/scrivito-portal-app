@@ -1,9 +1,12 @@
 import { load, Obj } from 'scrivito'
 import { App } from '../App'
 import { WrongContentFormat } from './Components/WrongContentFormat'
-import { instanceFromHostname } from './multiTenancy'
+import { getJrPlatformInstanceId, instanceFromHostname } from './multiTenancy'
+import { MissingTenant } from './Components/MissingTenant'
 
 export async function getJrPlatformApp() {
+  if (!getJrPlatformInstanceId()) return MissingTenant
+
   return (await isValidContentFormat()) ? App : WrongContentFormat
 }
 

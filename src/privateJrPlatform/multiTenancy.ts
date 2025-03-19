@@ -7,20 +7,18 @@ const INSTANCE_ALIAS: Partial<Record<string, string>> = {
   'my-beta.justrelate.com': '6d226c03f32a8ea4e8ae8e5cbe6c6e2c',
 }
 
-export function getJrPlatformInstanceId(): string {
+export function getJrPlatformInstanceId(): string | null {
   const scrivitoInstance = import.meta.env.SCRIVITO_TENANT
   if (scrivitoInstance) return scrivitoInstance
 
   const hostnameInstance = instanceFromHostname()
   if (hostnameInstance) return hostnameInstance
 
-  if (!location) throw new Error('Could not determine instance!')
+  if (!location) return null
 
   const pathInstance = location.pathname.match(/^\/([0-9a-f]{32})\b/)?.[1]
   const queryInstance = new URLSearchParams(location.search).get('tenantId')
   const instance = pathInstance || queryInstance
-
-  if (!instance) throw new Error('Could not determine instance!')
 
   return instance
 }
@@ -28,15 +26,21 @@ export function getJrPlatformInstanceId(): string {
 export function getJrPlatformBaseAppUrl(): string {
   if (!origin) throw new Error('No origin defined!')
 
-  return isMultitenancyEnabled()
-    ? `${origin}/${getJrPlatformInstanceId()}`
-    : origin
+  if (!isMultitenancyEnabled()) return origin
+
+  const instanceId = getJrPlatformInstanceId()
+  if (!instanceId) throw new Error('Could not determine instance!')
+
+  return `${origin}/${instanceId}`
 }
 
 export function jrPlatformRedirectToSiteUrl(siteUrl: string) {
+  const instanceId = getJrPlatformInstanceId()
+  if (!instanceId) throw new Error('Could not determine instance!')
+
   const { pathname: rawPathname, search, hash } = window.location
   const pathname = isMultitenancyEnabled()
-    ? rawPathname.slice(getJrPlatformInstanceId().length + 1)
+    ? rawPathname.slice(instanceId.length + 1)
     : rawPathname
   const path = pathname === '/' ? '' : pathname
 
