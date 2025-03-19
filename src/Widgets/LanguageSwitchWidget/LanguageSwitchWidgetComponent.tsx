@@ -9,8 +9,10 @@ provideComponent(LanguageSwitchWidget, ({ widget }) => {
   if (alignment) classNames.push(alignment)
 
   return (
-    <div className={classNames.join(' ')}>
-      <LanguageSwitch />
+    <div className="navbar-single">
+      <div className={classNames.join(' foo')}>
+        <LanguageSwitch />
+      </div>
     </div>
   )
 })
