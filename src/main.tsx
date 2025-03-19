@@ -9,6 +9,7 @@ import { App } from './App'
 import { configure } from './config'
 import { ensureSiteIsPresent } from './config/scrivitoSites'
 import { verifySameWhoAmIUser } from './Data/CurrentUser/verifySameWhoAmIUser'
+import { getJrPlatformApp } from './privateJrPlatform/getJrPlatformApp'
 
 configure()
 ensureSiteIsPresent()
@@ -29,12 +30,20 @@ if (typeof window.preloadDump === 'string') {
   })
 } else renderApp()
 
-function renderApp() {
+async function renderApp() {
+  const RootComponent = await getRootComponent()
+
   createRoot(document.getElementById('root') as HTMLElement).render(
     <StrictMode>
-      <App />
+      <RootComponent />
     </StrictMode>,
   )
+}
+
+async function getRootComponent() {
+  if (import.meta.env.PRIVATE_JR_PLATFORM) return getJrPlatformApp()
+
+  return App
 }
 
 function hydrateApp() {

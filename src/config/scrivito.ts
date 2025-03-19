@@ -1,6 +1,7 @@
 import { configure } from 'scrivito'
 import { baseUrlForSite, siteForUrl } from './scrivitoSites'
 import { scrivitoTenantId } from './scrivitoTenants'
+import { getJrPlatformConfig } from '../privateJrPlatform/getJrPlatformConfig'
 
 export function configureScrivito(options?: { priority?: 'background' }) {
   configure({
@@ -14,13 +15,7 @@ export function configureScrivito(options?: { priority?: 'background' }) {
     siteForUrl,
     strictSearchOperators: true,
     tenant: scrivitoTenantId(),
-    // @ts-expect-error // TODO: Remove later on
-    unstable: {
-      trustedUiOrigins: [
-        'http://localhost:8090',
-        'https://*.scrivito-ui.pages.dev',
-      ],
-    },
+    ...(import.meta.env.PRIVATE_JR_PLATFORM ? getJrPlatformConfig() : {}),
     ...options,
   })
 }
