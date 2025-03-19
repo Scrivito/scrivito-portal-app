@@ -17,6 +17,14 @@ export default defineConfig(({ mode }) => {
   const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
   const privateJrPlatform = env.PRIVATE_JR_PLATFORM === 'true'
 
+  if (scrivitoTenantIsMissing(env)) {
+    throw new Error(
+      'Environment variable "SCRIVITO_TENANT" is not defined!' +
+        ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
+        ' See ".env.example" for an example.',
+    )
+  }
+
   return {
     build: {
       outDir,
@@ -70,6 +78,12 @@ export default defineConfig(({ mode }) => {
     },
   }
 })
+
+function scrivitoTenantIsMissing(env: Record<string, string>): boolean {
+  if (env.PRIVATE_JR_PLATFORM === 'true') return false
+
+  return typeof env.SCRIVITO_TENANT !== 'string' && !env.SCRIVITO_TENANT
+}
 
 function scrivitoOrigin(env: Record<string, string>) {
   /** @see https://docs.netlify.com/configure-builds/environment-variables/ */
