@@ -24,7 +24,15 @@ export function localStorageDataConnection(
       data: DataConnectionResultItem,
     ) => Promise<DataConnectionResultItem>
   } = {},
-): DataConnection {
+): Partial<DataConnection> {
+  if (typeof localStorage === 'undefined') {
+    return {
+      index: () => {
+        throw new Error('localStorage is not available!')
+      },
+    }
+  }
+
   const recordKey = recordKeyForClassName(className)
 
   if (initialContent) initializeContent(initialContent)
