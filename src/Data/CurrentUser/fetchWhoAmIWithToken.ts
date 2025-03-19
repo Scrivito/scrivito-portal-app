@@ -18,12 +18,21 @@ export async function fetchWhoAmIWithToken(): Promise<WhoAmI | null> {
   const headers = { ...baseHeaders, Authorization: tokenAuthorization }
 
   // TODO: Replace fetch with pisaClient, once #11616 is resolved
-  const response = await fetch(url, { method: 'GET', headers })
+  let response: Response
+  try {
+    response = await fetch(url, { method: 'GET', headers })
+  } catch (e) {
+    console.error(e)
+    simpleErrorToast(localizeFailedFetch(lang))
+
+    return null
+  }
+
   if (!response.ok) {
     const errorMessage =
       response.status === 401
         ? localizeExpiredMessage(lang)
-        : localizeFailedVerify(lang)
+        : localizeFailedFetch(lang)
     simpleErrorToast(errorMessage)
 
     return null
@@ -45,15 +54,15 @@ function localizeExpiredMessage(language: string): string {
   }
 }
 
-function localizeFailedVerify(language: string): string {
+function localizeFailedFetch(language: string): string {
   switch (language) {
     case 'de':
-      return 'Fehler bei der Überprüfung des Benutzerprofils.'
+      return 'Benutzerprofil konnte nicht abgerufen werden.'
     case 'fr':
-      return "Échec de la vérification du profil de l'utilisateur."
+      return 'Impossible de récupérer le profil utilisateur.'
     case 'pl':
-      return 'Nie udało się zweryfikować profilu użytkownika.'
+      return 'Nie udało się pobrać profilu użytkownika.'
     default:
-      return 'Failed to verify user profile.'
+      return 'Failed to fetch user profile.'
   }
 }
