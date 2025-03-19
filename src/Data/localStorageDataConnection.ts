@@ -1,15 +1,20 @@
-import { DataConnection, DataConnectionResultItem } from 'scrivito'
+import {
+  currentSiteId,
+  DataConnection,
+  DataConnectionResultItem,
+  getInstanceId,
+  load,
+} from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
 import { ensureString } from '../utils/ensureString'
-import { scrivitoTenantId } from '../config/scrivitoTenants'
 
 interface RawDataItem {
   _id: string
   [key: string]: unknown
 }
 
-export function localStorageDataConnection(
+export async function localStorageDataConnection(
   className: string,
   {
     initialContent,
@@ -24,7 +29,7 @@ export function localStorageDataConnection(
       data: DataConnectionResultItem,
     ) => Promise<DataConnectionResultItem>
   } = {},
-): Partial<DataConnection> {
+): Promise<Partial<DataConnection>> {
   if (typeof localStorage === 'undefined') {
     return {
       index: () => {
@@ -32,6 +37,8 @@ export function localStorageDataConnection(
       },
     }
   }
+
+  await load(() => currentSiteId()) // wait until Scrivito is configured.
 
   const recordKey = recordKeyForClassName(className)
 
@@ -166,7 +173,7 @@ export function searchLocalStorageDataConnections(
 }
 
 function recordKeyForClassName(className: string): string {
-  return `localDataClass-${scrivitoTenantId()}-${className}`
+  return `localDataClass-${getInstanceId()}-${className}`
 }
 
 function restoreRecord(recordKey: string): Record<string, RawDataItem> {
