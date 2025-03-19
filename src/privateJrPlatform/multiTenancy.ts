@@ -1,17 +1,18 @@
 const location = typeof window !== 'undefined' ? window.location : undefined
 
 export function getJrPlatformInstanceId(): string {
-  if (!isMultitenancyEnabled()) return import.meta.env.SCRIVITO_TENANT
+  const scrivitoInstance = import.meta.env.SCRIVITO_TENANT
+  if (scrivitoInstance) return scrivitoInstance
 
-  if (!location) throw new Error('Could not determine tenant!')
+  if (!location) throw new Error('Could not determine instance!')
 
-  const tenantFromUrl = location.pathname.match(/^\/([0-9a-f]{32})\b/)?.[1]
-  const tenantFromQuery = new URLSearchParams(location.search).get('tenantId')
-  const tenant = tenantFromUrl || tenantFromQuery
+  const pathInstance = location.pathname.match(/^\/([0-9a-f]{32})\b/)?.[1]
+  const queryInstance = new URLSearchParams(location.search).get('tenantId')
+  const instance = pathInstance || queryInstance
 
-  if (!tenant) throw new Error('Could not determine tenant!')
+  if (!instance) throw new Error('Could not determine instance!')
 
-  return tenant
+  return instance
 }
 
 export function getJrPlatformBaseAppUrl(): string {
