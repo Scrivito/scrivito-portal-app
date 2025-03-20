@@ -70,6 +70,14 @@ async function dumpContent() {
       data: {
         continuation,
         include_objs: true,
+        query: [
+          {
+            field: '_site_id',
+            operator: 'equals',
+            value: 'mailing-app',
+            negate: true,
+          },
+        ],
         options: { site_aware: true },
         size: 10,
       },
