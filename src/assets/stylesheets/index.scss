@@ -1374,6 +1374,13 @@ section:focus >,
 .dropdown-item:active {
   color: var(--bs-dropdown-link-active-color) !important;
 }
+section.bg-primary {
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background: var(--bs-secondary);
+    color: var(--bs-dropdown-link-active-color) !important;
+  }
+}
 
 .navbar-brand {
   margin: 0 5px -10px 0;

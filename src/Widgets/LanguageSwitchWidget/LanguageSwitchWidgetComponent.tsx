@@ -10,7 +10,7 @@ provideComponent(LanguageSwitchWidget, ({ widget }) => {
 
   return (
     <div className="navbar-single">
-      <div className={classNames.join(' foo')}>
+      <div className={classNames.join(' ')}>
         <LanguageSwitch />
       </div>
     </div>

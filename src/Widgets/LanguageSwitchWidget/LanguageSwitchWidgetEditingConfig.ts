@@ -1,8 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { LanguageSwitchWidget } from './LanguageSwitchWidgetClass'
+import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(LanguageSwitchWidget, {
   title: 'Language Switch',
+  thumbnail: Thumbnail,
   attributes: {
     alignment: {
       title: 'Alignment',
