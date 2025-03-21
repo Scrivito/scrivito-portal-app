@@ -1,6 +1,10 @@
 .slider-widget {
   --jr-border-radius: 0;
 
+  .carousel-inner {
+    display: flex;
+  }
+
   .carousel-item {
     border-radius: 0;
     overflow: hidden;
