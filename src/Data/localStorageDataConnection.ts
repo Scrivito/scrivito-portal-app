@@ -178,7 +178,9 @@ export async function searchLocalStorageDataConnections(
 }
 
 async function recordKeyForClassName(className: string): Promise<string> {
-  await load(() => currentSiteId()) // wait until Scrivito is configured.
+  // `getInstanceId` is only available, after Scrivito was configured.
+  // See https://docs.scrivito.com/getinstanceid-b48e41684b45423f for more details.
+  await load(() => currentSiteId())
 
   return `localDataClass-${getInstanceId()}-${className}`
 }
