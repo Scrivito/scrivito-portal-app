@@ -20,6 +20,9 @@ export default defineConfig(({ mode }) => {
   return {
     build: {
       outDir,
+      commonjsOptions: {
+        include: [/scrivito/, /node_modules/],
+      },
       rollupOptions: {
         input: {
           main: resolve(__dirname, 'index.html'),
@@ -49,6 +52,7 @@ export default defineConfig(({ mode }) => {
     },
     optimizeDeps: {
       force: true,
+      include: ['scrivito'],
     },
     plugins: [react(), writeProductionHeaders(outDir)],
     preview: {
