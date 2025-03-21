@@ -1,0 +1,1320 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Angebotsdetails"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "0cbf22ef",
+      "6a8755bd",
+      "e38c9c68",
+      "76bc83a5"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "0092ff67875b69f8",
+  "_created_at": "20240405114150",
+  "_data_param": [
+    "Quote"
+  ],
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "52311cd4fb7fce3b",
+  "_language": "de",
+  "_last_changed": "20241014094059",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/f16dc0fbeddfaa9f/52311cd4fb7fce3b",
+  "_permalink": null,
+  "_published_at": "20241014135210",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "2024101413521000000000000000005fa2facef09fc053",
+  "_widget_pool": {
+    "18793356": {
+      "_obj_class": "DataFormUploadWidget",
+      "label": [
+        "string",
+        "Dateien"
+      ],
+      "multiple": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Message",
+          "field": "attachments",
+          "via_ref": "multi"
+        }
+      ]
+    },
+    "a95a26d4": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "b3620cd6": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "0cbf22ef": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "5363c403",
+          "4e8fcbae",
+          "a95a26d4",
+          "85a37608",
+          "b3620cd6",
+          "c1267437",
+          "52a4939f"
+        ]
+      ]
+    },
+    "91d956b5": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "5363c403": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h3"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "details": [
+        "string",
+        "__Quote.number__"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "keyword",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "cc0a9f72": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "b50c0cb6": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Zahlungsbedingungen"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "termsOfPayment",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "d263dda2": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b50c0cb6"
+        ]
+      ]
+    },
+    "401b4d0f": {
+      "_obj_class": "DataLabelWidget",
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "label": [
+        "string",
+        "Gesamtpreis"
+      ],
+      "value_size": [
+        "string",
+        "h3"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "totalPrice",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "6023ed21": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "401b4d0f"
+        ]
+      ]
+    },
+    "c1267437": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "cc0a9f72",
+          "d263dda2",
+          "6023ed21"
+        ]
+      ]
+    },
+    "4eff33a0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "53b268b9"
+        ]
+      ]
+    },
+    "5a93174e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        5
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9b882ffc"
+        ]
+      ]
+    },
+    "d8fde772": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Handelsvertreter"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "name",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "04b9ac8f": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d8fde772"
+        ]
+      ]
+    },
+    "9d71c4c3": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "29af3111"
+        ]
+      ]
+    },
+    "4e8fcbae": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "4eff33a0",
+          "5a93174e",
+          "9d71c4c3"
+        ]
+      ]
+    },
+    "a7807cd4": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Lieferung am"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "deliveryAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "cb6019dd": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Lieferbedingungen"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "termsOfDelivery",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "5b924998": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "0e7ae138",
+          "a7807cd4",
+          "cb6019dd"
+        ]
+      ]
+    },
+    "40cc2e37": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Angebotstyp"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "type",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "191bbe23": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Beschreibung"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "description",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "f04bae66": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        5
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "40cc2e37",
+          "191bbe23"
+        ]
+      ]
+    },
+    "25bc029f": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Technischer Beauftragter"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "name",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "f0afb2af": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "25bc029f"
+        ]
+      ]
+    },
+    "ffe8a182": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Vertriebspartner"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "salesPartner",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "7ad04b19": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "95d97d9e",
+          "ffe8a182"
+        ]
+      ]
+    },
+    "85a37608": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "5b924998",
+          "f04bae66",
+          "7ad04b19"
+        ]
+      ]
+    },
+    "0e7ae138": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Gültig bis"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "validUntil",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "9b882ffc": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "53b268b9": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Erstellt am"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "quoteAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "1b8d286c": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "734fb8a5"
+        ]
+      ]
+    },
+    "734fb8a5": {
+      "_obj_class": "DataAttachmentsWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "field": "body",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "358deee6": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Downloads"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "6b941ae6": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Keine Downloads gefunden.</p>"
+      ]
+    },
+    "341c7df8": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "8b70815b"
+        ]
+      ]
+    },
+    "8b70815b": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "name",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "ea0cd0a1": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        9
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "75862e50"
+        ]
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "ba76d0dd": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4f87e1ae"
+        ]
+      ]
+    },
+    "4f87e1ae": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Message",
+          "field": "createdAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "13a5026c": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "ea0cd0a1",
+          "ba76d0dd"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
+      ]
+    },
+    "b17ae71e": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Message",
+          "field": "text",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "0cb1aff1": {
+      "_obj_class": "DataAttachmentsWidget",
+      "label": [
+        "string",
+        "Anhänge"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Message",
+          "field": "Anhänge",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "77cf1d75": {
+      "_obj_class": "DataMessageWidget",
+      "content": [
+        "widgetlist",
+        [
+          "13a5026c",
+          "b17ae71e",
+          "0cb1aff1"
+        ]
+      ]
+    },
+    "c6b0dc52": {
+      "_obj_class": "DataFormInputFieldWidget",
+      "label": [
+        "string",
+        "Zusätzliche Nachricht"
+      ],
+      "type": [
+        "string",
+        "multi_line"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Message",
+          "field": "text",
+          "via_ref": "multi"
+        }
+      ]
+    },
+    "39c2dab1": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "submit_title": [
+        "string",
+        "Nachricht senden"
+      ],
+      "reset_title": [
+        "string",
+        "abbrechen"
+      ],
+      "size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "4a45d4ae": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c6b0dc52",
+          "18793356",
+          "39c2dab1"
+        ]
+      ]
+    },
+    "ad312b27": {
+      "_obj_class": "DataMessageWidget",
+      "content": [
+        "widgetlist",
+        [
+          "4a45d4ae"
+        ]
+      ]
+    },
+    "468e80fe": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "77cf1d75"
+        ]
+      ]
+    },
+    "04018642": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Handelsvertreter"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "some_not_existing_attribute",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "1d741e49": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "label": [
+        "string",
+        "Technischer Beauftragter"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "some_not_existing_attribute",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "52a4939f": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "QuoteDocument",
+          "query": [
+            {
+              "field": "quoteId",
+              "value_via": {
+                "class": "Quote",
+                "field": "_id"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "91d956b5",
+          "358deee6",
+          "8eec7dbb",
+          "59d487ae"
+        ]
+      ]
+    },
+    "e3d03942": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "QuoteDocument",
+                "field": "documentId"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "1b8d286c"
+        ]
+      ]
+    },
+    "59d487ae": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6b941ae6"
+        ]
+      ]
+    },
+    "76bc83a5": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Message",
+          "order_by": [
+            [
+              "createdAt",
+              "asc"
+            ]
+          ],
+          "query": [
+            {
+              "field": "subjectId",
+              "value_via": {
+                "class": "Quote",
+                "field": "_id"
+              }
+            }
+          ],
+          "size": 100
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "468e80fe",
+          "4d73abc4",
+          "ad312b27"
+        ]
+      ]
+    },
+    "75862e50": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Message",
+                "field": "createdBy"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "341c7df8"
+        ]
+      ]
+    },
+    "29af3111": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Quote",
+                "field": "commercialAgent"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "04b9ac8f",
+          "6826c494"
+        ]
+      ]
+    },
+    "6826c494": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "04018642"
+        ]
+      ]
+    },
+    "95d97d9e": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Quote",
+                "field": "technicalAgent"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f0afb2af",
+          "3b4156f7"
+        ]
+      ]
+    },
+    "3b4156f7": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "1d741e49"
+        ]
+      ]
+    },
+    "8eec7dbb": {
+      "_obj_class": "DataColumnListWidget",
+      "columns_count": [
+        "string",
+        "4"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e3d03942"
+        ]
+      ]
+    },
+    "4d73abc4": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "title": [
+        "string",
+        "Mehr laden"
+      ]
+    },
+    "e38c9c68": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "7341acc9": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "reset_title": [
+        "string",
+        "cancel"
+      ],
+      "size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "right"
+      ],
+      "submit_title": [
+        "string",
+        "Angebot annehmen und beauftragen"
+      ]
+    },
+    "07cea73b": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "7341acc9"
+        ]
+      ],
+      "submitted_message": [
+        "string",
+        "Vielen Dank für Ihre Bestellung! Wir werden Ihre Anfrage so schnell wie möglich bearbeiten."
+      ]
+    },
+    "751e0203": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "07cea73b"
+        ]
+      ]
+    },
+    "6b3a1c45": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Ihr auf diesem Angebot basierender Auftrag ist bei uns eingegangen. Sie werden in Kürze eine Rückmeldung von uns erhalten.</p>"
+      ]
+    },
+    "e6d48cf6": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6b3a1c45"
+        ]
+      ]
+    },
+    "6a8755bd": {
+      "_obj_class": "DataGroupWidget",
+      "content": [
+        "widgetlist",
+        [
+          "751e0203",
+          "e6d48cf6"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "OrderRequest",
+          "query": [
+            {
+              "field": "quoteId",
+              "value_via": {
+                "class": "Quote",
+                "field": "_id"
+              }
+            }
+          ],
+          "size": 1
+        }
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:943667111e7b464abf6dba5382978956"
+}

@@ -1,0 +1,28 @@
+<svg class="path"  viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style type="text/css">
+	.path {
+		stroke-dasharray: 800;
+		animation: dash 6s 1 linear;
+		animation-fill-mode: forwards;
+		animation-iteration-count: 2;
+	}
+	@keyframes dash {
+		from{
+		stroke-dashoffset: 800;
+		opacity: 0.5;
+		}
+		to {
+		stroke-dashoffset: 0;
+		opacity: 1;
+		}
+	}
+</style>
+
+<path d="M231.406 98.0219L263.074 119.459V247.581C263.074 252.784 258.858 257 253.655 257H46.4189C41.2164 257 37 252.784 37 247.581V119.459L73.741 98.0219" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M263.074 133.619L170.589 199.556H129.485L37 133.619" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M98.8924 98.0984H128.892" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M98.8924 126.098H128.892" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M74.5535 155.423V60.8746C74.5535 55.9719 77.6261 52 81.4165 52H218.662C222.452 52 225.525 55.9758 225.525 60.8746V155.419" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M168.986 108.5L175.326 114.833L188.004 102.167" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M178.497 80C185.9 86.5443 195.565 89.952 205.439 89.4996C211.364 109.635 199.829 130.755 179.673 136.674C179.283 136.789 178.89 136.897 178.495 137C158.162 131.73 145.953 110.991 151.228 90.6765C151.331 90.2826 151.438 89.8899 151.554 89.4996C161.43 89.9508 171.093 86.5443 178.497 80Z" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

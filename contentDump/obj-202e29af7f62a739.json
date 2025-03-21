@@ -1,0 +1,139 @@
+{
+  "_obj_class": "Product",
+  "title": [
+    "string",
+    "Abfüllanlage \"Brewery\""
+  ],
+  "image": [
+    "reference",
+    "2484166e90949b32"
+  ],
+  "subtitle": [
+    "string",
+    "Die beliebteste Abfüllanlage für Brauereien"
+  ],
+  "description_section": [
+    "widgetlist",
+    [
+      "bdaab693"
+    ]
+  ],
+  "parameters": [
+    "widgetlist",
+    [
+      "d4571c38",
+      "ebe3aa0f",
+      "1f8cdbdb",
+      "e139b9bb",
+      "4b239636"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "52c8212b3ff23e55",
+  "_created_at": "20240426095119",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240430120727",
+  "_id": "202e29af7f62a739",
+  "_language": "de",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/ed043d1606eaf539/41bff0c5d0d381c0/202e29af7f62a739",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "bdaab693": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Dies ist die beliebteste Abfüllanlage für Brauereien. Wenn Sie eine zuverlässige, schlüsselfertige Abfüllanlage suchen, die alle Hauptfunktionen wie Zuführen, Füllen und Verschließen aller Arten von Standardflaschen mit kohlensäurehaltigen und nicht-kohlensäurehaltigen Getränken abdeckt, ist dies die richtige Wahl für Sie.</p>"
+      ]
+    },
+    "1f8cdbdb": {
+      "_obj_class": "ProductParameterWidget",
+      "values": [
+        "stringlist",
+        [
+          "Flasche (Glas)",
+          "Flasche (PET)",
+          "Tetra Pak"
+        ]
+      ],
+      "parameter": [
+        "string",
+        "Behältertyp"
+      ]
+    },
+    "d4571c38": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Produkttyp"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "Lebensmittel"
+        ]
+      ]
+    },
+    "e139b9bb": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Behältergröße"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "0.1 l - 10 l"
+        ]
+      ]
+    },
+    "4b239636": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Behälter pro Minute"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "60 - 800"
+        ]
+      ]
+    },
+    "ebe3aa0f": {
+      "_obj_class": "ProductParameterWidget",
+      "parameter": [
+        "string",
+        "Produkt"
+      ],
+      "values": [
+        "stringlist",
+        [
+          "Flüssigkeit"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

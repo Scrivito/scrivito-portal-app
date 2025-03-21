@@ -1,0 +1,777 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "About us"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "61a34534",
+      "74ab24ec"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "38d52d38e1f73575",
+  "_created_at": "20230516091418",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20230516091834",
+  "_id": "38d52d38e1f73575",
+  "_language": "en",
+  "_last_changed": "20250220104238",
+  "_modification": null,
+  "_path": "/55d682c23b93bd62/c77addb363cd896f",
+  "_permalink": null,
+  "_published_at": "20250220104510",
+  "_restriction": null,
+  "_site_id": "56a14d0750cc844e",
+  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_widget_pool": {
+    "88864380": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "9e4eb487",
+          "c29d67b2",
+          "86ef5290"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "61a34534": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "834e3e26"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "22d9c6805af643eb"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "7710c193": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Quality Without Compromise – Trusted by Industries Worldwide"
+      ]
+    },
+    "263ac7a3": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>Tynacoon is a leading manufacturer of nozzles and filling systems, specializing in providing high-quality equipment for various industries such as food and beverage, pharmaceutical, cosmetic, chemical, and industrial sectors. Our company was established in 2010 by Mr. John Smith who had a vision to create an innovative company that could cater to the growing demand of nozzle and filling lines business. Since then, we have grown tremendously over the years with our commitment towards providing quality products and services to our customers.</p><p>With just two employees working tirelessly day and night, we started producing nozzles for food processing machines. Our focus was always on quality, which helped us gain recognition among our clients quickly. Over time, we expanded our product range to include filling systems as well, catering to different industries with diverse needs.</p><p>Today, Tynacoon operates out of two state-of-the-art facilities located all over the world employing over hundreds of skilled professionals dedicated towards delivering excellence through innovation.</p>"
+      ]
+    },
+    "74ab24ec": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "7710c193",
+          "263ac7a3",
+          "0ad32dae"
+        ]
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ]
+    },
+    "a4032140": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "c6588eca",
+          "cf80b527",
+          "2c0a2a93"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "stretch"
+      ]
+    },
+    "c6588eca": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "aa8d6a7e"
+        ]
+      ]
+    },
+    "cf80b527": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7a15d87c"
+        ]
+      ]
+    },
+    "2c0a2a93": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "22f7e452"
+        ]
+      ]
+    },
+    "7a15d87c": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "193ff3b0",
+          "adbbd26d",
+          "32cad7f7",
+          "fa499382"
+        ]
+      ],
+      "show_footer": [
+        "boolean",
+        true
+      ],
+      "card_footer": [
+        "widgetlist",
+        [
+          "879c001a"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "32cad7f7": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Clarius Ceasar"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ]
+    },
+    "fa499382": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Dynamic Operations Representative"
+      ]
+    },
+    "193ff3b0": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "7b2f9815fd86158b"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "98fb65f2": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "7c793651bfd5b099"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "bbd49cf7": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Jane Morgan"
+      ]
+    },
+    "9d3b0fb5": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Product Research Director"
+      ]
+    },
+    "9e4eb487": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "5afdad1f"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "c29d67b2": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "1096de17"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "86ef5290": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "42994ecb"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "aa8d6a7e": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "98fb65f2",
+          "3d9320eb",
+          "bbd49cf7",
+          "9d3b0fb5"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_footer": [
+        "boolean",
+        true
+      ],
+      "card_footer": [
+        "widgetlist",
+        [
+          "88864380"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "e3d35ee3": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "c282f3e5cd6edd64"
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "a34484c4": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        "Jason John"
+      ]
+    },
+    "a92c5567": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h6"
+      ],
+      "headline": [
+        "string",
+        "Dynamic Paradigm Director"
+      ]
+    },
+    "22f7e452": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "e3d35ee3",
+          "1f31e42a",
+          "a34484c4",
+          "a92c5567"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_footer": [
+        "boolean",
+        true
+      ],
+      "card_footer": [
+        "widgetlist",
+        [
+          "b19b91f9"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "adbbd26d": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "1f31e42a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "3d9320eb": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "5afdad1f": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-facebook"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ]
+    },
+    "1096de17": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-google"
+      ]
+    },
+    "42994ecb": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-twitter"
+      ]
+    },
+    "1e92d087": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-facebook"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ]
+    },
+    "3809dacc": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "1e92d087"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "64f3a2a7": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-google"
+      ]
+    },
+    "034ffb37": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "64f3a2a7"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "53e96839": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-twitter"
+      ]
+    },
+    "def5598d": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "53e96839"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "879c001a": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "3809dacc",
+          "034ffb37",
+          "def5598d"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "efc456a6": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-facebook"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ]
+    },
+    "9680f4ab": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "efc456a6"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "3de6bae8": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-google"
+      ]
+    },
+    "e0835ab0": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3de6bae8"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "2f85e069": {
+      "_obj_class": "IconWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "size": [
+        "string",
+        "bi-2x"
+      ],
+      "icon": [
+        "string",
+        "bi-twitter"
+      ]
+    },
+    "96be95dd": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "2f85e069"
+        ]
+      ],
+      "col_size": [
+        "number",
+        4
+      ]
+    },
+    "b19b91f9": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "9680f4ab",
+          "e0835ab0",
+          "96be95dd"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "834e3e26": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "d09c365e"
+        ]
+      ]
+    },
+    "d09c365e": {
+      "_obj_class": "BannerHeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "headline": [
+        "string",
+        "About Us"
+      ]
+    },
+    "0ad32dae": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "9894b526",
+          "6afa8b46",
+          "2962db81"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "9894b526": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ]
+    },
+    "6afa8b46": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a4032140"
+        ]
+      ]
+    },
+    "2962db81": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

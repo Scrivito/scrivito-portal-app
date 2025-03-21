@@ -1,0 +1,734 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Veranstaltungen"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "e86037d3",
+      "3c177bfb",
+      "e75ceb0f"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "3a4cd2a0a23cea9b",
+  "_created_at": "20240405095832",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "d11017df5d1aaf49",
+  "_language": "de",
+  "_last_changed": "20250307100435",
+  "_modification": null,
+  "_path": "/84435b45662730da/d11017df5d1aaf49",
+  "_permalink": "veranstaltungen",
+  "_published_at": "20250310125541",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "2025031012554100000000000000003b9689f9a3c2f707",
+  "_widget_pool": {
+    "51448137": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "3d845e20",
+          "eb004820",
+          "c38c238e"
+        ]
+      ]
+    },
+    "e86037d3": {
+      "_obj_class": "SectionWidget",
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a5ba97ef"
+        ]
+      ]
+    },
+    "0e92e54d": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hannover Messe"
+      ]
+    },
+    "7f8dfa07": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Tynacoon Roadshow"
+      ]
+    },
+    "8cf62e8b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>3. Mai</p>"
+      ]
+    },
+    "8fcc46b1": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "13c793bd134405d4",
+          "query": null,
+          "target": null,
+          "title": "Teilnehmen",
+          "url": null
+        }
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "611c52a4": {
+      "_obj_class": "CardWidget",
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "7f8dfa07",
+          "8cf62e8b",
+          "8fcc46b1"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "009079db": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "611c52a4"
+        ]
+      ]
+    },
+    "8d9b8baa": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "GLOBE Expo"
+      ]
+    },
+    "76f1c861": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>15. Juli bis 22. Juli</p>"
+      ]
+    },
+    "4c95383b": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "a95b99e0c7614110",
+          "query": null,
+          "target": null,
+          "title": "Teilnehmen",
+          "url": null
+        }
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "80ee6d4f": {
+      "_obj_class": "CardWidget",
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "cc7f4ee9650cc196"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "8d9b8baa",
+          "76f1c861",
+          "4c95383b"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "a44dfe64": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "80ee6d4f"
+        ]
+      ]
+    },
+    "be9f027c": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Hannover Messe"
+      ]
+    },
+    "f9204aaf": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>12. Oktober bis 26. Oktober</p>"
+      ]
+    },
+    "a5190bad": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "9dd6d1b926a6bbc6",
+          "query": null,
+          "target": null,
+          "title": "Teilnehmen",
+          "url": null
+        }
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "5bf3480e": {
+      "_obj_class": "CardWidget",
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "8652bdd9640b1c9b"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "be9f027c",
+          "f9204aaf",
+          "a5190bad"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "bddb9227": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5bf3480e"
+        ]
+      ]
+    },
+    "057dc65e": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "009079db",
+          "a44dfe64",
+          "bddb9227"
+        ]
+      ]
+    },
+    "050330d7": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Neues bei Tynacoon-Abfüllanlagen</p>"
+      ]
+    },
+    "a9ed14c7": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "9dd6d1b926a6bbc6",
+          "query": null,
+          "target": null,
+          "title": "Tickets buchen",
+          "url": null
+        }
+      ]
+    },
+    "6eaefda4": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "middle-grey"
+      ],
+      "background_image": [
+        "reference",
+        "7daec637e1d07ef1"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "0e92e54d",
+          "050330d7",
+          "a9ed14c7"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "a9c9b365": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6eaefda4"
+        ]
+      ]
+    },
+    "80b2500e": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "GLOBE Expo"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "6090c84d": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Thema: „Fill Your Future with Efficiency“</p>"
+      ]
+    },
+    "0fa19829": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "a95b99e0c7614110",
+          "query": null,
+          "target": null,
+          "title": "Tickets buchen",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "b74a6bf8": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_image": [
+        "reference",
+        "2d2269d9b701ac2d"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "80b2500e",
+          "6090c84d",
+          "0fa19829"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "3ed2b2d5": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b74a6bf8"
+        ]
+      ]
+    },
+    "fe0a4f3e": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "a9c9b365",
+          "3ed2b2d5"
+        ]
+      ]
+    },
+    "3c177bfb": {
+      "_obj_class": "SectionWidget",
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "057dc65e",
+          "66a8d5d2",
+          "fe0a4f3e"
+        ]
+      ]
+    },
+    "3d845e20": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "e68ef501": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Abonnieren Sie unseren Newsletter"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "display-6"
+      ],
+      "level": [
+        "string",
+        "h1"
+      ]
+    },
+    "6bcd4ac9": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "df208b86b908e06d",
+          "query": null,
+          "target": null,
+          "title": "Abonnieren Sie jetzt und erhalten Sie unser Whitepaper",
+          "url": null
+        }
+      ],
+      "button_color": [
+        "string",
+        "btn-secondary"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "large"
+      ]
+    },
+    "eb004820": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "811a266c",
+          "e68ef501",
+          "6bcd4ac9",
+          "61979c13"
+        ]
+      ]
+    },
+    "c38c238e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "e75ceb0f": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_image": [
+        "reference",
+        "d7cb8d71df8ef049"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "51448137"
+        ]
+      ]
+    },
+    "811a266c": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5.5
+      ]
+    },
+    "61979c13": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5.5
+      ]
+    },
+    "f6b26159": {
+      "_obj_class": "BannerHeadlineWidget",
+      "headline": [
+        "string",
+        "Veranstaltungen"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "a5ba97ef": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "f6b26159"
+        ]
+      ]
+    },
+    "66a8d5d2": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

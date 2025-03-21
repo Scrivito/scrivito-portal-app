@@ -1,0 +1,746 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Neuigkeiten"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "a3fd1d92",
+      "3c4c2631",
+      "0d4c7bda"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "fec151165aeb27da",
+  "_created_at": "20240405095821",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "60ee30e12429563b",
+  "_language": "de",
+  "_last_changed": "20250307100833",
+  "_modification": null,
+  "_path": "/84435b45662730da/60ee30e12429563b",
+  "_permalink": null,
+  "_published_at": "20250310125541",
+  "_restriction": null,
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "2025031012554100000000000000003b9689f9a3c2f707",
+  "_widget_pool": {
+    "53956765": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Produkte und vieles mehr</p>"
+      ]
+    },
+    "55290625": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "a4d3b825",
+          "b9267356",
+          "a499bc63"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "a3fd1d92": {
+      "_obj_class": "SectionWidget",
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "0b4af3bd"
+        ]
+      ]
+    },
+    "a9a3c12b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "55290625"
+        ]
+      ]
+    },
+    "b9267356": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Produkte und vieles mehr</p>"
+      ]
+    },
+    "1fd5ef3b": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "1409db9bede134fb"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "80fcfb40",
+          "16a01dfe",
+          "0a42d5c7"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "ba46b852": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "1fd5ef3b"
+        ]
+      ]
+    },
+    "b4402b13": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "522b0c53"
+        ]
+      ]
+    },
+    "1a705bba": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "f97043a0"
+        ]
+      ]
+    },
+    "0652c160": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "ba46b852",
+          "b4402b13",
+          "1a705bba"
+        ]
+      ]
+    },
+    "a4d3b825": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "EXPO 2025"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ]
+    },
+    "a499bc63": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "bdbb81709c5e1c63",
+          "query": null,
+          "target": null,
+          "title": "Tickets buchen",
+          "url": null
+        }
+      ]
+    },
+    "74adc262": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "08776f70"
+        ]
+      ]
+    },
+    "b7467af9": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "a9a3c12b",
+          "74adc262"
+        ]
+      ]
+    },
+    "3c4c2631": {
+      "_obj_class": "SectionWidget",
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "0652c160",
+          "717fd501",
+          "b7467af9"
+        ]
+      ]
+    },
+    "c9565fe8": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "Hannover Industrieausstellung 2025"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "9d54aca7": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "bdbb81709c5e1c63",
+          "query": null,
+          "target": null,
+          "title": "Tickets buchen",
+          "url": null
+        }
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ]
+    },
+    "08776f70": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "background_image": [
+        "reference",
+        "14c0a6ebac3c6e7b"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "c9565fe8",
+          "53956765",
+          "9d54aca7"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "522b0c53": {
+      "_obj_class": "CardWidget",
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "cc7f4ee9650cc196"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "685a12ee",
+          "96f909b1",
+          "6b7912f3"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "f97043a0": {
+      "_obj_class": "CardWidget",
+      "background_animate_on_hover": [
+        "boolean",
+        true
+      ],
+      "image": [
+        "reference",
+        "8652bdd9640b1c9b"
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "86239e2d",
+          "a1bf2daf",
+          "59761f69"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "717fd501": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Weitere Nachrichten"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "6ce4338c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "9f68dc07": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Abonnieren Sie unseren Newsletter"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "display-6"
+      ],
+      "level": [
+        "string",
+        "h2"
+      ]
+    },
+    "8873dabe": {
+      "_obj_class": "ButtonWidget",
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "df208b86b908e06d",
+          "query": null,
+          "target": null,
+          "title": "Abonnieren Sie jetzt und erhalten Sie unser Whitepaper",
+          "url": null
+        }
+      ],
+      "button_color": [
+        "string",
+        "btn-secondary"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "large"
+      ]
+    },
+    "1614ae6c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a279f09c",
+          "9f68dc07",
+          "8873dabe",
+          "b2fd5b6a"
+        ]
+      ]
+    },
+    "84e04a07": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "69f6a52d": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "6ce4338c",
+          "1614ae6c",
+          "84e04a07"
+        ]
+      ]
+    },
+    "0d4c7bda": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "background_image": [
+        "reference",
+        "d7cb8d71df8ef049"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "69f6a52d"
+        ]
+      ]
+    },
+    "a279f09c": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5.5
+      ]
+    },
+    "b2fd5b6a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        5.5
+      ]
+    },
+    "727b5611": {
+      "_obj_class": "BannerHeadlineWidget",
+      "headline": [
+        "string",
+        "Neuigkeiten"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ]
+    },
+    "0b4af3bd": {
+      "_obj_class": "BannerHeadlineContainerWidget",
+      "headlines": [
+        "widgetlist",
+        [
+          "727b5611"
+        ]
+      ]
+    },
+    "96f909b1": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Tynacoons bahnbrechende Maschine setzt neue Branchenstandards für Produktivität.</p>"
+      ]
+    },
+    "685a12ee": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Bahnbrechende Maschine"
+      ]
+    },
+    "6b7912f3": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "bdbb81709c5e1c63",
+          "query": null,
+          "target": null,
+          "title": "Vollständigen Artikel lesen",
+          "url": null
+        }
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "86239e2d": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h3"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Website-Neugestaltung"
+      ]
+    },
+    "a1bf2daf": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Verbesserte Benutzerfreundlichkeit und neue Funktionen steigern das Online-Engagement für Kunden.</p>"
+      ]
+    },
+    "59761f69": {
+      "_obj_class": "ButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "bdbb81709c5e1c63",
+          "query": null,
+          "target": null,
+          "title": "Vollständigen Artikel lesen",
+          "url": null
+        }
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "80fcfb40": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Factory 3000 Live"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ]
+    },
+    "16a01dfe": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Tynacoons neueste Innovation verspricht, Fertigungsprozesse zu revolutionieren.</p>"
+      ]
+    },
+    "0a42d5c7": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_size": [
+        "string",
+        "small"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-secondary"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "bdbb81709c5e1c63",
+          "query": null,
+          "target": null,
+          "title": "Vollständigen Artikel lesen",
+          "url": null
+        }
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

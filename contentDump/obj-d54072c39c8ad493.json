@@ -1,0 +1,373 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Verträge"
+  ],
+  "link_icon": [
+    "string",
+    "bi-vector-pen"
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Contract",
+      "order_by": [
+        [
+          "startAt",
+          "desc"
+        ]
+      ],
+      "size": 10
+    }
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "36e7a686",
+      "315959c3",
+      "1f2545bb"
+    ]
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "2ab32827eeeebef7",
+  "_created_at": "20240626142553",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240708072340",
+  "_id": "d54072c39c8ad493",
+  "_language": "de",
+  "_last_changed": "20240716093931",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/d54072c39c8ad493",
+  "_permalink": null,
+  "_published_at": "20240716121536",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_widget_pool": {
+    "36e7a686": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "651dce7c"
+        ]
+      ]
+    },
+    "6f61dc96": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Keine Verträge gefunden.</p>"
+      ]
+    },
+    "1f2545bb": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6f61dc96"
+        ]
+      ]
+    },
+    "315959c3": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Mehr laden"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "39251d8a": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Vertrag"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Contract",
+          "field": "keyword",
+          "via_ref": "single"
+        }
+      ],
+      "details": [
+        "string",
+        "__Contract.number__"
+      ]
+    },
+    "4bf55d0f": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "868a029a": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-vector-pen"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "238fced8": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4bf55d0f",
+          "868a029a"
+        ]
+      ]
+    },
+    "b770a057": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "39251d8a"
+        ]
+      ]
+    },
+    "0c71067d": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ed565050"
+        ]
+      ]
+    },
+    "c1a7ff89": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "53640d32"
+        ]
+      ]
+    },
+    "bac2db22": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d86928a1"
+        ]
+      ]
+    },
+    "9f969519": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "238fced8",
+          "b770a057",
+          "0c71067d",
+          "c1a7ff89",
+          "bac2db22"
+        ]
+      ]
+    },
+    "651dce7c": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "0513c02cb152a069",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "9f969519"
+        ]
+      ]
+    },
+    "53640d32": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "date"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Contract",
+          "field": "startAt",
+          "via_ref": "single"
+        }
+      ],
+      "label": [
+        "string",
+        "Vertragsbeginn"
+      ]
+    },
+    "ed565050": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Contract",
+          "field": "category",
+          "via_ref": "single"
+        }
+      ],
+      "label": [
+        "string",
+        "Kategorie"
+      ]
+    },
+    "d86928a1": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h4"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Contract",
+          "field": "totalPrice",
+          "via_ref": "single"
+        }
+      ],
+      "label": [
+        "string",
+        "Gesamt"
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

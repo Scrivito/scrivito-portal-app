@@ -1,0 +1,414 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Quotes archive"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "21754359",
+      "ce0cc3a6",
+      "96026f14",
+      "a90c6da9",
+      "511c04c3",
+      "32bab192"
+    ]
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Quote",
+      "order_by": [
+        [
+          "quoteAt",
+          "desc"
+        ]
+      ],
+      "query": [
+        {
+          "field": "open",
+          "value": false
+        }
+      ],
+      "size": 10
+    }
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "ec9a22125e28ddcc",
+  "_created_at": "20240213122547",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240214090608",
+  "_id": "ec9a22125e28ddcc",
+  "_language": "en",
+  "_last_changed": "20250217092411",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/f7da3de531e46fe9/ec9a22125e28ddcc",
+  "_permalink": null,
+  "_published_at": "20250218083811",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "56a14d0750cc844e",
+  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
+  "_widget_pool": {
+    "21754359": {
+      "_obj_class": "DataSearchWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "url_param_name": [
+        "string",
+        "search"
+      ],
+      "placeholder": [
+        "string",
+        "Search for archived quote"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
+      ]
+    },
+    "ce0cc3a6": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "fa4cb23a"
+        ]
+      ]
+    },
+    "178d16f5": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "73a96fd9",
+          "1d3e8b35",
+          "3af6cf10",
+          "2ad24f22",
+          "c778c43a"
+        ]
+      ]
+    },
+    "73a96fd9": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a5b8f289",
+          "009d6def"
+        ]
+      ]
+    },
+    "1d3e8b35": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d4242f5c"
+        ]
+      ]
+    },
+    "3af6cf10": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "47c68abf"
+        ]
+      ]
+    },
+    "2ad24f22": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4932e787"
+        ]
+      ]
+    },
+    "009d6def": {
+      "_obj_class": "IconWidget",
+      "icon": [
+        "string",
+        "bi-file-earmark-text"
+      ],
+      "size": [
+        "string",
+        "bi-3x"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "fa4cb23a": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "link_to": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "0092ff67875b69f8",
+          "query": null,
+          "target": null,
+          "title": null,
+          "url": null
+        }
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "178d16f5"
+        ]
+      ]
+    },
+    "c778c43a": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "12d285eb"
+        ]
+      ]
+    },
+    "d4242f5c": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__Quote.number__"
+      ],
+      "label": [
+        "string",
+        "Quote"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "keyword",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "47c68abf": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Created At"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "currency": [
+        "string",
+        "EUR"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "datetime_format": [
+        "string",
+        "relative"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "quoteAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "12d285eb": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Total"
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "value_size": [
+        "string",
+        "h4"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "totalPrice",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "4932e787": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Quote",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "a5b8f289": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "511c04c3": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "32bab192": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "f7da3de531e46fe9",
+          "query": null,
+          "target": null,
+          "title": "Quotes overview",
+          "url": null
+        }
+      ]
+    },
+    "96026f14": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "a90c6da9": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "4b243781"
+        ]
+      ]
+    },
+    "4b243781": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No quotes found.</p>"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

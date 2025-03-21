@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" class="path" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 190 160" style="enable-background:new 0 0 190 160;" xml:space="preserve">
+<style type="text/css">
+	.path {
+		stroke-dasharray: 500;
+		animation: dash 6s 1 linear;
+		animation-fill-mode: forwards;
+		animation-iteration-count: 3;
+	}
+	@keyframes dash {
+		from{
+		stroke-dashoffset: 500;
+		fill: transparent;
+		opacity: 0.5;
+		}
+		to {
+		stroke-dashoffset: 0;
+		fill: #f7931e;
+		opacity: 1;
+		}
+	}
+	.st0{fill:#FFFFFF;stroke:#DDDDDD;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;}
+	.st1{fill:#EEEEEE;}
+	.st2{fill:#DDDDDD;}
+	.st3{fill:#FFFFFF;stroke:#CCCCCC;stroke-miterlimit:10;}
+	.st4{fill:#FFFFFF;stroke:#CCCCCC;stroke-width:2;stroke-miterlimit:10;}
+	.st5{fill:#FFFFFF;stroke:#E3C20D;stroke-width:2;stroke-miterlimit:10;}
+	.st6{fill:none;stroke:#E3C20D;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style>
+<g>
+	<polygon class="st0" points="35.7,81.2 74.4,92.5 81.9,122.5 88.8,96.9 135.7,125 150.7,33.7 	"/>
+	<g>
+		<path class="st1" d="M76.3,92.1l61.4-46.5L87.3,95.3c-0.1,0.1-0.2,0.3-0.3,0.4l-5,18.4L76.3,92.1z"/>
+		<path class="st1" d="M126.1,55.7L86.6,94.6c-0.3,0.2-0.4,0.6-0.5,0.9l-4,14.8l-4.6-17.7L126.1,55.7 M149.4,35.6L75.1,91.7L82,118
+			l6-22L149.4,35.6L149.4,35.6z"/>
+	</g>
+	<g>
+		<polygon class="st2" points="90,99.1 98.7,103.4 84.4,119.3 		"/>
+		<path class="st2" d="M90.6,100.5l6.4,3.2l-10.6,11.7L90.6,100.5 M89.4,97.6l-7,25.5l18-20L89.4,97.6L89.4,97.6z"/>
+	</g>
+	<g>
+		<circle class="st3" cx="54.8" cy="38.6" r="2"/>
+		<circle class="st4" cx="66.8" cy="43.6" r="5.5"/>
+		<circle class="st3" cx="73.8" cy="31.6" r="2"/>
+	</g>
+	<g>
+		<circle class="st3" cx="41.7" cy="106.7" r="2"/>
+		<circle class="st3" cx="50" cy="119.5" r="2"/>
+	</g>
+	<g>
+		<circle class="st5" cx="134" cy="116" r="20.4"/>
+		<polyline class="st6" points="123.9,118.1 129.8,123.2 144,108.9 		"/>
+	</g>
+</g>
+</svg>

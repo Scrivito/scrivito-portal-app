@@ -1,0 +1,256 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "GDPR consent"
+  ],
+  "link_icon": [
+    "string",
+    "bi-shield-lock"
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Gdpr",
+      "order_by": [
+        [
+          "name",
+          "asc"
+        ]
+      ],
+      "size": 10
+    }
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "25d8b24d",
+      "c915d1b5",
+      "b977834e"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "e8f5370d6569478a",
+  "_created_at": "20240307162236",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20240318105701",
+  "_id": "e8f5370d6569478a",
+  "_language": "en",
+  "_last_changed": "20250313130517",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/4df09188b1541b70/e8f5370d6569478a",
+  "_permalink": null,
+  "_published_at": "20250318091443",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "56a14d0750cc844e",
+  "_version": "2025031809144300000000000000009b0d6a3a4b69f0a2",
+  "_widget_pool": {
+    "25d8b24d": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "d34eeb79"
+        ]
+      ]
+    },
+    "e975e61e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ]
+    },
+    "8e07ea77": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1.5
+      ]
+    },
+    "d9a45696": {
+      "_obj_class": "DataFormBooleanWidget",
+      "data_for_no": [
+        "string",
+        "notGiven"
+      ],
+      "data_for_yes": [
+        "string",
+        "given"
+      ],
+      "submit_on_change": [
+        "boolean",
+        true
+      ],
+      "style": [
+        "string",
+        "switch"
+      ],
+      "label": [
+        "string",
+        "Consent"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Gdpr",
+          "field": "active",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "8156baee": {
+      "_obj_class": "DataFormContainerWidget",
+      "submit_on_change": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8e07ea77",
+          "d9a45696"
+        ]
+      ]
+    },
+    "bf95fce0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8156baee"
+        ]
+      ]
+    },
+    "5d940d3a": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "details": [
+        "string",
+        "__Gdpr.description__"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Gdpr",
+          "field": "name",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "9604d60e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5d940d3a"
+        ]
+      ]
+    },
+    "1a4b77b0": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "e975e61e",
+          "bf95fce0",
+          "9604d60e"
+        ]
+      ]
+    },
+    "d34eeb79": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "1a4b77b0"
+        ]
+      ]
+    },
+    "b977834e": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "2b2d6725"
+        ]
+      ]
+    },
+    "2b2d6725": {
+      "_obj_class": "TextWidget",
+      "text": [
+        "html",
+        "<p>No GDPR entries found.</p>"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ]
+    },
+    "c915d1b5": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

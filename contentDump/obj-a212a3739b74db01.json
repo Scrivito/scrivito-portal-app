@@ -1,0 +1,815 @@
+{
+  "_obj_class": "Page",
+  "title": [
+    "string",
+    "Veranstaltungsdetails"
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "859bb6a9",
+      "5f480057",
+      "f7525278"
+    ]
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "_conflicts": null,
+  "_content_id": "9a601c5b409e510d",
+  "_created_at": "20240405113101",
+  "_data_param": [
+    "Event"
+  ],
+  "_editing_asset": false,
+  "_first_published_at": "20240405121103",
+  "_id": "a212a3739b74db01",
+  "_language": "de",
+  "_last_changed": "20250107092639",
+  "_modification": null,
+  "_path": "/84435b45662730da/bd53fa4ef38c1c40/410885f6410a0e68/a212a3739b74db01",
+  "_permalink": null,
+  "_published_at": "20250107101045",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "dc07b5fb5abd4c35",
+  "_version": "2025010710104500000000000000008a22e2b0b5b083da",
+  "_widget_pool": {
+    "2418047d": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h3"
+      ],
+      "details": [
+        "string",
+        "__Event.number__"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "keyword",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "41b8e5ab": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Ort"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "location",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "86d4af2c": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Status"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "status",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "c5dd0144": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Sprache"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "language",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "8131875c": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Teilnahmegebühr"
+      ],
+      "show_as": [
+        "string",
+        "currency"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "attendanceFee",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "968ad5e5": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Veranstalter"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "organizer",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "fed596dc": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "URL"
+      ],
+      "show_as": [
+        "string",
+        "link"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "url",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "e9e4c4c8": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Beginn"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "datetime_format": [
+        "string",
+        "datetime"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "beginsAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "99b71a42": {
+      "_obj_class": "DataLabelWidget",
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "show_as": [
+        "string",
+        "datetime"
+      ],
+      "label": [
+        "string",
+        "Ende"
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ],
+      "datetime_format": [
+        "string",
+        "datetime"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "endsAt",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "3784df2d": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "text": [
+        "html",
+        "<p>Sie sind für die Veranstaltung angemeldet.</p>"
+      ]
+    },
+    "859bb6a9": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "2418047d",
+          "74f5d495",
+          "e5543aae"
+        ]
+      ]
+    },
+    "74f5d495": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "dc40192b",
+          "016f1222",
+          "dac0b443"
+        ]
+      ]
+    },
+    "dc40192b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b0656332"
+        ]
+      ]
+    },
+    "016f1222": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e9e4c4c8",
+          "99b71a42",
+          "41b8e5ab",
+          "968ad5e5"
+        ]
+      ]
+    },
+    "dac0b443": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        5
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c5dd0144",
+          "86d4af2c",
+          "8131875c",
+          "fed596dc"
+        ]
+      ]
+    },
+    "e752d13a": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "f1a6928a",
+          "ec5994e9"
+        ]
+      ]
+    },
+    "f1a6928a": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "431cca68"
+        ]
+      ]
+    },
+    "ec5994e9": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        9
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "1ec93098",
+          "9dc4f831"
+        ]
+      ]
+    },
+    "1ec93098": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Verantwortlicher Agent"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "h6"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "name",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "9dc4f831": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        "Position"
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "position",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "a53595ff": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "deba7272"
+        ]
+      ]
+    },
+    "5f480057": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "Event",
+                "field": "responsibleAgent"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "a53595ff"
+        ]
+      ]
+    },
+    "deba7272": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "e752d13a"
+        ]
+      ]
+    },
+    "9d017a85": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "3784df2d",
+          "2f0b722a"
+        ]
+      ]
+    },
+    "8a007ecb": {
+      "_obj_class": "DataFormSubmitButtonWidget",
+      "reset_title": [
+        "string",
+        "abbrechen"
+      ],
+      "size": [
+        "string",
+        "medium"
+      ],
+      "alignment": [
+        "string",
+        "block"
+      ],
+      "submit_title": [
+        "string",
+        "An dieser Veranstaltung teilnehmen"
+      ]
+    },
+    "bf39bb6b": {
+      "_obj_class": "DataFormContainerWidget",
+      "submitted_message": [
+        "string",
+        "__Event.keyword__ Teilnahme bestätigt."
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "8a007ecb"
+        ]
+      ]
+    },
+    "6082f5e5": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "bf39bb6b"
+        ]
+      ]
+    },
+    "e5543aae": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "EventRegistration",
+          "query": [
+            {
+              "field": "eventId",
+              "value_via": {
+                "class": "Event",
+                "field": "_id"
+              }
+            }
+          ]
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9d017a85",
+          "6082f5e5"
+        ]
+      ]
+    },
+    "2f0b722a": {
+      "_obj_class": "DataDeleteButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "cancel_title": [
+        "string",
+        "Nicht wichtig"
+      ],
+      "deleted_message": [
+        "string",
+        "__Event.keyword__ Teilnahme storniert."
+      ],
+      "title": [
+        "string",
+        "Storniere meine Teilnahme"
+      ],
+      "require_confirmation": [
+        "boolean",
+        true
+      ],
+      "confirm_title": [
+        "string",
+        "Ja, meine Teilnahme stornieren"
+      ]
+    },
+    "431cca68": {
+      "_obj_class": "DataImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "User",
+          "field": "image",
+          "via_ref": "single"
+        }
+      ],
+      "round_corners": [
+        "boolean",
+        true
+      ]
+    },
+    "b0656332": {
+      "_obj_class": "DataImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Event",
+          "field": "logo",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "e31f80a1": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Downloads"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ]
+    },
+    "0b73d6cc": {
+      "_obj_class": "DataAttachmentsWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "field": "body",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "bc149ea8": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "0b73d6cc"
+        ]
+      ]
+    },
+    "44c8d7e7": {
+      "_obj_class": "DataGroupWidget",
+      "content": [
+        "widgetlist",
+        [
+          "bc149ea8"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Document",
+          "query": [
+            {
+              "field": "_id",
+              "value_via": {
+                "class": "EventDocument",
+                "field": "documentId"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "79435b03": {
+      "_obj_class": "DataColumnListWidget",
+      "content": [
+        "widgetlist",
+        [
+          "44c8d7e7"
+        ]
+      ],
+      "columns_count": [
+        "string",
+        "4"
+      ]
+    },
+    "7b14dc8d": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Keine Downloads gefunden.</p>"
+      ]
+    },
+    "b77d536a": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "7b14dc8d"
+        ]
+      ]
+    },
+    "7c35a760": {
+      "_obj_class": "DataGroupWidget",
+      "content": [
+        "widgetlist",
+        [
+          "79435b03",
+          "b77d536a"
+        ]
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "EventDocument",
+          "query": [
+            {
+              "field": "eventId",
+              "value_via": {
+                "class": "Event",
+                "field": "_id"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "f7525278": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "e31f80a1",
+          "7c35a760"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    }
+  },
+  "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}
