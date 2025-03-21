@@ -1,15 +1,20 @@
-import { DataConnection, DataConnectionResultItem } from 'scrivito'
+import {
+  currentSiteId,
+  DataConnection,
+  DataConnectionResultItem,
+  getInstanceId,
+  load,
+} from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
 import { ensureString } from '../utils/ensureString'
-import { scrivitoTenantId } from '../config/scrivitoTenants'
 
 interface RawDataItem {
   _id: string
   [key: string]: unknown
 }
 
-export function localStorageDataConnection(
+export async function localStorageDataConnection(
   className: string,
   {
     initialContent,
@@ -24,8 +29,16 @@ export function localStorageDataConnection(
       data: DataConnectionResultItem,
     ) => Promise<DataConnectionResultItem>
   } = {},
-): DataConnection {
-  const recordKey = recordKeyForClassName(className)
+): Promise<Partial<DataConnection>> {
+  if (typeof localStorage === 'undefined') {
+    return {
+      index: () => {
+        throw new Error('localStorage is not available!')
+      },
+    }
+  }
+
+  const recordKey = await recordKeyForClassName(className)
 
   if (initialContent) initializeContent(initialContent)
 
@@ -139,26 +152,37 @@ export function localStorageDataConnection(
   }
 }
 
-export function searchLocalStorageDataConnections(
+export async function searchLocalStorageDataConnections(
   search: string,
   classNames: string[],
-): Array<{ _id: string; className: string; rawItem: Record<string, unknown> }> {
+): Promise<
+  Array<{ _id: string; className: string; rawItem: Record<string, unknown> }>
+> {
   const lowerCaseSearchTerm = search.toLowerCase()
   const matchesSearchTerm = (value: unknown) =>
     typeof value === 'string' &&
     value.toLowerCase().includes(lowerCaseSearchTerm)
 
-  return classNames.flatMap((className) =>
-    Object.entries(restoreRecord(recordKeyForClassName(className)))
-      .filter(([_id, rawItem]) =>
-        Object.values(rawItem).some(matchesSearchTerm),
-      )
-      .map(([_id, rawItem]) => ({ _id, className, rawItem })),
+  const results = await Promise.all(
+    classNames.map(async (className) => {
+      const recordKey = await recordKeyForClassName(className)
+      return Object.entries(restoreRecord(recordKey))
+        .filter(([_id, rawItem]) =>
+          Object.values(rawItem).some(matchesSearchTerm),
+        )
+        .map(([_id, rawItem]) => ({ _id, className, rawItem }))
+    }),
   )
+
+  return results.flat()
 }
 
-function recordKeyForClassName(className: string): string {
-  return `localDataClass-${scrivitoTenantId()}-${className}`
+async function recordKeyForClassName(className: string): Promise<string> {
+  // `getInstanceId` is only available, after Scrivito was configured.
+  // See https://docs.scrivito.com/getinstanceid-b48e41684b45423f for more details.
+  await load(() => currentSiteId())
+
+  return `localDataClass-${getInstanceId()}-${className}`
 }
 
 function restoreRecord(recordKey: string): Record<string, RawDataItem> {

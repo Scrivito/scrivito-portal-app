@@ -6,8 +6,11 @@ import {
   load,
   urlFor,
 } from 'scrivito'
-import { isMultitenancyEnabled } from './scrivitoTenants'
 import { ensureString } from '../utils/ensureString'
+import {
+  getJrPlatformBaseAppUrl,
+  jrPlatformRedirectToSiteUrl,
+} from '../privateJrPlatform/multiTenancy'
 
 const origin =
   typeof window !== 'undefined'
@@ -97,10 +100,15 @@ export async function ensureSiteIsPresent() {
   if (!site) return
 
   const siteUrl = await load(() => urlFor(site))
-  const { pathname: rawPathname, search, hash } = window.location
-  const pathname = isMultitenancyEnabled()
-    ? rawPathname.slice(getInstanceId().length + 1)
-    : rawPathname
+  return redirectToSiteUrl(siteUrl)
+}
+
+function redirectToSiteUrl(siteUrl: string) {
+  if (import.meta.env.PRIVATE_JR_PLATFORM) {
+    return jrPlatformRedirectToSiteUrl(siteUrl)
+  }
+
+  const { pathname, search, hash } = window.location
   const path = pathname === '/' ? '' : pathname
 
   window.location.assign(`${siteUrl}${path}${search}${hash}`)
@@ -120,8 +128,11 @@ function getPreferredSite() {
 
 function getBaseAppUrl(): string {
   if (!origin) throw new Error('No origin defined!')
+  if (import.meta.env.PRIVATE_JR_PLATFORM) {
+    return getJrPlatformBaseAppUrl(origin)
+  }
 
-  return isMultitenancyEnabled() ? `${origin}/${getInstanceId()}` : origin
+  return origin
 }
 
 function appWebsites() {
