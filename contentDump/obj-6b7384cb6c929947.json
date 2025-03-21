@@ -51,14 +51,14 @@
   "_first_published_at": "20240506115331",
   "_id": "6b7384cb6c929947",
   "_language": "en",
-  "_last_changed": "20250311104740",
+  "_last_changed": "20250321115525",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/6b7384cb6c929947",
   "_permalink": "portal-sign-up",
-  "_published_at": "20250312090751",
+  "_published_at": "20250321140057",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025031209075100000000000000008e4953658358d065",
+  "_version": "202503211400570000000000000000c2bd74ba6f5167e1",
   "_widget_pool": {
     "24513612": {
       "_obj_class": "ColumnWidget",
@@ -989,12 +989,79 @@
       "content": [
         "widgetlist",
         [
-          "4d972209"
+          "2462aa67"
         ]
       ]
     },
     "05cf45ba": {
       "_obj_class": "HomepageFooterWidget"
+    },
+    "2462aa67": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "9bd7f75b",
+          "e7fe1134",
+          "0b0026ee"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_responsive_adaption": [
+        "boolean",
+        true
+      ]
+    },
+    "9bd7f75b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "e7fe1134": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4d972209"
+        ]
+      ]
+    },
+    "0b0026ee": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d4758183"
+        ]
+      ]
+    },
+    "d4758183": {
+      "_obj_class": "LanguageSwitchWidget",
+      "alignment": [
+        "string",
+        "right"
+      ]
     }
   },
   "_created_by": "scrivito:1ba850ffc8fb4adda8b34c00ca2b88af",

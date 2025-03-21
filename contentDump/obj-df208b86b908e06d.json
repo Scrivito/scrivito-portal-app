@@ -51,14 +51,14 @@
   "_first_published_at": "20240514080213",
   "_id": "df208b86b908e06d",
   "_language": "de",
-  "_last_changed": "20250311104628",
+  "_last_changed": "20250320132351",
   "_modification": null,
   "_path": "/6a5898770a646824/df208b86b908e06d",
   "_permalink": "whitepaper/hochmoderne-abfuellanlagen",
-  "_published_at": "20250312090751",
+  "_published_at": "20250321140057",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025031209075100000000000000008e4953658358d065",
+  "_version": "202503211400570000000000000000c2bd74ba6f5167e1",
   "_widget_pool": {
     "86887669": {
       "_obj_class": "ColumnContainerWidget",
@@ -1196,7 +1196,7 @@
       "content": [
         "widgetlist",
         [
-          "333d617e"
+          "006c5417"
         ]
       ]
     },
@@ -1216,6 +1216,73 @@
     },
     "0121c809": {
       "_obj_class": "HomepageFooterWidget"
+    },
+    "006c5417": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "c8db3009",
+          "bc2e7391",
+          "f824bcff"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_responsive_adaption": [
+        "boolean",
+        true
+      ]
+    },
+    "c8db3009": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "bc2e7391": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "333d617e"
+        ]
+      ]
+    },
+    "f824bcff": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6997bcab"
+        ]
+      ]
+    },
+    "6997bcab": {
+      "_obj_class": "LanguageSwitchWidget",
+      "alignment": [
+        "string",
+        "right"
+      ]
     }
   },
   "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
