@@ -41,7 +41,7 @@ export const LanguageSwitch = connect(function LanguageSwitch({
   return (
     <InPlaceEditingOff>
       <NavDropdown
-        title={<LanguageLabel root={activeSite} className="d-none" />}
+        title={<LanguageLabel root={activeSite} textClassName="d-none" />}
         align={align}
       >
         {versions.map(({ version, root }) => (
@@ -61,10 +61,10 @@ export const LanguageSwitch = connect(function LanguageSwitch({
 })
 
 const LanguageLabel = connect(function LanguageLabel({
-  className,
+  textClassName: textClassName,
   root,
 }: {
-  className?: string
+  textClassName?: string
   root: HomepageInstance
 }) {
   const language = root.language()
@@ -78,7 +78,7 @@ const LanguageLabel = connect(function LanguageLabel({
         attribute="siteLanguageIcon"
         className="img-flag"
       />
-      <span className={className}>{label}</span>
+      <span className={textClassName}>{label}</span>
     </span>
   )
 })
