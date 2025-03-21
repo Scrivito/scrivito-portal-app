@@ -5,7 +5,7 @@ import { alignmentClassName } from '../../utils/alignmentClassName'
 
 provideComponent(LanguageSwitchWidget, ({ widget }) => {
   const classNames = ['navbar-single']
-  const alignment = alignmentClassName(widget.get('alignment'))
+  const alignment = alignmentClassName(widget.get('alignment') ?? 'right')
   if (alignment) classNames.push(alignment)
 
   return (

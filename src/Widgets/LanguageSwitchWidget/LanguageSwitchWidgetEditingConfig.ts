@@ -8,7 +8,7 @@ provideEditingConfig(LanguageSwitchWidget, {
   attributes: {
     alignment: {
       title: 'Alignment',
-      description: 'Default: Left',
+      description: 'Default: Right',
       values: [
         { value: 'left', title: 'Left' },
         { value: 'center', title: 'Center' },
@@ -18,6 +18,6 @@ provideEditingConfig(LanguageSwitchWidget, {
   },
   properties: ['alignment'],
   initialContent: {
-    alignment: 'left',
+    alignment: 'right',
   },
 })
