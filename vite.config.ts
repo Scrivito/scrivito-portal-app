@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => {
   if (scrivitoTenantIsMissing(env)) {
     throw new Error(
       'Environment variable "SCRIVITO_TENANT" is not defined!' +
-        ' Check if the ".env" file with a proper SCRIVITO_TENANT is set.' +
+        ' Check if the ".env" or `.env.local` file is set with a proper SCRIVITO_TENANT.' +
         ' See ".env.example" for an example.',
     )
   }
