@@ -45,16 +45,16 @@
   "_first_published_at": "20240318105701",
   "_id": "e8f5370d6569478a",
   "_language": "en",
-  "_last_changed": "20250313130517",
+  "_last_changed": "20250318091452",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/4df09188b1541b70/e8f5370d6569478a",
   "_permalink": null,
-  "_published_at": "20250318091443",
+  "_published_at": "20250321200447",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025031809144300000000000000009b0d6a3a4b69f0a2",
+  "_version": "20250321200447000000000000000089617612b35286a0",
   "_widget_pool": {
     "25d8b24d": {
       "_obj_class": "DataWidget",
@@ -97,10 +97,6 @@
         "string",
         "switch"
       ],
-      "label": [
-        "string",
-        "Consent"
-      ],
       "data": [
         "datalocator",
         {
@@ -108,6 +104,14 @@
           "field": "active",
           "via_ref": "single"
         }
+      ],
+      "on_label": [
+        "string",
+        "Consent given"
+      ],
+      "off_label": [
+        "string",
+        "Consent withdrawn"
       ]
     },
     "8156baee": {

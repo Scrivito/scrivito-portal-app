@@ -45,16 +45,16 @@
   "_first_published_at": "20240405121103",
   "_id": "86e7f2cb286063a6",
   "_language": "de",
-  "_last_changed": "20250318094827",
+  "_last_changed": "20250321200424",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/09a152b36247dc0a/86e7f2cb286063a6",
   "_permalink": null,
-  "_published_at": "20250318094904",
+  "_published_at": "20250321200447",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025031809490400000000000000000b252d370a2b5d6f",
+  "_version": "20250321200447000000000000000089617612b35286a0",
   "_widget_pool": {
     "87639548": {
       "_obj_class": "DataLoadMoreButtonWidget",
@@ -116,10 +116,6 @@
         "string",
         "switch"
       ],
-      "label": [
-        "string",
-        "Einwilligung"
-      ],
       "data": [
         "datalocator",
         {
@@ -127,6 +123,14 @@
           "field": "active",
           "via_ref": "single"
         }
+      ],
+      "on_label": [
+        "string",
+        "Einwilligung gegeben"
+      ],
+      "off_label": [
+        "string",
+        "Einwilligung widerrufen"
       ]
     },
     "f9bbf77a": {

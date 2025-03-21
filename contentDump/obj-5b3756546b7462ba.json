@@ -30,15 +30,15 @@
     "boolean",
     true
   ],
+  "layout_show_header": [
+    "boolean",
+    true
+  ],
   "layout_header": [
     "widgetlist",
     [
       "67e43a32"
     ]
-  ],
-  "layout_show_header": [
-    "boolean",
-    true
   ],
   "_conflicts": null,
   "_content_id": "5b3756546b7462ba",
@@ -48,14 +48,14 @@
   "_first_published_at": "20250228133735",
   "_id": "5b3756546b7462ba",
   "_language": "en",
-  "_last_changed": "20250321115041",
+  "_last_changed": "20250321140109",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/1c2dea326d6cd4bb",
   "_permalink": "gdpr-consent-form",
-  "_published_at": "20250321140057",
+  "_published_at": "20250321200447",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202503211400570000000000000000c2bd74ba6f5167e1",
+  "_version": "20250321200447000000000000000089617612b35286a0",
   "_widget_pool": {
     "1a9a9d04": {
       "_obj_class": "SectionWidget",
@@ -130,9 +130,13 @@
           "via_ref": "single"
         }
       ],
-      "label": [
+      "on_label": [
         "string",
-        "Consent"
+        "Consent given"
+      ],
+      "off_label": [
+        "string",
+        "Consent withdrawn"
       ]
     },
     "b147c41e": {
@@ -586,6 +590,10 @@
     },
     "67e43a32": {
       "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
       "container_width": [
         "string",
         "fixed"
@@ -595,10 +603,6 @@
         [
           "9e8fa10a"
         ]
-      ],
-      "background_color": [
-        "string",
-        "primary"
       ]
     },
     "0842bf4e": {

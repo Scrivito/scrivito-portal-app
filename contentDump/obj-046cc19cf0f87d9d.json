@@ -34,7 +34,7 @@
         },
         {
           "field": "parentId",
-          "value": "null"
+          "value": null
         }
       ],
       "size": 10
@@ -56,16 +56,16 @@
   "_first_published_at": "20240402122425",
   "_id": "046cc19cf0f87d9d",
   "_language": "en",
-  "_last_changed": "20250217092537",
+  "_last_changed": "20250218083822",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/046cc19cf0f87d9d",
   "_permalink": "equipment",
-  "_published_at": "20250218083811",
+  "_published_at": "20250321200020",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
+  "_version": "2025032120002000000000000000007cfe9beb55e048a8",
   "_widget_pool": {
     "5795a282": {
       "_obj_class": "DataWidget",
@@ -298,6 +298,26 @@
         }
       ]
     },
+    "7a6072bf": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No equipment found.</p>"
+      ]
+    },
+    "48eb5a15": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "7a6072bf"
+        ]
+      ]
+    },
     "ffe2cecb": {
       "_obj_class": "DataLoadMoreButtonWidget",
       "alignment": [
@@ -354,30 +374,10 @@
         "string",
         "mb-3"
       ]
-    },
-    "48eb5a15": {
-      "_obj_class": "DataEmptyWidget",
-      "content": [
-        "widgetlist",
-        [
-          "7a6072bf"
-        ]
-      ]
-    },
-    "7a6072bf": {
-      "_obj_class": "TextWidget",
-      "alignment": [
-        "string",
-        "left"
-      ],
-      "text": [
-        "html",
-        "<p>No equipment found.</p>"
-      ]
     }
   },
   "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
-  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
 }

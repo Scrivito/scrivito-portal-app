@@ -37,16 +37,16 @@
   "_first_published_at": "20240220090610",
   "_id": "027be0e907d46d8e",
   "_language": "en",
-  "_last_changed": "20250228104541",
+  "_last_changed": "20250303120241",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/027be0e907d46d8e",
   "_permalink": "subscriptions",
-  "_published_at": "20250228133735",
+  "_published_at": "20250321200447",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202502281337350000000000000000b4247ad6ae5b5935",
+  "_version": "20250321200447000000000000000089617612b35286a0",
   "_widget_pool": {
     "7fdb79f4": {
       "_obj_class": "DataWidget",
@@ -333,10 +333,6 @@
         "string",
         "switch"
       ],
-      "label": [
-        "string",
-        "Consent"
-      ],
       "data": [
         "datalocator",
         {
@@ -344,6 +340,14 @@
           "field": "isConsentGiven",
           "via_ref": "single"
         }
+      ],
+      "on_label": [
+        "string",
+        "Subscribed"
+      ],
+      "off_label": [
+        "string",
+        "Unsubscribed"
       ]
     },
     "7ea10790": {
@@ -377,10 +381,6 @@
         "string",
         "switch"
       ],
-      "label": [
-        "string",
-        "Subscription"
-      ],
       "data": [
         "datalocator",
         {
@@ -388,6 +388,14 @@
           "field": "isConsentGiven",
           "via_ref": "single"
         }
+      ],
+      "on_label": [
+        "string",
+        "Subscribed"
+      ],
+      "off_label": [
+        "string",
+        "Not subscribed"
       ]
     },
     "ba93dc83": {
