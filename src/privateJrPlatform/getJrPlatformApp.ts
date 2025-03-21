@@ -19,16 +19,19 @@ const KNOWN_CONTENT_FORMATS: Record<string, string> = {
   // 'portal-app:6': 'https://scrivito-portal-app.pages.dev',
 }
 
-/** Redirects away, if the content format does not match but is a known format. */
+/**
+ * Redirects away, if the content format does not match but is a known format.
+ *
+ * For alias instances it returns `true` - regardless of the `contentFormat`. It's better to show a half-broken app, then to show a full error page.
+ */
 async function isValidContentFormat(): Promise<boolean> {
+  if (instanceFromHostname()) return true
+
   const root = await load(() => Obj.root())
   if (!root) return true
 
   const siteContentFormat = root.get('contentFormat')
   if (siteContentFormat === CONTENT_FORMAT) return true
-
-  // For alias instances it's better to show a half-broken app, then to show a full error page.
-  if (instanceFromHostname()) return true
 
   if (typeof siteContentFormat !== 'string') return false
   if (!siteContentFormat) return false
