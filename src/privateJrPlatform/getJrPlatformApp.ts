@@ -12,11 +12,8 @@ export async function getJrPlatformApp() {
 
 const CONTENT_FORMAT = 'portal-app:5'
 const KNOWN_CONTENT_FORMATS: Record<string, string> = {
-  'portal-app:5': 'https://scrivito-portal-app.pages.dev',
-
-  /* Once v6 is released, the list of KNOWN_CONTENT_FORMATS looks like this: */
-  // 'portal-app:5': 'https://v5.scrivito-portal-app.pages.dev',
-  // 'portal-app:6': 'https://scrivito-portal-app.pages.dev',
+  'portal-app:5': 'https://v5.scrivito-portal-app.pages.dev',
+  'portal-app:6': 'https://scrivito-portal-app.pages.dev',
 }
 
 /**
