@@ -36,7 +36,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
       />{' '}
       <ContentTag
         content={widget}
-        attribute="label"
+        attribute={value ? 'onLabel' : 'offLabel'}
         tag="label"
         className="form-label form-check-label"
         htmlFor={id}

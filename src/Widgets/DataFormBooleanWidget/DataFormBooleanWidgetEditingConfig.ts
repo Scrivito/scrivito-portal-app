@@ -19,6 +19,14 @@ provideEditingConfig(DataFormBooleanWidget, {
         'Only relevant for a create form. An update form will utilize the existing boolean value.',
     },
     helpText: { title: 'Help text' },
+    offLabel: {
+      title: 'Off label',
+      description: 'Default: Off',
+    },
+    onLabel: {
+      title: 'On label',
+      description: 'Default: On',
+    },
     style: {
       title: 'Style',
       description: 'Default: Checkbox',
@@ -31,13 +39,15 @@ provideEditingConfig(DataFormBooleanWidget, {
   properties: [
     'attributeName',
     'style',
-    'label',
+    'onLabel',
+    'offLabel',
     'required',
     'helpText',
     'defaultValue',
   ],
   initialContent: {
-    label: 'Custom field',
+    offLabel: 'Off',
+    onLabel: 'On',
     style: 'check',
   },
 })
