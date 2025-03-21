@@ -10,7 +10,7 @@ export async function getJrPlatformApp() {
   return (await isValidContentFormat()) ? App : WrongContentFormat
 }
 
-const CONTENT_FORMAT = 'portal-app:5'
+const CONTENT_FORMAT = 'portal-app:6'
 const KNOWN_CONTENT_FORMATS: Record<string, string> = {
   'portal-app:5': 'https://v5.scrivito-portal-app.pages.dev',
   'portal-app:6': 'https://scrivito-portal-app.pages.dev',
