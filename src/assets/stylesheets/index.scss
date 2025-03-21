@@ -1886,6 +1886,9 @@ header .navbar.navbar-expand-lg {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     overflow: hidden;
+    .dropdown-item {
+      text-decoration: none !important;
+    }
   }
 
   .text-center .dropdown-menu {
