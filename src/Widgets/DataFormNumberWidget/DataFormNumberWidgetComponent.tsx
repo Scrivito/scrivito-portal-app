@@ -80,7 +80,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
         </>
       ) : null}
       <br />
-      <div className="input-group flex-nowrap">
+      <div className="input-group input-group-sm flex-nowrap">
         <button
           aria-label="-"
           className="btn btn-primary btn-sm"

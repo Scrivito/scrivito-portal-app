@@ -332,7 +332,7 @@ body {
 }
 
 // patch for full height same margins as flex cols
-.row.align-items-stretch [class*='col-'] {
+.row.align-items-stretch > [class*='col-'] {
   display: grid;
 }
 
@@ -1280,6 +1280,10 @@ section:focus >,
 .form-check-input:checked {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
+}
+
+.input-group .form-control {
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 /* btn + alignment
