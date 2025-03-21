@@ -38,9 +38,7 @@ export async function localStorageDataConnection(
     }
   }
 
-  await load(() => currentSiteId()) // wait until Scrivito is configured.
-
-  const recordKey = recordKeyForClassName(className)
+  const recordKey = await recordKeyForClassName(className)
 
   if (initialContent) initializeContent(initialContent)
 
@@ -154,25 +152,34 @@ export async function localStorageDataConnection(
   }
 }
 
-export function searchLocalStorageDataConnections(
+export async function searchLocalStorageDataConnections(
   search: string,
   classNames: string[],
-): Array<{ _id: string; className: string; rawItem: Record<string, unknown> }> {
+): Promise<
+  Array<{ _id: string; className: string; rawItem: Record<string, unknown> }>
+> {
   const lowerCaseSearchTerm = search.toLowerCase()
   const matchesSearchTerm = (value: unknown) =>
     typeof value === 'string' &&
     value.toLowerCase().includes(lowerCaseSearchTerm)
 
-  return classNames.flatMap((className) =>
-    Object.entries(restoreRecord(recordKeyForClassName(className)))
-      .filter(([_id, rawItem]) =>
-        Object.values(rawItem).some(matchesSearchTerm),
-      )
-      .map(([_id, rawItem]) => ({ _id, className, rawItem })),
+  const results = await Promise.all(
+    classNames.map(async (className) => {
+      const recordKey = await recordKeyForClassName(className)
+      return Object.entries(restoreRecord(recordKey))
+        .filter(([_id, rawItem]) =>
+          Object.values(rawItem).some(matchesSearchTerm),
+        )
+        .map(([_id, rawItem]) => ({ _id, className, rawItem }))
+    }),
   )
+
+  return results.flat()
 }
 
-function recordKeyForClassName(className: string): string {
+async function recordKeyForClassName(className: string): Promise<string> {
+  await load(() => currentSiteId()) // wait until Scrivito is configured.
+
   return `localDataClass-${getInstanceId()}-${className}`
 }
 
