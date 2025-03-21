@@ -10,7 +10,9 @@ provideComponent(LanguageSwitchWidget, ({ widget }) => {
 
   return (
     <div className={classNames.join(' ')}>
-      <LanguageSwitch />
+      <LanguageSwitch
+        align={widget.get('alignment') === 'right' ? 'end' : 'start'}
+      />
     </div>
   )
 })

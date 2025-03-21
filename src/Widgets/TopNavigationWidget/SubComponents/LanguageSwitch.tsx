@@ -11,7 +11,11 @@ import {
 } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
-export const LanguageSwitch = connect(function LanguageSwitch() {
+export const LanguageSwitch = connect(function LanguageSwitch({
+  align,
+}: {
+  align: 'start' | 'end'
+}) {
   const versions = Obj.root()
     ?.versionsOnAllSites()
     .map((site) => {
@@ -38,6 +42,7 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
     <InPlaceEditingOff>
       <NavDropdown
         title={<LanguageLabel root={activeSite} className="d-none" />}
+        align={align}
       >
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
