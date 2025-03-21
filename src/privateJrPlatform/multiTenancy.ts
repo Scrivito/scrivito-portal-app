@@ -23,9 +23,7 @@ export function getJrPlatformInstanceId(): string | null {
   return instance
 }
 
-export function getJrPlatformBaseAppUrl(): string {
-  if (!origin) throw new Error('No origin defined!')
-
+export function getJrPlatformBaseAppUrl(origin: string): string {
   if (!isMultitenancyEnabled()) return origin
 
   const instanceId = getJrPlatformInstanceId()

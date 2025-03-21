@@ -127,9 +127,10 @@ function getPreferredSite() {
 }
 
 function getBaseAppUrl(): string {
-  if (import.meta.env.PRIVATE_JR_PLATFORM) return getJrPlatformBaseAppUrl()
-
   if (!origin) throw new Error('No origin defined!')
+  if (import.meta.env.PRIVATE_JR_PLATFORM) {
+    return getJrPlatformBaseAppUrl(origin)
+  }
 
   return origin
 }
