@@ -1371,6 +1371,20 @@ section:focus >,
   font-family: var(--jr-headline-font-family), sans-serif;
   font-weight: var(--jr-headline-font-weight);
 }
+.dropdown-item {
+  color: var(--bs-dropdown-link-color) !important;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color) !important;
+}
+section.bg-primary {
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background: var(--bs-secondary);
+    color: var(--bs-dropdown-link-active-color) !important;
+  }
+}
 
 .navbar-brand {
   margin: 0 5px -10px 0;
@@ -1856,6 +1870,39 @@ header .navbar.navbar-expand-lg {
     display: none;
   }
 }
+
+/* single dropdown
+ =================================================================== */
+
+.navbar-single {
+  .nav-item {
+    margin-top: 10px;
+    position: relative;
+    display: inline-block;
+    .nav-link {
+      padding: 5px 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+  }
+  .dropdown-menu {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .text-center .dropdown-menu {
+    right: 50% !important;
+    left: 50% !important;
+    transform: translate3d(-50%, 40px, 0px) !important;
+  }
+
+  .text-end .dropdown-menu {
+    right: 0 !important;
+    left: auto !important;
+  }
+}
+
 /* .nav-pills
  =================================================================== */
 

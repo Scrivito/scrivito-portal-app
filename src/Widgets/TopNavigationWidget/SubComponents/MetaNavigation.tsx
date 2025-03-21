@@ -33,7 +33,7 @@ export const MetaNavigation = connect(function MetaNavigation({
       </Nav>
 
       <Nav className="ms-auto border-left">
-        <LanguageSwitch />
+        <LanguageSwitch align="start" />
         {showCart && (
           <Nav.Item>
             <Nav.Link
