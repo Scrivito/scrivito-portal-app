@@ -73,8 +73,7 @@ function objToResult(obj: Obj) {
   const imageId = isImage(imageReference) ? imageReference.id() : null
 
   const snippet =
-    ensureString(obj.get('metaDataDescription')) ||
-    extractText(obj, { length: 300 })
+    ensureString(obj.get('description')) || extractText(obj, { length: 300 })
 
   return {
     _id: obj.id(),

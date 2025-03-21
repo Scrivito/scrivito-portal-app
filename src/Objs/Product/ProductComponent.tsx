@@ -14,7 +14,12 @@ import {
   toPlainParameter,
 } from '../../Widgets/ProductParameterWidget/ProductParameterWidgetClass'
 import { ProductPreview } from './ProductPreviewComponent'
-import { addToCart, isInCart, removeFromCart } from '../../Data/CartItem/Cart'
+import {
+  quantityInCart,
+  removeFromCart,
+  updateQuantityInCart,
+} from '../../Data/CartItem/Cart'
+import { useCallback, useRef } from 'react'
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -39,7 +44,7 @@ provideComponent(Product, ({ page }) => {
             </div>
 
             <div className="col-md-8 mb-4">
-              <div className="card mb-4">
+              <div className="card">
                 <div className="card-body p-4">
                   <ContentTag
                     content={page}
@@ -180,6 +185,24 @@ const CartActionButton = connect(function CartActionButton({
 }: {
   product: ProductInstance
 }) {
+  const inputRef = useRef<HTMLInputElement>(null)
+
+  const onChange = useCallback(() => {
+    inputRef.current?.reportValidity()
+    const quantity = Math.floor(Number(inputRef.current?.value))
+    if (quantity > 0) updateQuantityInCart(product, quantity)
+  }, [inputRef, product])
+
+  const down = useCallback(() => {
+    inputRef.current?.stepDown()
+    onChange()
+  }, [inputRef, onChange])
+
+  const up = useCallback(() => {
+    inputRef.current?.stepUp()
+    onChange()
+  }, [inputRef, onChange])
+
   const productTitle = product.get('title')
 
   function getMessage(attribute: keyof (typeof LOCALIZERS)['en']) {
@@ -192,6 +215,7 @@ const CartActionButton = connect(function CartActionButton({
   const cartRemoveLabel = getMessage('cartRemoveLabel')
   const cartLoginLabel = getMessage('cartLoginLabel')
   const cartUnavailableMessage = getMessage('cartUnavailableMessage')
+  const quantityLabel = getMessage('quantityLabel')
 
   if (!isUserLoggedIn()) {
     return (
@@ -206,26 +230,56 @@ const CartActionButton = connect(function CartActionButton({
     )
   }
 
-  if (isInCart(product)) {
+  const quantity = quantityInCart(product)
+  if (quantity) {
     return (
-      <button
-        className="btn btn-sm btn-primary"
-        onClick={() => {
-          removeFromCart(product)
-          toast.info(cartRemovedMessage)
-        }}
-      >
-        <i className="bi bi-x-lg"></i>
-        {cartRemoveLabel}
-      </button>
+      <div className="row mt-0 mb-1 g-1">
+        <div className="col-4 col-sm-3 col-md-3 col-xl-2">
+          <div className="input-group input-group-sm">
+            <button
+              aria-label="-"
+              className="btn btn-primary"
+              disabled={quantity < 2}
+              onClick={down}
+            >
+              <i className="bi bi-dash-lg px-0" />
+            </button>
+            <input
+              className="form-control text-center no-arrows"
+              defaultValue={quantity}
+              min={1}
+              onChange={onChange}
+              ref={inputRef}
+              step={1}
+              title={quantityLabel}
+              type="number"
+            />
+            <button aria-label="+" className="btn btn-primary" onClick={up}>
+              <i className="bi bi-plus-lg px-0" />
+            </button>
+          </div>
+        </div>
+        <div className="col-auto">
+          <button
+            className="btn btn-sm btn-primary"
+            onClick={() => {
+              removeFromCart(product)
+              toast.info(cartRemovedMessage)
+            }}
+          >
+            <i className="bi bi-x-lg"></i>
+            {cartRemoveLabel}
+          </button>
+        </div>
+      </div>
     )
   }
 
   return (
     <button
-      className="btn btn-sm btn-primary"
+      className="btn btn-sm btn-primary my-1"
       onClick={async () => {
-        await addToCart(product)
+        await updateQuantityInCart(product, 1)
         toast.success(cartAddedMessage)
       }}
     >
@@ -281,6 +335,7 @@ const LOCALIZERS = {
     data: 'Daten',
     description: 'Beschreibung',
     downloads: 'Downloads',
+    quantityLabel: 'Anzahl',
     suitableAccessories: 'Passendes Zubehör',
   },
   en: {
@@ -293,6 +348,7 @@ const LOCALIZERS = {
     data: 'Data',
     description: 'Description',
     downloads: 'Downloads',
+    quantityLabel: 'Quantity',
     suitableAccessories: 'Suitable accessories',
   },
   fr: {
@@ -306,6 +362,7 @@ const LOCALIZERS = {
     data: 'Données',
     description: 'Description',
     downloads: 'Téléchargements',
+    quantityLabel: 'Quantité',
     suitableAccessories: 'Accessoires appropriés',
   },
   pl: {
@@ -318,6 +375,7 @@ const LOCALIZERS = {
     data: 'Dane',
     description: 'Opis',
     downloads: 'Pobrania',
+    quantityLabel: 'Ilość',
     suitableAccessories: 'Odpowiednie akcesoria',
   },
 }

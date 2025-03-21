@@ -1,26 +1,30 @@
 import { configure } from 'scrivito'
 import { baseUrlForSite, siteForUrl } from './scrivitoSites'
-import { scrivitoTenantId } from './scrivitoTenants'
+import { getJrPlatformConfig } from '../privateJrPlatform/getJrPlatformConfig'
+import { getJrPlatformInstanceId } from '../privateJrPlatform/multiTenancy'
 
 export function configureScrivito(options?: { priority?: 'background' }) {
+  const tenant = scrivitoTenantId()
+  if (!tenant) return // Other layers (like vite.config.ts) should have thrown an error.
+
   configure({
     activateDataIntegration: true,
     adoptUi: true,
     autoConvertAttributes: true,
     baseUrlForSite,
     contentTagsForEmptyAttributes: false,
-    extensionsUrl: `/_scrivito_extensions.html?tenantId=${scrivitoTenantId()}`,
+    extensionsUrl: `/_scrivito_extensions.html?tenantId=${tenant}`,
     optimizedWidgetLoading: true,
     siteForUrl,
     strictSearchOperators: true,
-    tenant: scrivitoTenantId(),
-    // @ts-expect-error // TODO: Remove later on
-    unstable: {
-      trustedUiOrigins: [
-        'http://localhost:8090',
-        'https://*.scrivito-ui.pages.dev',
-      ],
-    },
+    tenant,
+    ...(import.meta.env.PRIVATE_JR_PLATFORM ? getJrPlatformConfig() : {}),
     ...options,
   })
+}
+
+function scrivitoTenantId(): string | null {
+  if (import.meta.env.PRIVATE_JR_PLATFORM) return getJrPlatformInstanceId()
+
+  return import.meta.env.SCRIVITO_TENANT
 }

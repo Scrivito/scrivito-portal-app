@@ -11,7 +11,11 @@ import {
 } from 'scrivito'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
-export const LanguageSwitch = connect(function LanguageSwitch() {
+export const LanguageSwitch = connect(function LanguageSwitch({
+  align,
+}: {
+  align: 'start' | 'end'
+}) {
   const versions = Obj.root()
     ?.versionsOnAllSites()
     .map((site) => {
@@ -37,9 +41,8 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
   return (
     <InPlaceEditingOff>
       <NavDropdown
-        title={
-          <LanguageLabel root={activeSite} className="hidden-md hidden-lg" />
-        }
+        title={<LanguageLabel root={activeSite} textClassName="d-none" />}
+        align={align}
       >
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
@@ -58,21 +61,24 @@ export const LanguageSwitch = connect(function LanguageSwitch() {
 })
 
 const LanguageLabel = connect(function LanguageLabel({
-  className,
+  textClassName: textClassName,
   root,
 }: {
-  className?: string
+  textClassName?: string
   root: HomepageInstance
 }) {
+  const language = root.language()
+  const label = displayName(language)
+
   return (
-    <span aria-label={displayName(root.language())}>
+    <span aria-label={label} lang={language || undefined}>
       <ImageTag
         alt=""
         content={root}
         attribute="siteLanguageIcon"
         className="img-flag"
       />
-      <span className={className}>{displayName(root.language())}</span>
+      <span className={textClassName}>{label}</span>
     </span>
   )
 })
