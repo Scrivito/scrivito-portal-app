@@ -448,16 +448,14 @@ button:focus {
 }
 
 .box-attachment,
+.dropdown-item,
 footer a,
 nav a,
 .nav a,
 .navbar a,
 .nav-bordered a,
 .card > a,
-a.card {
-  text-decoration: none !important;
-}
-
+a.card,
 a.btn {
   text-decoration: none !important;
 }
@@ -1826,7 +1824,6 @@ header .navbar.navbar-expand-lg {
 .nav-bordered li a:hover,
 .nav-bordered li a:active {
   background: var(--bs-primary-lighten);
-  text-decoration: none !important;
   color: #fff !important;
 }
 
