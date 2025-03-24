@@ -448,6 +448,7 @@ button:focus {
 }
 
 .box-attachment,
+.dropdown-item,
 footer a,
 nav a,
 .nav a,
@@ -1823,7 +1824,6 @@ header .navbar.navbar-expand-lg {
 .nav-bordered li a:hover,
 .nav-bordered li a:active {
   background: var(--bs-primary-lighten);
-  text-decoration: none !important;
   color: #fff !important;
 }
 
@@ -1886,9 +1886,6 @@ header .navbar.navbar-expand-lg {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     overflow: hidden;
-    .dropdown-item {
-      text-decoration: none !important;
-    }
   }
 
   .text-center .dropdown-menu {
