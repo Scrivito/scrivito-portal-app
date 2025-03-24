@@ -48,14 +48,14 @@
   "_first_published_at": "20250228133735",
   "_id": "5b3756546b7462ba",
   "_language": "en",
-  "_last_changed": "20250321140109",
+  "_last_changed": "20250324083659",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/1c2dea326d6cd4bb",
   "_permalink": "gdpr-consent-form",
-  "_published_at": "20250321200447",
+  "_published_at": "20250324083853",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250321200447000000000000000089617612b35286a0",
+  "_version": "202503240838530000000000000000066bfaeac9cab081",
   "_widget_pool": {
     "1a9a9d04": {
       "_obj_class": "SectionWidget",
@@ -310,7 +310,7 @@
         "widgetlist",
         [
           "bb7d1703",
-          "054baeb9"
+          "14b8dc23"
         ]
       ]
     },
@@ -702,6 +702,19 @@
       "col_size": [
         "number",
         2
+      ]
+    },
+    "14b8dc23": {
+      "_obj_class": "DataFormContainerWidget",
+      "content": [
+        "widgetlist",
+        [
+          "054baeb9"
+        ]
+      ],
+      "submit_on_change": [
+        "boolean",
+        true
       ]
     }
   },

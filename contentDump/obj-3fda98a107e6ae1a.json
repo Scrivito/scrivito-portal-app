@@ -48,14 +48,14 @@
   "_first_published_at": "20250228133735",
   "_id": "3fda98a107e6ae1a",
   "_language": "de",
-  "_last_changed": "20250321140109",
+  "_last_changed": "20250324083828",
   "_modification": null,
   "_path": "/6a5898770a646824/3fda98a107e6ae1a",
   "_permalink": "dsgvo-einwilligungsformular",
-  "_published_at": "20250321200447",
+  "_published_at": "20250324083853",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250321200447000000000000000089617612b35286a0",
+  "_version": "202503240838530000000000000000066bfaeac9cab081",
   "_widget_pool": {
     "28707073": {
       "_obj_class": "AddressWidget",
@@ -328,7 +328,7 @@
         "widgetlist",
         [
           "f267496b",
-          "9d26129c"
+          "548b5bf4"
         ]
       ],
       "col_size": [
@@ -702,6 +702,19 @@
       "col_size": [
         "number",
         2
+      ]
+    },
+    "548b5bf4": {
+      "_obj_class": "DataFormContainerWidget",
+      "submit_on_change": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9d26129c"
+        ]
       ]
     }
   },
