@@ -13,10 +13,12 @@ import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
 export const LanguageSwitch = connect(function LanguageSwitch({
   align,
+  onlyCurrentPageVersions,
 }: {
   align: 'start' | 'end'
+  onlyCurrentPageVersions?: boolean
 }) {
-  const versions = Obj.root()
+  const allVersions = Obj.root()
     ?.versionsOnAllSites()
     .map((site) => {
       const siteId = site.siteId()
@@ -28,8 +30,13 @@ export const LanguageSwitch = connect(function LanguageSwitch({
       }
     })
     .sort((a, b) => a.label.localeCompare(b.label, 'en'))
+  if (!allVersions) return null
 
-  if (!versions || versions.length < 2) return null
+  const versions = onlyCurrentPageVersions
+    ? allVersions.filter(({ version }) => version)
+    : allVersions
+
+  if (versions.length < 2 && !onlyCurrentPageVersions) return null
 
   const activeSite = (
     versions.find(({ root }) => root.siteId() === currentSiteId()) ||
