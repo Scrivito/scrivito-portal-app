@@ -48,14 +48,14 @@
   "_first_published_at": "20250228133735",
   "_id": "5b3756546b7462ba",
   "_language": "en",
-  "_last_changed": "20250324083659",
+  "_last_changed": "20250325090618",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/1c2dea326d6cd4bb",
   "_permalink": "gdpr-consent-form",
-  "_published_at": "20250324083853",
+  "_published_at": "20250325092651",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202503240838530000000000000000066bfaeac9cab081",
+  "_version": "202503250926510000000000000000f84d58a5b7b1f114",
   "_widget_pool": {
     "1a9a9d04": {
       "_obj_class": "SectionWidget",
@@ -136,7 +136,7 @@
       ],
       "off_label": [
         "string",
-        "Consent withdrawn"
+        "No consent given"
       ]
     },
     "b147c41e": {

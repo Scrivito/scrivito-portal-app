@@ -45,16 +45,16 @@
   "_first_published_at": "20240405121103",
   "_id": "86e7f2cb286063a6",
   "_language": "de",
-  "_last_changed": "20250321200424",
+  "_last_changed": "20250325091153",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/09a152b36247dc0a/86e7f2cb286063a6",
   "_permalink": null,
-  "_published_at": "20250321200447",
+  "_published_at": "20250325092651",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250321200447000000000000000089617612b35286a0",
+  "_version": "202503250926510000000000000000f84d58a5b7b1f114",
   "_widget_pool": {
     "87639548": {
       "_obj_class": "DataLoadMoreButtonWidget",
@@ -130,7 +130,7 @@
       ],
       "off_label": [
         "string",
-        "Einwilligung widerrufen"
+        "Keine Einwilligung gegeben"
       ]
     },
     "f9bbf77a": {
