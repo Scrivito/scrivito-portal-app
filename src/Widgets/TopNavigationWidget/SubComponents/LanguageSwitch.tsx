@@ -13,10 +13,12 @@ import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 
 export const LanguageSwitch = connect(function LanguageSwitch({
   align,
+  onlyCurrentPageVersions,
 }: {
   align: 'start' | 'end'
+  onlyCurrentPageVersions?: boolean
 }) {
-  const versions = Obj.root()
+  const allVersions = Obj.root()
     ?.versionsOnAllSites()
     .map((site) => {
       const siteId = site.siteId()
@@ -28,8 +30,13 @@ export const LanguageSwitch = connect(function LanguageSwitch({
       }
     })
     .sort((a, b) => a.label.localeCompare(b.label, 'en'))
+  if (!allVersions) return null
 
-  if (!versions || versions.length < 2) return null
+  const versions = onlyCurrentPageVersions
+    ? allVersions.filter(({ version }) => version)
+    : allVersions
+
+  if (versions.length < 2 && !onlyCurrentPageVersions) return null
 
   const activeSite = (
     versions.find(({ root }) => root.siteId() === currentSiteId()) ||
@@ -40,10 +47,7 @@ export const LanguageSwitch = connect(function LanguageSwitch({
 
   return (
     <InPlaceEditingOff>
-      <NavDropdown
-        title={<LanguageLabel root={activeSite} textClassName="d-none" />}
-        align={align}
-      >
+      <NavDropdown title={<LanguageLabel root={activeSite} />} align={align}>
         {versions.map(({ version, root }) => (
           <NavDropdown.Item
             key={root.id()}
@@ -52,7 +56,7 @@ export const LanguageSwitch = connect(function LanguageSwitch({
             params={currentPageParams()}
             active={root.language() === activeSite.language()}
           >
-            <LanguageLabel root={root} />
+            <LanguageLabel root={root} showTextLabel />
           </NavDropdown.Item>
         ))}
       </NavDropdown>
@@ -61,11 +65,11 @@ export const LanguageSwitch = connect(function LanguageSwitch({
 })
 
 const LanguageLabel = connect(function LanguageLabel({
-  textClassName: textClassName,
   root,
+  showTextLabel,
 }: {
-  textClassName?: string
   root: HomepageInstance
+  showTextLabel?: boolean
 }) {
   const language = root.language()
   const label = displayName(language)
@@ -78,7 +82,7 @@ const LanguageLabel = connect(function LanguageLabel({
         attribute="siteLanguageIcon"
         className="img-flag"
       />
-      <span className={textClassName}>{label}</span>
+      {showTextLabel ? <span>{label}</span> : null}
     </span>
   )
 })
