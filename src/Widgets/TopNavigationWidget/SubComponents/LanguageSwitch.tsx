@@ -78,7 +78,7 @@ const LanguageLabel = connect(function LanguageLabel({
         attribute="siteLanguageIcon"
         className="img-flag"
       />
-      <span className={textClassName}>{label}</span>
+      <span className={`text-capitalize ${textClassName || ''}`}>{label}</span>
     </span>
   )
 })
