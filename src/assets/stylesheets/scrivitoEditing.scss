@@ -5,3 +5,8 @@
 [contenteditable]:focus-within {
   text-transform: none;
 }
+
+.img-flag[data-scrivito-image-placeholder] {
+  min-height: unset !important;
+  width: 17px !important;
+}
