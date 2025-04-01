@@ -84,6 +84,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       const { pisaUserId, salesUserId, serviceUserId } = await pisaIds()
 
       return {
+        _id: ensureString(neoletterProfile.id),
         email: user.email(),
         picture: user.picture() || personCircle,
         jrUserId: user.id(),
@@ -190,6 +191,7 @@ async function getTokenBasedCurrentUser() {
 }
 
 interface NeoletterData {
+  id?: string
   company?: string
   family_name?: string
   given_name?: string
@@ -204,6 +206,7 @@ function isNeoletterData(input: unknown): input is NeoletterData {
 
   const item = input as NeoletterData
   return (
+    isOptionalString(item.id) &&
     isOptionalString(item.company) &&
     isOptionalString(item.family_name) &&
     isOptionalString(item.given_name) &&
