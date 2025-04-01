@@ -1,5 +1,6 @@
 import { initNeoletterFormWidgets } from 'scrivito-neoletter-form-widgets'
 import { initPisaQuestionnaireWidgets } from 'scrivito-pisasales-questionnaire-builder'
+import { pisaUrl } from '../Data/pisaClient'
 
 import.meta.glob(['./**/*WidgetClass.ts', './**/*WidgetComponent.tsx'], {
   eager: true,
@@ -7,7 +8,6 @@ import.meta.glob(['./**/*WidgetClass.ts', './**/*WidgetComponent.tsx'], {
 
 initNeoletterFormWidgets()
 
-// Replace "https://your-pisa-api-url" with the actual PisaSales REST API URL
-initPisaQuestionnaireWidgets({ pisaUrl: 'https://your-pisa-api-url' })
+pisaUrl().then(pisaUrl => initPisaQuestionnaireWidgets({ pisaUrl: pisaUrl || '' }))
 
 export {}
