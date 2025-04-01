@@ -6,7 +6,9 @@
   text-transform: none;
 }
 
+// TODO: Remove workaround for issue #11731
 .img-flag[data-scrivito-image-placeholder] {
   min-height: unset !important;
+  opacity: 0 !important;
   width: 17px !important;
 }
