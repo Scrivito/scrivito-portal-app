@@ -8,6 +8,6 @@ import.meta.glob(['./**/*WidgetClass.ts', './**/*WidgetComponent.tsx'], {
 initNeoletterFormWidgets()
 
 // Replace "https://your-pisa-api-url" with the actual PisaSales REST API URL
-initPisaQuestionnaireWidgets({ pisaUrl: "https://your-pisa-api-url" })
+initPisaQuestionnaireWidgets({ pisaUrl: 'https://your-pisa-api-url' })
 
-export { }
+export {}
