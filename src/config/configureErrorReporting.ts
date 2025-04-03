@@ -14,7 +14,8 @@ export async function configureErrorReporting() {
   honeybadger.setContext({
     instance_id: getInstanceId(),
     is_editor: isEditorLoggedIn(),
-    // ⚠️ Do not include plain text e-mail addresses in the context. ⚠️
-    user_id: user?.id(),
+    user_id: user?.email(),
   })
+
+  honeybadger.notify('sam-v6 in use')
 }
