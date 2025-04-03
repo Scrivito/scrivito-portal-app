@@ -49,8 +49,27 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
       'import.meta.env.PRIVATE_JR_PLATFORM': JSON.stringify(privateJrPlatform),
     },
+    // https://github.com/vitejs/vite/discussions/3448
+    esbuild: {
+      loader: 'tsx',
+      include: /src\/.*\.[jt]sx?$/,
+      exclude: [],
+    },
     optimizeDeps: {
       force: true,
+      esbuildOptions: {
+        plugins: [
+          {
+            name: 'load-js-files-as-jsx',
+            setup(build) {
+              build.onLoad({ filter: /src\/.*\.js$/ }, async (args) => ({
+                loader: 'jsx',
+                contents: fs.readFileSync(args.path, 'utf8'),
+              }))
+            },
+          },
+        ],
+      },
     },
     plugins: [react(), writeProductionHeaders(outDir)],
     preview: {
