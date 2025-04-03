@@ -21,7 +21,8 @@ export async function configureErrorReporting() {
     instance_id: getInstanceId(),
     is_editor: isEditorLoggedIn(),
     workspace_id: currentWorkspaceId(),
-    // ⚠️ Do not include plain text e-mail addresses in the context. ⚠️
-    user_id: user?.id(),
+    user_id: user?.email(),
   })
+
+  honeybadger.notify('sam-v6 in use')
 }

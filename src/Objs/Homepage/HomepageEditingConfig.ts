@@ -83,6 +83,12 @@ provideEditingConfig(Homepage, {
       description:
         'If activated, only the selected page will be accessible, even for logged-in users. All other pages will display a 404 not found page.',
     },
+    languageToolsPrompt: {
+      title: 'Assistant Noam',
+      description:
+        'Site specific instructions. For example, title case conventions or tone-of-voice.',
+      options: { multiLine: true, showHtmlSource: false },
+    },
   },
   propertiesGroups: (site) => [
     ...defaultPagePropertiesGroups,
@@ -136,6 +142,11 @@ provideEditingConfig(Homepage, {
       component: SiteBorderRadiusEditor,
       properties: ['siteBorderRadius'],
       key: 'site-rounded-corners-group',
+    },
+    {
+      title: 'Guidelines',
+      properties: ['languageToolsPrompt'],
+      key: 'language-tools-prompt-group',
     },
   ],
   properties: [...defaultPageProperties],
