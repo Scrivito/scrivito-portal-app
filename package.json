@@ -31,7 +31,7 @@
     "react-dropzone": "^14.3.8",
     "react-helmet-async": "^2.0.5",
     "react-toastify": "^11.0.5",
-    "scrivito": "^1.48.1",
+    "scrivito": "^1.49.0",
     "scrivito-icon-editor": "^0.0.2",
     "scrivito-neoletter-form-widgets": "^0.0.30",
     "scroll-to-fragment": "^1.0.12",
@@ -66,9 +66,9 @@
     "local-web-server": "^5.4.0",
     "precompress": "^12.0.7",
     "prettier": "^3.5.3",
-    "sass": "^1.77.6",
+    "sass": "^1.78.0",
     "typescript": "^5.8.2",
-    "vite": "^6.2.4",
+    "vite": "^6.2.5",
     "vite-node": "^3.1.1"
   },
   "overrides": {

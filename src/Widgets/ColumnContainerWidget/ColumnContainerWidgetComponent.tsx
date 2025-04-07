@@ -1,9 +1,4 @@
-import {
-  provideComponent,
-  ContentTag,
-  connect,
-  isInPlaceEditingActive,
-} from 'scrivito'
+import { provideComponent, ContentTag, connect } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnWidgetInstance } from '../ColumnWidget/ColumnWidgetClass'
 import './ColumnContainerWidget.scss'
@@ -71,16 +66,12 @@ const Column = connect(function Column({
     classNames.push(isResponsive ? `col-md-${colSize}` : `col-${colSize}`)
   }
 
-  const hasContent =
-    isInPlaceEditingActive() || columnWidget.get('content').length !== 0
-
-  return hasContent ? (
+  return (
     <ContentTag
       content={columnWidget}
       attribute="content"
       className={classNames.join(' ')}
+      renderEmptyAttribute
     />
-  ) : (
-    <div className={classNames.join(' ')} />
   )
 })
