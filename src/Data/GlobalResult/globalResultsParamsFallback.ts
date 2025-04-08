@@ -1,10 +1,18 @@
-import { currentLanguage, DataClass, load, provideDataClass } from 'scrivito'
-import { searchLocalStorageDataConnections } from '../../localStorageDataConnection'
-import { ensureString } from '../../../utils/ensureString'
-import { calculateUrl } from '../calculateUrl'
+import {
+  currentLanguage,
+  DataAttributeDefinitions,
+  DataConnection,
+  load,
+} from 'scrivito'
+import { searchLocalStorageDataConnections } from '../localStorageDataConnection'
+import { ensureString } from '../../utils/ensureString'
+import { calculateUrl } from './calculateUrl'
 
-export function localStorageGlobalResultDataClass(): DataClass {
-  return provideDataClass('GlobalResult', {
+export function globalResultsParamsFallback(): {
+  attributes: () => Promise<DataAttributeDefinitions>
+  connection: Partial<DataConnection>
+} {
+  return {
     attributes: async () => {
       const lang = await load(currentLanguage)
 
@@ -30,7 +38,10 @@ export function localStorageGlobalResultDataClass(): DataClass {
           'Contract',
         ]
 
-        const rawResults = searchLocalStorageDataConnections(search, classNames)
+        const rawResults = await searchLocalStorageDataConnections(
+          search,
+          classNames,
+        )
 
         const results = await Promise.all(
           rawResults.map(async ({ _id, className: entity, rawItem }) => {
@@ -50,5 +61,5 @@ export function localStorageGlobalResultDataClass(): DataClass {
         return { results, count: results.length }
       },
     },
-  })
+  }
 }
