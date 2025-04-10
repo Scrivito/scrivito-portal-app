@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormUploadWidget } from './DataFormUploadWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { insideDataFormContainerValidation } from '../DataFormContainerWidget/insideDataFormContainerValidation'
 
 provideEditingConfig(DataFormUploadWidget, {
   title: 'Data Form Upload',
@@ -20,4 +21,5 @@ provideEditingConfig(DataFormUploadWidget, {
   initialContent: {
     label: 'File',
   },
+  validations: [insideDataFormContainerValidation],
 })

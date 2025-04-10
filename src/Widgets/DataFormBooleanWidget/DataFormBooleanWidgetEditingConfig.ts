@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormBooleanWidget } from './DataFormBooleanWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { insideDataFormContainerValidation } from '../DataFormContainerWidget/insideDataFormContainerValidation'
 
 provideEditingConfig(DataFormBooleanWidget, {
   title: 'Data Form Boolean',
@@ -50,4 +51,5 @@ provideEditingConfig(DataFormBooleanWidget, {
     onLabel: 'On',
     style: 'check',
   },
+  validations: [insideDataFormContainerValidation],
 })

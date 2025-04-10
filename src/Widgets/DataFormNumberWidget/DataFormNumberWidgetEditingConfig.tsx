@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import Thumbnail from './thumbnail.svg'
 import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
+import { insideDataFormContainerValidation } from '../DataFormContainerWidget/insideDataFormContainerValidation'
 
 provideEditingConfig(DataFormNumberWidget, {
   title: 'Data Form Number',
@@ -38,4 +39,5 @@ provideEditingConfig(DataFormNumberWidget, {
     minValue: 0,
     stepValue: 1.0,
   },
+  validations: [insideDataFormContainerValidation],
 })

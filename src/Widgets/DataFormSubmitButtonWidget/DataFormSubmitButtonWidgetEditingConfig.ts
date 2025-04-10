@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { insideDataFormContainerValidation } from '../DataFormContainerWidget/insideDataFormContainerValidation'
 
 provideEditingConfig(DataFormSubmitButtonWidget, {
   title: 'Data Form Submit Button',
@@ -50,4 +51,6 @@ provideEditingConfig(DataFormSubmitButtonWidget, {
     alignment: 'left',
     size: 'medium',
   },
+
+  validations: [insideDataFormContainerValidation],
 })

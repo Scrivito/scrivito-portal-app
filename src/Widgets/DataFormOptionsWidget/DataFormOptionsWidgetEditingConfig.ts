@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataFormOptionsWidget } from './DataFormOptionsWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { insideDataFormContainerValidation } from '../DataFormContainerWidget/insideDataFormContainerValidation'
 
 provideEditingConfig(DataFormOptionsWidget, {
   title: 'Data Form Options',
@@ -25,4 +26,5 @@ provideEditingConfig(DataFormOptionsWidget, {
   initialContent: {
     label: 'Custom field',
   },
+  validations: [insideDataFormContainerValidation],
 })
