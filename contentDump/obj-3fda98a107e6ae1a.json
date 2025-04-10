@@ -48,14 +48,14 @@
   "_first_published_at": "20250228133735",
   "_id": "3fda98a107e6ae1a",
   "_language": "de",
-  "_last_changed": "20250325090640",
+  "_last_changed": "20250409111433",
   "_modification": null,
   "_path": "/6a5898770a646824/3fda98a107e6ae1a",
   "_permalink": "dsgvo-einwilligungsformular",
-  "_published_at": "20250325092651",
+  "_published_at": "20250410084810",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202503250926510000000000000000f84d58a5b7b1f114",
+  "_version": "20250410084810000000000000000016cc63d7c48cd599",
   "_widget_pool": {
     "28707073": {
       "_obj_class": "AddressWidget",
@@ -601,12 +601,9 @@
       "content": [
         "widgetlist",
         [
-          "eef5ae1d"
+          "9e6fcaeb"
         ]
       ]
-    },
-    "9983b809": {
-      "_obj_class": "LogoWidget"
     },
     "f9331164": {
       "_obj_class": "ColumnWidget",
@@ -625,85 +622,6 @@
         true
       ]
     },
-    "eef5ae1d": {
-      "_obj_class": "ColumnContainerWidget",
-      "alignment": [
-        "string",
-        "start"
-      ],
-      "columns": [
-        "widgetlist",
-        [
-          "9d5cb0c0",
-          "78a8fd8c",
-          "fdf21a30",
-          "635b2619",
-          "0dc44f6e"
-        ]
-      ],
-      "layout_mode": [
-        "string",
-        "grid"
-      ]
-    },
-    "9d5cb0c0": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        2
-      ]
-    },
-    "78a8fd8c": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        1
-      ]
-    },
-    "fdf21a30": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        6
-      ],
-      "flex_grow": [
-        "boolean",
-        true
-      ],
-      "content": [
-        "widgetlist",
-        [
-          "9983b809"
-        ]
-      ]
-    },
-    "5c78e622": {
-      "_obj_class": "LanguageSwitchWidget",
-      "alignment": [
-        "string",
-        "right"
-      ]
-    },
-    "635b2619": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        1
-      ],
-      "content": [
-        "widgetlist",
-        [
-          "5c78e622"
-        ]
-      ]
-    },
-    "0dc44f6e": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        2
-      ]
-    },
     "548b5bf4": {
       "_obj_class": "DataFormContainerWidget",
       "submit_on_change": [
@@ -716,10 +634,122 @@
           "9d26129c"
         ]
       ]
+    },
+    "9797cb68": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "6ffe3ea6": {
+      "_obj_class": "LogoWidget"
+    },
+    "81ef32a6": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "6ffe3ea6"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "c649eb01": {
+      "_obj_class": "LanguageSwitchWidget",
+      "alignment": [
+        "string",
+        "right"
+      ]
+    },
+    "edf03678": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c649eb01"
+        ]
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "a7ced60f": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "81ef32a6",
+          "edf03678"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "disable_responsive_adaption": [
+        "boolean",
+        true
+      ],
+      "layout_mode": [
+        "string",
+        "flex"
+      ]
+    },
+    "7d58ae38": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a7ced60f"
+        ]
+      ],
+      "col_size": [
+        "number",
+        8
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "be1662a9": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "9e6fcaeb": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "9797cb68",
+          "7d58ae38",
+          "be1662a9"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
     }
   },
   "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:1ba850ffc8fb4adda8b34c00ca2b88af",
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
 }

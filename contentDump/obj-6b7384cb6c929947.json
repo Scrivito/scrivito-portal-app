@@ -51,14 +51,14 @@
   "_first_published_at": "20240506115331",
   "_id": "6b7384cb6c929947",
   "_language": "en",
-  "_last_changed": "20250321115525",
+  "_last_changed": "20250410073709",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/6b7384cb6c929947",
   "_permalink": "portal-sign-up",
-  "_published_at": "20250321140057",
+  "_published_at": "20250410084810",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202503211400570000000000000000c2bd74ba6f5167e1",
+  "_version": "20250410084810000000000000000016cc63d7c48cd599",
   "_widget_pool": {
     "24513612": {
       "_obj_class": "ColumnWidget",
@@ -1006,13 +1006,12 @@
         "widgetlist",
         [
           "9bd7f75b",
-          "e7fe1134",
-          "0b0026ee"
+          "e7fe1134"
         ]
       ],
       "layout_mode": [
         "string",
-        "grid"
+        "flex"
       ],
       "disable_responsive_adaption": [
         "boolean",
@@ -1023,18 +1022,7 @@
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        2
-      ]
-    },
-    "e7fe1134": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        8
-      ],
-      "flex_grow": [
-        "boolean",
-        true
+        3
       ],
       "content": [
         "widgetlist",
@@ -1043,11 +1031,15 @@
         ]
       ]
     },
-    "0b0026ee": {
+    "e7fe1134": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        2
+        9
+      ],
+      "flex_grow": [
+        "boolean",
+        true
       ],
       "content": [
         "widgetlist",
