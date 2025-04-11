@@ -21,29 +21,44 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     useData().dataItem()?.id(),
   ].join('-')
   const attributeName = useData().attributeName()
+  const [files, setFiles] = useState<File[]>([])
   const [isTooLarge, setIsTooLarge] = useState(false)
 
   const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
   const onDropRejected = useCallback(() => setIsTooLarge(true), [])
 
-  const { acceptedFiles, getRootProps, getInputProps, inputRef, isDragActive } =
-    useDropzone({
-      maxSize: MAX_FILE_SIZE,
-      onDropAccepted,
-      onDropRejected,
-    })
+  const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
+    maxSize: MAX_FILE_SIZE,
+    onDropAccepted,
+    onDropRejected,
+    onDrop: (acceptedFiles) => {
+      setFiles((prevFiles) => {
+        const newFiles = acceptedFiles.filter((newFile) => {
+          return !prevFiles.some(
+            (existingFile) =>
+              existingFile.lastModified === newFile.lastModified &&
+              existingFile.name === newFile.name &&
+              existingFile.size === newFile.size &&
+              existingFile.type === newFile.type,
+          )
+        })
+
+        return [...prevFiles, ...newFiles]
+      })
+    },
+  })
 
   useEffect(() => {
     if (!inputRef.current) return
 
     const dataTransfer = new DataTransfer()
-    acceptedFiles.forEach((file) => dataTransfer.items.add(file))
+    files.forEach((file) => dataTransfer.items.add(file))
 
     inputRef.current.files = dataTransfer.files
-  }, [acceptedFiles, inputRef])
+  }, [files, inputRef])
 
-  const attachments = acceptedFiles.map((file) => ({
-    _id: file.name,
+  const attachments = [...files].map((file) => ({
+    _id: [file.lastModified, file.name, file.size, file.type].join('-'),
     contentLength: file.size,
     contentType: file.type,
     file,
@@ -115,9 +130,16 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
         </div>
       )}
       <div>
-        <div className="d-flex flex-wrap mt-2 gap-2">
-          {attachments.map((attachment) => (
-            <Attachment attachment={attachment} key={attachment._id} readonly />
+        <div className="d-flex flex-wrap mt-2 gap-1">
+          {attachments.map((attachment, index) => (
+            <Attachment
+              attachment={attachment}
+              key={attachment._id}
+              onDelete={() => {
+                setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index))
+              }}
+              readonly
+            />
           ))}
         </div>
       </div>
