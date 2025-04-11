@@ -30,13 +30,15 @@ export const Attachment = connect(function Attachment({
       <div className="box-preview">
         <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
       </div>
-      <div className="box-meta">
-        <span className="box-name">{attachment.filename}</span>
-        <span className="box-size">
-          {prettyBytes(attachment.contentLength, {
-            locale: currentLanguage() ?? 'en',
-          })}
-        </span>
+      <div className="box-meta flex-row">
+        <div className="d-flex flex-column flex-grow-1 mw-0">
+          <span className="box-name text-truncate">{attachment.filename}</span>
+          <span className="box-size">
+            {prettyBytes(attachment.contentLength, {
+              locale: currentLanguage() ?? 'en',
+            })}
+          </span>
+        </div>
       </div>
     </>
   )

@@ -115,7 +115,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
         </div>
       )}
       <div>
-        <div className="d-flex flex-wrap mt-2 gap-2">
+        <div className="d-flex flex-wrap mt-2 gap-1">
           {attachments.map((attachment) => (
             <Attachment attachment={attachment} key={attachment._id} readonly />
           ))}
