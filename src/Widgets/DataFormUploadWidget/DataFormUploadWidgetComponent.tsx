@@ -21,29 +21,32 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     useData().dataItem()?.id(),
   ].join('-')
   const attributeName = useData().attributeName()
+  const [files, setFiles] = useState<File[]>([])
   const [isTooLarge, setIsTooLarge] = useState(false)
 
   const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
   const onDropRejected = useCallback(() => setIsTooLarge(true), [])
 
-  const { acceptedFiles, getRootProps, getInputProps, inputRef, isDragActive } =
-    useDropzone({
+  const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
       maxSize: MAX_FILE_SIZE,
       onDropAccepted,
       onDropRejected,
+    onDrop: (acceptedFiles) => {
+      setFiles(acceptedFiles)
+    },
     })
 
   useEffect(() => {
     if (!inputRef.current) return
 
     const dataTransfer = new DataTransfer()
-    acceptedFiles.forEach((file) => dataTransfer.items.add(file))
+    files.forEach((file) => dataTransfer.items.add(file))
 
     inputRef.current.files = dataTransfer.files
-  }, [acceptedFiles, inputRef])
+  }, [files, inputRef])
 
-  const attachments = acceptedFiles.map((file) => ({
-    _id: file.name,
+  const attachments = [...files].map((file) => ({
+    _id: [file.lastModified, file.name, file.size, file.type].join('-'),
     contentLength: file.size,
     contentType: file.type,
     file,
