@@ -28,13 +28,25 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
   const onDropRejected = useCallback(() => setIsTooLarge(true), [])
 
   const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
-      maxSize: MAX_FILE_SIZE,
-      onDropAccepted,
-      onDropRejected,
+    maxSize: MAX_FILE_SIZE,
+    onDropAccepted,
+    onDropRejected,
     onDrop: (acceptedFiles) => {
-      setFiles(acceptedFiles)
+      setFiles((prevFiles) => {
+        const newFiles = acceptedFiles.filter((newFile) => {
+          return !prevFiles.some(
+            (existingFile) =>
+              existingFile.lastModified === newFile.lastModified &&
+              existingFile.name === newFile.name &&
+              existingFile.size === newFile.size &&
+              existingFile.type === newFile.type,
+          )
+        })
+
+        return [...prevFiles, ...newFiles]
+      })
     },
-    })
+  })
 
   useEffect(() => {
     if (!inputRef.current) return
@@ -119,8 +131,15 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
       )}
       <div>
         <div className="d-flex flex-wrap mt-2 gap-1">
-          {attachments.map((attachment) => (
-            <Attachment attachment={attachment} key={attachment._id} readonly />
+          {attachments.map((attachment, index) => (
+            <Attachment
+              attachment={attachment}
+              key={attachment._id}
+              onDelete={() => {
+                setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index))
+              }}
+              readonly
+            />
           ))}
         </div>
       </div>

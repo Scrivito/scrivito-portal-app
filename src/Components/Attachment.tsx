@@ -5,9 +5,11 @@ import { FullDataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
 
 export const Attachment = connect(function Attachment({
   attachment,
+  onDelete,
   readonly,
 }: {
   attachment: FullDataBinary
+  onDelete?: () => void
   readonly?: boolean
 }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
@@ -39,6 +41,21 @@ export const Attachment = connect(function Attachment({
             })}
           </span>
         </div>
+        {onDelete && (
+          <div className="d-flex">
+            <button
+              className="btn btn-sm"
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                onDelete()
+              }}
+              title={getDeleteButtonMessage()}
+            >
+              <i className="bi bi-trash3"></i>
+            </button>
+          </div>
+        )}
       </div>
     </>
   )
@@ -93,5 +110,18 @@ function getDownloadMessage(subject: string) {
       return `Pobierz ${subject}`
     default:
       return `Download ${subject}`
+  }
+}
+
+function getDeleteButtonMessage() {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Datei aus der Auswahl löschen'
+    case 'fr':
+      return 'Supprimer le fichier de la sélection'
+    case 'pl':
+      return 'Usuń plik z wyboru'
+    default:
+      return 'Delete file from selection'
   }
 }
