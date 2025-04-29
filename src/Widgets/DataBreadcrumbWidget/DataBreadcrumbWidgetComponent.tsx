@@ -19,19 +19,7 @@ provideComponent(DataBreadcrumbWidget, ({ widget }) => {
 
   if (!currentItem) return <nav aria-label="breadcrumb" />
 
-  const breadcrumbItems: DataItem[] = []
-
-  for (
-    let ancestorItem: unknown = currentItem, loopGuardIds = new Set<string>();
-    ancestorItem instanceof DataItem && !loopGuardIds.has(ancestorItem.id());
-    ancestorItem = parentAttributeName
-      ? ancestorItem.get(parentAttributeName)
-      : null
-  ) {
-    breadcrumbItems.unshift(ancestorItem)
-    loopGuardIds.add(ancestorItem.id())
-  }
-
+  const breadcrumbItems = getBreadcrumbItems(currentItem, parentAttributeName)
   const activeId = currentItem.id()
 
   return (
@@ -70,4 +58,24 @@ function BreadcrumbItem({
       <LinkTag to={item}>{label}</LinkTag>
     </li>
   )
+}
+
+function getBreadcrumbItems(
+  currentItem: DataItem,
+  parentAttributeName?: string,
+) {
+  const breadcrumbItems: DataItem[] = []
+
+  for (
+    let ancestorItem: unknown = currentItem, loopGuardIds = new Set<string>();
+    ancestorItem instanceof DataItem && !loopGuardIds.has(ancestorItem.id());
+    ancestorItem = parentAttributeName
+      ? ancestorItem.get(parentAttributeName)
+      : null
+  ) {
+    breadcrumbItems.unshift(ancestorItem)
+    loopGuardIds.add(ancestorItem.id())
+  }
+
+  return breadcrumbItems
 }
