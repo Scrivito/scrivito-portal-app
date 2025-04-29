@@ -33,7 +33,7 @@ export const Attachment = connect(function Attachment({
         <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
       </div>
       <div className="box-meta flex-row">
-        <div className="d-flex flex-column flex-grow-1 mw-0">
+        <div className="d-flex flex-column flex-grow-1 min-vw-0">
           <span className="box-name text-truncate">{attachment.filename}</span>
           <span className="box-size">
             {prettyBytes(attachment.contentLength, {
