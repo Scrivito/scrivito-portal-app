@@ -63,9 +63,11 @@ function BreadcrumbItem({
   item: DataItem
   label: string
 }) {
+  if (isActive) return <li className="breadcrumb-item active">{label}</li>
+
   return (
-    <li className={isActive ? 'breadcrumb-item active' : 'breadcrumb-item'}>
-      {isActive ? label : <LinkTag to={item}>{label}</LinkTag>}
+    <li className="breadcrumb-item">
+      <LinkTag to={item}>{label}</LinkTag>
     </li>
   )
 }
