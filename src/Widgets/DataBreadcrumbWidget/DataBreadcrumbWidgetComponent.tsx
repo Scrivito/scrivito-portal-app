@@ -60,21 +60,20 @@ function BreadcrumbItem({
   )
 }
 
-function getBreadcrumbItems(
-  currentItem: DataItem,
-  parentAttributeName?: string,
-) {
+function getBreadcrumbItems(finalItem: DataItem, parentAttributeName?: string) {
+  if (!parentAttributeName) return [finalItem]
+
   const breadcrumbItems: DataItem[] = []
 
-  for (
-    let ancestorItem: unknown = currentItem, loopGuardIds = new Set<string>();
-    ancestorItem instanceof DataItem && !loopGuardIds.has(ancestorItem.id());
-    ancestorItem = parentAttributeName
-      ? ancestorItem.get(parentAttributeName)
-      : null
-  ) {
-    breadcrumbItems.unshift(ancestorItem)
-    loopGuardIds.add(ancestorItem.id())
+  let currentItem: DataItem | null = finalItem
+  const loopGuardIds = new Set<string>()
+
+  while (currentItem && !loopGuardIds.has(currentItem.id())) {
+    breadcrumbItems.unshift(currentItem)
+    loopGuardIds.add(currentItem.id())
+
+    const parent = currentItem.get(parentAttributeName)
+    currentItem = parent instanceof DataItem ? parent : null
   }
 
   return breadcrumbItems
