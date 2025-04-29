@@ -13,7 +13,7 @@ provideComponent(DataBreadcrumbWidget, ({ widget }) => {
   const parentAttributeName = useDataLocator(widget.get('parentData'))
     .dataItemAttribute()
     ?.attributeName()
-  const labelAttributeName = useDataLocator(widget.get('data'))
+  const labelAttributeName = useDataLocator(widget.get('labelData'))
     .dataItemAttribute()
     ?.attributeName()
 

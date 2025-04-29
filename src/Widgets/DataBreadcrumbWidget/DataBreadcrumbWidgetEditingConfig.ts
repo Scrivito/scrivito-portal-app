@@ -9,5 +9,8 @@ provideEditingConfig(DataBreadcrumbWidget, {
     data: { restrictDataTo: ['itemAttribute'] },
     parentData: { restrictDataTo: ['itemAttribute'] },
   },
-  propertiesGroups: [{ title: 'Parent data', properties: ['parentData'] }],
+  propertiesGroups: [
+    { title: 'Label data', properties: ['labelData'] },
+    { title: 'Parent data', properties: ['parentData'] },
+  ],
 })
