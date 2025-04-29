@@ -17,9 +17,7 @@ provideComponent(DataBreadcrumbWidget, ({ widget }) => {
     .dataItemAttribute()
     ?.attributeName()
 
-  if (!currentItem) {
-    return <nav aria-label="breadcrumb" />
-  }
+  if (!currentItem) return <nav aria-label="breadcrumb" />
 
   const breadcrumbItems: DataItem[] = []
 
