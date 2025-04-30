@@ -21,7 +21,15 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     useData().dataItem()?.id(),
   ].join('-')
   const attributeName = useData().attributeName()
-  const [files, setFiles] = useState<File[]>([])
+  const [attachments, setAttachments] = useState<
+    Array<{
+      _id: string
+      contentLength: number
+      contentType: string
+      file: File
+      filename: string
+    }>
+  >([])
   const [isTooLarge, setIsTooLarge] = useState(false)
 
   const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
@@ -32,18 +40,26 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     onDropAccepted,
     onDropRejected,
     onDrop: (acceptedFiles) => {
-      setFiles((prevFiles) => {
+      setAttachments((prevAttachments) => {
         const newFiles = acceptedFiles.filter((newFile) => {
-          return !prevFiles.some(
-            (existingFile) =>
-              existingFile.lastModified === newFile.lastModified &&
-              existingFile.name === newFile.name &&
-              existingFile.size === newFile.size &&
-              existingFile.type === newFile.type,
+          return !prevAttachments.some(
+            (existingAttachment) =>
+              existingAttachment.file.lastModified === newFile.lastModified &&
+              existingAttachment.file.name === newFile.name &&
+              existingAttachment.file.size === newFile.size &&
+              existingAttachment.file.type === newFile.type,
           )
         })
 
-        return [...prevFiles, ...newFiles]
+        const newAttachments = newFiles.map((file) => ({
+          _id: [file.lastModified, file.name, file.size, file.type].join('-'),
+          contentLength: file.size,
+          contentType: file.type,
+          file,
+          filename: file.name,
+        }))
+
+        return [...prevAttachments, ...newAttachments]
       })
     },
   })
@@ -52,18 +68,10 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     if (!inputRef.current) return
 
     const dataTransfer = new DataTransfer()
-    files.forEach((file) => dataTransfer.items.add(file))
+    attachments.forEach((attachment) => dataTransfer.items.add(attachment.file))
 
     inputRef.current.files = dataTransfer.files
-  }, [files, inputRef])
-
-  const attachments = [...files].map((file) => ({
-    _id: [file.lastModified, file.name, file.size, file.type].join('-'),
-    contentLength: file.size,
-    contentType: file.type,
-    file,
-    filename: file.name,
-  }))
+  }, [attachments, inputRef])
 
   return (
     <div className="mb-3" key={[id, attributeName].join('-')}>
@@ -131,12 +139,16 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
       )}
       <div>
         <div className="d-flex flex-wrap mt-2 gap-1">
-          {attachments.map((attachment, index) => (
+          {attachments.map((attachment) => (
             <Attachment
               attachment={attachment}
               key={attachment._id}
               onDelete={() => {
-                setFiles((prevFiles) => prevFiles.filter((_, i) => i !== index))
+                setAttachments((prevAttachments) =>
+                  prevAttachments.filter(
+                    (prevAttachment) => prevAttachment._id !== attachment._id,
+                  ),
+                )
               }}
               readonly
             />
