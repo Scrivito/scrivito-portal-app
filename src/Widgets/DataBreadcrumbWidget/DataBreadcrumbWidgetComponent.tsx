@@ -7,6 +7,7 @@ import {
 } from 'scrivito'
 import { DataBreadcrumbWidget } from './DataBreadcrumbWidgetClass'
 import { ensureString } from '../../utils/ensureString'
+import { localizeNoTitle } from '../../utils/title'
 
 provideComponent(DataBreadcrumbWidget, ({ widget }) => {
   const currentItem = useData().dataItem()
@@ -33,7 +34,7 @@ provideComponent(DataBreadcrumbWidget, ({ widget }) => {
             label={
               ensureString(
                 labelAttributeName && item.get(labelAttributeName),
-              ) || '<untitled>'
+              ) || localizeNoTitle()
             }
           />
         ))}

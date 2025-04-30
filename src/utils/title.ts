@@ -9,7 +9,7 @@ export function objTitle(obj: Obj): string {
   )
 }
 
-function localizeNoTitle() {
+export function localizeNoTitle() {
   switch (currentLanguage()) {
     case 'de':
       return '<kein Titel>'
