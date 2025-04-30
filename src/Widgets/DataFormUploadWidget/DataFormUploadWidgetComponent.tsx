@@ -11,6 +11,7 @@ import { useDropzone } from 'react-dropzone'
 import { Attachment } from '../../Components/Attachment'
 import { useCallback, useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
+import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 
 const MAX_FILE_SIZE = 50 * 1000 * 1000
 
@@ -40,27 +41,16 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     onDropAccepted,
     onDropRejected,
     onDrop: (acceptedFiles) => {
-      setAttachments((prevAttachments) => {
-        const newFiles = acceptedFiles.filter((newFile) => {
-          return !prevAttachments.some(
-            (existingAttachment) =>
-              existingAttachment.file.lastModified === newFile.lastModified &&
-              existingAttachment.file.name === newFile.name &&
-              existingAttachment.file.size === newFile.size &&
-              existingAttachment.file.type === newFile.type,
-          )
-        })
-
-        const newAttachments = newFiles.map((file) => ({
-          _id: [file.lastModified, file.name, file.size, file.type].join('-'),
+      setAttachments((prevAttachments) => [
+        ...prevAttachments,
+        ...acceptedFiles.map((file) => ({
+          _id: pseudoRandom32CharHex(),
           contentLength: file.size,
           contentType: file.type,
           file,
           filename: file.name,
-        }))
-
-        return [...prevAttachments, ...newAttachments]
-      })
+        })),
+      ])
     },
   })
 
