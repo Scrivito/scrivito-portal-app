@@ -68,7 +68,8 @@ function getBreadcrumbItems(finalItem: DataItem) {
     breadcrumbItems.unshift(currentItem)
     loopGuardIds.add(currentItem.id())
 
-    const parent = currentItem.get('parent')
+    const parent: unknown =
+      currentItem.get('parent') || currentItem.get('parentId')
     currentItem = parent instanceof DataItem ? parent : null
   }
 
