@@ -11,16 +11,13 @@ import { localizeNoTitle } from '../../utils/title'
 
 provideComponent(DataBreadcrumbWidget, ({ widget }) => {
   const currentItem = useData().dataItem()
-  const parentAttributeName = useDataLocator(widget.get('parentData'))
-    .dataItemAttribute()
-    ?.attributeName()
   const labelAttributeName = useDataLocator(widget.get('labelData'))
     .dataItemAttribute()
     ?.attributeName()
 
   if (!currentItem) return <nav aria-label="breadcrumb" />
 
-  const breadcrumbItems = getBreadcrumbItems(currentItem, parentAttributeName)
+  const breadcrumbItems = getBreadcrumbItems(currentItem)
   const activeId = currentItem.id()
 
   return (
@@ -61,9 +58,7 @@ function BreadcrumbItem({
   )
 }
 
-function getBreadcrumbItems(finalItem: DataItem, parentAttributeName?: string) {
-  if (!parentAttributeName) return [finalItem]
-
+function getBreadcrumbItems(finalItem: DataItem) {
   const breadcrumbItems: DataItem[] = []
 
   let currentItem: DataItem | null = finalItem
@@ -73,7 +68,7 @@ function getBreadcrumbItems(finalItem: DataItem, parentAttributeName?: string) {
     breadcrumbItems.unshift(currentItem)
     loopGuardIds.add(currentItem.id())
 
-    const parent = currentItem.get(parentAttributeName)
+    const parent = currentItem.get('parent')
     currentItem = parent instanceof DataItem ? parent : null
   }
 
