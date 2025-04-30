@@ -220,6 +220,14 @@ fieldset:disabled .btn {
   --bs-gradient: none;
 }
 
+.btn i:only-child {
+  padding: 0;
+  margin: auto;
+}
+.btn:has(i) {
+  display: flex;
+}
+
 .input-group {
   .btn {
     border-radius: var(--jr-border-radius);
@@ -472,6 +480,10 @@ a.btn {
   -webkit-box-orient: vertical;
   line-clamp: 2;
   -webkit-line-clamp: 2;
+}
+
+.min-vw-0 {
+  min-width: 0vw;
 }
 
 mark {
@@ -1278,6 +1290,11 @@ section:focus >,
 .form-check-input:checked {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
+}
+.form-control.dropzone {
+  border: 2px dashed rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
 }
 
 .input-group .form-control {
