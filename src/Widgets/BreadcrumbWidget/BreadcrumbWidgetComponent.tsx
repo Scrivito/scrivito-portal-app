@@ -1,6 +1,6 @@
 import { LinkTag, Obj, currentPage, provideComponent } from 'scrivito'
 import { BreadcrumbWidget } from './BreadcrumbWidgetClass'
-import { objTitle } from '../../utils/objTitle'
+import { objTitle } from '../../utils/title'
 
 provideComponent(BreadcrumbWidget, () => {
   const currentPageObj = currentPage()
