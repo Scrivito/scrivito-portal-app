@@ -23,13 +23,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
   ].join('-')
   const attributeName = useData().attributeName()
   const [attachments, setAttachments] = useState<
-    Array<{
-      _id: string
-      contentLength: number
-      contentType: string
-      file: File
-      filename: string
-    }>
+    Array<{ file: File; key: string }>
   >([])
   const [isTooLarge, setIsTooLarge] = useState(false)
 
@@ -44,11 +38,8 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
       setAttachments((prevAttachments) => [
         ...prevAttachments,
         ...acceptedFiles.map((file) => ({
-          _id: pseudoRandom32CharHex(),
-          contentLength: file.size,
-          contentType: file.type,
           file,
-          filename: file.name,
+          key: pseudoRandom32CharHex(),
         })),
       ])
     },
@@ -129,14 +120,20 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
       )}
       <div>
         <div className="d-flex flex-wrap mt-2 gap-1">
-          {attachments.map((attachment) => (
+          {attachments.map(({ file, key }) => (
             <Attachment
-              attachment={attachment}
-              key={attachment._id}
+              attachment={{
+                _id: key,
+                contentLength: file.size,
+                contentType: file.type,
+                file,
+                filename: file.name,
+              }}
+              key={key}
               onDelete={() => {
                 setAttachments((prevAttachments) =>
                   prevAttachments.filter(
-                    (prevAttachment) => prevAttachment._id !== attachment._id,
+                    (attachment) => attachment.key !== key,
                   ),
                 )
               }}
