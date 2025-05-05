@@ -5,9 +5,11 @@ import { FullDataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
 
 export const Attachment = connect(function Attachment({
   attachment,
+  onDelete,
   readonly,
 }: {
   attachment: FullDataBinary
+  onDelete?: () => void
   readonly?: boolean
 }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
@@ -30,13 +32,30 @@ export const Attachment = connect(function Attachment({
       <div className="box-preview">
         <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
       </div>
-      <div className="box-meta">
-        <span className="box-name">{attachment.filename}</span>
-        <span className="box-size">
-          {prettyBytes(attachment.contentLength, {
-            locale: currentLanguage() ?? 'en',
-          })}
-        </span>
+      <div className="box-meta flex-row">
+        <div className="d-flex flex-column flex-grow-1 min-vw-0">
+          <span className="box-name text-truncate">{attachment.filename}</span>
+          <span className="box-size">
+            {prettyBytes(attachment.contentLength, {
+              locale: currentLanguage() ?? 'en',
+            })}
+          </span>
+        </div>
+        {onDelete && (
+          <div className="d-flex">
+            <button
+              className="btn btn-sm"
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                onDelete()
+              }}
+              title={getDeleteButtonMessage()}
+            >
+              <i className="bi bi-trash3"></i>
+            </button>
+          </div>
+        )}
       </div>
     </>
   )
@@ -91,5 +110,18 @@ function getDownloadMessage(subject: string) {
       return `Pobierz ${subject}`
     default:
       return `Download ${subject}`
+  }
+}
+
+function getDeleteButtonMessage() {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Datei aus der Auswahl löschen'
+    case 'fr':
+      return 'Supprimer le fichier de la sélection'
+    case 'pl':
+      return 'Usuń plik z wyboru'
+    default:
+      return 'Delete file from selection'
   }
 }
