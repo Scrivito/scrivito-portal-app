@@ -2,7 +2,6 @@ import { currentLanguage, currentUser, load } from 'scrivito'
 import { simpleErrorToast } from './errorToast'
 import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
 
-// TODO: Switch function to pisaClient, once #11616 is resolved
 export async function verifySameWhoAmIUser() {
   const user = await load(currentUser)
   if (!user) return
