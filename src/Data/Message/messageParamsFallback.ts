@@ -5,6 +5,13 @@ async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
 
   return {
+    attachments: [
+      'unknown',
+      {
+        title: lang === 'de' ? 'Anhänge' : 'Attachments',
+        type: 'X-Pisa-Binary[]',
+      },
+    ],
     createdAt: ['string', { title: lang === 'de' ? 'Gesendet am' : 'Sent at' }],
     createdBy: [
       'reference',
