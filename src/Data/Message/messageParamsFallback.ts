@@ -20,6 +20,14 @@ async function attributes(): Promise<DataAttributeDefinitions> {
         to: 'User',
       },
     ],
+    subjectId: [
+      // TODO: Remove once #11410 is solved.
+      'unknown',
+      {
+        title: lang === 'de' ? 'Betreff' : 'Subject',
+        type: 'X-Pisa-Polymorphic-Reference',
+      },
+    ],
     text: ['string', { title: 'Text' }],
   }
 }
