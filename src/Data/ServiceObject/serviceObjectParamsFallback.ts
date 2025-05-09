@@ -733,6 +733,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
         to: 'ServiceObject',
       },
     ],
+    picture: [
+      'unknown',
+      { title: lang === 'de' ? 'Bild' : 'Picture', type: 'X-Pisa-Binary' },
+    ],
     product: [
       'string',
       { title: lang === 'de' ? 'Produktname' : 'Product name' },
