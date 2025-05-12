@@ -1,4 +1,9 @@
-import { load, currentLanguage } from 'scrivito'
+import {
+  load,
+  currentLanguage,
+  createRestApiClient,
+  ClientError,
+} from 'scrivito'
 import { pisaConfig } from '../pisaClient'
 import { WhoAmI } from './CurrentUserDataItem'
 import { simpleErrorToast } from './errorToast'
@@ -16,29 +21,22 @@ export async function fetchWhoAmIWithToken(): Promise<WhoAmI | null> {
   const { url, headers: baseHeaders } = whoAmIConfig
 
   const headers = { ...baseHeaders, Authorization: tokenAuthorization }
+  const client = createRestApiClient(url, { headers })
 
-  // TODO: Replace fetch with pisaClient, once #11616 is resolved
-  let response: Response
   try {
-    response = await fetch(url, { method: 'GET', headers })
+    const response = await client.get('')
+    return response as WhoAmI
   } catch (e) {
     console.error(e)
-    simpleErrorToast(localizeFailedFetch(lang))
 
-    return null
-  }
-
-  if (!response.ok) {
     const errorMessage =
-      response.status === 401
+      e instanceof ClientError && e.httpStatus === 401
         ? localizeExpiredMessage(lang)
         : localizeFailedFetch(lang)
     simpleErrorToast(errorMessage)
 
     return null
   }
-
-  return response.json() as Promise<WhoAmI>
 }
 
 function localizeExpiredMessage(language: string): string {
