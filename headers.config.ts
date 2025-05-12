@@ -13,11 +13,11 @@ function headers(environment: string) {
           'https://assets.scrivito.com',
         ].concat(
           // The package `@vitejs/plugin-react-swc` include an inline script into index.html (see [1]).
-          // [1] https://github.com/vitejs/vite-plugin-react-swc/blob/17bb3ab6f0223f2c19d5cb3b9097457418188da5/src/index.ts#L17C7-L20
+          // [1] https://github.com/vitejs/vite-plugin-react/blob/7517103485081b26004e79f169efdd2d12a60946/packages/common/refresh-utils.ts#L7-L12
           // In case it breaks please look into the JS console and search for "CSP".
           // There you can find the current "sha256-x" value, which is to be copied over here.
           environment === 'development'
-            ? ["'sha256-Z2/iFzh9VMlVkEOar1f/oSHWwQk3ve1qk/C2WdsC4Xk='"]
+            ? ["'sha256-NEZvGkT0ZWP6XHdKYM4B1laRPcM6Lw4LJfkDtIEVAKc='"]
             : [],
         ),
         'object-src': "'none'",
