@@ -7,6 +7,6 @@ provideEditingConfig(DataBreadcrumbWidget, {
   description:
     'Displays breadcrumbs based on hierarchical parent connections in the data.',
   thumbnail: Thumbnail,
-  attributes: { data: { restrictDataTo: ['itemAttribute'] } },
+  attributes: { labelData: { restrictDataTo: ['itemAttribute'] } },
   propertiesGroups: [{ title: 'Label data', properties: ['labelData'] }],
 })
