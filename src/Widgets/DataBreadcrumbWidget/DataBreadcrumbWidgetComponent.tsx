@@ -21,7 +21,7 @@ provideComponent(DataBreadcrumbWidget, ({ widget }) => {
   const activeId = currentItem.id()
 
   return (
-    <nav aria-label="breadcrumb" className="py-2">
+    <nav aria-label="breadcrumb" className="pb-2">
       <ol className="breadcrumb m-1">
         {breadcrumbItems.map((item) => (
           <BreadcrumbItem
