@@ -6,7 +6,7 @@ import {
   provideDataClass,
   urlFor,
 } from 'scrivito'
-import { objTitle } from '../../utils/objTitle'
+import { objTitle } from '../../utils/title'
 import { ensureString } from '../../utils/ensureString'
 import { isImage } from '../../Objs/Image/ImageObjClass'
 
