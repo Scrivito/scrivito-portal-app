@@ -1,8 +1,1 @@
-<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="linklist-item">
-<g id="Group 10">
-<path id="Vector" d="M59 50H104" stroke="#AAAAAA" stroke-width="3.75" stroke-linecap="round" stroke-linejoin="bevel"/>
-<path id="Vector_2" d="M47.1975 53L50.6872 50.1823C51.1043 49.8456 51.1043 49.2962 50.6872 48.9772L47 46" stroke="#AAAAAA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 150 100"><g stroke="#AAA" stroke-linecap="round"><path stroke-linejoin="bevel" stroke-width="3.75" d="M59 50h45"/><path stroke-linejoin="round" stroke-width="2" d="m47.198 53 3.49-2.818c.416-.336.416-.886 0-1.205L47 46"/></g></svg>

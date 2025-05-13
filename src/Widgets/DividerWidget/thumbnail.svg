@@ -1,12 +1,1 @@
-<svg viewBox="0 0 150 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="divider">
-<g id="Ebene_1" clip-path="url(#clip0_5_441)">
-<path id="Vector" opacity="0.75" d="M27 50H123.74" stroke="#AAAAAA" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-</g>
-<defs>
-<clipPath id="clip0_5_441">
-<rect width="104.74" height="8" fill="white" transform="translate(23 46)"/>
-</clipPath>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 150 100"><g clip-path="url(#a)"><path stroke="#AAA" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" d="M27 50h96.74" opacity=".75"/></g><defs><clipPath id="a"><path fill="#fff" d="M23 46h104.74v8H23z"/></clipPath></defs></svg>
