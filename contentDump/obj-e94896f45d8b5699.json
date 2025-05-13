@@ -11,7 +11,7 @@
   "body": [
     "widgetlist",
     [
-      "2f00d06e",
+      "67087764",
       "81b8641f"
     ]
   ],
@@ -27,17 +27,28 @@
   "_first_published_at": "20240716074034",
   "_id": "e94896f45d8b5699",
   "_language": "en",
-  "_last_changed": "20250217093058",
+  "_last_changed": "20250513083747",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/046cc19cf0f87d9d/1e241bae572507e8/e94896f45d8b5699",
   "_permalink": null,
-  "_published_at": "20250218083811",
+  "_published_at": "20250513084453",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
+  "_version": "2025051308445300000000000000004b3df2d56d6b5383",
   "_widget_pool": {
+    "67087764": {
+      "_obj_class": "DataBreadcrumbWidget",
+      "label_data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "product",
+          "via_ref": "single"
+        }
+      ]
+    },
     "3e8bed84": {
       "_obj_class": "ColumnContainerWidget",
       "alignment": [
@@ -355,131 +366,6 @@
             }
           ],
           "size": 10
-        }
-      ]
-    },
-    "db7b4f43": {
-      "_obj_class": "DataLabelWidget",
-      "show_as": [
-        "string",
-        "text"
-      ],
-      "currency": [
-        "string",
-        "EUR"
-      ],
-      "value_size": [
-        "string",
-        "h6"
-      ],
-      "label": [
-        "string",
-        "Parts of"
-      ],
-      "data": [
-        "datalocator",
-        {
-          "class": "ServiceObject",
-          "field": "product",
-          "via_ref": "single"
-        }
-      ]
-    },
-    "7af5ff0b": {
-      "_obj_class": "ColumnWidget",
-      "content": [
-        "widgetlist",
-        [
-          "db7b4f43"
-        ]
-      ],
-      "col_size": [
-        "number",
-        9
-      ]
-    },
-    "1a8807a8": {
-      "_obj_class": "ButtonWidget",
-      "target": [
-        "link",
-        {
-          "fragment": null,
-          "obj_id": "1e241bae572507e8",
-          "query": null,
-          "target": null,
-          "title": "View details",
-          "url": null
-        }
-      ],
-      "alignment": [
-        "string",
-        "right"
-      ],
-      "button_color": [
-        "string",
-        "btn-outline-primary"
-      ],
-      "button_size": [
-        "string",
-        "small"
-      ]
-    },
-    "673e2bfc": {
-      "_obj_class": "ColumnWidget",
-      "content": [
-        "widgetlist",
-        [
-          "1a8807a8"
-        ]
-      ],
-      "col_size": [
-        "number",
-        3
-      ]
-    },
-    "b53bf391": {
-      "_obj_class": "ColumnContainerWidget",
-      "columns": [
-        "widgetlist",
-        [
-          "7af5ff0b",
-          "673e2bfc"
-        ]
-      ],
-      "alignment": [
-        "string",
-        "center"
-      ]
-    },
-    "2f00d06e": {
-      "_obj_class": "CardWidget",
-      "background_color": [
-        "string",
-        "primary"
-      ],
-      "padding": [
-        "string",
-        "p-3"
-      ],
-      "margin": [
-        "string",
-        "mb-4"
-      ],
-      "card_body": [
-        "widgetlist",
-        [
-          "b53bf391"
-        ]
-      ],
-      "link_to": [
-        "link",
-        {
-          "fragment": null,
-          "obj_id": "1e241bae572507e8",
-          "query": null,
-          "target": null,
-          "title": null,
-          "url": null
         }
       ]
     },

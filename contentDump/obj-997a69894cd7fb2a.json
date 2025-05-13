@@ -11,7 +11,7 @@
   "body": [
     "widgetlist",
     [
-      "e5bccb19",
+      "c99879bf",
       "071732a8"
     ]
   ],
@@ -27,30 +27,17 @@
   "_first_published_at": "20240716074034",
   "_id": "997a69894cd7fb2a",
   "_language": "de",
-  "_last_changed": "20250217093039",
+  "_last_changed": "20250513083808",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/486f8f791abc7a5f/28387df3419314b8/997a69894cd7fb2a",
   "_permalink": null,
-  "_published_at": "20250218083811",
+  "_published_at": "20250513084453",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025021808381100000000000000003fc5ed8461b66d1a",
+  "_version": "2025051308445300000000000000004b3df2d56d6b5383",
   "_widget_pool": {
-    "97523400": {
-      "_obj_class": "ColumnWidget",
-      "content": [
-        "widgetlist",
-        [
-          "2401d8da"
-        ]
-      ],
-      "col_size": [
-        "number",
-        9
-      ]
-    },
     "6fca016c": {
       "_obj_class": "DataLoadMoreButtonWidget",
       "alignment": [
@@ -371,118 +358,6 @@
         }
       ]
     },
-    "2401d8da": {
-      "_obj_class": "DataLabelWidget",
-      "show_as": [
-        "string",
-        "text"
-      ],
-      "currency": [
-        "string",
-        "EUR"
-      ],
-      "value_size": [
-        "string",
-        "h6"
-      ],
-      "label": [
-        "string",
-        "Einzelteile von"
-      ],
-      "data": [
-        "datalocator",
-        {
-          "class": "ServiceObject",
-          "field": "product",
-          "via_ref": "single"
-        }
-      ]
-    },
-    "9aa01e53": {
-      "_obj_class": "ButtonWidget",
-      "alignment": [
-        "string",
-        "right"
-      ],
-      "button_color": [
-        "string",
-        "btn-outline-primary"
-      ],
-      "button_size": [
-        "string",
-        "small"
-      ],
-      "target": [
-        "link",
-        {
-          "fragment": null,
-          "obj_id": "28387df3419314b8",
-          "query": null,
-          "target": null,
-          "title": "Details ansehen",
-          "url": null
-        }
-      ]
-    },
-    "b4eb0b72": {
-      "_obj_class": "ColumnWidget",
-      "content": [
-        "widgetlist",
-        [
-          "9aa01e53"
-        ]
-      ],
-      "col_size": [
-        "number",
-        3
-      ]
-    },
-    "dd82a5e7": {
-      "_obj_class": "ColumnContainerWidget",
-      "columns": [
-        "widgetlist",
-        [
-          "97523400",
-          "b4eb0b72"
-        ]
-      ],
-      "alignment": [
-        "string",
-        "center"
-      ]
-    },
-    "e5bccb19": {
-      "_obj_class": "CardWidget",
-      "card_body": [
-        "widgetlist",
-        [
-          "dd82a5e7"
-        ]
-      ],
-      "padding": [
-        "string",
-        "p-3"
-      ],
-      "margin": [
-        "string",
-        "mb-4"
-      ],
-      "background_color": [
-        "string",
-        "primary"
-      ],
-      "link_to": [
-        "link",
-        {
-          "fragment": null,
-          "obj_id": "28387df3419314b8",
-          "query": null,
-          "target": null,
-          "title": null,
-          "url": null
-        }
-      ]
-    },
     "86ccdf15": {
       "_obj_class": "DataEmptyWidget",
       "content": [
@@ -501,6 +376,17 @@
       "text": [
         "html",
         "<p>Keine passenden Komponenten gefunden.</p>"
+      ]
+    },
+    "c99879bf": {
+      "_obj_class": "DataBreadcrumbWidget",
+      "label_data": [
+        "datalocator",
+        {
+          "class": "ServiceObject",
+          "field": "product",
+          "via_ref": "single"
+        }
       ]
     }
   },
