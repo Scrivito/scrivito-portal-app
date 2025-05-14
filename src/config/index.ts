@@ -1,3 +1,4 @@
+import { configureHoneybadger } from './configureHoneybadger'
 import { configureHistory } from './history'
 import { configureObjClassForContentType } from './objClassForContentType'
 import { configureScrivito } from './scrivito'
@@ -10,5 +11,6 @@ export function configure() {
   configureObjClassForContentType()
   configureScrivitoContentBrowser()
   configureHistory()
+  configureHoneybadger()
   configureWindowScrivito()
 }
