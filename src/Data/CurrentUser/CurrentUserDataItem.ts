@@ -17,7 +17,7 @@ import { pisaClient } from '../pisaClient'
 import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   return {
     company: ['string', { title: lang === 'de' ? 'Firma' : 'Company' }],
@@ -62,7 +62,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export const CurrentUser = provideDataItem('CurrentUser', {
   attributes,
   title: async () =>
-    (await load(currentLanguage)) === 'de'
+    (await load(() => currentLanguage())) === 'de'
       ? 'Aktueller Benutzer'
       : 'Current user',
   connection: {

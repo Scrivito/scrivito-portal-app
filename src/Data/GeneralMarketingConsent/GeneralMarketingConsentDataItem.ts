@@ -9,7 +9,7 @@ import { neoletterClient } from '../neoletterClient'
 const GENERAL_TOPIC_ID = 'general'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   return {
     isConsentGiven: [
@@ -24,7 +24,7 @@ export const GeneralMarketingConsent = provideDataItem(
   {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de'
+      (await load(() => currentLanguage())) === 'de'
         ? 'Allgemeine Marketingzustimmung'
         : 'General marketing consent',
     connection: {

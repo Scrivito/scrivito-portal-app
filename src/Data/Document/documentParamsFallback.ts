@@ -5,7 +5,7 @@ import orderPdf from './FakeBinaries/ORDER.pdf'
 import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   const language = [
     'enum',
@@ -179,7 +179,7 @@ export function documentParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de' ? 'Dokument' : 'Document',
+      (await load(() => currentLanguage())) === 'de' ? 'Dokument' : 'Document',
     connection: localStorageDataConnection('Document', {
       initialContent: [
         {

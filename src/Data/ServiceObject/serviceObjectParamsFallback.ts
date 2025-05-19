@@ -4,7 +4,7 @@ import machineImage from './FakeBinaries/machine.jpg'
 import pumpImage from './FakeBinaries/pump.jpg'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   const category = [
     'enum',
@@ -763,7 +763,7 @@ export function serviceObjectParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de'
+      (await load(() => currentLanguage())) === 'de'
         ? 'Serviceobjekt'
         : 'Service object',
     connection: localStorageDataConnection('ServiceObject', {

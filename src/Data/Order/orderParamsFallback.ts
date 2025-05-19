@@ -2,7 +2,7 @@ import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 import { localStorageDataConnection } from '../localStorageDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   const mainStatus = [
     'enum',
@@ -656,7 +656,7 @@ export function orderParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de' ? 'Auftrag' : 'Order',
+      (await load(() => currentLanguage())) === 'de' ? 'Auftrag' : 'Order',
     connection: localStorageDataConnection('Order', {
       initialContent: [
         {

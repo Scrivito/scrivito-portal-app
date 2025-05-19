@@ -3,7 +3,7 @@ import { localStorageDataConnection } from '../localStorageDataConnection'
 import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   const status = [
     'enum',

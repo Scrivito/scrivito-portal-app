@@ -2,7 +2,7 @@ import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 import { localStorageDataConnection } from '../localStorageDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   return {
     createdAt: ['string', { title: lang === 'de' ? 'Gesendet am' : 'Sent at' }],
@@ -21,7 +21,7 @@ export function messageParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de' ? 'Nachricht' : 'Message',
+      (await load(() => currentLanguage())) === 'de' ? 'Nachricht' : 'Message',
     connection: localStorageDataConnection('Message', {
       prepareData: async (data) => ({
         ...data,
