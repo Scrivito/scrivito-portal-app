@@ -3,7 +3,7 @@ import { simpleErrorToast } from './errorToast'
 import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
 
 export async function verifySameWhoAmIUser() {
-  const user = await load(currentUser)
+  const user = await load(() => currentUser())
   if (!user) return
 
   const lang = await load(() => currentLanguage() ?? '')

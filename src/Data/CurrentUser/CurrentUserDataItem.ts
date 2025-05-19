@@ -67,7 +67,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       : 'Current user',
   connection: {
     async get() {
-      const user = await load(currentUser)
+      const user = await load(() => currentUser())
       if (!user) return getTokenBasedCurrentUser()
 
       let neoletterProfile
