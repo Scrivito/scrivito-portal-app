@@ -17,6 +17,9 @@ export default defineConfig(({ mode }) => {
   const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
   const privateJrPlatform = env.PRIVATE_JR_PLATFORM === 'true'
 
+  const HONEYBADGER_API_KEY = env.HONEYBADGER_API_KEY || ''
+  const HONEYBADGER_REVISION = env.CF_PAGES_COMMIT_SHA || 'unknown'
+
   ensureScrivitoTenantIsPresent(env)
 
   return {
@@ -46,6 +49,10 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.SCRIVITO_ROOT_OBJ_ID': JSON.stringify(
         env.SCRIVITO_ROOT_OBJ_ID || 'c2a0aab78be05a4e',
       ),
+      'import.meta.env.HONEYBADGER_API_KEY':
+        JSON.stringify(HONEYBADGER_API_KEY),
+      'import.meta.env.HONEYBADGER_REVISION':
+        JSON.stringify(HONEYBADGER_REVISION),
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
       'import.meta.env.PRIVATE_JR_PLATFORM': JSON.stringify(privateJrPlatform),
     },
