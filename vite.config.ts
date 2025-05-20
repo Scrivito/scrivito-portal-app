@@ -18,6 +18,9 @@ export default defineConfig(({ mode }) => {
   const privateJrPlatform = env.PRIVATE_JR_PLATFORM === 'true'
 
   const HONEYBADGER_API_KEY = env.HONEYBADGER_API_KEY || ''
+  const HONEYBADGER_ENVIRONMENT = privateJrPlatform
+    ? getJrHoneybadgerEnvironment(env)
+    : 'Development'
   const HONEYBADGER_REVISION = env.CF_PAGES_COMMIT_SHA || 'unknown'
 
   ensureScrivitoTenantIsPresent(env)
@@ -51,6 +54,9 @@ export default defineConfig(({ mode }) => {
       ),
       'import.meta.env.HONEYBADGER_API_KEY':
         JSON.stringify(HONEYBADGER_API_KEY),
+      'import.meta.env.HONEYBADGER_ENVIRONMENT': JSON.stringify(
+        HONEYBADGER_ENVIRONMENT,
+      ),
       'import.meta.env.HONEYBADGER_REVISION':
         JSON.stringify(HONEYBADGER_REVISION),
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
@@ -113,4 +119,19 @@ function writeProductionHeaders(outDir: string) {
       )
     },
   }
+}
+
+export function getJrHoneybadgerEnvironment(
+  env: Record<string, string>,
+): string {
+  if (env.CF_PAGES_BRANCH === 'prod') return 'Production'
+  if (env.CF_PAGES_BRANCH === 'sam-v6') return 'Production'
+  if (env.CF_PAGES_BRANCH === 'v6') return 'Production'
+
+  if (env.CF_PAGES_BRANCH === 'main') return 'Staging'
+  if (env.CF_PAGES_BRANCH === 'pisa') return 'Staging'
+
+  if (env.CF_PAGES) return 'PR Preview'
+
+  return 'Development'
 }

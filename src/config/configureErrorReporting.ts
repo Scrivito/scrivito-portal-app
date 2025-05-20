@@ -13,6 +13,7 @@ export async function configureErrorReporting() {
 
   const honeybadger = Honeybadger.configure({
     apiKey: import.meta.env.HONEYBADGER_API_KEY,
+    environment: import.meta.env.HONEYBADGER_ENVIRONMENT,
     revision: import.meta.env.HONEYBADGER_REVISION,
   })
 
