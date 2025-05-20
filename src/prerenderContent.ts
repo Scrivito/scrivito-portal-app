@@ -68,6 +68,6 @@ async function prerenderContent() {
 }
 
 prerenderContent().catch((e) => {
-  reportError('An error occurred!', e)
   process.exitCode = 1
+  return reportError('A prerendering error occurred!', e)
 })
