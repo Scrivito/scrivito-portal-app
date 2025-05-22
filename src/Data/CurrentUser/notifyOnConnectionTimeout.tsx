@@ -45,7 +45,7 @@ function localizePisaSalesServerRunning() {
     case 'de':
       return 'Läuft der PisaSales-Server?'
     case 'fr':
-      return "Le serveur PisaSales est-il en cours d'exécution ?"
+      return "Le serveur PisaSales est-il en cours d'exécution\u00a0?"
     case 'pl':
       return 'Czy serwer PisaSales działa?'
     default:
