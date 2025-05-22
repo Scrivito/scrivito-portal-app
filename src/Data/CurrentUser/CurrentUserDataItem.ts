@@ -15,6 +15,7 @@ import { getTokenAuthorization } from '../getTokenAuthorization'
 import { errorToast } from './errorToast'
 import { pisaClient } from '../pisaClient'
 import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
+import { notifyOnConnectionTimeout } from './notifyOnConnectionTimeout'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(() => currentLanguage())
@@ -149,7 +150,10 @@ async function pisaIds(): Promise<{
   }
 
   try {
-    const whoAmI = (await whoamiClient.get('')) as WhoAmI
+    const whoAmIPromise = whoamiClient.get('') as Promise<WhoAmI>
+    notifyOnConnectionTimeout(whoAmIPromise)
+
+    const whoAmI = await whoAmIPromise
 
     return {
       pisaUserId: whoAmI._id,
