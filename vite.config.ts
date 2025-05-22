@@ -57,6 +57,13 @@ export default defineConfig(({ mode }) => {
       },
       sourcemap: !!HONEYBADGER_API_KEY,
     },
+    resolve: {
+      alias: {
+        '@honeybadger-io/js': HONEYBADGER_API_KEY
+          ? '@honeybadger-io/js'
+          : resolve(__dirname, 'src/honeybadgerStub.ts'),
+      },
+    },
     define: {
       'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(scrivitoOrigin(env)),
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
