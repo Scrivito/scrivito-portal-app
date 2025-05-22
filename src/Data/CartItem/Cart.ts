@@ -98,7 +98,7 @@ async function getTitle() {
 
   if (name === undefined) throw new Error('Missing current user.')
 
-  switch (await load(currentLanguage)) {
+  switch (await load(() => currentLanguage())) {
     case 'de':
       return `${name}s Warenkorb vom ${new Date().toLocaleString('de')}`
     default:

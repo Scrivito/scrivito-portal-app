@@ -4,7 +4,7 @@ import spiderImage from './FakeBinaries/Schulung_Spider_30.png'
 import roadshowImage from './FakeBinaries/TYNACOON_Roadshow.jpg'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   const language = [
     'enum',
@@ -105,7 +105,9 @@ export function eventParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de' ? 'Veranstaltung' : 'Event',
+      (await load(() => currentLanguage())) === 'de'
+        ? 'Veranstaltung'
+        : 'Event',
     connection: localStorageDataConnection('Event', {
       initialContent: [
         {
