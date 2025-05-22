@@ -9,7 +9,7 @@ export async function storeResult(
 ): Promise<string | void> {
   const filePath = path.join(targetDir, filename)
   if (!path.normalize(filePath).startsWith(`${targetDir}`)) {
-    reportError(`filename "${filename}" is invalid! Skipping file...`)
+    await reportError(`filename "${filename}" is invalid! Skipping file...`)
     return
   }
   console.log(

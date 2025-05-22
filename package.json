@@ -8,7 +8,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "vite build && rm -f dist/assets/*.js.map",
     "types": "tsc",
     "preview": "vite preview",
     "lint": "eslint --max-warnings 0 'src/**/*.ts' 'src/**/*.tsx' && knip",
@@ -20,6 +20,7 @@
     "start": "vite"
   },
   "dependencies": {
+    "@honeybadger-io/js": "^6.11.0",
     "history": "^5.3.0",
     "lodash-es": "^4.17.21",
     "pretty-bytes": "^7.0.0",
@@ -43,6 +44,7 @@
     "@eslint/compat": "^1.2.9",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.26.0",
+    "@honeybadger-io/rollup-plugin": "^5.10.1",
     "@lhci/cli": "^0.14.0",
     "@types/jsontoxml": "^1.0.6",
     "@types/lodash-es": "^4.17.12",
