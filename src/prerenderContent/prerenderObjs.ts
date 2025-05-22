@@ -34,9 +34,8 @@ export async function prerenderObjs(
         failedCount += 1
         const pageId = obj.id()
         const pageUrl = urlFor(obj)
-        reportError(
+        await reportError(
           `Error while processing obj ${pageId} (${pageUrl}).`,
-          e instanceof Object && 'message' in e ? e.message : '',
           e,
         )
       }

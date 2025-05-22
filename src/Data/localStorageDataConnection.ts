@@ -1,9 +1,9 @@
 import {
-  currentSiteId,
   DataConnection,
   DataConnectionResultItem,
   getInstanceId,
   load,
+  Obj,
 } from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
@@ -178,9 +178,7 @@ export async function searchLocalStorageDataConnections(
 }
 
 async function recordKeyForClassName(className: string): Promise<string> {
-  // `getInstanceId` is only available, after Scrivito was configured.
-  // See https://docs.scrivito.com/getinstanceid-b48e41684b45423f for more details.
-  await load(() => currentSiteId())
+  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for #11896
 
   return `localDataClass-${getInstanceId()}-${className}`
 }

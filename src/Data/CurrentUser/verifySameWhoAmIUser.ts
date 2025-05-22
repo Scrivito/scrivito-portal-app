@@ -1,9 +1,10 @@
-import { currentLanguage, currentUser, load } from 'scrivito'
+import { currentLanguage, currentUser, load, Obj } from 'scrivito'
 import { simpleErrorToast } from './errorToast'
 import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
 
 export async function verifySameWhoAmIUser() {
-  const user = await load(currentUser)
+  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11895
+  const user = await load(() => currentUser())
   if (!user) return
 
   const lang = await load(() => currentLanguage() ?? '')
