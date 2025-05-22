@@ -1,5 +1,4 @@
 import { currentLanguage } from 'scrivito'
-import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 import { toast } from 'react-toastify'
 
 export async function notifyOnConnectionTimeout<T>(connection: Promise<T>) {
@@ -9,14 +8,12 @@ export async function notifyOnConnectionTimeout<T>(connection: Promise<T>) {
   ])
   if (connectionSucceeded) return
 
-  const toastId = pseudoRandom32CharHex()
-
-  toast.warning(
+  const toastId = toast.warning(
     <div>
       <div>{localizeUnableToConnect()}</div>
       <small>{localizePisaSalesServerRunning()}</small>
     </div>,
-    { autoClose: false, toastId },
+    { autoClose: false, closeButton: true },
   )
 
   await connection
