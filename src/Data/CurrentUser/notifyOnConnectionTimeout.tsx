@@ -1,5 +1,5 @@
 import { currentLanguage } from 'scrivito'
-import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
+import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 import { toast } from 'react-toastify'
 
 export async function notifyOnConnectionTimeout<T>(connection: Promise<T>) {

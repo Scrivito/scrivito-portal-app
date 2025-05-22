@@ -15,7 +15,7 @@ import { getTokenAuthorization } from '../getTokenAuthorization'
 import { errorToast } from './errorToast'
 import { pisaClient } from '../pisaClient'
 import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
-import { notifyOnConnectionTimeout } from '../notifyOnConnectionTimeout'
+import { notifyOnConnectionTimeout } from './notifyOnConnectionTimeout'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(currentLanguage)
