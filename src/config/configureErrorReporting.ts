@@ -5,11 +5,10 @@ import {
   load,
   Obj,
 } from 'scrivito'
+import Honeybadger from '@honeybadger-io/js'
 
 export async function configureErrorReporting() {
   if (!import.meta.env.HONEYBADGER_API_KEY) return
-
-  const { default: Honeybadger } = await import('@honeybadger-io/js')
 
   const honeybadger = Honeybadger.configure({
     apiKey: import.meta.env.HONEYBADGER_API_KEY,
