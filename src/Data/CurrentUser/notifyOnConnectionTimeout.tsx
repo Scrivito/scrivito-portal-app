@@ -1,5 +1,5 @@
 import { currentLanguage } from 'scrivito'
-import { toast } from 'react-toastify'
+import { toast, Zoom } from 'react-toastify'
 
 export async function notifyOnConnectionTimeout<T>(connection: Promise<T>) {
   const connectionSucceeded = await Promise.race([
@@ -17,7 +17,12 @@ export async function notifyOnConnectionTimeout<T>(connection: Promise<T>) {
   )
 
   await connection
-  toast.dismiss(toastId)
+  toast.update(toastId, {
+    type: 'success',
+    render: <div>{localizeBackendNowConnected()}</div>,
+    autoClose: 5000,
+    transition: Zoom,
+  })
 }
 
 async function waitFor(seconds: number) {
@@ -47,5 +52,18 @@ function localizePisaSalesServerRunning() {
       return 'Czy serwer PisaSales działa?'
     default:
       return 'Is the PisaSales server running?'
+  }
+}
+
+function localizeBackendNowConnected() {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Backend ist jetzt verbunden.'
+    case 'fr':
+      return 'Le backend est maintenant connecté.'
+    case 'pl':
+      return 'Backend został teraz połączony.'
+    default:
+      return 'Backend is now connected.'
   }
 }
