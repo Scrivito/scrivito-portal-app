@@ -123,6 +123,13 @@ async function attributes(): Promise<DataAttributeDefinitions> {
   ] as const
 
   return {
+    attachments: [
+      'unknown',
+      {
+        title: lang === 'de' ? 'Anhänge' : 'Attachments',
+        type: 'X-Pisa-Binary[]',
+      },
+    ],
     createdAt: ['date', { title: lang === 'de' ? 'Erzeugt am' : 'Created at' }],
     createdBy: [
       'reference',

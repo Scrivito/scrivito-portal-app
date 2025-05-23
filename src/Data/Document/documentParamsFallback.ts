@@ -158,6 +158,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
   ] as const
 
   return {
+    body: [
+      'unknown',
+      { title: lang === 'de' ? 'Körper' : 'Body', type: 'X-Pisa-Binary' },
+    ],
     createdAt: ['date', { title: lang === 'de' ? 'Erzeugt am' : 'Created at' }],
     format: [
       'string',

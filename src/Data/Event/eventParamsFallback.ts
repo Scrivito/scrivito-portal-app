@@ -84,6 +84,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
     keyword: ['string', { title: lang === 'de' ? 'Stichwort' : 'Keyword' }],
     language,
     location: ['string', { title: lang === 'de' ? 'Ort' : 'Location' }],
+    logo: ['unknown', { title: 'Logo', type: 'X-Pisa-Binary' }],
     number: ['string', { title: lang === 'de' ? 'Nummer' : 'Number' }],
     organizer: [
       'string',

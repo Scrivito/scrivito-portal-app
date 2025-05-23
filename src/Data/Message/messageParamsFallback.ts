@@ -5,12 +5,27 @@ async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(() => currentLanguage())
 
   return {
+    attachments: [
+      'unknown',
+      {
+        title: lang === 'de' ? 'Anhänge' : 'Attachments',
+        type: 'X-Pisa-Binary[]',
+      },
+    ],
     createdAt: ['string', { title: lang === 'de' ? 'Gesendet am' : 'Sent at' }],
     createdBy: [
       'reference',
       {
         title: lang === 'de' ? 'Gesendet von' : 'Sent by',
         to: 'User',
+      },
+    ],
+    subjectId: [
+      // TODO: Remove once #11410 is solved.
+      'unknown',
+      {
+        title: lang === 'de' ? 'Betreff' : 'Subject',
+        type: 'X-Pisa-Polymorphic-Reference',
       },
     ],
     text: ['string', { title: 'Text' }],

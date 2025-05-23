@@ -54,6 +54,10 @@ async function attributes(): Promise<DataAttributeDefinitions> {
       { title: lang === 'de' ? 'Nachname' : 'Family name' },
     ],
     givenName: ['string', { title: lang === 'de' ? 'Vorname' : 'Given name' }],
+    image: [
+      'unknown',
+      { title: lang === 'de' ? 'Bild' : 'Image', type: 'X-Pisa-Binary' },
+    ],
     name: ['string', { title: 'Name' }],
     position: ['string', { title: 'Position' }],
     salutation,
