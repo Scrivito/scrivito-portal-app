@@ -4,23 +4,24 @@ import {
   createRestApiClient,
   ClientError,
 } from 'scrivito'
-import { pisaConfig } from '../pisaClient'
 import { WhoAmI } from './CurrentUserDataItem'
 import { simpleErrorToast } from './errorToast'
 import { getTokenAuthorization } from '../getTokenAuthorization'
+import { jwtPisaSalesApiConfig } from '../jwtPisaSalesApiConfig'
 
 export async function fetchWhoAmIWithToken(): Promise<WhoAmI | null> {
-  const whoAmIConfig = await pisaConfig('whoami')
-  if (!whoAmIConfig) return null
+  const Authorization = getTokenAuthorization()
+  if (!Authorization) return null
 
-  const tokenAuthorization = getTokenAuthorization()
-  if (!tokenAuthorization) return null
+  const jwtConfig = await jwtPisaSalesApiConfig({
+    Authorization,
+    subPath: 'portal/whoami',
+  })
+  if (!jwtConfig) return null
 
   const lang = await load(() => currentLanguage() ?? '')
 
-  const { url, headers: baseHeaders } = whoAmIConfig
-
-  const headers = { ...baseHeaders, Authorization: tokenAuthorization }
+  const { url, headers } = jwtConfig
   const client = createRestApiClient(url, { headers })
 
   try {
