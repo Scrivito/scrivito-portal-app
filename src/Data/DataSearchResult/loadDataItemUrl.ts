@@ -1,6 +1,6 @@
 import { getDataClass, load, urlForDataItem } from 'scrivito'
 
-export async function getDataItemUrl(
+export async function loadDataItemUrl(
   dataClassName: string,
   id: string,
 ): Promise<string | null> {

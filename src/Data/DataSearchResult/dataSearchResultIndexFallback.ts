@@ -2,7 +2,7 @@ import { truncate } from 'lodash-es'
 import { DataConnectionIndexParams } from 'scrivito'
 import { searchLocalStorageDataConnections } from '../localStorageDataConnection'
 import { ensureString } from '../../utils/ensureString'
-import { getDataItemUrl } from './getDataItemUrl'
+import { loadDataItemUrl } from './loadDataItemUrl'
 
 const INCLUDED_CLASS_NAMES = [
   'Contract',
@@ -33,7 +33,7 @@ export async function dataSearchResultIndexFallback(
       entity: className,
       snippet: calculateSnippet(rawItem),
       title: ensureString(rawItem.title) || ensureString(rawItem.keyword),
-      url: await getDataItemUrl(className, _id),
+      url: await loadDataItemUrl(className, _id),
     })),
   )
 

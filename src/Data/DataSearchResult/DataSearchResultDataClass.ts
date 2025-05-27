@@ -1,6 +1,6 @@
 import { currentLanguage, load, provideDataClass } from 'scrivito'
 import { pisaClient } from '../pisaClient'
-import { getDataItemUrl } from './getDataItemUrl'
+import { loadDataItemUrl } from './loadDataItemUrl'
 import { dataSearchResultIndexFallback } from './dataSearchResultIndexFallback'
 
 export const DataSearchResult = provideDataClass('DataSearchResult', {
@@ -74,7 +74,7 @@ export const DataSearchResult = provideDataClass('DataSearchResult', {
             entity,
             snippet,
             title,
-            url: await getDataItemUrl(entity, _id),
+            url: await loadDataItemUrl(entity, _id),
           }
         }),
       )
