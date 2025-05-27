@@ -62,7 +62,6 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(scrivitoOrigin(env)),
-      'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
       'import.meta.env.SCRIVITO_ROOT_OBJ_ID': JSON.stringify(
         env.SCRIVITO_ROOT_OBJ_ID || 'c2a0aab78be05a4e',
       ),
@@ -74,7 +73,7 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.HONEYBADGER_REVISION':
         JSON.stringify(HONEYBADGER_REVISION),
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
-      'import.meta.env.PRIVATE_JR_PLATFORM': JSON.stringify(privateJrPlatform),
+      'import.meta.env.PRIVATE_JR_PLATFORM': true,
     },
     optimizeDeps: {
       force: true,
