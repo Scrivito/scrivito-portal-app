@@ -29,10 +29,10 @@ export const DataSearchResult = provideDataClass('DataSearchResult', {
         throw new Error('Search result (data) does not support sorting.')
       }
 
+      if (!params.search()) return { results: [], count: 0 }
+
       const globalResultClient = await pisaClient('global-result')
       if (!globalResultClient) return dataSearchResultIndexFallback(params)
-
-      if (!params.search()) return { results: [], count: 0 }
 
       const classNames = [
         'Contract',

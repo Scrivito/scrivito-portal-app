@@ -19,11 +19,8 @@ const NON_SNIPPET_KEYS = ['_id']
 export async function dataSearchResultIndexFallback(
   params: DataConnectionIndexParams,
 ) {
-  const search = params.search()
-  if (!search) return { results: [], count: 0 }
-
   const rawResults = await searchLocalStorageDataConnections(
-    search,
+    params.search(),
     INCLUDED_CLASS_NAMES,
   )
 
