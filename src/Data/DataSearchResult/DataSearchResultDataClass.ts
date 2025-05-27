@@ -4,11 +4,12 @@ import { loadDataItemUrl } from './loadDataItemUrl'
 import { dataSearchResultIndexFallback } from './dataSearchResultIndexFallback'
 
 export const DataSearchResult = provideDataClass('DataSearchResult', {
-  title: async () =>
-    (await load(() => currentLanguage())) === 'de'
+  async title() {
+    return (await load(() => currentLanguage())) === 'de'
       ? 'Suchtreffer (Daten)'
-      : 'Search result (data)',
-  attributes: async () => {
+      : 'Search result (data)'
+  },
+  async attributes() {
     const lang = await load(() => currentLanguage())
 
     return {
