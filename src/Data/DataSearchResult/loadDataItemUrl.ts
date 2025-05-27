@@ -7,8 +7,8 @@ export async function loadDataItemUrl(
   const dataClass = getDataClass(dataClassName)
   if (!dataClass) return null
 
-  const dataItem = await load(() => dataClass.get(id))
-  if (!dataItem) return null
-
-  return load(() => urlForDataItem(dataItem))
+  return load(() => {
+    const dataItem = dataClass.get(id)
+    return dataItem ? urlForDataItem(dataItem) : null
+  })
 }
