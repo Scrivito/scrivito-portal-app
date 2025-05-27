@@ -3,6 +3,16 @@ import { pisaClient } from '../pisaClient'
 import { loadDataItemUrl } from './loadDataItemUrl'
 import { dataSearchResultIndexFallback } from './dataSearchResultIndexFallback'
 
+const CLASS_NAMES = [
+  'Contract',
+  'Document',
+  'Event',
+  'Order',
+  'Quote',
+  'ServiceObject',
+  'Ticket',
+]
+
 export const DataSearchResult = provideDataClass('DataSearchResult', {
   async title() {
     return (await load(() => currentLanguage())) === 'de'
@@ -32,17 +42,9 @@ export const DataSearchResult = provideDataClass('DataSearchResult', {
       if (!params.search()) return { results: [], count: 0 }
 
       const globalResultClient = await pisaClient('global-result')
-      if (!globalResultClient) return dataSearchResultIndexFallback(params)
-
-      const classNames = [
-        'Contract',
-        'Document',
-        'Event',
-        'Order',
-        'Quote',
-        'ServiceObject',
-        'Ticket',
-      ]
+      if (!globalResultClient) {
+        return dataSearchResultIndexFallback(params, CLASS_NAMES)
+      }
 
       const {
         results: rawResults,
@@ -54,7 +56,7 @@ export const DataSearchResult = provideDataClass('DataSearchResult', {
           _count: params.includeCount().toString(),
           _limit: params.limit().toString(),
           _search: params.search(),
-          entity: classNames.join(','),
+          entity: CLASS_NAMES.join(','),
         },
       })) as {
         results: Array<{

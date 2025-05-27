@@ -4,24 +4,15 @@ import { searchLocalStorageDataConnections } from '../localStorageDataConnection
 import { ensureString } from '../../utils/ensureString'
 import { loadDataItemUrl } from './loadDataItemUrl'
 
-const INCLUDED_CLASS_NAMES = [
-  'Contract',
-  'Document',
-  'Event',
-  'Order',
-  'Quote',
-  'ServiceObject',
-  'Ticket',
-]
-
 const NON_SNIPPET_KEYS = ['_id']
 
 export async function dataSearchResultIndexFallback(
   params: DataConnectionIndexParams,
+  classNames: string[],
 ) {
   const rawResults = await searchLocalStorageDataConnections(
     params.search(),
-    INCLUDED_CLASS_NAMES,
+    classNames,
   )
 
   const allResults = await Promise.all(
