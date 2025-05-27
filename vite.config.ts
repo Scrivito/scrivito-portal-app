@@ -39,7 +39,7 @@ export default defineConfig(({ mode }) => {
     },
     define: {
       'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(scrivitoOrigin(env)),
-      'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
+      // 'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
       'import.meta.env.SCRIVITO_ROOT_OBJ_ID': JSON.stringify(
         env.SCRIVITO_ROOT_OBJ_ID || 'c2a0aab78be05a4e',
       ),
