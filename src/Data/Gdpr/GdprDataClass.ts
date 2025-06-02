@@ -16,13 +16,7 @@ export const Gdpr = provideDataClass(
         const { url, headers: baseHeaders } = restApi
         const headers = { ...baseHeaders, Authorization: tokenAuthorization }
 
-        return {
-          restApi: { url, headers },
-
-          // TODO: Remove workaround once #11853 is fixed
-          attributes: {},
-          title: 'GDPR consent',
-        }
+        return { restApi: { url, headers } }
       }
     }
 

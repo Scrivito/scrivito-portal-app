@@ -24,7 +24,7 @@ provideComponent(LogInButtonWidget, ({ widget }) => {
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <button
         className={buttonClassNames.join(' ')}
-        onClick={ensureUserIsLoggedIn}
+        onClick={() => ensureUserIsLoggedIn()}
       >
         {!title && isInPlaceEditingActive()
           ? 'Provide the button title in the widget properties.'
