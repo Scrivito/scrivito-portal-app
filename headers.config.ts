@@ -17,7 +17,7 @@ function headers(environment: string) {
           // In case it breaks please look into the JS console and search for "CSP".
           // There you can find the current "sha256-x" value, which is to be copied over here.
           environment === 'development'
-            ? ["'sha256-NEZvGkT0ZWP6XHdKYM4B1laRPcM6Lw4LJfkDtIEVAKc='"]
+            ? ["'sha256-Z2/iFzh9VMlVkEOar1f/oSHWwQk3ve1qk/C2WdsC4Xk='"]
             : [],
         ),
         'object-src': "'none'",
