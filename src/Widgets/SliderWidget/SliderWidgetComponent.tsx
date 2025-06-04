@@ -5,7 +5,7 @@ import {
   InPlaceEditingOff,
   provideComponent,
 } from 'scrivito'
-import Carousel from 'react-bootstrap/Carousel'
+import { Carousel } from 'react-bootstrap'
 import { SliderWidget } from './SliderWidgetClass'
 import {
   SlideWidgetInstance,

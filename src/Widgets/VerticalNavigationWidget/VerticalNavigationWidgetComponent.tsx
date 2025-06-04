@@ -7,8 +7,7 @@ import {
   Obj,
   provideComponent,
 } from 'scrivito'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Nav'
+import { Nav, Navbar } from 'react-bootstrap'
 import { ObjIconAndTitle } from '../../Components/ObjIconAndTitle'
 import { VerticalNavigationWidget } from './VerticalNavigationWidgetClass'
 
