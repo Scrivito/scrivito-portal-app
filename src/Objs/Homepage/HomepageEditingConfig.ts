@@ -22,7 +22,7 @@ provideEditingConfig(Homepage, {
         'Under which URL is this site reachable? E.g. "https://www.tynacoon.com/en"',
     },
     pisaUrl: {
-      title: 'PisaSales Portal API URL',
+      title: 'PisaSales Portal API URL (Deprecated)',
     },
     jwtPisaSalesApiUrl: {
       title: 'JWT PisaSales API URL',
