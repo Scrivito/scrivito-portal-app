@@ -1,13 +1,13 @@
-import { pisaClient, pisaUrl } from '../Data/pisaClient'
+import { pisaClient, pisaSalesApiUrl } from '../Data/pisaClient'
 import { FullDataBinary } from './dataBinaryToUrl'
 
 export async function pisaDataBinaryToUrl(
   binary: FullDataBinary,
 ): Promise<{ url: string; maxAge: number }> {
-  const baseUrl = await pisaUrl()
+  const baseUrl = await pisaSalesApiUrl()
   const dataBinaryClient = await pisaClient('binary-access-token')
   if (!baseUrl || !dataBinaryClient) {
-    throw new Error('Please configure a pisaUrl on the default homepage.')
+    throw new Error('Please configure "PisaSales API URL" for your account.')
   }
 
   const accessTokens = await dataBinaryClient.get(binary._id)
@@ -16,7 +16,7 @@ export async function pisaDataBinaryToUrl(
   }
 
   return {
-    url: `${baseUrl}${accessTokens.accessToken}`,
+    url: `${baseUrl}/portal${accessTokens.accessToken}`,
     maxAge: accessTokens.maxAge,
   }
 }

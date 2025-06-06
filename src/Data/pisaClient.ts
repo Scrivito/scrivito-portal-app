@@ -1,15 +1,39 @@
-import { Obj, createRestApiClient, currentLanguage, load } from 'scrivito'
+import {
+  Obj,
+  createRestApiClient,
+  currentLanguage,
+  getInstanceId,
+  isUserLoggedIn,
+  load,
+} from 'scrivito'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 
-export async function pisaUrl(): Promise<string | null> {
-  if (import.meta.env.FORCE_LOCAL_STORAGE) return null
-
+export async function pisaSalesApiUrl(): Promise<string | null> {
   const defaultRoot = await load(() =>
     Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID),
   )
+  // Do not proceed, if no content is available (e.g. during initialization).
   if (!isHomepage(defaultRoot)) return never()
 
-  return defaultRoot.get('pisaUrl') || null
+  if (import.meta.env.FORCE_LOCAL_STORAGE) return null
+
+  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11895 or #11924
+  if (!isUserLoggedIn()) return null
+
+  const instanceConfig = (await createRestApiClient(
+    'https://api.justrelate.com',
+  ).get(`/ams/instances/${getInstanceId()}`)) as {
+    pisa_sales_api_url?: string | null
+  }
+
+  return instanceConfig.pisa_sales_api_url || null
+}
+
+async function pisaUrl(): Promise<string | null> {
+  const baseUrl = await pisaSalesApiUrl()
+  if (!baseUrl) return null
+
+  return `${baseUrl}/portal`
 }
 
 export async function pisaClient(subPath: string) {
