@@ -4,7 +4,7 @@ import { pisaConfig } from '../pisaClient'
 export const Contract = provideDataClass(
   'Contract',
   (async () => {
-    const restApi = await pisaConfig('contract')
+    const restApi = await pisaConfig('portal/contract')
     if (!restApi) {
       return (await import('./contractParamsFallback')).contractParamsFallback()
     }

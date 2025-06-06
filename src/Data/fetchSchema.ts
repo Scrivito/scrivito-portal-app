@@ -7,7 +7,7 @@ export async function fetchSchema(subPath: string): Promise<{
 }> {
   const client = await pisaClient(subPath)
   if (!client) {
-    throw new Error('Please configure a pisaUrl on the default homepage.')
+    throw new Error('Please configure "PisaSales API URL" for your account.')
   }
 
   return client.get('schema') as Promise<{

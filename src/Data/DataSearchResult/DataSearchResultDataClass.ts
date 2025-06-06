@@ -41,7 +41,7 @@ export const DataSearchResult = provideDataClass('DataSearchResult', {
 
       if (!params.search()) return { results: [], count: 0 }
 
-      const globalResultClient = await pisaClient('global-result')
+      const globalResultClient = await pisaClient('portal/global-result')
       if (!globalResultClient) {
         return dataSearchResultIndexFallback(params, CLASS_NAMES)
       }

@@ -4,7 +4,7 @@ import { pisaConfig } from '../pisaClient'
 export const EventRegistration = provideDataClass(
   'EventRegistration',
   (async () => {
-    const restApi = await pisaConfig('event-registration')
+    const restApi = await pisaConfig('portal/event-registration')
     if (!restApi) {
       return (
         await import('./eventRegistrationParamsFallback')

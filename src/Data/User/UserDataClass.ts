@@ -15,14 +15,14 @@ let pisaSchemaPromise: Promise<{
 }>
 
 async function pisaSchema() {
-  pisaSchemaPromise ??= fetchSchema('user')
+  pisaSchemaPromise ??= fetchSchema('portal/user')
   return pisaSchemaPromise
 }
 
 export const User = provideDataClass(
   'User',
   (async () => {
-    const apiClient = await pisaClient('user')
+    const apiClient = await pisaClient('portal/user')
     if (!apiClient) {
       return (await import('./userParamsFallback')).userParamsFallback()
     }

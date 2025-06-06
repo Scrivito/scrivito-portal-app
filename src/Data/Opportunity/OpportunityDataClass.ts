@@ -4,7 +4,7 @@ import { pisaConfig } from '../pisaClient'
 export const Opportunity = provideDataClass(
   'Opportunity',
   (async () => {
-    const restApi = await pisaConfig('opportunity')
+    const restApi = await pisaConfig('portal/opportunity')
     if (!restApi) {
       return (
         await import('./opportunityParamsFallback')

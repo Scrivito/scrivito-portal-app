@@ -13,14 +13,14 @@ let pisaSchemaPromise: Promise<{
 }>
 
 async function pisaSchema() {
-  pisaSchemaPromise ??= fetchSchema('callback-request')
+  pisaSchemaPromise ??= fetchSchema('portal/callback-request')
   return pisaSchemaPromise
 }
 
 export const CallbackRequest = provideDataClass(
   'CallbackRequest',
   (async () => {
-    const apiClient = await pisaClient('callback-request')
+    const apiClient = await pisaClient('portal/callback-request')
     if (!apiClient) {
       return (
         await import('./callbackRequestParamsFallback')
