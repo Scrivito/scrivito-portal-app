@@ -29,13 +29,6 @@ export async function pisaSalesApiUrl(): Promise<string | null> {
   return instanceConfig.pisa_sales_api_url || null
 }
 
-async function pisaUrl(): Promise<string | null> {
-  const baseUrl = await pisaSalesApiUrl()
-  if (!baseUrl) return null
-
-  return `${baseUrl}/portal`
-}
-
 export async function pisaClient(subPath: string) {
   const config = await pisaConfig(subPath)
   if (!config) return null
@@ -46,7 +39,7 @@ export async function pisaClient(subPath: string) {
 }
 
 export async function pisaConfig(subPath: string) {
-  const baseUrl = await pisaUrl()
+  const baseUrl = await pisaSalesApiUrl()
   if (!baseUrl) return null
 
   return {

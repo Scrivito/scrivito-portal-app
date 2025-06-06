@@ -12,7 +12,7 @@ export const Gdpr = provideDataClass(
       if (jwtRestApi) return { restApi: jwtRestApi }
     }
 
-    const restApi = await pisaConfig('gdpr')
+    const restApi = await pisaConfig('portal/gdpr')
     if (!restApi) {
       return (await import('./gdprParamsFallback')).gdprParamsFallback()
     }

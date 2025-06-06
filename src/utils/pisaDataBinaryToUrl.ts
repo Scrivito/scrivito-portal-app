@@ -5,7 +5,7 @@ export async function pisaDataBinaryToUrl(
   binary: FullDataBinary,
 ): Promise<{ url: string; maxAge: number }> {
   const baseUrl = await pisaSalesApiUrl()
-  const dataBinaryClient = await pisaClient('binary-access-token')
+  const dataBinaryClient = await pisaClient('portal/binary-access-token')
   if (!baseUrl || !dataBinaryClient) {
     throw new Error('Please configure "PisaSales API URL" for your account.')
   }
