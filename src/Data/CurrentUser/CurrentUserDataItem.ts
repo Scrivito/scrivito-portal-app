@@ -143,6 +143,11 @@ async function pisaIds(): Promise<{
   const whoamiClient = await pisaClient('whoami')
   if (!whoamiClient) {
     return {
+      pisaUserId: null,
+      salesUserId: null,
+      serviceUserId: null,
+    }
+    return {
       pisaUserId: 'F87BDC400E41D630E030A8C00D01158A',
       salesUserId: '052601BEBCEC39C8E040A8C00D0107AC',
       serviceUserId: 'D456ACF6FF405922E030A8C02A010C68',
