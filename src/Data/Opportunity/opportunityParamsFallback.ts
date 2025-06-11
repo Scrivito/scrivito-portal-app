@@ -1,5 +1,5 @@
 import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
-import { localStorageDataConnection } from '../localStorageDataConnection'
+import { emptyDataConnection } from '../emptyDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(() => currentLanguage())
@@ -20,6 +20,6 @@ export function opportunityParamsFallback() {
       (await load(() => currentLanguage())) === 'de'
         ? 'Geschäftschance'
         : 'Opportunity',
-    connection: localStorageDataConnection('Opportunity'),
+    connection: emptyDataConnection('Opportunity'),
   }
 }

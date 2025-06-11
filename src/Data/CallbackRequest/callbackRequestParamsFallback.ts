@@ -1,5 +1,5 @@
 import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
-import { localStorageDataConnection } from '../localStorageDataConnection'
+import { emptyDataConnection } from '../emptyDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
   const lang = await load(() => currentLanguage())
@@ -16,6 +16,6 @@ export function callbackRequestParamsFallback() {
       (await load(() => currentLanguage())) === 'de'
         ? 'Rückrufanfrage'
         : 'Callback request',
-    connection: localStorageDataConnection('CallbackRequest'),
+    connection: emptyDataConnection('CallbackRequest'),
   }
 }
