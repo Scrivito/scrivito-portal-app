@@ -8,6 +8,7 @@ type ObjData = {
   _path?: string
   _site_id?: string
   _widget_pool?: Record<string, WidgetData>
+  jwt_pisa_sales_api_url?: unknown
   pisa_url?: unknown
 }
 type WidgetData = Record<string, unknown>
@@ -104,6 +105,7 @@ function dumpManifest(objIds: string[]) {
 }
 
 function ignorePerInstanceData(objData: ObjData): ObjData {
+  delete objData.jwt_pisa_sales_api_url
   delete objData.pisa_url
 
   return objData
