@@ -21,9 +21,6 @@ provideEditingConfig(Homepage, {
       description:
         'Under which URL is this site reachable? E.g. "https://www.tynacoon.com/en"',
     },
-    pisaUrl: {
-      title: 'PisaSales Portal API URL (Deprecated)',
-    },
     jwtPisaSalesApiUrl: {
       title: 'JWT PisaSales API URL',
       description: 'Without trailing slash or "portal" path.',
@@ -87,7 +84,6 @@ provideEditingConfig(Homepage, {
       properties: [
         'contentTitle',
         'baseUrl',
-        site.id() === import.meta.env.SCRIVITO_ROOT_OBJ_ID ? 'pisaUrl' : null,
         site.id() === import.meta.env.SCRIVITO_ROOT_OBJ_ID
           ? 'jwtPisaSalesApiUrl'
           : null,
