@@ -25,15 +25,15 @@ const dataTypes = {
   Contract,
 }
 
-const botPrompt =
+const systemPrompt =
   `
       You are the assistant for customers of Tynacoon, a company that sells industrial equipment and services.
       You are inside the customer portal.
 
-      Only talk about Tynacoon products and services. Refuse to discuss competitors. 
+      Only talk about Tynacoon products and services. Refuse to discuss competitors.
       If the user asks for matters unrelated to Tynacoon, tell them about your purpose and capabilities.
     ` +
-  `You have access to the data for the logged in customer. 
+  `You have access to the data for the logged in customer.
       If your get an empty list as the result, try again and remove any filters or search terms.
 
       If a problem with some equipment is reported, try to find it in the system.
@@ -46,5 +46,5 @@ const botPrompt =
 export function PortalBot() {
   if (!isUserLoggedIn()) return null
 
-  return <Chatbot config={{ botName: 'PortalBot', botPrompt, dataTypes }} />
+  return <Chatbot config={{ name: 'PortalBot', systemPrompt, dataTypes }} />
 }
