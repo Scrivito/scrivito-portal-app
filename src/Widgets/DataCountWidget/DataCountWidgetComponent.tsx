@@ -11,6 +11,7 @@ import {
 } from './DataCountWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { alignmentClassName } from '../../utils/alignmentClassName'
+import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(DataCountWidget, ({ widget }) => {
   const classNames: string[] = [widget.get('margin') ?? 'mb-2']
@@ -31,7 +32,13 @@ provideComponent(DataCountWidget, ({ widget }) => {
 const Count = connect(
   function Count({ widget }: { widget: DataCountWidgetInstance }) {
     const dataScope = useData()
-    const totalCount = dataScope.count()
+
+    let totalCount: number | null
+    try {
+      totalCount = dataScope.count()
+    } catch (error) {
+      return <DataErrorEditorNote error={error} />
+    }
 
     if (totalCount === null) {
       return (
