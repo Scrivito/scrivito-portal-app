@@ -116,6 +116,16 @@ export const SMKArtwork = provideDataClass('SMKArtwork', {
       url.searchParams.set('rows', String(rows))
       url.searchParams.set('offset', String(offset))
 
+      const order = params.order()
+      if (order && order.length > 0) {
+        if (order.length > 1) {
+          throw new DataConnectionError('Multiple orderings are not supported')
+        }
+        const [attribute, direction] = order[0]!
+        url.searchParams.set('sort', attribute)
+        url.searchParams.set('sort_type', direction)
+      }
+
       const request = await fetch(url)
       if (!request.ok) {
         const errorText = await request.text()
