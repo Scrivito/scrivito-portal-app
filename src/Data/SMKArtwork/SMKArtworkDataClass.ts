@@ -54,9 +54,64 @@ export const SMKArtwork = provideDataClass('SMKArtwork', {
       const limit = params.limit()
       const rows = Math.min(limit, 20)
 
+      const filters: string[] = []
+      const ranges: string[] = []
+      Object.entries(params.filters()).forEach(([filterAttribute, filter]) => {
+        const subFilters = filter.operator === 'and' ? filter.value : [filter]
+
+        const { eqs, gtes, ltes, others } = subFilters.reduce(
+          (acc, filter) => {
+            if (filter.opCode === 'eq') acc.eqs.push(filter)
+            else if (filter.opCode === 'gte') acc.gtes.push(filter)
+            else if (filter.opCode === 'lte') acc.ltes.push(filter)
+            else acc.others.push(filter)
+
+            return acc
+          },
+          { eqs: [], gtes: [], ltes: [], others: [] } as {
+            eqs: typeof subFilters
+            gtes: typeof subFilters
+            ltes: typeof subFilters
+            others: typeof subFilters
+          },
+        )
+
+        if (others.length > 0) {
+          throw new DataConnectionError(
+            `Filtering '${filterAttribute}' is not supported for operator '${others.map(({ operator }) => operator).join(', ')}'`,
+          )
+        }
+
+        eqs.forEach(({ value }) =>
+          filters.push(`[${filterAttribute}:${String(value)}]`),
+        )
+
+        if (gtes.length > 1) {
+          throw new DataConnectionError(
+            `Filtering '${filterAttribute}' is not supported for multiple '${gtes[0]?.operator ?? ''}' operators.`,
+          )
+        }
+        const rangeStart = gtes[0]?.value ?? '*'
+
+        if (ltes.length > 1) {
+          throw new DataConnectionError(
+            `Filtering '${filterAttribute}' is not supported for multiple '${ltes[0]?.operator ?? ''}' operators.`,
+          )
+        }
+        const rangeEnd = ltes[0]?.value ?? '*'
+
+        if (rangeStart !== '*' || rangeEnd !== '*') {
+          ranges.push(
+            `[${filterAttribute}:{${String(rangeStart)};${String(rangeEnd)}}]`,
+          )
+        }
+      })
+
       const url = new URL('https://api.smk.dk/api/v1/art/search')
       url.searchParams.set('lang', 'en')
       url.searchParams.set('keys', params.search() || '*')
+      url.searchParams.set('filters', filters.join(','))
+      url.searchParams.set('range', ranges.join(','))
 
       url.searchParams.set('rows', String(rows))
       url.searchParams.set('offset', String(offset))
