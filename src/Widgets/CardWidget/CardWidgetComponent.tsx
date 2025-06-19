@@ -77,7 +77,7 @@ provideComponent(CardWidget, ({ widget }) => {
 
 const LinkOrNotTag = connect(
   ({ children, link }: { children: React.ReactNode; link: Link | null }) => {
-    if (!link) return <>{children}</>
+    if (!link) return <div>{children}</div>
 
     return (
       <LinkTag
