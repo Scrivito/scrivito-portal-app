@@ -131,6 +131,8 @@ const Datetime = connect(function Datetime({
     return <span title={formatFullDateTime(date)}>{formatDateTime(date)}</span>
   }
 
+  if (datetimeFormat === 'year') return <span>{date.getFullYear()}</span>
+
   return (
     <span title={formatFullDayAndMonth(date)}>
       {formatDateMonthAndYear(date)}
