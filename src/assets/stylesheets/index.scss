@@ -473,6 +473,11 @@ a.btn {
   color: #333;
 }
 
+.scrivito_editing_active *::selection {
+  background: #507ab5;
+  color: #fff;
+}
+
 .text-clamp {
   overflow: hidden;
   text-overflow: ellipsis;
