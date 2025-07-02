@@ -54,7 +54,7 @@
     "@types/speakingurl": "^13.0.6",
     "@typescript-eslint/eslint-plugin": "^8.35.1",
     "@typescript-eslint/parser": "^8.33.1",
-    "@vitejs/plugin-react-swc": "^3.10.2",
+    "@vitejs/plugin-react-oxc": "^0.2.3",
     "bootstrap-icons": "^1.13.1",
     "content-security-policy-builder": "^2.3.0",
     "eslint": "^9.30.1",
