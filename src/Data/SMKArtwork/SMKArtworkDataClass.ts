@@ -1,4 +1,8 @@
-import { DataConnectionError, provideDataClass } from 'scrivito'
+import {
+  DataConnectionError,
+  DataConnectionFilters,
+  provideDataClass,
+} from 'scrivito'
 
 export const SMKArtwork = provideDataClass('SMKArtwork', {
   title: 'Statens Museum for Kunst - Artwork',
@@ -31,6 +35,10 @@ export const SMKArtwork = provideDataClass('SMKArtwork', {
 
       const rows = Math.min(params.limit(), 20)
       url.searchParams.set('rows', String(rows))
+
+      const { filters, ranges } = calculateFiltersAndRanges(params.filters())
+      url.searchParams.set('filters', filters.join(','))
+      url.searchParams.set('range', ranges.join(','))
 
       const [firstOrder, ...otherOrders] = params.order()
       if (firstOrder) {
@@ -92,6 +100,67 @@ function formatItem(item: RawArtwork) {
     production_date: item.production_date?.[0]?.end,
     title: item.titles?.[0]?.title,
   }
+}
+
+function calculateFiltersAndRanges(filtersObj: DataConnectionFilters): {
+  filters: string[]
+  ranges: string[]
+} {
+  const filters: string[] = []
+  const ranges: string[] = []
+
+  Object.entries(filtersObj).forEach(([filterAttribute, filter]) => {
+    const subFilters = filter.operator === 'and' ? filter.value : [filter]
+
+    const { eqs, gtes, ltes, others } = subFilters.reduce(
+      (acc, filter) => {
+        if (filter.opCode === 'eq') acc.eqs.push(filter)
+        else if (filter.opCode === 'gte') acc.gtes.push(filter)
+        else if (filter.opCode === 'lte') acc.ltes.push(filter)
+        else acc.others.push(filter)
+
+        return acc
+      },
+      { eqs: [], gtes: [], ltes: [], others: [] } as {
+        eqs: typeof subFilters
+        gtes: typeof subFilters
+        ltes: typeof subFilters
+        others: typeof subFilters
+      },
+    )
+
+    if (others.length > 0) {
+      throw new DataConnectionError(
+        `Filtering '${filterAttribute}' is not supported for operator '${others.map(({ operator }) => operator).join(', ')}'`,
+      )
+    }
+
+    eqs.forEach(({ value }) =>
+      filters.push(`[${filterAttribute}:${String(value)}]`),
+    )
+
+    if (gtes.length > 1) {
+      throw new DataConnectionError(
+        `Filtering '${filterAttribute}' is not supported for multiple '${gtes[0]?.operator ?? ''}' operators.`,
+      )
+    }
+    const rangeStart = gtes[0]?.value ?? '*'
+
+    if (ltes.length > 1) {
+      throw new DataConnectionError(
+        `Filtering '${filterAttribute}' is not supported for multiple '${ltes[0]?.operator ?? ''}' operators.`,
+      )
+    }
+    const rangeEnd = ltes[0]?.value ?? '*'
+
+    if (rangeStart !== '*' || rangeEnd !== '*') {
+      ranges.push(
+        `[${filterAttribute}:{${String(rangeStart)};${String(rangeEnd)}}]`,
+      )
+    }
+  })
+
+  return { filters, ranges }
 }
 
 type RawArtwork = {
