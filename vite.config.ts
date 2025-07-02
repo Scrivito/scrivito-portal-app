@@ -44,14 +44,17 @@ export default defineConfig(({ mode }) => {
             : {},
         ],
         output: {
-          manualChunks: {
-            react: [
-              'react-bootstrap',
-              'react-dropzone',
-              'react-helmet-async',
-              'react-toastify',
+          advancedChunks: {
+            groups: [
+              {
+                name: 'react',
+                test: /react|react-bootstrap|react-dropzone|react-helmet-async|react-toastify/,
+              },
+              {
+                name: 'scrivito-neoletter-form-widgets',
+                test: /scrivito-neoletter-form-widgets/,
+              },
             ],
-            scrivito: ['scrivito-neoletter-form-widgets'],
           },
         },
       },
