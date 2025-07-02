@@ -7,8 +7,8 @@
   font-style: normal;
   font-weight: 300;
   src:
-    url('../fonts/Firava.woff2') format('woff2') tech('variations'),
-    url('../fonts/Firava.woff2') format('woff2-variations');
+    url('../../fonts/Firava.woff2') format('woff2') tech('variations'),
+    url('../../fonts/Firava.woff2') format('woff2-variations');
   font-weight: 100 900;
 }
 
@@ -17,8 +17,9 @@
   font-display: swap;
   font-style: normal;
   src:
-    url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2')
+    url('../../fonts/Manrope-VariableFont_wght.woff2') format('woff2')
       tech('variations'),
-    url('../fonts/Manrope-VariableFont_wght.woff2') format('woff2-variations');
+    url('../../fonts/Manrope-VariableFont_wght.woff2')
+      format('woff2-variations');
   font-weight: 200 800;
 }
