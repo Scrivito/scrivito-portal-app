@@ -15,7 +15,7 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
     title: ['string', { title: 'Title' }],
 
     acquisition_date: ['date', { title: 'Acquisition date' }],
-    current_location_name: ['string', { title: 'Location' }],
+    current_location_name: ['string', { title: 'Current location' }],
     frontend_url: ['string', { title: 'URL' }],
     geo_location: ['string', { title: 'Geo location' }],
     has_image: ['boolean', { title: 'Has image?' }],
