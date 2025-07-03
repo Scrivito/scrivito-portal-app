@@ -7,8 +7,8 @@ import {
 export const SmkArtwork = provideDataClass('SmkArtwork', {
   title: 'Statens Museum for Kunst - Artwork',
   attributes: {
-    creator_date_of_birth: ['date', { title: "Artist's birth date" }],
-    creator_date_of_death: ['date', { title: "Artist's death date" }],
+    creator_date_of_birth: ['date', { title: 'Artist’s date of birth' }],
+    creator_date_of_death: ['date', { title: 'Artist’s date of death' }],
     creator: ['string', { title: 'Artist' }],
     label: ['string', { title: 'Description' }],
     production_date: ['date', { title: 'Creation date' }],
