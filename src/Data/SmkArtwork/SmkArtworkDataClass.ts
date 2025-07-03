@@ -37,9 +37,11 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
       const rows = Math.min(params.limit(), 2000)
       url.searchParams.set('rows', rows.toString())
 
-      const { filters, ranges } = calculateFiltersAndRanges(params.filters())
-      url.searchParams.set('filters', filters.join(','))
-      url.searchParams.set('range', ranges.join(','))
+      const { filters, range } = calculateFiltersAndRangeParams(
+        params.filters(),
+      )
+      url.searchParams.set('filters', filters)
+      url.searchParams.set('range', range)
 
       const [firstOrder, ...otherOrders] = params.order()
       if (firstOrder) {
@@ -104,9 +106,9 @@ function formatItem(item: RawArtwork) {
   }
 }
 
-function calculateFiltersAndRanges(filtersObj: DataConnectionFilters): {
-  filters: string[]
-  ranges: string[]
+function calculateFiltersAndRangeParams(filtersObj: DataConnectionFilters): {
+  filters: string
+  range: string
 } {
   const filters: string[] = []
   const ranges: string[] = []
@@ -162,7 +164,7 @@ function calculateFiltersAndRanges(filtersObj: DataConnectionFilters): {
     }
   })
 
-  return { filters, ranges }
+  return { filters: filters.join(','), range: ranges.join(',') }
 }
 
 type RawArtwork = {
