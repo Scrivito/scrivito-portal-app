@@ -47,8 +47,9 @@ provideComponent(CardWidget, ({ widget }) => {
           />
         </InPlaceEditingOff>
       )}
-      <LinkOrNotTag link={widget.get('linkTo')}>
-        {image && (
+
+      {image && (
+        <LinkOrNotTag link={widget.get('linkTo')}>
           <InPlaceEditingOff>
             <ImageTag
               content={widget}
@@ -57,31 +58,41 @@ provideComponent(CardWidget, ({ widget }) => {
               alt={alternativeTextForObj(widget.get('image'))}
             />
           </InPlaceEditingOff>
-        )}
-        <ContentTag
-          content={widget}
-          attribute="cardBody"
-          className={cardBodyClassNames.join(' ')}
-        />
-        {widget.get('showFooter') && (
-          <ContentTag
-            content={widget}
-            attribute="cardFooter"
-            className="card-footer"
-          />
-        )}
+        </LinkOrNotTag>
+      )}
+
+      <LinkOrNotTag
+        link={widget.get('linkTo')}
+        className={cardBodyClassNames.join(' ')}
+      >
+        <ContentTag content={widget} attribute="cardBody" />
       </LinkOrNotTag>
+
+      {widget.get('showFooter') && (
+        <LinkOrNotTag link={widget.get('linkTo')} className="card-footer">
+          <ContentTag content={widget} attribute="cardFooter" />
+        </LinkOrNotTag>
+      )}
     </WidgetTag>
   )
 })
 
 const LinkOrNotTag = connect(
-  ({ children, link }: { children: React.ReactNode; link: Link | null }) => {
-    if (!link) return <>{children}</>
+  ({
+    children,
+    className,
+    link,
+  }: {
+    children: React.ReactNode
+    className?: string
+    link: Link | null
+  }) => {
+    if (!link) return <div className={className}>{children}</div>
 
     return (
       <LinkTag
         to={link}
+        className={className}
         draggable={!isInPlaceEditingActive()} // Workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=1177704
       >
         {children}

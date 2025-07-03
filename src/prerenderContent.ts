@@ -4,7 +4,7 @@ import './Widgets'
 import { configureScrivito } from './config/scrivito'
 import { prerenderObjs } from './prerenderContent/prerenderObjs'
 import { prerenderSitemap } from './prerenderContent/prerenderSitemap'
-import { reportError } from './prerenderContent/reportError'
+import { reportPrerenderError } from './prerenderContent/reportPrerenderError'
 import { cp, readFile, rm } from 'fs/promises'
 
 configureScrivito({ priority: 'background' })
@@ -69,5 +69,5 @@ async function prerenderContent() {
 
 prerenderContent().catch((e) => {
   process.exitCode = 1
-  return reportError('A prerendering error occurred!', e)
+  return reportPrerenderError('A prerendering error occurred!', e)
 })
