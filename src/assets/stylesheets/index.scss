@@ -84,7 +84,7 @@
 a:focus-visible,
 .btn:focus-visible,
 :focus-visible {
-  outline: 3px solid rgba(16, 125, 250, 0.9) !important;
+  outline: 3px solid var(--bs-primary-lighten) !important;
   outline-offset: 2px !important;
   border-radius: 5px;
   box-shadow: none !important;
