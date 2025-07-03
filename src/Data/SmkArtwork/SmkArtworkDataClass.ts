@@ -10,7 +10,7 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
     creator_date_of_birth: ['date', { title: 'Artist’s date of birth' }],
     creator_date_of_death: ['date', { title: 'Artist’s date of death' }],
     creator: ['string', { title: 'Artist' }],
-    label: ['string', { title: 'Description' }],
+    label: ['string', { title: 'Label' }],
     production_date: ['date', { title: 'Creation date' }],
     title: ['string', { title: 'Title' }],
 
