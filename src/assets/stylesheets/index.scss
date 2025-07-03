@@ -473,15 +473,6 @@ a.btn {
   color: #333;
 }
 
-.scrivito_editing_active ::selection {
-  background: #507ab5 !important;
-  color: #fff !important;
-}
-.scrivito_editing_active .gle ::selection {
-  background: transparent !important;
-  color: inherit !important;
-}
-
 .text-clamp {
   overflow: hidden;
   text-overflow: ellipsis;
