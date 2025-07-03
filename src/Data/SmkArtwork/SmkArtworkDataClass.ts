@@ -89,6 +89,7 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
 function formatItem(item: RawArtwork) {
   return {
     ...item,
+    // Some object numbers contain spaces, therefore we encode it.
     _id: encodeURIComponent(item.object_number),
 
     creator_date_of_birth: item.production?.[0]?.creator_date_of_birth,
