@@ -3,7 +3,6 @@ import { toast } from 'react-toastify'
 import { ClientError } from 'scrivito'
 
 export function errorToast(title: string, error: unknown): void {
-  console.error('errorToast', title, error)
   const message =
     error instanceof Error ? error.message : JSON.stringify(error, null, 1)
 
@@ -21,6 +20,8 @@ export function errorToast(title: string, error: unknown): void {
       autoClose: false,
     },
   )
+
+  reportError(error)
 }
 
 export function simpleErrorToast(title: string): void {
