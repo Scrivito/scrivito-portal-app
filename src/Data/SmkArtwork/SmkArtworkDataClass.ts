@@ -114,7 +114,12 @@ function calculateFiltersAndRanges(filtersObj: DataConnectionFilters): {
   Object.entries(filtersObj).forEach(([filterAttribute, filter]) => {
     const subFilters = filter.operator === 'and' ? filter.value : [filter]
 
-    const { eqs, gtes, ltes, others } = subFilters.reduce(
+    const { eqs, gtes, ltes, others } = subFilters.reduce<{
+      eqs: typeof subFilters
+      gtes: typeof subFilters
+      ltes: typeof subFilters
+      others: typeof subFilters
+    }>(
       (acc, filter) => {
         if (filter.opCode === 'eq') acc.eqs.push(filter)
         else if (filter.opCode === 'gte') acc.gtes.push(filter)
@@ -123,12 +128,7 @@ function calculateFiltersAndRanges(filtersObj: DataConnectionFilters): {
 
         return acc
       },
-      { eqs: [], gtes: [], ltes: [], others: [] } as {
-        eqs: typeof subFilters
-        gtes: typeof subFilters
-        ltes: typeof subFilters
-        others: typeof subFilters
-      },
+      { eqs: [], gtes: [], ltes: [], others: [] },
     )
 
     if (others.length > 0) {
