@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'fs/promises'
 import path from 'path'
 
-import { reportError } from './reportError'
+import { reportPrerenderError } from './reportPrerenderError'
 
 export async function storeResult(
   targetDir: string,
@@ -9,7 +9,9 @@ export async function storeResult(
 ): Promise<string | void> {
   const filePath = path.join(targetDir, filename)
   if (!path.normalize(filePath).startsWith(`${targetDir}`)) {
-    await reportError(`filename "${filename}" is invalid! Skipping file...`)
+    await reportPrerenderError(
+      `filename "${filename}" is invalid! Skipping file...`,
+    )
     return
   }
   console.log(
@@ -23,7 +25,7 @@ export async function storeResult(
     return filePath.substring(targetDir.length)
   } catch (e) {
     if (e instanceof Object && 'code' in e && e.code === 'EEXIST') {
-      reportError(
+      reportPrerenderError(
         `Filename "${filename}" already exists in ${targetDir}! Skipping file...`,
       )
     } else {

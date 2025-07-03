@@ -1,6 +1,6 @@
 import Honeybadger from '@honeybadger-io/js'
 
-export async function reportError(
+export async function reportPrerenderError(
   message: string,
   error?: unknown,
 ): Promise<void> {
