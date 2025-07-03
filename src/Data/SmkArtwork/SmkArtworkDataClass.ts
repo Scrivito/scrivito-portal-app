@@ -32,10 +32,10 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
       url.searchParams.set('lang', 'en')
 
       const offset = Number(params.continuation()) || 0
-      url.searchParams.set('offset', String(offset))
+      url.searchParams.set('offset', offset.toString())
 
       const rows = Math.min(params.limit(), 20)
-      url.searchParams.set('rows', String(rows))
+      url.searchParams.set('rows', rows.toString())
 
       const { filters, ranges } = calculateFiltersAndRanges(params.filters())
       url.searchParams.set('filters', filters.join(','))
@@ -62,7 +62,7 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
       }
 
       const seen = offset + rows
-      const continuation = response.found >= seen ? String(seen) : null
+      const continuation = response.found >= seen ? seen.toString() : null
 
       return {
         continuation,
