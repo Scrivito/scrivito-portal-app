@@ -4,7 +4,7 @@ import {
   provideDataClass,
 } from 'scrivito'
 
-export const SMKArtwork = provideDataClass('SMKArtwork', {
+export const SmkArtwork = provideDataClass('SmkArtwork', {
   title: 'Statens Museum for Kunst - Artwork',
   attributes: {
     creator_date_of_birth: ['date', { title: "Artist's birth date" }],
