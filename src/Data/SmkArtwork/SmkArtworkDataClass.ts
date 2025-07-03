@@ -26,6 +26,7 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
   },
   connection: {
     async index(params) {
+      // See https://www.smk.dk/en/article/smk-api/ for documentation
       const url = new URL('https://api.smk.dk/api/v1/art/search')
       url.searchParams.set('keys', params.search() || '*')
       url.searchParams.set('lang', 'en')
