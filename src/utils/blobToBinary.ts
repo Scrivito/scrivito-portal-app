@@ -52,7 +52,7 @@ async function blobToBase64(blob: Blob): Promise<string> {
       if (!dataUrl.startsWith(dataPrefix)) {
         reject(
           new Error(
-            `FileReader result does not start with expected prefix: ${dataUrl}`,
+            `FileReader result does not start with expected prefix '${dataPrefix}': ${dataUrl}`,
           ),
         )
         return
