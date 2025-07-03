@@ -2,7 +2,6 @@
   "entry": [
     "src/main.tsx",
     "src/scrivitoExtensions.tsx",
-    "src/privateJrPlatform/dumpContent.ts",
     "functions/auth/*.ts",
 
     // Workaround for https://github.com/webpro-nl/knip/issues/168
