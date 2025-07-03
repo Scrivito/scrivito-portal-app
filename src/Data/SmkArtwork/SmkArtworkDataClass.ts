@@ -143,14 +143,14 @@ function calculateFiltersAndRanges(filtersObj: DataConnectionFilters): {
 
     if (gtes.length > 1) {
       throw new DataConnectionError(
-        `Filtering '${filterAttribute}' is not supported for multiple '${gtes[0]?.operator ?? ''}' operators.`,
+        `Filtering '${filterAttribute}' is not supported for multiple 'isGreaterThanOrEquals' operators.`,
       )
     }
     const rangeStart = gtes[0]?.value ?? '*'
 
     if (ltes.length > 1) {
       throw new DataConnectionError(
-        `Filtering '${filterAttribute}' is not supported for multiple '${ltes[0]?.operator ?? ''}' operators.`,
+        `Filtering '${filterAttribute}' is not supported for multiple 'isLessThanOrEquals' operators.`,
       )
     }
     const rangeEnd = ltes[0]?.value ?? '*'
