@@ -34,7 +34,7 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
       const offset = Number(params.continuation()) || 0
       url.searchParams.set('offset', offset.toString())
 
-      const rows = Math.min(params.limit(), 20)
+      const rows = Math.min(params.limit(), 2000)
       url.searchParams.set('rows', rows.toString())
 
       const { filters, ranges } = calculateFiltersAndRanges(params.filters())
