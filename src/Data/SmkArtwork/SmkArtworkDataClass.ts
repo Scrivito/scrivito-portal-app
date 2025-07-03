@@ -110,59 +110,64 @@ function calculateFiltersAndRangeParams(filtersObj: DataConnectionFilters): {
   filters: string
   range: string
 } {
-  const filters: string[] = []
-  const ranges: string[] = []
+  const { filters, ranges } = Object.entries(filtersObj).reduce<{
+    filters: string[]
+    ranges: string[]
+  }>(
+    (acc, [filterAttribute, filter]) => {
+      const subFilters = filter.operator === 'and' ? filter.value : [filter]
 
-  Object.entries(filtersObj).forEach(([filterAttribute, filter]) => {
-    const subFilters = filter.operator === 'and' ? filter.value : [filter]
+      const { eqs, gtes, ltes, others } = subFilters.reduce<{
+        eqs: typeof subFilters
+        gtes: typeof subFilters
+        ltes: typeof subFilters
+        others: typeof subFilters
+      }>(
+        (acc, filter) => {
+          if (filter.opCode === 'eq') acc.eqs.push(filter)
+          else if (filter.opCode === 'gte') acc.gtes.push(filter)
+          else if (filter.opCode === 'lte') acc.ltes.push(filter)
+          else acc.others.push(filter)
 
-    const { eqs, gtes, ltes, others } = subFilters.reduce<{
-      eqs: typeof subFilters
-      gtes: typeof subFilters
-      ltes: typeof subFilters
-      others: typeof subFilters
-    }>(
-      (acc, filter) => {
-        if (filter.opCode === 'eq') acc.eqs.push(filter)
-        else if (filter.opCode === 'gte') acc.gtes.push(filter)
-        else if (filter.opCode === 'lte') acc.ltes.push(filter)
-        else acc.others.push(filter)
-
-        return acc
-      },
-      { eqs: [], gtes: [], ltes: [], others: [] },
-    )
-
-    if (others.length > 0) {
-      throw new DataConnectionError(
-        `Filtering '${filterAttribute}' is not supported for operator '${others.map(({ operator }) => operator).join(', ')}'`,
+          return acc
+        },
+        { eqs: [], gtes: [], ltes: [], others: [] },
       )
-    }
 
-    eqs.forEach(({ value }) =>
-      filters.push(`[${filterAttribute}:${String(value)}]`),
-    )
+      if (others.length > 0) {
+        throw new DataConnectionError(
+          `Filtering '${filterAttribute}' is not supported for operator '${others.map(({ operator }) => operator).join(', ')}'`,
+        )
+      }
 
-    if (gtes.length > 1) {
-      throw new DataConnectionError(
-        `Filtering '${filterAttribute}' is not supported for multiple 'isGreaterThanOrEquals' operators.`,
+      eqs.forEach(({ value }) =>
+        acc.filters.push(`[${filterAttribute}:${String(value)}]`),
       )
-    }
-    const rangeStart = gtes[0]?.value ?? '*'
 
-    if (ltes.length > 1) {
-      throw new DataConnectionError(
-        `Filtering '${filterAttribute}' is not supported for multiple 'isLessThanOrEquals' operators.`,
-      )
-    }
-    const rangeEnd = ltes[0]?.value ?? '*'
+      if (gtes.length > 1) {
+        throw new DataConnectionError(
+          `Filtering '${filterAttribute}' is not supported for multiple 'isGreaterThanOrEquals' operators.`,
+        )
+      }
+      const rangeStart = gtes[0]?.value ?? '*'
 
-    if (rangeStart !== '*' || rangeEnd !== '*') {
-      ranges.push(
-        `[${filterAttribute}:{${String(rangeStart)};${String(rangeEnd)}}]`,
-      )
-    }
-  })
+      if (ltes.length > 1) {
+        throw new DataConnectionError(
+          `Filtering '${filterAttribute}' is not supported for multiple 'isLessThanOrEquals' operators.`,
+        )
+      }
+      const rangeEnd = ltes[0]?.value ?? '*'
+
+      if (rangeStart !== '*' || rangeEnd !== '*') {
+        acc.ranges.push(
+          `[${filterAttribute}:{${String(rangeStart)};${String(rangeEnd)}}]`,
+        )
+      }
+
+      return acc
+    },
+    { filters: [], ranges: [] },
+  )
 
   return { filters: filters.join(','), range: ranges.join(',') }
 }
