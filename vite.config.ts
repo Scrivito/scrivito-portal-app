@@ -16,6 +16,8 @@ export default defineConfig(({ mode }) => {
   const outDir = 'dist'
 
   const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
+
+  // This flag is only used by the Scrivito SDK team. Feel free to remove it in your project.
   const privateJrPlatform = env.PRIVATE_JR_PLATFORM === 'true'
 
   const HONEYBADGER_API_KEY = env.HONEYBADGER_API_KEY || ''
