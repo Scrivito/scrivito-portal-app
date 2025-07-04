@@ -19,9 +19,13 @@ export function App({
     <HelmetProvider context={helmetContext}>
       <ErrorBoundary>
         <div ref={appWrapperRef} id="app-wrapper">
-          <a href="#main" className="btn skip-to-content">
-            {localizeSkipToContent()}
-          </a>
+          <div className="visually-hidden-focusable overflow-hidden">
+            <div className="container-xl">
+              <a href="#main" className="d-inline-flex p-2 m-1">
+                {localizeSkipToContent()}
+              </a>
+            </div>
+          </div>
           <DesignAdjustments>
             <SinglePageSite>
               <CurrentPage />
