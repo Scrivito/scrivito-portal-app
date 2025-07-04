@@ -11,6 +11,7 @@ import { Order } from './Data/Order/OrderDataClass'
 import { Quote } from './Data/Quote/QuoteDataClass'
 import { Ticket } from './Data/Ticket/TicketDataClass'
 import { ServiceObject as Equipment } from './Data/ServiceObject/ServiceObjectDataClass'
+import { SmkArtwork } from './Data/SmkArtwork/SmkArtworkDataClass'
 
 // TODO use directly from the SDK?
 // needs: https://github.com/infopark/scrivito_js/issues/11486
@@ -23,6 +24,7 @@ const dataTypes = {
   Equipment,
   Document,
   Contract,
+  SmkArtwork,
 }
 
 const systemPrompt =
