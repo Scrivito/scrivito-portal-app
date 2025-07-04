@@ -36,9 +36,13 @@ export function App({
 
 const SkipToContent = connect(function SkipToContent() {
   return (
-    <a href="#main" className="btn skip-to-content">
-      {localizeSkipToContent()}
-    </a>
+    <div className="skippy visually-hidden-focusable overflow-hidden">
+      <div className="container my-4">
+        <a href="#main" className="btn btn-primary">
+          {localizeSkipToContent()}
+        </a>
+      </div>
+    </div>
   )
 })
 
