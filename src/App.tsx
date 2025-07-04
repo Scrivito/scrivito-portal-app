@@ -19,9 +19,9 @@ export function App({
     <HelmetProvider context={helmetContext}>
       <ErrorBoundary>
         <div ref={appWrapperRef} id="app-wrapper">
-          <div className="visually-hidden-focusable overflow-hidden">
-            <div className="container-xl">
-              <a href="#main" className="d-inline-flex p-2 m-1">
+          <div className="skippy visually-hidden-focusable overflow-hidden">
+            <div className="container my-4">
+              <a href="#main" className="btn btn-primary">
                 {localizeSkipToContent()}
               </a>
             </div>
