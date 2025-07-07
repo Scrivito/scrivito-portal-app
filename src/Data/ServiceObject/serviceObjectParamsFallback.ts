@@ -4,7 +4,7 @@ import machineImage from './FakeBinaries/machine.jpg'
 import pumpImage from './FakeBinaries/pump.jpg'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   const category = [
     'enum',
@@ -763,14 +763,14 @@ export function serviceObjectParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de'
+      (await load(() => currentLanguage())) === 'de'
         ? 'Serviceobjekt'
         : 'Service object',
     connection: localStorageDataConnection('ServiceObject', {
       initialContent: [
         {
           _id: '01F15317280B4BFDA40FFFAF2914D847',
-          parentId: '7EE9B4F3EAF2450384738C3667AE6956',
+          parentId: '0B5573AAEBE54D3DB59800780636733E',
           keyword: 'Tauchrohrheizkörper 400 mm 0,5 KW',
           number: '944.301-79',
           status: 'PSA_ART_SVC_ACT',
@@ -797,7 +797,7 @@ export function serviceObjectParamsFallback() {
         },
         {
           _id: '0C0F6053E79143BCAF182DF1F4DB3713',
-          parentId: '7EE9B4F3EAF2450384738C3667AE6956',
+          parentId: '0B5573AAEBE54D3DB59800780636733E',
           keyword: 'thermometer MT 1/A/E/K  CuZn',
           number: '944.500-06A',
           status: 'PSA_ART_SVC_ACT',

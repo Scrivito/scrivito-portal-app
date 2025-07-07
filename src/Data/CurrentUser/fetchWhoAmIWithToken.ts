@@ -1,44 +1,36 @@
-import { load, currentLanguage } from 'scrivito'
-import { pisaConfig } from '../pisaClient'
+import {
+  load,
+  currentLanguage,
+  createRestApiClient,
+  ClientError,
+} from 'scrivito'
 import { WhoAmI } from './CurrentUserDataItem'
 import { simpleErrorToast } from './errorToast'
-import { getTokenAuthorization } from '../getTokenAuthorization'
+import { jwtPisaSalesApiConfig } from '../jwtPisaSalesApiConfig'
 
 export async function fetchWhoAmIWithToken(): Promise<WhoAmI | null> {
-  const whoAmIConfig = await pisaConfig('whoami')
-  if (!whoAmIConfig) return null
-
-  const tokenAuthorization = getTokenAuthorization()
-  if (!tokenAuthorization) return null
+  const jwtConfig = await jwtPisaSalesApiConfig({ subPath: 'portal/whoami' })
+  if (!jwtConfig) return null
 
   const lang = await load(() => currentLanguage() ?? '')
 
-  const { url, headers: baseHeaders } = whoAmIConfig
+  const { url, ...options } = jwtConfig
+  const client = createRestApiClient(url, options)
 
-  const headers = { ...baseHeaders, Authorization: tokenAuthorization }
-
-  // TODO: Replace fetch with pisaClient, once #11616 is resolved
-  let response: Response
   try {
-    response = await fetch(url, { method: 'GET', headers })
+    const response = await client.get('')
+    return response as WhoAmI
   } catch (e) {
     console.error(e)
-    simpleErrorToast(localizeFailedFetch(lang))
 
-    return null
-  }
-
-  if (!response.ok) {
     const errorMessage =
-      response.status === 401
+      e instanceof ClientError && e.httpStatus === 401
         ? localizeExpiredMessage(lang)
         : localizeFailedFetch(lang)
     simpleErrorToast(errorMessage)
 
     return null
   }
-
-  return response.json() as Promise<WhoAmI>
 }
 
 function localizeExpiredMessage(language: string): string {

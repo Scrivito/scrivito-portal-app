@@ -9,7 +9,7 @@ interface Topic {
 
 export const Subscription = provideDataClass('Subscription', {
   attributes: async () => {
-    const lang = await load(currentLanguage)
+    const lang = await load(() => currentLanguage())
 
     return {
       description: [
@@ -27,7 +27,9 @@ export const Subscription = provideDataClass('Subscription', {
     }
   },
   title: async () =>
-    (await load(currentLanguage)) === 'de' ? 'Abonnement' : 'Subscription',
+    (await load(() => currentLanguage())) === 'de'
+      ? 'Abonnement'
+      : 'Subscription',
   connection: {
     async index(params) {
       if (params.search()) {

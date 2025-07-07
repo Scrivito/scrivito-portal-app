@@ -7,7 +7,7 @@ import { postProcessUserData } from './UserDataClass'
 import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   const salutation = [
     'enum',
@@ -68,7 +68,7 @@ export function userParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de' ? 'Benutzer' : 'User',
+      (await load(() => currentLanguage())) === 'de' ? 'Benutzer' : 'User',
     connection: localStorageDataConnection('User', {
       postProcessData: postProcessUserData,
       initialContent: [

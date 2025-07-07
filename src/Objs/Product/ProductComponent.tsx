@@ -222,7 +222,7 @@ const CartActionButton = connect(function CartActionButton({
       <button
         className="btn btn-sm btn-outline-primary"
         title={cartUnavailableMessage}
-        onClick={ensureUserIsLoggedIn}
+        onClick={() => ensureUserIsLoggedIn()}
       >
         <i className="bi bi-cart"></i>
         {cartLoginLabel}

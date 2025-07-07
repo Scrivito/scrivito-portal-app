@@ -1,5 +1,5 @@
 import { Obj, connect } from 'scrivito'
-import { objTitle } from '../utils/objTitle'
+import { objTitle } from '../utils/title'
 import { ensureString } from '../utils/ensureString'
 
 export const ObjIconAndTitle = connect(function ObjIconAndTitle({

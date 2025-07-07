@@ -1,6 +1,6 @@
 import { chunk } from 'lodash-es'
 import { prerenderObj } from './prerenderObj'
-import { reportError } from './reportError'
+import { reportPrerenderError } from './reportPrerenderError'
 import { storeResult } from './storeResult'
 import { getSiteIds } from './getSiteIds'
 import { load, Obj, urlFor } from 'scrivito'
@@ -34,9 +34,8 @@ export async function prerenderObjs(
         failedCount += 1
         const pageId = obj.id()
         const pageUrl = urlFor(obj)
-        reportError(
+        await reportPrerenderError(
           `Error while processing obj ${pageId} (${pageUrl}).`,
-          e instanceof Object && 'message' in e ? e.message : '',
           e,
         )
       }

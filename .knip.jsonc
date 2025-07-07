@@ -2,7 +2,6 @@
   "entry": [
     "src/main.tsx",
     "src/scrivitoExtensions.tsx",
-    "src/privateJrPlatform/dumpContent.ts",
     "functions/auth/*.ts",
 
     // Workaround for https://github.com/webpro-nl/knip/issues/168
@@ -11,7 +10,7 @@
     "src/Widgets/**/*{Component,EditingConfig,WidgetClass}.{ts,tsx}",
   ],
   "ignore": [
-    "src/Data/localStorageDataConnection.ts", // TODO: Remove from knip, once searchLocalStorageDataConnections is in use
+    "src/honeybadgerStub.ts",
     "public/scrivito/**",
     "src/assets/stylesheets/vendor/**",
     "vendor/**",

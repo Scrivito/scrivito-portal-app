@@ -2,7 +2,7 @@ import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 import { localStorageDataConnection } from '../localStorageDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   return {
     documentId: [
@@ -28,7 +28,7 @@ export function orderDocumentParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de'
+      (await load(() => currentLanguage())) === 'de'
         ? 'Auftragsdokument'
         : 'Order document',
     connection: localStorageDataConnection('OrderDocument', {

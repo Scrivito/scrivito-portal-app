@@ -15,9 +15,10 @@ import { getTokenAuthorization } from '../getTokenAuthorization'
 import { errorToast } from './errorToast'
 import { pisaClient } from '../pisaClient'
 import { fetchWhoAmIWithToken } from './fetchWhoAmIWithToken'
+import { notifyOnConnectionTimeout } from './notifyOnConnectionTimeout'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   return {
     company: ['string', { title: lang === 'de' ? 'Firma' : 'Company' }],
@@ -62,12 +63,12 @@ async function attributes(): Promise<DataAttributeDefinitions> {
 export const CurrentUser = provideDataItem('CurrentUser', {
   attributes,
   title: async () =>
-    (await load(currentLanguage)) === 'de'
+    (await load(() => currentLanguage())) === 'de'
       ? 'Aktueller Benutzer'
       : 'Current user',
   connection: {
     async get() {
-      const user = await load(currentUser)
+      const user = await load(() => currentUser())
       if (!user) return getTokenBasedCurrentUser()
 
       let neoletterProfile
@@ -139,7 +140,7 @@ async function pisaIds(): Promise<{
   salesUserId: string | null
   serviceUserId: string | null
 }> {
-  const whoamiClient = await pisaClient('whoami')
+  const whoamiClient = await pisaClient('portal/whoami')
   if (!whoamiClient) {
     return {
       pisaUserId: 'F87BDC400E41D630E030A8C00D01158A',
@@ -149,7 +150,10 @@ async function pisaIds(): Promise<{
   }
 
   try {
-    const whoAmI = (await whoamiClient.get('')) as WhoAmI
+    const whoAmIPromise = whoamiClient.get('') as Promise<WhoAmI>
+    notifyOnConnectionTimeout(whoAmIPromise)
+
+    const whoAmI = await whoAmIPromise
 
     return {
       pisaUserId: whoAmI._id,

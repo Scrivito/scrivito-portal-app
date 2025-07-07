@@ -82,6 +82,34 @@
   hyphens: auto;
 }
 
+a:focus-visible,
+.btn:focus-visible,
+:focus-visible {
+  outline: 3px solid var(--bs-primary-lighten) !important;
+  outline-offset: 2px !important;
+  border-radius: 5px;
+  box-shadow: none !important;
+}
+.card > a:focus-visible,
+.card-body:focus-visible,
+.nav-bordered li a:focus-visible {
+  outline-offset: -2px !important;
+}
+
+.skippy.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  width: 100% !important;
+}
+.skippy:focus-within {
+  overflow: visible !important;
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.95);
+  transition: all ease-in-out 0.3s;
+}
+
 .btn {
   --bs-btn-border-color: transparent;
   --bs-btn-hover-border-color: transparent;
@@ -121,7 +149,6 @@
   color: var(--bs-btn-hover-color);
   background-color: var(--bs-btn-hover-bg);
   border-color: var(--bs-btn-hover-border-color);
-  outline: 0;
   box-shadow: var(--bs-btn-focus-box-shadow);
 }
 .btn-check:focus-visible + .btn {
@@ -220,6 +247,18 @@ fieldset:disabled .btn {
   --bs-btn-disabled-border-color: var(--bs-secondary-lighten);
   --bs-gradient: none;
 }
+.btn-outline-primary:focus-visible,
+.btn-outline-secondary:focus-visible {
+  color: #fff !important;
+}
+
+.btn i:only-child {
+  padding: 0;
+  margin: auto;
+}
+.btn:has(i) {
+  display: flex;
+}
 
 .input-group {
   .btn {
@@ -293,21 +332,6 @@ fieldset:disabled .btn {
 @import 'theme/print';
 @import 'theme/attachment';
 @import 'theme/box-comment';
-
-/* accessiblity support
- =================================================================== */
-.skip-to-content {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  padding: 20px 40px;
-  color: #ffffff;
-  background: #111;
-  -webkit-transform: translateY(-500%);
-  -moz-transform: translateY(-500%);
-  transform: translateY(-500%);
-  z-index: 100000;
-}
 
 /* general styles + helper classes
  =================================================================== */
@@ -439,13 +463,8 @@ a {
 }
 a:hover,
 a:active,
-a:focus,
 a:visited {
   text-decoration: underline;
-  outline: none !important;
-}
-button:focus {
-  outline: none !important;
 }
 
 .box-attachment,
@@ -473,6 +492,10 @@ a.btn {
   -webkit-box-orient: vertical;
   line-clamp: 2;
   -webkit-line-clamp: 2;
+}
+
+.min-vw-0 {
+  min-width: 0vw;
 }
 
 mark {
@@ -860,9 +883,9 @@ section .card.no-color-adaption {
 
 img.img-flag {
   display: inline-block;
-  height: 15px;
   margin: -3px 6px 0 0;
-  max-width: 17px;
+  max-height: 15px;
+  width: 17px;
 }
 
 /* Bootstrap Icons - Sizes Add-on
@@ -1279,6 +1302,11 @@ section:focus >,
 .form-check-input:checked {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
+}
+.form-control.dropzone {
+  border: 2px dashed rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
 }
 
 .input-group .form-control {

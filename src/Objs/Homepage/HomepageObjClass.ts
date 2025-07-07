@@ -8,7 +8,7 @@ export const Homepage = provideObjClass('Homepage', {
     body: 'widgetlist',
     contentFormat: 'string',
     contentTitle: 'string',
-    pisaUrl: 'string',
+    jwtPisaSalesApiUrl: 'string',
     siteCartPage: 'reference',
     siteColorPrimary: 'string',
     siteColorSecondary: 'string',

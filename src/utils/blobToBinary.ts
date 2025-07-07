@@ -1,4 +1,4 @@
-import { pisaUrl } from '../Data/pisaClient'
+import { pisaSalesApiUrl } from '../Data/pisaClient'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
 
 export interface DataBinaryUpload {
@@ -19,7 +19,7 @@ export async function blobToBinary(
     filename: blob instanceof File ? blob.name : 'unknown-name',
   }
 
-  const connectedToPisa = (await pisaUrl()) !== null
+  const connectedToPisa = (await pisaSalesApiUrl()) !== null
 
   return connectedToPisa
     ? binary
@@ -52,7 +52,7 @@ async function blobToBase64(blob: Blob): Promise<string> {
       if (!dataUrl.startsWith(dataPrefix)) {
         reject(
           new Error(
-            `FileReader result does not start with expected prefix: ${dataUrl}`,
+            `FileReader result does not start with expected prefix '${dataPrefix}': ${dataUrl}`,
           ),
         )
         return

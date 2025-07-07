@@ -11,6 +11,7 @@ import { useDropzone } from 'react-dropzone'
 import { Attachment } from '../../Components/Attachment'
 import { useCallback, useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
+import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 
 const MAX_FILE_SIZE = 50 * 1000 * 1000
 
@@ -21,34 +22,37 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     useData().dataItem()?.id(),
   ].join('-')
   const attributeName = useData().attributeName()
+  const [attachments, setAttachments] = useState<
+    Array<{ file: File; key: string }>
+  >([])
   const [isTooLarge, setIsTooLarge] = useState(false)
 
   const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
   const onDropRejected = useCallback(() => setIsTooLarge(true), [])
 
-  const { acceptedFiles, getRootProps, getInputProps, inputRef, isDragActive } =
-    useDropzone({
-      maxSize: MAX_FILE_SIZE,
-      onDropAccepted,
-      onDropRejected,
-    })
+  const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
+    maxSize: MAX_FILE_SIZE,
+    onDropAccepted,
+    onDropRejected,
+    onDrop: (acceptedFiles) => {
+      setAttachments((prevAttachments) => [
+        ...prevAttachments,
+        ...acceptedFiles.map((file) => ({
+          file,
+          key: pseudoRandom32CharHex(),
+        })),
+      ])
+    },
+  })
 
   useEffect(() => {
     if (!inputRef.current) return
 
     const dataTransfer = new DataTransfer()
-    acceptedFiles.forEach((file) => dataTransfer.items.add(file))
+    attachments.forEach((attachment) => dataTransfer.items.add(attachment.file))
 
     inputRef.current.files = dataTransfer.files
-  }, [acceptedFiles, inputRef])
-
-  const attachments = acceptedFiles.map((file) => ({
-    _id: file.name,
-    contentLength: file.size,
-    contentType: file.type,
-    file,
-    filename: file.name,
-  }))
+  }, [attachments, inputRef])
 
   return (
     <div className="mb-3" key={[id, attributeName].join('-')}>
@@ -115,9 +119,26 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
         </div>
       )}
       <div>
-        <div className="d-flex flex-wrap mt-2 gap-2">
-          {attachments.map((attachment) => (
-            <Attachment attachment={attachment} key={attachment._id} readonly />
+        <div className="d-flex flex-wrap mt-2 gap-1">
+          {attachments.map(({ file, key }) => (
+            <Attachment
+              attachment={{
+                _id: key,
+                contentLength: file.size,
+                contentType: file.type,
+                file,
+                filename: file.name,
+              }}
+              key={key}
+              onDelete={() => {
+                setAttachments((prevAttachments) =>
+                  prevAttachments.filter(
+                    (attachment) => attachment.key !== key,
+                  ),
+                )
+              }}
+              readonly
+            />
           ))}
         </div>
       </div>

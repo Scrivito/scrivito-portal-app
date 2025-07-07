@@ -1,92 +1,20 @@
-import { DataConnectionError, isUserLoggedIn, provideDataClass } from 'scrivito'
+import { isUserLoggedIn, load, Obj, provideDataClass } from 'scrivito'
 import { pisaConfig } from '../pisaClient'
-import { getTokenAuthorization } from '../getTokenAuthorization'
+import { jwtPisaSalesApiConfig } from '../jwtPisaSalesApiConfig'
 
 export const Gdpr = provideDataClass(
   'Gdpr',
   (async () => {
-    const restApi = await pisaConfig('gdpr')
-    if (!restApi) {
-      return (await import('./gdprParamsFallback')).gdprParamsFallback()
+    await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11895 or #11924
+    if (!isUserLoggedIn()) {
+      const jwtRestApi = await jwtPisaSalesApiConfig({ subPath: 'portal/gdpr' })
+
+      if (jwtRestApi) return { restApi: jwtRestApi }
     }
 
-    if (!isUserLoggedIn()) {
-      const tokenAuthorization = getTokenAuthorization()
-      if (tokenAuthorization) {
-        const { url, headers: baseHeaders } = restApi
-        const headers = { ...baseHeaders, Authorization: tokenAuthorization }
-
-        // TODO: Return { url, headers }, once #11616 is resolved
-        return {
-          connection: {
-            async index(params) {
-              if (Object.keys(params.filters()).length > 0) {
-                throw new DataConnectionError(
-                  'GDPR consent does not support filtering.',
-                )
-              }
-
-              const urlParams = new URLSearchParams()
-
-              const continuation = params.continuation()
-              if (continuation) urlParams.set('_continuation', continuation)
-
-              if (params.includeCount()) urlParams.set('_count', 'true')
-
-              const limit = params.limit()
-              if (limit) urlParams.set('_limit', limit.toString())
-
-              const order = params
-                .order()
-                .map((o) => o.join('.'))
-                .join(',')
-              if (order) urlParams.set('_order', order)
-
-              const search = params.search()
-              if (search) urlParams.set('_search', search)
-
-              const urlWithParams = `${url}?${urlParams.toString()}`
-
-              const response = await fetch(urlWithParams, { headers })
-              if (!response.ok) {
-                throw new DataConnectionError('Failed to fetch GDPR consent')
-              }
-
-              return response.json()
-            },
-            async update(id, data) {
-              const response = await fetch(`${url}/${id}`, {
-                method: 'PATCH',
-                headers: {
-                  ...headers,
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-              })
-              if (!response.ok) {
-                throw new DataConnectionError('Failed to update GDPR consent')
-              }
-
-              return response.json()
-            },
-            async create() {
-              throw new DataConnectionError(
-                'Creating GDPR consent is not supported.',
-              )
-            },
-            async delete() {
-              throw new DataConnectionError(
-                'Deleting GDPR consent is not supported.',
-              )
-            },
-            async get() {
-              throw new DataConnectionError(
-                'Fetching a single GDPR consent is not supported.',
-              )
-            },
-          },
-        }
-      }
+    const restApi = await pisaConfig('portal/gdpr')
+    if (!restApi) {
+      return (await import('./gdprParamsFallback')).gdprParamsFallback()
     }
 
     return { restApi }

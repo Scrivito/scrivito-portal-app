@@ -4,7 +4,7 @@ import { pisaConfig } from '../pisaClient'
 export const Quote = provideDataClass(
   'Quote',
   (async () => {
-    const restApi = await pisaConfig('quote')
+    const restApi = await pisaConfig('portal/quote')
     if (!restApi) {
       return (await import('./quoteParamsFallback')).quoteParamsFallback()
     }

@@ -18,9 +18,10 @@ provideEditingConfig(DataLabelWidget, {
     },
     datetimeFormat: {
       title: 'Date format',
-      description: 'Default: Only date',
+      description: 'Default: Date only',
       values: [
-        { value: 'date', title: 'Only date' },
+        { value: 'year', title: 'Year only' },
+        { value: 'date', title: 'Date only' },
         { value: 'datetime', title: 'Date and time' },
         { value: 'relative', title: 'Relative' },
       ],

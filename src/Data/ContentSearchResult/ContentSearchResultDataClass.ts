@@ -6,7 +6,7 @@ import {
   provideDataClass,
   urlFor,
 } from 'scrivito'
-import { objTitle } from '../../utils/objTitle'
+import { objTitle } from '../../utils/title'
 import { ensureString } from '../../utils/ensureString'
 import { isImage } from '../../Objs/Image/ImageObjClass'
 
@@ -14,7 +14,7 @@ const BLACKLIST_OBJ_CLASSES = ['Dropdown', 'Font', 'Image', 'Redirect', 'Video']
 
 export const ContentSearchResult = provideDataClass('ContentSearchResult', {
   attributes: async () => {
-    const lang = await load(currentLanguage)
+    const lang = await load(() => currentLanguage())
 
     return {
       image: [
@@ -30,7 +30,7 @@ export const ContentSearchResult = provideDataClass('ContentSearchResult', {
     }
   },
   title: async () =>
-    (await load(currentLanguage)) === 'de'
+    (await load(() => currentLanguage())) === 'de'
       ? 'Suchtreffer (Content)'
       : 'Search result (content)',
   connection: {

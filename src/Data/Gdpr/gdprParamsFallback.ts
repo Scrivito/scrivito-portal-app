@@ -2,7 +2,7 @@ import { currentLanguage, DataAttributeDefinitions, load } from 'scrivito'
 import { localStorageDataConnection } from '../localStorageDataConnection'
 
 async function attributes(): Promise<DataAttributeDefinitions> {
-  const lang = await load(currentLanguage)
+  const lang = await load(() => currentLanguage())
 
   return {
     active: ['boolean', { title: lang === 'de' ? 'Aktiv?' : 'Active?' }],
@@ -18,7 +18,7 @@ export function gdprParamsFallback() {
   return {
     attributes,
     title: async () =>
-      (await load(currentLanguage)) === 'de'
+      (await load(() => currentLanguage())) === 'de'
         ? 'DSGVO-Einwilligung'
         : 'GDPR consent',
     connection: localStorageDataConnection('Gdpr', {
