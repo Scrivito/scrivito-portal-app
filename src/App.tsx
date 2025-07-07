@@ -1,4 +1,4 @@
-import { CurrentPage } from 'scrivito'
+import { connect, currentLanguage, CurrentPage } from 'scrivito'
 import { HelmetProvider, HelmetServerState } from 'react-helmet-async'
 
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
@@ -19,9 +19,7 @@ export function App({
     <HelmetProvider context={helmetContext}>
       <ErrorBoundary>
         <div ref={appWrapperRef} id="app-wrapper">
-          <a href="#main" className="btn skip-to-content">
-            Skip to Content
-          </a>
+          <SkipToContent />
           <DesignAdjustments>
             <SinglePageSite>
               <CurrentPage />
@@ -34,4 +32,29 @@ export function App({
       </ErrorBoundary>
     </HelmetProvider>
   )
+}
+
+const SkipToContent = connect(function SkipToContent() {
+  return (
+    <div className="skippy visually-hidden-focusable overflow-hidden">
+      <div className="container my-4">
+        <a href="#main" className="btn btn-primary">
+          {localizeSkipToContent()}
+        </a>
+      </div>
+    </div>
+  )
+})
+
+function localizeSkipToContent(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Zum Inhalt springen'
+    case 'fr':
+      return 'Aller au contenu'
+    case 'pl':
+      return 'Przejdź do treści'
+    default:
+      return 'Skip to content'
+  }
 }
