@@ -55,6 +55,6 @@ function localizeSkipToContent(): string {
     case 'pl':
       return 'Przejdź do treści'
     default:
-      return 'Skip to Content'
+      return 'Skip to content'
   }
 }
