@@ -57,10 +57,15 @@ export const LanguageSwitch = connect(function LanguageSwitch({
   return (
     <InPlaceEditingOff>
       <Dropdown className="nav-item">
-        <Dropdown.Toggle active={false} as={NavLink} eventKey={null}>
+        <Dropdown.Toggle
+          active={false}
+          aria-label={currentVersion.label}
+          as={NavLink}
+          eventKey={null}
+          lang={currentVersion.language}
+        >
           <LanguageLabel
             label={currentVersion.label}
-            language={currentVersion.language}
             root={currentVersion.root}
           />
         </Dropdown.Toggle>
@@ -68,17 +73,14 @@ export const LanguageSwitch = connect(function LanguageSwitch({
           {versions.map(({ version, root, label, language }) => (
             <Dropdown.Item
               key={root.id()}
-              as={LinkTag}
-              to={version || root}
-              params={currentPageParams()}
               active={root.language() === currentVersion.language}
+              aria-label={label}
+              as={LinkTag}
+              lang={language}
+              params={currentPageParams()}
+              to={version || root}
             >
-              <LanguageLabel
-                label={label}
-                language={language}
-                root={root}
-                showTextLabel
-              />
+              <LanguageLabel label={label} root={root} showTextLabel />
             </Dropdown.Item>
           ))}
         </Dropdown.Menu>
@@ -89,17 +91,15 @@ export const LanguageSwitch = connect(function LanguageSwitch({
 
 const LanguageLabel = connect(function LanguageLabel({
   label,
-  language,
   root,
   showTextLabel,
 }: {
   label: string
-  language: string | undefined
   root: HomepageInstance
   showTextLabel?: boolean
 }) {
   return (
-    <span aria-label={label} lang={language}>
+    <>
       <ImageTag
         alt=""
         content={root}
@@ -107,7 +107,7 @@ const LanguageLabel = connect(function LanguageLabel({
         className="img-flag"
       />
       {showTextLabel ? <span className="text-capitalize">{label}</span> : null}
-    </span>
+    </>
   )
 })
 
