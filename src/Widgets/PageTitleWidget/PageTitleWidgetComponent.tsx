@@ -6,14 +6,14 @@ provideComponent(PageTitleWidget, ({ widget }) => {
 
   return (
     <div className="header-caption">
-      <h3 className="h3">
+      <h1 className="h3">
         <ContentTag
           content={currentPage()}
           attribute="title"
           tag="span"
           className={`bg-${backgroundColor}`}
         />
-      </h3>
+      </h1>
     </div>
   )
 })
