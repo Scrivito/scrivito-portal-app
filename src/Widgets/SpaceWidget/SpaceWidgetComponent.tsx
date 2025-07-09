@@ -3,5 +3,6 @@ import { SpaceWidget } from './SpaceWidgetClass'
 
 provideComponent(SpaceWidget, ({ widget }) => {
   const size = widget.get('size') || 5
-  return <div style={{ height: `${size}rem` }} />
+  const unit = widget.get('unit') || 'rem'
+  return <div style={{ height: `${size}${unit}` }} />
 })

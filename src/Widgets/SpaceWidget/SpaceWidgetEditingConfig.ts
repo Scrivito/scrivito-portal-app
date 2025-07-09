@@ -7,12 +7,21 @@ provideEditingConfig(SpaceWidget, {
   thumbnail: Thumbnail,
   attributes: {
     size: {
-      title: 'Choose size',
-      description: 'Height of the space in rem. Default: 5',
+      title: 'Size',
+      description: 'Height of the space. Default: 5',
+    },
+    unit: {
+      title: 'Unit',
+      description: 'Unit for the space height. Default: rem',
+      values: [
+        { value: 'rem', title: 'rem (relative to root font size)' },
+        { value: 'vh', title: 'vh (viewport height)' },
+      ],
     },
   },
-  properties: ['size'],
+  properties: ['size', 'unit'],
   initialContent: {
     size: 5,
+    unit: 'rem',
   },
 })
