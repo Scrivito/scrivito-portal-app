@@ -30,10 +30,10 @@ provideComponent(SectionWidget, ({ widget }) => {
     <WidgetTag tag="section" className={sectionClassNames.join(' ')}>
       <ImageOrVideo widget={widget} />
       <ContentTag
-        tag="div"
-        content={widget}
-        className={contentClassName}
         attribute="content"
+        className={contentClassName}
+        content={widget}
+        tag="div"
       />
     </WidgetTag>
   )
@@ -67,10 +67,10 @@ const ImageOrVideo = connect(function ImageOrVideo({
   return (
     <InPlaceEditingOff>
       <ImageTag
-        content={widget}
+        alt=""
         attribute="backgroundImage"
         className={classNames.join(' ')}
-        alt=""
+        content={widget}
       />
     </InPlaceEditingOff>
   )

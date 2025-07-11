@@ -22,12 +22,12 @@ export const SectionWidget = provideWidgetClass('SectionWidget', {
       },
     ],
     backgroundImage: ['reference', { only: ['Image', 'Video'] }],
-    content: 'widgetlist',
-    showPadding: 'boolean',
     containerWidth: [
       'enum',
       { values: ['fixed', '95-percent', '100-percent'] },
     ],
+    content: 'widgetlist',
+    showPadding: 'boolean',
   },
   extractTextAttributes: ['content'],
 })
