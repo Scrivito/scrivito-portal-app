@@ -30,6 +30,10 @@ provideEditingConfig(SectionWidget, {
     backgroundImage: {
       title: 'Background image or video',
     },
+    containerMinHeight: {
+      title: 'Container minimum height',
+      description: 'For example 400px, 100vh, 50rem. Default: auto',
+    },
     containerWidth: {
       title: 'Container width',
       description: 'Default: fixed',
@@ -49,6 +53,7 @@ provideEditingConfig(SectionWidget, {
     'backgroundImage',
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
     'containerWidth',
+    'containerMinHeight',
     'showPadding',
   ],
   initialContent: {

@@ -10,6 +10,7 @@ import { SectionWidget, SectionWidgetInstance } from './SectionWidgetClass'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
+  const sectionStyles: React.CSSProperties = {}
 
   const backgroundColor = widget.get('backgroundColor')
   if (backgroundColor && backgroundColor !== 'transparent') {
@@ -26,8 +27,15 @@ provideComponent(SectionWidget, ({ widget }) => {
     contentClassName = ''
   }
 
+  const containerMinHeight = widget.get('containerMinHeight')
+  if (containerMinHeight) sectionStyles.minHeight = containerMinHeight
+
   return (
-    <WidgetTag tag="section" className={sectionClassNames.join(' ')}>
+    <WidgetTag
+      className={sectionClassNames.join(' ')}
+      style={sectionStyles}
+      tag="section"
+    >
       <ImageOrVideo widget={widget} />
       <ContentTag
         attribute="content"

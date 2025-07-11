@@ -22,6 +22,7 @@ export const SectionWidget = provideWidgetClass('SectionWidget', {
       },
     ],
     backgroundImage: ['reference', { only: ['Image', 'Video'] }],
+    containerMinHeight: 'string',
     containerWidth: [
       'enum',
       { values: ['fixed', '95-percent', '100-percent'] },
