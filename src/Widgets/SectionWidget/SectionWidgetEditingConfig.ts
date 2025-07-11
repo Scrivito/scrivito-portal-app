@@ -47,6 +47,15 @@ provideEditingConfig(SectionWidget, {
       title: 'Padding',
       description: 'Padding adds space around this section. Default: Yes',
     },
+    verticalAlignment: {
+      title: 'Vertical alignment',
+      description: 'Default: Top',
+      values: [
+        { value: 'start', title: 'Top' },
+        { value: 'center', title: 'Center' },
+        { value: 'end', title: 'Bottom' },
+      ],
+    },
   },
   properties: (widget) => [
     'backgroundColor',
@@ -54,11 +63,13 @@ provideEditingConfig(SectionWidget, {
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
     'containerWidth',
     'containerMinHeight',
+    'verticalAlignment',
     'showPadding',
   ],
   initialContent: {
     backgroundColor: 'transparent',
     containerWidth: 'fixed',
     showPadding: true,
+    verticalAlignment: 'start',
   },
 })

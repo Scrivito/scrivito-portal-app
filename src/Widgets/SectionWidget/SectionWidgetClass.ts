@@ -29,6 +29,7 @@ export const SectionWidget = provideWidgetClass('SectionWidget', {
     ],
     content: 'widgetlist',
     showPadding: 'boolean',
+    verticalAlignment: ['enum', { values: ['start', 'center', 'end'] }],
   },
   extractTextAttributes: ['content'],
 })

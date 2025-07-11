@@ -30,6 +30,13 @@ provideComponent(SectionWidget, ({ widget }) => {
   const containerMinHeight = widget.get('containerMinHeight')
   if (containerMinHeight) sectionStyles.minHeight = containerMinHeight
 
+  if (widget.get('verticalAlignment') === 'center') {
+    sectionClassNames.push('d-flex', 'align-items-center')
+  }
+  if (widget.get('verticalAlignment') === 'end') {
+    sectionClassNames.push('d-flex', 'align-items-end')
+  }
+
   return (
     <WidgetTag
       className={sectionClassNames.join(' ')}
