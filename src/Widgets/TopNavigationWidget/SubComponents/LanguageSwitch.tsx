@@ -1,4 +1,4 @@
-import { NavDropdown } from 'react-bootstrap'
+import { Dropdown, NavLink } from 'react-bootstrap'
 import {
   connect,
   currentPage,
@@ -56,50 +56,50 @@ export const LanguageSwitch = connect(function LanguageSwitch({
 
   return (
     <InPlaceEditingOff>
-      <NavDropdown
-        title={
+      <Dropdown className="nav-item">
+        <Dropdown.Toggle
+          active={false}
+          aria-label={currentVersion.label}
+          as={NavLink}
+          eventKey={null}
+          lang={currentVersion.language}
+        >
           <LanguageLabel
             label={currentVersion.label}
-            language={currentVersion.language}
             root={currentVersion.root}
           />
-        }
-        align={align}
-      >
-        {versions.map(({ version, root, label, language }) => (
-          <NavDropdown.Item
-            key={root.id()}
-            as={LinkTag}
-            to={version || root}
-            params={currentPageParams()}
-            active={root.language() === currentVersion.language}
-          >
-            <LanguageLabel
-              label={label}
-              language={language}
-              root={root}
-              showTextLabel
-            />
-          </NavDropdown.Item>
-        ))}
-      </NavDropdown>
+        </Dropdown.Toggle>
+        <Dropdown.Menu align={align}>
+          {versions.map(({ version, root, label, language }) => (
+            <Dropdown.Item
+              key={root.id()}
+              active={root.language() === currentVersion.language}
+              aria-label={label}
+              as={LinkTag}
+              lang={language}
+              params={currentPageParams()}
+              to={version || root}
+            >
+              <LanguageLabel label={label} root={root} showTextLabel />
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
     </InPlaceEditingOff>
   )
 })
 
 const LanguageLabel = connect(function LanguageLabel({
   label,
-  language,
   root,
   showTextLabel,
 }: {
   label: string
-  language: string | undefined
   root: HomepageInstance
   showTextLabel?: boolean
 }) {
   return (
-    <span aria-label={label} lang={language}>
+    <>
       <ImageTag
         alt=""
         content={root}
@@ -107,7 +107,7 @@ const LanguageLabel = connect(function LanguageLabel({
         className="img-flag"
       />
       {showTextLabel ? <span className="text-capitalize">{label}</span> : null}
-    </span>
+    </>
   )
 })
 
