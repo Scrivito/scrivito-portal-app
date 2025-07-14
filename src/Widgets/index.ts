@@ -8,6 +8,6 @@ import.meta.glob(['./**/*WidgetClass.ts', './**/*WidgetComponent.tsx'], {
 
 initNeoletterFormWidgets()
 
-pisaSalesApiUrl().then(pisaUrl => initPisaQuestionnaireWidgets({ pisaUrl: pisaUrl || '' }))
+initPisaQuestionnaireWidgets({ pisaApiUrl: pisaSalesApiUrl() })
 
 export {}
