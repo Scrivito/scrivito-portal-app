@@ -6,7 +6,6 @@ import './Data'
 import './Objs'
 import './Widgets'
 import { App } from './App'
-import { getJrPlatformApp } from './privateJrPlatform/getJrPlatformApp'
 
 declare global {
   interface Window {
@@ -28,20 +27,12 @@ export function renderOrHydrateApp(container: HTMLElement) {
   renderApp(container)
 }
 
-async function renderApp(container: HTMLElement) {
-  const RootComponent = await getRootComponent()
-
+function renderApp(container: HTMLElement) {
   createRoot(container).render(
     <StrictMode>
-      <RootComponent />
+      <App />
     </StrictMode>,
   )
-}
-
-async function getRootComponent() {
-  if (import.meta.env.PRIVATE_JR_PLATFORM) return getJrPlatformApp()
-
-  return App
 }
 
 function hydrateApp(container: HTMLElement) {
