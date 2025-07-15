@@ -8,18 +8,22 @@ import { ensureSiteIsPresent } from './config/scrivitoSites'
 import { verifySameWhoAmIUser } from './Data/CurrentUser/verifySameWhoAmIUser'
 import { renderOrHydrateApp } from './renderOrHydrateApp'
 
-const container = document.getElementById('root')
-if (!container) throw new Error("Root element with id 'root' not found")
+boot()
 
-configure()
-ensureSiteIsPresent()
-verifySameWhoAmIUser()
+function boot() {
+  const container = document.getElementById('root')
+  if (!container) throw new Error("Root element with id 'root' not found")
 
-renderOrHydrateApp(container)
+  configure()
+  ensureSiteIsPresent()
+  verifySameWhoAmIUser()
 
-if (isEditorLoggedIn()) {
-  import('./assets/stylesheets/scrivitoEditing.scss')
-  import('./Data/editingConfigs')
-  import('./Objs/editingConfigs')
-  import('./Widgets/editingConfigs')
+  renderOrHydrateApp(container)
+
+  if (isEditorLoggedIn()) {
+    import('./assets/stylesheets/scrivitoEditing.scss')
+    import('./Data/editingConfigs')
+    import('./Objs/editingConfigs')
+    import('./Widgets/editingConfigs')
+  }
 }
