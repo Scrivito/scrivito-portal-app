@@ -11,9 +11,14 @@ import { ensureSiteIsPresent } from './config/scrivitoSites'
 import { verifySameWhoAmIUser } from './Data/CurrentUser/verifySameWhoAmIUser'
 import { getJrPlatformApp } from './privateJrPlatform/getJrPlatformApp'
 
+const container = document.getElementById('root')
+if (!container) throw new Error("Root element with id 'root' not found")
+
 configure()
 ensureSiteIsPresent()
 verifySameWhoAmIUser()
+
+renderOrHydrateApp(container)
 
 declare global {
   interface Window {
@@ -21,19 +26,24 @@ declare global {
   }
 }
 
-if (typeof window.preloadDump === 'string') {
-  preload(window.preloadDump).then(({ dumpLoaded }) => {
-    delete window.preloadDump
+function renderOrHydrateApp(container: HTMLElement) {
+  if (typeof window.preloadDump === 'string') {
+    return preload(window.preloadDump).then(({ dumpLoaded }) => {
+      delete window.preloadDump
 
-    if (dumpLoaded) hydrateApp()
-    else renderApp()
-  })
-} else renderApp()
+      if (dumpLoaded) return hydrateApp(container)
 
-async function renderApp() {
+      return renderApp(container)
+    })
+  }
+
+  renderApp(container)
+}
+
+async function renderApp(container: HTMLElement) {
   const RootComponent = await getRootComponent()
 
-  createRoot(document.getElementById('root') as HTMLElement).render(
+  createRoot(container).render(
     <StrictMode>
       <RootComponent />
     </StrictMode>,
@@ -46,9 +56,9 @@ async function getRootComponent() {
   return App
 }
 
-function hydrateApp() {
+function hydrateApp(container: HTMLElement) {
   hydrateRoot(
-    document.getElementById('root') as HTMLElement,
+    container,
     <StrictMode>
       <App
         appWrapperRef={(el) => {
