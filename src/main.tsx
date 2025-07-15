@@ -12,7 +12,7 @@ import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
 import { JrPlatformMissingTenant } from './privateJrPlatform/Components/JrPlatformMissingTenant'
 import { isJrPlatformValidContentFormat } from './privateJrPlatform/isJrPlatformValidContentFormat'
-import { JrPlatformWrongContentFormat } from './privateJrPlatform/Components/WrongContentFormat'
+import { JrPlatformWrongContentFormat } from './privateJrPlatform/Components/JrPlatformWrongContentFormat'
 
 boot()
 
