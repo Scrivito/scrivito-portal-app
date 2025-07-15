@@ -12,7 +12,7 @@ import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
 import { JrPlatformMissingTenant } from './privateJrPlatform/Components/JrPlatformMissingTenant'
 import { isJrPlatformValidContentFormat } from './privateJrPlatform/isJrPlatformValidContentFormat'
-import { WrongContentFormat } from './privateJrPlatform/Components/WrongContentFormat'
+import { JrPlatformWrongContentFormat } from './privateJrPlatform/Components/WrongContentFormat'
 
 boot()
 
@@ -36,7 +36,7 @@ async function boot() {
     if (!(await isJrPlatformValidContentFormat())) {
       return createRoot(container).render(
         <StrictMode>
-          <WrongContentFormat />
+          <JrPlatformWrongContentFormat />
         </StrictMode>,
       )
     }
