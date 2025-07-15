@@ -12,7 +12,7 @@ const KNOWN_CONTENT_FORMATS: Record<string, string> = {
  *
  * For alias instances it returns `true` - regardless of the `contentFormat`. It's better to show a half-broken app, then to show a full error page.
  */
-export async function isValidContentFormat(): Promise<boolean> {
+export async function isJrPlatformValidContentFormat(): Promise<boolean> {
   if (instanceFromHostname()) return true
 
   const root = await load(() => Obj.root())
