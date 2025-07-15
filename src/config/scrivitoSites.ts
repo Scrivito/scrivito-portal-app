@@ -89,7 +89,6 @@ export function isNoSitePresent(): boolean {
 }
 
 export async function ensureSiteIsPresent() {
-  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11895
   if (await load(() => currentSiteId())) return
 
   if (await load(() => isNoSitePresent())) {
