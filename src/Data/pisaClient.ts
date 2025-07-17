@@ -17,7 +17,7 @@ export async function pisaSalesApiUrl(): Promise<string | null> {
 
   if (import.meta.env.FORCE_LOCAL_STORAGE) return null
 
-  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11895 or #11924
+  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11924
   if (!isUserLoggedIn()) return null
 
   const instanceConfig = (await createRestApiClient(

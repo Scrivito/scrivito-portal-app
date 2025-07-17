@@ -5,7 +5,7 @@ import { jwtPisaSalesApiConfig } from '../jwtPisaSalesApiConfig'
 export const Gdpr = provideDataClass(
   'Gdpr',
   (async () => {
-    await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11895 or #11924
+    await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11924
     if (!isUserLoggedIn()) {
       const jwtRestApi = await jwtPisaSalesApiConfig({ subPath: 'portal/gdpr' })
 
