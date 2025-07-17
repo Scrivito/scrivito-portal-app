@@ -17,12 +17,12 @@ import { JrPlatformWrongContentFormat } from './privateJrPlatform/Components/JrP
 boot()
 
 async function boot() {
-  const container = document.getElementById('root')
-  if (!container) throw new Error("Root element with id 'root' not found")
+  const rootElement = document.getElementById('root')
+  if (!rootElement) throw new Error("Root element with id 'root' not found")
 
   if (import.meta.env.PRIVATE_JR_PLATFORM) {
     if (!getJrPlatformInstanceId()) {
-      return createRoot(container).render(
+      return createRoot(rootElement).render(
         <StrictMode>
           <JrPlatformMissingTenant />
         </StrictMode>,
@@ -34,7 +34,7 @@ async function boot() {
 
   if (import.meta.env.PRIVATE_JR_PLATFORM) {
     if (!(await isJrPlatformValidContentFormat())) {
-      return createRoot(container).render(
+      return createRoot(rootElement).render(
         <StrictMode>
           <JrPlatformWrongContentFormat />
         </StrictMode>,
@@ -44,7 +44,7 @@ async function boot() {
   ensureSiteIsPresent()
   verifySameWhoAmIUser()
 
-  renderOrHydrateApp(container)
+  renderOrHydrateApp(rootElement)
 
   if (isEditorLoggedIn()) {
     import('./assets/stylesheets/scrivitoEditing.scss')
