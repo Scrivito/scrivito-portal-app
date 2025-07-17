@@ -30,7 +30,7 @@ Make sure that you have [![node ≥ 20.0](https://img.shields.io/badge/node-≥%
 
 ```
 node -v
-# should output something like v20.17.0
+# should output something like v20.19.0
 ```
 
 ### Install dependencies

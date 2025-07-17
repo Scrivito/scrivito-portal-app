@@ -5,7 +5,7 @@ import { getJrPlatformInstanceId } from '../privateJrPlatform/multiTenancy'
 
 export function configureScrivito(options?: { priority?: 'background' }) {
   const tenant = scrivitoTenantId()
-  if (!tenant) return // Other layers (like vite.config.ts) should have thrown an error.
+  if (!tenant) throw new Error('No Scrivito tenant ID found!')
 
   configure({
     activateDataIntegration: true,
