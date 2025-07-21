@@ -43,6 +43,45 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           />
         </div>
       </div>
+
+      <div className="row">
+        <div className="col-sm-4">
+          <div className="scrivito_detail_label">
+            <span>Light grey</span>
+          </div>
+          <AdvancedColorPicker
+            color={page.get('siteColorLightGrey') || '#f2f3f7'}
+            disabled={disabled}
+            setColor={(siteColorLightGrey) =>
+              page.update({ siteColorLightGrey })
+            }
+          />
+        </div>
+
+        <div className="col-sm-4">
+          <div className="scrivito_detail_label">
+            <span>Middle grey</span>
+          </div>
+          <AdvancedColorPicker
+            color={page.get('siteColorMiddleGrey') || '#e8e8e8'}
+            disabled={disabled}
+            setColor={(siteColorMiddleGrey) =>
+              page.update({ siteColorMiddleGrey })
+            }
+          />
+        </div>
+
+        <div className="col-sm-4">
+          <div className="scrivito_detail_label">
+            <span>Dark grey</span>
+          </div>
+          <AdvancedColorPicker
+            color={page.get('siteColorDarkGrey') || '#2f2f2f'}
+            disabled={disabled}
+            setColor={(siteColorDarkGrey) => page.update({ siteColorDarkGrey })}
+          />
+        </div>
+      </div>
     </div>
   )
 })
