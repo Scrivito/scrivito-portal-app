@@ -47,7 +47,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
       <div className="row">
         <div className="col-sm-6">
           <div className="scrivito_detail_label">
-            <span>Body text color</span>
+            <span>Body text</span>
           </div>
           <AdvancedColorPicker
             color={page.get('siteColorBody') || '#4f557a'}
@@ -58,7 +58,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
 
         <div className="col-sm-6">
           <div className="scrivito_detail_label">
-            <span>Headline text color</span>
+            <span>Headline text</span>
           </div>
           <AdvancedColorPicker
             color={page.get('siteColorHeadline') || '#1a284d'}
