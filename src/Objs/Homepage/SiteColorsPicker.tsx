@@ -45,30 +45,6 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
       </div>
 
       <div className="row">
-        <div className="col-sm-6">
-          <div className="scrivito_detail_label">
-            <span>Body text</span>
-          </div>
-          <AdvancedColorPicker
-            color={page.get('siteColorBody') || '#4f557a'}
-            disabled={disabled}
-            setColor={(siteColorBody) => page.update({ siteColorBody })}
-          />
-        </div>
-
-        <div className="col-sm-6">
-          <div className="scrivito_detail_label">
-            <span>Headline text</span>
-          </div>
-          <AdvancedColorPicker
-            color={page.get('siteColorHeadline') || '#1a284d'}
-            disabled={disabled}
-            setColor={(siteColorHeadline) => page.update({ siteColorHeadline })}
-          />
-        </div>
-      </div>
-
-      <div className="row">
         <div className="col-sm-4">
           <div className="scrivito_detail_label">
             <span>Light grey</span>
@@ -103,6 +79,30 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             color={page.get('siteColorDarkGrey') || '#2f2f2f'}
             disabled={disabled}
             setColor={(siteColorDarkGrey) => page.update({ siteColorDarkGrey })}
+          />
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col-sm-6">
+          <div className="scrivito_detail_label">
+            <span>Body text</span>
+          </div>
+          <AdvancedColorPicker
+            color={page.get('siteColorBody') || '#4f557a'}
+            disabled={disabled}
+            setColor={(siteColorBody) => page.update({ siteColorBody })}
+          />
+        </div>
+
+        <div className="col-sm-6">
+          <div className="scrivito_detail_label">
+            <span>Headline text</span>
+          </div>
+          <AdvancedColorPicker
+            color={page.get('siteColorHeadline') || '#1a284d'}
+            disabled={disabled}
+            setColor={(siteColorHeadline) => page.update({ siteColorHeadline })}
           />
         </div>
       </div>
