@@ -19,6 +19,12 @@ export const DesignAdjustments = connect(
     const secondary = root.get('siteColorSecondary')
     if (secondary) styles.push(`--bs-secondary: ${secondary};`)
 
+    const bodyColor = root.get('siteColorBody')
+    if (bodyColor) styles.push(`--bs-body-color: ${bodyColor};`)
+
+    const headlineColor = root.get('siteColorHeadline')
+    if (headlineColor) styles.push(`--headline: ${headlineColor};`)
+
     const lightGrey = root.get('siteColorLightGrey')
     if (lightGrey) styles.push(`--light-grey: ${lightGrey};`)
 
