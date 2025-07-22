@@ -25,8 +25,8 @@ export const DesignAdjustments = connect(
     const fourth = root.get('siteColorFourth')
     if (fourth) styles.push(`--fourth-color: ${fourth};`)
 
-    const darkGrey = root.get('siteColorDarkGrey')
-    if (darkGrey) styles.push(`--fifth-color: ${darkGrey};`)
+    const fifth = root.get('siteColorFifth')
+    if (fifth) styles.push(`--fifth-color: ${fifth};`)
 
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none;')

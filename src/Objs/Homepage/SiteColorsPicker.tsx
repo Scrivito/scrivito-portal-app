@@ -76,9 +76,9 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             <span>5th color</span>
           </div>
           <AdvancedColorPicker
-            color={page.get('siteColorDarkGrey') || '#2f2f2f'}
+            color={page.get('siteColorFifth') || '#2f2f2f'}
             disabled={disabled}
-            setColor={(siteColorDarkGrey) => page.update({ siteColorDarkGrey })}
+            setColor={(siteColorFifth) => page.update({ siteColorFifth })}
           />
         </div>
       </div>
