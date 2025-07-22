@@ -50,10 +50,10 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             <span>3rd color</span>
           </div>
           <AdvancedColorPicker
-            color={page.get('siteColorLightGrey') || '#f2f3f7'}
+            color={page.get('siteColorThird') || '#f2f3f7'}
             disabled={disabled}
-            setColor={(siteColorLightGrey) =>
-              page.update({ siteColorLightGrey })
+            setColor={(siteColorThird) =>
+              page.update({ siteColorThird })
             }
           />
         </div>

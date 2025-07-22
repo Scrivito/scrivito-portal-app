@@ -106,10 +106,10 @@ provideEditingConfig(Homepage, {
       component: SiteColorsPicker,
       properties: [
         'siteColorDarkGrey',
-        'siteColorLightGrey',
         'siteColorMiddleGrey',
         'siteColorPrimary',
         'siteColorSecondary',
+        'siteColorThird',
       ],
       key: 'site-colors-group',
     },
