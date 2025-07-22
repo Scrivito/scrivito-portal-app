@@ -20,7 +20,7 @@ provideEditingConfig(SectionWidget, {
         { value: 'secondary', title: 'Secondary color' },
         { value: 'light-grey', title: '3rd color' },
         { value: 'middle-grey', title: '4th color' },
-        { value: 'dark-grey', title: 'Dark grey' },
+        { value: 'dark-grey', title: '5th color' },
         { value: 'success', title: 'Success' },
         { value: 'info', title: 'Info' },
         { value: 'warning', title: 'Warning' },

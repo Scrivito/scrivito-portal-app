@@ -73,7 +73,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
 
         <div className="col-sm-4">
           <div className="scrivito_detail_label">
-            <span>Dark grey</span>
+            <span>5th color</span>
           </div>
           <AdvancedColorPicker
             color={page.get('siteColorDarkGrey') || '#2f2f2f'}
