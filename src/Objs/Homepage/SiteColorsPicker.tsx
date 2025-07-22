@@ -52,9 +52,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           <AdvancedColorPicker
             color={page.get('siteColorThird') || '#f2f3f7'}
             disabled={disabled}
-            setColor={(siteColorThird) =>
-              page.update({ siteColorThird })
-            }
+            setColor={(siteColorThird) => page.update({ siteColorThird })}
           />
         </div>
 
@@ -65,9 +63,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           <AdvancedColorPicker
             color={page.get('siteColorFourth') || '#e8e8e8'}
             disabled={disabled}
-            setColor={(siteColorFourth) =>
-              page.update({ siteColorFourth })
-            }
+            setColor={(siteColorFourth) => page.update({ siteColorFourth })}
           />
         </div>
 
