@@ -20,7 +20,7 @@ export const DesignAdjustments = connect(
     if (secondary) styles.push(`--bs-secondary: ${secondary};`)
 
     const lightGrey = root.get('siteColorLightGrey')
-    if (lightGrey) styles.push(`--light-grey: ${lightGrey};`)
+    if (lightGrey) styles.push(`--third-color: ${lightGrey};`)
 
     const middleGrey = root.get('siteColorMiddleGrey')
     if (middleGrey) styles.push(`--middle-grey: ${middleGrey};`)

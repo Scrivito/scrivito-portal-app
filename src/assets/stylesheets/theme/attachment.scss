@@ -11,12 +11,12 @@
     cursor: pointer;
 
     &:hover {
-      background: var(--light-grey);
+      background: var(--third-color);
     }
   }
 
   .box-preview {
-    background: var(--light-grey);
+    background: var(--third-color);
     margin: 3px;
     display: block;
     overflow: hidden;

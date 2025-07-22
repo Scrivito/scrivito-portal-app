@@ -11,7 +11,7 @@
  ================================================== */
 
 :root {
-  --light-grey: #f2f3f7;
+  --third-color: #f2f3f7; // previously --light-grey
   --middle-grey: #e8e8e8;
   --dark-grey: #2f2f2f;
   --headline: #1a284d;
@@ -269,7 +269,7 @@ fieldset:disabled .btn {
   }
   .form-control {
     border-radius: var(--jr-border-radius);
-    background: var(--light-grey);
+    background: var(--third-color);
     border-right: 0;
 
     &.no-arrows {
@@ -622,7 +622,7 @@ main {
 }
 
 .bg-light-grey {
-  background: var(--light-grey) !important;
+  background: var(--third-color) !important;
 }
 .bg-middle-grey {
   background: var(--middle-grey) !important;
@@ -844,7 +844,7 @@ section {
   color: var(--middle-grey);
 }
 .text-light-grey {
-  color: var(--light-grey);
+  color: var(--third-color);
 }
 
 section .card.no-color-adaption {
@@ -1075,7 +1075,7 @@ section:focus >,
     background: var(--middle-grey) !important;
   }
   &.bg-light-grey:after {
-    background: var(--light-grey) !important;
+    background: var(--third-color) !important;
   }
   &.bg-success:after {
     background: var(--bs-success) !important;
@@ -1503,7 +1503,7 @@ section.bg-primary {
     height: 100%;
   }
   .form-control:focus {
-    background-color: var(--light-grey);
+    background-color: var(--third-color);
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -1515,7 +1515,7 @@ section.bg-primary {
     height: 37px;
   }
   .form-control:focus {
-    background-color: var(--light-grey);
+    background-color: var(--third-color);
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -1687,7 +1687,7 @@ section.bg-primary {
   }
 
   .form-control {
-    background-color: var(--light-grey);
+    background-color: var(--third-color);
   }
 }
 
@@ -1981,11 +1981,11 @@ header .navbar.navbar-expand-lg {
  =================================================================== */
 @media (prefers-contrast: more) {
   :root {
-    --light-grey: #eee;
+    --third-color: #eee;
     --middle-grey: #e3e3e3;
   }
   main {
-    background: var(--light-grey);
+    background: var(--third-color);
   }
   .Toastify__toast,
   .navbar-toggler.btn,
