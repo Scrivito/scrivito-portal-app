@@ -82,30 +82,6 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
           />
         </div>
       </div>
-
-      <div className="row">
-        <div className="col-sm-6">
-          <div className="scrivito_detail_label">
-            <span>Body text</span>
-          </div>
-          <AdvancedColorPicker
-            color={page.get('siteColorBody') || '#4f557a'}
-            disabled={disabled}
-            setColor={(siteColorBody) => page.update({ siteColorBody })}
-          />
-        </div>
-
-        <div className="col-sm-6">
-          <div className="scrivito_detail_label">
-            <span>Headline text</span>
-          </div>
-          <AdvancedColorPicker
-            color={page.get('siteColorHeadline') || '#1a284d'}
-            disabled={disabled}
-            setColor={(siteColorHeadline) => page.update({ siteColorHeadline })}
-          />
-        </div>
-      </div>
     </div>
   )
 })
