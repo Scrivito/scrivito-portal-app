@@ -15,7 +15,7 @@ provideEditingConfig(SlideWidget, {
         { value: 'primary', title: 'Primary color' },
         { value: 'secondary', title: 'Secondary color' },
         { value: 'light-grey', title: '3rd color' },
-        { value: 'middle-grey', title: 'Grey' },
+        { value: 'middle-grey', title: '4th color' },
         { value: 'dark-grey', title: 'Dark grey' },
         { value: 'success', title: 'Success' },
         { value: 'info', title: 'Info' },
