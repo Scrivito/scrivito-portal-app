@@ -23,7 +23,7 @@ export const DesignAdjustments = connect(
     if (third) styles.push(`--third-color: ${third};`)
 
     const middleGrey = root.get('siteColorMiddleGrey')
-    if (middleGrey) styles.push(`--middle-grey: ${middleGrey};`)
+    if (middleGrey) styles.push(`--fourth-color: ${middleGrey};`)
 
     const darkGrey = root.get('siteColorDarkGrey')
     if (darkGrey) styles.push(`--dark-grey: ${darkGrey};`)
