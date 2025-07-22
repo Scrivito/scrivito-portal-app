@@ -11,9 +11,9 @@
  ================================================== */
 
 :root {
-  --light-grey: #f2f3f7;
-  --middle-grey: #e8e8e8;
-  --dark-grey: #2f2f2f;
+  --third-color: #f2f3f7; // previously --light-grey
+  --fourth-color: #e8e8e8; // previously --middle-grey
+  --fifth-color: #2f2f2f; // previously --dark-grey
   --headline: #1a284d;
 
   --border: rgba(0, 0, 0, 0.1);
@@ -269,7 +269,7 @@ fieldset:disabled .btn {
   }
   .form-control {
     border-radius: var(--jr-border-radius);
-    background: var(--light-grey);
+    background: var(--third-color);
     border-right: 0;
 
     &.no-arrows {
@@ -541,7 +541,7 @@ main {
  ================================================== */
 .alert {
   background: #fff;
-  color: var(--dark-grey);
+  color: var(--fifth-color);
   border: none;
   border-radius: 5px;
   box-shadow:
@@ -596,7 +596,7 @@ main {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 .bg-dark-grey {
-  background: var(--dark-grey) !important;
+  background: var(--fifth-color) !important;
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
@@ -622,10 +622,10 @@ main {
 }
 
 .bg-light-grey {
-  background: var(--light-grey) !important;
+  background: var(--third-color) !important;
 }
 .bg-middle-grey {
-  background: var(--middle-grey) !important;
+  background: var(--fourth-color) !important;
 }
 
 // -- color content adaptions -- //
@@ -838,13 +838,13 @@ section {
 }
 
 .text-dark-grey {
-  color: var(--dark-grey);
+  color: var(--fifth-color);
 }
 .text-middle-grey {
-  color: var(--middle-grey);
+  color: var(--fourth-color);
 }
 .text-light-grey {
-  color: var(--light-grey);
+  color: var(--third-color);
 }
 
 section .card.no-color-adaption {
@@ -1069,13 +1069,13 @@ section:focus >,
     background: var(--bs-secondary) !important;
   }
   &.bg-dark-grey:after {
-    background: var(--dark-grey) !important;
+    background: var(--fifth-color) !important;
   }
   &.bg-middle-grey:after {
-    background: var(--middle-grey) !important;
+    background: var(--fourth-color) !important;
   }
   &.bg-light-grey:after {
-    background: var(--light-grey) !important;
+    background: var(--third-color) !important;
   }
   &.bg-success:after {
     background: var(--bs-success) !important;
@@ -1503,7 +1503,7 @@ section.bg-primary {
     height: 100%;
   }
   .form-control:focus {
-    background-color: var(--light-grey);
+    background-color: var(--third-color);
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -1515,7 +1515,7 @@ section.bg-primary {
     height: 37px;
   }
   .form-control:focus {
-    background-color: var(--light-grey);
+    background-color: var(--third-color);
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -1555,7 +1555,7 @@ section.bg-primary {
   --bs-dropdown-padding-y: 0;
   --bs-dropdown-spacer: 0;
   --bs-dropdown-font-size: 0.875rem;
-  --bs-dropdown-color: var(--dark-grey);
+  --bs-dropdown-color: var(--fifth-color);
   --bs-dropdown-bg: #fff;
   --bs-dropdown-border-color: rgba(0, 0, 0, 0.05);
   --bs-dropdown-border-radius: 0;
@@ -1564,12 +1564,12 @@ section.bg-primary {
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --bs-dropdown-link-color: var(--dark-grey);
-  --bs-dropdown-link-hover-color: var(--dark-grey);
-  --bs-dropdown-link-hover-bg: var(--middle-grey);
+  --bs-dropdown-link-color: var(--fifth-color);
+  --bs-dropdown-link-hover-color: var(--fifth-color);
+  --bs-dropdown-link-hover-bg: var(--fourth-color);
   --bs-dropdown-link-active-color: #fff;
   --bs-dropdown-link-active-bg: var(--bs-primary);
-  --bs-dropdown-link-disabled-color: var(--middle-grey);
+  --bs-dropdown-link-disabled-color: var(--fourth-color);
   --bs-dropdown-item-padding-x: 0.5rem;
   --bs-dropdown-item-padding-y: 0.35rem;
   --bs-dropdown-header-color: #6c757d;
@@ -1584,7 +1584,7 @@ section.bg-primary {
 
 .dropdown-divider {
   margin: 0;
-  border-top: 1px solid var(--middle-grey);
+  border-top: 1px solid var(--fourth-color);
 }
 
 .nav-link i,
@@ -1618,14 +1618,14 @@ section.bg-primary {
     padding: 10px;
     white-space: normal;
     display: flex;
-    color: var(--dark-grey);
+    color: var(--fifth-color);
   }
   ul li a i {
     color: var(--bs-primary);
   }
 
   aside {
-    background-color: var(--middle-grey);
+    background-color: var(--fourth-color);
     display: flex;
     flex: 0 0 350px;
     align-items: flex-start;
@@ -1673,7 +1673,7 @@ section.bg-primary {
     .dropdown-item {
       padding: 0.375rem;
       &:hover {
-        background: var(--middle-grey);
+        background: var(--fourth-color);
       }
       &.active {
         background: var(--bs-primary);
@@ -1687,7 +1687,7 @@ section.bg-primary {
   }
 
   .form-control {
-    background-color: var(--light-grey);
+    background-color: var(--third-color);
   }
 }
 
@@ -1981,11 +1981,11 @@ header .navbar.navbar-expand-lg {
  =================================================================== */
 @media (prefers-contrast: more) {
   :root {
-    --light-grey: #eee;
-    --middle-grey: #e3e3e3;
+    --third-color: #eee;
+    --fourth-color: #e3e3e3;
   }
   main {
-    background: var(--light-grey);
+    background: var(--third-color);
   }
   .Toastify__toast,
   .navbar-toggler.btn,

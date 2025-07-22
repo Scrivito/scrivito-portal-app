@@ -104,7 +104,13 @@ provideEditingConfig(Homepage, {
     {
       title: 'Site colors',
       component: SiteColorsPicker,
-      properties: ['siteColorPrimary', 'siteColorSecondary'],
+      properties: [
+        'siteColorFifth',
+        'siteColorFourth',
+        'siteColorPrimary',
+        'siteColorSecondary',
+        'siteColorThird',
+      ],
       key: 'site-colors-group',
     },
     {

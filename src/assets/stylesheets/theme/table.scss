@@ -8,10 +8,10 @@
   --bs-table-striped-bg: #f9fbfd;
   --bs-table-active-color: #12263f;
   --bs-table-active-bg: #f9fbfd;
-  --bs-table-hover-color: var(--dark-grey);
+  --bs-table-hover-color: var(--fifth-color);
   --bs-table-hover-bg: rgba(0, 0, 0, 0.05);
   border-color: rgba(0, 0, 0, 0.1);
-  color: var(--dark-grey);
+  color: var(--fifth-color);
   margin-bottom: 1.5rem;
   vertical-align: top;
   width: 100%;
@@ -24,7 +24,7 @@
 }
 
 .table > :not(:first-child) {
-  border-top: 1px solid var(--dark-grey);
+  border-top: 1px solid var(--fifth-color);
 }
 
 .table thead th,
@@ -74,7 +74,7 @@ tr:last-child td {
     table td:before {
       content: attr(data-label);
       display: block;
-      color: var(--dark-grey);
+      color: var(--fifth-color);
       font-size: 8px;
       font-weight: 600;
       letter-spacing: 0.08em;

@@ -19,6 +19,15 @@ export const DesignAdjustments = connect(
     const secondary = root.get('siteColorSecondary')
     if (secondary) styles.push(`--bs-secondary: ${secondary};`)
 
+    const third = root.get('siteColorThird')
+    if (third) styles.push(`--third-color: ${third};`)
+
+    const fourth = root.get('siteColorFourth')
+    if (fourth) styles.push(`--fourth-color: ${fourth};`)
+
+    const fifth = root.get('siteColorFifth')
+    if (fifth) styles.push(`--fifth-color: ${fifth};`)
+
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none;')
 
