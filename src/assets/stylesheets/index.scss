@@ -13,7 +13,7 @@
 :root {
   --third-color: #f2f3f7; // previously --light-grey
   --fourth-color: #e8e8e8; // previously --middle-grey
-  --dark-grey: #2f2f2f;
+  --fifth-color: #2f2f2f; // previously --dark-grey
   --headline: #1a284d;
 
   --border: rgba(0, 0, 0, 0.1);
@@ -541,7 +541,7 @@ main {
  ================================================== */
 .alert {
   background: #fff;
-  color: var(--dark-grey);
+  color: var(--fifth-color);
   border: none;
   border-radius: 5px;
   box-shadow:
@@ -596,7 +596,7 @@ main {
   color: rgba(255, 255, 255, 0.9) !important;
 }
 .bg-dark-grey {
-  background: var(--dark-grey) !important;
+  background: var(--fifth-color) !important;
   color: rgba(255, 255, 255, 0.9) !important;
 }
 
@@ -838,7 +838,7 @@ section {
 }
 
 .text-dark-grey {
-  color: var(--dark-grey);
+  color: var(--fifth-color);
 }
 .text-middle-grey {
   color: var(--fourth-color);
@@ -1069,7 +1069,7 @@ section:focus >,
     background: var(--bs-secondary) !important;
   }
   &.bg-dark-grey:after {
-    background: var(--dark-grey) !important;
+    background: var(--fifth-color) !important;
   }
   &.bg-middle-grey:after {
     background: var(--fourth-color) !important;
@@ -1555,7 +1555,7 @@ section.bg-primary {
   --bs-dropdown-padding-y: 0;
   --bs-dropdown-spacer: 0;
   --bs-dropdown-font-size: 0.875rem;
-  --bs-dropdown-color: var(--dark-grey);
+  --bs-dropdown-color: var(--fifth-color);
   --bs-dropdown-bg: #fff;
   --bs-dropdown-border-color: rgba(0, 0, 0, 0.05);
   --bs-dropdown-border-radius: 0;
@@ -1564,8 +1564,8 @@ section.bg-primary {
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --bs-dropdown-link-color: var(--dark-grey);
-  --bs-dropdown-link-hover-color: var(--dark-grey);
+  --bs-dropdown-link-color: var(--fifth-color);
+  --bs-dropdown-link-hover-color: var(--fifth-color);
   --bs-dropdown-link-hover-bg: var(--fourth-color);
   --bs-dropdown-link-active-color: #fff;
   --bs-dropdown-link-active-bg: var(--bs-primary);
@@ -1618,7 +1618,7 @@ section.bg-primary {
     padding: 10px;
     white-space: normal;
     display: flex;
-    color: var(--dark-grey);
+    color: var(--fifth-color);
   }
   ul li a i {
     color: var(--bs-primary);
