@@ -45,23 +45,27 @@ export function siteForUrl(
     return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
   }
 
-  const language = languageForUrl(url)
-  const languageVersions = defaultSiteLanguageVersions()
-  const siteId = languageVersions
-    ?.find((site) => site.language() === language)
-    ?.siteId()
+  const { language, siteId } = languageAndSiteIdForUrl(url)
 
   if (language && siteId) {
     return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
   }
-  if (languageVersions?.length) return findSiteForUrlExpensive(url)
+
+  if (defaultSiteLanguageVersions()?.length) return findSiteForUrlExpensive(url)
 }
 
-function languageForUrl(url: string) {
-  const regex = new RegExp(
-    `^${getBaseAppUrl()}\\/(?<lang>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
-  )
-  return regex.exec(url)?.groups?.lang
+function languageAndSiteIdForUrl(url: string) {
+  const { language } =
+    new RegExp(
+      `^${getBaseAppUrl()}\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
+    ).exec(url)?.groups || {}
+
+  return {
+    language,
+    siteId: defaultSiteLanguageVersions()
+      ?.find((site) => site.language() === language)
+      ?.siteId(),
+  }
 }
 
 function findSiteForUrlExpensive(url: string) {
