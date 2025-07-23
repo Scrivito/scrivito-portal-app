@@ -27,7 +27,9 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (siteRoot.contentId() !== rootContentId()) return baseUrlsFor(siteRoot)[0]
+  if (siteRoot.contentId() !== defaultSiteContentId()) {
+    return baseUrlsFor(siteRoot)[0]
+  }
 
   const language = siteRoot.language()
   if (!language) return
@@ -44,15 +46,15 @@ export function siteForUrl(
   }
 
   const language = languageForUrl(url)
-  const websites = appWebsites()
-  const siteId = websites
+  const languageVersions = defaultSiteLanguageVersions()
+  const siteId = languageVersions
     ?.find((site) => site.language() === language)
     ?.siteId()
 
   if (language && siteId) {
     return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
   }
-  if (websites?.length) return findSiteForUrlExpensive(url)
+  if (languageVersions?.length) return findSiteForUrlExpensive(url)
 }
 
 function languageForUrl(url: string) {
@@ -85,7 +87,7 @@ function baseUrlsFor(site: Obj) {
 }
 
 export function isNoSitePresent(): boolean {
-  return !appWebsites()?.length
+  return !defaultSiteLanguageVersions()?.length
 }
 
 export async function ensureSiteIsPresent() {
@@ -115,15 +117,17 @@ function redirectToSiteUrl(siteUrl: string) {
 }
 
 function getPreferredSite() {
-  const websites = appWebsites() || []
+  const languageVersions = defaultSiteLanguageVersions() || []
   const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
   for (const language of preferredLanguageOrder) {
-    const site = websites.find((site) => siteHasLanguage(site, language))
+    const site = languageVersions.find((site) =>
+      siteHasLanguage(site, language),
+    )
     if (site) return site
   }
 
-  return websites[0] || null
+  return languageVersions[0] || null
 }
 
 function getBaseAppUrl(): string {
@@ -135,13 +139,13 @@ function getBaseAppUrl(): string {
   return origin
 }
 
-function appWebsites() {
+function defaultSiteLanguageVersions() {
   return Obj.onAllSites()
     .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
     ?.versionsOnAllSites()
 }
 
-function rootContentId() {
+function defaultSiteContentId() {
   return Obj.onAllSites()
     .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
     ?.contentId()
