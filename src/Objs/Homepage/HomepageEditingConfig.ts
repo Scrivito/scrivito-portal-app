@@ -8,6 +8,7 @@ import {
   defaultPagePropertiesGroups,
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
+import { SiteBorderRadiusEditor } from '../../Components/ScrivitoExtensions/SiteBorderRadiusEditor'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -95,7 +96,6 @@ provideEditingConfig(Homepage, {
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
-        'siteBorderRadius',
         site.get('siteBorderRadius') ? null : 'siteRoundedCorners',
         'siteFacebookAppId',
         'siteTwitterSite',
@@ -114,6 +114,12 @@ provideEditingConfig(Homepage, {
         'siteColorThird',
       ],
       key: 'site-colors-group',
+    },
+    {
+      title: 'Site rounded corners',
+      component: SiteBorderRadiusEditor,
+      properties: ['siteBorderRadius'],
+      key: 'site-rounded-corners-group',
     },
     {
       title: 'Site fonts',

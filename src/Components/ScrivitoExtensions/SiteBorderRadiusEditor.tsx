@@ -1,0 +1,34 @@
+import { canEdit, isComparisonActive, uiContext } from 'scrivito'
+import { DimensionEditor } from './DimensionEditor'
+import { HomepageInstance } from '../../Objs/Homepage/HomepageObjClass'
+
+export function SiteBorderRadiusEditor({ page }: { page: HomepageInstance }) {
+  const { theme } = uiContext() || { theme: null }
+  if (!theme) return null
+
+  const readOnly = !canEdit(page) || isComparisonActive()
+
+  return (
+    <div
+      className={`site-border-radius-editor scrivito_detail_content scrivito_${theme}`}
+    >
+      <div className="row">
+        <div className="col-auto">
+          <DimensionEditor
+            attributeValue={page.get('siteBorderRadius')}
+            label="Rounded corners"
+            onUpdate={(value) => page.update({ siteBorderRadius: value })}
+            units={['rem', 'px']}
+            readOnly={readOnly}
+          />
+          <div className="scrivito_notice_body">
+            Applies to elements such as cards, buttons, and forms. Set to 0 to
+            disable rounded corners.
+            <br />
+            Default: 0.5rem
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
