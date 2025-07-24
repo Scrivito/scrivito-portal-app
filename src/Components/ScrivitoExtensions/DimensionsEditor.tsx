@@ -32,6 +32,7 @@ export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
             attributeValue={widget.get('width')}
             label="Width"
             onUpdate={(value) => widget.update({ width: value })}
+            units={['px', '%']}
             readOnly={readOnly}
           />
         </div>
@@ -40,7 +41,7 @@ export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
             attributeValue={widget.get('height')}
             label="Height"
             onUpdate={(value) => widget.update({ height: value })}
-            pxOnly
+            units={['px']}
             readOnly={readOnly}
           />
         </div>
@@ -50,29 +51,41 @@ export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
   )
 }
 
-const DimensionEditor = function DimensionEditor({
+const DimensionEditor = connect(function DimensionEditor({
   attributeValue,
   label,
   onUpdate,
-  pxOnly,
+  units,
   readOnly,
 }: {
   attributeValue: string
   label: string
   onUpdate: (value: string) => void
-  pxOnly?: true
+  units: ('px' | '%' | 'rem')[]
   readOnly: boolean
 }) {
-  const [unit, setUnit] = useState(pxOnly ? 'px' : '%')
-  const valueUnit = attributeValue.match(pxOnly ? /px$/ : /%$|px$/)?.toString()
-  const value = valueUnit ? Number.parseFloat(attributeValue) : ''
+  const { theme } = uiContext() || { theme: null }
+
+  const unitRegex = new RegExp(`(${units.join('|')})$`)
+  const valueUnit = attributeValue.match(unitRegex)?.[0]
+  const validUnit =
+    valueUnit && isValidUnit(valueUnit, units) ? valueUnit : units[0]
+  if (!validUnit) {
+    throw new Error(`Invalid unit in attribute value: ${attributeValue}`)
+  }
+  const value =
+    valueUnit && isValidUnit(valueUnit, units)
+      ? Number.parseFloat(attributeValue)
+      : ''
+
+  const [unit, setUnit] = useState(validUnit)
 
   useEffect(() => {
-    if (valueUnit) setUnit(valueUnit)
-  }, [valueUnit])
+    setUnit(validUnit)
+  }, [validUnit])
 
   return (
-    <>
+    <div className={`dimension-editor${theme ? ` scrivito_${theme}` : ''}`}>
       <div className="scrivito_detail_label">
         <span>{label}</span>
       </div>
@@ -88,21 +101,22 @@ const DimensionEditor = function DimensionEditor({
             type="number"
             value={value}
           />
-          {pxOnly ? (
-            <span className="input_group_text">px</span>
+          {units.length === 1 ? (
+            <span className="input_group_text">{units[0]}</span>
           ) : (
             <select
               disabled={readOnly}
               onChange={({ target: { value } }) => updateUnit(value)}
               value={unit}
             >
-              <option>px</option>
-              <option>%</option>
+              {units.map((u) => (
+                <option key={u}>{u}</option>
+              ))}
             </select>
           )}
         </div>
       </div>
-    </>
+    </div>
   )
 
   function updateValue(stringValue: string) {
@@ -111,9 +125,18 @@ const DimensionEditor = function DimensionEditor({
   }
 
   function updateUnit(newUnit: string) {
-    setUnit(newUnit)
-    if (value !== '') onUpdate(`${value}${newUnit}`)
+    if (isValidUnit(newUnit, units)) {
+      setUnit(newUnit)
+      if (value !== '') onUpdate(`${value}${newUnit}`)
+    }
   }
+})
+
+const isValidUnit = (
+  unit: string,
+  units: ('px' | '%' | 'rem')[],
+): unit is 'px' | '%' | 'rem' => {
+  return units.includes(unit as 'px' | '%' | 'rem')
 }
 
 const ObjectFit = connect(function ObjectFit({
