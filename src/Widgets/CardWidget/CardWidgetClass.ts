@@ -21,7 +21,7 @@ export const CardWidget = provideWidgetClass('CardWidget', {
         ],
       },
     ],
-    backgroundImage: ['reference', { only: ['Image'] }],
+    backgroundImage: ['reference', { only: ['Image', 'Video'] }],
     cardBody: 'widgetlist',
     cardExtended: 'boolean',
     cardFooter: 'widgetlist',

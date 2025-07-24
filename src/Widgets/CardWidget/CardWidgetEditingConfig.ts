@@ -6,6 +6,10 @@ provideEditingConfig(CardWidget, {
   title: 'Card',
   thumbnail: Thumbnail,
   attributes: {
+    backgroundAnimateOnHover: {
+      title: 'Animate background on hover?',
+      description: 'Default: No',
+    },
     backgroundColor: {
       title: 'Background color',
       description: 'Default: White',
@@ -22,6 +26,9 @@ provideEditingConfig(CardWidget, {
         { value: 'warning', title: 'Warning' },
         { value: 'danger', title: 'Danger' },
       ],
+    },
+    backgroundImage: {
+      title: 'Background image or video',
     },
     image: { title: 'Top image' },
     cardExtended: {
