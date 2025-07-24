@@ -21,7 +21,7 @@ provideEditingConfig(SliderWidget, {
     },
     margin: {
       title: 'Margin',
-      description: 'Space below the widget. Default: "mb-4"',
+      description: 'Space below the widget. Default: mb-4',
     },
     minHeight: {
       title: 'Minimum height (in px)',

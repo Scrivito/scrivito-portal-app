@@ -20,6 +20,8 @@ provideComponent(HeadlineWidget, ({ widget }) => {
 
   if (widget.get('uppercase')) classNames.push('text-uppercase')
 
+  classNames.push(widget.get('margin') ?? 'mb-2')
+
   return (
     <ContentTag
       content={widget}

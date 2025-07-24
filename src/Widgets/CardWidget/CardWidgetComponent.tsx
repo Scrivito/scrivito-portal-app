@@ -27,8 +27,7 @@ provideComponent(CardWidget, ({ widget }) => {
 
   const cardClassNames: string[] = ['card']
 
-  const margin = widget.get('margin')
-  cardClassNames.push(margin ? margin : 'mb-4')
+  cardClassNames.push(widget.get('margin') ?? 'mb-4')
 
   const backgroundColor = widget.get('backgroundColor') || 'white'
   cardClassNames.push(`bg-${backgroundColor}`)
