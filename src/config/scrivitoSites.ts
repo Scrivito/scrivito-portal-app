@@ -27,14 +27,17 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (siteRoot.contentId() !== defaultSiteContentId()) {
-    return baseUrlsFor(siteRoot)[0]
+  const language = siteRoot.language()
+  const contentId = siteRoot.contentId()
+
+  if (contentId === defaultSiteContentId()) {
+    return language ? `${getBaseAppUrl()}/${language}` : undefined
   }
 
-  const language = siteRoot.language()
-  if (!language) return
+  const baseUrl = baseUrlsFor(siteRoot)[0]
 
-  return `${getBaseAppUrl()}/${language}`
+  if (baseUrl) return baseUrl
+  if (language) return `${getBaseAppUrl()}/${contentId}/${language}`
 }
 
 export function siteForUrl(
@@ -45,27 +48,43 @@ export function siteForUrl(
     return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
   }
 
-  const { language, siteId } = languageAndSiteIdForUrl(url)
+  const { contentId, language, siteId } = languageAndIdsForUrl(url)
 
   if (language && siteId) {
-    return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
+    const baseUrlComponents = [getBaseAppUrl()]
+    if (contentId) baseUrlComponents.push(contentId)
+    baseUrlComponents.push(language)
+
+    return { baseUrl: baseUrlComponents.join('/'), siteId }
   }
 
   if (defaultSiteLanguageVersions()?.length) findSiteForUrlExpensive(url)
 }
 
-function languageAndSiteIdForUrl(url: string) {
-  const { language } =
+function languageAndIdsForUrl(url: string) {
+  const { contentId, language } =
     new RegExp(
-      `^${getBaseAppUrl()}\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
+      `^${getBaseAppUrl()}(\\/(?<contentId>[0-9a-z]{16}))?\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
     ).exec(url)?.groups || {}
 
+  const languageVersions = contentId
+    ? contentIdLanguageVersions(contentId)
+    : defaultSiteLanguageVersions()
+
   return {
+    contentId,
     language,
-    siteId: defaultSiteLanguageVersions()
+    siteId: languageVersions
       ?.find((site) => site.language() === language)
       ?.siteId(),
   }
+}
+
+function contentIdLanguageVersions(contentId: string) {
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .and('_contentId', 'equals', contentId)
+    .toArray()
 }
 
 function findSiteForUrlExpensive(url: string) {
@@ -121,7 +140,11 @@ function redirectToSiteUrl(siteUrl: string) {
 }
 
 function getPreferredSite() {
-  const languageVersions = defaultSiteLanguageVersions() || []
+  const { contentId } = languageAndIdsForUrl(window.location.href)
+  const languageVersions =
+    (contentId
+      ? contentIdLanguageVersions(contentId)
+      : defaultSiteLanguageVersions()) || []
   const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
   for (const language of preferredLanguageOrder) {
