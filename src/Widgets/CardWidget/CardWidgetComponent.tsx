@@ -8,8 +8,9 @@ import {
   Link,
   LinkTag,
   isInPlaceEditingActive,
+  Widget,
 } from 'scrivito'
-import { CardWidget, CardWidgetInstance } from './CardWidgetClass'
+import { CardWidget } from './CardWidgetClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(CardWidget, ({ widget }) => {
@@ -30,7 +31,13 @@ provideComponent(CardWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={cardClassNames.join(' ')}>
-      <ImageOrVideo widget={widget} />
+      <ImageOrVideo
+        widget={widget}
+        attribute="backgroundImage"
+        className={
+          widget.get('backgroundAnimateOnHover') ? 'img-zoom' : undefined
+        }
+      />
 
       {image && (
         <LinkOrNotTag link={widget.get('linkTo')}>
@@ -85,16 +92,20 @@ const LinkOrNotTag = connect(
   },
 )
 
-const ImageOrVideo = connect(function ImageOrVideo({
+const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
+  attribute,
+  className,
   widget,
 }: {
-  widget: CardWidgetInstance
+  attribute: T
+  className?: string
+  widget: Widget<{ [K in T]: 'reference' }>
 }) {
-  const background = widget.get('backgroundImage')
+  const background = widget.get(attribute)
   if (!background) return null
 
   const classNames = ['img-background']
-  if (widget.get('backgroundAnimateOnHover')) classNames.push('img-zoom')
+  if (className) classNames.push(className)
 
   if (background.contentType().startsWith('video/')) {
     return (
@@ -114,7 +125,7 @@ const ImageOrVideo = connect(function ImageOrVideo({
     <InPlaceEditingOff>
       <ImageTag
         content={widget}
-        attribute="backgroundImage"
+        attribute={attribute}
         className={classNames.join(' ')}
         alt=""
       />
