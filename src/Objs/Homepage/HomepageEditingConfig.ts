@@ -41,7 +41,8 @@ provideEditingConfig(Homepage, {
     },
     siteRoundedCorners: {
       title: 'Show rounded corners?',
-      description: 'Default: Yes',
+      description:
+        'Deprecated in favour of “Site rounded corners”. Default: Yes',
     },
     siteSearchResultsPage: {
       title: 'Location of search results page',
@@ -94,7 +95,8 @@ provideEditingConfig(Homepage, {
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
-        'siteRoundedCorners',
+        'siteBorderRadius',
+        site.get('siteBorderRadius') ? null : 'siteRoundedCorners',
         'siteFacebookAppId',
         'siteTwitterSite',
         'siteSinglePage',
@@ -128,10 +130,10 @@ provideEditingConfig(Homepage, {
   properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
+    siteBorderRadius: '0.5rem',
     siteDropShadow: true,
     siteFontBodyWeight: '500',
     siteFontHeadlineWeight: '500',
-    siteRoundedCorners: true,
   },
   validations: defaultPageValidations,
 })
