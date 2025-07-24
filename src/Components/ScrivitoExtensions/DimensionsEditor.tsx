@@ -29,17 +29,17 @@ export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
       <div className="row">
         <div className="col-auto">
           <DimensionEditor
-            widget={widget}
-            attribute="width"
+            attributeValue={widget.get('width')}
             label="Width"
+            onUpdate={(value) => widget.update({ width: value })}
             readOnly={readOnly}
           />
         </div>
         <div className="col-auto">
           <DimensionEditor
-            widget={widget}
-            attribute="height"
+            attributeValue={widget.get('height')}
             label="Height"
+            onUpdate={(value) => widget.update({ height: value })}
             pxOnly
             readOnly={readOnly}
           />
@@ -50,21 +50,20 @@ export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
   )
 }
 
-const DimensionEditor = connect(function DimensionEditor({
-  widget,
-  attribute,
+const DimensionEditor = function DimensionEditor({
+  attributeValue,
   label,
+  onUpdate,
   pxOnly,
   readOnly,
 }: {
-  widget: ImageWidget
-  attribute: 'height' | 'width'
+  attributeValue: string
   label: string
+  onUpdate: (value: string) => void
   pxOnly?: true
   readOnly: boolean
 }) {
   const [unit, setUnit] = useState(pxOnly ? 'px' : '%')
-  const attributeValue = widget.get(attribute)
   const valueUnit = attributeValue.match(pxOnly ? /px$/ : /%$|px$/)?.toString()
   const value = valueUnit ? Number.parseFloat(attributeValue) : ''
 
@@ -108,16 +107,14 @@ const DimensionEditor = connect(function DimensionEditor({
 
   function updateValue(stringValue: string) {
     const newValue = Number.parseFloat(stringValue)
-    widget.update({
-      [attribute]: isNaN(newValue) ? null : `${newValue}${unit}`,
-    })
+    onUpdate(isNaN(newValue) ? '' : `${newValue}${unit}`)
   }
 
   function updateUnit(newUnit: string) {
     setUnit(newUnit)
-    if (value !== '') widget.update({ [attribute]: `${value}${newUnit}` })
+    if (value !== '') onUpdate(`${value}${newUnit}`)
   }
-})
+}
 
 const ObjectFit = connect(function ObjectFit({
   widget,
