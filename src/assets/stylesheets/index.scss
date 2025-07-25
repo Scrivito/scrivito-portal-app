@@ -637,7 +637,11 @@ main {
 a {
   &.bg-primary,
   &.bg-dark-grey,
-  &.bg-secondary,
+  &.bg-secondary {
+    color: var(--light-text-color);
+  }
+}
+a {
   &.bg-success,
   &.bg-warning,
   &.bg-danger,
@@ -656,7 +660,39 @@ a {
 section {
   &.bg-primary,
   &.bg-dark-grey,
-  &.bg-secondary,
+  &.bg-secondary {
+    a:not(.btn),
+    p,
+    th,
+    td {
+      color: var(--light-text-color);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: var(--light-headline-text-color);
+    }
+    .btn-outline-primary,
+    .btn-outline-secondary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .text-primary {
+      color: var(--bs-primary) !important;
+    }
+    .text-secondary {
+      color: var(--bs-secondary) !important;
+    }
+  }
   &.bg-success,
   &.bg-danger,
   &.bg-info {
@@ -797,7 +833,49 @@ section {
 .carousel-item .card {
   &.bg-primary,
   &.bg-dark-grey,
-  &.bg-secondary,
+  &.bg-secondary {
+    a:not(.btn),
+    p,
+    th,
+    td,
+    .form-label,
+    .text-mandatory,
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      color: var(--light-text-color);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4,
+    .display-5,
+    .display-6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: var(--light-headline-text-color);
+    }
+    .btn-outline-primary,
+    .btn-outline-secondary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .text-primary {
+      color: var(--bs-primary);
+    }
+    .text-secondary {
+      color: var(--bs-secondary);
+    }
+  }
   &.bg-success,
   &.bg-danger,
   &.bg-info {
@@ -958,7 +1036,11 @@ header section {
 .carousel-item {
   &.bg-primary,
   &.bg-secondary,
-  &.bg-dark-grey,
+  &.bg-dark-grey {
+    .bi {
+      color: var(--light-text-color);
+    }
+  }
   &.bg-success,
   &.bg-info,
   &.bg-danger {
