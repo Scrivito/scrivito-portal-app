@@ -6,11 +6,13 @@ type Unit = 'px' | '%' | 'rem'
 
 export const DimensionEditor = function DimensionEditor({
   onUpdate,
+  placeholder,
   readOnly,
   units,
   value,
 }: {
   onUpdate: (value: string) => void
+  placeholder?: string
   readOnly: boolean
   units: Unit[]
   value: string
@@ -28,7 +30,7 @@ export const DimensionEditor = function DimensionEditor({
             max={unit === '%' ? 100 : undefined}
             min={0}
             onChange={({ target: { value } }) => updateValue(value)}
-            placeholder={readOnly ? undefined : '100'}
+            placeholder={readOnly ? undefined : (placeholder ?? '100')}
             readOnly={readOnly}
             step="any"
             type="number"
