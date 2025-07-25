@@ -68,7 +68,13 @@ export const DesignAdjustments = connect(
     }
 
     const fifth = root.get('siteColorFifth')
-    if (fifth) styles.push(`--fifth-color: ${fifth};`)
+    if (fifth) {
+      styles.push(`--fifth-color: ${fifth};`)
+
+      const [fifthText, fifthHeadlineText] = getTextColors(fifth)
+      styles.push(`--fifth-text-color: ${fifthText};`)
+      styles.push(`--fifth-headline-text-color: ${fifthHeadlineText};`)
+    }
 
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none;')
