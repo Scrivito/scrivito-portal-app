@@ -18,7 +18,9 @@ export const DimensionEditor = function DimensionEditor({
   const [numericValue, valueUnit] = parseStringValue(value, units)
 
   const [unit, setUnit] = useState(valueUnit)
-  useEffect(() => setUnit(valueUnit), [valueUnit])
+  useEffect(() => {
+    if (numericValue !== '') setUnit(valueUnit)
+  }, [numericValue, valueUnit])
 
   return (
     <div className="dimension-editor">
