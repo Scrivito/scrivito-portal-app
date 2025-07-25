@@ -29,20 +29,20 @@ export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
       <div className="row">
         <div className="col-auto">
           <DimensionEditor
-            attributeValue={widget.get('width')}
             label="Width"
             onUpdate={(value) => widget.update({ width: value })}
-            units={['px', '%']}
             readOnly={readOnly}
+            units={['px', '%']}
+            value={widget.get('width')}
           />
         </div>
         <div className="col-auto">
           <DimensionEditor
-            attributeValue={widget.get('height')}
             label="Height"
             onUpdate={(value) => widget.update({ height: value })}
-            units={['px']}
             readOnly={readOnly}
+            units={['px']}
+            value={widget.get('height')}
           />
         </div>
       </div>

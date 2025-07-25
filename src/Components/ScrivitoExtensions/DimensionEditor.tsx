@@ -4,31 +4,29 @@ import { connect, uiContext } from 'scrivito'
 import './DimensionEditor.scss'
 
 export const DimensionEditor = connect(function DimensionEditor({
-  attributeValue,
   label,
   onUpdate,
-  units,
   readOnly,
+  units,
+  value,
 }: {
-  attributeValue: string
   label: string
   onUpdate: (value: string) => void
-  units: ('px' | '%' | 'rem')[]
   readOnly: boolean
+  units: ('px' | '%' | 'rem')[]
+  value: string
 }) {
   const { theme } = uiContext() || { theme: null }
 
   const unitRegex = new RegExp(`(${units.join('|')})$`)
-  const valueUnit = attributeValue.match(unitRegex)?.[0]
+  const valueUnit = value.match(unitRegex)?.[0]
   const validUnit =
     valueUnit && isValidUnit(valueUnit, units) ? valueUnit : units[0]
   if (!validUnit) {
-    throw new Error(`Invalid unit in attribute value: ${attributeValue}`)
+    throw new Error(`Invalid unit in attribute value: ${value}`)
   }
-  const value =
-    valueUnit && isValidUnit(valueUnit, units)
-      ? Number.parseFloat(attributeValue)
-      : ''
+  const numericValue =
+    valueUnit && isValidUnit(valueUnit, units) ? Number.parseFloat(value) : ''
 
   const [unit, setUnit] = useState(validUnit)
 
@@ -51,7 +49,7 @@ export const DimensionEditor = connect(function DimensionEditor({
             readOnly={readOnly}
             step="any"
             type="number"
-            value={value}
+            value={numericValue}
           />
           {units.length === 1 ? (
             <span className="input_group_text">{units[0]}</span>
@@ -79,7 +77,7 @@ export const DimensionEditor = connect(function DimensionEditor({
   function updateUnit(newUnit: string) {
     if (isValidUnit(newUnit, units)) {
       setUnit(newUnit)
-      if (value !== '') onUpdate(`${value}${newUnit}`)
+      if (numericValue !== '') onUpdate(`${numericValue}${newUnit}`)
     }
   }
 })

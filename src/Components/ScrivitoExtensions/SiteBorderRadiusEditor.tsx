@@ -15,11 +15,11 @@ export function SiteBorderRadiusEditor({ page }: { page: HomepageInstance }) {
       <div className="row">
         <div className="col-auto">
           <DimensionEditor
-            attributeValue={page.get('siteBorderRadius')}
             label="Rounded corners"
             onUpdate={(value) => page.update({ siteBorderRadius: value })}
-            units={['rem', 'px']}
             readOnly={readOnly}
+            units={['rem', 'px']}
+            value={page.get('siteBorderRadius')}
           />
           <div className="scrivito_notice_body">
             Applies to elements such as cards, buttons, and forms. Set to 0 to
