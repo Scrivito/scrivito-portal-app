@@ -6,7 +6,7 @@ import {
   Widget,
 } from 'scrivito'
 
-import './DimensionsEditor/DimensionsEditor.scss'
+import './ImageDimensionsEditor/ImageDimensionsEditor.scss'
 import { DimensionEditor } from './DimensionEditor'
 
 type ImageWidget = Widget<{
@@ -15,7 +15,7 @@ type ImageWidget = Widget<{
   width: 'string'
 }>
 
-export function DimensionsEditor({ widget }: { widget: ImageWidget }) {
+export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
