@@ -1,7 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { DimensionsEditor } from '../../Components/ScrivitoExtensions/DimensionsEditor'
+import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
@@ -41,7 +41,7 @@ provideEditingConfig(ImageWidget, {
     {
       title: 'Dimensions',
       properties: ['height', 'objectFit', 'width'],
-      component: DimensionsEditor,
+      component: ImageDimensionsEditor,
       key: 'dimensions-group',
     },
   ],

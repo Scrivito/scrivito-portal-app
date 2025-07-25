@@ -8,6 +8,7 @@ import {
   defaultPagePropertiesGroups,
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
+import { SiteBorderRadiusEditor } from '../../Components/ScrivitoExtensions/SiteBorderRadiusEditor'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -41,7 +42,8 @@ provideEditingConfig(Homepage, {
     },
     siteRoundedCorners: {
       title: 'Show rounded corners?',
-      description: 'Default: Yes',
+      description:
+        'Deprecated in favour of “Site rounded corners”. Default: Yes',
     },
     siteSearchResultsPage: {
       title: 'Location of search results page',
@@ -94,7 +96,7 @@ provideEditingConfig(Homepage, {
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
-        'siteRoundedCorners',
+        site.get('siteBorderRadius') ? null : 'siteRoundedCorners',
         'siteFacebookAppId',
         'siteTwitterSite',
         'siteSinglePage',
@@ -114,6 +116,12 @@ provideEditingConfig(Homepage, {
       key: 'site-colors-group',
     },
     {
+      title: 'Site rounded corners',
+      component: SiteBorderRadiusEditor,
+      properties: ['siteBorderRadius'],
+      key: 'site-rounded-corners-group',
+    },
+    {
       title: 'Site fonts',
       properties: [
         'siteFontHeadline',
@@ -128,10 +136,10 @@ provideEditingConfig(Homepage, {
   properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
+    siteBorderRadius: '0.5rem',
     siteDropShadow: true,
     siteFontBodyWeight: '500',
     siteFontHeadlineWeight: '500',
-    siteRoundedCorners: true,
   },
   validations: defaultPageValidations,
 })

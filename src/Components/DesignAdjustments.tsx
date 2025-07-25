@@ -31,8 +31,13 @@ export const DesignAdjustments = connect(
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none;')
 
-    const roundedCorners = root.get('siteRoundedCorners')
-    if (!roundedCorners) styles.push('--jr-border-radius: 0;')
+    const siteBorderRadius = root.get('siteBorderRadius')
+    if (siteBorderRadius) {
+      styles.push(`--jr-border-radius: ${siteBorderRadius};`)
+    } else {
+      const roundedCorners = root.get('siteRoundedCorners')
+      if (!roundedCorners) styles.push('--jr-border-radius: 0;')
+    }
 
     const fontBodyWeight = root.get('siteFontBodyWeight') || '500'
     styles.push(`--bs-body-font-weight: ${fontBodyWeight};`)
