@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 
 import './DimensionEditor.scss'
 
+type Unit = 'px' | '%' | 'rem'
+
 export const DimensionEditor = function DimensionEditor({
   onUpdate,
   readOnly,
@@ -10,24 +12,13 @@ export const DimensionEditor = function DimensionEditor({
 }: {
   onUpdate: (value: string) => void
   readOnly: boolean
-  units: ('px' | '%' | 'rem')[]
+  units: Unit[]
   value: string
 }) {
-  const unitRegex = new RegExp(`(${units.join('|')})$`)
-  const valueUnit = value.match(unitRegex)?.[0]
-  const validUnit =
-    valueUnit && isValidUnit(valueUnit, units) ? valueUnit : units[0]
-  if (!validUnit) {
-    throw new Error(`Invalid unit in attribute value: ${value}`)
-  }
-  const numericValue =
-    valueUnit && isValidUnit(valueUnit, units) ? Number.parseFloat(value) : ''
+  const [numericValue, valueUnit] = parseStringValue(value, units)
 
-  const [unit, setUnit] = useState(validUnit)
-
-  useEffect(() => {
-    setUnit(validUnit)
-  }, [validUnit])
+  const [unit, setUnit] = useState<Unit>(valueUnit)
+  useEffect(() => setUnit(valueUnit), [valueUnit])
 
   return (
     <div className="dimension-editor">
@@ -48,7 +39,7 @@ export const DimensionEditor = function DimensionEditor({
           ) : (
             <select
               disabled={readOnly}
-              onChange={({ target: { value } }) => updateUnit(value)}
+              onChange={({ target: { value } }) => updateUnit(value as Unit)}
               value={unit}
             >
               {units.map((u) => (
@@ -66,17 +57,24 @@ export const DimensionEditor = function DimensionEditor({
     onUpdate(isNaN(newValue) ? '' : `${newValue}${unit}`)
   }
 
-  function updateUnit(newUnit: string) {
-    if (isValidUnit(newUnit, units)) {
-      setUnit(newUnit)
-      if (numericValue !== '') onUpdate(`${numericValue}${newUnit}`)
-    }
+  function updateUnit(newUnit: Unit) {
+    setUnit(newUnit)
+    if (numericValue !== '') onUpdate(`${numericValue}${newUnit}`)
   }
 }
 
-const isValidUnit = (
-  unit: string,
-  units: ('px' | '%' | 'rem')[],
-): unit is 'px' | '%' | 'rem' => {
-  return units.includes(unit as 'px' | '%' | 'rem')
+function parseStringValue(value: string, units: Unit[]): [number | '', Unit] {
+  const [fallbackUnit] = units
+  if (!fallbackUnit) throw new Error('At least one unit must be provided')
+
+  const unitRegex = new RegExp(`(${units.join('|')})$`)
+  const valueUnit = value.match(unitRegex)?.[0]
+  if (!valueUnit || !units.includes(valueUnit as Unit)) {
+    return ['', fallbackUnit]
+  }
+
+  const numericValue = Number.parseFloat(value.replace(valueUnit, ''))
+  if (isNaN(numericValue)) return ['', fallbackUnit]
+
+  return [numericValue, valueUnit as Unit]
 }
