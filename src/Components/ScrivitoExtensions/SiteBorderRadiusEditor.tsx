@@ -14,9 +14,6 @@ export function SiteBorderRadiusEditor({ page }: { page: HomepageInstance }) {
     >
       <div className="row">
         <div className="col-auto">
-          <div className="scrivito_detail_label">
-            <span>Rounded corners</span>
-          </div>
           <DimensionEditor
             onUpdate={(value) => page.update({ siteBorderRadius: value })}
             readOnly={readOnly}
