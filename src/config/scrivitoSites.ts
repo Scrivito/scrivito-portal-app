@@ -28,13 +28,14 @@ export function baseUrlForSite(siteId: string): string | undefined {
   if (!siteRoot) return
 
   if (siteRoot.contentId() !== defaultSiteContentId()) {
-    return configuredBaseUrlsFor(siteRoot)[0]
+    const configuredBaseUrl = configuredBaseUrlsFor(siteRoot)[0]
+    if (configuredBaseUrl) return configuredBaseUrl
   }
 
   const language = siteRoot.language()
   if (!language) return
 
-  return baseUrlFor(language)
+  return baseUrlFor(language, siteRoot.contentId())
 }
 
 export function siteForUrl(
@@ -45,18 +46,25 @@ export function siteForUrl(
     return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
   }
 
-  const { language, siteId } = languageAndSiteIdForUrl(url)
+  const { contentId, language, siteId } = findSiteByUrl(url)
 
-  if (language && siteId) return { baseUrl: baseUrlFor(language), siteId }
+  if (language && siteId) {
+    return { baseUrl: baseUrlFor(language, contentId), siteId }
+  }
 
   if (defaultSiteLanguageVersions()?.length) return findSiteForUrlExpensive(url)
 }
 
-function languageAndSiteIdForUrl(url: string) {
-  const { language } =
+function findSiteByUrl(url: string) {
+  const { contentId, language } =
     new RegExp(
-      `^${instanceBaseUrl()}\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
+      `^${instanceBaseUrl()}(\\/(?<contentId>[0-9a-z]{16}))?\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
     ).exec(url)?.groups || {}
+
+  if (contentId && language) {
+    const siteId = findSiteIdBy({ contentId, language })
+    if (siteId) return { contentId, language, siteId }
+  }
 
   return {
     language,
@@ -64,6 +72,15 @@ function languageAndSiteIdForUrl(url: string) {
       ?.find((site) => site.language() === language)
       ?.siteId(),
   }
+}
+
+function findSiteIdBy(query: { contentId: string; language: string }) {
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .and('_contentId', 'equals', query.contentId)
+    .and('_language', 'equals', query.language)
+    .toArray()[0]
+    ?.siteId()
 }
 
 function findSiteForUrlExpensive(url: string) {
@@ -132,8 +149,11 @@ function getPreferredSite() {
   return languageVersions[0] || null
 }
 
-function baseUrlFor(language: string) {
-  return `${instanceBaseUrl()}/${language}`
+function baseUrlFor(language: string, contentId?: string) {
+  const base = instanceBaseUrl()
+  return contentId && contentId !== defaultSiteContentId()
+    ? `${base}/${contentId}/${language}`
+    : `${base}/${language}`
 }
 
 function instanceBaseUrl(): string {
