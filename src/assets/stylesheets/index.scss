@@ -635,8 +635,16 @@ main {
 // -- color content adaptions -- //
 
 a {
-  &.bg-primary,
-  &.bg-dark-grey,
+  &.bg-primary {
+    color: var(--light-text-color);
+  }
+}
+a {
+  &.bg-dark-grey {
+    color: var(--light-text-color);
+  }
+}
+a {
   &.bg-secondary {
     color: var(--light-text-color);
   }
@@ -666,8 +674,72 @@ a {
 }
 
 section {
-  &.bg-primary,
-  &.bg-dark-grey,
+  &.bg-primary {
+    a:not(.btn),
+    p,
+    th,
+    td {
+      color: var(--light-text-color);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: var(--light-headline-text-color);
+    }
+    .btn-outline-primary,
+    .btn-outline-secondary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .text-primary {
+      color: var(--bs-primary) !important;
+    }
+    .text-secondary {
+      color: var(--bs-secondary) !important;
+    }
+  }
+  &.bg-dark-grey {
+    a:not(.btn),
+    p,
+    th,
+    td {
+      color: var(--light-text-color);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: var(--light-headline-text-color);
+    }
+    .btn-outline-primary,
+    .btn-outline-secondary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .text-primary {
+      color: var(--bs-primary) !important;
+    }
+    .text-secondary {
+      color: var(--bs-secondary) !important;
+    }
+  }
   &.bg-secondary {
     a:not(.btn),
     p,
@@ -999,8 +1071,92 @@ section {
 .card .card,
 .carousel-item,
 .carousel-item .card {
-  &.bg-primary,
-  &.bg-dark-grey,
+  &.bg-primary {
+    a:not(.btn),
+    p,
+    th,
+    td,
+    .form-label,
+    .text-mandatory,
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      color: var(--light-text-color);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4,
+    .display-5,
+    .display-6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: var(--light-headline-text-color);
+    }
+    .btn-outline-primary,
+    .btn-outline-secondary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .text-primary {
+      color: var(--bs-primary);
+    }
+    .text-secondary {
+      color: var(--bs-secondary);
+    }
+  }
+  &.bg-dark-grey {
+    a:not(.btn),
+    p,
+    th,
+    td,
+    .form-label,
+    .text-mandatory,
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      color: var(--light-text-color);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4,
+    .display-5,
+    .display-6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: var(--light-headline-text-color);
+    }
+    .btn-outline-primary,
+    .btn-outline-secondary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .text-primary {
+      color: var(--bs-primary);
+    }
+    .text-secondary {
+      color: var(--bs-secondary);
+    }
+  }
   &.bg-secondary {
     a:not(.btn),
     p,
@@ -1202,8 +1358,16 @@ header section {
 }
 .card,
 .carousel-item {
-  &.bg-primary,
-  &.bg-secondary,
+  &.bg-primary {
+    .bi {
+      color: var(--light-text-color);
+    }
+  }
+  &.bg-secondary {
+    .bi {
+      color: var(--light-text-color);
+    }
+  }
   &.bg-dark-grey {
     .bi {
       color: var(--light-text-color);
