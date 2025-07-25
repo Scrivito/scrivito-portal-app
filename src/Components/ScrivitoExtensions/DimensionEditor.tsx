@@ -3,13 +3,11 @@ import { useState, useEffect } from 'react'
 import './DimensionEditor.scss'
 
 export const DimensionEditor = function DimensionEditor({
-  label,
   onUpdate,
   readOnly,
   units,
   value,
 }: {
-  label: string
   onUpdate: (value: string) => void
   readOnly: boolean
   units: ('px' | '%' | 'rem')[]
@@ -33,9 +31,6 @@ export const DimensionEditor = function DimensionEditor({
 
   return (
     <div className="dimension-editor">
-      <div className="scrivito_detail_label">
-        <span>{label}</span>
-      </div>
       <div className="item_content">
         <div className="input_group" aria-readonly={readOnly}>
           <input

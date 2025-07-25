@@ -28,8 +28,10 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
     >
       <div className="row">
         <div className="col-auto">
+          <div className="scrivito_detail_label">
+            <span>Width</span>
+          </div>
           <DimensionEditor
-            label="Width"
             onUpdate={(value) => widget.update({ width: value })}
             readOnly={readOnly}
             units={['px', '%']}
@@ -37,8 +39,10 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
           />
         </div>
         <div className="col-auto">
+          <div className="scrivito_detail_label">
+            <span>Height</span>
+          </div>
           <DimensionEditor
-            label="Height"
             onUpdate={(value) => widget.update({ height: value })}
             readOnly={readOnly}
             units={['px']}
