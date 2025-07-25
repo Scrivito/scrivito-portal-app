@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { connect, uiContext } from 'scrivito'
 
 import './DimensionEditor.scss'
 
-export const DimensionEditor = connect(function DimensionEditor({
+export const DimensionEditor = function DimensionEditor({
   label,
   onUpdate,
   readOnly,
@@ -16,8 +15,6 @@ export const DimensionEditor = connect(function DimensionEditor({
   units: ('px' | '%' | 'rem')[]
   value: string
 }) {
-  const { theme } = uiContext() || { theme: null }
-
   const unitRegex = new RegExp(`(${units.join('|')})$`)
   const valueUnit = value.match(unitRegex)?.[0]
   const validUnit =
@@ -35,7 +32,7 @@ export const DimensionEditor = connect(function DimensionEditor({
   }, [validUnit])
 
   return (
-    <div className={`dimension-editor${theme ? ` scrivito_${theme}` : ''}`}>
+    <div className="dimension-editor">
       <div className="scrivito_detail_label">
         <span>{label}</span>
       </div>
@@ -80,7 +77,7 @@ export const DimensionEditor = connect(function DimensionEditor({
       if (numericValue !== '') onUpdate(`${numericValue}${newUnit}`)
     }
   }
-})
+}
 
 const isValidUnit = (
   unit: string,

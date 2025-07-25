@@ -88,8 +88,10 @@
       cursor: unset;
     }
   }
+}
 
-  &.scrivito_dark {
+.scrivito_dark {
+  .dimension-editor {
     .input_group input {
       background: rgba(222, 222, 222, 0.2);
       color: #eee;
