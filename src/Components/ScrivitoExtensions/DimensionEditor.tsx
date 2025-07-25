@@ -70,7 +70,7 @@ function parseStringValue(
   const [fallbackUnit] = units
   if (!fallbackUnit) throw new Error('At least one unit must be provided')
 
-  const unitRegex = new RegExp(`(${units.join('|')})$`)
+  const unitRegex = new RegExp(`${units.join('|')}$`)
   const valueUnit = value.match(unitRegex)?.[0]
   if (!valueUnit || !units.includes(valueUnit)) {
     return ['', fallbackUnit]
