@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react'
 
 import './DimensionEditor.scss'
 
-type Unit = 'px' | '%' | 'rem'
-
 export const DimensionEditor = function DimensionEditor({
   onUpdate,
   placeholder,
@@ -14,12 +12,12 @@ export const DimensionEditor = function DimensionEditor({
   onUpdate: (value: string) => void
   placeholder?: string
   readOnly: boolean
-  units: Unit[]
+  units: ('px' | '%' | 'rem')[]
   value: string
 }) {
   const [numericValue, valueUnit] = parseStringValue(value, units)
 
-  const [unit, setUnit] = useState<Unit>(valueUnit)
+  const [unit, setUnit] = useState(valueUnit)
   useEffect(() => setUnit(valueUnit), [valueUnit])
 
   return (
@@ -41,7 +39,7 @@ export const DimensionEditor = function DimensionEditor({
           ) : (
             <select
               disabled={readOnly}
-              onChange={({ target: { value } }) => updateUnit(value as Unit)}
+              onChange={({ target: { value } }) => updateUnit(value)}
               value={unit}
             >
               {units.map((u) => (
@@ -59,24 +57,27 @@ export const DimensionEditor = function DimensionEditor({
     onUpdate(isNaN(newValue) ? '' : `${newValue}${unit}`)
   }
 
-  function updateUnit(newUnit: Unit) {
+  function updateUnit(newUnit: string) {
     setUnit(newUnit)
     if (numericValue !== '') onUpdate(`${numericValue}${newUnit}`)
   }
 }
 
-function parseStringValue(value: string, units: Unit[]): [number | '', Unit] {
+function parseStringValue(
+  value: string,
+  units: string[],
+): [number | '', string] {
   const [fallbackUnit] = units
   if (!fallbackUnit) throw new Error('At least one unit must be provided')
 
   const unitRegex = new RegExp(`(${units.join('|')})$`)
   const valueUnit = value.match(unitRegex)?.[0]
-  if (!valueUnit || !units.includes(valueUnit as Unit)) {
+  if (!valueUnit || !units.includes(valueUnit)) {
     return ['', fallbackUnit]
   }
 
   const numericValue = Number.parseFloat(value.replace(valueUnit, ''))
   if (isNaN(numericValue)) return ['', fallbackUnit]
 
-  return [numericValue, valueUnit as Unit]
+  return [numericValue, valueUnit]
 }
