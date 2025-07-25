@@ -250,7 +250,9 @@ fieldset:disabled .btn {
   --bs-btn-disabled-border-color: var(--bs-secondary-lighten);
   --bs-gradient: none;
 }
-.btn-outline-primary:focus-visible,
+.btn-outline-primary:focus-visible {
+  color: var(--light-text-color) !important;
+}
 .btn-outline-secondary:focus-visible {
   color: var(--light-text-color) !important;
 }
@@ -695,7 +697,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -728,7 +733,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -761,7 +769,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -796,7 +807,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -1102,7 +1116,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -1145,7 +1162,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -1188,7 +1208,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -1233,7 +1256,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
