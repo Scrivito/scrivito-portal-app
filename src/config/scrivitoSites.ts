@@ -8,7 +8,7 @@ import {
 } from 'scrivito'
 import { ensureString } from '../utils/ensureString'
 import {
-  getJrPlatformBaseAppUrl,
+  getJrPlatformInstanceBaseUrl,
   jrPlatformRedirectToSiteUrl,
 } from '../privateJrPlatform/multiTenancy'
 
@@ -28,13 +28,13 @@ export function baseUrlForSite(siteId: string): string | undefined {
   if (!siteRoot) return
 
   if (siteRoot.contentId() !== defaultSiteContentId()) {
-    return baseUrlsFor(siteRoot)[0]
+    return configuredBaseUrlsFor(siteRoot)[0]
   }
 
   const language = siteRoot.language()
   if (!language) return
 
-  return `${getBaseAppUrl()}/${language}`
+  return baseUrlFor(language)
 }
 
 export function siteForUrl(
@@ -47,9 +47,7 @@ export function siteForUrl(
 
   const { language, siteId } = languageAndSiteIdForUrl(url)
 
-  if (language && siteId) {
-    return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
-  }
+  if (language && siteId) return { baseUrl: baseUrlFor(language), siteId }
 
   if (defaultSiteLanguageVersions()?.length) return findSiteForUrlExpensive(url)
 }
@@ -57,7 +55,7 @@ export function siteForUrl(
 function languageAndSiteIdForUrl(url: string) {
   const { language } =
     new RegExp(
-      `^${getBaseAppUrl()}\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
+      `^${instanceBaseUrl()}\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
     ).exec(url)?.groups || {}
 
   return {
@@ -76,13 +74,13 @@ function findSiteForUrlExpensive(url: string) {
     .flatMap((site) => {
       // null site IDs are excluded by the _siteId query
       const siteId = site.siteId()!
-      return baseUrlsFor(site).map((baseUrl) => ({ baseUrl, siteId }))
+      return configuredBaseUrlsFor(site).map((baseUrl) => ({ baseUrl, siteId }))
     })
     .sort((a, b) => b.baseUrl.length - a.baseUrl.length)
     .find(({ baseUrl }) => url.startsWith(baseUrl))
 }
 
-function baseUrlsFor(site: Obj) {
+function configuredBaseUrlsFor(site: Obj) {
   const baseUrl = site.get('baseUrl')
   const baseUrls = Array.isArray(baseUrl) ? baseUrl : [baseUrl]
   return baseUrls.filter(
@@ -134,10 +132,14 @@ function getPreferredSite() {
   return languageVersions[0] || null
 }
 
-function getBaseAppUrl(): string {
+function baseUrlFor(language: string) {
+  return `${instanceBaseUrl()}/${language}`
+}
+
+function instanceBaseUrl(): string {
   if (!origin) throw new Error('No origin defined!')
   if (import.meta.env.PRIVATE_JR_PLATFORM) {
-    return getJrPlatformBaseAppUrl(origin)
+    return getJrPlatformInstanceBaseUrl(origin)
   }
 
   return origin

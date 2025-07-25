@@ -23,7 +23,7 @@ export function getJrPlatformInstanceId(): string | null {
   return instance
 }
 
-export function getJrPlatformBaseAppUrl(origin: string): string {
+export function getJrPlatformInstanceBaseUrl(origin: string): string {
   if (!isMultitenancyEnabled()) return origin
 
   const instanceId = getJrPlatformInstanceId()
