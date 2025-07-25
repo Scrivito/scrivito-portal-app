@@ -694,7 +694,8 @@ section {
     a:not(.btn),
     p,
     th,
-    td {
+    td,
+    .tick-list-widget {
       color: var(--bs-primary-text-color);
     }
     h1,
@@ -730,7 +731,8 @@ section {
     a:not(.btn),
     p,
     th,
-    td {
+    td,
+    .tick-list-widget {
       color: var(--fifth-text-color);
     }
     h1,
@@ -766,7 +768,8 @@ section {
     a:not(.btn),
     p,
     th,
-    td {
+    td,
+    .tick-list-widget {
       color: var(--bs-secondary-text-color);
     }
     h1,
@@ -804,7 +807,8 @@ section {
     a:not(.btn),
     p,
     th,
-    td {
+    td,
+    .tick-list-widget {
       color: var(--light-text-color);
     }
     h1,
@@ -862,7 +866,8 @@ section {
       color: var(--dark-headline-text-color);
     }
     a:not(.btn),
-    p {
+    p,
+    .tick-list-widget {
       color: var(--dark-text-color);
     }
     .text-primary {
@@ -894,7 +899,8 @@ section {
       color: var(--fourth-headline-text-color);
     }
     a:not(.btn),
-    p {
+    p,
+    .tick-list-widget {
       color: var(--fourth-text-color);
     }
     .text-primary {
@@ -926,7 +932,8 @@ section {
       color: var(--third-headline-text-color);
     }
     a:not(.btn),
-    p {
+    p,
+    .tick-list-widget {
       color: var(--third-text-color);
     }
     .text-primary {
@@ -967,7 +974,8 @@ section {
     a:not(.btn),
     p,
     th,
-    td {
+    td,
+    .tick-list-widget {
       color: var(--dark-text-color);
     }
     .btn-outline-primary {
@@ -1017,7 +1025,8 @@ section {
     a:not(.btn),
     p,
     th,
-    td {
+    td,
+    .tick-list-widget {
       color: var(--fourth-text-color);
     }
     .btn-outline-primary {
@@ -1067,7 +1076,8 @@ section {
     a:not(.btn),
     p,
     th,
-    td {
+    td,
+    .tick-list-widget {
       color: var(--third-text-color);
     }
     .btn-outline-primary {
@@ -1107,7 +1117,8 @@ section {
     .form-label,
     .text-mandatory,
     .carousel-control-prev-icon,
-    .carousel-control-next-icon {
+    .carousel-control-next-icon,
+    .tick-list-widget {
       color: var(--bs-primary-text-color);
     }
     h1,
@@ -1153,7 +1164,8 @@ section {
     .form-label,
     .text-mandatory,
     .carousel-control-prev-icon,
-    .carousel-control-next-icon {
+    .carousel-control-next-icon,
+    .tick-list-widget {
       color: var(--fifth-text-color);
     }
     h1,
@@ -1199,7 +1211,8 @@ section {
     .form-label,
     .text-mandatory,
     .carousel-control-prev-icon,
-    .carousel-control-next-icon {
+    .carousel-control-next-icon,
+    .tick-list-widget {
       color: var(--bs-secondary-text-color);
     }
     h1,
@@ -1247,7 +1260,8 @@ section {
     .form-label,
     .text-mandatory,
     .carousel-control-prev-icon,
-    .carousel-control-next-icon {
+    .carousel-control-next-icon,
+    .tick-list-widget {
       color: var(--light-text-color);
     }
     h1,
@@ -1322,7 +1336,8 @@ section .card.no-color-adaption {
   a:not(.btn),
   p,
   th,
-  td {
+  td,
+  .tick-list-widget {
     color: var(--dark-text-color) !important;
   }
 }
@@ -1399,42 +1414,49 @@ header section {
 .card,
 .carousel-item {
   &.bg-primary {
-    .bi {
+    .bi,
+    .tick-list-widget {
       color: var(--bs-primary-text-color);
     }
   }
   &.bg-secondary {
-    .bi {
+    .bi,
+    .tick-list-widget {
       color: var(--bs-secondary-text-color);
     }
   }
   &.bg-dark-grey {
-    .bi {
+    .bi,
+    .tick-list-widget {
       color: var(--fifth-text-color);
     }
   }
   &.bg-success,
   &.bg-info,
   &.bg-danger {
-    .bi {
+    .bi,
+    .tick-list-widget {
       color: var(--light-text-color);
     }
   }
 
   &.bg-white {
-    .bi {
+    .bi,
+    .tick-list-widget {
       color: var(--dark-text-color);
     }
   }
 
   &.bg-middle-grey {
-    .bi {
+    .bi,
+    .tick-list-widget {
       color: var(--fourth-text-color);
     }
   }
 
   &.bg-light-grey {
-    .bi {
+    .bi,
+    .tick-list-widget {
       color: var(--third-text-color);
     }
   }
