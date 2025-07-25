@@ -31,9 +31,9 @@ export const DesignAdjustments = connect(
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none;')
 
-    const customBorderRadius = root.get('siteBorderRadius')
-    if (customBorderRadius) {
-      styles.push(`--jr-border-radius: ${customBorderRadius};`)
+    const siteBorderRadius = root.get('siteBorderRadius')
+    if (siteBorderRadius) {
+      styles.push(`--jr-border-radius: ${siteBorderRadius};`)
     } else {
       const roundedCorners = root.get('siteRoundedCorners')
       if (!roundedCorners) styles.push('--jr-border-radius: 0;')
