@@ -60,7 +60,7 @@ export function siteForUrl(
 
   if (siteId) return { baseUrl: baseUrlFor(language, contentId), siteId }
 
-  if (defaultSiteLanguageVersions()?.length) return findSiteForUrlExpensive(url)
+  if (getLanguageVersions()?.length) return findSiteForUrlExpensive(url)
 }
 
 function findSiteByUrl(url: string) {
@@ -74,7 +74,7 @@ function findSiteByUrl(url: string) {
     return { contentId, language, siteId }
   }
 
-  const siteId = defaultSiteLanguageVersions()
+  const siteId = getLanguageVersions()
     ?.find((site) => site.language() === language)
     ?.siteId()
   if (!siteId) return {}
@@ -121,7 +121,7 @@ function configuredBaseUrlsFor(site: Obj) {
 }
 
 export function isNoSitePresent(): boolean {
-  return !defaultSiteLanguageVersions()?.length
+  return !getLanguageVersions()?.length
 }
 
 export async function ensureSiteIsPresent() {
@@ -158,7 +158,7 @@ function getPreferredSite() {
     window.location.origin + window.location.pathname,
   )
 
-  const languageVersions = defaultSiteLanguageVersions(contentId) || []
+  const languageVersions = getLanguageVersions(contentId) || []
   const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
   for (const language of preferredLanguageOrder) {
@@ -187,7 +187,7 @@ function instanceBaseUrl(): string {
   return origin
 }
 
-function defaultSiteLanguageVersions(contentId?: string) {
+function getLanguageVersions(contentId?: string) {
   const root = contentId
     ? Obj.onAllSites()
         .where('_path', 'equals', '/')
