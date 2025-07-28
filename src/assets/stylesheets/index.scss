@@ -11,7 +11,6 @@
  ================================================== */
 
 :root {
-  --third-color: #f2f3f7; // previously --light-grey
   --fourth-color: #e8e8e8; // previously --middle-grey
   --fifth-color: #2f2f2f; // previously --dark-grey
 
@@ -22,6 +21,10 @@
   // Light text color variables for text on dark backgrounds
   --light-text-color: #ffffffe6;
   --light-headline-text-color: #ffffffe6;
+
+  --third-color: #f2f3f7; // previously --light-grey
+  --third-text-color: var(--dark-text-color);
+  --third-headline-text-color: var(--dark-headline-text-color);
 
   --border: rgba(0, 0, 0, 0.1);
 
@@ -305,7 +308,7 @@ fieldset:disabled .btn {
 }
 .bg-light-grey {
   .input-group .form-control {
-    background: var(--light-text-color);
+    background: var(--third-text-color);
   }
 }
 
@@ -674,7 +677,7 @@ a {
 }
 a {
   &.bg-light-grey {
-    color: var(--dark-text-color) !important;
+    color: var(--third-text-color) !important;
   }
 }
 
@@ -912,11 +915,11 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--dark-headline-text-color);
+      color: var(--third-headline-text-color);
     }
     a:not(.btn),
     p {
-      color: var(--dark-text-color);
+      color: var(--third-text-color);
     }
     .text-primary {
       color: var(--bs-primary);
@@ -1051,13 +1054,13 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--dark-headline-text-color);
+      color: var(--third-headline-text-color);
     }
     a:not(.btn),
     p,
     th,
     td {
-      color: var(--dark-text-color);
+      color: var(--third-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary);
@@ -1424,7 +1427,7 @@ header section {
 
   &.bg-light-grey {
     .bi {
-      color: var(--bs-primary);
+      color: var(--third-text-color);
     }
   }
 
