@@ -7,10 +7,7 @@ import {
   urlFor,
 } from 'scrivito'
 import { ensureString } from '../utils/ensureString'
-import {
-  getJrPlatformInstanceBaseUrl,
-  jrPlatformRedirectToSiteUrl,
-} from '../privateJrPlatform/multiTenancy'
+import { getJrPlatformInstanceBaseUrl } from '../privateJrPlatform/multiTenancy'
 
 const origin =
   typeof window !== 'undefined'
@@ -152,10 +149,6 @@ function redirectToSiteUrl(siteUrl: string) {
     (extractFromUrl(siteUrl).contentId === contentId
       ? location
       : defaultLocation) || ''
-
-  if (import.meta.env.PRIVATE_JR_PLATFORM) {
-    return jrPlatformRedirectToSiteUrl(siteUrl)
-  }
 
   window.location.assign(`${siteUrl}${path}${search}${hash}`)
 }

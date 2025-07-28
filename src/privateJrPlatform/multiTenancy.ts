@@ -32,19 +32,6 @@ export function getJrPlatformInstanceBaseUrl(origin: string): string {
   return `${origin}/${instanceId}`
 }
 
-export function jrPlatformRedirectToSiteUrl(siteUrl: string) {
-  const instanceId = getJrPlatformInstanceId()
-  if (!instanceId) throw new Error('Could not determine instance!')
-
-  const { pathname: rawPathname, search, hash } = window.location
-  const pathname = isMultitenancyEnabled()
-    ? rawPathname.slice(instanceId.length + 1)
-    : rawPathname
-  const path = pathname === '/' ? '' : pathname
-
-  window.location.assign(`${siteUrl}${path}${search}${hash}`)
-}
-
 function isMultitenancyEnabled(): boolean {
   return !import.meta.env.SCRIVITO_TENANT && !instanceFromHostname()
 }
