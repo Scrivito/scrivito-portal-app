@@ -13,6 +13,22 @@ export const DesignAdjustments = connect(
 
     const styles: string[] = []
 
+    const darkText = root.get('siteColorTextDark')
+    if (darkText) styles.push(`--dark-text-color: ${darkText};`)
+
+    const darkHeadlineText = root.get('siteColorTextDarkHeadline')
+    if (darkHeadlineText) {
+      styles.push(`--dark-headline-text-color: ${darkHeadlineText};`)
+    }
+
+    const lightText = root.get('siteColorTextLight')
+    if (lightText) styles.push(`--light-text-color: ${lightText};`)
+
+    const lightHeadlineText = root.get('siteColorTextLightHeadline')
+    if (lightHeadlineText) {
+      styles.push(`--light-headline-text-color: ${lightHeadlineText};`)
+    }
+
     const primary = root.get('siteColorPrimary')
     if (primary) styles.push(`--bs-primary: ${primary};`)
 
