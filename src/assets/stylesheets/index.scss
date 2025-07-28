@@ -1760,8 +1760,8 @@ section:focus >,
   margin-top: 0.4em;
 }
 .form-check-input:checked {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
+  background-color: var(--dark-text-color);
+  border-color: var(--dark-text-color);
 }
 .form-control.dropzone {
   border: 2px dashed rgba(0, 0, 0, 0.15);
@@ -1789,7 +1789,7 @@ section:focus >,
 }
 
 .nav {
-  --bs-nav-link-color: var(--bs-primary);
+  --bs-nav-link-color: var(--dark-text-color);
   --bs-nav-link-hover-color: var(--bs-dark);
 }
 
