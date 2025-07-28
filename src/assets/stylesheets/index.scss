@@ -14,7 +14,10 @@
   --third-color: #f2f3f7; // previously --light-grey
   --fourth-color: #e8e8e8; // previously --middle-grey
   --fifth-color: #2f2f2f; // previously --dark-grey
-  --headline: #1a284d;
+
+  // Dark text color variables for text on light backgrounds
+  --dark-text-color: #4f557a;
+  --dark-headline-text-color: #1a284d;
 
   // Light text color variables for text on dark backgrounds
   --light-text-color: #ffffffe6;
@@ -56,7 +59,7 @@
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 500;
   --bs-body-line-height: 1.75;
-  --bs-body-color: #4f557a;
+  --bs-body-color: var(--dark-text-color);
 
   --bs-body-bg: #fff;
   --bs-body-bg-rgb: 255, 255, 255;
@@ -394,7 +397,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--headline);
+  color: var(--dark-headline-text-color);
   font-family: var(--jr-headline-font-family), sans-serif;
   font-weight: var(--jr-headline-font-weight);
 }
@@ -463,7 +466,7 @@ h6 {
 }
 
 a {
-  color: var(--bs-primary);
+  color: var(--dark-text-color);
   text-decoration: underline;
 }
 a:hover,
@@ -594,7 +597,7 @@ main {
 //-- --//
 .bg-white {
   background: #fff;
-  color: var(--bs-body-color) !important;
+  color: var(--dark-text-color) !important;
 }
 
 .bg-primary {
@@ -666,7 +669,7 @@ a {
 }
 a {
   &.bg-middle-grey {
-    color: var(--bs-body-color) !important;
+    color: var(--dark-text-color) !important;
   }
 }
 a {
@@ -877,11 +880,11 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--headline);
+      color: var(--dark-headline-text-color);
     }
     a:not(.btn),
     p {
-      color: var(--bs-body-color);
+      color: var(--dark-text-color);
     }
     .text-primary {
       color: var(--bs-primary);
@@ -998,13 +1001,13 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--headline);
+      color: var(--dark-headline-text-color);
     }
     a:not(.btn),
     p,
     th,
     td {
-      color: var(--bs-body-color);
+      color: var(--dark-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary);
@@ -1303,13 +1306,13 @@ section .card.no-color-adaption {
   .h5,
   .h6,
   .form-label {
-    color: var(--headline) !important;
+    color: var(--dark-headline-text-color) !important;
   }
   a:not(.btn),
   p,
   th,
   td {
-    color: var(--bs-body-color) !important;
+    color: var(--dark-text-color) !important;
   }
 }
 
@@ -1409,7 +1412,7 @@ header section {
 
   &.bg-white {
     .bi {
-      color: var(--bs-primary);
+      color: var(--dark-text-color);
     }
   }
 
@@ -1709,7 +1712,7 @@ section:focus >,
 // -- general form-control -- //
 
 .form-label {
-  color: var(--headline);
+  color: var(--dark-headline-text-color);
   margin-bottom: 0.5rem;
   font-size: 0.875rem;
 }
@@ -1720,7 +1723,7 @@ section:focus >,
   font-size: 0.9rem;
   font-weight: var(--bs-body-font-weight);
   line-height: 1.5;
-  color: var(--bs-body-color);
+  color: var(--dark-text-color);
   background-color: #fff;
   background-clip: padding-box;
   border: 0.0625rem solid rgba(33, 50, 91, 0.1);
@@ -1996,7 +1999,7 @@ section.bg-primary {
     line-height: 18px;
   }
   span.text-meta {
-    color: var(--bs-primary);
+    color: var(--dark-text-color);
     font-size: 9px;
     line-height: 12px;
     font-weight: var(--jr-headline-font-weight);
@@ -2362,7 +2365,7 @@ header .navbar.navbar-expand-lg {
  =================================================================== */
 
 .breadcrumb-item {
-  color: var(--headline);
+  color: var(--dark-headline-text-color);
   font-family: var(--jr-headline-font-family), sans-serif;
   font-weight: var(--jr-headline-font-weight);
   font-size: 14px;
