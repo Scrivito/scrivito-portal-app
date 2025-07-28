@@ -33,15 +33,21 @@ export const DesignAdjustments = connect(
     if (primary) {
       styles.push(`--bs-primary: ${primary};`)
 
-      const [primaryText, primaryHeadlineText] = colorIsLight(primary)
-        ? ['var(--dark-text-color)', 'var(--dark-headline-text-color)']
-        : ['var(--light-text-color)', 'var(--light-headline-text-color)']
+      const [primaryText, primaryHeadlineText] = getTextColors(primary)
       styles.push(`--bs-primary-text-color: ${primaryText};`)
       styles.push(`--bs-primary-headline-text-color: ${primaryHeadlineText};`)
     }
 
     const secondary = root.get('siteColorSecondary')
-    if (secondary) styles.push(`--bs-secondary: ${secondary};`)
+    if (secondary) {
+      styles.push(`--bs-secondary: ${secondary};`)
+
+      const [secondaryText, secondaryHeadlineText] = getTextColors(secondary)
+      styles.push(`--bs-secondary-text-color: ${secondaryText};`)
+      styles.push(
+        `--bs-secondary-headline-text-color: ${secondaryHeadlineText};`,
+      )
+    }
 
     const third = root.get('siteColorThird')
     if (third) styles.push(`--third-color: ${third};`)
@@ -130,6 +136,12 @@ const FontFace = connect(
   },
   { loading: () => null },
 )
+
+function getTextColors(backgroundColor: string): [string, string] {
+  return colorIsLight(backgroundColor)
+    ? ['var(--dark-text-color)', 'var(--dark-headline-text-color)']
+    : ['var(--light-text-color)', 'var(--light-headline-text-color)']
+}
 
 function colorIsLight(hex: string): boolean {
   if (
