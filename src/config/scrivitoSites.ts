@@ -141,7 +141,11 @@ function redirectToSiteUrl(siteUrl: string) {
 }
 
 function getPreferredSite() {
-  const languageVersions = defaultSiteLanguageVersions() || []
+  const { contentId } = extractFromUrl(
+    window.location.origin + window.location.pathname,
+  )
+
+  const languageVersions = defaultSiteLanguageVersions(contentId) || []
   const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
 
   for (const language of preferredLanguageOrder) {
@@ -151,7 +155,7 @@ function getPreferredSite() {
     if (site) return site
   }
 
-  return languageVersions[0] || null
+  return languageVersions[0]
 }
 
 function baseUrlFor(language: string, contentId?: string) {
@@ -170,10 +174,17 @@ function instanceBaseUrl(): string {
   return origin
 }
 
-function defaultSiteLanguageVersions() {
-  return Obj.onAllSites()
-    .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
-    ?.versionsOnAllSites()
+function defaultSiteLanguageVersions(contentId?: string) {
+  const root = contentId
+    ? Obj.onAllSites()
+        .where('_path', 'equals', '/')
+        .and('_contentId', 'equals', contentId)
+        .toArray()[0]
+    : undefined
+
+  return (
+    root || Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
+  )?.versionsOnAllSites()
 }
 
 function defaultSiteContentId() {
