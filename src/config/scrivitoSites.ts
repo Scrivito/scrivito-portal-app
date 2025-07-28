@@ -56,10 +56,7 @@ export function siteForUrl(
 }
 
 function findSiteByUrl(url: string) {
-  const { contentId, language } =
-    new RegExp(
-      `^${instanceBaseUrl()}(\\/(?<contentId>[0-9a-z]{16}))?\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
-    ).exec(url)?.groups || {}
+  const { contentId, language } = extractFromUrl(url)
 
   if (contentId && language) {
     const siteId = findSiteIdBy({ contentId, language })
@@ -72,6 +69,14 @@ function findSiteByUrl(url: string) {
       ?.find((site) => site.language() === language)
       ?.siteId(),
   }
+}
+
+function extractFromUrl(url: string) {
+  return (
+    new RegExp(
+      `^${instanceBaseUrl()}(\\/(?<contentId>[0-9a-z]{16}))?\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
+    ).exec(url)?.groups || {}
+  )
 }
 
 function findSiteIdBy(query: { contentId: string; language: string }) {
