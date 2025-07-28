@@ -87,7 +87,7 @@ function findSiteByUrl(url: string) {
 function extractFromUrl(url: string) {
   return (
     new RegExp(
-      `^${instanceBaseUrl()}(\\/(?<contentId>[0-9a-z]{16}))?\\/(?<language>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
+      `^${instanceBaseUrl()}(?<defaultLocation>(/(?<contentId>[0-9a-z]{16}))?(/(?<language>[a-z]{2}(-[A-Z]{2})?))?(?<location>([?/].*)|$))`,
     ).exec(url)?.groups || {}
   )
 }
@@ -143,12 +143,19 @@ export async function ensureSiteIsPresent() {
 }
 
 function redirectToSiteUrl(siteUrl: string) {
+  const { origin, pathname, search, hash } = window.location
+  const { contentId, defaultLocation, location } = extractFromUrl(
+    origin + pathname,
+  )
+
+  const path =
+    (extractFromUrl(siteUrl).contentId === contentId
+      ? location
+      : defaultLocation) || ''
+
   if (import.meta.env.PRIVATE_JR_PLATFORM) {
     return jrPlatformRedirectToSiteUrl(siteUrl)
   }
-
-  const { pathname, search, hash } = window.location
-  const path = pathname === '/' ? '' : pathname
 
   window.location.assign(`${siteUrl}${path}${search}${hash}`)
 }
