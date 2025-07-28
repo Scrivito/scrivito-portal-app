@@ -1869,7 +1869,7 @@ section.bg-primary {
   .dropdown-item.active,
   .dropdown-item:active {
     background: var(--bs-secondary);
-    color: var(--bs-dropdown-link-active-color) !important;
+    color: var(--bs-secondary-text-color) !important;
   }
 }
 
@@ -2028,7 +2028,7 @@ section.bg-primary {
   --bs-dropdown-link-color: #2f2f2f;
   --bs-dropdown-link-hover-color: #2f2f2f;
   --bs-dropdown-link-hover-bg: #e8e8e8;
-  --bs-dropdown-link-active-color: var(--light-text-color);
+  --bs-dropdown-link-active-color: var(--bs-primary-text-color);
   --bs-dropdown-link-active-bg: var(--bs-primary);
   --bs-dropdown-link-disabled-color: #e8e8e8;
   --bs-dropdown-item-padding-x: 0.5rem;
