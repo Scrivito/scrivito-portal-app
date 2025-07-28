@@ -2038,10 +2038,10 @@ section.bg-primary {
   --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   --bs-dropdown-link-color: var(--fifth-color);
   --bs-dropdown-link-hover-color: var(--fifth-color);
-  --bs-dropdown-link-hover-bg: var(--fourth-color);
+  --bs-dropdown-link-hover-bg: #e8e8e8;
   --bs-dropdown-link-active-color: var(--light-text-color);
   --bs-dropdown-link-active-bg: var(--bs-primary);
-  --bs-dropdown-link-disabled-color: var(--fourth-color);
+  --bs-dropdown-link-disabled-color: #e8e8e8;
   --bs-dropdown-item-padding-x: 0.5rem;
   --bs-dropdown-item-padding-y: 0.35rem;
   --bs-dropdown-header-color: #6c757d;
@@ -2056,7 +2056,7 @@ section.bg-primary {
 
 .dropdown-divider {
   margin: 0;
-  border-top: 1px solid var(--fourth-color);
+  border-top: 1px solid #e8e8e8;
 }
 
 .nav-link i,
@@ -2097,7 +2097,7 @@ section.bg-primary {
     .dropdown-item {
       padding: 0.375rem;
       &:hover {
-        background: var(--fourth-color);
+        background: #e8e8e8;
       }
       &.active {
         background: var(--bs-primary);
