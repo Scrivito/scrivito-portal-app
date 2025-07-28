@@ -11,7 +11,6 @@
  ================================================== */
 
 :root {
-  --fourth-color: #e8e8e8; // previously --middle-grey
   --fifth-color: #2f2f2f; // previously --dark-grey
 
   // Dark text color variables for text on light backgrounds
@@ -25,6 +24,10 @@
   --third-color: #f2f3f7; // previously --light-grey
   --third-text-color: var(--dark-text-color);
   --third-headline-text-color: var(--dark-headline-text-color);
+
+  --fourth-color: #e8e8e8; // previously --middle-grey
+  --fourth-text-color: var(--dark-text-color);
+  --fourth-headline-text-color: var(--dark-headline-text-color);
 
   --border: rgba(0, 0, 0, 0.1);
 
@@ -672,7 +675,7 @@ a {
 }
 a {
   &.bg-middle-grey {
-    color: var(--dark-text-color) !important;
+    color: var(--fourth-text-color) !important;
   }
 }
 a {
@@ -883,11 +886,11 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--dark-headline-text-color);
+      color: var(--fourth-headline-text-color);
     }
     a:not(.btn),
     p {
-      color: var(--dark-text-color);
+      color: var(--fourth-text-color);
     }
     .text-primary {
       color: var(--bs-primary);
@@ -1004,13 +1007,13 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--dark-headline-text-color);
+      color: var(--fourth-headline-text-color);
     }
     a:not(.btn),
     p,
     th,
     td {
-      color: var(--dark-text-color);
+      color: var(--fourth-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary);
@@ -1421,7 +1424,7 @@ header section {
 
   &.bg-middle-grey {
     .bi {
-      color: var(--bs-primary);
+      color: var(--fourth-text-color);
     }
   }
 
