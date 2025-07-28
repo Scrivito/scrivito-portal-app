@@ -38,6 +38,19 @@ export function baseUrlForSite(siteId: string): string | undefined {
   return baseUrlFor(language, siteRoot.contentId())
 }
 
+/**
+ * Recognized URLs:
+ * - https://mailing.neoletter.com/instance-id
+ *   Neoletter mailings
+ * - https://current.origin/instance-base-path/1234567890abcdef/xy
+ *   XY language version of the root with the content ID 1234567890abcdef (if found)
+ * - https://current.origin/instance-base-path/xy
+ *   XY language version of the default site root (if found)
+ * - https://my-base-url-origin/my-base-url-path
+ *   Root object with the according base URL attribute value
+ *
+ * All other URLs will result in no site present.
+ */
 export function siteForUrl(
   url: string,
 ): { baseUrl: string; siteId: string } | undefined {
@@ -48,9 +61,7 @@ export function siteForUrl(
 
   const { contentId, language, siteId } = findSiteByUrl(url)
 
-  if (language && siteId) {
-    return { baseUrl: baseUrlFor(language, contentId), siteId }
-  }
+  if (siteId) return { baseUrl: baseUrlFor(language, contentId), siteId }
 
   if (defaultSiteLanguageVersions()?.length) return findSiteForUrlExpensive(url)
 }
@@ -58,17 +69,19 @@ export function siteForUrl(
 function findSiteByUrl(url: string) {
   const { contentId, language } = extractFromUrl(url)
 
-  if (contentId && language) {
+  if (!language) return {}
+
+  if (contentId) {
     const siteId = findSiteIdBy({ contentId, language })
-    if (siteId) return { contentId, language, siteId }
+    if (!siteId) return {}
+    return { contentId, language, siteId }
   }
 
-  return {
-    language,
-    siteId: defaultSiteLanguageVersions()
-      ?.find((site) => site.language() === language)
-      ?.siteId(),
-  }
+  const siteId = defaultSiteLanguageVersions()
+    ?.find((site) => site.language() === language)
+    ?.siteId()
+  if (!siteId) return {}
+  return { contentId: defaultSiteContentId(), language, siteId }
 }
 
 function extractFromUrl(url: string) {
