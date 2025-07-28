@@ -1443,6 +1443,10 @@ section.bg-primary {
   display: flex;
   flex-flow: column;
   width: 100%;
+  .nav-bordered {
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+  }
 }
 .navbar-landing,
 .navbar-meta,
