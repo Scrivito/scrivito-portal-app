@@ -19,6 +19,13 @@
   --light-text-color: #ffffffe6;
   --light-headline-text-color: #ffffffe6;
 
+  // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
+  --bs-primary: #274486;
+  --bs-primary-text-color: var(--light-text-color);
+  --bs-primary-headline-text-color: var(--light-headline-text-color);
+  --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
+  --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
+
   --third-color: #f2f3f7; // previously --light-grey
   --third-text-color: var(--dark-text-color);
   --third-headline-text-color: var(--dark-headline-text-color);
@@ -33,14 +40,8 @@
 
   --border: rgba(0, 0, 0, 0.1);
 
-  // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
-  --bs-primary: #274486;
-
   // The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-secondary: #39a9eb;
-
-  --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
-  --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
   --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
   --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
 
@@ -197,13 +198,13 @@ fieldset:disabled .btn {
 }
 
 .btn-primary {
-  --bs-btn-color: var(--light-text-color);
+  --bs-btn-color: var(--bs-primary-text-color);
   --bs-btn-bg: var(--bs-primary);
   --bs-btn-border-color: var(--bs-primary);
-  --bs-btn-hover-color: var(--light-text-color);
+  --bs-btn-hover-color: var(--bs-primary-text-color);
   --bs-btn-hover-bg: var(--bs-primary-lighten);
   --bs-btn-hover-border-color: var(--bs-primary-lighten);
-  --bs-btn-active-color: var(--light-text-color);
+  --bs-btn-active-color: var(--bs-primary-text-color);
   --bs-btn-active-bg: var(--bs-primary-darken);
   --bs-btn-active-border-color: var(--bs-primary-darken);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
@@ -231,11 +232,11 @@ fieldset:disabled .btn {
 .btn-outline-primary {
   --bs-btn-color: var(--bs-primary);
   --bs-btn-border-color: var(--bs-primary);
-  --bs-btn-hover-color: var(--light-text-color);
+  --bs-btn-hover-color: var(--bs-primary-text-color);
   --bs-btn-hover-bg: var(--bs-primary-lighten);
   --bs-btn-hover-border-color: var(--bs-primary-lighten);
   --bs-btn-focus-shadow-rgb: 13, 110, 253;
-  --bs-btn-active-color: var(--light-text-color);
+  --bs-btn-active-color: var(--bs-primary-text-color);
   --bs-btn-active-bg: var(--bs-primary-darken);
   --bs-btn-active-border-color: var(--bs-primary-darken);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
@@ -262,7 +263,7 @@ fieldset:disabled .btn {
   --bs-gradient: none;
 }
 .btn-outline-primary:focus-visible {
-  color: var(--light-text-color) !important;
+  color: var(--bs-primary-text-color) !important;
 }
 .btn-outline-secondary:focus-visible {
   color: var(--light-text-color) !important;
@@ -610,7 +611,7 @@ main {
 
 .bg-primary {
   background: var(--bs-primary) !important;
-  color: var(--light-text-color) !important;
+  color: var(--bs-primary-text-color) !important;
 }
 .bg-dark-grey {
   background: var(--fifth-color) !important;
@@ -649,7 +650,7 @@ main {
 
 a {
   &.bg-primary {
-    color: var(--light-text-color);
+    color: var(--bs-primary-text-color);
   }
 }
 a {
@@ -692,7 +693,7 @@ section {
     p,
     th,
     td {
-      color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
     }
     h1,
     h2,
@@ -706,15 +707,15 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--light-headline-text-color);
+      color: var(--bs-primary-headline-text-color);
     }
     .btn-outline-primary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .btn-outline-secondary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .text-primary {
       color: var(--bs-primary) !important;
@@ -745,8 +746,8 @@ section {
       color: var(--fifth-headline-text-color);
     }
     .btn-outline-primary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .btn-outline-secondary {
       color: var(--light-text-color);
@@ -781,8 +782,8 @@ section {
       color: var(--light-headline-text-color);
     }
     .btn-outline-primary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .btn-outline-secondary {
       color: var(--light-text-color);
@@ -819,8 +820,8 @@ section {
       color: var(--light-headline-text-color);
     }
     .btn-outline-primary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .btn-outline-secondary {
       color: var(--light-text-color);
@@ -972,7 +973,7 @@ section {
       border-color: var(--bs-primary);
       &:hover,
       &:active {
-        color: var(--light-text-color);
+        color: var(--bs-primary-text-color);
       }
     }
     .btn-outline-secondary {
@@ -1022,7 +1023,7 @@ section {
       border-color: var(--bs-primary);
       &:hover,
       &:active {
-        color: var(--light-text-color);
+        color: var(--bs-primary-text-color);
       }
     }
     .btn-outline-secondary {
@@ -1072,7 +1073,7 @@ section {
       border-color: var(--bs-primary);
       &:hover,
       &:active {
-        color: var(--light-text-color);
+        color: var(--bs-primary-text-color);
       }
     }
     .btn-outline-secondary {
@@ -1105,7 +1106,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
     }
     h1,
     h2,
@@ -1125,11 +1126,11 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--light-headline-text-color);
+      color: var(--bs-primary-headline-text-color);
     }
     .btn-outline-primary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .btn-outline-secondary {
       color: var(--light-text-color);
@@ -1174,8 +1175,8 @@ section {
       color: var(--fifth-headline-text-color);
     }
     .btn-outline-primary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .btn-outline-secondary {
       color: var(--light-text-color);
@@ -1220,8 +1221,8 @@ section {
       color: var(--light-headline-text-color);
     }
     .btn-outline-primary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .btn-outline-secondary {
       color: var(--light-text-color);
@@ -1268,8 +1269,8 @@ section {
       color: var(--light-headline-text-color);
     }
     .btn-outline-primary {
-      color: var(--light-text-color);
-      border-color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
+      border-color: var(--bs-primary-text-color);
     }
     .btn-outline-secondary {
       color: var(--light-text-color);
@@ -1397,7 +1398,7 @@ header section {
 .carousel-item {
   &.bg-primary {
     .bi {
-      color: var(--light-text-color);
+      color: var(--bs-primary-text-color);
     }
   }
   &.bg-secondary {
@@ -1683,7 +1684,7 @@ section:focus >,
   width: 60px;
   height: 60px;
   background: var(--bs-primary);
-  color: var(--light-text-color);
+  color: var(--bs-primary-text-color);
   border-radius: 50%;
   line-height: 60px;
   text-align: center;
@@ -1943,7 +1944,7 @@ section.bg-primary {
   .nav-link.btn:focus {
     border: none;
     background: var(--bs-primary);
-    color: var(--light-text-color);
+    color: var(--bs-primary-text-color);
     line-height: var(--bs-body-line-height);
     padding: var(--bs-nav-link-padding-y);
   }
@@ -2098,7 +2099,7 @@ section.bg-primary {
       }
       &.active {
         background: var(--bs-primary);
-        color: var(--light-text-color);
+        color: var(--bs-primary-text-color);
       }
     }
   }
@@ -2252,7 +2253,7 @@ header .navbar.navbar-expand-lg {
 
 .nav-bordered li.active > a {
   background: var(--bs-primary);
-  color: var(--light-text-color) !important;
+  color: var(--bs-primary-text-color) !important;
 }
 
 .nav-bordered li.active:has(li.active) > a:not(:hover) {
@@ -2263,7 +2264,7 @@ header .navbar.navbar-expand-lg {
 .nav-bordered li a:hover,
 .nav-bordered li a:active {
   background: var(--bs-primary-lighten);
-  color: var(--light-text-color) !important;
+  color: var(--bs-primary-text-color) !important;
 }
 
 .nav-bordered li a .bi {
@@ -2344,14 +2345,14 @@ header .navbar.navbar-expand-lg {
 
 .nav-pills {
   --bs-nav-pills-border-radius: 0;
-  --bs-nav-pills-link-active-color: var(--light-text-color);
+  --bs-nav-pills-link-active-color: var(--bs-primary-text-color);
   --bs-nav-pills-link-active-bg: var(--bs-primary);
 }
 .nav-pills .nav-link {
   padding: 4px 8px;
 }
 .nav-pills .nav-link.active {
-  border: 1px solid var(--light-text-color);
+  border: 1px solid var(--bs-primary-text-color);
 }
 
 /* list details
