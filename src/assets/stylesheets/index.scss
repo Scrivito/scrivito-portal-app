@@ -289,7 +289,7 @@ fieldset:disabled .btn {
   }
   .form-control {
     border-radius: var(--jr-border-radius);
-    background: var(--third-color);
+    background: #f2f3f7;
     border-right: 0;
 
     &.no-arrows {
@@ -561,7 +561,7 @@ main {
  ================================================== */
 .alert {
   background: #fff;
-  color: var(--fifth-color);
+  color: #2f2f2f;
   border: none;
   border-radius: 5px;
   box-shadow:
@@ -1975,7 +1975,7 @@ section.bg-primary {
     height: 100%;
   }
   .form-control:focus {
-    background-color: var(--third-color);
+    background-color: #f2f3f7;
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -1987,7 +1987,7 @@ section.bg-primary {
     height: 37px;
   }
   .form-control:focus {
-    background-color: var(--third-color);
+    background-color: #f2f3f7;
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -2107,7 +2107,7 @@ section.bg-primary {
   }
 
   .form-control {
-    background-color: var(--third-color);
+    background-color: #f2f3f7;
   }
 }
 
@@ -2399,7 +2399,7 @@ header .navbar.navbar-expand-lg {
     --fourth-color: #e3e3e3;
   }
   main {
-    background: var(--third-color);
+    background: #f2f3f7;
   }
   .Toastify__toast,
   .navbar-toggler.btn,
