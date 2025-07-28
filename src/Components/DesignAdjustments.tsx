@@ -50,7 +50,13 @@ export const DesignAdjustments = connect(
     }
 
     const third = root.get('siteColorThird')
-    if (third) styles.push(`--third-color: ${third};`)
+    if (third) {
+      styles.push(`--third-color: ${third};`)
+
+      const [thirdText, thirdHeadlineText] = getTextColors(third)
+      styles.push(`--third-text-color: ${thirdText};`)
+      styles.push(`--third-headline-text-color: ${thirdHeadlineText};`)
+    }
 
     const fourth = root.get('siteColorFourth')
     if (fourth) styles.push(`--fourth-color: ${fourth};`)
