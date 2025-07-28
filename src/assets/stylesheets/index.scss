@@ -11,8 +11,6 @@
  ================================================== */
 
 :root {
-  --fifth-color: #2f2f2f; // previously --dark-grey
-
   // Dark text color variables for text on light backgrounds
   --dark-text-color: #4f557a;
   --dark-headline-text-color: #1a284d;
@@ -28,6 +26,10 @@
   --fourth-color: #e8e8e8; // previously --middle-grey
   --fourth-text-color: var(--dark-text-color);
   --fourth-headline-text-color: var(--dark-headline-text-color);
+
+  --fifth-color: #2f2f2f; // previously --dark-grey
+  --fifth-text-color: var(--light-text-color);
+  --fifth-headline-text-color: var(--light-headline-text-color);
 
   --border: rgba(0, 0, 0, 0.1);
 
@@ -612,7 +614,7 @@ main {
 }
 .bg-dark-grey {
   background: var(--fifth-color) !important;
-  color: var(--light-text-color) !important;
+  color: var(--fifth-text-color) !important;
 }
 
 .bg-secondary {
@@ -652,7 +654,7 @@ a {
 }
 a {
   &.bg-dark-grey {
-    color: var(--light-text-color);
+    color: var(--fifth-text-color);
   }
 }
 a {
@@ -726,7 +728,7 @@ section {
     p,
     th,
     td {
-      color: var(--light-text-color);
+      color: var(--fifth-text-color);
     }
     h1,
     h2,
@@ -740,7 +742,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--light-headline-text-color);
+      color: var(--fifth-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--light-text-color);
@@ -1149,7 +1151,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--light-text-color);
+      color: var(--fifth-text-color);
     }
     h1,
     h2,
@@ -1169,7 +1171,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--light-headline-text-color);
+      color: var(--fifth-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--light-text-color);
@@ -1405,7 +1407,7 @@ header section {
   }
   &.bg-dark-grey {
     .bi {
-      color: var(--light-text-color);
+      color: var(--fifth-text-color);
     }
   }
   &.bg-success,
