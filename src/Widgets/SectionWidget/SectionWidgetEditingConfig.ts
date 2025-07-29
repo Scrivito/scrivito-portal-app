@@ -30,6 +30,10 @@ provideEditingConfig(SectionWidget, {
     backgroundImage: {
       title: 'Background image or video',
     },
+    containerMinHeight: {
+      title: 'Container minimum height',
+      description: 'For example 400px, 100vh, 50rem. Default: auto',
+    },
     containerWidth: {
       title: 'Container width',
       description: 'Default: fixed',
@@ -43,17 +47,29 @@ provideEditingConfig(SectionWidget, {
       title: 'Padding',
       description: 'Padding adds space around this section. Default: Yes',
     },
+    verticalAlignment: {
+      title: 'Vertical alignment',
+      description: 'Default: Top',
+      values: [
+        { value: 'start', title: 'Top' },
+        { value: 'center', title: 'Center' },
+        { value: 'end', title: 'Bottom' },
+      ],
+    },
   },
   properties: (widget) => [
     'backgroundColor',
     'backgroundImage',
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
     'containerWidth',
+    'containerMinHeight',
+    'verticalAlignment',
     'showPadding',
   ],
   initialContent: {
     backgroundColor: 'transparent',
     containerWidth: 'fixed',
     showPadding: true,
+    verticalAlignment: 'start',
   },
 })
