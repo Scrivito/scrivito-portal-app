@@ -81,6 +81,7 @@ provideEditingConfig(Homepage, {
     },
   },
   propertiesGroups: (site) => [
+    ...defaultPagePropertiesGroups,
     {
       title: 'Site settings',
       properties: [
@@ -131,7 +132,6 @@ provideEditingConfig(Homepage, {
       properties: ['siteBorderRadius'],
       key: 'site-rounded-corners-group',
     },
-    ...defaultPagePropertiesGroups,
   ],
   properties: [...defaultPageProperties],
   initialContent: {
