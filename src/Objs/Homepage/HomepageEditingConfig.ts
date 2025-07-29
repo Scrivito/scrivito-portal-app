@@ -104,7 +104,7 @@ provideEditingConfig(Homepage, {
       key: 'site-settings-group',
     },
     {
-      title: 'Site: Colors',
+      title: 'Colors',
       component: SiteColorsPicker,
       properties: [
         'siteColorFifth',
@@ -116,13 +116,13 @@ provideEditingConfig(Homepage, {
       key: 'site-colors-group',
     },
     {
-      title: 'Site: Rounded corners',
+      title: 'Rounded corners',
       component: SiteBorderRadiusEditor,
       properties: ['siteBorderRadius'],
       key: 'site-rounded-corners-group',
     },
     {
-      title: 'Site: Fonts',
+      title: 'Fonts',
       properties: [
         'siteFontHeadline',
         'siteFontBody',
