@@ -22,8 +22,8 @@ export function SiteBorderRadiusEditor({ page }: { page: HomepageInstance }) {
             value={page.get('siteBorderRadius')}
           />
           <div className="scrivito_notice_body">
-            Applies to elements such as cards, buttons, and forms. Set to 0 to
-            disable rounded corners.
+            Applies to elements such as cards, buttons, and forms throughout the
+            site. Set to 0 to disable rounded corners.
             <br />
             Default: 0.5rem
           </div>
