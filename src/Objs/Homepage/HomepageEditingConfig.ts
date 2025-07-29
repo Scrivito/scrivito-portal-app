@@ -116,12 +116,6 @@ provideEditingConfig(Homepage, {
       key: 'site-colors-group',
     },
     {
-      title: 'Rounded corners',
-      component: SiteBorderRadiusEditor,
-      properties: ['siteBorderRadius'],
-      key: 'site-rounded-corners-group',
-    },
-    {
       title: 'Fonts',
       properties: [
         'siteFontHeadline',
@@ -130,6 +124,12 @@ provideEditingConfig(Homepage, {
         'siteFontBodyWeight',
       ],
       key: 'site-fonts-group',
+    },
+    {
+      title: 'Rounded corners',
+      component: SiteBorderRadiusEditor,
+      properties: ['siteBorderRadius'],
+      key: 'site-rounded-corners-group',
     },
     ...defaultPagePropertiesGroups,
   ],
