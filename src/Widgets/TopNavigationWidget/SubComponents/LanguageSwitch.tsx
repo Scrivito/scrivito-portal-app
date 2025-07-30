@@ -36,12 +36,16 @@ export const LanguageSwitch = connect(function LanguageSwitch({
       const root = Obj.onSite(siteId).root()
       if (!isHomepage(root)) return null
 
+      const version = currentPage()
+        ?.versionsOnAllSites()
+        ?.find((currentPageVersion) => currentPageVersion.siteId() === siteId)
+
       return {
         label: displayName(root.language()),
         language: root.language() || undefined,
         root,
         siteId,
-        version: currentPage()?.versionOnSite(siteId),
+        version,
       }
     })
     .filter((v) => v !== null)
