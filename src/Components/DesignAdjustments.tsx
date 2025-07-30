@@ -185,6 +185,6 @@ function colorIsLight(hex: string): boolean {
   const g = parseInt(color.slice(2, 4), 16)
   const b = parseInt(color.slice(4, 6), 16)
   // ignores alpha channel
-  const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255
-  return luminance > 0.5
+  const luma = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255
+  return luma > 0.5
 }
