@@ -99,9 +99,7 @@ provideComponent(Product, ({ page }) => {
                           >
                             <div
                               className="btn btn-sm btn-outline-primary disabled"
-                              style={{
-                                opacity: '100%', // TODO: Add official styling by designer
-                              }}
+                              style={{ opacity: '100%' }}
                             >
                               {valueOption}
                             </div>{' '}
