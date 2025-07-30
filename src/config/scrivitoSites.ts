@@ -55,6 +55,8 @@ function findSiteByUrl(url: string) {
   const { contentId: urlContentId, language } = extractFromUrl(url)
   if (!language) return {}
 
+  if (urlContentId === defaultSiteContentId()) return {}
+
   const contentId = urlContentId || defaultSiteContentId()
   if (!contentId) return {}
 
