@@ -5,7 +5,7 @@ import {
   Obj,
   urlFor,
 } from 'scrivito'
-import { extractFromUrl } from '../config/scrivitoSites'
+import { extractFromUrl } from './extractFromUrl'
 
 export async function ensureSiteIsPresent() {
   if (await load(() => currentSiteId())) return

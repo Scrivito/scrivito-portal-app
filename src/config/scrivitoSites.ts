@@ -1,11 +1,6 @@
 import { Obj, getInstanceId } from 'scrivito'
-import { ensureString } from '../utils/ensureString'
-import { getJrPlatformInstanceBaseUrl } from '../privateJrPlatform/multiTenancy'
-
-const origin =
-  typeof window !== 'undefined'
-    ? window.location.origin
-    : ensureString(import.meta.env.SCRIVITO_ORIGIN)
+import { instanceBaseUrl } from '../multiSite/instanceBaseUrl'
+import { extractFromUrl } from '../multiSite/extractFromUrl'
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
@@ -69,19 +64,6 @@ function findSiteByUrl(url: string) {
   return { contentId, language, siteId }
 }
 
-export function extractFromUrl(url: string): {
-  contentId?: string
-  defaultLocation?: string
-  language?: string
-  location?: string
-} {
-  return (
-    new RegExp(
-      `^${instanceBaseUrl()}(?<defaultLocation>(/(?<contentId>[0-9a-z]{16}))?(/(?<language>[a-z]{2}(-[A-Z]{2})?))?(?<location>([?/].*)|$))`,
-    ).exec(url)?.groups || {}
-  )
-}
-
 function findSiteIdBy(query: { contentId: string; language: string }) {
   return Obj.onAllSites()
     .where('_path', 'equals', '/')
@@ -118,15 +100,6 @@ function baseUrlFor(language: string, contentId?: string) {
   return contentId && contentId !== defaultSiteContentId()
     ? `${base}/${contentId}/${language}`
     : `${base}/${language}`
-}
-
-function instanceBaseUrl(): string {
-  if (!origin) throw new Error('No origin defined!')
-  if (import.meta.env.PRIVATE_JR_PLATFORM) {
-    return getJrPlatformInstanceBaseUrl(origin)
-  }
-
-  return origin
 }
 
 function defaultSiteContentId() {
