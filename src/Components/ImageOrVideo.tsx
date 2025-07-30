@@ -1,4 +1,4 @@
-import { useImperativeHandle, useRef, useState } from 'react'
+import { useImperativeHandle, useRef, useState, useEffect } from 'react'
 import {
   connect,
   Widget,
@@ -26,7 +26,21 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
   }>
 }) {
   const [isPaused, setIsPaused] = useState(false)
+  const [shouldAutoplay, setShouldAutoplay] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setShouldAutoplay(!mediaQuery.matches)
+    if (mediaQuery.matches) setIsPaused(true)
+
+    const handleChange = () => {
+      setShouldAutoplay(!mediaQuery.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
 
   const handleVideoClick = (e: React.MouseEvent) => {
     const video = videoRef.current
@@ -57,7 +71,7 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
       <>
         <video
           ref={videoRef}
-          autoPlay
+          autoPlay={shouldAutoplay}
           className={classNames.join(' ')}
           key={background.contentUrl()}
           loop
