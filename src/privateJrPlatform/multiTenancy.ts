@@ -23,26 +23,13 @@ export function getJrPlatformInstanceId(): string | null {
   return instance
 }
 
-export function getJrPlatformBaseAppUrl(origin: string): string {
+export function getJrPlatformInstanceBaseUrl(origin: string): string {
   if (!isMultitenancyEnabled()) return origin
 
   const instanceId = getJrPlatformInstanceId()
   if (!instanceId) throw new Error('Could not determine instance!')
 
   return `${origin}/${instanceId}`
-}
-
-export function jrPlatformRedirectToSiteUrl(siteUrl: string) {
-  const instanceId = getJrPlatformInstanceId()
-  if (!instanceId) throw new Error('Could not determine instance!')
-
-  const { pathname: rawPathname, search, hash } = window.location
-  const pathname = isMultitenancyEnabled()
-    ? rawPathname.slice(instanceId.length + 1)
-    : rawPathname
-  const path = pathname === '/' ? '' : pathname
-
-  window.location.assign(`${siteUrl}${path}${search}${hash}`)
 }
 
 function isMultitenancyEnabled(): boolean {
