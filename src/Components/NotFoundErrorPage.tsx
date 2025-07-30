@@ -9,7 +9,7 @@ import {
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
 import { Loading } from './Loading'
-import { isNoSitePresent } from '../config/scrivitoSites'
+import { isNoSitePresent } from '../multiSite/isNoSitePresent'
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']

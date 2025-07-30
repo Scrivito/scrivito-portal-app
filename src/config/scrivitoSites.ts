@@ -1,11 +1,4 @@
-import {
-  Obj,
-  currentSiteId,
-  ensureUserIsLoggedIn,
-  getInstanceId,
-  load,
-  urlFor,
-} from 'scrivito'
+import { Obj, getInstanceId } from 'scrivito'
 import { ensureString } from '../utils/ensureString'
 import { getJrPlatformInstanceBaseUrl } from '../privateJrPlatform/multiTenancy'
 
@@ -81,7 +74,12 @@ function findSiteByUrl(url: string) {
   return { contentId: defaultSiteContentId(), language, siteId }
 }
 
-function extractFromUrl(url: string) {
+export function extractFromUrl(url: string): {
+  contentId?: string
+  defaultLocation?: string
+  language?: string
+  location?: string
+} {
   return (
     new RegExp(
       `^${instanceBaseUrl()}(?<defaultLocation>(/(?<contentId>[0-9a-z]{16}))?(/(?<language>[a-z]{2}(-[A-Z]{2})?))?(?<location>([?/].*)|$))`,
@@ -120,57 +118,6 @@ function configuredBaseUrlsFor(site: Obj) {
   )
 }
 
-export function isNoSitePresent(): boolean {
-  return !getLanguageVersions()?.length
-}
-
-export async function ensureSiteIsPresent() {
-  if (await load(() => currentSiteId())) return
-
-  if (await load(() => isNoSitePresent())) {
-    ensureUserIsLoggedIn()
-    return
-  }
-
-  const site = await load(() => getPreferredSite())
-  if (!site) return
-
-  const siteUrl = await load(() => urlFor(site))
-  return redirectToSiteUrl(siteUrl)
-}
-
-function redirectToSiteUrl(siteUrl: string) {
-  const { origin, pathname, search, hash } = window.location
-  const { contentId, defaultLocation, location } = extractFromUrl(
-    origin + pathname,
-  )
-
-  const path =
-    (extractFromUrl(siteUrl).contentId === contentId
-      ? location
-      : defaultLocation) || ''
-
-  window.location.assign(`${siteUrl}${path}${search}${hash}`)
-}
-
-function getPreferredSite() {
-  const { contentId } = extractFromUrl(
-    window.location.origin + window.location.pathname,
-  )
-
-  const languageVersions = getLanguageVersions(contentId) || []
-  const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
-
-  for (const language of preferredLanguageOrder) {
-    const site = languageVersions.find((site) =>
-      siteHasLanguage(site, language),
-    )
-    if (site) return site
-  }
-
-  return languageVersions[0]
-}
-
 function baseUrlFor(language: string, contentId?: string) {
   const base = instanceBaseUrl()
   return contentId && contentId !== defaultSiteContentId()
@@ -187,7 +134,7 @@ function instanceBaseUrl(): string {
   return origin
 }
 
-function getLanguageVersions(contentId?: string) {
+export function getLanguageVersions(contentId?: string): Obj[] | undefined {
   const root = contentId
     ? Obj.onAllSites()
         .where('_path', 'equals', '/')
@@ -204,11 +151,4 @@ function defaultSiteContentId() {
   return Obj.onAllSites()
     .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
     ?.contentId()
-}
-
-function siteHasLanguage(site: Obj, language: string | null) {
-  const siteLanguage = site.language()
-  return language && siteLanguage
-    ? language.startsWith(siteLanguage)
-    : language === siteLanguage
 }
