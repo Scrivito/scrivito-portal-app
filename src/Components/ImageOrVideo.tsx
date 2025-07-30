@@ -86,7 +86,7 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
             className="image-or-video-play-button"
             aria-label={localizePlayVideoLabel()}
           >
-            <i className="bi bi-play-fill text-white bi-5x" />
+            <i className="bi bi-play-fill text-white bi-3x" />
           </button>
         )}
       </>
