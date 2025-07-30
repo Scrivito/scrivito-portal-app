@@ -136,6 +136,7 @@ provideEditingConfig(Homepage, {
   properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
+    contentFormat: 'portal-app:6',
     siteBorderRadius: '0.5rem',
     siteDropShadow: true,
     siteFontBodyWeight: '500',
