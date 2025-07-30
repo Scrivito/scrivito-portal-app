@@ -2,16 +2,19 @@ import {
   currentSiteId,
   ensureUserIsLoggedIn,
   load,
+  Obj,
   urlFor,
-  type Obj,
 } from 'scrivito'
 import { extractFromUrl, getLanguageVersions } from '../config/scrivitoSites'
-import { isNoSitePresent } from './isNoSitePresent'
 
 export async function ensureSiteIsPresent() {
   if (await load(() => currentSiteId())) return
 
-  if (await load(() => isNoSitePresent())) {
+  if (
+    await load(
+      () => !Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID),
+    )
+  ) {
     ensureUserIsLoggedIn()
     return
   }
