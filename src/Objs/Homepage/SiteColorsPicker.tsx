@@ -111,7 +111,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             <span>Light text</span>
           </div>
           <AdvancedColorPicker
-            color={page.get('siteColorTextLight') || '#ffffffe6'}
+            color={page.get('siteColorTextLight') || '#fff'}
             disabled={disabled}
             setColor={(siteColorTextLight) =>
               page.update({ siteColorTextLight })
@@ -124,7 +124,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             <span>Light headline text</span>
           </div>
           <AdvancedColorPicker
-            color={page.get('siteColorTextLightHeadline') || '#ffffffe6'}
+            color={page.get('siteColorTextLightHeadline') || '#fff'}
             disabled={disabled}
             setColor={(siteColorTextLightHeadline) =>
               page.update({ siteColorTextLightHeadline })
