@@ -1,7 +1,7 @@
 import { load, Obj } from 'scrivito'
 import { instanceFromHostname } from './multiTenancy'
 
-const CONTENT_FORMAT = 'portal-app:6'
+const EXPECTED_CONTENT_FORMAT = 'portal-app:6'
 const KNOWN_CONTENT_FORMATS: Record<string, string> = {
   'portal-app:5': 'https://v5.scrivito-portal-app.pages.dev',
   'portal-app:6': 'https://scrivito-portal-app.pages.dev',
@@ -19,7 +19,7 @@ export async function isJrPlatformValidContentFormat(): Promise<boolean> {
   if (!root) return true
 
   const siteContentFormat = root.get('contentFormat')
-  if (siteContentFormat === CONTENT_FORMAT) return true
+  if (siteContentFormat === EXPECTED_CONTENT_FORMAT) return true
 
   if (typeof siteContentFormat !== 'string') return false
   if (!siteContentFormat) return false
