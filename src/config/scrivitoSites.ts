@@ -53,7 +53,7 @@ export function siteForUrl(
 
   if (siteId) return { baseUrl: baseUrlFor(language, contentId), siteId }
 
-  if (getLanguageVersions()?.length) return findSiteForUrlExpensive(url)
+  return findSiteForUrlExpensive(url)
 }
 
 function findSiteByUrl(url: string) {
