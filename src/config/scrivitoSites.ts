@@ -129,19 +129,6 @@ function instanceBaseUrl(): string {
   return origin
 }
 
-export function getLanguageVersions(contentId?: string): Obj[] | undefined {
-  const root = contentId
-    ? Obj.onAllSites()
-        .where('_path', 'equals', '/')
-        .and('_contentId', 'equals', contentId)
-        .toArray()[0]
-    : undefined
-
-  return (
-    root || Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
-  )?.versionsOnAllSites()
-}
-
 function defaultSiteContentId() {
   return Obj.onAllSites()
     .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)

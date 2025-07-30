@@ -5,7 +5,7 @@ import {
   Obj,
   urlFor,
 } from 'scrivito'
-import { extractFromUrl, getLanguageVersions } from '../config/scrivitoSites'
+import { extractFromUrl } from '../config/scrivitoSites'
 
 export async function ensureSiteIsPresent() {
   if (await load(() => currentSiteId())) return
@@ -56,6 +56,19 @@ function getPreferredSite() {
   }
 
   return languageVersions[0]
+}
+
+function getLanguageVersions(contentId?: string): Obj[] | undefined {
+  const root = contentId
+    ? Obj.onAllSites()
+        .where('_path', 'equals', '/')
+        .and('_contentId', 'equals', contentId)
+        .toArray()[0]
+    : undefined
+
+  return (
+    root || Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
+  )?.versionsOnAllSites()
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {
