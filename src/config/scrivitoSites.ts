@@ -57,21 +57,16 @@ export function siteForUrl(
 }
 
 function findSiteByUrl(url: string) {
-  const { contentId, language } = extractFromUrl(url)
-
+  const { contentId: urlContentId, language } = extractFromUrl(url)
   if (!language) return {}
 
-  if (contentId) {
-    const siteId = findSiteIdBy({ contentId, language })
-    if (!siteId) return {}
-    return { contentId, language, siteId }
-  }
+  const contentId = urlContentId || defaultSiteContentId()
+  if (!contentId) return {}
 
-  const siteId = getLanguageVersions()
-    ?.find((site) => site.language() === language)
-    ?.siteId()
+  const siteId = findSiteIdBy({ contentId, language })
   if (!siteId) return {}
-  return { contentId: defaultSiteContentId(), language, siteId }
+
+  return { contentId, language, siteId }
 }
 
 export function extractFromUrl(url: string): {
