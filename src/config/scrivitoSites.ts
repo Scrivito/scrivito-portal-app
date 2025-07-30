@@ -1,21 +1,6 @@
-import {
-  Obj,
-  currentSiteId,
-  ensureUserIsLoggedIn,
-  getInstanceId,
-  load,
-  urlFor,
-} from 'scrivito'
-import { ensureString } from '../utils/ensureString'
-import {
-  getJrPlatformBaseAppUrl,
-  jrPlatformRedirectToSiteUrl,
-} from '../privateJrPlatform/multiTenancy'
-
-const origin =
-  typeof window !== 'undefined'
-    ? window.location.origin
-    : ensureString(import.meta.env.SCRIVITO_ORIGIN)
+import { Obj, getInstanceId } from 'scrivito'
+import { instanceBaseUrl } from '../multiSite/instanceBaseUrl'
+import { extractFromUrl } from '../multiSite/extractFromUrl'
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
@@ -27,14 +12,30 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (siteRoot.contentId() !== rootContentId()) return baseUrlsFor(siteRoot)[0]
+  if (siteRoot.contentId() !== defaultSiteContentId()) {
+    const configuredBaseUrl = configuredBaseUrlsFor(siteRoot)[0]
+    if (configuredBaseUrl) return configuredBaseUrl
+  }
 
   const language = siteRoot.language()
   if (!language) return
 
-  return `${getBaseAppUrl()}/${language}`
+  return baseUrlFor(language, siteRoot.contentId())
 }
 
+/**
+ * Recognized URLs:
+ * - https://mailing.neoletter.com/instance-id
+ *   Neoletter mailings
+ * - https://current.origin/instance-base-path/1234567890abcdef/xy
+ *   XY language version of the root with the content ID 1234567890abcdef (if found)
+ * - https://current.origin/instance-base-path/xy
+ *   XY language version of the default site root (if found)
+ * - https://my-base-url-origin/my-base-url-path
+ *   Root object with the according base URL attribute value
+ *
+ * All other URLs will result in no site present.
+ */
 export function siteForUrl(
   url: string,
 ): { baseUrl: string; siteId: string } | undefined {
@@ -43,23 +44,35 @@ export function siteForUrl(
     return { baseUrl: neoletterBaseUrl, siteId: NEOLETTER_MAILINGS_SITE_ID }
   }
 
-  const language = languageForUrl(url)
-  const websites = appWebsites()
-  const siteId = websites
-    ?.find((site) => site.language() === language)
-    ?.siteId()
+  const { contentId, language, siteId } = findSiteByUrl(url)
 
-  if (language && siteId) {
-    return { baseUrl: `${getBaseAppUrl()}/${language}`, siteId }
-  }
-  if (websites?.length) return findSiteForUrlExpensive(url)
+  if (siteId) return { baseUrl: baseUrlFor(language, contentId), siteId }
+
+  return findSiteForUrlExpensive(url)
 }
 
-function languageForUrl(url: string) {
-  const regex = new RegExp(
-    `^${getBaseAppUrl()}\\/(?<lang>[a-z]{2}(-[A-Z]{2})?)([?/]|$)`,
-  )
-  return regex.exec(url)?.groups?.lang
+function findSiteByUrl(url: string) {
+  const { contentId: urlContentId, language } = extractFromUrl(url)
+  if (!language) return {}
+
+  if (urlContentId === defaultSiteContentId()) return {}
+
+  const contentId = urlContentId || defaultSiteContentId()
+  if (!contentId) return {}
+
+  const siteId = findSiteIdBy({ contentId, language })
+  if (!siteId) return {}
+
+  return { contentId, language, siteId }
+}
+
+function findSiteIdBy(query: { contentId: string; language: string }) {
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .and('_contentId', 'equals', query.contentId)
+    .and('_language', 'equals', query.language)
+    .toArray()[0]
+    ?.siteId()
 }
 
 function findSiteForUrlExpensive(url: string) {
@@ -70,13 +83,13 @@ function findSiteForUrlExpensive(url: string) {
     .flatMap((site) => {
       // null site IDs are excluded by the _siteId query
       const siteId = site.siteId()!
-      return baseUrlsFor(site).map((baseUrl) => ({ baseUrl, siteId }))
+      return configuredBaseUrlsFor(site).map((baseUrl) => ({ baseUrl, siteId }))
     })
     .sort((a, b) => b.baseUrl.length - a.baseUrl.length)
     .find(({ baseUrl }) => url.startsWith(baseUrl))
 }
 
-function baseUrlsFor(site: Obj) {
+function configuredBaseUrlsFor(site: Obj) {
   const baseUrl = site.get('baseUrl')
   const baseUrls = Array.isArray(baseUrl) ? baseUrl : [baseUrl]
   return baseUrls.filter(
@@ -84,72 +97,15 @@ function baseUrlsFor(site: Obj) {
   )
 }
 
-export function isNoSitePresent(): boolean {
-  return !appWebsites()?.length
+function baseUrlFor(language: string, contentId?: string) {
+  const base = instanceBaseUrl()
+  return contentId && contentId !== defaultSiteContentId()
+    ? `${base}/${contentId}/${language}`
+    : `${base}/${language}`
 }
 
-export async function ensureSiteIsPresent() {
-  if (await load(() => currentSiteId())) return
-
-  if (await load(() => isNoSitePresent())) {
-    ensureUserIsLoggedIn()
-    return
-  }
-
-  const site = await load(() => getPreferredSite())
-  if (!site) return
-
-  const siteUrl = await load(() => urlFor(site))
-  return redirectToSiteUrl(siteUrl)
-}
-
-function redirectToSiteUrl(siteUrl: string) {
-  if (import.meta.env.PRIVATE_JR_PLATFORM) {
-    return jrPlatformRedirectToSiteUrl(siteUrl)
-  }
-
-  const { pathname, search, hash } = window.location
-  const path = pathname === '/' ? '' : pathname
-
-  window.location.assign(`${siteUrl}${path}${search}${hash}`)
-}
-
-function getPreferredSite() {
-  const websites = appWebsites() || []
-  const preferredLanguageOrder = [...window.navigator.languages, 'en', null]
-
-  for (const language of preferredLanguageOrder) {
-    const site = websites.find((site) => siteHasLanguage(site, language))
-    if (site) return site
-  }
-
-  return websites[0] || null
-}
-
-function getBaseAppUrl(): string {
-  if (!origin) throw new Error('No origin defined!')
-  if (import.meta.env.PRIVATE_JR_PLATFORM) {
-    return getJrPlatformBaseAppUrl(origin)
-  }
-
-  return origin
-}
-
-function appWebsites() {
-  return Obj.onAllSites()
-    .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
-    ?.versionsOnAllSites()
-}
-
-function rootContentId() {
+function defaultSiteContentId() {
   return Obj.onAllSites()
     .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
     ?.contentId()
-}
-
-function siteHasLanguage(site: Obj, language: string | null) {
-  const siteLanguage = site.language()
-  return language && siteLanguage
-    ? language.startsWith(siteLanguage)
-    : language === siteLanguage
 }
