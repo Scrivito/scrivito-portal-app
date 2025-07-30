@@ -85,7 +85,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             <span>Dark text</span>
           </div>
           <AdvancedColorPicker
-            color={page.get('siteColorTextDark') || '#4f557a'}
+            color={page.get('siteColorTextDark') || '#454545'}
             disabled={disabled}
             setColor={(siteColorTextDark) => page.update({ siteColorTextDark })}
           />
@@ -96,7 +96,7 @@ export const SiteColorsPicker = connect(function SiteColorsPicker({
             <span>Dark headline text</span>
           </div>
           <AdvancedColorPicker
-            color={page.get('siteColorTextDarkHeadline') || '#1a284d'}
+            color={page.get('siteColorTextDarkHeadline') || '#3b3b3b'}
             disabled={disabled}
             setColor={(siteColorTextDarkHeadline) =>
               page.update({ siteColorTextDarkHeadline })
