@@ -3,7 +3,7 @@
   "blob": [
     "binary",
     {
-      "id": "29bd97232006ec75/641d4d71f3e8/logo-tynacoon-dark.svg"
+      "id": "29bd97232006ec75/930f49b3c359/logo-tynacoon-dark.svg"
     }
   ],
   "alternative_text": [
@@ -12,23 +12,23 @@
   ],
   "_conflicts": null,
   "_content_id": "29bd97232006ec75",
-  "_created_at": "20230516091144",
+  "_created_at": "20250731074411",
   "_data_param": null,
   "_editing_asset": false,
-  "_first_published_at": "20230516091204",
+  "_first_published_at": "20250731074423",
   "_id": "29bd97232006ec75",
   "_language": "en",
-  "_last_changed": "20240715070954",
+  "_last_changed": "20250731074411",
   "_modification": null,
   "_path": null,
   "_permalink": null,
-  "_published_at": "20240716072900",
+  "_published_at": "20250731074423",
   "_restriction": null,
   "_site_id": null,
-  "_version": "2024071607290000000000000000007b9b35201f19c408",
+  "_version": "20250731074423000000000000000084762302799612ba",
   "_widget_pool": {},
-  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+  "_created_by": "scrivito:056185b4916745558f40bbce865f6aef",
+  "_first_published_by": "scrivito:056185b4916745558f40bbce865f6aef",
+  "_last_changed_by": "scrivito:056185b4916745558f40bbce865f6aef",
+  "_published_by": "scrivito:056185b4916745558f40bbce865f6aef"
 }
