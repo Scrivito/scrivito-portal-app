@@ -454,7 +454,13 @@ class GridLayoutEditor extends Component<
   handleResize() {
     const firstChild = this.gridRulerRef.current?.firstChild
     if (!firstChild || !(firstChild instanceof HTMLElement)) return
-    const draggableGrid = firstChild.getBoundingClientRect().width + 10
+
+    const parentElement = this.gridRulerRef.current?.parentElement
+    if (!parentElement) return
+    const isSmallScreen = parentElement.offsetWidth <= 400
+    const columnSpacing = isSmallScreen ? 1 : 10
+    const draggableGrid =
+      firstChild.getBoundingClientRect().width + columnSpacing
 
     if (this.state.draggableGrid !== draggableGrid) {
       this.setState({ draggableGrid })
