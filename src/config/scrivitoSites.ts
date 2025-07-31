@@ -68,10 +68,10 @@ function findSiteByUrl(url: string) {
 
 function findSiteIdBy(query: { contentId: string; language: string }) {
   return Obj.onAllSites()
-    .where('_path', 'equals', '/')
-    .and('_contentId', 'equals', query.contentId)
-    .and('_language', 'equals', query.language)
-    .toArray()[0]
+    .where('_contentId', 'equals', query.contentId)
+    .andNot('_siteId', 'equals', null)
+    .toArray()
+    .find((obj) => obj.path() === '/' && obj.language() === query.language)
     ?.siteId()
 }
 
