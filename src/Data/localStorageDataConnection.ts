@@ -178,7 +178,7 @@ export async function searchLocalStorageDataConnections(
 }
 
 async function recordKeyForClassName(className: string): Promise<string> {
-  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for #11896
+  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #12033
 
   return `localDataClass-${getInstanceId()}-${className}`
 }

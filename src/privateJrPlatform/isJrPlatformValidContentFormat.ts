@@ -1,14 +1,5 @@
 import { load, Obj } from 'scrivito'
-import { App } from '../App'
-import { WrongContentFormat } from './Components/WrongContentFormat'
-import { getJrPlatformInstanceId, instanceFromHostname } from './multiTenancy'
-import { MissingTenant } from './Components/MissingTenant'
-
-export async function getJrPlatformApp() {
-  if (!getJrPlatformInstanceId()) return MissingTenant
-
-  return (await isValidContentFormat()) ? App : WrongContentFormat
-}
+import { instanceFromHostname } from './multiTenancy'
 
 const CONTENT_FORMAT = 'portal-app:6'
 const KNOWN_CONTENT_FORMATS: Record<string, string> = {
@@ -21,7 +12,7 @@ const KNOWN_CONTENT_FORMATS: Record<string, string> = {
  *
  * For alias instances it returns `true` - regardless of the `contentFormat`. It's better to show a half-broken app, then to show a full error page.
  */
-async function isValidContentFormat(): Promise<boolean> {
+export async function isJrPlatformValidContentFormat(): Promise<boolean> {
   if (instanceFromHostname()) return true
 
   const root = await load(() => Obj.root())

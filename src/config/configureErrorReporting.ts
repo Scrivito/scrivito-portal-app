@@ -1,10 +1,4 @@
-import {
-  currentUser,
-  getInstanceId,
-  isEditorLoggedIn,
-  load,
-  Obj,
-} from 'scrivito'
+import { currentUser, getInstanceId, isEditorLoggedIn, load } from 'scrivito'
 import Honeybadger from '@honeybadger-io/js'
 
 export async function configureErrorReporting() {
@@ -16,7 +10,6 @@ export async function configureErrorReporting() {
     revision: import.meta.env.HONEYBADGER_REVISION,
   })
 
-  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #11895
   const user = await load(() => currentUser())
   honeybadger.setContext({
     instance_id: getInstanceId(),
