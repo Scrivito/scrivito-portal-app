@@ -1,9 +1,11 @@
 import { provideComponent, ContentTag, WidgetTag } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
-import { ImageOrVideo } from '../../Components/ImageOrVideo'
+import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
+import { useRef } from 'react'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
+  const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   const backgroundColor = widget.get('backgroundColor')
   if (backgroundColor && backgroundColor !== 'transparent') {
@@ -21,13 +23,18 @@ provideComponent(SectionWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag tag="section" className={sectionClassNames.join(' ')}>
+    <WidgetTag
+      tag="section"
+      className={sectionClassNames.join(' ')}
+      onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
+    >
       <ImageOrVideo
         widget={widget}
         attribute="backgroundImage"
         className={
           widget.get('backgroundAnimateOnHover') ? 'img-zoom' : undefined
         }
+        togglePlayPauseRef={togglePlayPauseRef}
       />
       <ContentTag
         tag="div"

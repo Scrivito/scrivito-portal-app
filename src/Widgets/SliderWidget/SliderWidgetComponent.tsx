@@ -2,12 +2,14 @@ import { ContentTag, provideComponent } from 'scrivito'
 import Carousel from 'react-bootstrap/Carousel'
 import { SliderWidget } from './SliderWidgetClass'
 import { isSlideWidgetInstance } from '../SlideWidget/SlideWidgetClass'
-import { ImageOrVideo } from '../../Components/ImageOrVideo'
+import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
+import { useRef } from 'react'
 import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
   const showControls = widget.get('autoplay') ? widget.get('controls') : true
   const intervalMs = Math.round((widget.get('autoplayInterval') ?? 5) * 1000)
+  const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   return (
     <Carousel
@@ -28,8 +30,13 @@ provideComponent(SliderWidget, ({ widget }) => {
               `bg-${item.get('backgroundColor') || 'transparent'}`,
               showControls ? 'has-controls' : '',
             ].join(' ')}
+            onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
           >
-            <ImageOrVideo widget={item} attribute="background" />
+            <ImageOrVideo
+              widget={item}
+              attribute="background"
+              togglePlayPauseRef={togglePlayPauseRef}
+            />
 
             <ContentTag content={item} attribute="content" />
           </Carousel.Item>

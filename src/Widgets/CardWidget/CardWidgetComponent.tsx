@@ -11,12 +11,14 @@ import {
 } from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
-import { ImageOrVideo } from '../../Components/ImageOrVideo'
+import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
+import { useRef } from 'react'
 
 provideComponent(CardWidget, ({ widget }) => {
   const cardBodyClassNames: string[] = ['card-body']
   const padding = widget.get('padding')
   cardBodyClassNames.push(padding ? padding : 'p-4')
+  const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   const image = widget.get('image')
 
@@ -30,13 +32,17 @@ provideComponent(CardWidget, ({ widget }) => {
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
 
   return (
-    <WidgetTag className={cardClassNames.join(' ')}>
+    <WidgetTag
+      className={cardClassNames.join(' ')}
+      onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
+    >
       <ImageOrVideo
         widget={widget}
         attribute="backgroundImage"
         className={
           widget.get('backgroundAnimateOnHover') ? 'img-zoom' : undefined
         }
+        togglePlayPauseRef={togglePlayPauseRef}
       />
 
       {image && (
