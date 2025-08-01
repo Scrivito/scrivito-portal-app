@@ -109,6 +109,14 @@ a:focus-visible,
   transition: all ease-in-out 0.3s;
 }
 
+[data-scrivito-editing] {
+  a:focus-visible,
+  .btn:focus-visible,
+  :focus-visible {
+    outline: none !important;
+  }
+}
+
 .btn {
   --bs-btn-border-color: transparent;
   --bs-btn-hover-border-color: transparent;
