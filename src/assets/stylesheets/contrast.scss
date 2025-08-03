@@ -1,0 +1,29 @@
+@function bestContrast($color, $darkColor, $lightColor) {
+  @return exclusiveByBinaryAlpha(
+    multiplyByBinaryAlpha($darkColor, isLightAsBinaryAlpha($color, 1)),
+    multiplyByBinaryAlpha($lightColor, isLightAsBinaryAlpha($color, 0))
+  );
+}
+
+@function exclusiveByBinaryAlpha($color1, $color2) {
+  @return color(
+    from color-mix(in srgb, $color1, $color2) srgb r g b / calc(2 * alpha)
+  );
+}
+
+@function multiplyByBinaryAlpha($color, $binaryAlpha) {
+  @return color(
+    from color-mix(in srgb, $color, $binaryAlpha) srgb r g b /
+      calc(round(alpha) * (2 * alpha - 1))
+  );
+}
+
+@function isLightAsBinaryAlpha($color, $alpha) {
+  $sRgbMiddleGreyY: 0.214;
+  $yOffset: 0.5 - $sRgbMiddleGreyY;
+
+  @return color(
+    from $color xyz none none none /
+      calc(#{if($alpha == 0, '1 -', '')} round(#{y '+' $yOffset}))
+  );
+}
