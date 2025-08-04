@@ -69,7 +69,7 @@
     "precompress": "^12.0.7",
     "prettier": "^3.6.2",
     "sass": "^1.78.0",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "vite": "^7.0.6",
     "vite-node": "^3.2.4"
   },
