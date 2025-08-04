@@ -82,7 +82,6 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
         />
         {isPaused && (
           <button
-            onClick={handleVideoClick}
             className="image-or-video-play-button"
             aria-label={localizePlayVideoLabel()}
           >
