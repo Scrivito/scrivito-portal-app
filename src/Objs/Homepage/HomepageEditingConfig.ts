@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { provideEditingConfig, Obj } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 import { SiteColorsPicker } from './SiteColorsPicker'
 import {
@@ -128,5 +128,32 @@ provideEditingConfig(Homepage, {
     siteFontHeadlineWeight: '500',
     siteRoundedCorners: true,
   },
-  validations: defaultPageValidations,
+  validations: [
+    ...defaultPageValidations,
+    [
+      '_language',
+      (language: string | null, { obj }) => {
+        if (!language) {
+          return {
+            message: 'The language must be set.',
+            severity: 'error',
+          }
+        }
+
+        const contentId = obj.contentId()
+        const duplicates = Obj.onAllSites()
+          .where('_objClass', 'equals', 'Homepage')
+          .and('_contentId', 'equals', contentId)
+          .and('_language', 'equals', language)
+          .count()
+
+        if (duplicates > 1) {
+          return {
+            message: `Multiple homepages exist for language “${language}”. Only one is allowed. Please pick a different language.`,
+            severity: 'error',
+          }
+        }
+      },
+    ],
+  ],
 })
