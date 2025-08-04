@@ -128,5 +128,29 @@ provideEditingConfig(Homepage, {
     siteFontHeadlineWeight: '500',
     siteRoundedCorners: true,
   },
-  validations: defaultPageValidations,
+  validations: [
+    ...defaultPageValidations,
+    [
+      '_language',
+      (language: string | null, { obj }) => {
+        if (!language) {
+          return {
+            message: 'The language must be set.',
+            severity: 'error',
+          }
+        }
+
+        const duplicates = obj
+          .versionsOnAllSites()
+          .filter((version) => version.language() === language).length
+
+        if (duplicates > 1) {
+          return {
+            message: `Multiple homepages exist for language “${language}”. Only one is allowed. Please pick a different language.`,
+            severity: 'error',
+          }
+        }
+      },
+    ],
+  ],
 })
