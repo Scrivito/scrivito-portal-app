@@ -32,10 +32,11 @@ function redirectToSiteUrl(siteUrl: string) {
     origin + pathname,
   )
 
-  const path =
+  const rawPath =
     (extractFromUrl(siteUrl).contentId === contentId
       ? location
       : defaultLocation) || ''
+  const path = rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath
 
   window.location.assign(`${siteUrl}${path}${search}${hash}`)
 }
