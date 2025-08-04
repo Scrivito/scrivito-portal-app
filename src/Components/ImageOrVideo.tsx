@@ -80,14 +80,14 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
           src={background.contentUrl()}
           onClick={handleVideoClick}
         />
-        {isPaused && (
-          <button
-            className="image-or-video-play-button"
-            aria-label={localizePlayVideoLabel()}
-          >
-            <i className="bi bi-play-fill text-white bi-3x" />
-          </button>
-        )}
+        <button
+          className={`image-or-video-play-button ${isPaused ? 'is-paused' : ''}`}
+          aria-label={
+            isPaused ? localizePlayVideoLabel() : localizePauseVideoLabel()
+          }
+        >
+          <i className="bi bi-play-fill text-white bi-3x" />
+        </button>
       </>
     )
   }
@@ -114,5 +114,18 @@ function localizePlayVideoLabel(): string {
       return 'Odtwórz wideo'
     default:
       return 'Play video'
+  }
+}
+
+function localizePauseVideoLabel(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Video pausieren'
+    case 'fr':
+      return 'Mettre la vidéo en pause'
+    case 'pl':
+      return 'Wstrzymaj wideo'
+    default:
+      return 'Pause video'
   }
 }
