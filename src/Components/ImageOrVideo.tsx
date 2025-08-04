@@ -1,4 +1,4 @@
-import { useImperativeHandle, useRef, useState, useEffect } from 'react'
+import { useImperativeHandle, useRef, useState, useLayoutEffect } from 'react'
 import {
   connect,
   Widget,
@@ -26,10 +26,10 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
   }>
 }) {
   const [isPaused, setIsPaused] = useState(false)
-  const [shouldAutoplay, setShouldAutoplay] = useState(true)
+  const [shouldAutoplay, setShouldAutoplay] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     const updatePreferences = () => {
       if (reducedMotion.matches) {
