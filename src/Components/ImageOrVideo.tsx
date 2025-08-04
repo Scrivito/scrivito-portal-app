@@ -30,9 +30,9 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
     const updatePreferences = () => {
-      if (mediaQuery.matches) {
+      if (reducedMotion.matches) {
         setShouldAutoplay(false)
         setIsPaused(true)
         videoRef.current?.pause()
@@ -44,8 +44,8 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
     }
 
     updatePreferences()
-    mediaQuery.addEventListener('change', updatePreferences)
-    return () => mediaQuery.removeEventListener('change', updatePreferences)
+    reducedMotion.addEventListener('change', updatePreferences)
+    return () => reducedMotion.removeEventListener('change', updatePreferences)
   }, [])
 
   const handleVideoClick = (e: React.MouseEvent) => {
