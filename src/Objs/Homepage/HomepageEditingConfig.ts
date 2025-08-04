@@ -1,4 +1,4 @@
-import { provideEditingConfig, Obj } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 import { SiteColorsPicker } from './SiteColorsPicker'
 import {
@@ -140,12 +140,9 @@ provideEditingConfig(Homepage, {
           }
         }
 
-        const contentId = obj.contentId()
-        const duplicates = Obj.onAllSites()
-          .where('_objClass', 'equals', 'Homepage')
-          .and('_contentId', 'equals', contentId)
-          .and('_language', 'equals', language)
-          .count()
+        const duplicates = obj
+          .versionsOnAllSites()
+          .filter((version) => version.language() === language).length
 
         if (duplicates > 1) {
           return {
