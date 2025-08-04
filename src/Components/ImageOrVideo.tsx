@@ -31,15 +31,21 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    setShouldAutoplay(!mediaQuery.matches)
-    if (mediaQuery.matches) setIsPaused(true)
-
-    const handleChange = () => {
-      setShouldAutoplay(!mediaQuery.matches)
+    const updatePreferences = () => {
+      if (mediaQuery.matches) {
+        setShouldAutoplay(false)
+        setIsPaused(true)
+        videoRef.current?.pause()
+      } else {
+        setShouldAutoplay(true)
+        setIsPaused(false)
+        videoRef.current?.play()
+      }
     }
 
-    mediaQuery.addEventListener('change', handleChange)
-    return () => mediaQuery.removeEventListener('change', handleChange)
+    updatePreferences()
+    mediaQuery.addEventListener('change', updatePreferences)
+    return () => mediaQuery.removeEventListener('change', updatePreferences)
   }, [])
 
   const handleVideoClick = (e: React.MouseEvent) => {
