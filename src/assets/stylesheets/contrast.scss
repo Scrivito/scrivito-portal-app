@@ -19,8 +19,10 @@
 }
 
 @function isLightAsBinaryAlpha($color, $alpha) {
-  $sRgbMiddleGreyY: 0.214;
-  $yOffset: 0.5 - $sRgbMiddleGreyY;
+  // See https://www.w3.org/WAI/GL/wiki/Contrast_ratio
+  // (1 + 0.05) / (y + 0.05) = (y + 0.05) / (0 + 0.05)
+  $wcagMiddleRelativeLuminance: 0.179129;
+  $yOffset: 0.5 - $wcagMiddleRelativeLuminance;
 
   @return color(
     from $color xyz none none none /
