@@ -115,14 +115,14 @@
   "_first_published_at": "20250731090344",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250805122120",
+  "_last_changed": "20250805124743",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250805122135",
+  "_published_at": "20250805124752",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "2025080512213500000000000000000f64e6c23113931a",
+  "_version": "202508051247520000000000000000dfa62cb98ebec788",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -440,7 +440,7 @@
         "link",
         {
           "fragment": null,
-          "obj_id": "c2a0aab78be05a4e",
+          "obj_id": "71ec0827969c2bd8",
           "query": null,
           "target": null,
           "title": "Go to Homepage",
