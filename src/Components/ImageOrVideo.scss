@@ -20,7 +20,11 @@
 
   &.is-paused {
     opacity: 1;
+
     pointer-events: auto;
+    @media (prefers-reduced-motion: reduce) {
+      pointer-events: none;
+    }
   }
 
   &:hover {
