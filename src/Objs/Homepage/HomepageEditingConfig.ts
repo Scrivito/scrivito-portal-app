@@ -81,6 +81,7 @@ provideEditingConfig(Homepage, {
     },
   },
   propertiesGroups: (site) => [
+    ...defaultPagePropertiesGroups,
     {
       title: 'Site settings',
       properties: [
@@ -104,25 +105,23 @@ provideEditingConfig(Homepage, {
       key: 'site-settings-group',
     },
     {
-      title: 'Site colors',
+      title: 'Colors',
       component: SiteColorsPicker,
       properties: [
         'siteColorFifth',
         'siteColorFourth',
         'siteColorPrimary',
         'siteColorSecondary',
+        'siteColorTextDark',
+        'siteColorTextDarkHeadline',
+        'siteColorTextLight',
+        'siteColorTextLightHeadline',
         'siteColorThird',
       ],
       key: 'site-colors-group',
     },
     {
-      title: 'Site rounded corners',
-      component: SiteBorderRadiusEditor,
-      properties: ['siteBorderRadius'],
-      key: 'site-rounded-corners-group',
-    },
-    {
-      title: 'Site fonts',
+      title: 'Fonts',
       properties: [
         'siteFontHeadline',
         'siteFontBody',
@@ -131,11 +130,17 @@ provideEditingConfig(Homepage, {
       ],
       key: 'site-fonts-group',
     },
-    ...defaultPagePropertiesGroups,
+    {
+      title: 'Rounded corners',
+      component: SiteBorderRadiusEditor,
+      properties: ['siteBorderRadius'],
+      key: 'site-rounded-corners-group',
+    },
   ],
   properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
+    contentFormat: 'portal-app:6',
     siteBorderRadius: '0.5rem',
     siteDropShadow: true,
     siteFontBodyWeight: '500',

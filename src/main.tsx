@@ -4,7 +4,6 @@ import './Data'
 import './Objs'
 import './Widgets'
 import { configure } from './config'
-import { ensureSiteIsPresent } from './config/scrivitoSites'
 import { verifySameWhoAmIUser } from './Data/CurrentUser/verifySameWhoAmIUser'
 import { renderOrHydrateApp } from './renderOrHydrateApp'
 import { getJrPlatformInstanceId } from './privateJrPlatform/multiTenancy'
@@ -13,6 +12,7 @@ import { StrictMode } from 'react'
 import { JrPlatformMissingTenant } from './privateJrPlatform/Components/JrPlatformMissingTenant'
 import { isJrPlatformValidContentFormat } from './privateJrPlatform/isJrPlatformValidContentFormat'
 import { JrPlatformWrongContentFormat } from './privateJrPlatform/Components/JrPlatformWrongContentFormat'
+import { ensureSiteIsPresent } from './multiSite/ensureSiteIsPresent'
 
 boot()
 
