@@ -51,7 +51,7 @@
   ],
   "title": [
     "string",
-    "Homepage"
+    "Mixx Launch Party"
   ],
   "site_color_primary": [
     "string",
@@ -59,25 +59,13 @@
   ],
   "site_color_secondary": [
     "string",
-    "#f8dd4d"
+    "#fff7eb"
   ],
   "site_font_headline": [
     "referencelist",
     [
       "5090f6df2955b3f3"
     ]
-  ],
-  "site_color_third": [
-    "string",
-    "#fff7eb"
-  ],
-  "site_color_fourth": [
-    "string",
-    "#FFE5D9"
-  ],
-  "site_color_fifth": [
-    "string",
-    "#DFF5E5"
   ],
   "site_border_radius": [
     "string",
@@ -127,14 +115,14 @@
   "_first_published_at": "20250731090344",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250731090515",
+  "_last_changed": "20250805122120",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250731090606",
+  "_published_at": "20250805122135",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "2025073109060600000000000000007dce21aa5d5d8916",
+  "_version": "2025080512213500000000000000000f64e6c23113931a",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -283,7 +271,7 @@
       ],
       "background_color": [
         "string",
-        "light-grey"
+        "secondary"
       ],
       "container_width": [
         "string",
@@ -294,7 +282,7 @@
       "_obj_class": "SectionWidget",
       "background_color": [
         "string",
-        "light-grey"
+        "secondary"
       ],
       "content": [
         "widgetlist",
@@ -307,7 +295,7 @@
       "_obj_class": "SectionWidget",
       "background_color": [
         "string",
-        "light-grey"
+        "secondary"
       ],
       "show_padding": [
         "boolean",
@@ -532,7 +520,7 @@
       "_obj_class": "SectionWidget",
       "background_color": [
         "string",
-        "light-grey"
+        "secondary"
       ],
       "container_width": [
         "string",
@@ -607,7 +595,7 @@
       "_obj_class": "SectionWidget",
       "background_color": [
         "string",
-        "light-grey"
+        "secondary"
       ],
       "container_width": [
         "string",
@@ -767,6 +755,10 @@
       "margin": [
         "string",
         "mb-0"
+      ],
+      "level": [
+        "string",
+        "h3"
       ]
     },
     "9a58ebf3": {
@@ -1136,6 +1128,10 @@
       "alignment": [
         "string",
         "center"
+      ],
+      "level": [
+        "string",
+        "h4"
       ]
     },
     "2a2a5d8a": {
@@ -1249,7 +1245,7 @@
       "_obj_class": "SectionWidget",
       "background_color": [
         "string",
-        "light-grey"
+        "secondary"
       ],
       "container_width": [
         "string",
@@ -1835,7 +1831,7 @@
       "_obj_class": "SectionWidget",
       "background_color": [
         "string",
-        "light-grey"
+        "secondary"
       ],
       "show_padding": [
         "boolean",
@@ -1873,7 +1869,7 @@
       ],
       "level": [
         "string",
-        "h3"
+        "h2"
       ]
     },
     "32a8854b": {
@@ -2740,6 +2736,10 @@
       "style": [
         "string",
         "display-5"
+      ],
+      "level": [
+        "string",
+        "h3"
       ]
     }
   },
