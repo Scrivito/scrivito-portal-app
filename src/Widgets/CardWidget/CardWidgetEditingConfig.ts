@@ -30,11 +30,11 @@ provideEditingConfig(CardWidget, {
     },
     padding: {
       title: 'Padding',
-      description: 'Inner space. Default: "p-4"',
+      description: 'Inner space. Default: p-4',
     },
     margin: {
       title: 'Margin',
-      description: 'Space below the widget. Default: "mb-4"',
+      description: 'Space below the widget. Default: mb-4',
     },
   },
   properties: (widget) => [
