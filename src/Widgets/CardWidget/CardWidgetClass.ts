@@ -36,9 +36,3 @@ export const CardWidget = provideWidgetClass('CardWidget', {
   },
   extractTextAttributes: ['cardBody', 'cardFooter'],
 })
-
-export type CardWidgetInstance = InstanceType<typeof CardWidget>
-
-export function isCardWidget(input: unknown): input is CardWidgetInstance {
-  return input instanceof CardWidget
-}
