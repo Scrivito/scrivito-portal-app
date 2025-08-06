@@ -18,7 +18,7 @@ export function SiteBorderRadiusEditor({ page }: { page: HomepageInstance }) {
             onUpdate={(value) => page.update({ siteBorderRadius: value })}
             placeholder="1"
             readOnly={readOnly}
-            units={['rem', 'px']}
+            units={['px']}
             value={page.get('siteBorderRadius')}
           />
           <div className="scrivito_notice_body">
