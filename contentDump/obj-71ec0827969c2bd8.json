@@ -115,14 +115,14 @@
   "_first_published_at": "20250731090344",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250805124743",
+  "_last_changed": "20250806074030",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250805124752",
+  "_published_at": "20250806074048",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "202508051247520000000000000000dfa62cb98ebec788",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -330,6 +330,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "7346870a": {
@@ -409,6 +413,10 @@
       "style": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d8bbc171": {
@@ -630,6 +638,10 @@
       "headline": [
         "string",
         "Bonjour Paris!"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "ced96645": {
@@ -1014,6 +1026,10 @@
       "headline": [
         "string",
         "Our Address"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "de439aee": {
@@ -1044,6 +1060,10 @@
       "headline": [
         "string",
         "Contact us"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "ef19df9b": {
@@ -1132,6 +1152,10 @@
       "level": [
         "string",
         "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "2a2a5d8a": {
@@ -1232,6 +1256,10 @@
       "style": [
         "string",
         "label-subtitle"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c7c017bd": {
@@ -1428,6 +1456,10 @@
       "style": [
         "string",
         "display-5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b2b85ba1": {
@@ -1514,6 +1546,10 @@
       "style": [
         "string",
         "display-5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b48317a8": {
@@ -1583,6 +1619,10 @@
       "style": [
         "string",
         "display-5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d9135430": {
@@ -1870,6 +1910,10 @@
       "level": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "32a8854b": {
@@ -2740,6 +2784,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     }
   },

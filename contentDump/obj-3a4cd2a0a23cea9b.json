@@ -28,14 +28,14 @@
   "_first_published_at": "20250731074423",
   "_id": "3a4cd2a0a23cea9b",
   "_language": "en",
-  "_last_changed": "20250731074404",
+  "_last_changed": "20250806074031",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/bfc7deb2d5d4425f",
   "_permalink": "events",
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "27293952": {
       "_obj_class": "HeadlineWidget",
@@ -50,6 +50,10 @@
       "headline": [
         "string",
         "Hannover Messe"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "11ffbb77": {
@@ -86,6 +90,10 @@
       "headline": [
         "string",
         "Tynacoon Roadshow"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "ffc85e0f": {
@@ -182,6 +190,10 @@
       "headline": [
         "string",
         "GLOBE Expo"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "53abe465": {
@@ -278,6 +290,10 @@
       "headline": [
         "string",
         "Hannover Messe"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f679e35a": {
@@ -455,6 +471,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d4ed0e59": {
@@ -576,6 +596,10 @@
       "level": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c9ba8806": {

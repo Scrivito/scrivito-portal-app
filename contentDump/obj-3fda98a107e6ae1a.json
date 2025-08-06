@@ -48,14 +48,14 @@
   "_first_published_at": "20250731074423",
   "_id": "3fda98a107e6ae1a",
   "_language": "de",
-  "_last_changed": "20250731074404",
+  "_last_changed": "20250806074031",
   "_modification": null,
   "_path": "/6a5898770a646824/3fda98a107e6ae1a",
   "_permalink": "dsgvo-einwilligungsformular",
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "28707073": {
       "_obj_class": "AddressWidget",
@@ -113,6 +113,10 @@
       "style": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "641ee6d9": {
@@ -185,6 +189,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "8cbd14ee": {
@@ -432,6 +440,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b255317b": {
@@ -469,6 +481,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c8859e88": {
@@ -484,6 +500,10 @@
       "headline": [
         "string",
         "Ansprechpartner"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b4faefe8": {

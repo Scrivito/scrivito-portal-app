@@ -51,14 +51,14 @@
   "_first_published_at": "20250731074423",
   "_id": "648a0682c458d492",
   "_language": "en",
-  "_last_changed": "20250731074404",
+  "_last_changed": "20250806074031",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/648a0682c458d492",
   "_permalink": "white-paper/filling-lines",
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "65647889": {
       "_obj_class": "ImageWidget",
@@ -230,6 +230,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b6afd968": {
@@ -334,6 +338,10 @@
       "level": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6ddfaa64": {
@@ -472,6 +480,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a0fa055f": {
@@ -558,6 +570,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "54a20c29": {
@@ -644,6 +660,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d25536d6": {
@@ -1056,6 +1076,10 @@
       "headline": [
         "string",
         "30% Reduction in Downtime"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b3e05adc": {
@@ -1142,6 +1166,10 @@
       "headline": [
         "string",
         "ROI in Months, Not Years"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "261536b3": {

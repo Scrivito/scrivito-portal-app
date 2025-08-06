@@ -31,16 +31,16 @@
   "_first_published_at": "20250731074423",
   "_id": "0092ff67875b69f8",
   "_language": "en",
-  "_last_changed": "20250731074404",
+  "_last_changed": "20250806074031",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/f7da3de531e46fe9/c8e3f4867be41a12",
   "_permalink": null,
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "30855209": {
       "_obj_class": "DataWidget",
@@ -714,6 +714,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "815db3d8": {

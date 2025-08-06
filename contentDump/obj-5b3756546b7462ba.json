@@ -48,14 +48,14 @@
   "_first_published_at": "20250731074423",
   "_id": "5b3756546b7462ba",
   "_language": "en",
-  "_last_changed": "20250731074404",
+  "_last_changed": "20250806074031",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/1c2dea326d6cd4bb",
   "_permalink": "gdpr-consent-form",
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "1a9a9d04": {
       "_obj_class": "SectionWidget",
@@ -95,6 +95,10 @@
       "style": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "bb7d1703": {
@@ -255,6 +259,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "cb45c955": {
@@ -400,6 +408,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "50d1afa6": {
@@ -426,6 +438,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6fc0c28b": {
@@ -452,6 +468,10 @@
       "headline": [
         "string",
         "Contact person"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "8ed0170d": {

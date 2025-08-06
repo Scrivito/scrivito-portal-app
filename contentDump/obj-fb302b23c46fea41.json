@@ -45,16 +45,16 @@
   "_first_published_at": "20250731074423",
   "_id": "fb302b23c46fea41",
   "_language": "en",
-  "_last_changed": "20250731074404",
+  "_last_changed": "20250806074030",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/7516c8021fa03851",
   "_permalink": null,
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "30cd044b": {
       "_obj_class": "DataWidget",
@@ -327,6 +327,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "8a5845bd": {

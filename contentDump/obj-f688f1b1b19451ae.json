@@ -27,14 +27,14 @@
   "_first_published_at": "20250731074423",
   "_id": "f688f1b1b19451ae",
   "_language": "de",
-  "_last_changed": "20250731074404",
+  "_last_changed": "20250806074030",
   "_modification": null,
   "_path": "/1f555d6a877a7662/f688f1b1b19451ae",
   "_permalink": null,
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "13235577": {
       "_obj_class": "ColumnWidget",
@@ -98,6 +98,10 @@
       "headline": [
         "string",
         "Qualität ohne Kompromisse - Vertrauenswürdig für Branchen weltweit"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "12339dd9": {
@@ -223,6 +227,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6c47cfba": {
@@ -238,6 +246,10 @@
       "headline": [
         "string",
         "Dynamischer Betriebsvertreter"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b88ad617": {
@@ -298,6 +310,10 @@
       "headline": [
         "string",
         "Jane Morgan"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "7733c895": {
@@ -313,6 +329,10 @@
       "headline": [
         "string",
         "Produktforschungsdirektorin"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9bf8aeb7": {
@@ -416,6 +436,10 @@
       "headline": [
         "string",
         "Jason John"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "26d63203": {
@@ -431,6 +455,10 @@
       "headline": [
         "string",
         "Dynamischer Paradigmen-Direktor"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f6abfee9": {

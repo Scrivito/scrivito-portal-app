@@ -38,14 +38,14 @@
   "_first_published_at": "20250731074423",
   "_id": "f70ac27424b4ba20",
   "_language": "de",
-  "_last_changed": "20250731074403",
+  "_last_changed": "20250806074030",
   "_modification": null,
   "_path": "/f70ac27424b4ba20",
   "_permalink": null,
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "44974849": {
       "_obj_class": "SectionWidget",
@@ -180,6 +180,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "394c1388": {

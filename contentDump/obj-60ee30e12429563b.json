@@ -28,14 +28,14 @@
   "_first_published_at": "20250731074423",
   "_id": "60ee30e12429563b",
   "_language": "de",
-  "_last_changed": "20250731074404",
+  "_last_changed": "20250806074030",
   "_modification": null,
   "_path": "/84435b45662730da/60ee30e12429563b",
   "_permalink": null,
-  "_published_at": "20250731074423",
+  "_published_at": "20250806074048",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250731074423000000000000000084762302799612ba",
+  "_version": "2025080607404800000000000000007047f0601b9808cb",
   "_widget_pool": {
     "53956765": {
       "_obj_class": "TextWidget",
@@ -218,6 +218,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a499bc63": {
@@ -301,6 +305,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9d54aca7": {
@@ -435,6 +443,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6ce4338c": {
@@ -461,6 +473,10 @@
       "level": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "8873dabe": {
@@ -606,6 +622,10 @@
       "headline": [
         "string",
         "Bahnbrechende Maschine"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6b7912f3": {
@@ -647,6 +667,10 @@
       "headline": [
         "string",
         "Website-Neugestaltung"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a1bf2daf": {
@@ -699,6 +723,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "16a01dfe": {
