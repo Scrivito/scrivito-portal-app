@@ -29,6 +29,10 @@
   --middle-grey-text-color: var(--dark-text-color);
   --middle-grey-headline-text-color: var(--dark-headline-text-color);
 
+  --dark-grey: #2f2f2f;
+  --dark-grey-text-color: var(--light-text-color);
+  --dark-grey-headline-text-color: var(--light-headline-text-color);
+
   // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-primary: #274486;
   --bs-primary-text-color: #{bestContrast(
@@ -58,18 +62,6 @@
     )};
   --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
   --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
-
-  --fifth-color: #2f2f2f; // previously --dark-grey
-  --fifth-text-color: #{bestContrast(
-      var(--fifth-color),
-      var(--dark-text-color),
-      var(--light-text-color)
-    )};
-  --fifth-headline-text-color: #{bestContrast(
-      var(--fifth-color),
-      var(--dark-headline-text-color),
-      var(--light-headline-text-color)
-    )};
 
   --border: rgba(0, 0, 0, 0.1);
 
@@ -642,8 +634,8 @@ main {
   color: var(--bs-primary-text-color) !important;
 }
 .bg-dark-grey {
-  background: var(--fifth-color) !important;
-  color: var(--fifth-text-color) !important;
+  background: var(--dark-grey) !important;
+  color: var(--dark-grey-text-color) !important;
 }
 
 .bg-secondary {
@@ -683,7 +675,7 @@ a {
 }
 a {
   &.bg-dark-grey {
-    color: var(--fifth-text-color);
+    color: var(--dark-grey-text-color);
   }
 }
 a {
@@ -757,7 +749,7 @@ section {
     p,
     th,
     td {
-      color: var(--fifth-text-color);
+      color: var(--dark-grey-text-color);
     }
     h1,
     h2,
@@ -771,7 +763,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--fifth-headline-text-color);
+      color: var(--dark-grey-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
@@ -1180,7 +1172,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--fifth-text-color);
+      color: var(--dark-grey-text-color);
     }
     h1,
     h2,
@@ -1200,7 +1192,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--fifth-headline-text-color);
+      color: var(--dark-grey-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
@@ -1406,7 +1398,7 @@ section {
 }
 
 .text-dark-grey {
-  color: var(--fifth-color);
+  color: var(--dark-grey);
 }
 .text-middle-grey {
   color: var(--middle-grey);
@@ -1528,7 +1520,7 @@ header section {
   }
   &.bg-dark-grey {
     .bi {
-      color: var(--fifth-text-color);
+      color: var(--dark-grey-text-color);
     }
   }
   &.bg-success,
@@ -1660,7 +1652,7 @@ section:focus >,
     background: var(--bs-secondary) !important;
   }
   &.bg-dark-grey:after {
-    background: var(--fifth-color) !important;
+    background: var(--dark-grey) !important;
   }
   &.bg-middle-grey:after {
     background: var(--middle-grey) !important;
