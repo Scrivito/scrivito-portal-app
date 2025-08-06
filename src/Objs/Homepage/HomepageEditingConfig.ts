@@ -141,7 +141,7 @@ provideEditingConfig(Homepage, {
   initialContent: {
     ...defaultPageInitialContent,
     contentFormat: 'portal-app:6',
-    siteBorderRadius: '0.5rem',
+    siteBorderRadius: '8.5px',
     siteDropShadow: true,
     siteFontBodyWeight: '500',
     siteFontHeadlineWeight: '500',

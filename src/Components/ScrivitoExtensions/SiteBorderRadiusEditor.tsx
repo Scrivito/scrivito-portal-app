@@ -25,7 +25,7 @@ export function SiteBorderRadiusEditor({ page }: { page: HomepageInstance }) {
             Applies to elements such as cards, buttons, and forms throughout the
             site. Set to 0 to disable rounded corners.
             <br />
-            Default: 0.5rem
+            Default: 8.5px
           </div>
         </div>
       </div>
