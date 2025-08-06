@@ -12,7 +12,7 @@ interface RawDataItem {
   [key: string]: unknown
 }
 
-export async function localStorageDataConnection(
+export function localStorageDataConnection(
   className: string,
   {
     initialContent,
@@ -27,7 +27,7 @@ export async function localStorageDataConnection(
       data: DataConnectionResultItem,
     ) => Promise<DataConnectionResultItem>
   } = {},
-): Promise<Partial<DataConnection>> {
+): Partial<DataConnection> {
   if (typeof localStorage === 'undefined') {
     return {
       index: () => {
