@@ -150,12 +150,10 @@ export function localStorageDataConnection(
   }
 }
 
-export async function searchLocalStorageDataConnections(
+export function searchLocalStorageDataConnections(
   search: string,
   classNames: string[],
-): Promise<
-  Array<{ _id: string; className: string; rawItem: Record<string, unknown> }>
-> {
+): Array<{ _id: string; className: string; rawItem: Record<string, unknown> }> {
   const lowerCaseSearchTerm = search.toLowerCase()
   const matchesSearchTerm = (value: unknown) =>
     typeof value === 'string' &&
