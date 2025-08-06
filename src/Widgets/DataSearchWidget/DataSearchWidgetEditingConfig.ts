@@ -23,7 +23,7 @@ provideEditingConfig(DataSearchWidget, {
     },
     margin: {
       title: 'Margin',
-      description: 'Space below the widget. Default: "mb-3"',
+      description: 'Space below the widget. Default: mb-3',
     },
     placeholder: {
       title: 'Input placeholder text',
