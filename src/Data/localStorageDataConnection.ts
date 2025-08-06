@@ -123,7 +123,7 @@ export function localStorageDataConnection(
     },
   }
 
-  async function initializeContent(initialContent: RawDataItem[]) {
+  function initializeContent(initialContent: RawDataItem[]) {
     if (typeof localStorage === 'undefined') return
 
     const initializedKey = `${recordKey}-initialized-with`
