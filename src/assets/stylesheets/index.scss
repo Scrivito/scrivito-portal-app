@@ -323,7 +323,7 @@ fieldset:disabled .btn {
   }
   .form-control {
     border-radius: var(--jr-border-radius);
-    background: #f2f3f7;
+    background: var(--light-grey);
     border-right: 0;
 
     &.no-arrows {
@@ -2095,7 +2095,7 @@ section.bg-primary {
     height: 100%;
   }
   .form-control:focus {
-    background-color: #f2f3f7;
+    background-color: var(--light-grey);
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -2107,7 +2107,7 @@ section.bg-primary {
     height: 37px;
   }
   .form-control:focus {
-    background-color: #f2f3f7;
+    background-color: var(--light-grey);
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -2227,7 +2227,7 @@ section.bg-primary {
   }
 
   .form-control {
-    background-color: #f2f3f7;
+    background-color: var(--light-grey);
   }
 }
 
@@ -2519,7 +2519,7 @@ header .navbar.navbar-expand-lg {
     --fourth-color: #e3e3e3;
   }
   main {
-    background: #f2f3f7;
+    background: var(--light-grey);
   }
   .Toastify__toast,
   .navbar-toggler.btn,
