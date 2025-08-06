@@ -9,19 +9,13 @@ import {
   LinkTag,
   isInPlaceEditingActive,
 } from 'scrivito'
-import { CardWidget } from './CardWidgetClass'
+import { CardWidget, CardWidgetInstance } from './CardWidgetClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(CardWidget, ({ widget }) => {
   const cardBodyClassNames: string[] = ['card-body']
   const padding = widget.get('padding')
   cardBodyClassNames.push(padding ? padding : 'p-4')
-
-  const backgroundImage = widget.get('backgroundImage')
-  const backgroundImageClassNames = ['img-background']
-  if (widget.get('backgroundAnimateOnHover')) {
-    backgroundImageClassNames.push('img-zoom')
-  }
 
   const image = widget.get('image')
 
@@ -36,16 +30,7 @@ provideComponent(CardWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={cardClassNames.join(' ')}>
-      {backgroundImage && (
-        <InPlaceEditingOff>
-          <ImageTag
-            content={widget}
-            attribute="backgroundImage"
-            className={backgroundImageClassNames.join(' ')}
-            alt=""
-          />
-        </InPlaceEditingOff>
-      )}
+      <ImageOrVideo widget={widget} />
 
       {image && (
         <LinkOrNotTag link={widget.get('linkTo')}>
@@ -99,3 +84,40 @@ const LinkOrNotTag = connect(
     )
   },
 )
+
+const ImageOrVideo = connect(function ImageOrVideo({
+  widget,
+}: {
+  widget: CardWidgetInstance
+}) {
+  const background = widget.get('backgroundImage')
+  if (!background) return null
+
+  const classNames = ['img-background']
+  if (widget.get('backgroundAnimateOnHover')) classNames.push('img-zoom')
+
+  if (background.contentType().startsWith('video/')) {
+    return (
+      <video
+        autoPlay
+        className={classNames.join(' ')}
+        key={background.contentUrl()}
+        loop
+        muted
+        playsInline
+        src={background.contentUrl()}
+      />
+    )
+  }
+
+  return (
+    <InPlaceEditingOff>
+      <ImageTag
+        content={widget}
+        attribute="backgroundImage"
+        className={classNames.join(' ')}
+        alt=""
+      />
+    </InPlaceEditingOff>
+  )
+})
