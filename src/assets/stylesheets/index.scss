@@ -21,6 +21,10 @@
   --light-text-color: #fff;
   --light-headline-text-color: #fff;
 
+  --light-grey: #f2f3f7;
+  --light-grey-text-color: var(--dark-text-color);
+  --light-grey-headline-text-color: var(--dark-headline-text-color);
+
   // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-primary: #274486;
   --bs-primary-text-color: #{bestContrast(
@@ -50,18 +54,6 @@
     )};
   --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
   --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
-
-  --third-color: #f2f3f7; // previously --light-grey
-  --third-text-color: #{bestContrast(
-      var(--third-color),
-      var(--dark-text-color),
-      var(--light-text-color)
-    )};
-  --third-headline-text-color: #{bestContrast(
-      var(--third-color),
-      var(--dark-headline-text-color),
-      var(--light-headline-text-color)
-    )};
 
   --fourth-color: #e8e8e8; // previously --middle-grey
   --fourth-text-color: #{bestContrast(
@@ -358,7 +350,7 @@ fieldset:disabled .btn {
 }
 .bg-light-grey {
   .input-group .form-control {
-    background: var(--third-text-color);
+    background: var(--light-grey-text-color);
   }
 }
 
@@ -684,7 +676,7 @@ main {
 }
 
 .bg-light-grey {
-  background: var(--third-color) !important;
+  background: var(--light-grey) !important;
 }
 .bg-middle-grey {
   background: var(--fourth-color) !important;
@@ -727,7 +719,7 @@ a {
 }
 a {
   &.bg-light-grey {
-    color: var(--third-text-color) !important;
+    color: var(--light-grey-text-color) !important;
   }
 }
 
@@ -965,11 +957,11 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--third-headline-text-color);
+      color: var(--light-grey-headline-text-color);
     }
     a:not(.btn),
     p {
-      color: var(--third-text-color);
+      color: var(--light-grey-text-color);
     }
     .text-primary {
       color: var(--bs-primary);
@@ -1104,13 +1096,13 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--third-headline-text-color);
+      color: var(--light-grey-headline-text-color);
     }
     a:not(.btn),
     p,
     th,
     td {
-      color: var(--third-text-color);
+      color: var(--light-grey-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary);
@@ -1336,7 +1328,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--third-text-color);
+      color: var(--light-grey-text-color);
     }
     h1,
     h2,
@@ -1356,7 +1348,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--third-headline-text-color);
+      color: var(--light-grey-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
@@ -1428,7 +1420,7 @@ section {
   color: var(--fourth-color);
 }
 .text-light-grey {
-  color: var(--third-color);
+  color: var(--light-grey);
 }
 
 section .card.no-color-adaption {
@@ -1569,7 +1561,7 @@ header section {
 
   &.bg-light-grey {
     .bi {
-      color: var(--third-text-color);
+      color: var(--light-grey-text-color);
     }
   }
 
@@ -1682,7 +1674,7 @@ section:focus >,
     background: var(--fourth-color) !important;
   }
   &.bg-light-grey:after {
-    background: var(--third-color) !important;
+    background: var(--light-grey) !important;
   }
   &.bg-success:after {
     background: var(--bs-success) !important;
@@ -2523,7 +2515,7 @@ header .navbar.navbar-expand-lg {
  =================================================================== */
 @media (prefers-contrast: more) {
   :root {
-    --third-color: #eee;
+    --light-grey: #eee;
     --fourth-color: #e3e3e3;
   }
   main {
