@@ -29,14 +29,14 @@
   "_first_published_at": "20240705083019",
   "_id": "28a187fa9ff2d6c2",
   "_language": "en",
-  "_last_changed": "20250220104238",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/bfc7deb2d5d4425f/28a187fa9ff2d6c2",
   "_permalink": null,
-  "_published_at": "20250220104510",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "6d688aca": {
       "_obj_class": "SectionWidget",
@@ -372,6 +372,10 @@
       "style": [
         "string",
         "label-headline"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d67adbda": {
@@ -402,6 +406,10 @@
       "style": [
         "string",
         "label-headline"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a5b13011": {
@@ -449,6 +457,10 @@
       "headline": [
         "string",
         "Your registration for the Tynacoon Roadshow"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "087f689e": {
@@ -555,6 +567,10 @@
       "style": [
         "string",
         "label-headline"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "7a3ca8cd": {
@@ -570,6 +586,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "fbcb2e1d": {
@@ -607,6 +627,10 @@
       "headline": [
         "string",
         "Jane Morgan"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f3e8f476": {
@@ -680,6 +704,10 @@
       "style": [
         "string",
         "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f32f6d06": {
@@ -753,6 +781,10 @@
       "headline": [
         "string",
         "Jason John"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f41bd624": {
@@ -855,6 +887,10 @@
       "headline": [
         "string",
         "Clara Corn"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c85b849a": {
@@ -893,6 +929,10 @@
       "headline": [
         "string",
         "Our Experts"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "3956ef5b": {
@@ -976,6 +1016,10 @@
       "style": [
         "string",
         "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a952eabc": {
@@ -1013,6 +1057,10 @@
       "style": [
         "string",
         "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "1c85a920": {

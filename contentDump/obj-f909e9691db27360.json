@@ -33,16 +33,16 @@
   "_first_published_at": "20240112090022",
   "_id": "f909e9691db27360",
   "_language": "en",
-  "_last_changed": "20240917092813",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/125f0003cf11c725/f909e9691db27360",
   "_permalink": null,
-  "_published_at": "20240918082734",
+  "_published_at": "20250806071623",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202409180827340000000000000000b13b69f57525b4db",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "ca6026fe": {
       "_obj_class": "DataFormContainerWidget",
@@ -191,6 +191,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c977b809": {

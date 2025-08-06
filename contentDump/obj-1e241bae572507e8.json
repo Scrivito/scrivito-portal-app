@@ -32,16 +32,16 @@
   "_first_published_at": "20240402122425",
   "_id": "1e241bae572507e8",
   "_language": "en",
-  "_last_changed": "20250513083701",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/046cc19cf0f87d9d/1e241bae572507e8",
   "_permalink": null,
-  "_published_at": "20250513084453",
+  "_published_at": "20250806071623",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025051308445300000000000000004b3df2d56d6b5383",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "52845883": {
       "_obj_class": "ColumnWidget",
@@ -910,6 +910,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "85d0cc7b": {
@@ -1027,6 +1031,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "e07c6c21": {

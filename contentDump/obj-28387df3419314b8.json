@@ -32,16 +32,16 @@
   "_first_published_at": "20240405121103",
   "_id": "28387df3419314b8",
   "_language": "de",
-  "_last_changed": "20250513083720",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/486f8f791abc7a5f/28387df3419314b8",
   "_permalink": null,
-  "_published_at": "20250513084453",
+  "_published_at": "20250806071623",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "2025051308445300000000000000004b3df2d56d6b5383",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "e529e0e5": {
       "_obj_class": "CardWidget",
@@ -1008,6 +1008,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d4a768fa": {
@@ -1037,6 +1041,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "e796b69f": {

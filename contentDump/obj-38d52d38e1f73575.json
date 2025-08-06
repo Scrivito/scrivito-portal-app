@@ -27,14 +27,14 @@
   "_first_published_at": "20230516091834",
   "_id": "38d52d38e1f73575",
   "_language": "en",
-  "_last_changed": "20250220104238",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/55d682c23b93bd62/c77addb363cd896f",
   "_permalink": null,
-  "_published_at": "20250220104510",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "88864380": {
       "_obj_class": "ColumnContainerWidget",
@@ -85,6 +85,10 @@
       "headline": [
         "string",
         "Quality Without Compromise – Trusted by Industries Worldwide"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "263ac7a3": {
@@ -210,6 +214,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "fa499382": {
@@ -225,6 +233,10 @@
       "headline": [
         "string",
         "Dynamic Operations Representative"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "193ff3b0": {
@@ -270,6 +282,10 @@
       "headline": [
         "string",
         "Jane Morgan"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9d3b0fb5": {
@@ -285,6 +301,10 @@
       "headline": [
         "string",
         "Product Research Director"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9e4eb487": {
@@ -388,6 +408,10 @@
       "headline": [
         "string",
         "Jason John"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a92c5567": {
@@ -403,6 +427,10 @@
       "headline": [
         "string",
         "Dynamic Paradigm Director"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "22f7e452": {

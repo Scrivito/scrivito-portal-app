@@ -37,16 +37,16 @@
   "_first_published_at": "20240405121103",
   "_id": "40fcff128372c95a",
   "_language": "de",
-  "_last_changed": "20250303111417",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/40fcff128372c95a",
   "_permalink": null,
-  "_published_at": "20250321200447",
+  "_published_at": "20250806071623",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250321200447000000000000000089617612b35286a0",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "ec1aa439": {
       "_obj_class": "DataWidget",
@@ -74,6 +74,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "43d07e71": {
@@ -93,6 +97,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "90963ec3": {
@@ -261,6 +269,10 @@
       "style": [
         "string",
         "h6"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c8b5966b": {

@@ -29,14 +29,14 @@
   "_first_published_at": "20240705083019",
   "_id": "13c793bd134405d4",
   "_language": "de",
-  "_last_changed": "20250220104300",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/84435b45662730da/d11017df5d1aaf49/13c793bd134405d4",
   "_permalink": null,
-  "_published_at": "20250220104510",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "73717203": {
       "_obj_class": "TextWidget",
@@ -400,6 +400,10 @@
       "headline": [
         "string",
         "Ihre Anmeldung zur Tynacoon Roadshow"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "38d095ce": {
@@ -506,6 +510,10 @@
       "headline": [
         "string",
         "Datum"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "1d539f5d": {
@@ -536,6 +544,10 @@
       "style": [
         "string",
         "label-headline"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "8f108426": {
@@ -562,6 +574,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9c9cdd24": {
@@ -599,6 +615,10 @@
       "headline": [
         "string",
         "Jane Morgan"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "2e39d7a5": {
@@ -672,6 +692,10 @@
       "style": [
         "string",
         "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "630e9214": {
@@ -745,6 +769,10 @@
       "headline": [
         "string",
         "Jason John"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "ea4cf0c2": {
@@ -847,6 +875,10 @@
       "headline": [
         "string",
         "Clara Corn"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "210aa20f": {
@@ -885,6 +917,10 @@
       "headline": [
         "string",
         "Unsere Experten"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "505ab7ed": {
@@ -968,6 +1004,10 @@
       "style": [
         "string",
         "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "89692d03": {
@@ -1005,6 +1045,10 @@
       "style": [
         "string",
         "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "dae2626b": {
@@ -1049,6 +1093,10 @@
       "style": [
         "string",
         "label-headline"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "5da23390": {

@@ -143,14 +143,14 @@
   "_first_published_at": "20240405121103",
   "_id": "bdbb81709c5e1c63",
   "_language": "de",
-  "_last_changed": "20250321200932",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250324090106",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250324090106000000000000000014fe911979b02945",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "43891776": {
       "_obj_class": "ColumnWidget",
@@ -315,6 +315,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "bf68b4b8": {
@@ -365,6 +369,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d74f8cc1": {
@@ -448,6 +456,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "65b4d286": {
@@ -467,6 +479,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b19657e5": {
@@ -486,6 +502,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "af3b2116": {
@@ -505,6 +525,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6c4d9f81": {
@@ -524,6 +548,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6ee40c01": {
@@ -715,6 +743,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "da965537": {
@@ -796,6 +828,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "5ef7233d": {
@@ -941,6 +977,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "8d9f3e65": {
@@ -1028,6 +1068,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "00bfcb0a": {
@@ -1097,6 +1141,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c7e25631": {
@@ -1280,6 +1328,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "5311a117": {
@@ -1310,6 +1362,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "3b5c5a5a": {
@@ -1329,6 +1385,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "66f1a2f5": {
@@ -1348,6 +1408,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "3f3b5c8d": {
@@ -1700,6 +1764,10 @@
       "style": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "84be0fc6": {
@@ -1990,6 +2058,10 @@
       "level": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "3f10c6de": {
@@ -2184,6 +2256,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "0f006f76": {
@@ -2312,6 +2388,10 @@
       "level": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "8242281a": {
@@ -2601,6 +2681,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "82cc7ac9": {
@@ -2691,6 +2775,10 @@
       "headline": [
         "string",
         "30% Reduzierung der Stillstandszeiten"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "cd38b903": {

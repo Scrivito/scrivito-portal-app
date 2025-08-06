@@ -65,16 +65,16 @@
   "_first_published_at": "20230609092828",
   "_id": "59274260f223b65f",
   "_language": "en",
-  "_last_changed": "20241016091320",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89",
   "_permalink": "my-tynacoon",
-  "_published_at": "20241016091507",
+  "_published_at": "20250806071623",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202410160915070000000000000000e7434eda20985b13",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "59469149": {
       "_obj_class": "SpaceWidget",
@@ -107,6 +107,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "eed147dd": {
@@ -126,6 +130,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f6af6c89": {
@@ -287,6 +295,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "28e2dee8": {
@@ -414,6 +426,10 @@
       "headline": [
         "string",
         "Latest orders"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "98465a16": {
@@ -582,6 +598,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d0947622": {
@@ -824,6 +844,10 @@
       "headline": [
         "string",
         "Latest Documents"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "adf758f7": {
@@ -1388,6 +1412,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "7ff489d1": {
@@ -1814,6 +1842,10 @@
       "style": [
         "string",
         "h6"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a5198e5a": {
@@ -1855,6 +1887,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     }
   },

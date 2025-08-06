@@ -47,14 +47,14 @@
   "_first_published_at": "20230831080316",
   "_id": "749ee4e15707e4ff",
   "_language": "en",
-  "_last_changed": "20250114094031",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/587d96465c3c69c4",
   "_permalink": null,
-  "_published_at": "20250114094616",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025011409461600000000000000002e58c9007dff871b",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "4e4ab89e": {
       "_obj_class": "SectionWidget",
@@ -185,6 +185,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     }
   },

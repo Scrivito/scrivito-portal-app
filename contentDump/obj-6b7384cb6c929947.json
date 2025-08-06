@@ -51,14 +51,14 @@
   "_first_published_at": "20240506115331",
   "_id": "6b7384cb6c929947",
   "_language": "en",
-  "_last_changed": "20250410073709",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/53cdc93aeaeabc4b/6b7384cb6c929947",
   "_permalink": "portal-sign-up",
-  "_published_at": "20250410084810",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250410084810000000000000000016cc63d7c48cd599",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "24513612": {
       "_obj_class": "ColumnWidget",
@@ -144,6 +144,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "10da1dad": {
@@ -231,6 +235,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "78e5d4cf": {
@@ -365,6 +373,10 @@
       "headline": [
         "string",
         "Overview of your equipment"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f8010d05": {
@@ -507,6 +519,10 @@
       "headline": [
         "string",
         "Event overview"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "32e2df14": {
@@ -590,6 +606,10 @@
       "headline": [
         "string",
         "Manage your subscriptions"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d2baf6ca": {
@@ -733,6 +753,10 @@
       "headline": [
         "string",
         "All documents in one place"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9b17af0c": {
@@ -871,6 +895,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c61c481d": {
@@ -890,6 +918,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "45a75e00": {

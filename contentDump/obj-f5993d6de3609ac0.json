@@ -30,14 +30,14 @@
   "_first_published_at": "20230511084702",
   "_id": "f5993d6de3609ac0",
   "_language": "en",
-  "_last_changed": "20250220104238",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/35aa421c76a38f87",
   "_permalink": null,
-  "_published_at": "20250220104510",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "00179d0d": {
       "_obj_class": "SectionWidget",
@@ -98,6 +98,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "ba401aed": {
@@ -224,6 +228,10 @@
       "headline": [
         "string",
         "Why Choose Tynacoon?"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "e901deb4": {
@@ -270,6 +278,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "e9e30dd3": {
@@ -366,6 +378,10 @@
       "headline": [
         "string",
         "Hannover Industry Exhibition 2025"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "19f23465": {

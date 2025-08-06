@@ -29,14 +29,14 @@
   "_first_published_at": "20240405121103",
   "_id": "d4967853cd3565f8",
   "_language": "de",
-  "_last_changed": "20250220104300",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/1f555d6a877a7662/d4967853cd3565f8",
   "_permalink": null,
-  "_published_at": "20250220104510",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "f959f264": {
       "_obj_class": "SectionWidget",
@@ -72,6 +72,10 @@
       "headline": [
         "string",
         "Wie Sie bei Tynacoon Ihre Karriere beginnen"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "080eaf90": {
@@ -140,6 +144,10 @@
       "headline": [
         "string",
         "Clara Corn"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a4f0df91": {
@@ -155,6 +163,10 @@
       "headline": [
         "string",
         "Leiterin der Personalabteilung"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6ad3e1c7": {
@@ -328,6 +340,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "1691c301": {
@@ -424,6 +440,10 @@
       "headline": [
         "string",
         "Hannover Industriemesse 2025"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "53dd53b7": {

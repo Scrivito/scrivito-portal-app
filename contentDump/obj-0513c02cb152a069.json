@@ -28,16 +28,16 @@
   "_first_published_at": "20240708072340",
   "_id": "0513c02cb152a069",
   "_language": "de",
-  "_last_changed": "20240716093931",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/d54072c39c8ad493/0513c02cb152a069",
   "_permalink": null,
-  "_published_at": "20240716121536",
+  "_published_at": "20250806071623",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202407161215360000000000000000cf5f645324ed600e",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "b691559e": {
       "_obj_class": "ColumnWidget",
@@ -480,6 +480,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "e4b12091": {

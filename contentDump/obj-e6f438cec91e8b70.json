@@ -27,14 +27,14 @@
   "_first_published_at": "20240405121103",
   "_id": "e6f438cec91e8b70",
   "_language": "de",
-  "_last_changed": "20250220104300",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/1f555d6a877a7662/e6f438cec91e8b70",
   "_permalink": null,
-  "_published_at": "20250220104510",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250220104510000000000000000012afafab1a41d916",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "1b95ac02": {
       "_obj_class": "SectionWidget",
@@ -97,6 +97,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a6d0df22": {
@@ -176,6 +180,10 @@
       "headline": [
         "string",
         "Hannover Messe"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "0cba35ee": {
@@ -604,6 +612,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     }
   },

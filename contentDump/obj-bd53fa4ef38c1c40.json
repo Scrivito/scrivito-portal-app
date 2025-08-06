@@ -69,16 +69,16 @@
   "_first_published_at": "20240405121103",
   "_id": "bd53fa4ef38c1c40",
   "_language": "de",
-  "_last_changed": "20241016091223",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40",
   "_permalink": null,
-  "_published_at": "20241016091507",
+  "_published_at": "20250806071623",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202410160915070000000000000000e7434eda20985b13",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "88220160": {
       "_obj_class": "TextWidget",
@@ -115,6 +115,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9a88c202": {
@@ -134,6 +138,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "e6a54afe": {
@@ -295,6 +303,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "48f5ec00": {
@@ -422,6 +434,10 @@
       "headline": [
         "string",
         "Neueste Aufträge"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "1f5ffcb5": {
@@ -590,6 +606,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9515709c": {
@@ -846,6 +866,10 @@
       "headline": [
         "string",
         "Neueste Dokumente"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "64702cfe": {
@@ -1443,6 +1467,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "7ea224a0": {
@@ -1703,6 +1731,10 @@
       "uppercase": [
         "boolean",
         true
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "aa0dd15e": {
@@ -1718,6 +1750,10 @@
       "style": [
         "string",
         "h6"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a49f05db": {

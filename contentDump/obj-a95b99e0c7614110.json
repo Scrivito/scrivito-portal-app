@@ -28,14 +28,14 @@
   "_first_published_at": "20240705083019",
   "_id": "a95b99e0c7614110",
   "_language": "de",
-  "_last_changed": "20250123101913",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/84435b45662730da/d11017df5d1aaf49/a95b99e0c7614110",
   "_permalink": null,
-  "_published_at": "20250123102545",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250123102545000000000000000089a41c276aa9f645",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "de57a5a2": {
       "_obj_class": "SectionWidget",
@@ -355,6 +355,10 @@
       "headline": [
         "string",
         "Von"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c4098b0f": {
@@ -399,6 +403,10 @@
       "headline": [
         "string",
         "Bis"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f7a96ad3": {
@@ -443,6 +451,10 @@
       "style": [
         "string",
         "label-headline"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "ccebe5a1": {
@@ -551,6 +563,10 @@
       "headline": [
         "string",
         "Ihre Anmeldung zur GLOBE Expo"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c6d3fc92": {

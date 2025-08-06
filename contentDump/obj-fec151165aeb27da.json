@@ -28,14 +28,14 @@
   "_first_published_at": "20230516091834",
   "_id": "fec151165aeb27da",
   "_language": "en",
-  "_last_changed": "20250307101014",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/3cc07265490102de",
   "_permalink": null,
-  "_published_at": "20250310125541",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "2025031012554100000000000000003b9689f9a3c2f707",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "74168031": {
       "_obj_class": "HeadlineWidget",
@@ -50,6 +50,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "92439613": {
@@ -97,6 +101,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "91819ab3": {
@@ -249,6 +257,10 @@
       "headline": [
         "string",
         "Breakthrough Machine"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "529110e3": {
@@ -321,6 +333,10 @@
       "headline": [
         "string",
         "Website Redesign"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b82bfabd": {
@@ -415,6 +431,10 @@
       "style": [
         "string",
         "display-6"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "aacfa3f9": {
@@ -535,6 +555,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "88849bd7": {
@@ -631,6 +655,10 @@
       "headline": [
         "string",
         "Hannover Industry Exhibition 2025"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "804588a6": {

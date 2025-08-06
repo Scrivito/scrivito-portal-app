@@ -28,14 +28,14 @@
   "_first_published_at": "20240705083019",
   "_id": "9dd6d1b926a6bbc6",
   "_language": "de",
-  "_last_changed": "20250123102327",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/84435b45662730da/d11017df5d1aaf49/9dd6d1b926a6bbc6",
   "_permalink": null,
-  "_published_at": "20250123102545",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "20250123102545000000000000000089a41c276aa9f645",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "19901214": {
       "_obj_class": "HeadlineWidget",
@@ -50,6 +50,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "97561781": {
@@ -142,6 +146,10 @@
       "headline": [
         "string",
         "Von"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c9b6bdb1": {
@@ -186,6 +194,10 @@
       "headline": [
         "string",
         "Bis"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6cf34ccd": {
@@ -230,6 +242,10 @@
       "style": [
         "string",
         "label-headline"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "c93fa658": {
@@ -339,6 +355,10 @@
       "style": [
         "string",
         "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "089d2d5d": {

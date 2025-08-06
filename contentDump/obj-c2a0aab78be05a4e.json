@@ -134,6 +134,10 @@
     "string",
     "Homepage"
   ],
+  "jwt_pisa_sales_api_url": [
+    "string",
+    "https://web102.crm.pisasales.de/api"
+  ],
   "_conflicts": null,
   "_content_id": "c2a0aab78be05a4e",
   "_created_at": "20230509091921",
@@ -142,14 +146,14 @@
   "_first_published_at": "20230509091931",
   "_id": "c2a0aab78be05a4e",
   "_language": "en",
-  "_last_changed": "20250321200922",
+  "_last_changed": "20250805132940",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250324090106",
+  "_published_at": "20250806071623",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "20250324090106000000000000000014fe911979b02945",
+  "_version": "202508060716230000000000000000297565bdf5c97a35",
   "_widget_pool": {
     "10914562": {
       "_obj_class": "ColumnContainerWidget",
@@ -354,6 +358,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "18c7893e": {
@@ -404,6 +412,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "7bac5b31": {
@@ -487,6 +499,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "12b96b52": {
@@ -506,6 +522,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "56aa14f9": {
@@ -525,6 +545,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "b991db69": {
@@ -544,6 +568,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "e67a726a": {
@@ -563,6 +591,10 @@
       "level": [
         "string",
         "div"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d8dcc39b": {
@@ -708,6 +740,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "ef3e8773": {
@@ -789,6 +825,10 @@
       "alignment": [
         "string",
         "left"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "018dbb30": {
@@ -934,6 +974,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "7e6116e7": {
@@ -1042,6 +1086,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "a727519a": {
@@ -1111,6 +1159,10 @@
       "style": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "91c7c162": {
@@ -1294,6 +1346,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "6fd58262": {
@@ -1324,6 +1380,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "ffdd20c8": {
@@ -1343,6 +1403,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "186776c9": {
@@ -1362,6 +1426,10 @@
       "level": [
         "string",
         "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "7d22001a": {
@@ -1709,6 +1777,10 @@
       "style": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "d8bbc171": {
@@ -2020,6 +2092,10 @@
       "level": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "9ae96b67": {
@@ -2257,6 +2333,10 @@
       "style": [
         "string",
         "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "bafd2dbe": {
@@ -2337,6 +2417,10 @@
       "level": [
         "string",
         "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "43613ff7": {
@@ -2519,6 +2603,10 @@
       "style": [
         "string",
         "h5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "bfb4a4df": {
@@ -2609,6 +2697,10 @@
       "headline": [
         "string",
         "30% Reduction in Downtime"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
       ]
     },
     "f3564e23": {
