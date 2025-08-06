@@ -19,33 +19,30 @@ async function pisaSchema() {
   return pisaSchemaPromise
 }
 
-export const User = provideDataClass(
-  'User',
-  (async () => {
-    const apiClient = await pisaClient('portal/user')
-    if (!apiClient) {
-      return (await import('./userParamsFallback')).userParamsFallback()
-    }
+export const User = provideDataClass('User', async () => {
+  const apiClient = await pisaClient('portal/user')
+  if (!apiClient) {
+    return (await import('./userParamsFallback')).userParamsFallback()
+  }
 
-    return {
-      // attributes and title are defined as functions to trigger potential
-      // IAM login redirects only, when the information is actually needed.
-      attributes: async () => (await pisaSchema()).attributes,
-      title: async () => (await pisaSchema()).title,
-      connection: {
-        index: async () => {
-          throw new DataConnectionError(
-            'Listing users is not supported due to data protection reasons.',
-          )
-        },
-        get: async (id) => {
-          const item = await apiClient.get(id)
-          return item ? postProcessUserData(item as { _id: string }) : item
-        },
+  return {
+    // attributes and title are defined as functions to trigger potential
+    // IAM login redirects only, when the information is actually needed.
+    attributes: async () => (await pisaSchema()).attributes,
+    title: async () => (await pisaSchema()).title,
+    connection: {
+      index: async () => {
+        throw new DataConnectionError(
+          'Listing users is not supported due to data protection reasons.',
+        )
       },
-    }
-  })(),
-)
+      get: async (id) => {
+        const item = await apiClient.get(id)
+        return item ? postProcessUserData(item as { _id: string }) : item
+      },
+    },
+  }
+})
 
 export async function postProcessUserData(
   data: DataConnectionResultItem,
