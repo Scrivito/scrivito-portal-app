@@ -115,14 +115,14 @@
   "_first_published_at": "20250731090344",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250806074030",
+  "_last_changed": "20250807100803",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250806074048",
+  "_published_at": "20250807100904",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "2025080607404800000000000000007047f0601b9808cb",
+  "_version": "2025080710090400000000000000006d7a30d8936908ef",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -223,23 +223,6 @@
         "widgetlist",
         [
           "31e55706"
-        ]
-      ]
-    },
-    "57816522": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        7
-      ],
-      "flex_grow": [
-        "boolean",
-        true
-      ],
-      "content": [
-        "widgetlist",
-        [
-          "4ae2a05f"
         ]
       ]
     },
@@ -2677,56 +2660,11 @@
         3
       ]
     },
-    "1f595c57": {
-      "_obj_class": "ColumnWidget",
-      "col_size": [
-        "number",
-        2
-      ]
-    },
     "4ae2a05f": {
       "_obj_class": "SpaceWidget",
       "size": [
         "number",
         38
-      ]
-    },
-    "18dbd30f": {
-      "_obj_class": "ImageWidget",
-      "alignment": [
-        "string",
-        "left"
-      ],
-      "image": [
-        "reference",
-        "76bef3b07ba33699"
-      ]
-    },
-    "a28bc566": {
-      "_obj_class": "ColumnContainerWidget",
-      "columns": [
-        "widgetlist",
-        [
-          "1f595c57",
-          "57816522",
-          "3576565b"
-        ]
-      ],
-      "alignment": [
-        "string",
-        "start"
-      ],
-      "layout_mode": [
-        "string",
-        "grid"
-      ],
-      "disable_responsive_adaption": [
-        "boolean",
-        true
-      ],
-      "disable_gutters": [
-        "boolean",
-        true
       ]
     },
     "0bcf18ed": {
@@ -2750,21 +2688,8 @@
       "card_body": [
         "widgetlist",
         [
-          "a28bc566"
+          "4ae2a05f"
         ]
-      ]
-    },
-    "3576565b": {
-      "_obj_class": "ColumnWidget",
-      "content": [
-        "widgetlist",
-        [
-          "18dbd30f"
-        ]
-      ],
-      "col_size": [
-        "number",
-        3
       ]
     },
     "6d5deeab": {
