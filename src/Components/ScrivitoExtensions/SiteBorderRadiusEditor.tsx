@@ -18,14 +18,14 @@ export function SiteBorderRadiusEditor({ page }: { page: HomepageInstance }) {
             onUpdate={(value) => page.update({ siteBorderRadius: value })}
             placeholder="1"
             readOnly={readOnly}
-            units={['rem', 'px']}
+            units={['px']}
             value={page.get('siteBorderRadius')}
           />
           <div className="scrivito_notice_body">
             Applies to elements such as cards, buttons, and forms throughout the
             site. Set to 0 to disable rounded corners.
             <br />
-            Default: 0.5rem
+            Default: 8.5px
           </div>
         </div>
       </div>
