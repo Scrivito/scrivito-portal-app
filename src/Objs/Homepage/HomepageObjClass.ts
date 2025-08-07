@@ -9,6 +9,7 @@ export const Homepage = provideObjClass('Homepage', {
     contentFormat: 'string',
     contentTitle: 'string',
     jwtPisaSalesApiUrl: 'string',
+    siteBorderRadius: 'string',
     siteCartPage: 'reference',
     siteColorPrimary: 'string',
     siteColorSecondary: 'string',
@@ -34,7 +35,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteLanguageIcon: ['reference', { only: 'Image' }],
     siteLogoDark: ['reference', { only: 'Image' }],
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
-    siteRoundedCorners: 'boolean',
+    siteRoundedCorners: 'boolean', // deprecated by siteBorderRadius
     siteSearchResultsPage: 'reference',
     siteSinglePage: 'reference',
     siteTwitterSite: 'string',
