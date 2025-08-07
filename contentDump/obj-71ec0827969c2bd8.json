@@ -115,14 +115,14 @@
   "_first_published_at": "20250731090344",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250807100803",
+  "_last_changed": "20250807104246",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250807100904",
+  "_published_at": "20250807104309",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "2025080710090400000000000000006d7a30d8936908ef",
+  "_version": "202508071043090000000000000000e2b15b0e20a7da67",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -230,11 +230,7 @@
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        4
-      ],
-      "flex_grow": [
-        "boolean",
-        true
+        3
       ]
     },
     "a4b0baf5": {
@@ -552,24 +548,28 @@
       "layout_mode": [
         "string",
         "grid"
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ],
+      "disable_responsive_adaption": [
+        "boolean",
+        true
       ]
     },
     "2aea5688": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        4
-      ],
-      "flex_grow": [
-        "boolean",
-        true
+        3
       ]
     },
     "66846e66": {
       "_obj_class": "ColumnWidget",
       "col_size": [
         "number",
-        4
+        6
       ],
       "content": [
         "widgetlist",
