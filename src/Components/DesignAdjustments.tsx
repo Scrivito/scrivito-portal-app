@@ -30,10 +30,24 @@ export const DesignAdjustments = connect(
     }
 
     const primary = root.get('siteColorPrimary')
-    if (primary) styles.push(`--bs-primary: ${primary};`)
+    if (primary) {
+      styles.push(`--bs-primary: ${primary};`)
+
+      const [primaryText, primaryHeadlineText] = getTextColors(primary)
+      styles.push(`--bs-primary-text-color: ${primaryText};`)
+      styles.push(`--bs-primary-headline-text-color: ${primaryHeadlineText};`)
+    }
 
     const secondary = root.get('siteColorSecondary')
-    if (secondary) styles.push(`--bs-secondary: ${secondary};`)
+    if (secondary) {
+      styles.push(`--bs-secondary: ${secondary};`)
+
+      const [secondaryText, secondaryHeadlineText] = getTextColors(secondary)
+      styles.push(`--bs-secondary-text-color: ${secondaryText};`)
+      styles.push(
+        `--bs-secondary-headline-text-color: ${secondaryHeadlineText};`,
+      )
+    }
 
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none;')
@@ -113,3 +127,37 @@ const FontFace = connect(
   },
   { loading: () => null },
 )
+
+function getTextColors(backgroundColor: string): [string, string] {
+  return colorIsLight(backgroundColor)
+    ? ['var(--dark-text-color)', 'var(--dark-headline-text-color)']
+    : ['var(--light-text-color)', 'var(--light-headline-text-color)']
+}
+
+function colorIsLight(hex: string): boolean {
+  if (
+    !/^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{4}|[0-9A-Fa-f]{6}|[0-9A-Fa-f]{8})$/.test(
+      hex,
+    )
+  ) {
+    return false
+  }
+
+  let color = hex.replace('#', '')
+
+  // Expand shorthand notation
+  if (color.length === 3 || color.length === 4) {
+    color = color
+      .split('')
+      .map((char) => char + char)
+      .join('')
+  }
+
+  // According to ITU-R BT.709
+  const r = parseInt(color.slice(0, 2), 16)
+  const g = parseInt(color.slice(2, 4), 16)
+  const b = parseInt(color.slice(4, 6), 16)
+  // ignores alpha channel
+  const luma = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255
+  return luma > 0.5
+}
