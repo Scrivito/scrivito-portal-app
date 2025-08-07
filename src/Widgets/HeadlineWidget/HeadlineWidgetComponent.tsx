@@ -1,6 +1,6 @@
 import { provideComponent, ContentTag } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
-import speakingUrl from 'speakingurl'
+import { kebabCase } from 'lodash-es'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 
 provideComponent(HeadlineWidget, ({ widget }) => {
@@ -28,7 +28,7 @@ provideComponent(HeadlineWidget, ({ widget }) => {
       attribute="headline"
       className={classNames.join(' ')}
       tag={tag(widget.get('level'), style)}
-      id={speakingUrl(widget.get('headline'))}
+      id={kebabCase(widget.get('headline'))}
     />
   )
 })
