@@ -3,7 +3,7 @@
 
   /* two color top navbar  */
   &:after {
-    background: #f2f3f7;
+    background: var(--light-grey);
     content: '';
     display: block !important;
     position: absolute;

@@ -21,6 +21,18 @@
   --light-text-color: #fff;
   --light-headline-text-color: #fff;
 
+  --light-grey: #f2f3f7;
+  --light-grey-text-color: var(--dark-text-color);
+  --light-grey-headline-text-color: var(--dark-headline-text-color);
+
+  --middle-grey: #e8e8e8;
+  --middle-grey-text-color: var(--dark-text-color);
+  --middle-grey-headline-text-color: var(--dark-headline-text-color);
+
+  --dark-grey: #2f2f2f;
+  --dark-grey-text-color: var(--light-text-color);
+  --dark-grey-headline-text-color: var(--light-headline-text-color);
+
   // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-primary: #274486;
   --bs-primary-text-color: #{bestContrast(
@@ -50,42 +62,6 @@
     )};
   --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
   --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
-
-  --third-color: #f2f3f7; // previously --light-grey
-  --third-text-color: #{bestContrast(
-      var(--third-color),
-      var(--dark-text-color),
-      var(--light-text-color)
-    )};
-  --third-headline-text-color: #{bestContrast(
-      var(--third-color),
-      var(--dark-headline-text-color),
-      var(--light-headline-text-color)
-    )};
-
-  --fourth-color: #e8e8e8; // previously --middle-grey
-  --fourth-text-color: #{bestContrast(
-      var(--fourth-color),
-      var(--dark-text-color),
-      var(--light-text-color)
-    )};
-  --fourth-headline-text-color: #{bestContrast(
-      var(--fourth-color),
-      var(--dark-headline-text-color),
-      var(--light-headline-text-color)
-    )};
-
-  --fifth-color: #2f2f2f; // previously --dark-grey
-  --fifth-text-color: #{bestContrast(
-      var(--fifth-color),
-      var(--dark-text-color),
-      var(--light-text-color)
-    )};
-  --fifth-headline-text-color: #{bestContrast(
-      var(--fifth-color),
-      var(--dark-headline-text-color),
-      var(--light-headline-text-color)
-    )};
 
   --border: rgba(0, 0, 0, 0.1);
 
@@ -331,7 +307,7 @@ fieldset:disabled .btn {
   }
   .form-control {
     border-radius: var(--jr-border-radius);
-    background: #f2f3f7;
+    background: var(--light-grey);
     border-right: 0;
 
     &.no-arrows {
@@ -358,7 +334,7 @@ fieldset:disabled .btn {
 }
 .bg-light-grey {
   .input-group .form-control {
-    background: var(--third-text-color);
+    background: var(--light-grey-text-color);
   }
 }
 
@@ -603,7 +579,7 @@ main {
  ================================================== */
 .alert {
   background: #fff;
-  color: #2f2f2f;
+  color: var(--dark-grey);
   border: none;
   border-radius: 5px;
   box-shadow:
@@ -658,8 +634,8 @@ main {
   color: var(--bs-primary-text-color) !important;
 }
 .bg-dark-grey {
-  background: var(--fifth-color) !important;
-  color: var(--fifth-text-color) !important;
+  background: var(--dark-grey) !important;
+  color: var(--dark-grey-text-color) !important;
 }
 
 .bg-secondary {
@@ -684,10 +660,10 @@ main {
 }
 
 .bg-light-grey {
-  background: var(--third-color) !important;
+  background: var(--light-grey) !important;
 }
 .bg-middle-grey {
-  background: var(--fourth-color) !important;
+  background: var(--middle-grey) !important;
 }
 
 // -- color content adaptions -- //
@@ -699,7 +675,7 @@ a {
 }
 a {
   &.bg-dark-grey {
-    color: var(--fifth-text-color);
+    color: var(--dark-grey-text-color);
   }
 }
 a {
@@ -722,12 +698,12 @@ a {
 }
 a {
   &.bg-middle-grey {
-    color: var(--fourth-text-color) !important;
+    color: var(--middle-grey-text-color) !important;
   }
 }
 a {
   &.bg-light-grey {
-    color: var(--third-text-color) !important;
+    color: var(--light-grey-text-color) !important;
   }
 }
 
@@ -773,7 +749,7 @@ section {
     p,
     th,
     td {
-      color: var(--fifth-text-color);
+      color: var(--dark-grey-text-color);
     }
     h1,
     h2,
@@ -787,7 +763,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--fifth-headline-text-color);
+      color: var(--dark-grey-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
@@ -933,11 +909,11 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--fourth-headline-text-color);
+      color: var(--middle-grey-headline-text-color);
     }
     a:not(.btn),
     p {
-      color: var(--fourth-text-color);
+      color: var(--middle-grey-text-color);
     }
     .text-primary {
       color: var(--bs-primary);
@@ -965,11 +941,11 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--third-headline-text-color);
+      color: var(--light-grey-headline-text-color);
     }
     a:not(.btn),
     p {
-      color: var(--third-text-color);
+      color: var(--light-grey-text-color);
     }
     .text-primary {
       color: var(--bs-primary);
@@ -1054,13 +1030,13 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--fourth-headline-text-color);
+      color: var(--middle-grey-headline-text-color);
     }
     a:not(.btn),
     p,
     th,
     td {
-      color: var(--fourth-text-color);
+      color: var(--middle-grey-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary);
@@ -1104,13 +1080,13 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--third-headline-text-color);
+      color: var(--light-grey-headline-text-color);
     }
     a:not(.btn),
     p,
     th,
     td {
-      color: var(--third-text-color);
+      color: var(--light-grey-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary);
@@ -1196,7 +1172,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--fifth-text-color);
+      color: var(--dark-grey-text-color);
     }
     h1,
     h2,
@@ -1216,7 +1192,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--fifth-headline-text-color);
+      color: var(--dark-grey-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
@@ -1336,7 +1312,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--third-text-color);
+      color: var(--light-grey-text-color);
     }
     h1,
     h2,
@@ -1356,7 +1332,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--third-headline-text-color);
+      color: var(--light-grey-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
@@ -1382,7 +1358,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--fourth-text-color);
+      color: var(--middle-grey-text-color);
     }
     h1,
     h2,
@@ -1402,7 +1378,7 @@ section {
     .h4,
     .h5,
     .h6 {
-      color: var(--fourth-headline-text-color);
+      color: var(--middle-grey-headline-text-color);
     }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
@@ -1422,13 +1398,13 @@ section {
 }
 
 .text-dark-grey {
-  color: var(--fifth-color);
+  color: var(--dark-grey);
 }
 .text-middle-grey {
-  color: var(--fourth-color);
+  color: var(--middle-grey);
 }
 .text-light-grey {
-  color: var(--third-color);
+  color: var(--light-grey);
 }
 
 section .card.no-color-adaption {
@@ -1544,7 +1520,7 @@ header section {
   }
   &.bg-dark-grey {
     .bi {
-      color: var(--fifth-text-color);
+      color: var(--dark-grey-text-color);
     }
   }
   &.bg-success,
@@ -1563,13 +1539,13 @@ header section {
 
   &.bg-middle-grey {
     .bi {
-      color: var(--fourth-text-color);
+      color: var(--middle-grey-text-color);
     }
   }
 
   &.bg-light-grey {
     .bi {
-      color: var(--third-text-color);
+      color: var(--light-grey-text-color);
     }
   }
 
@@ -1676,13 +1652,13 @@ section:focus >,
     background: var(--bs-secondary) !important;
   }
   &.bg-dark-grey:after {
-    background: var(--fifth-color) !important;
+    background: var(--dark-grey) !important;
   }
   &.bg-middle-grey:after {
-    background: var(--fourth-color) !important;
+    background: var(--middle-grey) !important;
   }
   &.bg-light-grey:after {
-    background: var(--third-color) !important;
+    background: var(--light-grey) !important;
   }
   &.bg-success:after {
     background: var(--bs-success) !important;
@@ -2103,7 +2079,7 @@ section.bg-primary {
     height: 100%;
   }
   .form-control:focus {
-    background-color: #f2f3f7;
+    background-color: var(--light-grey);
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -2115,7 +2091,7 @@ section.bg-primary {
     height: 37px;
   }
   .form-control:focus {
-    background-color: #f2f3f7;
+    background-color: var(--light-grey);
     box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
@@ -2155,7 +2131,7 @@ section.bg-primary {
   --bs-dropdown-padding-y: 0;
   --bs-dropdown-spacer: 0;
   --bs-dropdown-font-size: 0.875rem;
-  --bs-dropdown-color: #2f2f2f;
+  --bs-dropdown-color: var(--dark-grey);
   --bs-dropdown-bg: #fff;
   --bs-dropdown-border-color: rgba(0, 0, 0, 0.05);
   --bs-dropdown-border-radius: 0;
@@ -2164,12 +2140,12 @@ section.bg-primary {
   --bs-dropdown-divider-bg: var(--bs-border-color-translucent);
   --bs-dropdown-divider-margin-y: 0.5rem;
   --bs-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  --bs-dropdown-link-color: #2f2f2f;
-  --bs-dropdown-link-hover-color: #2f2f2f;
-  --bs-dropdown-link-hover-bg: #e8e8e8;
+  --bs-dropdown-link-color: var(--dark-grey);
+  --bs-dropdown-link-hover-color: var(--dark-grey);
+  --bs-dropdown-link-hover-bg: var(--middle-grey);
   --bs-dropdown-link-active-color: var(--bs-primary-text-color);
   --bs-dropdown-link-active-bg: var(--bs-primary);
-  --bs-dropdown-link-disabled-color: #e8e8e8;
+  --bs-dropdown-link-disabled-color: var(--middle-grey);
   --bs-dropdown-item-padding-x: 0.5rem;
   --bs-dropdown-item-padding-y: 0.35rem;
   --bs-dropdown-header-color: #6c757d;
@@ -2184,7 +2160,7 @@ section.bg-primary {
 
 .dropdown-divider {
   margin: 0;
-  border-top: 1px solid #e8e8e8;
+  border-top: 1px solid var(--middle-grey);
 }
 
 .nav-link i,
@@ -2225,7 +2201,7 @@ section.bg-primary {
     .dropdown-item {
       padding: 0.375rem;
       &:hover {
-        background: #e8e8e8;
+        background: var(--middle-grey);
       }
       &.active {
         background: var(--bs-primary);
@@ -2235,7 +2211,7 @@ section.bg-primary {
   }
 
   .form-control {
-    background-color: #f2f3f7;
+    background-color: var(--light-grey);
   }
 }
 
@@ -2523,11 +2499,11 @@ header .navbar.navbar-expand-lg {
  =================================================================== */
 @media (prefers-contrast: more) {
   :root {
-    --third-color: #eee;
-    --fourth-color: #e3e3e3;
+    --light-grey: #eee;
+    --middle-grey: #e3e3e3;
   }
   main {
-    background: #f2f3f7;
+    background: var(--light-grey);
   }
   .Toastify__toast,
   .navbar-toggler.btn,
