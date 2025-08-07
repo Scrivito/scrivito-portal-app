@@ -1,7 +1,7 @@
-@function bestContrast($color, $dark, $lite) {
+@function bestContrast($bg, $darkText, $liteText) {
   @return exclusiveByBinaryAlpha(
-    color-mix(in srgb, $lite 0%, isLightAsBinaryAlpha($color, 0)),
-    color-mix(in srgb, $dark 0%, isLightAsBinaryAlpha($color, 1))
+    color-mix(in srgb, $darkText 0%, preferBlackTextAsBinaryAlpha($bg, 1)),
+    color-mix(in srgb, $liteText 0%, preferBlackTextAsBinaryAlpha($bg, 0))
   );
 }
 
@@ -9,14 +9,14 @@
   @return color(from color-mix(in srgb, $color1, $color2) srgb r g b / 1);
 }
 
-@function isLightAsBinaryAlpha($color, $alpha) {
-  // See https://www.w3.org/WAI/GL/wiki/Contrast_ratio
-  // (1 + 0.05) / (y + 0.05) = (y + 0.05) / (0 + 0.05)
-  $wcagMiddleRelativeLuminance: 0.179129;
-  $yOffset: 0.5 - $wcagMiddleRelativeLuminance;
+@function preferBlackTextAsBinaryAlpha($bg, $alpha) {
+  // Based on contrast calculators flipping the higher/lower contrast for black/white
+  // text on background colors #a3a3a3 (y = 0.366253) and #a3a3a4 (y = 0.366613)
+  $contrastMiddleBgYAverage: (0.366253 + 0.366613) * 0.5;
+  $yOffset: 0.5 - $contrastMiddleBgYAverage;
 
   @return color(
-    from $color xyz none none none /
+    from $bg xyz none none none /
       calc(#{if($alpha == 0, '1 -', '')} round(#{y '+' $yOffset}))
   );
 }
