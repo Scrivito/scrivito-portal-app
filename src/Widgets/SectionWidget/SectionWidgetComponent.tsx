@@ -10,6 +10,7 @@ import { SectionWidget, SectionWidgetInstance } from './SectionWidgetClass'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
+  const sectionStyles: React.CSSProperties = {}
 
   const backgroundColor = widget.get('backgroundColor')
   if (backgroundColor && backgroundColor !== 'transparent') {
@@ -26,14 +27,28 @@ provideComponent(SectionWidget, ({ widget }) => {
     contentClassName = ''
   }
 
+  const containerMinHeight = widget.get('containerMinHeight')
+  if (containerMinHeight) sectionStyles.minHeight = containerMinHeight
+
+  if (widget.get('verticalAlignment') === 'center') {
+    sectionClassNames.push('d-flex', 'align-items-center')
+  }
+  if (widget.get('verticalAlignment') === 'end') {
+    sectionClassNames.push('d-flex', 'align-items-end')
+  }
+
   return (
-    <WidgetTag tag="section" className={sectionClassNames.join(' ')}>
+    <WidgetTag
+      className={sectionClassNames.join(' ')}
+      style={sectionStyles}
+      tag="section"
+    >
       <ImageOrVideo widget={widget} />
       <ContentTag
-        tag="div"
-        content={widget}
-        className={contentClassName}
         attribute="content"
+        className={contentClassName}
+        content={widget}
+        tag="div"
       />
     </WidgetTag>
   )
@@ -67,10 +82,10 @@ const ImageOrVideo = connect(function ImageOrVideo({
   return (
     <InPlaceEditingOff>
       <ImageTag
-        content={widget}
+        alt=""
         attribute="backgroundImage"
         className={classNames.join(' ')}
-        alt=""
+        content={widget}
       />
     </InPlaceEditingOff>
   )
