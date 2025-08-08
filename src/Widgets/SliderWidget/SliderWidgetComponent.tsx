@@ -1,16 +1,8 @@
-import {
-  connect,
-  ContentTag,
-  ImageTag,
-  InPlaceEditingOff,
-  provideComponent,
-} from 'scrivito'
+import { ContentTag, provideComponent } from 'scrivito'
 import Carousel from 'react-bootstrap/Carousel'
 import { SliderWidget } from './SliderWidgetClass'
-import {
-  SlideWidgetInstance,
-  isSlideWidgetInstance,
-} from '../SlideWidget/SlideWidgetClass'
+import { isSlideWidgetInstance } from '../SlideWidget/SlideWidgetClass'
+import { ImageOrVideo } from '../../Components/ImageOrVideo'
 import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
@@ -37,45 +29,11 @@ provideComponent(SliderWidget, ({ widget }) => {
               showControls ? 'has-controls' : '',
             ].join(' ')}
           >
-            <ImageOrVideo widget={item} />
+            <ImageOrVideo widget={item} attribute="background" />
 
             <ContentTag content={item} attribute="content" />
           </Carousel.Item>
         ))}
     </Carousel>
-  )
-})
-
-const ImageOrVideo = connect(function ImageOrVideo({
-  widget,
-}: {
-  widget: SlideWidgetInstance
-}) {
-  const background = widget.get('background')
-  if (!background) return null
-
-  if (background.contentType().startsWith('video/')) {
-    return (
-      <video
-        autoPlay
-        className="img-background"
-        key={background.contentUrl()}
-        loop
-        muted
-        playsInline
-        src={background.contentUrl()}
-      />
-    )
-  }
-
-  return (
-    <InPlaceEditingOff>
-      <ImageTag
-        content={widget}
-        attribute="background"
-        alt=""
-        className="img-background"
-      />
-    </InPlaceEditingOff>
   )
 })
