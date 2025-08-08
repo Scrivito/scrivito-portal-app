@@ -64,7 +64,7 @@
   "site_font_headline": [
     "referencelist",
     [
-      "5090f6df2955b3f3"
+      "9d4512ef0556ff38"
     ]
   ],
   "site_border_radius": [
@@ -115,14 +115,14 @@
   "_first_published_at": "20250731090344",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250807104246",
+  "_last_changed": "20250808080352",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250807104309",
+  "_published_at": "20250808080551",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "202508071043090000000000000000e2b15b0e20a7da67",
+  "_version": "202508080805510000000000000000202c9f19476f994a",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -178,7 +178,7 @@
       ],
       "submit_button_text": [
         "string",
-        "Send my spot"
+        "Save my spot"
       ],
       "review_button_text": [
         "string",
