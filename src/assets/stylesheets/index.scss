@@ -642,8 +642,10 @@ a {
   &.bg-primary {
     color: var(--light-text-color);
   }
+  &.bg-secondary {
+    color: var(--light-text-color);
+  }
   &.bg-dark-grey,
-  &.bg-secondary,
   &.bg-success,
   &.bg-warning,
   &.bg-danger,
@@ -696,8 +698,44 @@ section {
       color: var(--bs-secondary) !important;
     }
   }
+  &.bg-secondary {
+    a:not(.btn),
+    p,
+    th,
+    td {
+      color: var(--light-text-color);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: var(--light-headline-text-color);
+    }
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .btn-outline-secondary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .text-primary {
+      color: var(--bs-primary) !important;
+    }
+    .text-secondary {
+      color: var(--bs-secondary) !important;
+    }
+  }
+
   &.bg-dark-grey,
-  &.bg-secondary,
   &.bg-success,
   &.bg-danger,
   &.bg-info {
@@ -885,8 +923,53 @@ section {
       color: var(--bs-secondary);
     }
   }
+  &.bg-secondary {
+    a:not(.btn),
+    p,
+    th,
+    td,
+    .form-label,
+    .text-mandatory,
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      color: var(--light-text-color);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4,
+    .display-5,
+    .display-6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      color: var(--light-headline-text-color);
+    }
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .btn-outline-secondary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
+    .text-primary {
+      color: var(--bs-primary);
+    }
+    .text-secondary {
+      color: var(--bs-secondary);
+    }
+  }
   &.bg-dark-grey,
-  &.bg-secondary,
   &.bg-success,
   &.bg-danger,
   &.bg-info {
@@ -1053,7 +1136,11 @@ header section {
       color: var(--light-text-color);
     }
   }
-  &.bg-secondary,
+  &.bg-secondary {
+    .bi {
+      color: var(--light-text-color);
+    }
+  }
   &.bg-dark-grey,
   &.bg-success,
   &.bg-info,
