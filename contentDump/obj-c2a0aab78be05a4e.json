@@ -82,10 +82,6 @@
     "boolean",
     true
   ],
-  "site_rounded_corners": [
-    "boolean",
-    true
-  ],
   "layout_main_background_color": [
     "string",
     "transparent"
@@ -138,6 +134,10 @@
     "string",
     "https://web102.crm.pisasales.de/api"
   ],
+  "site_border_radius": [
+    "string",
+    "8.5px"
+  ],
   "_conflicts": null,
   "_content_id": "c2a0aab78be05a4e",
   "_created_at": "20230509091921",
@@ -146,14 +146,14 @@
   "_first_published_at": "20230509091931",
   "_id": "c2a0aab78be05a4e",
   "_language": "en",
-  "_last_changed": "20250805132940",
+  "_last_changed": "20250808095910",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250806071623",
+  "_published_at": "20250808095950",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202508060716230000000000000000297565bdf5c97a35",
+  "_version": "202508080959500000000000000000ef1f05f5c56a46c1",
   "_widget_pool": {
     "10914562": {
       "_obj_class": "ColumnContainerWidget",
