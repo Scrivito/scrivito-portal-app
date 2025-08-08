@@ -11,17 +11,12 @@ import {
 } from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
+import { ImageOrVideo } from '../../Components/ImageOrVideo'
 
 provideComponent(CardWidget, ({ widget }) => {
   const cardBodyClassNames: string[] = ['card-body']
   const padding = widget.get('padding')
   cardBodyClassNames.push(padding ? padding : 'p-4')
-
-  const backgroundImage = widget.get('backgroundImage')
-  const backgroundImageClassNames = ['img-background']
-  if (widget.get('backgroundAnimateOnHover')) {
-    backgroundImageClassNames.push('img-zoom')
-  }
 
   const image = widget.get('image')
 
@@ -36,16 +31,13 @@ provideComponent(CardWidget, ({ widget }) => {
 
   return (
     <WidgetTag className={cardClassNames.join(' ')}>
-      {backgroundImage && (
-        <InPlaceEditingOff>
-          <ImageTag
-            content={widget}
-            attribute="backgroundImage"
-            className={backgroundImageClassNames.join(' ')}
-            alt=""
-          />
-        </InPlaceEditingOff>
-      )}
+      <ImageOrVideo
+        widget={widget}
+        attribute="backgroundImage"
+        className={
+          widget.get('backgroundAnimateOnHover') ? 'img-zoom' : undefined
+        }
+      />
 
       {image && (
         <LinkOrNotTag link={widget.get('linkTo')}>
