@@ -10,6 +10,8 @@
 /* bs5 variables
  ================================================== */
 
+@import 'contrast';
+
 :root {
   --light-grey: #f2f3f7;
   --middle-grey: #e8e8e8;
@@ -27,15 +29,31 @@
 
   // The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-primary: #274486;
-  --bs-primary-text-color: var(--light-text-color);
-  --bs-primary-headline-text-color: var(--light-headline-text-color);
+  --bs-primary-text-color: #{bestContrast(
+      var(--bs-primary),
+      var(--dark-text-color),
+      var(--light-text-color)
+    )};
+  --bs-primary-headline-text-color: #{bestContrast(
+      var(--bs-primary),
+      var(--dark-headline-text-color),
+      var(--light-headline-text-color)
+    )};
   --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
   --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
 
   // The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`.
   --bs-secondary: #39a9eb;
-  --bs-secondary-text-color: var(--light-text-color);
-  --bs-secondary-headline-text-color: var(--light-headline-text-color);
+  --bs-secondary-text-color: #{bestContrast(
+      var(--bs-secondary),
+      var(--dark-text-color),
+      var(--light-text-color)
+    )};
+  --bs-secondary-headline-text-color: #{bestContrast(
+      var(--bs-secondary),
+      var(--dark-headline-text-color),
+      var(--light-headline-text-color)
+    )};
   --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
   --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
 
