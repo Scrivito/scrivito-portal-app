@@ -10,13 +10,15 @@
 }
 
 @function preferBlackTextAsBinaryAlpha($bg, $alpha) {
-  // Based on contrast calculators flipping the higher/lower contrast for black/white
-  // text on background colors #a3a3a3 (y = 0.366253) and #a3a3a4 (y = 0.366613)
-  $contrastMiddleBgYAverage: (0.366253 + 0.366613) * 0.5;
-  $yOffset: 0.5 - $contrastMiddleBgYAverage;
+  // Backgrounds #a3a3a3 (Y = 0.366253) and #a3a3a4 (Y = 0.366613) were
+  // manually found with contrast tools (e.g., https://colorcontrast.app/)
+  // as the flip point between black and white text. Their midpoint represents
+  // the approximate contrast pivot in Y.
+  $pivotY: (0.366253 + 0.366613) * 0.5;
+  $pivotYOffset: 0.5 - $pivotY;
 
   @return color(
     from $bg xyz none none none /
-      calc(#{if($alpha == 0, '1 -', '')} round(#{y '+' $yOffset}))
+      calc(#{if($alpha == 0, '1 -', '')} round(#{y '+' $pivotYOffset}))
   );
 }
