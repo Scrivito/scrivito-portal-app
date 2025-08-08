@@ -1,6 +1,7 @@
 import { Obj, getInstanceId } from 'scrivito'
 import { instanceBaseUrl } from '../multiSite/instanceBaseUrl'
 import { extractFromUrl } from '../multiSite/extractFromUrl'
+import { ensureString } from '../utils/ensureString'
 
 const NEOLETTER_MAILINGS_SITE_ID = 'mailing-app'
 
@@ -19,6 +20,8 @@ export function baseUrlForSite(siteId: string): string | undefined {
 
   const language = siteRoot.language()
   if (!language) return
+
+  if (!isCorrectContentFormat(siteRoot)) return
 
   return baseUrlFor(language, siteRoot.contentId())
 }
@@ -71,8 +74,17 @@ function findSiteIdBy(query: { contentId: string; language: string }) {
     .where('_contentId', 'equals', query.contentId)
     .andNot('_siteId', 'equals', null)
     .toArray()
-    .find((obj) => obj.path() === '/' && obj.language() === query.language)
+    .find(
+      (obj) =>
+        obj.path() === '/' &&
+        obj.language() === query.language &&
+        isCorrectContentFormat(obj),
+    )
     ?.siteId()
+}
+
+function isCorrectContentFormat(obj: Obj) {
+  return ensureString(obj.get('contentFormat')).startsWith('portal-app:')
 }
 
 function findSiteForUrlExpensive(url: string) {
