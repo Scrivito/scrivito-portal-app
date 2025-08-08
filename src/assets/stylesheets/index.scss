@@ -232,6 +232,10 @@ fieldset:disabled .btn {
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: var(--bs-primary-lighten);
   --bs-gradient: none;
+
+  &:focus-visible {
+    color: var(--light-text-color) !important;
+  }
 }
 
 .btn-outline-secondary {
@@ -249,10 +253,10 @@ fieldset:disabled .btn {
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: var(--bs-secondary-lighten);
   --bs-gradient: none;
-}
-.btn-outline-primary:focus-visible,
-.btn-outline-secondary:focus-visible {
-  color: var(--light-text-color) !important;
+
+  &:focus-visible {
+    color: var(--light-text-color) !important;
+  }
 }
 
 .btn i:only-child {
