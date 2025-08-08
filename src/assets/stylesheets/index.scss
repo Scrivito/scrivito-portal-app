@@ -681,7 +681,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -718,7 +721,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -864,7 +870,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
@@ -911,7 +920,10 @@ section {
     .h6 {
       color: var(--light-headline-text-color);
     }
-    .btn-outline-primary,
+    .btn-outline-primary {
+      color: var(--light-text-color);
+      border-color: var(--light-text-color);
+    }
     .btn-outline-secondary {
       color: var(--light-text-color);
       border-color: var(--light-text-color);
