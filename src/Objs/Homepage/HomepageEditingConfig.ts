@@ -8,6 +8,7 @@ import {
   defaultPagePropertiesGroups,
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
+import { SiteBorderRadiusEditor } from '../../Components/ScrivitoExtensions/SiteBorderRadiusEditor'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -41,7 +42,8 @@ provideEditingConfig(Homepage, {
     },
     siteRoundedCorners: {
       title: 'Show rounded corners?',
-      description: 'Default: Yes',
+      description:
+        'Deprecated in favour of “Site rounded corners”. Default: Yes',
     },
     siteSearchResultsPage: {
       title: 'Location of search results page',
@@ -79,6 +81,7 @@ provideEditingConfig(Homepage, {
     },
   },
   propertiesGroups: (site) => [
+    ...defaultPagePropertiesGroups,
     {
       title: 'Site settings',
       properties: [
@@ -94,7 +97,7 @@ provideEditingConfig(Homepage, {
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
-        'siteRoundedCorners',
+        site.get('siteBorderRadius') ? null : 'siteRoundedCorners',
         'siteFacebookAppId',
         'siteTwitterSite',
         'siteSinglePage',
@@ -102,13 +105,13 @@ provideEditingConfig(Homepage, {
       key: 'site-settings-group',
     },
     {
-      title: 'Site colors',
+      title: 'Colors',
       component: SiteColorsPicker,
       properties: ['siteColorPrimary', 'siteColorSecondary'],
       key: 'site-colors-group',
     },
     {
-      title: 'Site fonts',
+      title: 'Fonts',
       properties: [
         'siteFontHeadline',
         'siteFontBody',
@@ -117,16 +120,21 @@ provideEditingConfig(Homepage, {
       ],
       key: 'site-fonts-group',
     },
-    ...defaultPagePropertiesGroups,
+    {
+      title: 'Rounded corners',
+      component: SiteBorderRadiusEditor,
+      properties: ['siteBorderRadius'],
+      key: 'site-rounded-corners-group',
+    },
   ],
   properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
     contentFormat: 'portal-app:6',
+    siteBorderRadius: '8.5px',
     siteDropShadow: true,
     siteFontBodyWeight: '500',
     siteFontHeadlineWeight: '500',
-    siteRoundedCorners: true,
   },
   validations: [
     ...defaultPageValidations,
