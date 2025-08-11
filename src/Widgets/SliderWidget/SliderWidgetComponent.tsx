@@ -9,7 +9,7 @@ import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
   const motionPreferred = useMotionPreference()
-  const autoplay = motionPreferred && widget.get('autoplay')
+  const autoplay = widget.get('autoplay')
   const showControls = autoplay ? widget.get('controls') : true
   const intervalMs = Math.round((widget.get('autoplayInterval') ?? 5) * 1000)
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
@@ -21,6 +21,7 @@ provideComponent(SliderWidget, ({ widget }) => {
       indicators={showControls}
       interval={autoplay ? intervalMs : null}
       keyboard={false}
+      fade={!motionPreferred}
     >
       {widget
         .get('slides')
