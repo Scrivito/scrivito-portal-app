@@ -423,6 +423,9 @@ h6 {
   color: var(--dark-headline-text-color);
   font-family: var(--jr-headline-font-family), sans-serif;
   font-weight: var(--jr-headline-font-weight);
+  letter-spacing: -0.5px;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
 }
 
 h1,
@@ -475,29 +478,6 @@ h6,
   .h6 {
     font-size: 1rem;
   }
-}
-
-.display-1,
-.display-2,
-.display-3,
-.display-4,
-.display-5,
-.display-6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  line-height: 1.4;
-  letter-spacing: -0.5px;
-  margin-bottom: 0.5rem;
 }
 
 a {
