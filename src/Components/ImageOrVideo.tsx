@@ -6,6 +6,7 @@ import {
   ImageTag,
   currentLanguage,
 } from 'scrivito'
+import { useMotionPreference } from '../hooks/useMotionPreference'
 import './ImageOrVideo.scss'
 
 export interface TogglePlayPauseRef {
@@ -25,39 +26,30 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
     [K in T]: 'reference'
   }>
 }) {
+  const motionPreferred = useMotionPreference()
   const [isPaused, setIsPaused] = useState(false)
-  const [shouldAutoplay, setShouldAutoplay] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updatePreferences = () => {
-      if (reducedMotion.matches) {
-        setShouldAutoplay(false)
-        setIsPaused(true)
-        videoRef.current?.pause()
-      } else {
-        setShouldAutoplay(true)
-        setIsPaused(false)
-        videoRef.current?.play()
-      }
+    if (motionPreferred) {
+      setIsPaused(false)
+      videoRef.current?.play()
+    } else {
+      setIsPaused(true)
+      videoRef.current?.pause()
     }
-
-    updatePreferences()
-    reducedMotion.addEventListener('change', updatePreferences)
-    return () => reducedMotion.removeEventListener('change', updatePreferences)
-  }, [])
+  }, [motionPreferred])
 
   const handleVideoClick = (e: React.MouseEvent) => {
     const video = videoRef.current
     if (!video) return
 
     if (isPaused) {
-      video.play()
       setIsPaused(false)
+      video.play()
     } else {
-      video.pause()
       setIsPaused(true)
+      video.pause()
     }
     e.stopPropagation()
   }
@@ -77,7 +69,7 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
       <>
         <video
           ref={videoRef}
-          autoPlay={shouldAutoplay}
+          autoPlay={motionPreferred}
           className={classNames.join(' ')}
           key={background.contentUrl()}
           loop
