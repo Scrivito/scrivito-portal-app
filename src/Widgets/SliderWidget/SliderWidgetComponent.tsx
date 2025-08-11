@@ -3,11 +3,13 @@ import Carousel from 'react-bootstrap/Carousel'
 import { SliderWidget } from './SliderWidgetClass'
 import { isSlideWidgetInstance } from '../SlideWidget/SlideWidgetClass'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
-  const showControls = widget.get('autoplay') ? widget.get('controls') : true
+  const motionPreferred = useMotionPreference()
+  const autoplay = motionPreferred && widget.get('autoplay')
+  const showControls = autoplay ? widget.get('controls') : true
   const intervalMs = Math.round((widget.get('autoplayInterval') ?? 5) * 1000)
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
@@ -16,7 +18,7 @@ provideComponent(SliderWidget, ({ widget }) => {
       className={`slider-widget ${widget.get('margin') || 'mb-4'}`}
       controls={showControls}
       indicators={showControls}
-      interval={widget.get('autoplay') ? intervalMs : null}
+      interval={autoplay ? intervalMs : null}
       keyboard={false}
     >
       {widget
@@ -44,3 +46,20 @@ provideComponent(SliderWidget, ({ widget }) => {
     </Carousel>
   )
 })
+
+function useMotionPreference(): boolean {
+  const [motionPreferred, setMotionPreferred] = useState(true)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updatePreferences = () => {
+      setMotionPreferred(!mediaQuery.matches)
+    }
+
+    updatePreferences()
+    mediaQuery.addEventListener('change', updatePreferences)
+    return () => mediaQuery.removeEventListener('change', updatePreferences)
+  }, [])
+
+  return motionPreferred
+}
