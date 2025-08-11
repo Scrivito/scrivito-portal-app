@@ -3,7 +3,8 @@ import Carousel from 'react-bootstrap/Carousel'
 import { SliderWidget } from './SliderWidgetClass'
 import { isSlideWidgetInstance } from '../SlideWidget/SlideWidgetClass'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
-import { useRef, useEffect, useState } from 'react'
+import { useRef } from 'react'
+import { useMotionPreference } from '../../hooks/useMotionPreference'
 import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
@@ -46,20 +47,3 @@ provideComponent(SliderWidget, ({ widget }) => {
     </Carousel>
   )
 })
-
-function useMotionPreference(): boolean {
-  const [motionPreferred, setMotionPreferred] = useState(true)
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updatePreferences = () => {
-      setMotionPreferred(!mediaQuery.matches)
-    }
-
-    updatePreferences()
-    mediaQuery.addEventListener('change', updatePreferences)
-    return () => mediaQuery.removeEventListener('change', updatePreferences)
-  }, [])
-
-  return motionPreferred
-}
