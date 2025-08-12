@@ -4,10 +4,13 @@ import { SliderWidget } from './SliderWidgetClass'
 import { isSlideWidgetInstance } from '../SlideWidget/SlideWidgetClass'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
+import { useMotionPreference } from '../../hooks/useMotionPreference'
 import './SliderWidget.scss'
 
 provideComponent(SliderWidget, ({ widget }) => {
-  const showControls = widget.get('autoplay') ? widget.get('controls') : true
+  const motionPreferred = useMotionPreference()
+  const autoplay = widget.get('autoplay')
+  const showControls = autoplay ? widget.get('controls') : true
   const intervalMs = Math.round((widget.get('autoplayInterval') ?? 5) * 1000)
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
@@ -16,8 +19,9 @@ provideComponent(SliderWidget, ({ widget }) => {
       className={`slider-widget ${widget.get('margin') || 'mb-4'}`}
       controls={showControls}
       indicators={showControls}
-      interval={widget.get('autoplay') ? intervalMs : null}
+      interval={autoplay ? intervalMs : null}
       keyboard={false}
+      fade={!motionPreferred}
     >
       {widget
         .get('slides')
