@@ -3,7 +3,7 @@ import { pisaConfig } from '../pisaClient'
 
 export const ContractDocument = provideDataClass(
   'ContractDocument',
-  (async () => {
+  async () => {
     const restApi = await pisaConfig('portal/contract-document')
     if (!restApi) {
       return (
@@ -12,5 +12,5 @@ export const ContractDocument = provideDataClass(
     }
 
     return { restApi }
-  })(),
+  },
 )

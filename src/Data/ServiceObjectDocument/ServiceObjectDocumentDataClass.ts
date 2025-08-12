@@ -3,7 +3,7 @@ import { pisaConfig } from '../pisaClient'
 
 export const ServiceObjectDocument = provideDataClass(
   'ServiceObjectDocument',
-  (async () => {
+  async () => {
     const restApi = await pisaConfig('portal/service-object-document')
     if (!restApi) {
       return (
@@ -12,5 +12,5 @@ export const ServiceObjectDocument = provideDataClass(
     }
 
     return { restApi }
-  })(),
+  },
 )
