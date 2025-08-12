@@ -28,6 +28,7 @@ provideComponent(HeadlineWidget, ({ widget }) => {
       attribute="headline"
       className={classNames.join(' ')}
       tag={tag(widget.get('level'), style)}
+      // TODO: replace `speakingUrl` with our slugify package once available
       id={speakingUrl(widget.get('headline'))}
     />
   )
