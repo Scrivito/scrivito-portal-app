@@ -115,14 +115,14 @@
   "_first_published_at": "20250731090344",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250808080352",
+  "_last_changed": "20250812073528",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250808080551",
+  "_published_at": "20250812073541",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "202508080805510000000000000000202c9f19476f994a",
+  "_version": "2025081207354100000000000000009fbec2942eef163a",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -620,7 +620,7 @@
       ],
       "headline": [
         "string",
-        "Bonjour Paris!"
+        "One launch"
       ],
       "margin": [
         "string",
@@ -635,7 +635,7 @@
       ],
       "text": [
         "html",
-        "<p>We're thrilled to invite you to the exclusive launch of Mixx's newest creation — a bold refreshing drink that's redefining the category. Be among the first to sip, see, and celebrate this exciting reveal.</p>"
+        "<p>We are pleased to invite you to an exclusive event unveiling Mixx — our latest innovation, a revitalizing beverage crafted to enhance performance and foster professional connections.</p><p>This unique evening will gather key partners, industry leaders, and collaborators for an exclusive first look at the Mixx experience.</p><p>Join a select group of professionals to discover the future of energy and innovation.</p>"
       ]
     },
     "d2e2e2a0": {
@@ -644,6 +644,8 @@
         "widgetlist",
         [
           "9d5de427",
+          "99b865bc",
+          "0beea7e0",
           "ced96645"
         ]
       ],
@@ -1057,7 +1059,7 @@
       ],
       "text": [
         "html",
-        "<p>support@mixx.com<br>1-800-MIXXX-SODA</p>"
+        "<p>support@trymixx.com<br>1-800-MIXXX-SODA</p>"
       ]
     },
     "5ac922ec": {
@@ -1434,7 +1436,7 @@
       ],
       "headline": [
         "string",
-        "December 20, 18 hs"
+        "December 20, 6 pm"
       ],
       "style": [
         "string",
@@ -1443,6 +1445,10 @@
       "margin": [
         "string",
         "mb-2"
+      ],
+      "level": [
+        "string",
+        "div"
       ]
     },
     "b2b85ba1": {
@@ -1533,6 +1539,10 @@
       "margin": [
         "string",
         "mb-2"
+      ],
+      "level": [
+        "string",
+        "div"
       ]
     },
     "b48317a8": {
@@ -1606,6 +1616,10 @@
       "margin": [
         "string",
         "mb-2"
+      ],
+      "level": [
+        "string",
+        "div"
       ]
     },
     "d9135430": {
@@ -2109,7 +2123,7 @@
       ],
       "headline": [
         "string",
-        "18:30 hs"
+        "6:30 pm"
       ],
       "style": [
         "string",
@@ -2522,7 +2536,7 @@
       ],
       "headline": [
         "string",
-        "18:00 hs"
+        "6:00 pm"
       ],
       "style": [
         "string",
@@ -2566,7 +2580,7 @@
       ],
       "headline": [
         "string",
-        "20:00 hs"
+        "8:00 pm"
       ],
       "style": [
         "string",
@@ -2610,7 +2624,7 @@
       ],
       "headline": [
         "string",
-        "21:00 hs"
+        "9:00 pm"
       ],
       "style": [
         "string",
@@ -2713,6 +2727,44 @@
       "margin": [
         "string",
         "mb-2"
+      ]
+    },
+    "99b865bc": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "display-1"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "headline": [
+        "string",
+        "One evening"
+      ]
+    },
+    "0beea7e0": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "display-1"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "headline": [
+        "string",
+        "Pure energy"
       ]
     }
   },
