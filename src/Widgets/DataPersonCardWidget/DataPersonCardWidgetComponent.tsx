@@ -65,7 +65,7 @@ const PersonCard = connect(function PersonCard({
   const image = dataItem.get('image') || { url: personCircle }
 
   return (
-    <div className="card mb-2 bg-white no-color-adaption max-width-350">
+    <div className="card mb-2 bg-white max-width-350">
       <div className="card-body p-3">
         <div className="row">
           <div className="col-3 d-none d-xl-block">
