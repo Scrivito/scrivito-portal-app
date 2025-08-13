@@ -639,6 +639,7 @@ main {
 
 .bg-warning {
   background: var(--bs-warning) !important;
+  color: var(--dark-text-color) !important;
 }
 .bg-danger {
   background: var(--bs-danger) !important;
@@ -647,9 +648,11 @@ main {
 
 .bg-light-grey {
   background: var(--light-grey) !important;
+  color: var(--dark-text-color) !important;
 }
 .bg-middle-grey {
   background: var(--middle-grey) !important;
+  color: var(--dark-text-color) !important;
 }
 
 // -- color content adaptions -- //
