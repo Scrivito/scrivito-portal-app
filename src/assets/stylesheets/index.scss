@@ -13,10 +13,6 @@
 @import 'contrast';
 
 :root {
-  --headline-text-color: unset;
-  --text-color: unset;
-  --bg-color: unset;
-
   --light-grey: #f2f3f7;
   --middle-grey: #e8e8e8;
   --dark-grey: #2f2f2f;
@@ -28,6 +24,10 @@
   // Light text color variables for text on dark backgrounds
   --light-text-color: #fff;
   --light-headline-text-color: #fff;
+
+  --bg-color: unset;
+  --headline-text-color: var(--dark-headline-text-color);
+  --text-color: unset;
 
   --border: rgba(0, 0, 0, 0.1);
 
@@ -424,7 +424,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--dark-headline-text-color);
+  color: var(--headline-text-color);
   font-family: var(--jr-headline-font-family), sans-serif;
   font-weight: var(--jr-headline-font-weight);
   letter-spacing: -0.5px;
@@ -735,26 +735,7 @@ td,
 .carousel-control-next-icon {
   color: var(--text-color);
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.display-1,
-.display-2,
-.display-3,
-.display-4,
-.display-5,
-.display-6,
-.h1,
-.h2,
-.h3,
-.h4,
-.h5,
-.h6 {
-  color: var(--headline-text-color);
-}
+
 .text-primary {
   color: var(--bs-primary) !important;
 }
