@@ -100,7 +100,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
         salesUserId,
         serviceUserId,
 
-        name: ensureString(neoletterProfile.name),
+        name: ensureString(neoletterProfile.name) || user.name(),
         company: ensureString(neoletterProfile.company),
         familyName: ensureString(neoletterProfile.family_name),
         givenName: ensureString(neoletterProfile.given_name),
