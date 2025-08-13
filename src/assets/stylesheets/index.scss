@@ -706,23 +706,35 @@ a {
 
 section {
   flex: 1;
+}
 
-  &.bg-danger,
-  &.bg-dark-grey,
-  &.bg-info,
-  &.bg-primary,
-  &.bg-secondary,
-  &.bg-success {
-    .btn-outline-primary {
-      color: var(--bs-primary-text-color);
-      border-color: var(--bs-primary-text-color);
-    }
-    .btn-outline-secondary {
-      color: var(--bs-secondary-text-color);
-      border-color: var(--bs-secondary-text-color);
-    }
+.bg-danger,
+.bg-dark-grey,
+.bg-info,
+.bg-primary,
+.bg-secondary,
+.bg-success,
+.bg-warning {
+  .btn-outline-primary,
+  .btn-outline-secondary {
+    color: var(--text-color);
+    border-color: var(--text-color);
   }
 }
+
+.btn-outline-primary {
+  &:hover,
+  &:active {
+    color: var(--bs-primary-text-color) !important;
+  }
+}
+.btn-outline-secondary {
+  &:hover,
+  &:active {
+    color: var(--bs-secondary-text-color) !important;
+  }
+}
+
 // -- new override -- //
 
 a:not(.btn, .nav-link),
@@ -747,39 +759,16 @@ td,
 .card .card,
 .carousel-item,
 .carousel-item .card {
-  &.bg-danger,
-  &.bg-dark-grey,
-  &.bg-info,
-  &.bg-primary,
-  &.bg-secondary,
-  &.bg-success {
-    .btn-outline-primary {
-      color: var(--bs-primary-text-color);
-      border-color: var(--bs-primary-text-color);
-    }
-    .btn-outline-secondary {
-      color: var(--bs-secondary-text-color);
-      border-color: var(--bs-secondary-text-color);
-    }
-  }
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
     .btn-outline-primary {
       color: var(--bs-primary);
       border-color: var(--bs-primary);
-      &:hover,
-      &:active {
-        color: var(--bs-primary-text-color);
-      }
     }
     .btn-outline-secondary {
       color: var(--bs-secondary);
       border-color: var(--bs-secondary);
-      &:hover,
-      &:active {
-        color: var(--bs-secondary-text-color);
-      }
     }
   }
 }
