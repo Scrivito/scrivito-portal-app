@@ -699,7 +699,7 @@ section {
     p,
     th,
     td {
-      color: var(--bs-primary-text-color);
+      color: var(--text-color);
     }
     h1,
     h2,
@@ -735,7 +735,7 @@ section {
     p,
     th,
     td {
-      color: var(--bs-secondary-text-color);
+      color: var(--text-color);
     }
     h1,
     h2,
@@ -775,7 +775,7 @@ section {
     p,
     th,
     td {
-      color: var(--light-text-color);
+      color: var(--text-color);
     }
     h1,
     h2,
@@ -918,7 +918,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--bs-primary-text-color);
+      color: var(--text-color);
     }
     h1,
     h2,
@@ -964,7 +964,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--bs-secondary-text-color);
+      color: var(--text-color);
     }
     h1,
     h2,
@@ -1013,7 +1013,7 @@ section {
     .text-mandatory,
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-      color: var(--light-text-color);
+      color: var(--text-color);
     }
     h1,
     h2,
@@ -1165,12 +1165,12 @@ header section {
 .carousel-item {
   &.bg-primary {
     .bi {
-      color: var(--bs-primary-text-color);
+      color: var(--text-color);
     }
   }
   &.bg-secondary {
     .bi {
-      color: var(--bs-secondary-text-color);
+      color: var(--text-color);
     }
   }
   &.bg-dark-grey,
@@ -1178,7 +1178,7 @@ header section {
   &.bg-info,
   &.bg-danger {
     .bi {
-      color: var(--light-text-color);
+      color: var(--text-color);
     }
   }
 
@@ -1186,7 +1186,7 @@ header section {
   &.bg-middle-grey,
   &.bg-light-grey {
     .bi {
-      color: var(--dark-text-color);
+      color: var(--text-color);
     }
   }
 
