@@ -32,9 +32,9 @@
     "react-dropzone": "^14.3.8",
     "react-helmet-async": "^2.0.5",
     "react-toastify": "^11.0.5",
-    "scrivito": "^1.52.0",
+    "scrivito": "^1.53.0",
     "scrivito-icon-editor": "^0.0.2",
-    "scrivito-neoletter-form-widgets": "^0.0.38",
+    "scrivito-neoletter-form-widgets": "^0.0.39",
     "scroll-to-fragment": "^1.1.0",
     "speakingurl": "^14.0.1"
   },
@@ -75,8 +75,9 @@
   },
   "overrides": {
     "@lhci/cli": {
+      "cookie": "^0.7.0",
       "rimraf": "4",
-      "cookie": "^0.7.0"
+      "tmp": "^0.2.4"
     }
   }
 }

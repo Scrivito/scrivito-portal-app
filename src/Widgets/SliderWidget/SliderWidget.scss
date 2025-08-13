@@ -58,4 +58,14 @@
     filter: invert(70%);
     transition: all 0.2s;
   }
+
+  // Bugfix for https://github.com/react-bootstrap/react-bootstrap/issues/5811
+  &.carousel-fade {
+    @media (prefers-reduced-motion: reduce) {
+      .carousel-item-start,
+      .carousel-item-end {
+        transition: all 0.6s ease-in-out;
+      }
+    }
+  }
 }

@@ -2,8 +2,6 @@ import {
   DataConnection,
   DataConnectionResultItem,
   getInstanceId,
-  load,
-  Obj,
 } from 'scrivito'
 import { pseudoRandom32CharHex } from '../utils/pseudoRandom32CharHex'
 import { orderBy } from 'lodash-es'
@@ -14,7 +12,7 @@ interface RawDataItem {
   [key: string]: unknown
 }
 
-export async function localStorageDataConnection(
+export function localStorageDataConnection(
   className: string,
   {
     initialContent,
@@ -29,7 +27,7 @@ export async function localStorageDataConnection(
       data: DataConnectionResultItem,
     ) => Promise<DataConnectionResultItem>
   } = {},
-): Promise<Partial<DataConnection>> {
+): Partial<DataConnection> {
   if (typeof localStorage === 'undefined') {
     return {
       index: () => {
@@ -38,7 +36,7 @@ export async function localStorageDataConnection(
     }
   }
 
-  const recordKey = await recordKeyForClassName(className)
+  const recordKey = recordKeyForClassName(className)
 
   if (initialContent) initializeContent(initialContent)
 
@@ -125,7 +123,7 @@ export async function localStorageDataConnection(
     },
   }
 
-  async function initializeContent(initialContent: RawDataItem[]) {
+  function initializeContent(initialContent: RawDataItem[]) {
     if (typeof localStorage === 'undefined') return
 
     const initializedKey = `${recordKey}-initialized-with`
@@ -152,34 +150,28 @@ export async function localStorageDataConnection(
   }
 }
 
-export async function searchLocalStorageDataConnections(
+export function searchLocalStorageDataConnections(
   search: string,
   classNames: string[],
-): Promise<
-  Array<{ _id: string; className: string; rawItem: Record<string, unknown> }>
-> {
+): Array<{ _id: string; className: string; rawItem: Record<string, unknown> }> {
   const lowerCaseSearchTerm = search.toLowerCase()
   const matchesSearchTerm = (value: unknown) =>
     typeof value === 'string' &&
     value.toLowerCase().includes(lowerCaseSearchTerm)
 
-  const results = await Promise.all(
-    classNames.map(async (className) => {
-      const recordKey = await recordKeyForClassName(className)
-      return Object.entries(restoreRecord(recordKey))
-        .filter(([_id, rawItem]) =>
-          Object.values(rawItem).some(matchesSearchTerm),
-        )
-        .map(([_id, rawItem]) => ({ _id, className, rawItem }))
-    }),
-  )
+  const results = classNames.map((className) => {
+    const recordKey = recordKeyForClassName(className)
+    return Object.entries(restoreRecord(recordKey))
+      .filter(([_id, rawItem]) =>
+        Object.values(rawItem).some(matchesSearchTerm),
+      )
+      .map(([_id, rawItem]) => ({ _id, className, rawItem }))
+  })
 
   return results.flat()
 }
 
-async function recordKeyForClassName(className: string): Promise<string> {
-  await load(() => Obj.onAllSites().all().count()) // TODO: Remove workaround for issue #12033
-
+function recordKeyForClassName(className: string): string {
   return `localDataClass-${getInstanceId()}-${className}`
 }
 
