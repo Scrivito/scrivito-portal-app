@@ -705,83 +705,12 @@ a {
 }
 
 section {
-  &.bg-primary {
-    a:not(.btn),
-    p,
-    th,
-    td {
-      color: var(--text-color);
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-      color: var(--headline-text-color);
-    }
-    .btn-outline-primary {
-      color: var(--bs-primary-text-color);
-      border-color: var(--bs-primary-text-color);
-    }
-    .btn-outline-secondary {
-      color: var(--bs-secondary-text-color);
-      border-color: var(--bs-secondary-text-color);
-    }
-    .text-primary {
-      color: var(--bs-primary) !important;
-    }
-    .text-secondary {
-      color: var(--bs-secondary) !important;
-    }
-  }
-  &.bg-secondary {
-    a:not(.btn),
-    p,
-    th,
-    td {
-      color: var(--text-color);
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-      color: var(--headline-text-color);
-    }
-    .btn-outline-primary {
-      color: var(--bs-primary-text-color);
-      border-color: var(--bs-primary-text-color);
-    }
-    .btn-outline-secondary {
-      color: var(--bs-secondary-text-color);
-      border-color: var(--bs-secondary-text-color);
-    }
-    .text-primary {
-      color: var(--bs-primary) !important;
-    }
-    .text-secondary {
-      color: var(--bs-secondary) !important;
-    }
-  }
-
-  &.bg-dark-grey,
-  &.bg-success,
   &.bg-danger,
-  &.bg-info {
+  &.bg-dark-grey,
+  &.bg-info,
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-success {
     a:not(.btn),
     p,
     th,
@@ -920,7 +849,12 @@ section {
 .card .card,
 .carousel-item,
 .carousel-item .card {
-  &.bg-primary {
+  &.bg-danger,
+  &.bg-dark-grey,
+  &.bg-info,
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-success {
     a:not(.btn),
     p,
     th,
@@ -951,6 +885,9 @@ section {
     .h6 {
       color: var(--headline-text-color);
     }
+  }
+
+  &.bg-primary {
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
       border-color: var(--bs-primary-text-color);
@@ -967,36 +904,6 @@ section {
     }
   }
   &.bg-secondary {
-    a:not(.btn),
-    p,
-    th,
-    td,
-    .form-label,
-    .text-mandatory,
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      color: var(--text-color);
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .display-1,
-    .display-2,
-    .display-3,
-    .display-4,
-    .display-5,
-    .display-6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-      color: var(--headline-text-color);
-    }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
       border-color: var(--bs-primary-text-color);
@@ -1016,36 +923,6 @@ section {
   &.bg-success,
   &.bg-danger,
   &.bg-info {
-    a:not(.btn),
-    p,
-    th,
-    td,
-    .form-label,
-    .text-mandatory,
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      color: var(--text-color);
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .display-1,
-    .display-2,
-    .display-3,
-    .display-4,
-    .display-5,
-    .display-6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-      color: var(--headline-text-color);
-    }
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
       border-color: var(--bs-primary-text-color);
@@ -1174,28 +1051,15 @@ header section {
 }
 .card,
 .carousel-item {
-  &.bg-primary {
-    .bi {
-      color: var(--text-color);
-    }
-  }
-  &.bg-secondary {
-    .bi {
-      color: var(--text-color);
-    }
-  }
+  &.bg-danger,
   &.bg-dark-grey,
-  &.bg-success,
   &.bg-info,
-  &.bg-danger {
-    .bi {
-      color: var(--text-color);
-    }
-  }
-
-  &.bg-white,
+  &.bg-light-grey,
   &.bg-middle-grey,
-  &.bg-light-grey {
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-success,
+  &.bg-white {
     .bi {
       color: var(--text-color);
     }
