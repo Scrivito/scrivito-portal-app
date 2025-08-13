@@ -747,30 +747,12 @@ td,
 .card .card,
 .carousel-item,
 .carousel-item .card {
-  &.bg-primary {
-    .btn-outline-primary {
-      color: var(--bs-primary-text-color);
-      border-color: var(--bs-primary-text-color);
-    }
-    .btn-outline-secondary {
-      color: var(--bs-secondary-text-color);
-      border-color: var(--bs-secondary-text-color);
-    }
-  }
-  &.bg-secondary {
-    .btn-outline-primary {
-      color: var(--bs-primary-text-color);
-      border-color: var(--bs-primary-text-color);
-    }
-    .btn-outline-secondary {
-      color: var(--bs-secondary-text-color);
-      border-color: var(--bs-secondary-text-color);
-    }
-  }
-  &.bg-dark-grey,
-  &.bg-success,
   &.bg-danger,
-  &.bg-info {
+  &.bg-dark-grey,
+  &.bg-info,
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-success {
     .btn-outline-primary {
       color: var(--bs-primary-text-color);
       border-color: var(--bs-primary-text-color);
