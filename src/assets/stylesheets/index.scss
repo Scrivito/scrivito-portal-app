@@ -725,58 +725,41 @@ section {
 }
 // -- new override -- //
 
-section,
-.card,
-.card .card,
-.carousel-item,
-.carousel-item .card {
-  &.bg-danger,
-  &.bg-dark-grey,
-  &.bg-info,
-  &.bg-light-grey,
-  &.bg-middle-grey,
-  &.bg-primary,
-  &.bg-secondary,
-  &.bg-success,
-  &.bg-warning,
-  &.bg-white {
-    a:not(.btn),
-    p,
-    th,
-    td,
-    .form-label,
-    .text-mandatory,
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      color: var(--text-color);
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .display-1,
-    .display-2,
-    .display-3,
-    .display-4,
-    .display-5,
-    .display-6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-      color: var(--headline-text-color);
-    }
-    .text-primary {
-      color: var(--bs-primary) !important;
-    }
-    .text-secondary {
-      color: var(--bs-secondary) !important;
-    }
-  }
+a:not(.btn, .nav-link),
+p,
+th,
+td,
+.form-label,
+.text-mandatory,
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  color: var(--text-color);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: var(--headline-text-color);
+}
+.text-primary {
+  color: var(--bs-primary) !important;
+}
+.text-secondary {
+  color: var(--bs-secondary) !important;
 }
 
 .card,
