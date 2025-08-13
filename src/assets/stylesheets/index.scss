@@ -791,70 +791,15 @@ section {
 .card .card,
 .carousel-item,
 .carousel-item .card {
-  &.bg-white,
-  &.bg-light-grey,
-  &.bg-middle-grey {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    .display-1,
-    .display-2,
-    .display-3,
-    .display-4,
-    .display-5,
-    .display-6,
-    .h1,
-    .h2,
-    .h3,
-    .h4,
-    .h5,
-    .h6 {
-      color: var(--headline-text-color);
-    }
-    a:not(.btn),
-    p,
-    th,
-    td {
-      color: var(--dark-text-color);
-    }
-    .btn-outline-primary {
-      color: var(--bs-primary);
-      border-color: var(--bs-primary);
-      &:hover,
-      &:active {
-        color: var(--bs-primary-text-color);
-      }
-    }
-    .btn-outline-secondary {
-      color: var(--bs-secondary);
-      border-color: var(--bs-secondary);
-      &:hover,
-      &:active {
-        color: var(--bs-secondary-text-color);
-      }
-    }
-    .text-primary {
-      color: var(--bs-primary);
-    }
-    .text-secondary {
-      color: var(--bs-secondary);
-    }
-  }
-}
-
-.card,
-.card .card,
-.carousel-item,
-.carousel-item .card {
   &.bg-danger,
   &.bg-dark-grey,
   &.bg-info,
+  &.bg-light-grey,
+  &.bg-middle-grey,
   &.bg-primary,
   &.bg-secondary,
-  &.bg-success {
+  &.bg-success,
+  &.bg-white {
     a:not(.btn),
     p,
     th,
@@ -885,6 +830,12 @@ section {
     .h6 {
       color: var(--headline-text-color);
     }
+    .text-primary {
+      color: var(--bs-primary);
+    }
+    .text-secondary {
+      color: var(--bs-secondary);
+    }
   }
 
   &.bg-primary {
@@ -896,12 +847,6 @@ section {
       color: var(--bs-secondary-text-color);
       border-color: var(--bs-secondary-text-color);
     }
-    .text-primary {
-      color: var(--bs-primary);
-    }
-    .text-secondary {
-      color: var(--bs-secondary);
-    }
   }
   &.bg-secondary {
     .btn-outline-primary {
@@ -911,12 +856,6 @@ section {
     .btn-outline-secondary {
       color: var(--bs-secondary-text-color);
       border-color: var(--bs-secondary-text-color);
-    }
-    .text-primary {
-      color: var(--bs-primary);
-    }
-    .text-secondary {
-      color: var(--bs-secondary);
     }
   }
   &.bg-dark-grey,
@@ -931,11 +870,25 @@ section {
       color: var(--bs-secondary-text-color);
       border-color: var(--bs-secondary-text-color);
     }
-    .text-primary {
+  }
+  &.bg-white,
+  &.bg-light-grey,
+  &.bg-middle-grey {
+    .btn-outline-primary {
       color: var(--bs-primary);
+      border-color: var(--bs-primary);
+      &:hover,
+      &:active {
+        color: var(--bs-primary-text-color);
+      }
     }
-    .text-secondary {
+    .btn-outline-secondary {
       color: var(--bs-secondary);
+      border-color: var(--bs-secondary);
+      &:hover,
+      &:active {
+        color: var(--bs-secondary-text-color);
+      }
     }
   }
 }
