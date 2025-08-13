@@ -715,6 +715,7 @@ section {
   &.bg-primary,
   &.bg-secondary,
   &.bg-success,
+  &.bg-warning,
   &.bg-white {
     a:not(.btn),
     p,
@@ -780,6 +781,7 @@ section {
   &.bg-primary,
   &.bg-secondary,
   &.bg-success,
+  &.bg-warning,
   &.bg-white {
     a:not(.btn),
     p,
@@ -993,6 +995,7 @@ header section {
   &.bg-primary,
   &.bg-secondary,
   &.bg-success,
+  &.bg-warning,
   &.bg-white {
     .bi {
       color: var(--text-color);
