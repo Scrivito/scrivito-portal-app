@@ -18,45 +18,38 @@
     }
   }
 
-  /* inverting carousel controls for brighter backgrounds
+  /* carousel controls colors
   ======================================================= */
-  .carousel-inner:has(
-      .bg-transparent.active,
-      .bg-white.active,
-      .bg-light-grey.active,
-      .bg-middle-grey.active,
-      .bg-warning.active
-    )
-    + .carousel-control-prev
-    .carousel-control-prev-icon {
-    filter: invert(100%);
-    transition: all 0.2s;
+  --control-color: var(--text-color, #4d4d4d);
+
+  &:has(.active.carousel-item.bg-primary) {
+    --control-color: var(--bs-primary-text-color);
+  }
+  &:has(.active.carousel-item.bg-secondary) {
+    --control-color: var(--bs-secondary-text-color);
+  }
+  &:has(.active.carousel-item.bg-danger),
+  &:has(.active.carousel-item.bg-dark-grey),
+  &:has(.active.carousel-item.bg-info),
+  &:has(.active.carousel-item.bg-success) {
+    --control-color: var(--light-text-color);
+  }
+  &:has(.active.carousel-item.bg-light-grey),
+  &:has(.active.carousel-item.bg-middle-grey),
+  &:has(.active.carousel-item.bg-warning),
+  &:has(.active.carousel-item.bg-white) {
+    --control-color: var(--dark-text-color);
   }
 
-  .carousel-inner:has(
-      .bg-transparent.active,
-      .bg-white.active,
-      .bg-light-grey.active,
-      .bg-middle-grey.active,
-      .bg-warning.active
-    )
-    + *
-    + .carousel-control-next
-    .carousel-control-next-icon {
-    filter: invert(100%);
-    transition: all 0.2s;
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    // Hide the SVG and replace by its drop-shadow clone:
+    filter: drop-shadow(100vw 0 0 var(--control-color));
+    transform: translateX(-100vw);
   }
 
-  .carousel-indicators:has(
-      + .carousel-inner .bg-transparent.active,
-      + .carousel-inner .bg-white.active,
-      + .carousel-inner .bg-light-grey.active,
-      + .carousel-inner .bg-middle-grey.active,
-      + .carousel-inner .bg-warning.active
-    )
-    [data-bs-target] {
-    filter: invert(70%);
-    transition: all 0.2s;
+  .carousel-indicators [data-bs-target] {
+    background-color: var(--control-color);
   }
 
   // Bugfix for https://github.com/react-bootstrap/react-bootstrap/issues/5811
