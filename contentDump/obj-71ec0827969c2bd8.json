@@ -115,14 +115,14 @@
   "_first_published_at": "20250731090344",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250812073528",
+  "_last_changed": "20250814081526",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250812073541",
+  "_published_at": "20250814081602",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "2025081207354100000000000000009fbec2942eef163a",
+  "_version": "20250814081602000000000000000004dba78e96d56c28",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -624,7 +624,7 @@
       ],
       "margin": [
         "string",
-        "mb-2"
+        "mb-0"
       ]
     },
     "ced96645": {
@@ -1436,7 +1436,7 @@
       ],
       "headline": [
         "string",
-        "December 20, 6 pm"
+        "December 20, 6pm"
       ],
       "style": [
         "string",
@@ -1898,7 +1898,7 @@
       ],
       "headline": [
         "string",
-        "A Taste of agenda..."
+        "A taste of agenda..."
       ],
       "style": [
         "string",
@@ -2741,7 +2741,7 @@
       ],
       "margin": [
         "string",
-        "mb-2"
+        "mb-0"
       ],
       "headline": [
         "string",
@@ -2760,7 +2760,7 @@
       ],
       "margin": [
         "string",
-        "mb-2"
+        "mb-0"
       ],
       "headline": [
         "string",
