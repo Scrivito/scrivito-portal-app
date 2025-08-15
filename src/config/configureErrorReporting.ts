@@ -1,4 +1,10 @@
-import { currentUser, getInstanceId, isEditorLoggedIn, load } from 'scrivito'
+import {
+  currentUser,
+  currentWorkspaceId,
+  getInstanceId,
+  isEditorLoggedIn,
+  load,
+} from 'scrivito'
 import Honeybadger from '@honeybadger-io/js'
 
 export async function configureErrorReporting() {
@@ -14,6 +20,7 @@ export async function configureErrorReporting() {
   honeybadger.setContext({
     instance_id: getInstanceId(),
     is_editor: isEditorLoggedIn(),
+    workspace_id: currentWorkspaceId(),
     // ⚠️ Do not include plain text e-mail addresses in the context. ⚠️
     user_id: user?.id(),
   })
