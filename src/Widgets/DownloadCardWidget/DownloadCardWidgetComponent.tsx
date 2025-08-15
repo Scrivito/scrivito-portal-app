@@ -15,7 +15,7 @@ provideComponent(DownloadCardWidget, ({ widget }) => {
         attribute="label"
         className="text-bold text-extra-small text-uppercase"
       />
-      <div className="card mb-4 bg-white no-color-adaption">
+      <div className="card mb-4 bg-white">
         <LinkTag to={widget.get('link')} draggable={!isInPlaceEditingActive()}>
           <div className="card-body p-2">
             <div className="d-flex">

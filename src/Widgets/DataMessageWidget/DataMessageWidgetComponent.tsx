@@ -40,7 +40,7 @@ provideComponent(DataMessageWidget, ({ widget }) => {
         </span>
       </div>
       <div className="flex-grow-1">
-        <div className="card mb-4 bg-white no-color-adaption">
+        <div className="card mb-4 bg-white">
           <ContentTag
             content={widget}
             attribute="content"
