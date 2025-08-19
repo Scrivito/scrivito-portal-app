@@ -409,8 +409,12 @@
     right: -6px;
     width: 5px;
   }
-  .gle .grid-columns .grid-handle::after {
-    font-size: 9px;
+  .gle .grid-columns .grid-handle {
+    right: -6px;
+    width: 5px;
+  }
+  .gle .grid-columns .grid-handle.grid-handle-plus {
+    width: 6px;
   }
   .gle .grid-columns .grid-handle.grid-handle-plus::after {
     font-size: 12px;
@@ -420,6 +424,16 @@
   }
   .gle .grid-columns .grid-label {
     font-size: 15px;
+  }
+
+  // -- grid-handle adaptions -- //
+
+  .scrivito_dark .gle .grid-columns .grid-handle:not(.grid-handle-plus) {
+    border-left: 3px solid transparent !important;
+    border-right: 3px solid transparent !important;
+    right: -8px;
+    box-sizing: content-box;
+    background-clip: content-box !important;
   }
 }
 
@@ -530,6 +544,7 @@
     display: block;
     width: 24px;
     height: 16px;
+    min-width: auto;
   }
 
   .grid-col .grid-button {
@@ -545,6 +560,25 @@
     &:hover {
       background-color: #426698;
     }
+  }
+}
+
+// -- small screen adaptions -- //
+
+@container (max-inline-size: 400px) {
+  .gle.flex-layout .grid-columns .grid-handle.grid-handle-plus {
+    right: 0px;
+    width: 9px;
+  }
+  .gle.flex-layout .grid-col,
+  .gle.flex-layout .grid-col-grow {
+    margin: 0;
+  }
+  .gle.flex-layout .grid-columns {
+    padding: 0;
+  }
+  .gle.flex-layout .grid-columns:has(.grid-handle-plus) {
+    padding-right: 8px;
   }
 }
 
