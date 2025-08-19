@@ -113,18 +113,20 @@
   hyphens: auto;
 }
 
-a:focus-visible,
-.btn:focus-visible,
-:focus-visible {
-  outline: 3px solid var(--bs-primary-lighten) !important;
-  outline-offset: 2px !important;
-  border-radius: 5px;
-  box-shadow: none !important;
-}
-.card > a:focus-visible,
-.card-body:focus-visible,
-.nav-bordered li a:focus-visible {
-  outline-offset: -2px !important;
+#app-wrapper {
+  a:focus-visible,
+  .btn:focus-visible,
+  :focus-visible {
+    outline: 3px solid var(--bs-primary-lighten) !important;
+    outline-offset: 2px !important;
+    border-radius: 5px;
+    box-shadow: none !important;
+  }
+  .card > a:focus-visible,
+  .card-body:focus-visible,
+  .nav-bordered li a:focus-visible {
+    outline-offset: -2px !important;
+  }
 }
 
 .skippy.visually-hidden-focusable:not(:focus):not(:focus-within) {
