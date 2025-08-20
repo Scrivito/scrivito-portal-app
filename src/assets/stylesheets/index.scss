@@ -1302,6 +1302,10 @@ section.bg-primary {
   box-shadow: var(--jr-box-shadow);
   align-self: stretch;
   display: flex;
+
+  &:empty {
+    min-width: 100px;
+  }
 }
 
 .navbar-brand-logo {
