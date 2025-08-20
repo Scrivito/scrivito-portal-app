@@ -284,6 +284,10 @@
   display: block !important;
   border: none;
 }
+.gle .grid-columns .grid-handle.grid-handle-plus:hover {
+  background: #658b51;
+}
+
 .gle .grid-columns .grid-handle.grid-handle-plus:after {
   content: '+';
   color: #fff;
@@ -526,7 +530,7 @@
   .grid-col,
   .grid-col-grow {
     display: flex;
-    border: 2px solid rgba(222, 222, 222, 0.2);
+    border: 2px solid rgba(0, 0, 0, 0.2);
     margin: 0 1px;
     min-width: 33px;
   }
@@ -560,6 +564,15 @@
     &:hover {
       background-color: #426698;
     }
+  }
+}
+
+// -- dark mode -- //
+
+.scrivito_dark {
+  .gle.flex-layout .grid-col,
+  .gle.flex-layout .grid-col-grow {
+    border: 2px solid rgba(222, 222, 222, 0.2);
   }
 }
 
