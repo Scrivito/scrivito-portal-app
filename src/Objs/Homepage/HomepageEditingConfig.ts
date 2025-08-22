@@ -9,6 +9,10 @@ import {
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
 import { SiteBorderRadiusEditor } from '../../Components/ScrivitoExtensions/SiteBorderRadiusEditor'
+import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNavigationWidgetClass'
+import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
+import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
+import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -137,7 +141,15 @@ provideEditingConfig(Homepage, {
   properties: [...defaultPageProperties],
   initialContent: {
     ...defaultPageInitialContent,
+    body: [
+      new SectionWidget({
+        backgroundColor: 'primary',
+        content: [new HeadlineWidget(), new TextWidget()],
+      }),
+    ],
     contentFormat: 'portal-app:6',
+    layoutHeader: [new TopNavigationWidget()],
+    layoutShowHeader: true,
     siteBorderRadius: '8.5px',
     siteDropShadow: true,
     siteFontBodyWeight: '500',
