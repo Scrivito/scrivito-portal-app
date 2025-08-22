@@ -1,4 +1,5 @@
 import {
+  ClientError,
   currentLanguage,
   currentUser,
   DataAttributeDefinitions,
@@ -71,15 +72,21 @@ export const CurrentUser = provideDataItem('CurrentUser', {
       const user = await load(() => currentUser())
       if (!user) return getTokenBasedCurrentUser()
 
-      let neoletterProfile
+      let neoletterProfile: NeoletterData = {}
       try {
-        neoletterProfile = await neoletterClient().get('my/profile')
-        if (!isNeoletterData(neoletterProfile)) {
+        const myProfile = await neoletterClient().get('my/profile')
+        if (!isNeoletterData(myProfile)) {
           throw new DataConnectionError('Invalid user profile')
         }
+        neoletterProfile = myProfile
       } catch (error) {
-        errorToast('Failed to fetch user profile', error)
-        throw error
+        if (
+          !(error instanceof ClientError) ||
+          error.code !== 'precondition_not_met.neoletter_feature_not_activated'
+        ) {
+          errorToast('Failed to fetch user profile', error)
+          throw error
+        }
       }
 
       const { pisaUserId, salesUserId, serviceUserId } = await pisaIds()
@@ -93,7 +100,7 @@ export const CurrentUser = provideDataItem('CurrentUser', {
         salesUserId,
         serviceUserId,
 
-        name: ensureString(neoletterProfile.name),
+        name: ensureString(neoletterProfile.name) || user.name(),
         company: ensureString(neoletterProfile.company),
         familyName: ensureString(neoletterProfile.family_name),
         givenName: ensureString(neoletterProfile.given_name),

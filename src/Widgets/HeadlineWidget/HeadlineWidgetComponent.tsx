@@ -1,7 +1,7 @@
 import { provideComponent, ContentTag } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
-import speakingUrl from 'speakingurl'
 import { alignmentClassName } from '../../utils/alignmentClassName'
+import { slugify } from '@justrelate/slugify'
 
 provideComponent(HeadlineWidget, ({ widget }) => {
   const classNames: string[] = []
@@ -28,8 +28,7 @@ provideComponent(HeadlineWidget, ({ widget }) => {
       attribute="headline"
       className={classNames.join(' ')}
       tag={tag(widget.get('level'), style)}
-      // TODO: replace `speakingUrl` with our slugify package once available
-      id={speakingUrl(widget.get('headline'))}
+      id={slugify(widget.get('headline'))}
     />
   )
 })
