@@ -1,4 +1,6 @@
 .slider-widget {
+  --control-color: var(--text-color);
+
   .carousel-inner {
     display: flex;
   }
@@ -20,8 +22,6 @@
 
   /* carousel controls colors
   ======================================================= */
-  --control-color: var(--text-color);
-
   &:has(.active.carousel-item.bg-primary) {
     --control-color: var(--bs-primary-text-color);
   }
