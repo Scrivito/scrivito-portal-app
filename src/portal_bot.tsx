@@ -48,5 +48,11 @@ const systemPrompt =
 export function PortalBot() {
   if (!isUserLoggedIn()) return null
 
-  return <Chatbot config={{ name: 'PortalBot', systemPrompt, dataTypes }} />
+  return (
+    <Chatbot
+      config={{ name: 'PortalBot', systemPrompt, dataTypes }}
+      showHistory
+      conversationSharing
+    />
+  )
 }
