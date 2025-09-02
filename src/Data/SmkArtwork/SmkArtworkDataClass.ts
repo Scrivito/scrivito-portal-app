@@ -3,7 +3,7 @@ import {
   DataConnectionFilters,
   provideDataClass,
 } from 'scrivito'
-import { z } from 'zod'
+import * as v from 'valibot'
 
 export const SmkArtwork = provideDataClass('SmkArtwork', {
   title: 'Statens Museum for Kunst - Artwork',
@@ -59,19 +59,19 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
         throw new DataConnectionError(errorText)
       }
 
-      const responseSchema = z.object({
-        items: z.array(RawArtworkSchema),
-        found: z.number(),
+      const responseSchema = v.object({
+        items: v.array(RawArtworkSchema),
+        found: v.number(),
       })
 
       const jsonResponse = await request.json()
-      const parseResult = responseSchema.safeParse(jsonResponse)
+      const parseResult = v.safeParse(responseSchema, jsonResponse)
       if (!parseResult.success) {
         throw new DataConnectionError(
-          `Invalid API response: ${parseResult.error.message}`,
+          `Invalid API response: ${parseResult.issues.map((i) => i.message).join(', ')}`,
         )
       }
-      const response = parseResult.data
+      const response = parseResult.output
 
       const seen = offset + rows
       const continuation = response.found >= seen ? seen.toString() : null
@@ -182,85 +182,85 @@ function calculateFiltersAndRangeParams(filtersObj: DataConnectionFilters): {
   return { filters: filters.join(','), range: ranges.join(',') }
 }
 
-const LabelSchema = z.object({
-  date: z.string().optional(),
-  source: z.string().optional(),
-  text: z.string().optional(),
-  type: z.string().optional(),
+const LabelSchema = v.object({
+  date: v.optional(v.string()),
+  source: v.optional(v.string()),
+  text: v.optional(v.string()),
+  type: v.optional(v.string()),
 })
 
-const ProductionSchema = z.object({
-  creator_date_of_birth: z.string().optional(),
-  creator_date_of_death: z.string().optional(),
-  creator_forename: z.string().optional(),
-  creator_gender: z.string().optional(),
-  creator_lref: z.string().optional(),
-  creator_nationality: z.string().optional(),
-  creator_surname: z.string().optional(),
-  creator: z.string().optional(),
+const ProductionSchema = v.object({
+  creator_date_of_birth: v.optional(v.string()),
+  creator_date_of_death: v.optional(v.string()),
+  creator_forename: v.optional(v.string()),
+  creator_gender: v.optional(v.string()),
+  creator_lref: v.optional(v.string()),
+  creator_nationality: v.optional(v.string()),
+  creator_surname: v.optional(v.string()),
+  creator: v.optional(v.string()),
 })
 
-const RawArtworkSchema = z.object({
-  acquisition_date_precision: z.string().optional(),
-  acquisition_date: z.string().optional(),
-  artist: z.array(z.string()).optional(),
-  brightness: z.number().optional(),
-  colors: z.array(z.string()).optional(),
-  colortemp: z.number().optional(),
-  contrast: z.number().optional(),
-  created: z.string().optional(),
-  current_location_name: z.string().optional(),
-  enrichment_url: z.string().optional(),
-  entropy: z.number().optional(),
-  frontend_url: z.string().optional(),
-  has_3d_file: z.boolean().optional(),
-  has_image: z.boolean().optional(),
-  id: z.string().optional(),
-  iiif_manifest: z.string().optional(),
-  image_height: z.number().optional(),
-  image_hq: z.boolean().optional(),
-  image_iiif_id: z.string().optional(),
-  image_iiif_info: z.string().optional(),
-  image_mime_type: z.string().optional(),
-  image_native: z.string().optional(),
-  image_orientation: z.string().optional(),
-  image_size: z.number().optional(),
-  image_thumbnail: z.string().optional(),
-  image_width: z.number().optional(),
-  labels: z.array(LabelSchema).optional(),
-  materials: z.array(z.string()).optional(),
-  media_video: z.array(z.string()).optional(),
-  modified: z.string().optional(),
-  number_of_parts: z.number().optional(),
-  object_names: z.array(z.object({ name: z.string() })).optional(),
-  object_number: z.string(),
-  object_url: z.string().optional(),
-  on_display: z.boolean().optional(),
-  production_date: z
-    .array(
-      z.object({
-        end: z.string(),
-        period: z.string(),
-        start: z.string(),
+const RawArtworkSchema = v.object({
+  acquisition_date_precision: v.optional(v.string()),
+  acquisition_date: v.optional(v.string()),
+  artist: v.optional(v.array(v.string())),
+  brightness: v.optional(v.number()),
+  colors: v.optional(v.array(v.string())),
+  colortemp: v.optional(v.number()),
+  contrast: v.optional(v.number()),
+  created: v.optional(v.string()),
+  current_location_name: v.optional(v.string()),
+  enrichment_url: v.optional(v.string()),
+  entropy: v.optional(v.number()),
+  frontend_url: v.optional(v.string()),
+  has_3d_file: v.optional(v.boolean()),
+  has_image: v.optional(v.boolean()),
+  id: v.optional(v.string()),
+  iiif_manifest: v.optional(v.string()),
+  image_height: v.optional(v.number()),
+  image_hq: v.optional(v.boolean()),
+  image_iiif_id: v.optional(v.string()),
+  image_iiif_info: v.optional(v.string()),
+  image_mime_type: v.optional(v.string()),
+  image_native: v.optional(v.string()),
+  image_orientation: v.optional(v.string()),
+  image_size: v.optional(v.number()),
+  image_thumbnail: v.optional(v.string()),
+  image_width: v.optional(v.number()),
+  labels: v.optional(v.array(LabelSchema)),
+  materials: v.optional(v.array(v.string())),
+  media_video: v.optional(v.array(v.string())),
+  modified: v.optional(v.string()),
+  number_of_parts: v.optional(v.number()),
+  object_names: v.optional(v.array(v.object({ name: v.string() }))),
+  object_number: v.string(),
+  object_url: v.optional(v.string()),
+  on_display: v.optional(v.boolean()),
+  production_date: v.optional(
+    v.array(
+      v.object({
+        end: v.string(),
+        period: v.string(),
+        start: v.string(),
       }),
-    )
-    .optional(),
-  production_dates_notes: z.array(z.string()).optional(),
-  production: z.array(ProductionSchema).optional(),
-  public_domain: z.boolean().optional(),
-  rights: z.string().optional(),
-  saturation: z.number().optional(),
-  similar_images_url: z.string().optional(),
-  suggested_bg_color: z.array(z.string()).optional(),
-  techniques: z.array(z.string()).optional(),
-  titles: z
-    .array(
-      z.object({
-        language: z.string(),
-        title: z.string(),
+    ),
+  ),
+  production_dates_notes: v.optional(v.array(v.string())),
+  production: v.optional(v.array(ProductionSchema)),
+  public_domain: v.optional(v.boolean()),
+  rights: v.optional(v.string()),
+  saturation: v.optional(v.number()),
+  similar_images_url: v.optional(v.string()),
+  suggested_bg_color: v.optional(v.array(v.string())),
+  techniques: v.optional(v.array(v.string())),
+  titles: v.optional(
+    v.array(
+      v.object({
+        language: v.string(),
+        title: v.string(),
       }),
-    )
-    .optional(),
+    ),
+  ),
 })
 
-type RawArtwork = z.infer<typeof RawArtworkSchema>
+type RawArtwork = v.InferInput<typeof RawArtworkSchema>
