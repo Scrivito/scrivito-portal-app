@@ -14,10 +14,9 @@ export interface DataBinaryUpload {
 export async function blobToBinary(
   blob: Blob | File,
 ): Promise<DataBinaryUpload> {
-  const binary = {
-    dataBase64: await blobToBase64(blob),
-    filename: blob instanceof File ? blob.name : 'unknown-name',
-  }
+  const { dataBase64, contentType } = await blobToBase64(blob)
+  const filename = blob instanceof File ? blob.name : 'unknown-name'
+  const binary = { dataBase64, filename }
 
   const connectedToPisa = (await pisaSalesApiUrl()) !== null
 
@@ -26,12 +25,14 @@ export async function blobToBinary(
     : {
         ...binary,
         contentLength: blob.size,
-        contentType: blob.type,
+        contentType,
         _id: pseudoRandom32CharHex(),
       }
 }
 
-async function blobToBase64(blob: Blob): Promise<string> {
+async function blobToBase64(
+  blob: Blob,
+): Promise<{ dataBase64: string; contentType: string }> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
 
@@ -48,17 +49,38 @@ async function blobToBase64(blob: Blob): Promise<string> {
         return
       }
 
-      const dataPrefix = `data:${blob.type || 'application/octet-stream'};base64,`
-      if (!dataUrl.startsWith(dataPrefix)) {
+      const genericPrefix = 'data:application/octet-stream;base64,'
+      if (dataUrl.startsWith(genericPrefix)) {
+        resolve({
+          dataBase64: dataUrl.substring(genericPrefix.length),
+          contentType: 'application/octet-stream',
+        })
+        return
+      }
+
+      if (!blob.type) {
         reject(
           new Error(
-            `FileReader result does not start with expected prefix '${dataPrefix}': ${dataUrl}`,
+            `FileReader result does not start with expected prefix 'data:application/octet-stream;base64,' and blob.type is empty: ${dataUrl}`,
           ),
         )
         return
       }
 
-      resolve(dataUrl.substring(dataPrefix.length))
+      const dataPrefix = `data:${blob.type};base64,`
+      if (!dataUrl.startsWith(dataPrefix)) {
+        reject(
+          new Error(
+            `FileReader result does not start with expected prefix 'data:application/octet-stream;base64,' or '${dataPrefix}': ${dataUrl}`,
+          ),
+        )
+        return
+      }
+
+      resolve({
+        dataBase64: dataUrl.substring(dataPrefix.length),
+        contentType: blob.type,
+      })
     }
 
     reader.readAsDataURL(blob)
