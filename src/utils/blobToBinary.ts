@@ -61,7 +61,7 @@ async function blobToBase64(
       if (!blob.type) {
         reject(
           new Error(
-            `FileReader result does not start with expected prefix 'data:application/octet-stream;base64,' and blob.type is empty: ${dataUrl}`,
+            `FileReader result does not start with expected prefix 'data:application/octet-stream;base64,' and blob.type is empty: ${dataUrl.substring(0, 100)}${dataUrl.length > 100 ? '...' : ''}`,
           ),
         )
         return
@@ -71,7 +71,7 @@ async function blobToBase64(
       if (!dataUrl.startsWith(dataPrefix)) {
         reject(
           new Error(
-            `FileReader result does not start with expected prefix 'data:application/octet-stream;base64,' or '${dataPrefix}': ${dataUrl}`,
+            `FileReader result does not start with expected prefix 'data:application/octet-stream;base64,' or '${dataPrefix}': ${dataUrl.substring(0, 100)}${dataUrl.length > 100 ? '...' : ''}`,
           ),
         )
         return
