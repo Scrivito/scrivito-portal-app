@@ -36,8 +36,7 @@
     "scrivito": "^1.53.0",
     "scrivito-icon-editor": "^0.0.2",
     "scrivito-neoletter-form-widgets": "^0.0.39",
-    "scroll-to-fragment": "^1.1.0",
-    "valibot": "^1.1.0"
+    "scroll-to-fragment": "^1.1.0"
   },
   "devDependencies": {
     "@arabasta/eslint-plugin-react": "^1.0.0",
