@@ -1,4 +1,4 @@
-import { connect, Obj, isOnCurrentPath, LinkTag } from 'scrivito'
+import { connect, currentPage, isOnCurrentPath, LinkTag, Obj } from 'scrivito'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
@@ -48,8 +48,13 @@ export const NavItem = connect(function ScrivitoNavItem({
 function itemProps(obj: Obj) {
   const target = (isRedirect(obj) && obj.get('link')?.obj()) || obj
 
+  const isRoot = target.path() === '/'
+  const active = isRoot
+    ? currentPage()?.id() === target.id()
+    : isOnCurrentPath(target)
+
   return {
-    active: isOnCurrentPath(target),
+    active,
     as: LinkTag,
     to: target,
   }
