@@ -5,7 +5,6 @@ import { Redirect } from './RedirectObjClass'
 provideEditingConfig(Redirect, {
   title: 'Redirect',
   thumbnail: redirectObjIcon,
-  hideInSelectionDialogs: true,
   attributes: {
     title: {
       title: 'Title',
