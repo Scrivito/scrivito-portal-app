@@ -3,7 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "composite": true,
     "module": "ESNext",
-    "moduleResolution": "node16"
+    "moduleResolution": "bundler"
   },
   "include": ["vite.config.ts", "headers.config.ts"]
 }
