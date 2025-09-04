@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { Link, provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 import { SiteColorsPicker } from './SiteColorsPicker'
 import {
@@ -13,6 +13,8 @@ import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNaviga
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
+import { Redirect } from '../Redirect/RedirectObjClass'
+import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -180,4 +182,13 @@ provideEditingConfig(Homepage, {
       },
     ],
   ],
+  initialize: (homepage) => {
+    const redirect = Redirect.create({
+      _path: `/${pseudoRandom32CharHex()}`,
+      _siteId: homepage.siteId(),
+      link: new Link({ obj: homepage }),
+      title: 'Home',
+    })
+    homepage.update({ childOrder: [redirect, ...homepage.get('childOrder')] })
+  },
 })
