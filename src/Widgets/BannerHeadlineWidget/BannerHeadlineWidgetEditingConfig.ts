@@ -58,6 +58,7 @@ provideEditingConfig(BannerHeadlineWidget, {
   properties: ['style', 'level', 'backgroundColor'],
   initialContent: {
     backgroundColor: 'white',
+    headline: 'Headline',
     style: 'h2',
   },
 })
