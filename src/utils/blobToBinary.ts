@@ -50,7 +50,7 @@ async function blobToBase64(blob: Blob): Promise<string> {
       }
 
       const parts = dataUrl.split(';base64,')
-      const [_firstPart, secondPart, ...rest] = parts
+      const [, secondPart, ...rest] = parts
       if (!secondPart || rest.length > 0) {
         reject(
           new Error(
