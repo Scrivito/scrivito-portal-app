@@ -83,6 +83,36 @@ provideEditingConfig(Homepage, {
       description:
         'If activated, only the selected page will be accessible, even for logged-in users. All other pages will display a 404 not found page.',
     },
+    siteColorPrimary: {
+      title: 'Primary color',
+      description: 'Default: #274486',
+      editor: 'colorPicker',
+    },
+    siteColorSecondary: {
+      title: 'Secondary color',
+      description: 'Default: #39a9eb',
+      editor: 'colorPicker',
+    },
+    siteColorTextDark: {
+      title: 'Dark text',
+      description: 'Default: #454545',
+      editor: 'colorPicker',
+    },
+    siteColorTextDarkHeadline: {
+      title: 'Dark headline text',
+      description: 'Default: #3b3b3b',
+      editor: 'colorPicker',
+    },
+    siteColorTextLight: {
+      title: 'Light text',
+      description: 'Default: #ffffff',
+      editor: 'colorPicker',
+    },
+    siteColorTextLightHeadline: {
+      title: 'Light headline text',
+      description: 'Default: #ffffff',
+      editor: 'colorPicker',
+    },
   },
   propertiesGroups: (site) => [
     ...defaultPagePropertiesGroups,
@@ -120,6 +150,18 @@ provideEditingConfig(Homepage, {
         'siteColorTextLightHeadline',
       ],
       key: 'site-colors-group',
+    },
+    {
+      title: 'Colors - build in',
+      properties: [
+        'siteColorPrimary',
+        'siteColorSecondary',
+        'siteColorTextDark',
+        'siteColorTextDarkHeadline',
+        'siteColorTextLight',
+        'siteColorTextLightHeadline',
+      ],
+      key: 'site-colors-build-in-group',
     },
     {
       title: 'Fonts',
