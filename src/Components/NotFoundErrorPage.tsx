@@ -10,17 +10,14 @@ import {
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
 import { Loading } from './Loading'
+import { defaultSites } from '../multiSite/defaultSites'
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (
-      isUserLoggedIn() &&
-      !currentSiteId() &&
-      !Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
-    ) {
+    if (isUserLoggedIn() && !currentSiteId() && !defaultSites().take(1)) {
       return <NotFound />
     }
 
