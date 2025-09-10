@@ -10,9 +10,7 @@ import {
   urlFor,
 } from 'scrivito'
 import { TopNavigationWidgetInstance } from '../TopNavigationWidgetClass'
-import NavDropdown from 'react-bootstrap/NavDropdown'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
-import Tooltip from 'react-bootstrap/Tooltip'
+import { NavDropdown, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { CurrentUser } from '../../../Data/CurrentUser/CurrentUserDataItem'
 import { ensureString } from '../../../utils/ensureString'

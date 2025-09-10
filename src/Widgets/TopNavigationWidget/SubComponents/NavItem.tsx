@@ -1,6 +1,5 @@
 import { connect, Obj, isOnCurrentPath, LinkTag } from 'scrivito'
-import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
+import { Nav, NavDropdown } from 'react-bootstrap'
 import { ObjIconAndTitle } from '../../../Components/ObjIconAndTitle'
 import { objTitle } from '../../../utils/title'
 import { isRedirect } from '../../../Objs/Redirect/RedirectObjClass'
