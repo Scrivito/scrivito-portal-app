@@ -12,10 +12,6 @@
     "string",
     "transparent"
   ],
-  "robots_index": [
-    "boolean",
-    true
-  ],
   "site_border_radius": [
     "string",
     "50px"
@@ -119,14 +115,14 @@
   "_first_published_at": "20250911091033",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250911085844",
+  "_last_changed": "20250911113632",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250911091033",
+  "_published_at": "20250911113640",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "2025091109103300000000000000004ecd54df1a357ff9",
+  "_version": "202509111136400000000000000000b96fdb9730d2576b",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
