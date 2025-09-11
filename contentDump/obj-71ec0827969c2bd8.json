@@ -1,0 +1,2779 @@
+{
+  "_obj_class": "Homepage",
+  "content_format": [
+    "string",
+    "portal-app:6"
+  ],
+  "layout_show_header": [
+    "boolean",
+    true
+  ],
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "site_border_radius": [
+    "string",
+    "50px"
+  ],
+  "site_font_body_weight": [
+    "string",
+    "700"
+  ],
+  "site_font_headline_weight": [
+    "string",
+    "500"
+  ],
+  "layout_header": [
+    "widgetlist",
+    [
+      "e602911f"
+    ]
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "7e397a62",
+      "03dd714d",
+      "7e6769e2",
+      "661fe349",
+      "0ae872ae"
+    ]
+  ],
+  "content_title": [
+    "string",
+    "Mixx - EN"
+  ],
+  "site_rounded_corners": [
+    "boolean",
+    true
+  ],
+  "child_order": [
+    "referencelist",
+    [
+      "749ee4e15707e4ff",
+      "f5993d6de3609ac0",
+      "9db36de70dd4d157",
+      "f0724ea2d31beeee"
+    ]
+  ],
+  "site_logo_dark": [
+    "reference",
+    "bab4bd992217c614"
+  ],
+  "site_language_icon": [
+    "reference",
+    "2de7f41f5b80e6ab"
+  ],
+  "layout_show_footer": [
+    "boolean",
+    true
+  ],
+  "title": [
+    "string",
+    "Mixx Launch Party"
+  ],
+  "site_color_primary": [
+    "string",
+    "#E21876"
+  ],
+  "site_color_secondary": [
+    "string",
+    "#fff7eb"
+  ],
+  "site_color_text_dark": [
+    "string",
+    "#000000"
+  ],
+  "site_color_text_dark_headline": [
+    "string",
+    "#000000"
+  ],
+  "site_not_found": [
+    "widgetlist",
+    [
+      "49323687"
+    ]
+  ],
+  "layout_footer": [
+    "widgetlist",
+    [
+      "a4b0baf5"
+    ]
+  ],
+  "site_font_headline": [
+    "referencelist",
+    [
+      "bd1c548323f560b7"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "71ec0827969c2bd8",
+  "_created_at": "20250911084327",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20250911091033",
+  "_id": "71ec0827969c2bd8",
+  "_language": "en",
+  "_last_changed": "20250911085844",
+  "_modification": null,
+  "_path": "/",
+  "_permalink": null,
+  "_published_at": "20250911091033",
+  "_restriction": null,
+  "_site_id": "696dde5f0b15a227",
+  "_version": "2025091109103300000000000000004ecd54df1a357ff9",
+  "_widget_pool": {
+    "47981733": {
+      "_obj_class": "FormStepContainerWidget",
+      "steps": [
+        "widgetlist",
+        [
+          "c6248256"
+        ]
+      ],
+      "captcha_alignment": [
+        "string",
+        "center"
+      ],
+      "friendly_captcha_theme": [
+        "string",
+        "light"
+      ],
+      "google_recaptcha_theme": [
+        "string",
+        "light"
+      ],
+      "friendly_captcha_start_mode": [
+        "string",
+        "none"
+      ],
+      "form_id": [
+        "string",
+        "9ae1401582cdf6a83188ed778388039c"
+      ],
+      "failed_message": [
+        "string",
+        "We are sorry, your request could not be completed. Please try again later."
+      ],
+      "submitted_message": [
+        "string",
+        "Thank you. We have taken note of your registration. See you soon!"
+      ],
+      "submitting_message": [
+        "string",
+        "Submitting..."
+      ],
+      "form_type": [
+        "string",
+        "single-step"
+      ],
+      "forward_button_text": [
+        "string",
+        "Forward"
+      ],
+      "backward_button_text": [
+        "string",
+        "Backward"
+      ],
+      "submit_button_text": [
+        "string",
+        "Save my spot"
+      ],
+      "review_button_text": [
+        "string",
+        "Review"
+      ],
+      "review_header_title": [
+        "string",
+        "Review"
+      ],
+      "review_close_button_text": [
+        "string",
+        "Close"
+      ],
+      "single_submit_button_alignment": [
+        "string",
+        "text-center"
+      ],
+      "footer_buttons_size": [
+        "string",
+        "btn-lg"
+      ]
+    },
+    "49323687": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "dark-grey"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "background_image": [
+        "reference",
+        "b6307ad8551faa98"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "31e55706"
+        ]
+      ]
+    },
+    "82113299": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "a4b0baf5": {
+      "_obj_class": "SectionWidget",
+      "content": [
+        "widgetlist",
+        [
+          "46c6fb17",
+          "72f81a5b",
+          "1cc1ec34",
+          "2695ce07",
+          "5794f4ef",
+          "2a2a5d8a",
+          "6ea91876",
+          "2da893dd"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ]
+    },
+    "661fe349": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "7590d8f2"
+        ]
+      ]
+    },
+    "0ae872ae": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "99e221d4",
+          "5ac922ec"
+        ]
+      ]
+    },
+    "186776c9": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Legal"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ],
+      "level": [
+        "string",
+        "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "7346870a": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Privacy Policy<br>Terms of Service</p>"
+      ]
+    },
+    "31e55706": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "c33db625",
+          "b8920865"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "c33db625": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "6a4b2425"
+        ]
+      ]
+    },
+    "b8920865": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "10b64d96",
+          "d8bbc171",
+          "473ae35b"
+        ]
+      ]
+    },
+    "6a4b2425": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "image": [
+        "reference",
+        "2f5fe2e900e4ce8b"
+      ]
+    },
+    "10b64d96": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        "Page ​not found"
+      ],
+      "style": [
+        "string",
+        "h1"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "d8bbc171": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>The page you are looking for does not exist.</p>"
+      ]
+    },
+    "97df70bf": {
+      "_obj_class": "ButtonWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "button_size": [
+        "string",
+        "large"
+      ],
+      "target": [
+        "link",
+        {
+          "fragment": null,
+          "obj_id": "71ec0827969c2bd8",
+          "query": null,
+          "target": null,
+          "title": "Go to Homepage",
+          "url": null
+        }
+      ]
+    },
+    "5794f4ef": {
+      "_obj_class": "DividerWidget"
+    },
+    "473ae35b": {
+      "_obj_class": "DataGroupWidget",
+      "data": [
+        "datalocator",
+        {
+          "class": "CurrentUser"
+        }
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "ff9ecd02",
+          "d0bea222"
+        ]
+      ]
+    },
+    "d0bea222": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "87a5e2b6",
+          "cce316fa"
+        ]
+      ]
+    },
+    "87a5e2b6": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Log in to see if there's more available.</p>"
+      ]
+    },
+    "ff9ecd02": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "97df70bf"
+        ]
+      ]
+    },
+    "cce316fa": {
+      "_obj_class": "LogInButtonWidget",
+      "title": [
+        "string",
+        "Log in"
+      ],
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ]
+    },
+    "e602911f": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e242a6cd"
+        ]
+      ]
+    },
+    "395bf639": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "image": [
+        "reference",
+        "e4f2e3f292fc4e31"
+      ]
+    },
+    "e242a6cd": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "2aea5688",
+          "66846e66",
+          "82113299"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ],
+      "disable_responsive_adaption": [
+        "boolean",
+        true
+      ]
+    },
+    "2aea5688": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "66846e66": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "395bf639"
+        ]
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "7e397a62": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "3a023e78",
+          "0bcf18ed",
+          "504d2f32"
+        ]
+      ]
+    },
+    "6f5fc73e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "9d5de427": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "display-1"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "One launch"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "ced96645": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "text": [
+        "html",
+        "<p>We are pleased to invite you to an exclusive event unveiling Mixx — our latest innovation, a revitalizing beverage crafted to enhance performance and foster professional connections.</p><p>This unique evening will gather key partners, industry leaders, and collaborators for an exclusive first look at the Mixx experience.</p><p>Join a select group of professionals to discover the future of energy and innovation.</p>"
+      ]
+    },
+    "d2e2e2a0": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "9d5de427",
+          "99b865bc",
+          "0beea7e0",
+          "ced96645"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "7b4bdf9c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "fbf7a56c": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "6f5fc73e",
+          "d2e2e2a0",
+          "7b4bdf9c"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "7590d8f2": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "eb1416e8",
+          "69d84108",
+          "e112bea1"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "eb1416e8": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ]
+    },
+    "69d84108": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c7c017bd",
+          "a0e855ae"
+        ]
+      ]
+    },
+    "e112bea1": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        1
+      ]
+    },
+    "77eebacb": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "Spots are limited,"
+      ],
+      "style": [
+        "string",
+        "display-5"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "level": [
+        "string",
+        "h3"
+      ]
+    },
+    "9a58ebf3": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "given_name"
+      ],
+      "label": [
+        "html",
+        "<p>Name</p>"
+      ],
+      "placeholder": [
+        "string",
+        "Your first name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "86bee553": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "9a58ebf3"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "e2637b62": {
+      "_obj_class": "FormInputFieldWidget",
+      "type": [
+        "string",
+        "family_name"
+      ],
+      "label": [
+        "html",
+        "<p>Last name</p>"
+      ],
+      "placeholder": [
+        "string",
+        "Your last name"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "e72fd9c2": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "e2637b62"
+        ]
+      ],
+      "col_size": [
+        "number",
+        6
+      ]
+    },
+    "7ea348f0": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "86bee553",
+          "e72fd9c2"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ]
+    },
+    "b4a251c6": {
+      "_obj_class": "FormInputFieldWidget",
+      "label": [
+        "html",
+        "<p>Email address</p>"
+      ],
+      "placeholder": [
+        "string",
+        "Your email address"
+      ],
+      "type": [
+        "string",
+        "email"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "custom_type": [
+        "string",
+        "single_line"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_field_name"
+      ]
+    },
+    "c6248256": {
+      "_obj_class": "FormStepWidget",
+      "items": [
+        "widgetlist",
+        [
+          "7ea348f0",
+          "2955586c",
+          "e6633047"
+        ]
+      ],
+      "step_number": [
+        "number",
+        1
+      ],
+      "is_single_step": [
+        "boolean",
+        true
+      ]
+    },
+    "a0e855ae": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "77eebacb",
+          "6d5deeab",
+          "47981733"
+        ]
+      ],
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-5"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ]
+    },
+    "a5cf4e63": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "d4f8f8ee",
+          "6208fd3e",
+          "0294a8aa"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "d4f8f8ee": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "57875c78",
+          "ef19df9b"
+        ]
+      ]
+    },
+    "6208fd3e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4b4dac56",
+          "de439aee"
+        ]
+      ]
+    },
+    "0294a8aa": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "186776c9",
+          "7346870a"
+        ]
+      ]
+    },
+    "4b4dac56": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ],
+      "level": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "Our Address"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "de439aee": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>Mixx Beverage Co. 123 <br>Refreshment Lane <br>Summer City, SC 1234</p>"
+      ]
+    },
+    "57875c78": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h5"
+      ],
+      "level": [
+        "string",
+        "h3"
+      ],
+      "headline": [
+        "string",
+        "Contact us"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "ef19df9b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>support@trymixx.com<br>1-800-MIXXX-SODA</p>"
+      ]
+    },
+    "5ac922ec": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "e639f481",
+          "b08f55c0",
+          "0a8e1c3b"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ]
+    },
+    "e639f481": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "b08f55c0": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c41e511b"
+        ]
+      ]
+    },
+    "0a8e1c3b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "99e221d4": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "h1"
+      ],
+      "headline": [
+        "string",
+        "Follow us & stay refreshed with Mixx!"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "level": [
+        "string",
+        "h4"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "2a2a5d8a": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "2695ce07": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "46c6fb17": {
+      "_obj_class": "DividerWidget"
+    },
+    "2da893dd": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "72f81a5b": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "b0a240d5": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "74b43f7e": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "a5cf4e63"
+        ]
+      ],
+      "col_size": [
+        "number",
+        8
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "c5b2b19c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "1cc1ec34": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "b0a240d5",
+          "74b43f7e",
+          "c5b2b19c"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "6ea91876": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "© MIXX 2025 All rights reserved."
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "label-subtitle"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "c7c017bd": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "03dd714d": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "347ae6fe"
+        ]
+      ]
+    },
+    "347ae6fe": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "primary"
+      ],
+      "padding": [
+        "string",
+        "p-5"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "dabc7f78"
+        ]
+      ]
+    },
+    "dabc7f78": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "755f965e",
+          "c065382b",
+          "99adf410"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ]
+    },
+    "755f965e": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "61f8610e"
+        ]
+      ]
+    },
+    "c065382b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b48317a8"
+        ]
+      ]
+    },
+    "99adf410": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "d9135430"
+        ]
+      ]
+    },
+    "26010eb3": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "image": [
+        "reference",
+        "f728f4f3b5845144"
+      ]
+    },
+    "94ab6c2b": {
+      "_obj_class": "ImageWidget",
+      "image": [
+        "reference",
+        "50324a25509c6b6a"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "574e73f2": {
+      "_obj_class": "ImageWidget",
+      "image": [
+        "reference",
+        "ad27235b10dea3da"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "e05b684e": {
+      "_obj_class": "ImageWidget",
+      "image": [
+        "reference",
+        "39eb0308c5634dd8"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "504d2f32": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "cae31ee3": {
+      "_obj_class": "ImageWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "image": [
+        "reference",
+        "98e28dcf60756ad2"
+      ]
+    },
+    "fa5e8c6c": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "December 20, 6pm"
+      ],
+      "style": [
+        "string",
+        "display-5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "level": [
+        "string",
+        "div"
+      ]
+    },
+    "b2b85ba1": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "61f8610e": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "padding": [
+        "string",
+        "p-0"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "cae31ee3",
+          "b2b85ba1",
+          "a1a3688c",
+          "fa5e8c6c"
+        ]
+      ]
+    },
+    "a1a3688c": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "text": [
+        "html",
+        "<p>WHEN</p>"
+      ]
+    },
+    "3f272f33": {
+      "_obj_class": "ImageWidget",
+      "image": [
+        "reference",
+        "7f26e7fb708f5d63"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "d3ba8600": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "4b41c70b": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "text": [
+        "html",
+        "<p>WHERE</p>"
+      ]
+    },
+    "76289bc2": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "PARIS"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "display-5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "level": [
+        "string",
+        "div"
+      ]
+    },
+    "b48317a8": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "3f272f33",
+          "d3ba8600",
+          "4b41c70b",
+          "76289bc2",
+          "aaae590d"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-0"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ]
+    },
+    "2fbe2357": {
+      "_obj_class": "ImageWidget",
+      "image": [
+        "reference",
+        "5f07fca197bd1770"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "619cca65": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "7ec054de": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "text": [
+        "html",
+        "<p>DRESS CODE</p>"
+      ]
+    },
+    "ea844171": {
+      "_obj_class": "HeadlineWidget",
+      "headline": [
+        "string",
+        "Chic & Mixx-Ready"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "style": [
+        "string",
+        "display-5"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ],
+      "level": [
+        "string",
+        "div"
+      ]
+    },
+    "d9135430": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "2fbe2357",
+          "619cca65",
+          "7ec054de",
+          "ea844171"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-0"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ]
+    },
+    "aaae590d": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "text": [
+        "html",
+        "<p>EXACT LOCATION SENT ONCE YOUR SPOT IS SAVED</p>"
+      ]
+    },
+    "2955586c": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "5ea5d263",
+          "ad841a4b"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "5ea5d263": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b4a251c6"
+        ]
+      ]
+    },
+    "ad841a4b": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        6
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "4a0373a9"
+        ]
+      ]
+    },
+    "4a0373a9": {
+      "_obj_class": "FormSelectWidget",
+      "selection_type": [
+        "string",
+        "dropdown"
+      ],
+      "title": [
+        "html",
+        "<p>Dietary preference</p>"
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_dietary"
+      ],
+      "linear_scale_lower_limit": [
+        "string",
+        "1"
+      ],
+      "linear_scale_upper_limit": [
+        "string",
+        "5"
+      ],
+      "clear_selection_button_text": [
+        "string",
+        "Clear selection"
+      ],
+      "show_clear_selection_button": [
+        "boolean",
+        true
+      ],
+      "validation_text": [
+        "string",
+        "Please select an item"
+      ],
+      "required": [
+        "boolean",
+        true
+      ],
+      "items": [
+        "stringlist",
+        [
+          "None / I eat everything",
+          "Vegetarian",
+          "Vegan",
+          "Pescatarian",
+          "Gluten-free",
+          "Dairy-free",
+          "Nut allergy"
+        ]
+      ]
+    },
+    "5c1e81d6": {
+      "_obj_class": "FormSelectWidget",
+      "selection_type": [
+        "string",
+        "radio"
+      ],
+      "title": [
+        "html",
+        "<p>Bringing a plus one?</p>"
+      ],
+      "items": [
+        "stringlist",
+        [
+          "Yes",
+          "No"
+        ]
+      ],
+      "custom_field_name": [
+        "string",
+        "custom_plus_one"
+      ],
+      "linear_scale_lower_limit": [
+        "string",
+        "1"
+      ],
+      "linear_scale_upper_limit": [
+        "string",
+        "5"
+      ],
+      "clear_selection_button_text": [
+        "string",
+        "Clear selection"
+      ],
+      "validation_text": [
+        "string",
+        "Please select an item"
+      ],
+      "inline_view": [
+        "boolean",
+        true
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ]
+    },
+    "e6633047": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "33e76f58",
+          "a6b48d15",
+          "57fc413c"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "33e76f58": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "a6b48d15": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "5c1e81d6"
+        ]
+      ]
+    },
+    "57fc413c": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        4
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "7e6769e2": {
+      "_obj_class": "SectionWidget",
+      "background_color": [
+        "string",
+        "secondary"
+      ],
+      "show_padding": [
+        "boolean",
+        true
+      ],
+      "container_width": [
+        "string",
+        "fixed"
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "fbf7a56c",
+          "6c2af8b9",
+          "356fe51c",
+          "1b54edfe",
+          "09518b7f",
+          "32a8854b"
+        ]
+      ]
+    },
+    "356fe51c": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "A taste of agenda..."
+      ],
+      "style": [
+        "string",
+        "display-4"
+      ],
+      "level": [
+        "string",
+        "h2"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "32a8854b": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        2
+      ]
+    },
+    "1b54edfe": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "c41e511b": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "6a36c47f",
+          "43bb5d7a",
+          "1c88d703",
+          "5fca2a48"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_responsive_adaption": [
+        "boolean",
+        true
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ]
+    },
+    "6a36c47f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "26010eb3"
+        ]
+      ]
+    },
+    "43bb5d7a": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "94ab6c2b"
+        ]
+      ]
+    },
+    "1c88d703": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "574e73f2"
+        ]
+      ]
+    },
+    "5fca2a48": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "e05b684e"
+        ]
+      ]
+    },
+    "9fdbbaf1": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "928d7b3f",
+          "fd2b45a2"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ]
+    },
+    "928d7b3f": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        3
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "fb550881"
+        ]
+      ]
+    },
+    "fd2b45a2": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        9
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "c1e0a6bc"
+        ]
+      ]
+    },
+    "09518b7f": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "3f9c4a72",
+          "7f2b1865",
+          "07045854"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "3f9c4a72": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "7f2b1865": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        8
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "9fdbbaf1",
+          "48ba71f7",
+          "d6599693",
+          "60ec846b",
+          "64c5ea1f",
+          "243cce21",
+          "c2e9c4c7"
+        ]
+      ]
+    },
+    "07045854": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ]
+    },
+    "9930d248": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "6:30 pm"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "9dae431f": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "headline": [
+        "string",
+        " 🕶️ Unveiling the New Mixx"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "fc0edfcd": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "eb64aac8"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "65e85151": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        " 🥂 Tasting & Networking"
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "b1cfdafa": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "c20c0133"
+        ]
+      ],
+      "col_size": [
+        "number",
+        9
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "c2e9c4c7": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "fc0edfcd",
+          "b1cfdafa"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ]
+    },
+    "695a6485": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "ff81b883"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "f4f4aecb": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        " 🎶 Buzzing with Guest DJ"
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "c1aaa405": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "98f41112"
+        ]
+      ],
+      "col_size": [
+        "number",
+        9
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "64c5ea1f": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "695a6485",
+          "c1aaa405"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ]
+    },
+    "128c6371": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "93f959e7"
+        ]
+      ],
+      "col_size": [
+        "number",
+        3
+      ]
+    },
+    "fbaf929c": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "style": [
+        "string",
+        "h2"
+      ],
+      "headline": [
+        "string",
+        " 🍸 Live Mixxology"
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "1fe30fd0": {
+      "_obj_class": "ColumnWidget",
+      "content": [
+        "widgetlist",
+        [
+          "de42ad29"
+        ]
+      ],
+      "col_size": [
+        "number",
+        9
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ]
+    },
+    "d6599693": {
+      "_obj_class": "ColumnContainerWidget",
+      "columns": [
+        "widgetlist",
+        [
+          "128c6371",
+          "1fe30fd0"
+        ]
+      ],
+      "alignment": [
+        "string",
+        "stretch"
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ],
+      "disable_gutters": [
+        "boolean",
+        true
+      ]
+    },
+    "60ec846b": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "48ba71f7": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "243cce21": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        1
+      ]
+    },
+    "de42ad29": {
+      "_obj_class": "CardWidget",
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "fbaf929c"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "7f0f07b579f84167"
+      ]
+    },
+    "98f41112": {
+      "_obj_class": "CardWidget",
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "background_image": [
+        "reference",
+        "bf8e7172def7f031"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "65e85151"
+        ]
+      ]
+    },
+    "c1e0a6bc": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_image": [
+        "reference",
+        "1090a7b0b5557a64"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "9dae431f"
+        ]
+      ]
+    },
+    "c20c0133": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "f4f4aecb"
+        ]
+      ],
+      "background_image": [
+        "reference",
+        "6e652a1ee0a9c0a0"
+      ]
+    },
+    "93f959e7": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "9930d248"
+        ]
+      ]
+    },
+    "6e7f7f9d": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "6:00 pm"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "fb550881": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "6e7f7f9d"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ]
+    },
+    "bf73e127": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "8:00 pm"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "ff81b883": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "bf73e127"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ]
+    },
+    "a9d54c0a": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "9:00 pm"
+      ],
+      "style": [
+        "string",
+        "h3"
+      ],
+      "level": [
+        "string",
+        "div"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ]
+    },
+    "eb64aac8": {
+      "_obj_class": "CardWidget",
+      "card_body": [
+        "widgetlist",
+        [
+          "a9d54c0a"
+        ]
+      ],
+      "padding": [
+        "string",
+        "p-3"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_color": [
+        "string",
+        "transparent"
+      ]
+    },
+    "6c2af8b9": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        3
+      ]
+    },
+    "3a023e78": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        3
+      ]
+    },
+    "4ae2a05f": {
+      "_obj_class": "SpaceWidget",
+      "size": [
+        "number",
+        38
+      ]
+    },
+    "0bcf18ed": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "transparent"
+      ],
+      "padding": [
+        "string",
+        "p-0"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "background_image": [
+        "reference",
+        "734edf566ea15d12"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "4ae2a05f"
+        ]
+      ]
+    },
+    "6d5deeab": {
+      "_obj_class": "HeadlineWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "headline": [
+        "string",
+        "save yours now"
+      ],
+      "style": [
+        "string",
+        "display-5"
+      ],
+      "level": [
+        "string",
+        "h3"
+      ],
+      "margin": [
+        "string",
+        "mb-2"
+      ]
+    },
+    "99b865bc": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "display-1"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "headline": [
+        "string",
+        "One evening"
+      ]
+    },
+    "0beea7e0": {
+      "_obj_class": "HeadlineWidget",
+      "style": [
+        "string",
+        "display-1"
+      ],
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "margin": [
+        "string",
+        "mb-0"
+      ],
+      "headline": [
+        "string",
+        "Pure energy"
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}
