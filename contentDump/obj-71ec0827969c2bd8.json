@@ -95,7 +95,7 @@
   "site_font_headline": [
     "referencelist",
     [
-      "9d4512ef0556ff38"
+      "c74f1a8c820fd90c"
     ]
   ],
   "_conflicts": null,
@@ -106,14 +106,14 @@
   "_first_published_at": "20250911091033",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250912105405",
+  "_last_changed": "20250912111925",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250912105722",
+  "_published_at": "20250912111945",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "2025091210572200000000000000001ae3a55716312f62",
+  "_version": "202509121119450000000000000000e1999f383559b7e6",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
