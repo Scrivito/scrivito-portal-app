@@ -1,5 +1,5 @@
 import { provideComponent, Obj, WidgetTag } from 'scrivito'
-import Navbar from 'react-bootstrap/Navbar'
+import { Navbar } from 'react-bootstrap'
 
 import { TopNavigationWidget } from './TopNavigationWidgetClass'
 import { Brand } from './SubComponents/Brand'

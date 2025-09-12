@@ -1,5 +1,5 @@
 import { connect, ChildListTag } from 'scrivito'
-import Nav from 'react-bootstrap/Nav'
+import { Nav } from 'react-bootstrap'
 import { NavItem as NavItem } from './NavItem'
 import { SearchBox } from './SearchBox'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
