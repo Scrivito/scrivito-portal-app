@@ -3,6 +3,9 @@ import {
   DataConnectionFilters,
   provideDataClass,
 } from 'scrivito'
+import { ensureArray } from '../../utils/ensureArray'
+import { ensureObject } from '../../utils/ensureObject'
+import { ensureString } from '../../utils/ensureString'
 
 export const SmkArtwork = provideDataClass('SmkArtwork', {
   title: 'Statens Museum for Kunst - Artwork',
@@ -57,9 +60,12 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
         const errorText = await request.text()
         throw new DataConnectionError(errorText)
       }
-      const response = (await request.json()) as {
-        items: RawArtwork[]
-        found: number
+
+      const jsonResponse: unknown = await request.json()
+      const responseObj = ensureObject(jsonResponse)
+      const response = {
+        items: ensureArray(responseObj.items),
+        found: typeof responseObj.found === 'number' ? responseObj.found : 0,
       }
 
       const seen = offset + rows
@@ -68,7 +74,7 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
       return {
         continuation,
         count: response.found,
-        results: response.items.map((i) => formatItem(i)),
+        results: response.items.map((i) => formatItem(ensureObject(i))),
       }
     },
     async get(id) {
@@ -80,28 +86,40 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
       if (!request.ok) return null
 
       const result = await request.json()
-      const [firstItem] = result.items
+      const resultObj = ensureObject(result)
+      const items = ensureArray(resultObj.items)
+      const [firstItem] = items
       if (!firstItem) return null
-      return formatItem(firstItem)
+      return formatItem(ensureObject(firstItem))
     },
   },
 })
 
-function formatItem(item: RawArtwork) {
+function formatItem(item: Record<string, unknown>) {
+  const production = ensureArray(item.production)
+  const labels = ensureArray(item.labels)
+  const productionDate = ensureArray(item.production_date)
+  const titles = ensureArray(item.titles)
+
+  const firstProduction = ensureObject(production[0])
+  const firstLabel = ensureObject(labels[0])
+  const firstProductionDate = ensureObject(productionDate[0])
+  const firstTitle = ensureObject(titles[0])
+
   return {
     ...item,
     // Some object numbers contain spaces, therefore we encode it.
-    _id: encodeURIComponent(item.object_number),
+    _id: encodeURIComponent(ensureString(item.object_number)),
 
-    creator_date_of_birth: item.production?.[0]?.creator_date_of_birth,
-    creator_date_of_death: item.production?.[0]?.creator_date_of_death,
-    creator: (item.production || [])
-      .map((p) => p?.creator)
+    creator_date_of_birth: ensureString(firstProduction.creator_date_of_birth),
+    creator_date_of_death: ensureString(firstProduction.creator_date_of_death),
+    creator: production
+      .map((p) => ensureString(ensureObject(p).creator))
       .filter(Boolean)
       .join(', '),
-    label: item.labels?.[0]?.text,
-    production_date: item.production_date?.[0]?.end,
-    title: item.titles?.[0]?.title,
+    label: ensureString(firstLabel.text),
+    production_date: ensureString(firstProductionDate.end),
+    title: ensureString(firstTitle.title),
   }
 }
 
@@ -169,70 +187,4 @@ function calculateFiltersAndRangeParams(filtersObj: DataConnectionFilters): {
   )
 
   return { filters: filters.join(','), range: ranges.join(',') }
-}
-
-type RawArtwork = {
-  acquisition_date_precision: string
-  acquisition_date: string
-  artist: string[]
-  brightness: number
-  colors: string[]
-  colortemp: number
-  contrast: number
-  created: string
-  current_location_name: string
-  enrichment_url: string
-  entropy: number
-  frontend_url: string
-  has_3d_file: boolean
-  has_image: boolean
-  id: string
-  iiif_manifest: string
-  image_height: number
-  image_hq: boolean
-  image_iiif_id: string
-  image_iiif_info: string
-  image_mime_type: string
-  image_native: string
-  image_orientation: string
-  image_size: number
-  image_thumbnail: string
-  image_width: number
-  labels?: Label[]
-  materials: string[]
-  media_video: string[]
-  modified: string
-  number_of_parts: number
-  object_names: { name: string }[]
-  object_number: string
-  object_url: string
-  on_display: boolean
-  production_date?: { end: string; period: string; start: string }[]
-  production_dates_notes: string[]
-  production?: Production[]
-  public_domain: boolean
-  rights: string
-  saturation: number
-  similar_images_url: string
-  suggested_bg_color: string[]
-  techniques: string[]
-  titles?: { language: string; title: string }[]
-}
-
-interface Label {
-  date: string
-  source: string
-  text: string
-  type: string
-}
-
-interface Production {
-  creator_date_of_birth: string
-  creator_date_of_death: string
-  creator_forename: string
-  creator_gender: string
-  creator_lref: string
-  creator_nationality: string
-  creator_surname: string
-  creator: string
 }

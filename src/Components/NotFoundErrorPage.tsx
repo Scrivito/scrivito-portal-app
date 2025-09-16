@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import {
   connect,
   ContentTag,
+  currentSiteId,
   isEditorLoggedIn,
   isUserLoggedIn,
   load,
@@ -17,6 +18,7 @@ export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
     if (
       isUserLoggedIn() &&
+      !currentSiteId() &&
       !Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
     ) {
       return <NotFound />

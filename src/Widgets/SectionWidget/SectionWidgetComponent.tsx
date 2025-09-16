@@ -1,15 +1,11 @@
-import {
-  provideComponent,
-  ContentTag,
-  connect,
-  ImageTag,
-  InPlaceEditingOff,
-  WidgetTag,
-} from 'scrivito'
-import { SectionWidget, SectionWidgetInstance } from './SectionWidgetClass'
+import { provideComponent, ContentTag, WidgetTag } from 'scrivito'
+import { SectionWidget } from './SectionWidgetClass'
+import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
+import { useRef } from 'react'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
+  const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   const backgroundColor = widget.get('backgroundColor')
   if (backgroundColor && backgroundColor !== 'transparent') {
@@ -27,8 +23,19 @@ provideComponent(SectionWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag tag="section" className={sectionClassNames.join(' ')}>
-      <ImageOrVideo widget={widget} />
+    <WidgetTag
+      tag="section"
+      className={sectionClassNames.join(' ')}
+      onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
+    >
+      <ImageOrVideo
+        widget={widget}
+        attribute="backgroundImage"
+        className={
+          widget.get('backgroundAnimateOnHover') ? 'img-zoom' : undefined
+        }
+        togglePlayPauseRef={togglePlayPauseRef}
+      />
       <ContentTag
         tag="div"
         content={widget}
@@ -36,42 +43,5 @@ provideComponent(SectionWidget, ({ widget }) => {
         attribute="content"
       />
     </WidgetTag>
-  )
-})
-
-const ImageOrVideo = connect(function ImageOrVideo({
-  widget,
-}: {
-  widget: SectionWidgetInstance
-}) {
-  const background = widget.get('backgroundImage')
-  if (!background) return null
-
-  const classNames = ['img-background']
-  if (widget.get('backgroundAnimateOnHover')) classNames.push('img-zoom')
-
-  if (background.contentType().startsWith('video/')) {
-    return (
-      <video
-        autoPlay
-        className={classNames.join(' ')}
-        key={background.contentUrl()}
-        loop
-        muted
-        playsInline
-        src={background.contentUrl()}
-      />
-    )
-  }
-
-  return (
-    <InPlaceEditingOff>
-      <ImageTag
-        content={widget}
-        attribute="backgroundImage"
-        className={classNames.join(' ')}
-        alt=""
-      />
-    </InPlaceEditingOff>
   )
 })

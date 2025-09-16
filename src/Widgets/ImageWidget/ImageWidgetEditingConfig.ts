@@ -1,7 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { DimensionsEditor } from '../../Components/ScrivitoExtensions/DimensionsEditor'
+import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
@@ -36,12 +36,25 @@ provideEditingConfig(ImageWidget, {
       title: 'Round corners?',
     },
   },
-  properties: ['alignment', 'alternativeText', 'link', 'roundCorners'],
+  properties: (widget) => [
+    'alignment',
+    'alternativeText',
+    'link',
+    [
+      'roundCorners',
+      {
+        enabled:
+          (widget.obj().ancestors()[0] || widget.obj()).get(
+            'siteBorderRadius',
+          ) !== '0px',
+      },
+    ],
+  ],
   propertiesGroups: [
     {
       title: 'Dimensions',
       properties: ['height', 'objectFit', 'width'],
-      component: DimensionsEditor,
+      component: ImageDimensionsEditor,
       key: 'dimensions-group',
     },
   ],

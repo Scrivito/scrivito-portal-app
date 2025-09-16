@@ -10,7 +10,7 @@ export async function dataSearchResultIndexFallback(
   params: DataConnectionIndexParams,
   classNames: string[],
 ) {
-  const rawResults = await searchLocalStorageDataConnections(
+  const rawResults = searchLocalStorageDataConnections(
     params.search(),
     classNames,
   )

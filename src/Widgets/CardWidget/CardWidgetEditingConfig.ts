@@ -6,6 +6,10 @@ provideEditingConfig(CardWidget, {
   title: 'Card',
   thumbnail: Thumbnail,
   attributes: {
+    backgroundAnimateOnHover: {
+      title: 'Animate background on hover?',
+      description: 'Default: No',
+    },
     backgroundColor: {
       title: 'Background color',
       description: 'Default: White',
@@ -23,6 +27,9 @@ provideEditingConfig(CardWidget, {
         { value: 'danger', title: 'Danger' },
       ],
     },
+    backgroundImage: {
+      title: 'Background image or video',
+    },
     image: { title: 'Top image' },
     cardExtended: {
       title: 'Card extended',
@@ -30,11 +37,11 @@ provideEditingConfig(CardWidget, {
     },
     padding: {
       title: 'Padding',
-      description: 'Inner space. Default: "p-4"',
+      description: 'Inner space. Default: p-4',
     },
     margin: {
       title: 'Margin',
-      description: 'Space below the widget. Default: "mb-4"',
+      description: 'Space below the widget. Default: mb-4',
     },
   },
   properties: (widget) => [

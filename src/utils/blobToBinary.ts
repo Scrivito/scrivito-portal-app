@@ -1,5 +1,6 @@
 import { pisaSalesApiUrl } from '../Data/pisaClient'
 import { pseudoRandom32CharHex } from './pseudoRandom32CharHex'
+import { truncate } from 'lodash-es'
 
 export interface DataBinaryUpload {
   dataBase64: string
@@ -48,17 +49,18 @@ async function blobToBase64(blob: Blob): Promise<string> {
         return
       }
 
-      const dataPrefix = `data:${blob.type || 'application/octet-stream'};base64,`
-      if (!dataUrl.startsWith(dataPrefix)) {
+      const parts = dataUrl.split(';base64,')
+      const [, secondPart, ...rest] = parts
+      if (!secondPart || rest.length > 0) {
         reject(
           new Error(
-            `FileReader result does not start with expected prefix '${dataPrefix}': ${dataUrl}`,
+            `FileReader result does not contain the delimiter “;base64,”: ${truncate(dataUrl, { length: 50 })}`,
           ),
         )
         return
       }
 
-      resolve(dataUrl.substring(dataPrefix.length))
+      resolve(secondPart)
     }
 
     reader.readAsDataURL(blob)

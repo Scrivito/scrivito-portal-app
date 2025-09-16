@@ -50,12 +50,17 @@ provideEditingConfig(HeadlineWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    margin: {
+      title: 'Margin',
+      description: 'Space below the widget. Default: mb-2',
+    },
     uppercase: { title: 'Uppercase?', description: 'Default: No' },
   },
-  properties: ['style', 'level', 'alignment', 'uppercase'],
+  properties: ['style', 'level', 'alignment', 'margin', 'uppercase'],
   initialContent: {
     alignment: 'left',
     headline: 'Headline',
+    margin: 'mb-2',
     style: 'h2',
   },
   validations: [
