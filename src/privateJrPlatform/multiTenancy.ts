@@ -5,6 +5,8 @@ const INSTANCE_ALIAS: Partial<Record<string, string>> = {
   'www.tynacoon.com': '13b78a0a81072f996f5010bb59b48957',
   'my.justrelate.com': '6d226c03f32a8ea4e8ae8e5cbe6c6e2c',
   'my-beta.justrelate.com': '6d226c03f32a8ea4e8ae8e5cbe6c6e2c',
+  'umbreit-portal-staging.justrelate.io': 'eed237bb541b423a80b7a1f32b565709',
+  'umbreit-portal.justrelate.io': '775987b17e784bfe9d8501df021ce84f',
 }
 
 export function getJrPlatformInstanceId(): string | null {
