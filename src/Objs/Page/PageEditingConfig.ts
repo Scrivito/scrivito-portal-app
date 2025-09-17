@@ -8,6 +8,7 @@ import {
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
 import Thumbnail from './thumbnail.svg'
+import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 
 function propertiesGroups(page: Obj) {
   if (page.path()?.split('/').length === 2) {
@@ -54,6 +55,6 @@ provideEditingConfig(Page, {
     'excludeFromSearch',
   ],
   propertiesGroups,
-  initialContent: defaultPageInitialContent,
+  initialContent: { ...defaultPageInitialContent, body: [new SectionWidget()] },
   validations: defaultPageValidations,
 })
