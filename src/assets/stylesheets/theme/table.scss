@@ -43,46 +43,9 @@
   position: relative;
 }
 
-.responsive-stacked,
-.responsive-scroll {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
 tr:last-child th,
 tr:last-child td {
   border: none;
-}
-
-@media (max-width: $screen-sm-max) {
-  .responsive-stacked {
-    .table thead th {
-      display: none;
-    }
-    .table tr:not(:first-child) {
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    .table td {
-      display: block;
-      border: none;
-      padding: 2px 15px;
-    }
-    .table td:first-child {
-      padding: 5px 15px 0 15px;
-    }
-
-    table td:before {
-      content: attr(data-label);
-      display: block;
-      color: var(--dark-grey);
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-
-      text-transform: uppercase;
-      margin: 5px 0 0 0;
-    }
-  }
 }
 
 /* table smaller
