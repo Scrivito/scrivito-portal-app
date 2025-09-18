@@ -1,6 +1,5 @@
 import { provideComponent, ContentTag } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
-import { alignmentClassName } from '../../utils/alignmentClassName'
 import { slugify } from '@justrelate/slugify'
 
 provideComponent(HeadlineWidget, ({ widget }) => {
@@ -15,8 +14,24 @@ provideComponent(HeadlineWidget, ({ widget }) => {
     classNames.push(style)
   }
 
-  const alignment = alignmentClassName(widget.get('alignment'))
-  if (alignment) classNames.push(alignment)
+  const rawAlignment = widget.get('alignment') || 'left'
+  const rawAlignmentTablet = widget.get('alignmentTablet') || rawAlignment
+  const rawAlignmentMobile = widget.get('alignmentMobile') || rawAlignment
+
+  if (
+    rawAlignment === rawAlignmentTablet &&
+    rawAlignment === rawAlignmentMobile
+  ) {
+    if (rawAlignment !== 'left') {
+      classNames.push(`text-${normalizeAlignment(rawAlignment)}`)
+    }
+  } else {
+    classNames.push(
+      `text-lg-${normalizeAlignment(rawAlignment)}`,
+      `text-md-${normalizeAlignment(rawAlignmentTablet)}`,
+      `text-${normalizeAlignment(rawAlignmentMobile)}`,
+    )
+  }
 
   if (widget.get('uppercase')) classNames.push('text-uppercase')
 
@@ -32,6 +47,12 @@ provideComponent(HeadlineWidget, ({ widget }) => {
     />
   )
 })
+
+function normalizeAlignment(alignment: string): 'start' | 'center' | 'end' {
+  if (alignment === 'center') return 'center'
+  if (alignment === 'right') return 'end'
+  return 'start'
+}
 
 function tag(level: string | null, style: string): string {
   if (level) return level

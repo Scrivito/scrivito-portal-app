@@ -56,7 +56,15 @@ provideEditingConfig(HeadlineWidget, {
     },
     uppercase: { title: 'Uppercase?', description: 'Default: No' },
   },
-  properties: ['style', 'level', 'alignment', 'margin', 'uppercase'],
+  properties: [
+    'style',
+    'level',
+    'alignment',
+    'alignmentTablet',
+    'alignmentMobile',
+    'margin',
+    'uppercase',
+  ],
   initialContent: {
     alignment: 'left',
     headline: 'Headline',
