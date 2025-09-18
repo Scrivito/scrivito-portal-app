@@ -54,6 +54,14 @@ provideEditingConfig(HeadlineWidget, {
       title: 'Margin',
       description: 'Space below the widget. Default: mb-2',
     },
+    marginTablet: {
+      title: 'Margin (Tablet)',
+      description: 'Space below the widget on tablets',
+    },
+    marginMobile: {
+      title: 'Margin (Mobile)',
+      description: 'Space below the widget on mobile devices',
+    },
     uppercase: { title: 'Uppercase?', description: 'Default: No' },
   },
   properties: [
@@ -63,6 +71,8 @@ provideEditingConfig(HeadlineWidget, {
     'alignmentTablet',
     'alignmentMobile',
     'margin',
+    'marginTablet',
+    'marginMobile',
     'uppercase',
   ],
   initialContent: {

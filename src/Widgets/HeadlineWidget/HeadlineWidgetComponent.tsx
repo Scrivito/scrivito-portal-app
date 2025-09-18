@@ -35,7 +35,22 @@ provideComponent(HeadlineWidget, ({ widget }) => {
 
   if (widget.get('uppercase')) classNames.push('text-uppercase')
 
-  classNames.push(widget.get('margin') ?? 'mb-2')
+  const margin = widget.get('margin') ?? 'mb-2'
+  const marginTablet = widget.get('marginTablet') || margin
+  const marginMobile = widget.get('marginMobile') || margin
+
+  if (margin === marginTablet && margin === marginMobile) {
+    classNames.push(margin)
+  } else {
+    const marginCount = margin.replace('mb-', '')
+    const marginTabletCount = marginTablet.replace('mb-', '')
+    const marginMobileCount = marginMobile.replace('mb-', '')
+    classNames.push(
+      `mb-lg-${marginCount}`,
+      `mb-md-${marginTabletCount}`,
+      `mb-${marginMobileCount}`,
+    )
+  }
 
   return (
     <ContentTag
