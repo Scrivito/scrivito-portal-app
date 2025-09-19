@@ -50,7 +50,23 @@ provideComponent(ImageWidget, ({ widget }) => {
     classNames.push('has-responsive-width')
   }
   const objectFit = widget.get('objectFit')
-  if (height && objectFit === 'cover') style = { ...style, objectFit }
+  const objectFitTablet = widget.get('objectFitTablet') || objectFit
+  const objectFitMobile = widget.get('objectFitMobile') || objectFit
+
+  if (height) {
+    if (objectFitTablet === objectFitMobile && objectFitTablet === objectFit) {
+      if (objectFit === 'cover') style = { ...style, objectFit }
+    } else {
+      style = {
+        ...style,
+        objectFit: objectFitMobile === 'cover' ? 'cover' : 'contain',
+        '--object-fit-tablet':
+          objectFitTablet === 'cover' ? 'cover' : 'contain',
+        '--object-fit-desktop': objectFit === 'cover' ? 'cover' : 'contain',
+      } as CSSProperties
+      classNames.push('has-responsive-object-fit')
+    }
+  }
 
   return (
     <WidgetTag className={classNames.join(' ')}>

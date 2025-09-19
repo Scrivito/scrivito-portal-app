@@ -58,6 +58,8 @@ provideEditingConfig(ImageWidget, {
         'heightTablet',
         'heightMobile',
         'objectFit',
+        'objectFitTablet',
+        'objectFitMobile',
         'width',
         'widthTablet',
         'widthMobile',

@@ -10,6 +10,8 @@ export const ImageWidget = provideWidgetClass('ImageWidget', {
     image: ['reference', { only: 'Image' }],
     link: 'link',
     objectFit: ['enum', { values: ['cover', 'contain'] }],
+    objectFitTablet: ['enum', { values: ['cover', 'contain'] }],
+    objectFitMobile: ['enum', { values: ['cover', 'contain'] }],
     roundCorners: 'boolean',
     width: 'string',
     widthTablet: 'string',

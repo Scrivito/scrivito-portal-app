@@ -1927,3 +1927,13 @@ header .navbar.navbar-expand-lg {
     width: var(--width-desktop) !important;
   }
 }
+
+.has-responsive-object-fit img {
+  @include media-breakpoint-up(md) {
+    object-fit: var(--object-fit-tablet) !important;
+  }
+
+  @include media-breakpoint-up(lg) {
+    object-fit: var(--object-fit-desktop) !important;
+  }
+}

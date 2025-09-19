@@ -14,6 +14,8 @@ type ImageWidget = Widget<{
   heightTablet: 'string'
   heightMobile: 'string'
   objectFit: ['enum', { values: ['cover', 'contain'] }]
+  objectFitTablet: ['enum', { values: ['cover', 'contain'] }]
+  objectFitMobile: ['enum', { values: ['cover', 'contain'] }]
   width: 'string'
   widthTablet: 'string'
   widthMobile: 'string'
@@ -98,7 +100,28 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
           />
         </div>
       </div>
-      {showObjectFit && <ObjectFit widget={widget} readOnly={readOnly} />}
+      {showObjectFit && (
+        <>
+          <ObjectFit
+            widget={widget}
+            readOnly={readOnly}
+            property="objectFit"
+            label="Object fit"
+          />
+          <ObjectFit
+            widget={widget}
+            readOnly={readOnly}
+            property="objectFitTablet"
+            label="Object fit (Tablet)"
+          />
+          <ObjectFit
+            widget={widget}
+            readOnly={readOnly}
+            property="objectFitMobile"
+            label="Object fit (Mobile)"
+          />
+        </>
+      )}
     </div>
   )
 }
@@ -106,16 +129,20 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
 const ObjectFit = connect(function ObjectFit({
   widget,
   readOnly,
+  property,
+  label,
 }: {
   widget: ImageWidget
   readOnly: boolean
+  property: 'objectFit' | 'objectFitTablet' | 'objectFitMobile'
+  label: string
 }) {
-  const objectFit = widget.get('objectFit') ?? 'contain'
+  const objectFit = widget.get(property) ?? 'contain'
 
   return (
     <>
       <div className="scrivito_detail_label">
-        <span>Object fit</span>
+        <span>{label}</span>
       </div>
       <div className="item_content">
         <div className="enum_attribute">
@@ -125,7 +152,7 @@ const ObjectFit = connect(function ObjectFit({
               objectFit === 'contain' ? 'enum_attribute_active' : undefined
             }
             disabled={readOnly}
-            onClick={() => widget.update({ objectFit: 'contain' })}
+            onClick={() => widget.update({ [property]: 'contain' })}
             title="The image is resized to fit within the space, keeping its original proportions, without being cut off."
           >
             <div className="attribute-preview contain"></div>
@@ -137,7 +164,7 @@ const ObjectFit = connect(function ObjectFit({
               objectFit === 'cover' ? 'enum_attribute_active' : undefined
             }
             disabled={readOnly}
-            onClick={() => widget.update({ objectFit: 'cover' })}
+            onClick={() => widget.update({ [property]: 'cover' })}
             title="The image is resized to fill the entire space, keeping its proportions, but may be cropped if necessary."
           >
             <div className="attribute-preview cover"></div>
