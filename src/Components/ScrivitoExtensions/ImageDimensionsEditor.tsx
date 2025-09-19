@@ -32,6 +32,7 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
     <div
       className={`dimensions-editor scrivito_detail_content scrivito_${theme}`}
     >
+      {/* Desktop Section */}
       <div className="row">
         <div className="col-auto">
           <div className="scrivito_detail_label">
@@ -46,7 +47,33 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
         </div>
         <div className="col-auto">
           <div className="scrivito_detail_label">
-            <span>Width (Tablet)</span>
+            <span>Height</span>
+          </div>
+          <DimensionEditor
+            onUpdate={(value) => widget.update({ height: value })}
+            readOnly={readOnly}
+            units={['px']}
+            value={widget.get('height')}
+          />
+        </div>
+      </div>
+      {showObjectFit && (
+        <ObjectFit
+          widget={widget}
+          readOnly={readOnly}
+          property="objectFit"
+          label="Object fit"
+        />
+      )}
+
+      {/* Tablet Section */}
+      <div className="scrivito_detail_label" style={{ marginTop: '1rem' }}>
+        <span>Tablet</span>
+      </div>
+      <div className="row">
+        <div className="col-auto">
+          <div className="scrivito_detail_label">
+            <span>Width</span>
           </div>
           <DimensionEditor
             onUpdate={(value) => widget.update({ widthTablet: value })}
@@ -57,7 +84,33 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
         </div>
         <div className="col-auto">
           <div className="scrivito_detail_label">
-            <span>Width (Mobile)</span>
+            <span>Height</span>
+          </div>
+          <DimensionEditor
+            onUpdate={(value) => widget.update({ heightTablet: value })}
+            readOnly={readOnly}
+            units={['px']}
+            value={widget.get('heightTablet')}
+          />
+        </div>
+      </div>
+      {showObjectFit && (
+        <ObjectFit
+          widget={widget}
+          readOnly={readOnly}
+          property="objectFitTablet"
+          label="Object fit"
+        />
+      )}
+
+      {/* Mobile Section */}
+      <div className="scrivito_detail_label" style={{ marginTop: '1rem' }}>
+        <span>Mobile</span>
+      </div>
+      <div className="row">
+        <div className="col-auto">
+          <div className="scrivito_detail_label">
+            <span>Width</span>
           </div>
           <DimensionEditor
             onUpdate={(value) => widget.update({ widthMobile: value })}
@@ -71,28 +124,6 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
             <span>Height</span>
           </div>
           <DimensionEditor
-            onUpdate={(value) => widget.update({ height: value })}
-            readOnly={readOnly}
-            units={['px']}
-            value={widget.get('height')}
-          />
-        </div>
-        <div className="col-auto">
-          <div className="scrivito_detail_label">
-            <span>Height (Tablet)</span>
-          </div>
-          <DimensionEditor
-            onUpdate={(value) => widget.update({ heightTablet: value })}
-            readOnly={readOnly}
-            units={['px']}
-            value={widget.get('heightTablet')}
-          />
-        </div>
-        <div className="col-auto">
-          <div className="scrivito_detail_label">
-            <span>Height (Mobile)</span>
-          </div>
-          <DimensionEditor
             onUpdate={(value) => widget.update({ heightMobile: value })}
             readOnly={readOnly}
             units={['px']}
@@ -101,26 +132,12 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
         </div>
       </div>
       {showObjectFit && (
-        <>
-          <ObjectFit
-            widget={widget}
-            readOnly={readOnly}
-            property="objectFit"
-            label="Object fit"
-          />
-          <ObjectFit
-            widget={widget}
-            readOnly={readOnly}
-            property="objectFitTablet"
-            label="Object fit (Tablet)"
-          />
-          <ObjectFit
-            widget={widget}
-            readOnly={readOnly}
-            property="objectFitMobile"
-            label="Object fit (Mobile)"
-          />
-        </>
+        <ObjectFit
+          widget={widget}
+          readOnly={readOnly}
+          property="objectFitMobile"
+          label="Object fit"
+        />
       )}
     </div>
   )
