@@ -15,6 +15,8 @@ type ImageWidget = Widget<{
   heightMobile: 'string'
   objectFit: ['enum', { values: ['cover', 'contain'] }]
   width: 'string'
+  widthTablet: 'string'
+  widthMobile: 'string'
 }>
 
 export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
@@ -38,6 +40,28 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
             readOnly={readOnly}
             units={['px', '%']}
             value={widget.get('width')}
+          />
+        </div>
+        <div className="col-auto">
+          <div className="scrivito_detail_label">
+            <span>Width (Tablet)</span>
+          </div>
+          <DimensionEditor
+            onUpdate={(value) => widget.update({ widthTablet: value })}
+            readOnly={readOnly}
+            units={['px', '%']}
+            value={widget.get('widthTablet')}
+          />
+        </div>
+        <div className="col-auto">
+          <div className="scrivito_detail_label">
+            <span>Width (Mobile)</span>
+          </div>
+          <DimensionEditor
+            onUpdate={(value) => widget.update({ widthMobile: value })}
+            readOnly={readOnly}
+            units={['px', '%']}
+            value={widget.get('widthMobile')}
           />
         </div>
         <div className="col-auto">

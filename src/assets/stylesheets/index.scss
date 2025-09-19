@@ -1917,3 +1917,13 @@ header .navbar.navbar-expand-lg {
     height: var(--height-desktop) !important;
   }
 }
+
+.has-responsive-width img {
+  @include media-breakpoint-up(md) {
+    width: var(--width-tablet) !important;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: var(--width-desktop) !important;
+  }
+}

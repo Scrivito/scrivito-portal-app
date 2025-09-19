@@ -35,7 +35,20 @@ provideComponent(ImageWidget, ({ widget }) => {
   }
 
   const width = widget.get('width')
-  if (width) style = { ...style, width }
+  const widthTablet = widget.get('widthTablet') || width
+  const widthMobile = widget.get('widthMobile') || width
+
+  if (widthTablet === widthMobile && widthTablet === width) {
+    if (width) style = { ...style, width: width }
+  } else {
+    style = {
+      ...style,
+      width: widthMobile,
+      '--width-tablet': widthTablet,
+      '--width-desktop': width,
+    } as CSSProperties
+    classNames.push('has-responsive-width')
+  }
   const objectFit = widget.get('objectFit')
   if (height && objectFit === 'cover') style = { ...style, objectFit }
 

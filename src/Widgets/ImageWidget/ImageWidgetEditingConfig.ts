@@ -59,6 +59,8 @@ provideEditingConfig(ImageWidget, {
         'heightMobile',
         'objectFit',
         'width',
+        'widthTablet',
+        'widthMobile',
       ],
       component: ImageDimensionsEditor,
       key: 'dimensions-group',

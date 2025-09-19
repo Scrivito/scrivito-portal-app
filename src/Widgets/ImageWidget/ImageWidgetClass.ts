@@ -12,6 +12,8 @@ export const ImageWidget = provideWidgetClass('ImageWidget', {
     objectFit: ['enum', { values: ['cover', 'contain'] }],
     roundCorners: 'boolean',
     width: 'string',
+    widthTablet: 'string',
+    widthMobile: 'string',
   },
 })
 
