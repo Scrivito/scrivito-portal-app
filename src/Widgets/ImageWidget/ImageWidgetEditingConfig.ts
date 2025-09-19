@@ -53,7 +53,13 @@ provideEditingConfig(ImageWidget, {
   propertiesGroups: [
     {
       title: 'Dimensions',
-      properties: ['height', 'objectFit', 'width'],
+      properties: [
+        'height',
+        'heightTablet',
+        'heightMobile',
+        'objectFit',
+        'width',
+      ],
       component: ImageDimensionsEditor,
       key: 'dimensions-group',
     },

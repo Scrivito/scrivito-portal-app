@@ -11,6 +11,8 @@ import { DimensionEditor } from './DimensionEditor'
 
 type ImageWidget = Widget<{
   height: 'string'
+  heightTablet: 'string'
+  heightMobile: 'string'
   objectFit: ['enum', { values: ['cover', 'contain'] }]
   width: 'string'
 }>
@@ -47,6 +49,28 @@ export function ImageDimensionsEditor({ widget }: { widget: ImageWidget }) {
             readOnly={readOnly}
             units={['px']}
             value={widget.get('height')}
+          />
+        </div>
+        <div className="col-auto">
+          <div className="scrivito_detail_label">
+            <span>Height (Tablet)</span>
+          </div>
+          <DimensionEditor
+            onUpdate={(value) => widget.update({ heightTablet: value })}
+            readOnly={readOnly}
+            units={['px']}
+            value={widget.get('heightTablet')}
+          />
+        </div>
+        <div className="col-auto">
+          <div className="scrivito_detail_label">
+            <span>Height (Mobile)</span>
+          </div>
+          <DimensionEditor
+            onUpdate={(value) => widget.update({ heightMobile: value })}
+            readOnly={readOnly}
+            units={['px']}
+            value={widget.get('heightMobile')}
           />
         </div>
       </div>

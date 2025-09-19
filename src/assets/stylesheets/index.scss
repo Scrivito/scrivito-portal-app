@@ -1907,3 +1907,13 @@ header .navbar.navbar-expand-lg {
     }
   }
 }
+
+.has-responsive-height img {
+  @include media-breakpoint-up(md) {
+    height: var(--height-tablet) !important;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: var(--height-desktop) !important;
+  }
+}

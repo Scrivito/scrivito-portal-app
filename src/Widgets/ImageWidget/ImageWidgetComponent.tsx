@@ -19,7 +19,21 @@ provideComponent(ImageWidget, ({ widget }) => {
 
   let style: CSSProperties | undefined
   const height = widget.get('height')
-  if (height) style = { ...style, height }
+  const heightTablet = widget.get('heightTablet') || height
+  const heightMobile = widget.get('heightMobile') || height
+
+  if (heightTablet === heightMobile && heightTablet === height) {
+    if (height) style = { ...style, height: height }
+  } else {
+    style = {
+      ...style,
+      height: heightMobile,
+      '--height-tablet': heightTablet,
+      '--height-desktop': height,
+    } as CSSProperties
+    classNames.push('has-responsive-height')
+  }
+
   const width = widget.get('width')
   if (width) style = { ...style, width }
   const objectFit = widget.get('objectFit')

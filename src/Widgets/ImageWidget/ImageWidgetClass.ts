@@ -5,6 +5,8 @@ export const ImageWidget = provideWidgetClass('ImageWidget', {
     alignment: ['enum', { values: ['left', 'center', 'right'] }],
     alternativeText: 'string',
     height: 'string',
+    heightTablet: 'string',
+    heightMobile: 'string',
     image: ['reference', { only: 'Image' }],
     link: 'link',
     objectFit: ['enum', { values: ['cover', 'contain'] }],
