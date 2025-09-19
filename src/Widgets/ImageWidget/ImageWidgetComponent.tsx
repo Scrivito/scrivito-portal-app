@@ -14,8 +14,24 @@ import { CSSProperties } from 'react'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const classNames = ['image-widget']
-  const alignment = alignmentClassName(widget.get('alignment'))
-  if (alignment) classNames.push(alignment)
+
+  const rawAlignment = widget.get('alignment') || 'left'
+  const rawAlignmentTablet = widget.get('alignmentTablet') || rawAlignment
+  const rawAlignmentMobile = widget.get('alignmentMobile') || rawAlignment
+
+  if (
+    rawAlignment === rawAlignmentTablet &&
+    rawAlignment === rawAlignmentMobile
+  ) {
+    const alignment = alignmentClassName(rawAlignment)
+    if (alignment) classNames.push(alignment)
+  } else {
+    classNames.push(
+      `text-lg-${normalizeAlignment(rawAlignment)}`,
+      `text-md-${normalizeAlignment(rawAlignmentTablet)}`,
+      `text-${normalizeAlignment(rawAlignmentMobile)}`,
+    )
+  }
 
   let style: CSSProperties | undefined
   const height = widget.get('height')
@@ -98,3 +114,9 @@ const LinkWrapper = connect(function LinkWrapper({
 
   return <LinkTag to={link}>{children}</LinkTag>
 })
+
+function normalizeAlignment(alignment: string): 'start' | 'center' | 'end' {
+  if (alignment === 'center') return 'center'
+  if (alignment === 'right') return 'end'
+  return 'start'
+}

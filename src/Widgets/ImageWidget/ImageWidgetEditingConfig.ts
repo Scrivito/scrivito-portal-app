@@ -16,6 +16,24 @@ provideEditingConfig(ImageWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    alignmentTablet: {
+      title: 'Alignment (Tablet)',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
+    },
+    alignmentMobile: {
+      title: 'Alignment (Mobile)',
+      description: 'Default: Left',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
+    },
     alternativeText: {
       title: 'Alternative text (optional)',
       description:
@@ -38,6 +56,8 @@ provideEditingConfig(ImageWidget, {
   },
   properties: (widget) => [
     'alignment',
+    'alignmentTablet',
+    'alignmentMobile',
     'alternativeText',
     'link',
     [
