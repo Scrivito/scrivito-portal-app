@@ -31,7 +31,6 @@
     "react-dom": "^18.3.1",
     "react-draggable": "^4.5.0",
     "react-dropzone": "^14.3.8",
-    "react-helmet-async": "^2.0.5",
     "react-toastify": "^11.0.5",
     "scrivito": "^1.54.0",
     "scrivito-icon-editor": "^0.0.2",

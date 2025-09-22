@@ -51,7 +51,6 @@ export default defineConfig(({ mode }) => {
             react: [
               'react-bootstrap',
               'react-dropzone',
-              'react-helmet-async',
               'react-toastify',
             ],
             scrivito: ['scrivito-neoletter-form-widgets'],
