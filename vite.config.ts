@@ -49,6 +49,7 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks: {
             react: [
+              '@dr.pogodin/react-helmet',
               'react-bootstrap',
               'react-dropzone',
               'react-toastify',
