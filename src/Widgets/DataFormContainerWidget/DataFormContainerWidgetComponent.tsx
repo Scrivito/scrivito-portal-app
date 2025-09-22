@@ -20,7 +20,7 @@ import { errorToast } from '../../Data/CurrentUser/errorToast'
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataScope = useData()
   const dataItem = dataScope.dataItem()
-  const formRef = useRef() as React.MutableRefObject<HTMLFormElement>
+  const formRef = useRef<HTMLFormElement | null>(null)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [keyCounter, setKeyCounter] = useState(0)
@@ -57,6 +57,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault()
     e.stopPropagation()
+    if (!formRef.current) return
 
     if (!formRef.current.reportValidity()) return
 

@@ -426,7 +426,7 @@ class GridLayoutEditor extends Component<
   GridLayoutEditorProps,
   { draggableGrid: number }
 > {
-  private gridRulerRef: React.RefObject<HTMLDivElement>
+  private gridRulerRef: React.RefObject<HTMLDivElement | null>
 
   constructor(props: GridLayoutEditorProps) {
     super(props)
