@@ -62,7 +62,7 @@ export const DataBatchContextProvider = connect(
     const loadMore = () => setLimit((prevLimit) => prevLimit + configuredLimit)
 
     return (
-      <DataBatchContext.Provider
+      <DataBatchContext
         value={{ batchLoaderKey, hasMore, loadMore, setSearch }}
       >
         <ContentTag
@@ -73,7 +73,7 @@ export const DataBatchContextProvider = connect(
           attribute={attribute}
           dataContext={dataScope.transform(transform)}
         />
-      </DataBatchContext.Provider>
+      </DataBatchContext>
     )
   },
 )
