@@ -1,5 +1,5 @@
 import { connect, currentLanguage, CurrentPage } from 'scrivito'
-import { HelmetProvider, HelmetServerState } from 'react-helmet-async'
+import { HelmetProvider, HelmetServerState } from '@dr.pogodin/react-helmet'
 
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
