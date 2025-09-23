@@ -2,13 +2,14 @@ import { provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
 import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
+import { getCurrentPreviewSize } from '../../utils/getCurrentPreviewSize'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
   thumbnail: Thumbnail,
   attributes: {
     alignment: {
-      title: 'Alignment',
+      title: 'Alignment (Desktop & Laptop)',
       description: 'Default: Left',
       values: [
         { value: 'left', title: 'Left' },
@@ -18,7 +19,7 @@ provideEditingConfig(ImageWidget, {
     },
     alignmentTablet: {
       title: 'Alignment (Tablet)',
-      description: 'Default: Left',
+      description: 'Alignment on tablets',
       values: [
         { value: 'left', title: 'Left' },
         { value: 'center', title: 'Center' },
@@ -27,7 +28,7 @@ provideEditingConfig(ImageWidget, {
     },
     alignmentMobile: {
       title: 'Alignment (Mobile)',
-      description: 'Default: Left',
+      description: 'Alignment on mobile devices',
       values: [
         { value: 'left', title: 'Left' },
         { value: 'center', title: 'Center' },
@@ -54,22 +55,30 @@ provideEditingConfig(ImageWidget, {
       title: 'Round corners?',
     },
   },
-  properties: (widget) => [
-    'alignment',
-    'alignmentTablet',
-    'alignmentMobile',
-    'alternativeText',
-    'link',
-    [
-      'roundCorners',
-      {
-        enabled:
-          (widget.obj().ancestors()[0] || widget.obj()).get(
-            'siteBorderRadius',
-          ) !== '0px',
-      },
-    ],
-  ],
+  properties: (widget) => {
+    const alignmentProperty =
+      getCurrentPreviewSize() === 'desktop' ||
+      getCurrentPreviewSize() === 'laptop'
+        ? 'alignment'
+        : getCurrentPreviewSize() === 'tablet'
+          ? 'alignmentTablet'
+          : 'alignmentMobile'
+
+    return [
+      alignmentProperty,
+      'alternativeText',
+      'link',
+      [
+        'roundCorners',
+        {
+          enabled:
+            (widget.obj().ancestors()[0] || widget.obj()).get(
+              'siteBorderRadius',
+            ) !== '0px',
+        },
+      ],
+    ]
+  },
   propertiesGroups: [
     {
       title: 'Dimensions',
