@@ -20,7 +20,7 @@ import { errorToast } from '../../Data/CurrentUser/errorToast'
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataScope = useData()
   const dataItem = dataScope.dataItem()
-  const formRef = useRef<HTMLFormElement | null>(null)
+  const formRef = useRef<HTMLFormElement>(null)
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [keyCounter, setKeyCounter] = useState(0)
