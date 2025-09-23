@@ -1,13 +1,14 @@
 import { provideEditingConfig } from 'scrivito'
 import { TextWidget } from './TextWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { getCurrentPreviewSize } from '../../utils/getCurrentPreviewSize'
 
 provideEditingConfig(TextWidget, {
   title: 'Text',
   thumbnail: Thumbnail,
   attributes: {
     alignment: {
-      title: 'Alignment',
+      title: 'Alignment (Desktop & Laptop)',
       description: 'Default: Left',
       values: [
         { value: 'left', title: 'Left' },
@@ -37,7 +38,16 @@ provideEditingConfig(TextWidget, {
       title: 'Content',
     },
   },
-  properties: ['alignment', 'alignmentTablet', 'alignmentMobile', 'text'],
+  properties: () =>
+    [
+      getCurrentPreviewSize() === 'desktop' ||
+      getCurrentPreviewSize() === 'laptop'
+        ? 'alignment'
+        : null,
+      getCurrentPreviewSize() === 'tablet' ? 'alignmentTablet' : null,
+      getCurrentPreviewSize() === 'mobile' ? 'alignmentMobile' : null,
+      'text',
+    ].filter((p): p is string => typeof p === 'string'),
   initialContent: {
     alignment: 'left',
     text: 'Text',
