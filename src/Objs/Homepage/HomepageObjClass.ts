@@ -11,6 +11,7 @@ export const Homepage = provideObjClass('Homepage', {
     jwtPisaSalesApiUrl: 'string',
     siteBorderRadius: 'string',
     siteCartPage: 'reference',
+    siteMaxWidth: 'float',
     siteColorPrimary: 'string',
     siteColorSecondary: 'string',
     siteColorTextDark: 'string',

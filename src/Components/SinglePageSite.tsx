@@ -1,11 +1,14 @@
 import {
+  canWrite,
   connect,
   ContentTag,
   currentPage,
   isEditorLoggedIn,
   LinkTag,
+  load,
   Obj,
 } from 'scrivito'
+import { useEffect } from 'react'
 import { Loading } from './Loading'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { ensureString } from '../utils/ensureString'
@@ -13,6 +16,25 @@ import { ensureString } from '../utils/ensureString'
 export const SinglePageSite = connect(
   function SinglePageSite({ children }: { children: React.ReactNode }) {
     const root = Obj.root()
+
+    useEffect(() => {
+      if (!isHomepage(root)) return
+
+      const handleResize = async () => {
+        if (await load(() => canWrite())) {
+          const siteMaxWidth = window.innerWidth
+          console.log('Setting site max width to', siteMaxWidth)
+          root.update({ siteMaxWidth })
+        }
+      }
+
+      window.addEventListener('resize', handleResize)
+      handleResize()
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
+    }, [root])
+
     if (!isHomepage(root)) return children
 
     const singeSitePage = root.get('siteSinglePage')
