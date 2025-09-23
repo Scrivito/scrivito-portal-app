@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { getCurrentPreviewSize } from '../../utils/getCurrentPreviewSize'
 
 provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
@@ -42,7 +43,7 @@ provideEditingConfig(HeadlineWidget, {
       ],
     },
     alignment: {
-      title: 'Alignment',
+      title: 'Alignment (Desktop & Laptop)',
       description: 'Default: Left',
       values: [
         { value: 'left', title: 'Left' },
@@ -50,8 +51,26 @@ provideEditingConfig(HeadlineWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    alignmentTablet: {
+      title: 'Alignment (Tablet)',
+      description: 'Alignment on tablets',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
+    },
+    alignmentMobile: {
+      title: 'Alignment (Mobile)',
+      description: 'Alignment on mobile devices',
+      values: [
+        { value: 'left', title: 'Left' },
+        { value: 'center', title: 'Center' },
+        { value: 'right', title: 'Right' },
+      ],
+    },
     margin: {
-      title: 'Margin',
+      title: 'Margin (Desktop & Laptop)',
       description: 'Space below the widget. Default: mb-2',
     },
     marginTablet: {
@@ -64,17 +83,24 @@ provideEditingConfig(HeadlineWidget, {
     },
     uppercase: { title: 'Uppercase?', description: 'Default: No' },
   },
-  properties: [
-    'style',
-    'level',
-    'alignment',
-    'alignmentTablet',
-    'alignmentMobile',
-    'margin',
-    'marginTablet',
-    'marginMobile',
-    'uppercase',
-  ],
+  properties: () =>
+    [
+      'style',
+      'level',
+      getCurrentPreviewSize() === 'desktop' ||
+      getCurrentPreviewSize() === 'laptop'
+        ? 'alignment'
+        : null,
+      getCurrentPreviewSize() === 'tablet' ? 'alignmentTablet' : null,
+      getCurrentPreviewSize() === 'mobile' ? 'alignmentMobile' : null,
+      getCurrentPreviewSize() === 'desktop' ||
+      getCurrentPreviewSize() === 'laptop'
+        ? 'margin'
+        : null,
+      getCurrentPreviewSize() === 'tablet' ? 'marginTablet' : null,
+      getCurrentPreviewSize() === 'mobile' ? 'marginMobile' : null,
+      'uppercase',
+    ].filter((p): p is string => typeof p === 'string'),
   initialContent: {
     alignment: 'left',
     headline: 'Headline',
