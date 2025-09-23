@@ -1,5 +1,4 @@
 import * as ReactDOMServer from 'react-dom/server'
-import { HelmetProvider } from 'react-helmet-async'
 import { App, helmetContext } from '../App'
 import { contentHash } from './contentHash'
 import { filenameFromUrl } from './filenameFromUrl'
@@ -11,8 +10,6 @@ export async function prerenderObj(
   obj: Obj,
   baseHtmlTemplate: string,
 ): Promise<{ filename: string; content: string }[]> {
-  HelmetProvider.canUseDOM = false
-
   const {
     result: { objId, objUrl, ...data },
     preloadDump,

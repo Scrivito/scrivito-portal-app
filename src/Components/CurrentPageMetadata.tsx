@@ -1,5 +1,5 @@
 import { connect, currentPage, Obj, urlFor } from 'scrivito'
-import { Helmet, HelmetProps } from 'react-helmet-async'
+import { Helmet, HelmetProps } from '@dr.pogodin/react-helmet'
 import { ensureString } from '../utils/ensureString'
 import { getMetadata } from '../utils/getMetadata'
 
