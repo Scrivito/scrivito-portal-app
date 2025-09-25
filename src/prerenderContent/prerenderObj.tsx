@@ -1,5 +1,5 @@
 import * as ReactDOMServer from 'react-dom/server'
-import { App, helmetContext } from '../App'
+import { App } from '../App'
 import { contentHash } from './contentHash'
 import { filenameFromUrl } from './filenameFromUrl'
 import { generateHtml } from './generateHtml'
@@ -14,19 +14,15 @@ export async function prerenderObj(
     result: { objId, objUrl, ...data },
     preloadDump,
   } = await renderPage(obj, () => {
-    const bodyContent = ReactDOMServer.renderToString(<App />)
-    const { helmet } = helmetContext
+    const rawBodyContent = ReactDOMServer.renderToString(<App />)
+    const { title, bodyContent } = extractTitle(rawBodyContent)
 
     return {
-      bodyAttributes: helmet?.bodyAttributes.toString() || '',
       bodyContent,
-      htmlAttributes: helmet?.htmlAttributes.toString() || '',
-      link: helmet?.link.toString() || '',
-      meta: helmet?.meta.toString() || '',
+      htmlAttributes: `lang="${obj.language() || 'en'}"`,
       objId: obj.id(),
       objUrl: urlFor(obj),
-      style: helmet?.style.toString() || '',
-      title: helmet?.title.toString() || '',
+      title,
     }
   })
 
@@ -45,4 +41,15 @@ export async function prerenderObj(
       }),
     },
   ]
+}
+
+function extractTitle(html: string): {
+  title: string
+  bodyContent: string
+} {
+  const titleMatch = html.match(/<title[^>]*>.*?<\/title>/i)
+  const title = titleMatch ? titleMatch[0] : ''
+  const bodyContent = title ? html.replace(title, '') : html
+
+  return { title, bodyContent }
 }

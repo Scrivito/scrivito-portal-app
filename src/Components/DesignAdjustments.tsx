@@ -1,5 +1,4 @@
 import { Obj, connect } from 'scrivito'
-import { Helmet } from '@dr.pogodin/react-helmet'
 import { isFont } from '../Objs/Font/FontObjClass'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 
@@ -60,9 +59,7 @@ export const DesignAdjustments = connect(
 
     return (
       <>
-        <Helmet>
-          <style type="text/css">{`:root{\n  ${styles.join('\n  ')}\n}`}</style>
-        </Helmet>
+        <style type="text/css">{`:root{\n  ${styles.join('\n  ')}\n}`}</style>
 
         {root.get('siteFontHeadline').map((font) => (
           <FontFace
@@ -97,9 +94,8 @@ const FontFace = connect(
     const weight = font.get('weight')
 
     return (
-      <Helmet>
-        <style type="text/css">
-          {`
+      <style type="text/css">
+        {`
           @font-face {
             font-family: '${fontFamily}';
             font-display: swap;
@@ -107,8 +103,7 @@ const FontFace = connect(
             ${weight ? `font-weight: ${weight};` : ''}
           }
         `}
-        </style>
-      </Helmet>
+      </style>
     )
   },
   { loading: () => null },
