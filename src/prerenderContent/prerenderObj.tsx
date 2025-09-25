@@ -14,8 +14,9 @@ export async function prerenderObj(
     result: { objId, objUrl, ...data },
     preloadDump,
   } = await renderPage(obj, () => {
-    const bodyContent = ReactDOMServer.renderToString(<App />)
+    const rawBodyContent = ReactDOMServer.renderToString(<App />)
     const { helmet } = helmetContext
+    const { title, bodyContent } = extractTitle(rawBodyContent)
 
     return {
       bodyAttributes: helmet?.bodyAttributes.toString() || '',
@@ -26,7 +27,7 @@ export async function prerenderObj(
       objId: obj.id(),
       objUrl: urlFor(obj),
       style: helmet?.style.toString() || '',
-      title: helmet?.title.toString() || '',
+      title,
     }
   })
 
@@ -45,4 +46,15 @@ export async function prerenderObj(
       }),
     },
   ]
+}
+
+function extractTitle(html: string): {
+  title: string
+  bodyContent: string
+} {
+  const titleMatch = html.match(/<title[^>]*>.*?<\/title>/i)
+  const title = titleMatch ? titleMatch[0] : ''
+  const bodyContent = title ? html.replace(title, '') : html
+
+  return { title, bodyContent }
 }
