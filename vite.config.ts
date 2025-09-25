@@ -48,12 +48,7 @@ export default defineConfig(({ mode }) => {
         ],
         output: {
           manualChunks: {
-            react: [
-              '@dr.pogodin/react-helmet',
-              'react-bootstrap',
-              'react-dropzone',
-              'react-toastify',
-            ],
+            react: ['react-bootstrap', 'react-dropzone', 'react-toastify'],
             scrivito: ['scrivito-neoletter-form-widgets'],
           },
         },
