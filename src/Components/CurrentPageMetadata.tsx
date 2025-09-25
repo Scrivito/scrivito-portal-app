@@ -14,8 +14,15 @@ export const CurrentPageMetadata = connect(() => {
         htmlAttributes={{
           lang: page?.language() || 'en',
         }}
-        meta={getMetadata(page)}
       />
+      {getMetadata(page).map(({ name, property, content }) => (
+        <meta
+          key={name || property}
+          name={name}
+          property={property}
+          content={content}
+        />
+      ))}
     </>
   )
 })
