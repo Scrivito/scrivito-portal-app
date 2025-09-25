@@ -6,7 +6,6 @@ import { getMetadata } from '../utils/getMetadata'
 export const CurrentPageMetadata = connect(() => {
   const links: HelmetProps['link'] = []
   let meta: HelmetProps['meta'] = []
-  let lang = 'en'
 
   const root = Obj.root()
   const favicon = root?.get('siteFavicon')
@@ -21,7 +20,6 @@ export const CurrentPageMetadata = connect(() => {
   const page = currentPage()
 
   if (page) {
-    lang = page.language() || 'en'
     links.push({ rel: 'canonical', href: urlFor(page) })
     meta = getMetadata(page)
   }
@@ -29,7 +27,11 @@ export const CurrentPageMetadata = connect(() => {
   return (
     <>
       <title>{ensureString(page?.get('title'))}</title>
-      <Helmet htmlAttributes={{ lang }} link={links} meta={meta} />
+      <Helmet
+        htmlAttributes={{ lang: page?.language() || 'en' }}
+        link={links}
+        meta={meta}
+      />
     </>
   )
 })
