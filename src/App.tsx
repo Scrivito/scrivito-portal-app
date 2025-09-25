@@ -7,6 +7,7 @@ import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 import { SinglePageSite } from './Components/SinglePageSite'
+import { Favicon } from './Components/Favicon'
 
 export const helmetContext: { helmet?: HelmetServerState } = {}
 
@@ -24,6 +25,7 @@ export function App({
             <SinglePageSite>
               <CurrentPage />
               <NotFoundErrorPage />
+              <Favicon />
               <CurrentPageMetadata />
             </SinglePageSite>
           </DesignAdjustments>

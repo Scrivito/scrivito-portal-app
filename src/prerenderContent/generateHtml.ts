@@ -4,7 +4,6 @@ export async function generateHtml(
     bodyAttributes: string
     bodyContent: string
     htmlAttributes: string
-    link: string
     meta: string
     preloadDumpScript: string
     style: string
@@ -22,7 +21,6 @@ const replacements: Record<(typeof keys)[number], RegExp> = {
   bodyAttributes: /data-bodyAttributes/,
   bodyContent: /\n *<!-- bodyContent start -->[^!]*<!-- bodyContent end -->\s*/,
   htmlAttributes: /data-htmlAttributes/,
-  link: /<!-- link -->/,
   meta: /<!-- meta -->/,
   preloadDumpScript: /<!-- preloadDumpScript -->/,
   style: /<!-- style -->/,
@@ -33,7 +31,6 @@ const keys = [
   'bodyAttributes',
   'bodyContent',
   'htmlAttributes',
-  'link',
   'meta',
   'preloadDumpScript',
   'style',

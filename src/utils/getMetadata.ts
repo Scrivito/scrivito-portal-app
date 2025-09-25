@@ -4,7 +4,8 @@ import { ensureString } from './ensureString'
 import { isImage } from '../Objs/Image/ImageObjClass'
 import { isDropdown } from '../Objs/Dropdown/DropdownObjClass'
 
-export function getMetadata(page: Obj) {
+export function getMetadata(page: Obj | null) {
+  if (!page) return []
   if (isDropdown(page)) return [{ name: 'robots', content: 'noindex' }]
 
   const meta = [
