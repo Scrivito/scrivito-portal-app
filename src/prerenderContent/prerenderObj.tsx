@@ -24,7 +24,6 @@ export async function prerenderObj(
       htmlAttributes: helmet?.htmlAttributes.toString() || '',
       objId: obj.id(),
       objUrl: urlFor(obj),
-      style: helmet?.style.toString() || '',
       title,
     }
   })
