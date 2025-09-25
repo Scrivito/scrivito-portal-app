@@ -1,5 +1,5 @@
 import * as ReactDOMServer from 'react-dom/server'
-import { App, helmetContext } from '../App'
+import { App } from '../App'
 import { contentHash } from './contentHash'
 import { filenameFromUrl } from './filenameFromUrl'
 import { generateHtml } from './generateHtml'
@@ -15,11 +15,9 @@ export async function prerenderObj(
     preloadDump,
   } = await renderPage(obj, () => {
     const rawBodyContent = ReactDOMServer.renderToString(<App />)
-    const { helmet } = helmetContext
     const { title, bodyContent } = extractTitle(rawBodyContent)
 
     return {
-      bodyAttributes: helmet?.bodyAttributes.toString() || '',
       bodyContent,
       htmlAttributes: `lang="${obj.language() || 'en'}"`,
       objId: obj.id(),
