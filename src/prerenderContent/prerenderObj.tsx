@@ -21,7 +21,7 @@ export async function prerenderObj(
     return {
       bodyAttributes: helmet?.bodyAttributes.toString() || '',
       bodyContent,
-      htmlAttributes: helmet?.htmlAttributes.toString() || '',
+      htmlAttributes: `lang="${obj.language() || 'en'}"`,
       objId: obj.id(),
       objUrl: urlFor(obj),
       title,
