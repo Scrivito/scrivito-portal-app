@@ -215,7 +215,8 @@ fieldset:disabled .btn {
 
 // Base button variant styles using CSS custom properties
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.btn-custom {
   --btn-color-lighten: hsl(from var(--btn-color) h s calc(l + 8));
   --btn-color-darken: hsl(from var(--btn-color) h s calc(l - 8));
   --bs-btn-color: #{bestContrast(
@@ -255,7 +256,8 @@ fieldset:disabled .btn {
 
 // Base outline button variant styles using CSS custom properties
 .btn-outline-primary,
-.btn-outline-secondary {
+.btn-outline-secondary,
+.btn-outline-custom {
   --btn-color-lighten: hsl(from var(--btn-color) h s calc(l + 8));
   --btn-color-darken: hsl(from var(--btn-color) h s calc(l - 8));
   --bs-btn-color: var(--btn-color);
@@ -296,6 +298,12 @@ fieldset:disabled .btn {
 
 .btn-outline-secondary {
   --btn-color: var(--bs-secondary);
+}
+
+.btn-outline-custom {
+  --btn-color: var(--btn-color);
+  --btn-color-lighten: hsl(from var(--btn-color) h s calc(l + 8));
+  --btn-color-darken: hsl(from var(--btn-color) h s calc(l - 8));
 }
 
 .btn i:only-child {

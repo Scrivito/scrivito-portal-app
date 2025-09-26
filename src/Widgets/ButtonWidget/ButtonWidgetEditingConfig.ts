@@ -24,7 +24,13 @@ provideEditingConfig(ButtonWidget, {
         { value: 'btn-secondary', title: 'Secondary color' },
         { value: 'btn-outline-primary', title: 'Primary outline color' },
         { value: 'btn-outline-secondary', title: 'Secondary outline color' },
+        { value: 'custom', title: 'Custom color' },
+        { value: 'custom-outline', title: 'Custom outline color' },
       ],
+    },
+    buttonColorCustom: {
+      title: 'Custom button color',
+      editor: 'colorPicker',
     },
     buttonSize: {
       title: 'Button size',
@@ -35,7 +41,17 @@ provideEditingConfig(ButtonWidget, {
       description: 'The target and text of the button.',
     },
   },
-  properties: ['target', 'alignment', 'buttonColor', 'buttonSize'],
+  properties: (widget) =>
+    [
+      'target',
+      'alignment',
+      'buttonColor',
+      widget.get('buttonColor') === 'custom' ||
+      widget.get('buttonColor') === 'custom-outline'
+        ? 'buttonColorCustom'
+        : null,
+      'buttonSize',
+    ].filter((p): p is string => typeof p === 'string'),
   initialContent: {
     alignment: 'left',
     buttonColor: 'btn-primary',
