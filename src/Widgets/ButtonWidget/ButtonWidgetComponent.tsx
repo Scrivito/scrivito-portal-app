@@ -13,15 +13,41 @@ provideComponent(ButtonWidget, ({ widget }) => {
   const target = widget.get('target')
   const title = ensureString(target?.title())
 
+  const buttonColor = widget.get('buttonColor') || 'btn-primary'
+  const customButtonColor = widget.get('customButtonColor')
+
   const buttonClassNames = ['btn']
-  buttonClassNames.push(widget.get('buttonColor') || 'btn-primary')
+  let buttonStyle: React.CSSProperties | undefined
+
+  if (
+    (buttonColor === 'custom' || buttonColor === 'custom-outline') &&
+    customButtonColor
+  ) {
+    if (buttonColor === 'custom') {
+      buttonClassNames.push('btn-custom')
+      buttonStyle = {
+        '--btn-color': customButtonColor,
+      } as React.CSSProperties
+    } else if (buttonColor === 'custom-outline') {
+      buttonClassNames.push('btn-outline-custom')
+      buttonStyle = {
+        '--btn-color': customButtonColor,
+      } as React.CSSProperties
+    }
+  } else {
+    buttonClassNames.push(buttonColor)
+  }
 
   const buttonSize = buttonSizeClassName(widget.get('buttonSize'))
   if (buttonSize) buttonClassNames.push(buttonSize)
 
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
-      <LinkTag to={target} className={buttonClassNames.join(' ')}>
+      <LinkTag
+        to={target}
+        className={buttonClassNames.join(' ')}
+        style={buttonStyle}
+      >
         {!title && isInPlaceEditingActive()
           ? 'Provide the button link and text in the widget properties.'
           : title}
