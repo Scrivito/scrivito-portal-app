@@ -6,15 +6,12 @@ import {
   urlFor,
 } from 'scrivito'
 import { extractFromUrl } from './extractFromUrl'
+import { defaultSites } from './defaultSites'
 
 export async function ensureSiteIsPresent() {
   if (await load(() => currentSiteId())) return
 
-  if (
-    await load(
-      () => !Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID),
-    )
-  ) {
+  if (await load(() => !defaultSites().toArray().length)) {
     ensureUserIsLoggedIn()
     return
   }
@@ -67,9 +64,9 @@ function getLanguageVersions(contentId?: string): Obj[] | undefined {
         .toArray()[0]
     : undefined
 
-  return (
-    root || Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
-  )?.versionsOnAllSites()
+  if (root) return root.versionsOnAllSites()
+
+  return defaultSites().toArray()
 }
 
 function siteHasLanguage(site: Obj, language: string | null) {

@@ -13,7 +13,7 @@ export function baseUrlForSite(siteId: string): string | undefined {
   const siteRoot = Obj.onSite(siteId).root()
   if (!siteRoot) return
 
-  if (siteRoot.contentId() !== defaultSiteContentId()) {
+  if (siteRoot.contentId() !== import.meta.env.SCRIVITO_DEFAULT_CONTENT_ID) {
     const configuredBaseUrl = configuredBaseUrlsFor(siteRoot)[0]
     if (configuredBaseUrl) return configuredBaseUrl
   }
@@ -58,9 +58,9 @@ function findSiteByUrl(url: string) {
   const { contentId: urlContentId, language } = extractFromUrl(url)
   if (!language) return {}
 
-  if (urlContentId === defaultSiteContentId()) return {}
+  if (urlContentId === import.meta.env.SCRIVITO_DEFAULT_CONTENT_ID) return {}
 
-  const contentId = urlContentId || defaultSiteContentId()
+  const contentId = urlContentId || import.meta.env.SCRIVITO_DEFAULT_CONTENT_ID
   if (!contentId) return {}
 
   const siteId = findSiteIdBy({ contentId, language })
@@ -111,13 +111,7 @@ function configuredBaseUrlsFor(site: Obj) {
 
 function baseUrlFor(language: string, contentId?: string) {
   const base = instanceBaseUrl()
-  return contentId && contentId !== defaultSiteContentId()
+  return contentId && contentId !== import.meta.env.SCRIVITO_DEFAULT_CONTENT_ID
     ? `${base}/${contentId}/${language}`
     : `${base}/${language}`
-}
-
-function defaultSiteContentId() {
-  return Obj.onAllSites()
-    .get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
-    ?.contentId()
 }
