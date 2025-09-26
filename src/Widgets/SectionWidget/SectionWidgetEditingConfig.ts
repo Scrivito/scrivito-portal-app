@@ -18,6 +18,7 @@ provideEditingConfig(SectionWidget, {
         { value: 'white', title: 'White' },
         { value: 'primary', title: 'Primary color' },
         { value: 'secondary', title: 'Secondary color' },
+        { value: 'custom', title: 'Custom' },
         { value: 'light-grey', title: 'Light grey' },
         { value: 'middle-grey', title: 'Grey' },
         { value: 'dark-grey', title: 'Dark grey' },
@@ -27,6 +28,11 @@ provideEditingConfig(SectionWidget, {
         { value: 'danger', title: 'Danger' },
       ],
     },
+    backgroundColorCustom: {
+      title: 'Custom background color',
+      editor: 'colorPicker',
+    },
+
     backgroundImage: {
       title: 'Background image or video',
     },
@@ -44,13 +50,20 @@ provideEditingConfig(SectionWidget, {
       description: 'Padding adds space around this section. Default: Yes',
     },
   },
-  properties: (widget) => [
-    'backgroundColor',
-    'backgroundImage',
-    ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
-    'containerWidth',
-    'showPadding',
-  ],
+  properties: (widget) =>
+    [
+      'backgroundColor',
+      widget.get('backgroundColor') === 'custom'
+        ? 'backgroundColorCustom'
+        : null,
+      'backgroundImage',
+      [
+        'backgroundAnimateOnHover',
+        { enabled: !!widget.get('backgroundImage') },
+      ],
+      'containerWidth',
+      'showPadding',
+    ].filter((p): p is string => typeof p === 'string'),
   initialContent: {
     backgroundColor: 'transparent',
     containerWidth: 'fixed',

@@ -8,7 +8,16 @@ provideComponent(SectionWidget, ({ widget }) => {
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   const backgroundColor = widget.get('backgroundColor')
-  if (backgroundColor && backgroundColor !== 'transparent') {
+  const backgroundColorCustom = widget.get('backgroundColorCustom')
+
+  let sectionStyle: React.CSSProperties | undefined
+
+  if (backgroundColor === 'custom' && backgroundColorCustom) {
+    sectionClassNames.push('bg-custom')
+    sectionStyle = {
+      '--bg-color': backgroundColorCustom,
+    } as React.CSSProperties
+  } else if (backgroundColor && backgroundColor !== 'transparent') {
     sectionClassNames.push(`bg-${backgroundColor}`)
   }
 
@@ -26,6 +35,7 @@ provideComponent(SectionWidget, ({ widget }) => {
     <WidgetTag
       tag="section"
       className={sectionClassNames.join(' ')}
+      style={sectionStyle}
       onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
     >
       <ImageOrVideo

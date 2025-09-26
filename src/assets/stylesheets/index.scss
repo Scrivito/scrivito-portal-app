@@ -643,7 +643,8 @@ main {
 .bg-secondary,
 .bg-success,
 .bg-warning,
-.bg-white {
+.bg-white,
+.bg-custom {
   --text-color: #{bestContrast(
       var(--bg-color),
       var(--dark-text-color),
@@ -697,7 +698,8 @@ main {
 .bg-secondary,
 .bg-success,
 .bg-warning,
-.bg-white {
+.bg-white,
+.bg-custom {
   background: var(--bg-color) !important;
   color: var(--text-color) !important;
 }
