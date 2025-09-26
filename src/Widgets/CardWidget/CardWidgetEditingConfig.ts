@@ -18,6 +18,7 @@ provideEditingConfig(CardWidget, {
         { value: 'white', title: 'White' },
         { value: 'primary', title: 'Primary color' },
         { value: 'secondary', title: 'Secondary color' },
+        { value: 'custom', title: 'Custom' },
         { value: 'light-grey', title: 'Light grey' },
         { value: 'middle-grey', title: 'Grey' },
         { value: 'dark-grey', title: 'Dark grey' },
@@ -26,6 +27,10 @@ provideEditingConfig(CardWidget, {
         { value: 'warning', title: 'Warning' },
         { value: 'danger', title: 'Danger' },
       ],
+    },
+    backgroundColorCustom: {
+      title: 'Custom background color',
+      editor: 'colorPicker',
     },
     backgroundImage: {
       title: 'Background image or video',
@@ -44,17 +49,24 @@ provideEditingConfig(CardWidget, {
       description: 'Space below the widget. Default: mb-4',
     },
   },
-  properties: (widget) => [
-    'linkTo',
-    'image',
-    'backgroundColor',
-    'backgroundImage',
-    ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
-    'cardExtended',
-    'padding',
-    'margin',
-    'showFooter',
-  ],
+  properties: (widget) =>
+    [
+      'linkTo',
+      'image',
+      'backgroundColor',
+      widget.get('backgroundColor') === 'custom'
+        ? 'backgroundColorCustom'
+        : null,
+      'backgroundImage',
+      [
+        'backgroundAnimateOnHover',
+        { enabled: !!widget.get('backgroundImage') },
+      ],
+      'cardExtended',
+      'padding',
+      'margin',
+      'showFooter',
+    ].filter((p): p is string => typeof p === 'string'),
   initialContent: {
     backgroundColor: 'white',
     margin: 'mb-4',
