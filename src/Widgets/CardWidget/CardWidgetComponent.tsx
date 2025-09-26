@@ -27,13 +27,25 @@ provideComponent(CardWidget, ({ widget }) => {
   cardClassNames.push(widget.get('margin') ?? 'mb-4')
 
   const backgroundColor = widget.get('backgroundColor') || 'white'
-  cardClassNames.push(`bg-${backgroundColor}`)
+  const customBackgroundColor = widget.get('customBackgroundColor')
+
+  let cardStyle: React.CSSProperties | undefined
+
+  if (backgroundColor === 'custom' && customBackgroundColor) {
+    cardClassNames.push('bg-custom')
+    cardStyle = {
+      '--bg-color': customBackgroundColor,
+    } as React.CSSProperties
+  } else {
+    cardClassNames.push(`bg-${backgroundColor}`)
+  }
 
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
 
   return (
     <WidgetTag
       className={cardClassNames.join(' ')}
+      style={cardStyle}
       onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
     >
       <ImageOrVideo

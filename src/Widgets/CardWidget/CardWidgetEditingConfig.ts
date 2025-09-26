@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { CardBackgroundColorPicker } from './CardBackgroundColorPicker'
 
 provideEditingConfig(CardWidget, {
   title: 'Card',
@@ -25,6 +26,7 @@ provideEditingConfig(CardWidget, {
         { value: 'info', title: 'Info' },
         { value: 'warning', title: 'Warning' },
         { value: 'danger', title: 'Danger' },
+        { value: 'custom', title: 'Custom color' },
       ],
     },
     backgroundImage: {
@@ -43,17 +45,43 @@ provideEditingConfig(CardWidget, {
       title: 'Margin',
       description: 'Space below the widget. Default: mb-4',
     },
+    customBackgroundColor: {
+      title: 'Custom background color',
+      description: 'Only visible when "Custom color" is selected',
+    },
   },
-  properties: (widget) => [
-    'linkTo',
-    'image',
-    'backgroundColor',
-    'backgroundImage',
-    ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
-    'cardExtended',
-    'padding',
-    'margin',
-    'showFooter',
+  propertiesGroups: () => [
+    {
+      title: 'General',
+      properties: [
+        'linkTo',
+        'image',
+        'cardExtended',
+        'padding',
+        'margin',
+        'showFooter',
+      ],
+      key: 'card-general-group',
+    },
+    {
+      title: 'Background',
+      properties: [
+        'backgroundColor',
+        'backgroundImage',
+        'backgroundAnimateOnHover',
+        // [
+        //   'backgroundAnimateOnHover',
+        //   { enabled: !!widget.get('backgroundImage') },
+        // ],
+      ],
+      key: 'card-background-group',
+    },
+    {
+      title: 'Custom Color',
+      component: CardBackgroundColorPicker,
+      properties: ['customBackgroundColor'],
+      key: 'card-custom-color-group',
+    },
   ],
   initialContent: {
     backgroundColor: 'white',
