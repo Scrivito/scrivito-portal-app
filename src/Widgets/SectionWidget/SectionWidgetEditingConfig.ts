@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import { SectionBackgroundColorPicker } from './SectionBackgroundColorPicker'
 
 provideEditingConfig(SectionWidget, {
   title: 'Section',
@@ -25,6 +26,7 @@ provideEditingConfig(SectionWidget, {
         { value: 'info', title: 'Info' },
         { value: 'warning', title: 'Warning' },
         { value: 'danger', title: 'Danger' },
+        { value: 'custom', title: 'Custom color' },
       ],
     },
     backgroundImage: {
@@ -39,17 +41,39 @@ provideEditingConfig(SectionWidget, {
         { value: '100-percent', title: '100%' },
       ],
     },
+    customBackgroundColor: {
+      title: 'Custom background color',
+      description: 'Only visible when "Custom color" is selected',
+    },
     showPadding: {
       title: 'Padding',
       description: 'Padding adds space around this section. Default: Yes',
     },
   },
-  properties: (widget) => [
-    'backgroundColor',
-    'backgroundImage',
-    ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
-    'containerWidth',
-    'showPadding',
+  propertiesGroups: (widget) => [
+    {
+      title: 'Background',
+      properties: [
+        'backgroundColor',
+        'backgroundImage',
+        [
+          'backgroundAnimateOnHover',
+          { enabled: !!widget.get('backgroundImage') },
+        ],
+      ],
+      key: 'section-background-group',
+    },
+    {
+      title: 'Custom Color',
+      component: SectionBackgroundColorPicker,
+      properties: ['customBackgroundColor'],
+      key: 'section-custom-color-group',
+    },
+    {
+      title: 'Layout',
+      properties: ['containerWidth', 'showPadding'],
+      key: 'section-layout-group',
+    },
   ],
   initialContent: {
     backgroundColor: 'transparent',
