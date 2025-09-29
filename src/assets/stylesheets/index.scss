@@ -226,14 +226,14 @@ fieldset:disabled .btn {
   --bs-btn-bg: var(--btn-color);
   --bs-btn-border-color: var(--btn-color);
   --bs-btn-hover-color: #{bestContrast(
-      var(--btn-color-lighten),
+      var(--btn-color),
       var(--dark-text-color),
       var(--light-text-color)
     )};
   --bs-btn-hover-bg: var(--btn-color-lighten);
   --bs-btn-hover-border-color: var(--btn-color-lighten);
   --bs-btn-active-color: #{bestContrast(
-      var(--btn-color-darken),
+      var(--btn-color),
       var(--dark-text-color),
       var(--light-text-color)
     )};
@@ -261,7 +261,7 @@ fieldset:disabled .btn {
   --bs-btn-color: var(--btn-color);
   --bs-btn-border-color: var(--btn-color);
   --bs-btn-hover-color: #{bestContrast(
-      var(--btn-color-lighten),
+      var(--btn-color),
       var(--dark-text-color),
       var(--light-text-color)
     )};
@@ -269,7 +269,7 @@ fieldset:disabled .btn {
   --bs-btn-hover-border-color: var(--btn-color-lighten);
   --bs-btn-focus-shadow-rgb: 13, 110, 253;
   --bs-btn-active-color: #{bestContrast(
-      var(--btn-color-darken),
+      var(--btn-color),
       var(--dark-text-color),
       var(--light-text-color)
     )};
