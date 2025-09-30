@@ -14,15 +14,20 @@ export async function prerenderObj(
     result: { objId, objUrl, ...data },
     preloadDump,
   } = await renderPage(obj, () => {
-    const rawBodyContent = ReactDOMServer.renderToString(<App />)
-    const { title, bodyContent } = extractTitle(rawBodyContent)
+    const rawBodyContent = ReactDOMServer.renderToString(
+      <>
+        <head />
+        <App />
+      </>,
+    )
+    const { headContent, bodyContent } = extractHead(rawBodyContent)
 
     return {
       bodyContent,
       htmlAttributes: `lang="${obj.language() || 'en'}"`,
       objId: obj.id(),
       objUrl: urlFor(obj),
-      title,
+      headContent,
     }
   })
 
@@ -43,13 +48,24 @@ export async function prerenderObj(
   ]
 }
 
-function extractTitle(html: string): {
-  title: string
+function extractHead(html: string): {
+  headContent: string
   bodyContent: string
 } {
-  const titleMatch = html.match(/<title[^>]*>.*?<\/title>/i)
-  const title = titleMatch ? titleMatch[0] : ''
-  const bodyContent = title ? html.replace(title, '') : html
+  const parts = html.split('</head>')
+  const [firstSegment, bodyContent, ...restParts] = parts
+  if (
+    typeof firstSegment !== 'string' ||
+    typeof bodyContent !== 'string' ||
+    restParts.length > 0
+  ) {
+    throw new Error('Could not extract head from HTML')
+  }
 
-  return { title, bodyContent }
+  const [emptyString, headContent, ...restHeads] = firstSegment.split('<head>')
+  if (emptyString || typeof headContent !== 'string' || restHeads.length > 0) {
+    throw new Error('Could not extract head from HTML')
+  }
+
+  return { headContent, bodyContent }
 }
