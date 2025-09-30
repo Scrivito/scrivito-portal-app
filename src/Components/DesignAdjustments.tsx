@@ -59,7 +59,11 @@ export const DesignAdjustments = connect(
 
     return (
       <>
-        <style type="text/css">{`:root{\n  ${styles.join('\n  ')}\n}`}</style>
+        <link
+          rel="stylesheet"
+          precedence="default"
+          href={`data:text/css,${encodeURIComponent(`:root{${styles.join('')}}`)}`}
+        />
 
         {root.get('siteFontHeadline').map((font) => (
           <FontFace
@@ -94,16 +98,17 @@ const FontFace = connect(
     const weight = font.get('weight')
 
     return (
-      <style type="text/css">
-        {`
-          @font-face {
+      <link
+        rel="stylesheet"
+        precedence="default"
+        href={`data:text/css,${encodeURIComponent(
+          `@font-face{
             font-family: '${fontFamily}';
             font-display: swap;
             src: url('${encodeURI(fontUrl)}');
-            ${weight ? `font-weight: ${weight};` : ''}
-          }
-        `}
-      </style>
+            ${weight ? `font-weight: ${weight};` : ''}}`,
+        )}`}
+      />
     )
   },
   { loading: () => null },
