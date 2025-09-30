@@ -33,7 +33,7 @@
     "react-draggable": "^4.5.0",
     "react-dropzone": "^14.3.8",
     "react-toastify": "^11.0.5",
-    "scrivito": "^1.54.1",
+    "scrivito": "^1.55.0-rc1",
     "scrivito-icon-editor": "^0.0.2",
     "scrivito-neoletter-form-widgets": "^0.0.40",
     "scroll-to-fragment": "^1.1.0"
