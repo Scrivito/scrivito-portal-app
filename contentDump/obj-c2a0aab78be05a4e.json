@@ -138,6 +138,30 @@
     "string",
     "8.5px"
   ],
+  "site_color_primary": [
+    "string",
+    "#274486"
+  ],
+  "site_color_secondary": [
+    "string",
+    "#39a9eb"
+  ],
+  "site_color_text_dark": [
+    "string",
+    "#454545"
+  ],
+  "site_color_text_dark_headline": [
+    "string",
+    "#3b3b3b"
+  ],
+  "site_color_text_light": [
+    "string",
+    "#ffffff"
+  ],
+  "site_color_text_light_headline": [
+    "string",
+    "#ffffff"
+  ],
   "_conflicts": null,
   "_content_id": "c2a0aab78be05a4e",
   "_created_at": "20230509091921",
@@ -146,14 +170,14 @@
   "_first_published_at": "20230509091931",
   "_id": "c2a0aab78be05a4e",
   "_language": "en",
-  "_last_changed": "20250808095910",
+  "_last_changed": "20251001091442",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250808095950",
+  "_published_at": "20251001091645",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202508080959500000000000000000ef1f05f5c56a46c1",
+  "_version": "2025100109164500000000000000009b47fbf2008b68da",
   "_widget_pool": {
     "10914562": {
       "_obj_class": "ColumnContainerWidget",
