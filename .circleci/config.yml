@@ -6,10 +6,10 @@ orbs:
 executors:
   node:
     docker:
-      - image: cimg/node:20.19
+      - image: cimg/node:22.20
   node-browsers:
     docker:
-      - image: cimg/node:20.19-browsers
+      - image: cimg/node:22.20-browsers
 
 jobs:
   execute-npm:
