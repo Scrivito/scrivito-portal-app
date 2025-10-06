@@ -1,6 +1,7 @@
 import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import jsxA11Y from 'eslint-plugin-jsx-a11y'
+import reactHooks from 'eslint-plugin-react-hooks'
 import tsParser from '@typescript-eslint/parser'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -23,7 +24,6 @@ export default [
       'plugin:@typescript-eslint/recommended',
       'plugin:react/recommended',
       'plugin:react/jsx-runtime',
-      'plugin:react-hooks/recommended',
       'plugin:import/recommended',
       'plugin:import/typescript',
       'plugin:jsx-a11y/recommended',
@@ -33,6 +33,7 @@ export default [
     plugins: {
       '@typescript-eslint': fixupPluginRules(typescriptEslint),
       'jsx-a11y': fixupPluginRules(jsxA11Y),
+      'react-hooks': reactHooks,
     },
 
     languageOptions: {
@@ -56,6 +57,7 @@ export default [
     },
 
     rules: {
+      ...reactHooks.configs.recommended.rules,
       curly: ['error', 'multi-line'],
 
       eqeqeq: ['warn'],

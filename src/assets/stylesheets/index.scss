@@ -58,8 +58,6 @@
       var(--dark-headline-text-color),
       var(--light-headline-text-color)
     )};
-  --bs-secondary-lighten: hsl(from var(--bs-secondary) h s calc(l + 8));
-  --bs-secondary-darken: hsl(from var(--bs-secondary) h s calc(l - 8));
 
   --bs-success: #21704b;
   --bs-info: #39a9eb;
@@ -215,78 +213,89 @@ fieldset:disabled .btn {
   opacity: var(--bs-btn-disabled-opacity);
 }
 
-.btn-primary {
-  --bs-btn-color: var(--bs-primary-text-color);
-  --bs-btn-bg: var(--bs-primary);
-  --bs-btn-border-color: var(--bs-primary);
-  --bs-btn-hover-color: var(--bs-primary-text-color);
-  --bs-btn-hover-bg: var(--bs-primary-lighten);
-  --bs-btn-hover-border-color: var(--bs-primary-lighten);
-  --bs-btn-active-color: var(--bs-primary-text-color);
-  --bs-btn-active-bg: var(--bs-primary-darken);
-  --bs-btn-active-border-color: var(--bs-primary-darken);
+// Base button variant styles using CSS custom properties
+.btn-primary,
+.btn-secondary {
+  --btn-color-lighten: hsl(from var(--btn-color) h s calc(l + 8));
+  --btn-color-darken: hsl(from var(--btn-color) h s calc(l - 8));
+  --bs-btn-color: #{bestContrast(
+      var(--btn-color),
+      var(--dark-text-color),
+      var(--light-text-color)
+    )};
+  --bs-btn-bg: var(--btn-color);
+  --bs-btn-border-color: var(--btn-color);
+  --bs-btn-hover-color: #{bestContrast(
+      var(--btn-color),
+      var(--dark-text-color),
+      var(--light-text-color)
+    )};
+  --bs-btn-hover-bg: var(--btn-color-lighten);
+  --bs-btn-hover-border-color: var(--btn-color-lighten);
+  --bs-btn-active-color: #{bestContrast(
+      var(--btn-color),
+      var(--dark-text-color),
+      var(--light-text-color)
+    )};
+  --bs-btn-active-bg: var(--btn-color-darken);
+  --bs-btn-active-border-color: var(--btn-color-darken);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #aaa;
-  --bs-btn-disabled-bg: var(--bs-primary-darken);
-  --bs-btn-disabled-border-color: var(--bs-primary-darken);
+  --bs-btn-disabled-bg: var(--btn-color-darken);
+  --bs-btn-disabled-border-color: var(--btn-color-darken);
+}
+
+.btn-primary {
+  --btn-color: var(--bs-primary);
 }
 
 .btn-secondary {
-  --bs-btn-color: var(--bs-secondary-text-color);
-  --bs-btn-bg: var(--bs-secondary);
-  --bs-btn-border-color: var(--bs-secondary);
-  --bs-btn-hover-color: var(--bs-secondary-text-color);
-  --bs-btn-hover-bg: var(--bs-secondary-lighten);
-  --bs-btn-hover-border-color: var(--bs-secondary-lighten);
-  --bs-btn-active-color: var(--bs-secondary-text-color);
-  --bs-btn-active-bg: var(--bs-secondary-darken);
-  --bs-btn-active-border-color: var(--bs-secondary-darken);
+  --btn-color: var(--bs-secondary);
+}
+
+// Base outline button variant styles using CSS custom properties
+.btn-outline-primary,
+.btn-outline-secondary {
+  --btn-color-lighten: hsl(from var(--btn-color) h s calc(l + 8));
+  --btn-color-darken: hsl(from var(--btn-color) h s calc(l - 8));
+  --bs-btn-color: var(--btn-color);
+  --bs-btn-border-color: var(--btn-color);
+  --bs-btn-hover-color: #{bestContrast(
+      var(--btn-color),
+      var(--dark-text-color),
+      var(--light-text-color)
+    )};
+  --bs-btn-hover-bg: var(--btn-color-lighten);
+  --bs-btn-hover-border-color: var(--btn-color-lighten);
+  --bs-btn-focus-shadow-rgb: 13, 110, 253;
+  --bs-btn-active-color: #{bestContrast(
+      var(--btn-color),
+      var(--dark-text-color),
+      var(--light-text-color)
+    )};
+  --bs-btn-active-bg: var(--btn-color-darken);
+  --bs-btn-active-border-color: var(--btn-color-darken);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #aaa;
-  --bs-btn-disabled-bg: var(--bs-secondary-darken);
-  --bs-btn-disabled-border-color: var(--bs-secondary-darken);
+  --bs-btn-disabled-color: var(--btn-color-lighten);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: var(--btn-color-lighten);
+  --bs-gradient: none;
+
+  &:focus-visible {
+    color: #{bestContrast(
+        var(--btn-color),
+        var(--dark-text-color),
+        var(--light-text-color)
+      )} !important;
+  }
 }
 
 .btn-outline-primary {
-  --bs-btn-color: var(--bs-primary);
-  --bs-btn-border-color: var(--bs-primary);
-  --bs-btn-hover-color: var(--bs-primary-text-color);
-  --bs-btn-hover-bg: var(--bs-primary-lighten);
-  --bs-btn-hover-border-color: var(--bs-primary-lighten);
-  --bs-btn-focus-shadow-rgb: 13, 110, 253;
-  --bs-btn-active-color: var(--bs-primary-text-color);
-  --bs-btn-active-bg: var(--bs-primary-darken);
-  --bs-btn-active-border-color: var(--bs-primary-darken);
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: var(--bs-primary-lighten);
-  --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: var(--bs-primary-lighten);
-  --bs-gradient: none;
-
-  &:focus-visible {
-    color: var(--bs-primary-text-color) !important;
-  }
+  --btn-color: var(--bs-primary);
 }
 
 .btn-outline-secondary {
-  --bs-btn-color: var(--bs-secondary);
-  --bs-btn-border-color: var(--bs-secondary);
-  --bs-btn-hover-color: var(--bs-secondary-text-color);
-  --bs-btn-hover-bg: var(--bs-secondary-lighten);
-  --bs-btn-hover-border-color: var(--bs-secondary-lighten);
-  --bs-btn-focus-shadow-rgb: 13, 110, 253;
-  --bs-btn-active-color: var(--bs-secondary-text-color);
-  --bs-btn-active-bg: var(--bs-secondary-darken);
-  --bs-btn-active-border-color: var(--bs-secondary-darken);
-  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: var(--bs-secondary-lighten);
-  --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: var(--bs-secondary-lighten);
-  --bs-gradient: none;
-
-  &:focus-visible {
-    color: var(--bs-secondary-text-color) !important;
-  }
+  --btn-color: var(--bs-secondary);
 }
 
 .btn i:only-child {
@@ -615,55 +624,60 @@ main {
 }
 
 //-- --//
+
+// Base class for all background colors that automatically calculates optimal text colors
+.bg-danger,
+.bg-dark-grey,
+.bg-info,
+.bg-light-grey,
+.bg-middle-grey,
+.bg-primary,
+.bg-secondary,
+.bg-success,
+.bg-warning,
+.bg-white {
+  --text-color: #{bestContrast(
+      var(--bg-color),
+      var(--dark-text-color),
+      var(--light-text-color)
+    )};
+  --headline-text-color: #{bestContrast(
+      var(--bg-color),
+      var(--dark-headline-text-color),
+      var(--light-headline-text-color)
+    )};
+}
+
+// Individual background color definitions
 .bg-white {
   --bg-color: #fff;
-  --headline-text-color: var(--dark-headline-text-color);
-  --text-color: var(--dark-text-color);
 }
 .bg-primary {
   --bg-color: var(--bs-primary);
-  --headline-text-color: var(--bs-primary-headline-text-color);
-  --text-color: var(--bs-primary-text-color);
 }
 .bg-dark-grey {
   --bg-color: var(--dark-grey);
-  --headline-text-color: var(--light-headline-text-color);
-  --text-color: var(--light-text-color);
 }
 .bg-secondary {
   --bg-color: var(--bs-secondary);
-  --headline-text-color: var(--bs-secondary-headline-text-color);
-  --text-color: var(--bs-secondary-text-color);
 }
 .bg-info {
   --bg-color: var(--bs-info);
-  --headline-text-color: var(--light-headline-text-color);
-  --text-color: var(--light-text-color);
 }
 .bg-success {
   --bg-color: var(--bs-success);
-  --headline-text-color: var(--light-headline-text-color);
-  --text-color: var(--light-text-color);
 }
 .bg-warning {
   --bg-color: var(--bs-warning);
-  --headline-text-color: var(--dark-headline-text-color);
-  --text-color: var(--dark-text-color);
 }
 .bg-danger {
   --bg-color: var(--bs-danger);
-  --headline-text-color: var(--light-headline-text-color);
-  --text-color: var(--light-text-color);
 }
 .bg-light-grey {
   --bg-color: var(--light-grey);
-  --headline-text-color: var(--dark-headline-text-color);
-  --text-color: var(--dark-text-color);
 }
 .bg-middle-grey {
   --bg-color: var(--middle-grey);
-  --headline-text-color: var(--dark-headline-text-color);
-  --text-color: var(--dark-text-color);
 }
 
 .bg-danger,
@@ -683,25 +697,17 @@ main {
 // -- color content adaptions -- //
 
 a {
-  &.bg-primary {
-    color: var(--bs-primary-text-color);
-  }
-  &.bg-secondary {
-    color: var(--bs-secondary-text-color);
-  }
+  &.bg-primary,
+  &.bg-secondary,
   &.bg-dark-grey,
   &.bg-success,
   &.bg-warning,
   &.bg-danger,
-  &.bg-info {
-    color: var(--light-text-color);
-  }
-}
-a {
+  &.bg-info,
   &.bg-white,
   &.bg-light-grey,
   &.bg-middle-grey {
-    color: var(--dark-text-color) !important;
+    color: var(--text-color) !important;
   }
 }
 
@@ -723,16 +729,15 @@ section {
   }
 }
 
-.btn-outline-primary {
-  &:hover,
-  &:active {
-    color: var(--bs-primary-text-color) !important;
-  }
-}
+.btn-outline-primary,
 .btn-outline-secondary {
   &:hover,
   &:active {
-    color: var(--bs-secondary-text-color) !important;
+    color: #{bestContrast(
+        var(--btn-color),
+        var(--dark-text-color),
+        var(--light-text-color)
+      )} !important;
   }
 }
 
@@ -1841,8 +1846,8 @@ header .navbar.navbar-expand-lg {
   }
 
   .btn-outline-secondary {
-    --bs-btn-color: var(--bs-secondary-darken);
-    --bs-btn-border-color: var(--bs-secondary-darken);
+    --bs-btn-color: hsl(from var(--bs-secondary) h s calc(l - 8));
+    --bs-btn-border-color: hsl(from var(--bs-secondary) h s calc(l - 8));
   }
 
   .box-comment .card {

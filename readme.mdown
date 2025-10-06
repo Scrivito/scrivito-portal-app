@@ -26,11 +26,11 @@ cd scrivito-portal-app/
 
 ### Install/check prerequisites
 
-Make sure that you have [![node ≥ 20.0](https://img.shields.io/badge/node-≥%2020.0-blue.svg)](https://nodejs.org) installed.
+Make sure that you have [![node ≥ 22.0](https://img.shields.io/badge/node-≥%2022.0-blue.svg)](https://nodejs.org) installed.
 
 ```
 node -v
-# should output something like v20.19.0
+# should output something like v22.20.0
 ```
 
 ### Install dependencies
