@@ -2,6 +2,7 @@ import { provideEditingConfig, Widget } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
 import { AttributeDimensionEditor } from '../../Components/ScrivitoExtensions/AttributeDimensionEditor'
+import { ObjectFit } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
@@ -60,23 +61,10 @@ provideEditingConfig(ImageWidget, {
       },
     ],
   ],
-  propertiesGroups: [
+  propertiesGroups: (widget) => [
     {
       title: 'Dimensions',
       properties: [
-        [
-          'height',
-          {
-            component: ({ widget }: { widget?: Widget }) => (
-              <AttributeDimensionEditor
-                widget={widget}
-                attribute="height"
-                units={['px']}
-              />
-            ),
-          },
-        ],
-        'objectFit', // TODO: Add custom editor here
         [
           'width',
           {
@@ -89,6 +77,21 @@ provideEditingConfig(ImageWidget, {
             ),
           },
         ],
+        [
+          'height',
+          {
+            component: ({ widget }: { widget?: Widget }) => (
+              <AttributeDimensionEditor
+                widget={widget}
+                attribute="height"
+                units={['px']}
+              />
+            ),
+          },
+        ],
+        ...(widget.get('width')
+          ? ([['objectFit', { component: ObjectFit }]] as const)
+          : []),
       ],
       key: 'dimensions-group',
     },
