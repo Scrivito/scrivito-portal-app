@@ -1,7 +1,7 @@
-import { provideEditingConfig } from 'scrivito'
+import { provideEditingConfig, Widget } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
+import { AttributeDimensionEditor } from '../../Components/ScrivitoExtensions/AttributeDimensionEditor'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
@@ -25,6 +25,9 @@ provideEditingConfig(ImageWidget, {
     attributeName: {
       title: 'Data item attribute name',
     },
+    height: {
+      title: 'Height',
+    },
     imageFromDataItem: {
       title: 'Show image from data item?',
     },
@@ -32,8 +35,15 @@ provideEditingConfig(ImageWidget, {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
     },
+    objectFit: {
+      title: 'Object fit',
+      description: 'Default: Contain',
+    },
     roundCorners: {
       title: 'Round corners?',
+    },
+    width: {
+      title: 'Width',
     },
   },
   properties: (widget) => [
@@ -53,8 +63,33 @@ provideEditingConfig(ImageWidget, {
   propertiesGroups: [
     {
       title: 'Dimensions',
-      properties: ['height', 'objectFit', 'width'],
-      component: ImageDimensionsEditor,
+      properties: [
+        [
+          'height',
+          {
+            component: ({ widget }: { widget?: Widget }) => (
+              <AttributeDimensionEditor
+                widget={widget}
+                attribute="height"
+                units={['px']}
+              />
+            ),
+          },
+        ],
+        'objectFit', // TODO: Add custom editor here
+        [
+          'width',
+          {
+            component: ({ widget }: { widget?: Widget }) => (
+              <AttributeDimensionEditor
+                widget={widget}
+                attribute="width"
+                units={['px', '%']}
+              />
+            ),
+          },
+        ],
+      ],
       key: 'dimensions-group',
     },
   ],
