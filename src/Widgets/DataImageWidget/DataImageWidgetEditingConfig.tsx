@@ -1,7 +1,8 @@
-import { provideEditingConfig } from 'scrivito'
+import { provideEditingConfig, Widget } from 'scrivito'
 import { DataImageWidget } from './DataImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
+import { AttributeDimensionEditor } from '../../Components/ScrivitoExtensions/AttributeDimensionEditor'
+import { ObjectFit } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
 
 provideEditingConfig(DataImageWidget, {
   title: 'Data Image',
@@ -16,23 +17,60 @@ provideEditingConfig(DataImageWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    height: {
+      title: 'Height',
+    },
     link: {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
     },
+    objectFit: {
+      title: 'Object fit',
+      description: 'Default: Contain',
+    },
     roundCorners: {
       title: 'Round corners?',
+    },
+    width: {
+      title: 'Width',
     },
     data: {
       restrictDataTo: ['itemAttribute'],
     },
   },
   properties: ['alignment', 'link', 'roundCorners'],
-  propertiesGroups: [
+  propertiesGroups: (widget) => [
     {
       title: 'Dimensions',
-      properties: ['height', 'objectFit', 'width'],
-      component: ImageDimensionsEditor,
+      properties: [
+        [
+          'width',
+          {
+            component: ({ widget }: { widget?: Widget }) => (
+              <AttributeDimensionEditor
+                widget={widget}
+                attribute="width"
+                units={['px', '%']}
+              />
+            ),
+          },
+        ],
+        [
+          'height',
+          {
+            component: ({ widget }: { widget?: Widget }) => (
+              <AttributeDimensionEditor
+                widget={widget}
+                attribute="height"
+                units={['px']}
+              />
+            ),
+          },
+        ],
+        ...(widget.get('width')
+          ? ([['objectFit', { component: ObjectFit }]] as const)
+          : []),
+      ],
       key: 'dimensions-group',
     },
   ],
