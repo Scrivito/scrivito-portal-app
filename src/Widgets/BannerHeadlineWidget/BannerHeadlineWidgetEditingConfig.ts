@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import {
+  textStyleEditingConfigAttributes,
+  textStylePropertiesGroup,
+} from '../textStyleEditingConfig'
 
 provideEditingConfig(BannerHeadlineWidget, {
   title: 'Banner Headline',
@@ -54,8 +58,10 @@ provideEditingConfig(BannerHeadlineWidget, {
         { value: 'h6', title: 'h6' },
       ],
     },
+    ...textStyleEditingConfigAttributes,
   },
   properties: ['style', 'level', 'backgroundColor'],
+  propertiesGroups: [textStylePropertiesGroup],
   initialContent: {
     backgroundColor: 'white',
     headline: 'Headline',

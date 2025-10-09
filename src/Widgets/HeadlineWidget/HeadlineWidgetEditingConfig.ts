@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import {
+  textStyleEditingConfigAttributes,
+  textStylePropertiesGroup,
+} from '../textStyleEditingConfig'
 
 provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
@@ -54,9 +58,10 @@ provideEditingConfig(HeadlineWidget, {
       title: 'Margin',
       description: 'Space below the widget. Default: mb-2',
     },
-    uppercase: { title: 'Uppercase?', description: 'Default: No' },
+    ...textStyleEditingConfigAttributes,
   },
-  properties: ['style', 'level', 'alignment', 'margin', 'uppercase'],
+  properties: ['style', 'level', 'alignment', 'margin'],
+  propertiesGroups: [textStylePropertiesGroup],
   initialContent: {
     alignment: 'left',
     headline: 'Headline',

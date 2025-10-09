@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataCountWidget } from './DataCountWidgetClass'
 import thumbnail from './thumbnail.svg'
+import {
+  textStyleEditingConfigAttributes,
+  textStylePropertiesGroup,
+} from '../textStyleEditingConfig'
 
 provideEditingConfig(DataCountWidget, {
   title: 'Data Count',
@@ -47,6 +51,7 @@ provideEditingConfig(DataCountWidget, {
         { value: 'display-6', title: 'Display heading 6' },
       ],
     },
+    ...textStyleEditingConfigAttributes,
   },
   properties: [
     'loadingHeadline',
@@ -57,6 +62,7 @@ provideEditingConfig(DataCountWidget, {
     'style',
     'margin',
   ],
+  propertiesGroups: [textStylePropertiesGroup],
   initialContent: {
     alignment: 'left',
     headline: '__count__ items',

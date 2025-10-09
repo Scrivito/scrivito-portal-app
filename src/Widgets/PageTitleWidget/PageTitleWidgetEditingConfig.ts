@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { PageTitleWidget } from './PageTitleWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import {
+  textStyleEditingConfigAttributes,
+  textStylePropertiesGroup,
+} from '../textStyleEditingConfig'
 
 provideEditingConfig(PageTitleWidget, {
   title: 'Page Title',
@@ -22,8 +26,10 @@ provideEditingConfig(PageTitleWidget, {
         { value: 'danger', title: 'Danger' },
       ],
     },
+    ...textStyleEditingConfigAttributes,
   },
   properties: ['backgroundColor'],
+  propertiesGroups: [textStylePropertiesGroup],
   initialContent: {
     backgroundColor: 'primary',
   },

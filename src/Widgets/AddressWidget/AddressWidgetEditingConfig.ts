@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { AddressWidget } from './AddressWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import {
+  textStyleEditingConfigAttributes,
+  textStylePropertiesGroup,
+} from '../textStyleEditingConfig'
 
 provideEditingConfig(AddressWidget, {
   title: 'Address',
@@ -43,6 +47,7 @@ provideEditingConfig(AddressWidget, {
     email: {
       title: 'Email',
     },
+    ...textStyleEditingConfigAttributes,
   },
   properties: [
     'showLogo',
@@ -56,6 +61,7 @@ provideEditingConfig(AddressWidget, {
     'fax',
     'email',
   ],
+  propertiesGroups: [textStylePropertiesGroup],
   initialContent: {
     showLogo: true,
     phoneLabel: 'Phone',

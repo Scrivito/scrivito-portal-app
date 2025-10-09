@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { textStyleAttributes } from '../textStyleAttributes'
 
 export const HeadlineWidget = provideWidgetClass('HeadlineWidget', {
   attributes: {
@@ -30,7 +31,8 @@ export const HeadlineWidget = provideWidgetClass('HeadlineWidget', {
         ],
       },
     ],
-    uppercase: 'boolean',
+    uppercase: 'boolean', // TODO: Remove, because of textTransform
+    ...textStyleAttributes,
   },
   extractTextAttributes: ['headline'],
 })
