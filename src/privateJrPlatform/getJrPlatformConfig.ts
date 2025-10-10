@@ -8,6 +8,7 @@ export function getJrPlatformConfig() {
         'https://*.scrivito-ui.pages.dev',
       ],
       widgetHighlighting: true,
+      assetUrlBase: '/scrivito',
     },
   }
 }
