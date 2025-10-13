@@ -64,7 +64,7 @@ function formatDistance(date: Date, currentDate: Date) {
 
   if (years !== 0) return relativeTimeFormat.format(years, 'year')
   if (months !== 0) return relativeTimeFormat.format(months, 'month')
-  if (Math.abs(hours) >= 24) return relativeTimeFormat.format(days, 'day')
-  if (Math.abs(minutes) >= 60) return relativeTimeFormat.format(hours, 'hour')
+  if (days !== 0) return relativeTimeFormat.format(days, 'day')
+  if (hours !== 0) return relativeTimeFormat.format(hours, 'hour')
   return relativeTimeFormat.format(minutes, 'minute')
 }
