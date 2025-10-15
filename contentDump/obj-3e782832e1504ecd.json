@@ -29,16 +29,16 @@
   "_first_published_at": "20240405121103",
   "_id": "3e782832e1504ecd",
   "_language": "de",
-  "_last_changed": "20250805132940",
+  "_last_changed": "20251015102825",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40/31f54bc713bc6050/3e782832e1504ecd",
   "_permalink": null,
-  "_published_at": "20250806071623",
+  "_published_at": "20251015103024",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202508060716230000000000000000297565bdf5c97a35",
+  "_version": "2025101510302400000000000000002d9d9706455bffd4",
   "_widget_pool": {
     "48411211": {
       "_obj_class": "DataLabelWidget",
@@ -888,6 +888,10 @@
           "field": "text",
           "via_ref": "multi"
         }
+      ],
+      "required": [
+        "boolean",
+        true
       ]
     },
     "04b5dded": {

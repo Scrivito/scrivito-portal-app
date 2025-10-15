@@ -31,16 +31,16 @@
   "_first_published_at": "20240112090022",
   "_id": "e7118807488a6364",
   "_language": "en",
-  "_last_changed": "20241213094104",
+  "_last_changed": "20251015102730",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/125f0003cf11c725/e7118807488a6364",
   "_permalink": "ticket-details",
-  "_published_at": "20241213094222",
+  "_published_at": "20251015103024",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "56a14d0750cc844e",
-  "_version": "202412130942220000000000000000d9606519b9d9db1f",
+  "_version": "2025101510302400000000000000002d9d9706455bffd4",
   "_widget_pool": {
     "62381b16": {
       "_obj_class": "DataLabelWidget",
@@ -124,6 +124,10 @@
           "field": "text",
           "via_ref": "multi"
         }
+      ],
+      "required": [
+        "boolean",
+        true
       ]
     },
     "bb48b543": {
