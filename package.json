@@ -1,0 +1,7 @@
+{
+  "name": "scrivito-portal-app",
+  "private": true,
+  "scripts": {
+    "build": ""
+  }
+}
