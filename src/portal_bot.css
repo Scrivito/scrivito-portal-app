@@ -1,0 +1,34 @@
+/* jr-ai-assist-chat-button - floating button - not part of package
+ =============================================================================== */
+
+/* ai-chat button in website */
+
+.jr-ai-assist-floating-button {
+  --jr-ai-assist-bg-color-floating-button: #797979;
+}
+
+.jr-ai-assist-floating-button {
+  background: url('icon-bubble-white.svg')
+    var(--jr-ai-assist-bg-color-floating-button, #666) no-repeat center / 70%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  display: block;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  z-index: 11111;
+}
+
+.jr-ai-assist-floating-button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+  transform-origin: center;
+}
+
+.jr-ai-assist-floating-button span {
+  visibility: hidden;
+}
