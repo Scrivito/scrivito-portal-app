@@ -8,6 +8,8 @@ import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 import { SinglePageSite } from './Components/SinglePageSite'
 
+import { PortalBot } from './portal_bot'
+
 export function App({
   appWrapperRef,
 }: {
@@ -27,6 +29,7 @@ export function App({
         </DesignAdjustments>
         <Toasts />
       </div>
+      <PortalBot />
     </ErrorBoundary>
   )
 }
