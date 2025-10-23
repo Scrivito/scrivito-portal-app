@@ -1,7 +1,7 @@
 import dns from 'dns'
 import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import react from '@vitejs/plugin-react'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
 import { productionHeaders, developmentHeaders } from './headers.config'
@@ -79,7 +79,10 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       force: true,
     },
-    plugins: [react(), writeProductionHeaders(outDir)],
+    plugins: [
+      react({ babel: { plugins: ['babel-plugin-react-compiler'] } }),
+      writeProductionHeaders(outDir),
+    ],
     preview: {
       port: 8080,
       strictPort: true,

@@ -18,6 +18,7 @@
   "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
+    "babel-plugin-react-compiler", // used by vite.config.ts
 
     // used by eslint.config.mjs; Workaround for https://github.com/webpro-nl/knip/issues/818
     "@arabasta/eslint-plugin-react",
