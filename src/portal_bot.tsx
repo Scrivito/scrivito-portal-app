@@ -2,6 +2,7 @@ import { isUserLoggedIn } from 'scrivito'
 import { Chatbot } from '@justrelate/chatbot'
 
 import '@justrelate/chatbot/dist/index.css'
+import './portal_bot.css'
 
 import { Contract } from './Data/Contract/ContractDataClass'
 import { Document } from './Data/Document/DocumentDataClass'
