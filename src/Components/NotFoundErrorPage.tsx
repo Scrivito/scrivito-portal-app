@@ -60,6 +60,26 @@ const NotFound = connect(function NotFound() {
     }
   }, [])
 
+  useEffect(() => {
+    warnAboutMissingPortalContent()
+
+    async function warnAboutMissingPortalContent() {
+      if (
+        await load(() =>
+          Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID),
+        )
+      ) {
+        return
+      }
+
+      if (await load(() => Obj.onAllSites().all().count() === 0)) return
+
+      console.warn(
+        'Portal app content is missing. Your instance contains content, but the portal app root obj is not available.',
+      )
+    }
+  }, [])
+
   if (!root) {
     return (
       <main id="main">
