@@ -6,16 +6,20 @@ import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
 provideEditingConfig(DownloadCardWidget, {
   title: 'Download Card',
   thumbnail: Thumbnail,
-  properties: ['link'],
-  propertiesGroups: [
-    {
-      title: 'Icon',
-      component: (props: { widget: Widget }) => (
-        <ScrivitoBootstrapIconEditor defaultValue="filetype-pdf" {...props} />
-      ),
-      properties: ['icon'],
-      key: 'icon-group',
-    },
+  properties: [
+    'link',
+    [
+      'icon',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ScrivitoBootstrapIconEditor
+            attribute="icon"
+            defaultValue="filetype-pdf"
+            widget={widget}
+          />
+        ),
+      },
+    ],
   ],
   initialContent: {
     icon: 'bi-filetype-pdf',
