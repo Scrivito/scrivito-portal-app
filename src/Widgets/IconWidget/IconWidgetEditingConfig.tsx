@@ -32,20 +32,22 @@ provideEditingConfig(IconWidget, {
       ],
     },
   },
-  propertiesGroups: [
-    {
-      title: 'Icon',
-      component: (props: { widget: Widget }) => (
-        <ScrivitoBootstrapIconEditor defaultValue="box" {...props} />
-      ),
-      properties: ['icon'],
-      key: 'icon-group',
-    },
-    {
-      title: 'Optional attributes',
-      properties: ['size', 'alignment', 'link'],
-      key: 'optional-attributes-group',
-    },
+  properties: [
+    [
+      'icon',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ScrivitoBootstrapIconEditor
+            attribute="icon"
+            defaultValue="box"
+            widget={widget}
+          />
+        ),
+      },
+    ],
+    'size',
+    'alignment',
+    'link',
   ],
   initialContent: {
     icon: 'bi-box',

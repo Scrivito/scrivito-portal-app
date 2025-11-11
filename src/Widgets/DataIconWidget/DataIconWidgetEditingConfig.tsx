@@ -1,8 +1,7 @@
-import { provideEditingConfig } from 'scrivito'
+import { provideEditingConfig, Widget } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import Thumbnail from './thumbnail.svg'
 import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
-import { DataIconConditionWidgetInstance } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
 
 provideEditingConfig(DataIconWidget, {
   title: 'Data Icon',
@@ -32,21 +31,23 @@ provideEditingConfig(DataIconWidget, {
       restrictDataTo: ['itemAttribute'],
     },
   },
-  properties: ['size', 'alignment', 'conditions'],
-  propertiesGroups: [
-    {
-      title: 'Fallback icon',
-      component: (props: { widget: DataIconConditionWidgetInstance }) => (
-        <ScrivitoBootstrapIconEditor
-          attribute="fallbackIcon"
-          defaultValue="question-octagon"
-          description="This icon is used if no condition is met."
-          {...props}
-        />
-      ),
-      properties: ['fallbackIcon'],
-      key: 'icon-group',
-    },
+  properties: [
+    'size',
+    'alignment',
+    'conditions',
+    [
+      'fallbackIcon',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ScrivitoBootstrapIconEditor
+            attribute="fallbackIcon"
+            defaultValue="question-octagon"
+            description="This icon is used if no condition is met."
+            widget={widget}
+          />
+        ),
+      },
+    ],
   ],
   initialContent: {
     alignment: 'left',

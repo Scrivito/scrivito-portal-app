@@ -7,15 +7,19 @@ import { TickListWidget } from './TickListWidgetClass'
 provideEditingConfig(TickListWidget, {
   title: 'Tick List',
   thumbnail,
-  propertiesGroups: [
-    {
-      title: 'Icon',
-      component: (props: { widget: Widget }) => (
-        <ScrivitoBootstrapIconEditor defaultValue="check" {...props} />
-      ),
-      properties: ['icon'],
-      key: 'icon-group',
-    },
+  properties: [
+    [
+      'icon',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ScrivitoBootstrapIconEditor
+            attribute="icon"
+            defaultValue="check"
+            widget={widget}
+          />
+        ),
+      },
+    ],
   ],
   initialContent: {
     icon: 'bi-check',
