@@ -5,15 +5,20 @@ import {
   ColumnWidget,
   ColumnWidgetInstance,
 } from '../ColumnWidget/ColumnWidgetClass'
-import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
+import {
+  isColumnContainerWidgetInstance,
+  ColumnContainerWidgetInstance,
+} from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
 import { Component, createRef, useMemo } from 'react'
 
-export function ColumnsEditorTab({
+export const ColumnsEditorTab = connect(function ColumnsEditorTab({
   widget,
 }: {
-  widget: ColumnContainerWidgetInstance
+  widget: Widget
 }) {
+  if (!isColumnContainerWidgetInstance(widget)) return null
+
   const includedWidgetIds = calculateContentIds(calculateContents(widget))
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
@@ -29,7 +34,7 @@ export function ColumnsEditorTab({
       />
     </div>
   )
-}
+})
 
 const ColumnsEditor = connect(
   ({
@@ -53,9 +58,6 @@ const ColumnsEditor = connect(
 
     return (
       <div className="scrivito_detail_content">
-        <div className="scrivito_detail_label">
-          <span>Layout (desktop)</span>
-        </div>
         <div className="item_content">
           <div className="gle-preview-list">
             <div className="gle-preview-group">
