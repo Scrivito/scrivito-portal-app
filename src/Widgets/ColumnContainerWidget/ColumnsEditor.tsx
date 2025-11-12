@@ -1,4 +1,4 @@
-import { uiContext, canWrite, connect, Widget } from 'scrivito'
+import { connect, Widget } from 'scrivito'
 import Draggable from 'react-draggable'
 import { isEqual, times } from 'lodash-es'
 import {
@@ -13,23 +13,27 @@ import './ColumnsEditor.scss'
 import { Component, createRef, useMemo } from 'react'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
+  readOnly,
+  theme,
   widget,
 }: {
+  readOnly: boolean
+  theme: 'dark' | 'light' | null
   widget: Widget
 }) {
   if (!isColumnContainerWidgetInstance(widget)) return null
-
-  const includedWidgetIds = calculateContentIds(calculateContents(widget))
-  const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
+  const includedWidgetIds = calculateContentIds(calculateContents(widget))
+  const themeClassName: 'dark' | 'light' = theme
+
   return (
-    <div className={`scrivito_${theme}`}>
+    <div className={`scrivito_${themeClassName}`}>
       <ColumnsLayoutEditor
         // reset component whenever a concurrent widget addition/deletion happened
         key={includedWidgetIds.join('-')}
         widget={widget}
-        readOnly={!canWrite()}
+        readOnly={readOnly}
         currentGrid={gridOfWidget(widget)}
       />
     </div>
@@ -229,6 +233,7 @@ function PresetGrid({
     <button
       className={classNames.join(' ')}
       title={title}
+      disabled={readOnly}
       onClick={() => adjustGrid(grid)}
     >
       {grid.map((colSize, index) => (
@@ -259,6 +264,7 @@ function FlexLayoutEditor({
               <button
                 className="btn grid-del"
                 title="delete column"
+                disabled={readOnly}
                 onClick={() =>
                   adjustGrow(currentGrow.filter((_, i) => i !== index))
                 }
@@ -267,6 +273,7 @@ function FlexLayoutEditor({
             <button
               className="btn grid-button"
               title={flexGrow ? 'shrink column' : 'grow column'}
+              disabled={readOnly}
               onClick={() =>
                 adjustGrow(currentGrow.map((v, i) => (i === index ? !v : v)))
               }
@@ -278,6 +285,7 @@ function FlexLayoutEditor({
           <button
             className="p-0 grid-handle grid-handle-plus"
             title="add a column"
+            disabled={readOnly}
             onClick={() => adjustGrow([...currentGrow, true])}
           />
         )}
