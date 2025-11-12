@@ -120,9 +120,9 @@ provideEditingConfig(Homepage, {
       properties: [
         'contentTitle',
         'baseUrl',
-        site.id() === import.meta.env.SCRIVITO_ROOT_OBJ_ID
-          ? 'jwtPisaSalesApiUrl'
-          : null,
+        ...(site.id() === import.meta.env.SCRIVITO_ROOT_OBJ_ID
+          ? ['jwtPisaSalesApiUrl']
+          : []),
         'siteLogoDark',
         'siteFavicon',
         'siteLanguageIcon',
@@ -130,11 +130,11 @@ provideEditingConfig(Homepage, {
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
-        site.get('siteBorderRadius') ? null : 'siteRoundedCorners',
+        ...(site.get('siteBorderRadius') ? [] : ['siteRoundedCorners']),
         'siteFacebookAppId',
         'siteTwitterSite',
         'siteSinglePage',
-      ].filter((p): p is string => typeof p === 'string'),
+      ],
       key: 'site-settings-group',
     },
     {
