@@ -9,7 +9,7 @@ import {
   isColumnContainerWidgetInstance,
   ColumnContainerWidgetInstance,
 } from './ColumnContainerWidgetClass'
-import './ColumnsEditorTab.scss'
+import './ColumnsEditor.scss'
 import { Component, createRef, useMemo } from 'react'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
