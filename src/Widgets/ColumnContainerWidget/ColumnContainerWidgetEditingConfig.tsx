@@ -60,7 +60,11 @@ provideEditingConfig(ColumnContainerWidget, {
       'columns',
       {
         component: ({ widget }: { widget: Widget }) => (
-          <ColumnsEditor widget={widget} />
+          <ColumnsEditor
+            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            theme={(uiContext() || { theme: null }).theme}
+            widget={widget}
+          />
         ),
       },
     ],
