@@ -17,68 +17,45 @@ export const DimensionPicker = connect(function DimensionPicker({
   units: ('px' | '%' | 'rem')[]
   updateAttributeValue: (value: string) => void
 }) {
-  if (!theme) return null
   const value = ensureString(attributeValue)
-
-  return (
-    <div className={`scrivito_${theme}`}>
-      <DimensionEditor
-        onUpdate={updateAttributeValue}
-        readOnly={readOnly}
-        units={units}
-        value={value}
-      />
-    </div>
-  )
-})
-
-const DimensionEditor = function DimensionEditor({
-  onUpdate,
-  placeholder,
-  readOnly,
-  units,
-  value,
-}: {
-  onUpdate: (value: string) => void
-  placeholder?: string
-  readOnly: boolean
-  units: ('px' | '%' | 'rem')[]
-  value: string
-}) {
   const [numericValue, valueUnit] = parseStringValue(value, units)
-
   const [unit, setUnit] = useState(valueUnit)
+
   useEffect(() => {
     if (numericValue !== '') setUnit(valueUnit)
   }, [numericValue, valueUnit])
 
+  if (!theme) return null
+
   return (
-    <div className="dimension-editor">
-      <div className="item_content">
-        <div className="input_group" aria-readonly={readOnly}>
-          <input
-            max={unit === '%' ? 100 : undefined}
-            min={0}
-            onChange={({ target: { value } }) => updateValue(value)}
-            placeholder={readOnly ? undefined : (placeholder ?? '100')}
-            readOnly={readOnly}
-            step="any"
-            type="number"
-            value={numericValue}
-          />
-          {units.length === 1 ? (
-            <span className="input_group_text">{units[0]}</span>
-          ) : (
-            <select
-              disabled={readOnly}
-              onChange={({ target: { value } }) => updateUnit(value)}
-              value={unit}
-            >
-              {units.map((u) => (
-                <option key={u}>{u}</option>
-              ))}
-            </select>
-          )}
+    <div className={`scrivito_${theme}`}>
+      <div className="dimension-picker">
+        <div className="item_content">
+          <div className="input_group" aria-readonly={readOnly}>
+            <input
+              max={unit === '%' ? 100 : undefined}
+              min={0}
+              onChange={({ target: { value } }) => updateValue(value)}
+              placeholder={readOnly ? undefined : '100'}
+              readOnly={readOnly}
+              step="any"
+              type="number"
+              value={numericValue}
+            />
+            {units.length === 1 ? (
+              <span className="input_group_text">{units[0]}</span>
+            ) : (
+              <select
+                disabled={readOnly}
+                onChange={({ target: { value } }) => updateUnit(value)}
+                value={unit}
+              >
+                {units.map((u) => (
+                  <option key={u}>{u}</option>
+                ))}
+              </select>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -86,14 +63,17 @@ const DimensionEditor = function DimensionEditor({
 
   function updateValue(stringValue: string) {
     const newValue = Number.parseFloat(stringValue)
-    onUpdate(isNaN(newValue) ? '' : `${newValue}${unit}`)
+    const updatedValue = isNaN(newValue) ? '' : `${newValue}${unit}`
+    updateAttributeValue(updatedValue)
   }
 
   function updateUnit(newUnit: string) {
     setUnit(newUnit)
-    if (numericValue !== '') onUpdate(`${numericValue}${newUnit}`)
+    if (numericValue !== '') {
+      updateAttributeValue(`${numericValue}${newUnit}`)
+    }
   }
-}
+})
 
 function parseStringValue(
   value: string,
