@@ -1,0 +1,112 @@
+.object-fit-editor {
+  overflow: hidden;
+
+  .enum_attribute {
+    margin: 0;
+    padding: 0 0 3px 0;
+    display: grid;
+    gap: 6px;
+    grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+
+    button {
+      background: #fafafa;
+      border-left: 30px solid #f0f0f0;
+      border-radius: 3px;
+      border-style: none none none solid;
+      box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+      color: #555;
+      display: flex;
+      flex-flow: column;
+      font-size: 13px;
+      font-weight: normal;
+      line-height: 15px;
+      padding: 4px 8px;
+      position: relative;
+
+      .attribute-preview {
+        width: 45px;
+        height: 30px;
+        margin: 2px auto;
+        &.contain {
+          background: no-repeat center/ contain url('object-fit-contain.svg');
+        }
+
+        &.cover {
+          background: no-repeat center/ contain url('object-fit-cover.svg');
+        }
+      }
+
+      span {
+        color: #555;
+        display: block;
+        font-size: 11px;
+        margin: auto;
+        text-align: center;
+      }
+
+      &:disabled {
+        opacity: 0.6;
+      }
+
+      &:not(:disabled):hover {
+        background: #eee;
+        cursor: pointer;
+      }
+
+      &.enum_attribute_active {
+        border-left: 30px solid var(--jr-blue) !important;
+        box-shadow: 0 0 0 2px var(--jr-blue) inset;
+
+        &:not(:disabled):hover {
+          background: #eee;
+        }
+
+        &:before {
+          content: url('radio-selected.svg');
+          filter: brightness(1);
+        }
+      }
+
+      &:before {
+        content: url('radio.svg');
+        display: block;
+        filter: brightness(0.6);
+        left: -22px;
+        position: absolute;
+        top: 14px;
+      }
+    }
+  }
+
+  &.scrivito_dark {
+    .enum_attribute {
+      button {
+        border-left: 30px solid rgba(0, 0, 0, 0.1);
+        background: rgba(222, 222, 222, 0.2);
+        color: #eee;
+
+        span {
+          color: #eee;
+        }
+
+        &.enum_attribute_active {
+          border-left: 30px solid var(--jr-blue-light) !important;
+          box-shadow: 0 0 0 2px var(--jr-blue-light) inset;
+        }
+
+        &:not(:disabled):hover {
+          background: rgba(222, 222, 222, 0.25);
+        }
+
+        &:disabled {
+          background: rgba(222, 222, 222, 0.2) !important;
+
+          &.enum_attribute_active {
+            border-left: 30px solid #777 !important;
+            box-shadow: 0 0 0 2px #777 inset;
+          }
+        }
+      }
+    }
+  }
+}
