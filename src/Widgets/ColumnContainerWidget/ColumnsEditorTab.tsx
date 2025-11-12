@@ -7,7 +7,7 @@ import {
 } from '../ColumnWidget/ColumnWidgetClass'
 import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
-import { Component, Fragment, createRef, useMemo } from 'react'
+import { Component, createRef, useMemo } from 'react'
 
 export function ColumnsEditorTab({
   widget,
@@ -55,15 +55,6 @@ const ColumnsEditor = connect(
 
     return (
       <div className="scrivito_detail_content">
-        <Alignment
-          alignment={widget.get('alignment')}
-          setAlignment={(
-            alignment?: 'start' | 'center' | 'end' | 'stretch',
-          ) => {
-            if (!readOnly) widget.update({ alignment })
-          }}
-          readOnly={readOnly}
-        />
         <Switch
           className="two_valued"
           labels={['Grid', 'Flex']}
@@ -275,97 +266,6 @@ function PresetGrid({
         <div className={`grid-col-${colSize}`} key={index} />
       ))}
     </button>
-  )
-}
-
-function Alignment({
-  alignment,
-  setAlignment,
-  readOnly,
-}: {
-  alignment: string | null
-  setAlignment: (alignment?: 'start' | 'center' | 'end' | 'stretch') => void
-  readOnly: boolean
-}) {
-  const initialClasses = readOnly
-    ? ['gle-preview', 'p-0']
-    : ['gle-preview', 'p-0', 'clickable']
-
-  const startAlignmentClasses = [...initialClasses]
-  const centerAlignmentClasses = [...initialClasses]
-  const endAlignmentClasses = [...initialClasses]
-  const stretchAlignmentClasses = [...initialClasses]
-
-  switch (alignment) {
-    case 'start':
-      startAlignmentClasses.push('active')
-      break
-    case 'center':
-      centerAlignmentClasses.push('active')
-      break
-    case 'end':
-      endAlignmentClasses.push('active')
-      break
-    case 'stretch':
-      stretchAlignmentClasses.push('active')
-      break
-    default:
-      startAlignmentClasses.push('active')
-      break
-  }
-
-  return (
-    <Fragment>
-      <div className="scrivito_detail_label">
-        <span>Alignment</span>
-      </div>
-      <div className="item_content">
-        <div className="gle-preview-list">
-          <div className="gle-preview-group">
-            <button
-              className={startAlignmentClasses.join(' ')}
-              title="Content top aligned"
-              onClick={() => setAlignment('start')}
-            >
-              <div className="grid-col-12">
-                <span className="alignment" />
-              </div>
-            </button>
-
-            <button
-              className={centerAlignmentClasses.join(' ')}
-              title="Content center aligned"
-              onClick={() => setAlignment('center')}
-            >
-              <div className="grid-col-12">
-                <span className="alignment center" />
-              </div>
-            </button>
-
-            <button
-              className={endAlignmentClasses.join(' ')}
-              title="Content bottom aligned"
-              onClick={() => setAlignment('end')}
-            >
-              <div className="grid-col-12">
-                <span className="alignment bottom" />
-              </div>
-            </button>
-
-            <button
-              className={stretchAlignmentClasses.join(' ')}
-              title="Content stretch (full height) aligned"
-              onClick={() => setAlignment('stretch')}
-            >
-              <div className="grid-col-12">
-                <span className="alignment fullHeight" />
-              </div>
-            </button>
-          </div>
-        </div>
-        <AlignmentDescription alignment={alignment} />
-      </div>
-    </Fragment>
   )
 }
 
@@ -662,16 +562,6 @@ function adjustFlexGrowFromGrid(columns: Widget[], grid: number[]) {
 function growFromGrid(grid: number[]) {
   const max = Math.max(...grid)
   return grid.map((colSize) => colSize === max)
-}
-
-function AlignmentDescription({ alignment }: { alignment: string | null }) {
-  if (alignment !== 'stretch') return null
-
-  return (
-    <div className="scrivito_notice_body">
-      Stretch (full height) only works with one box widget inside a column.
-    </div>
-  )
 }
 
 function Switch({
