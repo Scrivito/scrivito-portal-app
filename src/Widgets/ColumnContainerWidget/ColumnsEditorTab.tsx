@@ -55,15 +55,6 @@ const ColumnsEditor = connect(
 
     return (
       <div className="scrivito_detail_content">
-        <Switch
-          className="two_valued"
-          labels={['Grid', 'Flex']}
-          onChange={() =>
-            widget.update({ layoutMode: isFlex ? 'grid' : 'flex' })
-          }
-          title="Display mode"
-          value={isFlex ? 1 : 0}
-        />
         <div className="scrivito_detail_label">
           <span>Layout (desktop)</span>
         </div>
