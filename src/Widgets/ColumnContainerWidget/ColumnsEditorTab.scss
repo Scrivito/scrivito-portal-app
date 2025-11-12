@@ -10,7 +10,6 @@
 }
 .gle-preview-group {
   float: left;
-  float: left;
   margin: 0 20px 0 0;
 }
 .gle-preview {
@@ -216,9 +215,6 @@
   text-align: center;
   width: 100%;
 }
-.gle .grid-columns > [class*='grid-col-']:last-child .grid-handle {
-  display: none;
-}
 .gle .grid-columns .grid-handle.grid-handle-plus {
   background: #658b51;
   right: -2px;
@@ -350,10 +346,6 @@
     width: calc(100% - 1px);
   }
 
-  .gle .grid-columns .grid-handle {
-    right: -6px;
-    width: 5px;
-  }
   .gle .grid-columns .grid-handle {
     right: -6px;
     width: 5px;
