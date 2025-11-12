@@ -20,6 +20,9 @@ provideEditingConfig(ColumnContainerWidget, {
       title: 'Alignment',
       description: 'Default: Start',
     },
+    columns: {
+      title: 'Layout (desktop)',
+    },
     layoutMode: {
       title: 'Display mode',
       values: [
@@ -54,6 +57,14 @@ provideEditingConfig(ColumnContainerWidget, {
     ],
     'layoutMode',
     [
+      'columns',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ColumnsEditorTab widget={widget} />
+        ),
+      },
+    ],
+    [
       'disableResponsiveAdaption',
       {
         component: ({ widget }: { widget: Widget }) => (
@@ -83,14 +94,6 @@ provideEditingConfig(ColumnContainerWidget, {
         ),
       },
     ],
-  ],
-  propertiesGroups: [
-    {
-      title: 'Columns layout',
-      key: 'columns-layout-group',
-      component: ColumnsEditorTab,
-      properties: ['columns'],
-    },
   ],
   initialContent: {
     columns: [

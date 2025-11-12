@@ -17,3 +17,9 @@ export const ColumnContainerWidget = provideWidgetClass(
 export type ColumnContainerWidgetInstance = InstanceType<
   typeof ColumnContainerWidget
 >
+
+export function isColumnContainerWidgetInstance(
+  item: unknown,
+): item is ColumnContainerWidgetInstance {
+  return item instanceof ColumnContainerWidget
+}
