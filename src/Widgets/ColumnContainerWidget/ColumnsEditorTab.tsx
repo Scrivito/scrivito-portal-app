@@ -25,7 +25,7 @@ export const ColumnsEditorTab = connect(function ColumnsEditorTab({
 
   return (
     <div className={`scrivito_${theme}`}>
-      <ColumnsEditor
+      <ColumnsLayoutEditor
         // reset component whenever a concurrent widget addition/deletion happened
         key={includedWidgetIds.join('-')}
         widget={widget}
@@ -36,169 +36,167 @@ export const ColumnsEditorTab = connect(function ColumnsEditorTab({
   )
 })
 
-const ColumnsEditor = connect(
-  ({
-    widget,
-    readOnly,
-    currentGrid,
-  }: {
-    widget: ColumnContainerWidgetInstance
-    readOnly: boolean
-    currentGrid: number[]
-  }) => {
-    const originalContents = useMemo(() => calculateContents(widget), [widget])
+const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
+  widget,
+  readOnly,
+  currentGrid,
+}: {
+  widget: ColumnContainerWidgetInstance
+  readOnly: boolean
+  currentGrid: number[]
+}) {
+  const originalContents = useMemo(() => calculateContents(widget), [widget])
 
-    const isFlex = widget.get('layoutMode') === 'flex'
+  const isFlex = widget.get('layoutMode') === 'flex'
 
-    function isActive(grid: number[]) {
-      return isFlex
-        ? isEqual(growFromGrid(grid), growOfWidget(widget))
-        : isEqual(grid, currentGrid)
-    }
+  function isActive(grid: number[]) {
+    return isFlex
+      ? isEqual(growFromGrid(grid), growOfWidget(widget))
+      : isEqual(grid, currentGrid)
+  }
 
-    return (
-      <div className="scrivito_detail_content">
-        <div className="item_content">
-          <div className="gle-preview-list">
-            <div className="gle-preview-group">
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="1 column"
-                grid={[12]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="2 columns"
-                grid={[6, 6]}
-              />
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="2 columns"
-                grid={[3, 9]}
-              />
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="2 columns"
-                grid={[9, 3]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="3 columns"
-                grid={[4, 4, 4]}
-              />
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="3 columns"
-                grid={[2, 8, 2]}
-              />
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="3 columns"
-                grid={[2, 5, 5]}
-              />
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="3 columns"
-                grid={[5, 5, 2]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="4 columns"
-                grid={[3, 3, 3, 3]}
-              />
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="4 columns"
-                grid={[2, 4, 4, 2]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="5 columns"
-                grid={[2, 2, 2, 2, 4]}
-              />
-            </div>
-            <div className="gle-preview-group">
-              <PresetGrid
-                isActive={isActive}
-                adjustGrid={adjustGrid}
-                readOnly={readOnly}
-                title="6 columns"
-                grid={[2, 2, 2, 2, 2, 2]}
-              />
-            </div>
-          </div>
-          {isFlex ? (
-            <FlexLayoutEditor
-              currentGrow={growOfWidget(widget)}
-              adjustGrow={adjustGrow}
-              readOnly={readOnly}
-            />
-          ) : (
-            <GridLayoutEditor
-              currentGrid={currentGrid}
+  return (
+    <div className="scrivito_detail_content">
+      <div className="item_content">
+        <div className="gle-preview-list">
+          <div className="gle-preview-group">
+            <PresetGrid
+              isActive={isActive}
               adjustGrid={adjustGrid}
               readOnly={readOnly}
+              title="1 column"
+              grid={[12]}
             />
-          )}
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="2 columns"
+              grid={[6, 6]}
+            />
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="2 columns"
+              grid={[3, 9]}
+            />
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="2 columns"
+              grid={[9, 3]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="3 columns"
+              grid={[4, 4, 4]}
+            />
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="3 columns"
+              grid={[2, 8, 2]}
+            />
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="3 columns"
+              grid={[2, 5, 5]}
+            />
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="3 columns"
+              grid={[5, 5, 2]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="4 columns"
+              grid={[3, 3, 3, 3]}
+            />
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="4 columns"
+              grid={[2, 4, 4, 2]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="5 columns"
+              grid={[2, 2, 2, 2, 4]}
+            />
+          </div>
+          <div className="gle-preview-group">
+            <PresetGrid
+              isActive={isActive}
+              adjustGrid={adjustGrid}
+              readOnly={readOnly}
+              title="6 columns"
+              grid={[2, 2, 2, 2, 2, 2]}
+            />
+          </div>
         </div>
+        {isFlex ? (
+          <FlexLayoutEditor
+            currentGrow={growOfWidget(widget)}
+            adjustGrow={adjustGrow}
+            readOnly={readOnly}
+          />
+        ) : (
+          <GridLayoutEditor
+            currentGrid={currentGrid}
+            adjustGrid={adjustGrid}
+            readOnly={readOnly}
+          />
+        )}
       </div>
-    )
+    </div>
+  )
 
-    function adjustGrid(newGrid: number[]) {
-      if (readOnly) return
-      adjustCols(newGrid)
-      adjustFlexGrowFromGrid(widget.get('columns'), newGrid)
-    }
+  function adjustGrid(newGrid: number[]) {
+    if (readOnly) return
+    adjustCols(newGrid)
+    adjustFlexGrowFromGrid(widget.get('columns'), newGrid)
+  }
 
-    function adjustGrow(newGrow: boolean[]) {
-      if (readOnly) return
-      const newGrid =
-        newGrow.length === 5
-          ? [2, 2, 2, 2, 4]
-          : newGrow.map(() => 12 / newGrow.length)
-      adjustCols(newGrid)
-      adjustFlexGrow(widget.get('columns'), newGrow)
-    }
+  function adjustGrow(newGrow: boolean[]) {
+    if (readOnly) return
+    const newGrid =
+      newGrow.length === 5
+        ? [2, 2, 2, 2, 4]
+        : newGrow.map(() => 12 / newGrow.length)
+    adjustCols(newGrid)
+    adjustFlexGrow(widget.get('columns'), newGrow)
+  }
 
-    function adjustCols(newGrid: number[]) {
-      if (!isEqual(currentGrid, newGrid)) {
-        adjustNumberOfColumns(widget, newGrid.length)
-        distributeContents(widget.get('columns'), originalContents)
-        adjustColSize(widget.get('columns'), newGrid)
-      }
+  function adjustCols(newGrid: number[]) {
+    if (!isEqual(currentGrid, newGrid)) {
+      adjustNumberOfColumns(widget, newGrid.length)
+      distributeContents(widget.get('columns'), originalContents)
+      adjustColSize(widget.get('columns'), newGrid)
     }
-  },
-)
+  }
+})
 
 function calculateContents(widget: ColumnContainerWidgetInstance) {
   return widget
