@@ -6,7 +6,7 @@ import {
   Widget,
 } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
-import { ColumnsEditor } from './ColumnsEditorTab'
+import { ColumnsEditor } from './ColumnsEditor'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 import { AlignmentEditor } from '../../Components/ScrivitoExtensions/AlignmentEditor'
 import Thumbnail from './thumbnail.svg'
