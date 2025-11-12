@@ -6,7 +6,7 @@ import {
   Widget,
 } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
-import { ColumnsEditorTab } from './ColumnsEditorTab'
+import { ColumnsEditor } from './ColumnsEditorTab'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 import { AlignmentEditor } from '../../Components/ScrivitoExtensions/AlignmentEditor'
 import Thumbnail from './thumbnail.svg'
@@ -60,7 +60,7 @@ provideEditingConfig(ColumnContainerWidget, {
       'columns',
       {
         component: ({ widget }: { widget: Widget }) => (
-          <ColumnsEditorTab widget={widget} />
+          <ColumnsEditor widget={widget} />
         ),
       },
     ],

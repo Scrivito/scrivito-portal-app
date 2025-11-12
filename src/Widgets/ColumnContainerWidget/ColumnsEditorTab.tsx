@@ -12,7 +12,7 @@ import {
 import './ColumnsEditorTab.scss'
 import { Component, createRef, useMemo } from 'react'
 
-export const ColumnsEditorTab = connect(function ColumnsEditorTab({
+export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
 }: {
   widget: Widget
