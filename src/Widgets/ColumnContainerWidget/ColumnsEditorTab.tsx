@@ -43,9 +43,7 @@ const ColumnsEditor = connect(
   }) => {
     const originalContents = useMemo(() => calculateContents(widget), [widget])
 
-    const disableResponsiveAdaption = widget.get('disableResponsiveAdaption')
     const isFlex = widget.get('layoutMode') === 'flex'
-    const disableGutters = widget.get('disableGutters')
 
     function isActive(grid: number[]) {
       return isFlex
@@ -171,26 +169,6 @@ const ColumnsEditor = connect(
             />
           )}
         </div>
-
-        <Switch
-          labels={['No', 'Yes']}
-          onChange={() =>
-            widget.update({
-              disableResponsiveAdaption: !disableResponsiveAdaption,
-            })
-          }
-          title="Responsive adaption?"
-          value={disableResponsiveAdaption ? 0 : 1}
-        />
-
-        <Switch
-          labels={['No', 'Yes']}
-          onChange={() => widget.update({ disableGutters: !disableGutters })}
-          title="Show gutters?"
-          description="Gutters are the spaces between columns in a layout."
-          value={disableGutters ? 0 : 1}
-          disabled={isFlex}
-        />
       </div>
     )
 
@@ -553,62 +531,4 @@ function adjustFlexGrowFromGrid(columns: Widget[], grid: number[]) {
 function growFromGrid(grid: number[]) {
   const max = Math.max(...grid)
   return grid.map((colSize) => colSize === max)
-}
-
-function Switch({
-  className,
-  description,
-  labels,
-  onChange,
-  title,
-  value,
-  disabled,
-}: {
-  className?: string
-  description?: string
-  labels: string[]
-  onChange: () => void
-  title: string
-  value: number
-  disabled?: boolean
-}) {
-  return (
-    <div className={disabled ? 'scrivito_disabled' : undefined}>
-      <div className="scrivito_detail_label">
-        <span>{title}</span>
-      </div>
-
-      <div className="item_content">
-        <div className="boolean_attribute_component">
-          <label
-            className={`scrivito_switch ${className || ''} ${value ? 'active' : ''}`}
-            aria-label={labels[value]}
-          >
-            <input
-              type="checkbox"
-              className="btn-check"
-              checked={!!value}
-              onChange={onChange}
-              disabled={disabled}
-            />
-            <div className="pill-wrapper">
-              <div className="cell pill"></div>
-            </div>
-            <div className="cell left" aria-hidden>
-              {labels[0]}
-            </div>
-            <div className="cell right" aria-hidden>
-              {labels[1]}
-            </div>
-          </label>
-        </div>
-      </div>
-
-      {description && (
-        <div className="scrivito_notice_body">
-          <span>{description}</span>
-        </div>
-      )}
-    </div>
-  )
 }
