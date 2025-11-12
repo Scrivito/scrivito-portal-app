@@ -1,4 +1,10 @@
-import { provideEditingConfig } from 'scrivito'
+import {
+  canEdit,
+  isComparisonActive,
+  Obj,
+  provideEditingConfig,
+  uiContext,
+} from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 import {
   defaultPageEditingConfigAttributes,
@@ -7,7 +13,7 @@ import {
   defaultPagePropertiesGroups,
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
-import { SiteBorderRadiusEditor } from '../../Components/ScrivitoExtensions/SiteBorderRadiusEditor'
+import { DimensionPicker } from '../../Components/ScrivitoExtensions/DimensionPicker'
 import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNavigationWidgetClass'
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
@@ -38,6 +44,11 @@ provideEditingConfig(Homepage, {
     },
     siteFavicon: {
       title: 'Favicon',
+    },
+    siteBorderRadius: {
+      title: 'Rounded corners',
+      description:
+        'Applies to elements such as cards, buttons, and forms throughout the site. Set to 0 to disable rounded corners. Default: 8.5px',
     },
     siteCartPage: { title: 'Location of cart page' },
     siteColorPrimary: {
@@ -131,6 +142,22 @@ provideEditingConfig(Homepage, {
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
+        [
+          'siteBorderRadius',
+          {
+            component: ({ page }: { page: Obj }) => (
+              <DimensionPicker
+                attributeValue={page.get('siteBorderRadius')}
+                readOnly={!canEdit(page) || isComparisonActive()}
+                theme={(uiContext() || { theme: null }).theme}
+                units={['px']}
+                updateAttributeValue={(value) =>
+                  page.update({ siteBorderRadius: value })
+                }
+              />
+            ),
+          },
+        ],
         ...(site.get('siteBorderRadius') ? [] : ['siteRoundedCorners']),
         'siteFacebookAppId',
         'siteTwitterSite',
@@ -159,12 +186,6 @@ provideEditingConfig(Homepage, {
         'siteFontBodyWeight',
       ],
       key: 'site-fonts-group',
-    },
-    {
-      title: 'Rounded corners',
-      component: SiteBorderRadiusEditor,
-      properties: ['siteBorderRadius'],
-      key: 'site-rounded-corners-group',
     },
   ],
   properties: [...defaultPageProperties],
