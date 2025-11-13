@@ -75,7 +75,7 @@ const NotFound = connect(function NotFound() {
       if (await load(() => Obj.onAllSites().all().count() === 0)) return
 
       console.warn(
-        'Portal app content is missing. Your instance contains content, but the portal app root obj is not available.',
+        'Portal App content is missing. Your instance contains content, but the Portal App root obj is not available.',
       )
     }
   }, [])
