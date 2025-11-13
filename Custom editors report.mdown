@@ -1,0 +1,123 @@
+# Comprehensive Summary of Custom Editors
+
+---
+
+## **1. CUSTOM COMPONENT EDITORS**
+
+**Full editing UI components - create entire tabs/sections, registered via `propertiesGroups`**
+
+### SocialCardsTab
+
+- **File**: `src/Components/ScrivitoExtensions/SocialCardsTab.tsx`
+- **Purpose**: Edits complete social media card settings for pages
+- **Edits Multiple Attributes**: Twitter card creator, images, titles, descriptions, Facebook Open Graph data
+- **Features**: Live previews of how cards appear on Twitter/X and Facebook
+- **Used in**: All pages via `src/Objs/defaultPageEditingConfig.tsx`
+- **Registration**: As a `component` in `propertiesGroups`
+
+---
+
+## **2. CUSTOM ATTRIBUTE EDITORS**
+
+**Single attribute components - edit one specific attribute, registered via `properties` array**
+
+### AlignmentEditor
+
+- **File**: `src/Components/ScrivitoExtensions/AlignmentEditor.tsx`
+- **Edits**: `alignment` attribute (vertical alignment: start/center/end/stretch)
+- **Features**: Visual button-based editor with graphical alignment previews
+- **Used in**: `src/Widgets/ColumnContainerWidget/ColumnContainerWidgetEditingConfig.tsx:44-56`
+
+### ColumnsEditor
+
+- **File**: `src/Widgets/ColumnContainerWidget/ColumnsEditor.tsx`
+- **Edits**: `columns` attribute (column layout configuration)
+- **Features**: Preset grid layouts (1-6 columns), drag-to-resize columns, add/remove columns, Grid/Flex layout modes, visual preview
+- **Used in**: `src/Widgets/ColumnContainerWidget/ColumnContainerWidgetEditingConfig.tsx:60-69`
+- **Note**: Most complex attribute editor in the codebase
+
+### ObjectFitEditor
+
+- **File**: `src/Components/ScrivitoExtensions/ObjectFitEditor.tsx`
+- **Edits**: `objectFit` attribute (CSS object-fit: contain/cover)
+- **Features**: Toggle button with visual previews for image scaling behavior
+- **Used in**:
+  - `src/Widgets/ImageWidget/ImageWidgetEditingConfig.tsx`
+  - `src/Widgets/DataImageWidget/DataImageWidgetEditingConfig.tsx`
+
+### DimensionPicker
+
+- **File**: `src/Components/ScrivitoExtensions/DimensionPicker.tsx`
+- **Edits**: Dimension attributes (`width`, `height`, `siteBorderRadius`)
+- **Features**: Number input with unit selector (px, %, rem), validation (e.g., max 100 for percentages)
+- **Used in**:
+  - `src/Widgets/ImageWidget/ImageWidgetEditingConfig.tsx` (width: px/%, height: px)
+  - `src/Widgets/DataImageWidget/DataImageWidgetEditingConfig.tsx` (width: px/%, height: px)
+  - `src/Objs/Homepage/HomepageEditingConfig.tsx` (siteBorderRadius: px)
+
+### InvertedBooleanEditor
+
+- **File**: `src/Components/ScrivitoExtensions/InvertedBooleanEditor.tsx`
+- **Edits**: Boolean attributes with inverted UX logic
+- **Features**: Yes/No toggle that inverts the boolean value for better UX
+- **Example**: "Show gutters?" (Yes) → `disableGutters: false`
+- **Used in**: `src/Widgets/ColumnContainerWidget/ColumnContainerWidgetEditingConfig.tsx:71-100`
+  - `disableResponsiveAdaption` (lines 71-85)
+  - `disableGutters` (lines 86-100)
+
+---
+
+## **3. EXTERNAL LIBRARY EDITORS**
+
+### ScrivitoBootstrapIconEditor
+
+- **Package**: `scrivito-icon-editor` (npm)
+- **Edits**: Icon selection from Bootstrap Icons library
+- **Features**: Icon picker with search and preview
+- **Used for attributes**: `icon`, `linkIcon`, `fallbackIcon`
+- **Used in**:
+  - `src/Objs/defaultPageEditingConfig.tsx` (linkIcon)
+  - `src/Widgets/DownloadCardWidget/DownloadCardWidgetEditingConfig.tsx` (icon)
+  - `src/Widgets/IconWidget/IconWidgetEditingConfig.tsx` (icon)
+  - `src/Widgets/DataIconWidget/DataIconWidgetEditingConfig.tsx` (fallbackIcon)
+  - `src/Widgets/DataIconConditionWidget/DataIconConditionWidgetEditingConfig.tsx` (icon)
+  - `src/Widgets/TickListWidget/TickListWidgetEditingConfig.tsx` (icon)
+
+---
+
+## **4. BUILT-IN SCRIVITO EDITORS**
+
+### `editor: "colorPicker"`
+
+- **Type**: Native Scrivito editor
+- **Edits**: Color values (hex codes)
+- **Used in**: `src/Editing/config/HomepageEditingConfig.tsx`
+  - `siteColorPrimary`
+  - `siteColorSecondary`
+  - `siteColorTextDark`
+  - `siteColorTextDarkHeadline`
+  - `siteColorTextLight`
+  - `siteColorTextLightHeadline`
+
+---
+
+## **ARCHITECTURE PATTERNS**
+
+All custom editors follow consistent patterns:
+
+- Use Scrivito's `connect()` HOC for reactive updates
+- Handle read-only states via `canEdit()` and `isComparisonActive()`
+- Accept either `widget` or `page`/`obj` props depending on context
+- Use Scrivito's UI context for theme consistency
+- Located in `src/Components/ScrivitoExtensions/` (except ColumnsEditor which lives with its widget)
+
+---
+
+## **SUMMARY BY THE NUMBERS**
+
+- **Custom Component Editors**: 1 (SocialCardsTab)
+- **Custom Attribute Editors**: 5 (AlignmentEditor, ColumnsEditor, ObjectFitEditor, DimensionPicker, InvertedBooleanEditor)
+- **External Editors**: 1 (ScrivitoBootstrapIconEditor)
+- **Built-in Editors Used**: 1 type (colorPicker)
+
+**Total Custom Implementations**: 6 editors
