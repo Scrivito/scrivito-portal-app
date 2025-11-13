@@ -16,11 +16,7 @@ const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (
-      isUserLoggedIn() &&
-      !currentSiteId() &&
-      !Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
-    ) {
+    if (isUserLoggedIn() && !currentSiteId() && !hasPortalAppContent()) {
       return <NotFound />
     }
 
@@ -54,7 +50,7 @@ const NotFound = connect(function NotFound() {
 
     async function beginEditingIfContentIsEmpty() {
       if (await load(() => isEditorLoggedIn())) return
-      if (await load(() => Obj.onAllSites().all().count() > 0)) return
+      if (await load(() => instanceHasContent())) return
 
       location.href = `https://edit.scrivito.com/${location.href}`
     }
@@ -64,15 +60,8 @@ const NotFound = connect(function NotFound() {
     warnAboutMissingPortalContent()
 
     async function warnAboutMissingPortalContent() {
-      if (
-        await load(() =>
-          Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID),
-        )
-      ) {
-        return
-      }
-
-      if (await load(() => Obj.onAllSites().all().count() === 0)) return
+      if (await load(() => hasPortalAppContent())) return
+      if (await load(() => !instanceHasContent())) return
 
       console.warn(
         'Portal App content is missing. Your instance contains content, but the Portal App root obj is not available.',
@@ -111,3 +100,11 @@ const NotFound = connect(function NotFound() {
     </>
   )
 })
+
+function hasPortalAppContent(): boolean {
+  return !!Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
+}
+
+function instanceHasContent(): boolean {
+  return Obj.onAllSites().all().count() > 0
+}
