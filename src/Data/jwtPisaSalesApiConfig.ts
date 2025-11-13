@@ -1,4 +1,4 @@
-import type { ApiClientOptions } from 'scrivito'
+import type { ApiClientOptions, Obj } from 'scrivito'
 import { currentLanguage, load } from 'scrivito'
 import { orderBy } from 'lodash-es'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
@@ -25,24 +25,12 @@ export async function jwtPisaSalesApiConfig({
   }
 }
 
-export function jwtPisaSalesConfigSite() {
-  const preferences = ['en', 'de', 'fr', 'pl']
-
-  const sortedSites = orderBy(
-    defaultSiteVersions().toArray(),
-    [
-      (obj) => {
-        const lang = obj.language()
-        const index = lang ? preferences.indexOf(lang) : -1
-        return index === -1 ? preferences.length : index
-      },
-      (obj) => obj.createdAt(),
-      (obj) => obj.id(),
-    ],
-    ['asc', 'asc', 'asc'],
-  )
-
-  return sortedSites[0]
+export function jwtPisaSalesConfigSite(): Obj | undefined {
+  return orderBy(defaultSiteVersions().toArray(), [
+    (site) => (site.language() === 'en' ? 0 : 1),
+    (site) => site.createdAt(),
+    (site) => site.id(),
+  ])[0]
 }
 
 async function jwtPisaSalesApiUrl(): Promise<string | null> {
