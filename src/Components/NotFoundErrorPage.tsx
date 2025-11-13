@@ -56,26 +56,27 @@ const NotFound = connect(function NotFound() {
     }
   }, [])
 
-  useEffect(() => {
-    warnAboutMissingPortalContent()
-
-    async function warnAboutMissingPortalContent() {
-      if (await load(() => hasPortalAppContent())) return
-      if (await load(() => !instanceHasContent())) return
-
-      console.warn(
-        'Portal App content is missing. Your instance contains content, but the Portal App root obj is not available.',
-      )
-    }
-  }, [])
+  if (!hasPortalAppContent() && instanceHasContent()) {
+    return (
+      <main id="main">
+        <section className="py-1">
+          <div className="container">
+            <h6>Portal App content is missing!</h6>
+            <div>
+              Your instance contains content, but the Portal App root object is
+              not available.
+            </div>
+          </div>
+        </section>
+      </main>
+    )
+  }
 
   if (!root) {
     return (
       <main id="main">
         <section className="py-1">
-          <div className="container">
-            <div>Page not found.</div>
-          </div>
+          <div className="container">Page not found.</div>
         </section>
       </main>
     )
