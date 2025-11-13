@@ -17,7 +17,11 @@ const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (isUserLoggedIn() && !currentSiteId() && !defaultSites().take(1)) {
+    if (
+      isUserLoggedIn() &&
+      !currentSiteId() &&
+      !defaultSites().toArray().length
+    ) {
       return <NotFound />
     }
 
