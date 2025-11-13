@@ -3,7 +3,7 @@ import { currentLanguage, load } from 'scrivito'
 import { orderBy } from 'lodash-es'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { getTokenAuthorization } from './getTokenAuthorization'
-import { defaultSites } from '../multiSite/defaultSites'
+import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
 
 export async function jwtPisaSalesApiConfig({
   subPath,
@@ -29,7 +29,7 @@ export function jwtPisaSalesConfigSite() {
   const preferences = ['en', 'de', 'fr', 'pl']
 
   const sortedSites = orderBy(
-    defaultSites().toArray(),
+    defaultSiteVersions().toArray(),
     [
       (obj) => {
         const lang = obj.language()
