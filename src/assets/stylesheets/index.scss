@@ -1381,7 +1381,8 @@ section.bg-primary {
   .profile-img {
     object-fit: cover;
     border-radius: var(--bs-border-radius);
-    width: 30px;
+    max-width: 30px;
+    min-width: 30px;
     height: 30px;
     margin: -5px 0 -5px -5px;
   }
