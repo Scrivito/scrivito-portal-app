@@ -17,7 +17,7 @@ const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (isUserLoggedIn() && !currentSiteId() && missingPortalAppContent()) {
+    if (isUserLoggedIn() && !currentSiteId() && isPortalAppContentMissing()) {
       return <NotFound />
     }
 
@@ -51,13 +51,13 @@ const NotFound = connect(function NotFound() {
 
     async function beginEditingIfContentIsEmpty() {
       if (await load(() => isEditorLoggedIn())) return
-      if (await load(() => instanceHasContent())) return
+      if (await load(() => hasSomeContent())) return
 
       location.href = `https://edit.scrivito.com/${location.href}`
     }
   }, [])
 
-  if (missingPortalAppContent() && instanceHasContent()) {
+  if (isPortalAppContentMissing() && hasSomeContent()) {
     return (
       <main id="main">
         <section className="py-1">
@@ -103,10 +103,10 @@ const NotFound = connect(function NotFound() {
   )
 })
 
-function missingPortalAppContent(): boolean {
+function isPortalAppContentMissing(): boolean {
   return !defaultSiteVersions().toArray().length
 }
 
-function instanceHasContent(): boolean {
+function hasSomeContent(): boolean {
   return Obj.onAllSites().all().count() > 0
 }
