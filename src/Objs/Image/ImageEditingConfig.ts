@@ -13,7 +13,7 @@ provideEditingConfig(Image, {
     },
     tags: {
       title: 'Tags',
-      description: 'Make it easier to find this Image by adding some tags.',
+      description: 'Make it easier to find this image by adding some tags.',
     },
   },
   properties: ['alternativeText', 'tags'],

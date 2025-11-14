@@ -12,6 +12,7 @@ import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNaviga
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
+import { jwtPisaSalesConfigSite } from '../../Data/jwtPisaSalesApiConfig'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -120,7 +121,7 @@ provideEditingConfig(Homepage, {
       properties: [
         'contentTitle',
         'baseUrl',
-        site.id() === import.meta.env.SCRIVITO_ROOT_OBJ_ID
+        site.id() === jwtPisaSalesConfigSite()?.id()
           ? 'jwtPisaSalesApiUrl'
           : null,
         'siteLogoDark',
