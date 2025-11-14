@@ -1,6 +1,7 @@
 import { connect } from 'scrivito'
-import './ObjectFitEditor/ObjectFitEditor.scss'
-import { ensureString } from '../../utils/ensureString'
+import { AdvancedEnumEditor } from './AdvancedEnumEditor'
+import containSvg from './ObjectFitEditor/object-fit-contain.svg'
+import coverSvg from './ObjectFitEditor/object-fit-cover.svg'
 
 export const ObjectFitEditor = connect(function ObjectFitEditor({
   attributeValue,
@@ -13,38 +14,28 @@ export const ObjectFitEditor = connect(function ObjectFitEditor({
   theme: 'dark' | 'light' | null
   updateAttributeValue: (value: string) => void
 }) {
-  if (!theme) return null
-
-  const objectFit = ensureString(attributeValue) || 'contain'
-
   return (
-    <div className={`object-fit-editor ${`scrivito_${theme}`}`}>
-      <div className="enum_attribute">
-        <button
-          aria-current={objectFit === 'contain'}
-          className={
-            objectFit === 'contain' ? 'enum_attribute_active' : undefined
-          }
-          disabled={readOnly}
-          onClick={() => updateAttributeValue('contain')}
-          title="The image is resized to fit within the space, keeping its original proportions, without being cut off."
-        >
-          <div className="attribute-preview contain"></div>
-          <span>Contain</span>
-        </button>
-        <button
-          aria-current={objectFit === 'cover'}
-          className={
-            objectFit === 'cover' ? 'enum_attribute_active' : undefined
-          }
-          disabled={readOnly}
-          onClick={() => updateAttributeValue('cover')}
-          title="The image is resized to fill the entire space, keeping its proportions, but may be cropped if necessary."
-        >
-          <div className="attribute-preview cover"></div>
-          <span>Cover</span>
-        </button>
-      </div>
-    </div>
+    <AdvancedEnumEditor
+      attributeValue={attributeValue}
+      options={[
+        {
+          value: 'contain',
+          title: 'Contain',
+          description:
+            'The image is resized to fit within the space, keeping its original proportions, without being cut off.',
+          icon: containSvg,
+        },
+        {
+          value: 'cover',
+          title: 'Cover',
+          description:
+            'The image is resized to fill the entire space, keeping its proportions, but may be cropped if necessary.',
+          icon: coverSvg,
+        },
+      ]}
+      readOnly={readOnly}
+      theme={theme}
+      updateAttributeValue={updateAttributeValue}
+    />
   )
 })

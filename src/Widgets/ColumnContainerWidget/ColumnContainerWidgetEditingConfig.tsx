@@ -8,7 +8,11 @@ import {
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnsEditor } from './ColumnsEditor'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
-import { AlignmentEditor } from '../../Components/ScrivitoExtensions/AlignmentEditor'
+import { AdvancedEnumEditor } from '../../Components/ScrivitoExtensions/AdvancedEnumEditor'
+import startSvg from '../../Components/ScrivitoExtensions/AlignmentEditor/alignment-start.svg'
+import centerSvg from '../../Components/ScrivitoExtensions/AlignmentEditor/alignment-center.svg'
+import endSvg from '../../Components/ScrivitoExtensions/AlignmentEditor/alignment-end.svg'
+import stretchSvg from '../../Components/ScrivitoExtensions/AlignmentEditor/alignment-stretch.svg'
 import Thumbnail from './thumbnail.svg'
 import { InvertedBooleanEditor } from '../../Components/ScrivitoExtensions/InvertedBooleanEditor'
 
@@ -44,11 +48,34 @@ provideEditingConfig(ColumnContainerWidget, {
       'alignment',
       {
         component: ({ widget }: { widget: Widget }) => (
-          <AlignmentEditor
+          <AdvancedEnumEditor
             attributeValue={widget.get('alignment')}
+            options={[
+              {
+                value: 'start',
+                title: 'Top',
+                icon: startSvg,
+              },
+              {
+                value: 'center',
+                title: 'Center',
+                icon: centerSvg,
+              },
+              {
+                value: 'end',
+                title: 'Bottom',
+                icon: endSvg,
+              },
+              {
+                value: 'stretch',
+                title: 'Stretch (full height)',
+                description: 'Only works with one box widget inside a column.',
+                icon: stretchSvg,
+              },
+            ]}
             readOnly={!canEdit(widget.obj()) || isComparisonActive()}
             theme={(uiContext() || { theme: null }).theme}
-            updateAttributeValue={(value) =>
+            updateAttributeValue={(value: string) =>
               widget.update({ alignment: value })
             }
           />
