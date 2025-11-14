@@ -18,7 +18,7 @@ provideEditingConfig(ColumnContainerWidget, {
   attributes: {
     alignment: {
       title: 'Alignment',
-      description: 'Default: Start',
+      description: 'Default: Top',
     },
     columns: {
       title: 'Layout (desktop)',
