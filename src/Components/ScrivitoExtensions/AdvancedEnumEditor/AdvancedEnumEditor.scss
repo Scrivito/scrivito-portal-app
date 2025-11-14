@@ -1,4 +1,4 @@
-.object-fit-editor {
+.advanced-enum-editor {
   overflow: hidden;
 
   .enum_attribute {
@@ -27,13 +27,7 @@
         width: 45px;
         height: 30px;
         margin: 2px auto;
-        &.contain {
-          background: no-repeat center/ contain url('object-fit-contain.svg');
-        }
-
-        &.cover {
-          background: no-repeat center/ contain url('object-fit-cover.svg');
-        }
+        background: no-repeat center/ contain;
       }
 
       span {
