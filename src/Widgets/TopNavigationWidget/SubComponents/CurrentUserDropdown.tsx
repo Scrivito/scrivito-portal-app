@@ -17,7 +17,7 @@ import { ensureString } from '../../../utils/ensureString'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import personCircle from '../../../assets/images/person-circle.svg'
 import { Loading } from '../../../Components/Loading'
-import { useState } from 'react'
+import { useState, type ComponentProps } from 'react'
 
 export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   root,
@@ -127,22 +127,20 @@ const ProfileImg = connect(
 
     return (
       <>
-        <RetryingImage src={picture} />{' '}
+        <RetryingImage alt="" className="profile-img" src={picture} />{' '}
       </>
     )
   },
   { loading: Loading },
 )
 
-function RetryingImage({ src }: { src: string }) {
+function RetryingImage({ alt, ...props }: ComponentProps<'img'>) {
   const [retryDelayMs, setRetryDelayMs] = useState(1000)
   function onError() {
     setTimeout(() => setRetryDelayMs(retryDelayMs * 2), retryDelayMs)
   }
   const key = retryDelayMs
-  return (
-    <img alt="" className="profile-img" key={key} onError={onError} src={src} />
-  )
+  return <img key={key} alt={alt} {...props} onError={onError} />
 }
 
 function localizeLogOutLabel(): string {
