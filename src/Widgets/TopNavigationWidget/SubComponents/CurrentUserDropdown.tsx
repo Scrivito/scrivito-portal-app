@@ -127,14 +127,14 @@ const ProfileImg = connect(
 
     return (
       <>
-        <ProfileImageWithBackoff src={picture} />{' '}
+        <RetryingImage src={picture} />{' '}
       </>
     )
   },
   { loading: Loading },
 )
 
-function ProfileImageWithBackoff({ src }: { src: string }) {
+function RetryingImage({ src }: { src: string }) {
   const [retryDelayMs, setRetryDelayMs] = useState(1000)
   function onError() {
     setTimeout(() => setRetryDelayMs(retryDelayMs * 2), retryDelayMs)
