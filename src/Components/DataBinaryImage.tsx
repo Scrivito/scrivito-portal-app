@@ -1,5 +1,6 @@
 import { CSSProperties, useEffect, useState } from 'react'
 import { DataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
+import { RetryingImage } from './RetryingImage'
 
 export function DataBinaryImage({
   dataBinary,
@@ -18,5 +19,12 @@ export function DataBinaryImage({
   }, [dataBinary])
 
   if (!src) return null
-  return <img src={src} alt={alt ?? ''} className={className} style={style} />
+  return (
+    <RetryingImage
+      src={src}
+      alt={alt ?? ''}
+      className={className}
+      style={style}
+    />
+  )
 }
