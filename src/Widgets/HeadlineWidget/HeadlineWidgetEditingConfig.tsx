@@ -1,5 +1,15 @@
-import { provideEditingConfig } from 'scrivito'
+import {
+  canEdit,
+  isComparisonActive,
+  provideEditingConfig,
+  uiContext,
+  Widget,
+} from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
+import { AdvancedEnumEditor } from '../../Components/ScrivitoExtensions/AdvancedEnumEditor'
+import textAlignLeftSvg from '../../Components/ScrivitoExtensions/AlignmentEditor/text-align-left.svg'
+import textAlignCenterSvg from '../../Components/ScrivitoExtensions/AlignmentEditor/text-align-center.svg'
+import textAlignRightSvg from '../../Components/ScrivitoExtensions/AlignmentEditor/text-align-right.svg'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(HeadlineWidget, {
@@ -44,11 +54,6 @@ provideEditingConfig(HeadlineWidget, {
     alignment: {
       title: 'Alignment',
       description: 'Default: Left',
-      values: [
-        { value: 'left', title: 'Left' },
-        { value: 'center', title: 'Center' },
-        { value: 'right', title: 'Right' },
-      ],
     },
     margin: {
       title: 'Margin',
@@ -56,7 +61,44 @@ provideEditingConfig(HeadlineWidget, {
     },
     uppercase: { title: 'Uppercase?', description: 'Default: No' },
   },
-  properties: ['style', 'level', 'alignment', 'margin', 'uppercase'],
+  properties: [
+    'style',
+    'level',
+    [
+      'alignment',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <AdvancedEnumEditor
+            attributeValue={widget.get('alignment')}
+            options={[
+              {
+                value: 'left',
+                title: 'Left',
+                icon: textAlignLeftSvg,
+              },
+              {
+                value: 'center',
+                title: 'Center',
+                icon: textAlignCenterSvg,
+              },
+              {
+                value: 'right',
+                title: 'Right',
+                icon: textAlignRightSvg,
+              },
+            ]}
+            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            theme={(uiContext() || { theme: null }).theme}
+            updateAttributeValue={(value: string) =>
+              widget.update({ alignment: value })
+            }
+          />
+        ),
+      },
+    ],
+    'margin',
+    'uppercase',
+  ],
   initialContent: {
     alignment: 'left',
     headline: 'Headline',
