@@ -1,5 +1,15 @@
-import { provideEditingConfig } from 'scrivito'
+import {
+  canEdit,
+  isComparisonActive,
+  provideEditingConfig,
+  uiContext,
+  Widget,
+} from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
+import { AdvancedEnumEditor } from '../../Components/ScrivitoExtensions/AdvancedEnumEditor'
+import fixedSvg from '../../Components/ScrivitoExtensions/ContainerWidthEditor/container-width-fixed.svg'
+import width95Svg from '../../Components/ScrivitoExtensions/ContainerWidthEditor/container-width-95.svg'
+import width100Svg from '../../Components/ScrivitoExtensions/ContainerWidthEditor/container-width-100.svg'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SectionWidget, {
@@ -33,11 +43,6 @@ provideEditingConfig(SectionWidget, {
     containerWidth: {
       title: 'Container width',
       description: 'Default: fixed',
-      values: [
-        { value: 'fixed', title: 'fixed' },
-        { value: '95-percent', title: '95%' },
-        { value: '100-percent', title: '100%' },
-      ],
     },
     showPadding: {
       title: 'Padding',
@@ -48,7 +53,38 @@ provideEditingConfig(SectionWidget, {
     'backgroundColor',
     'backgroundImage',
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
-    'containerWidth',
+    [
+      'containerWidth',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <AdvancedEnumEditor
+            attributeValue={widget.get('containerWidth')}
+            options={[
+              {
+                value: 'fixed',
+                title: 'Fixed',
+                icon: fixedSvg,
+              },
+              {
+                value: '95-percent',
+                title: '95%',
+                icon: width95Svg,
+              },
+              {
+                value: '100-percent',
+                title: '100%',
+                icon: width100Svg,
+              },
+            ]}
+            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            theme={(uiContext() || { theme: null }).theme}
+            updateAttributeValue={(value: string) =>
+              widget.update({ containerWidth: value })
+            }
+          />
+        ),
+      },
+    ],
     'showPadding',
   ],
   initialContent: {
