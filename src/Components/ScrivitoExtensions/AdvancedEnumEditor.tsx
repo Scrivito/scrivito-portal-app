@@ -2,14 +2,14 @@ import { connect } from 'scrivito'
 import { ensureString } from '../../utils/ensureString'
 import './AdvancedEnumEditor/AdvancedEnumEditor.scss'
 
-export type EnumOption = {
+type EnumOption = {
   value: string
   title: string // Label shown on the button
   description?: string // Description shown on hover
   icon?: string // URL to icon image
 }
 
-export type AdvancedEnumEditorProps = {
+type AdvancedEnumEditorProps = {
   attributeValue: unknown
   options: EnumOption[]
   readOnly: boolean
