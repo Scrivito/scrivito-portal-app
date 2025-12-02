@@ -7,7 +7,7 @@ import {
 } from 'scrivito'
 import { DataFormUploadWidget } from './DataFormUploadWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
-import { useDropzone } from 'react-dropzone'
+import { useDropzone, type FileRejection } from 'react-dropzone'
 import { Attachment } from '../../Components/Attachment'
 import { useCallback, useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
@@ -25,12 +25,37 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
   const [attachments, setAttachments] = useState<
     Array<{ file: File; key: string }>
   >([])
-  const [isTooLarge, setIsTooLarge] = useState(false)
+  const [rejectionErrors, setRejectionErrors] = useState<{
+    tooLarge: boolean
+    tooMany: boolean
+  }>({ tooLarge: false, tooMany: false })
 
-  const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
-  const onDropRejected = useCallback(() => setIsTooLarge(true), [])
+  const onDropAccepted = useCallback(
+    () => setRejectionErrors({ tooLarge: false, tooMany: false }),
+    [],
+  )
+  const onDropRejected = useCallback((fileRejections: FileRejection[]) => {
+    const allErrors = fileRejections.flatMap((rejection) =>
+      rejection.errors.map((error) => error.code),
+    )
+    const unknownErrors = allErrors.filter(
+      (code) => !['file-too-large', 'too-many-files'].includes(code),
+    )
+
+    if (unknownErrors.length > 0) {
+      throw new Error(
+        `Unknown file rejection error codes: ${unknownErrors.join(', ')}`,
+      )
+    }
+
+    setRejectionErrors({
+      tooLarge: allErrors.includes('file-too-large'),
+      tooMany: allErrors.includes('too-many-files'),
+    })
+  }, [])
 
   const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
+    maxFiles: 10,
     maxSize: MAX_FILE_SIZE,
     onDropAccepted,
     onDropRejected,
@@ -112,10 +137,16 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
         />
         {getDropMessage(widget.get('multiple'))}
       </div>
-      {isTooLarge && (
+      {rejectionErrors.tooLarge && (
         <div>
           <i className="bi bi-exclamation-diamond" aria-hidden="true" />{' '}
           {getTooLargeMessage()}
+        </div>
+      )}
+      {rejectionErrors.tooMany && (
+        <div>
+          <i className="bi bi-exclamation-diamond" aria-hidden="true" />{' '}
+          {getTooManyFilesMessage()}
         </div>
       )}
       <div>
@@ -194,5 +225,18 @@ function getTooLargeMessage() {
         MAX_FILE_SIZE,
         { locale: 'en' },
       )} in size.`
+  }
+}
+
+function getTooManyFilesMessage() {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Zu viele Dateien ausgewählt. Bitte wählen Sie maximal 10 Dateien aus.'
+    case 'fr':
+      return 'Trop de fichiers sélectionnés. Veuillez sélectionner 10 fichiers maximum.'
+    case 'pl':
+      return 'Wybrano zbyt wiele plików. Proszę wybrać maksymalnie 10 plików.'
+    default:
+      return 'Too many files selected. Please select a maximum of 10 files.'
   }
 }
