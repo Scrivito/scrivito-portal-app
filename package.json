@@ -76,6 +76,9 @@
       "cookie": "^0.7.0",
       "rimraf": "4",
       "tmp": "^0.2.4"
+    },
+    "scrivito-neoletter-form-widgets": {
+      "scrivito-icon-editor": "^0.0.3"
     }
   }
 }
