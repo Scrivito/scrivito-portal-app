@@ -17,7 +17,11 @@ export async function pisaSalesApiUrl(): Promise<string | null> {
     pisa_sales_api_url?: string | null
   }
 
-  return instanceConfig.pisa_sales_api_url || null
+  if (instanceConfig.pisa_sales_api_url) {
+    return instanceConfig.pisa_sales_api_url
+  }
+
+  return import.meta.env.PISA_SALES_API_URL || null
 }
 
 export async function pisaClient(subPath: string) {
