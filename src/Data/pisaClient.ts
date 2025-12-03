@@ -1,24 +1,18 @@
 import {
   createRestApiClient,
   currentLanguage,
-  getInstanceId,
   isUserLoggedIn,
   load,
 } from 'scrivito'
+import { getJrPlatformPisaSalesApiUrl } from '../privateJrPlatform/getJrPlatformPisaSalesApiUrl'
 
 export async function pisaSalesApiUrl(): Promise<string | null> {
   if (import.meta.env.FORCE_LOCAL_STORAGE) return null
 
   if (!isUserLoggedIn()) return null
 
-  const instanceConfig = (await createRestApiClient(
-    'https://api.justrelate.com',
-  ).get(`/ams/instances/${getInstanceId()}`)) as {
-    pisa_sales_api_url?: string | null
-  }
-
-  if (instanceConfig.pisa_sales_api_url) {
-    return instanceConfig.pisa_sales_api_url
+  if (import.meta.env.PRIVATE_JR_PLATFORM) {
+    return getJrPlatformPisaSalesApiUrl()
   }
 
   return import.meta.env.PISA_SALES_API_URL || null
