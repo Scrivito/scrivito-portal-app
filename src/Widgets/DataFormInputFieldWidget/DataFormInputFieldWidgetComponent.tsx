@@ -68,6 +68,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
           name={attributeName ?? ''}
           rows={3}
           defaultValue={defaultValue}
+          maxLength={10000}
           placeholder={widget.get('placeholder')}
           required={widget.get('required')}
         />
