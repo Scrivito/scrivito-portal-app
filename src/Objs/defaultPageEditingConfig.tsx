@@ -1,6 +1,6 @@
 import { Obj } from 'scrivito'
 import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
-import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
+import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { ensureString } from '../utils/ensureString'
 
 export const defaultPageEditingConfigAttributes = {
@@ -65,7 +65,7 @@ export const defaultPagePropertiesGroups = [
   {
     title: 'Link icon',
     component: (props: { page: Obj }) => (
-      <ScrivitoBootstrapIconEditor
+      <ScrivitoBootstrapIconPicker
         attribute="linkIcon"
         description="This icon may appear in a vertical navigation widget, for example."
         showClearButton
