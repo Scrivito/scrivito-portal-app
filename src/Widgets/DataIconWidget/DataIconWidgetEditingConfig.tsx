@@ -1,7 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
+import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { DataIconConditionWidgetInstance } from '../DataIconConditionWidget/DataIconConditionWidgetClass'
 
 provideEditingConfig(DataIconWidget, {
@@ -37,7 +37,7 @@ provideEditingConfig(DataIconWidget, {
     {
       title: 'Fallback icon',
       component: (props: { widget: DataIconConditionWidgetInstance }) => (
-        <ScrivitoBootstrapIconEditor
+        <ScrivitoBootstrapIconPicker
           attribute="fallbackIcon"
           defaultValue="question-octagon"
           description="This icon is used if no condition is met."

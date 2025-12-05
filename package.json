@@ -22,6 +22,7 @@
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.4",
     "@honeybadger-io/js": "^6.12.3",
+    "@justrelate/icon-picker": "^1.0.0",
     "@justrelate/slugify": "^1.0.1",
     "history": "^5.3.0",
     "lodash-es": "^4.17.21",
@@ -33,7 +34,6 @@
     "react-dropzone": "^14.3.8",
     "react-toastify": "^11.0.5",
     "scrivito": "^1.56.0",
-    "scrivito-icon-editor": "^0.0.2",
     "scrivito-neoletter-form-widgets": "^0.0.42",
     "scroll-to-fragment": "^1.1.0"
   },

@@ -1,7 +1,7 @@
 import { provideEditingConfig, Widget } from 'scrivito'
 import { IconWidget } from './IconWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
+import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 
 provideEditingConfig(IconWidget, {
   title: 'Icon',
@@ -36,7 +36,7 @@ provideEditingConfig(IconWidget, {
     {
       title: 'Icon',
       component: (props: { widget: Widget }) => (
-        <ScrivitoBootstrapIconEditor defaultValue="box" {...props} />
+        <ScrivitoBootstrapIconPicker defaultValue="box" {...props} />
       ),
       properties: ['icon'],
       key: 'icon-group',
