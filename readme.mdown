@@ -49,7 +49,7 @@ The Scrivito Portal App requires the instance ID of your CMS. Set the `SCRIVITO_
 
 #### Optional: Configure PisaSales API
 
-If you need to integrate with a PisaSales API, set the `PISA_SALES_API_URL` environment variable to your API URL.
+If you need to integrate with a PisaSales API, set the `PISA_SALES_API_URL` environment variable to your PisaSales API URL.
 
 ## How to develop
 
