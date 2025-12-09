@@ -75,6 +75,9 @@ export default defineConfig(({ mode }) => {
         JSON.stringify(HONEYBADGER_REVISION),
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
       'import.meta.env.PRIVATE_JR_PLATFORM': JSON.stringify(privateJrPlatform),
+      'import.meta.env.PISA_SALES_API_URL': JSON.stringify(
+        env.PISA_SALES_API_URL,
+      ),
     },
     optimizeDeps: {
       force: true,
