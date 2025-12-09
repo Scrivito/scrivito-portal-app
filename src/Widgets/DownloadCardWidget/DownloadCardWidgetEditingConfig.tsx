@@ -6,16 +6,20 @@ import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 provideEditingConfig(DownloadCardWidget, {
   title: 'Download Card',
   thumbnail: Thumbnail,
-  properties: ['link'],
-  propertiesGroups: [
-    {
-      title: 'Icon',
-      component: (props: { widget: Widget }) => (
-        <ScrivitoBootstrapIconPicker defaultValue="filetype-pdf" {...props} />
-      ),
-      properties: ['icon'],
-      key: 'icon-group',
-    },
+  properties: [
+    'link',
+    [
+      'icon',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ScrivitoBootstrapIconPicker
+            attribute="icon"
+            defaultValue="filetype-pdf"
+            widget={widget}
+          />
+        ),
+      },
+    ],
   ],
   initialContent: {
     icon: 'bi-filetype-pdf',
