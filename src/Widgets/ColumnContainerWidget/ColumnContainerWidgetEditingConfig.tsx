@@ -22,6 +22,14 @@ provideEditingConfig(ColumnContainerWidget, {
       title: 'Alignment',
       description: 'Default: Top',
     },
+    layoutMode: {
+      title: 'Display mode',
+      values: [
+        { value: 'grid', title: 'Grid' },
+        { value: 'flex', title: 'Flex' },
+      ],
+      description: 'Default: Grid',
+    },
   },
   properties: [
     [
@@ -61,18 +69,14 @@ provideEditingConfig(ColumnContainerWidget, {
         ),
       },
     ],
+    'layoutMode',
   ],
   propertiesGroups: [
     {
       title: 'Columns layout',
       key: 'columns-layout-group',
       component: ColumnsEditorTab,
-      properties: [
-        'columns',
-        'disableGutters',
-        'disableResponsiveAdaption',
-        'layoutMode',
-      ],
+      properties: ['columns', 'disableGutters', 'disableResponsiveAdaption'],
     },
   ],
   initialContent: {
