@@ -17,6 +17,7 @@ import { ensureString } from '../../../utils/ensureString'
 import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import personCircle from '../../../assets/images/person-circle.svg'
 import { Loading } from '../../../Components/Loading'
+import { RetryingImage } from '../../../Components/RetryingImage'
 
 export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   root,
@@ -126,7 +127,7 @@ const ProfileImg = connect(
 
     return (
       <>
-        <img className="profile-img" src={picture} alt="" />{' '}
+        <RetryingImage alt="" className="profile-img" src={picture} />{' '}
       </>
     )
   },

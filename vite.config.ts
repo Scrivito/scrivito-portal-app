@@ -49,9 +49,9 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks: {
             react: [
+              '@dr.pogodin/react-helmet',
               'react-bootstrap',
               'react-dropzone',
-              'react-helmet-async',
               'react-toastify',
             ],
             scrivito: ['scrivito-neoletter-form-widgets'],
@@ -61,11 +61,11 @@ export default defineConfig(({ mode }) => {
       sourcemap: !!HONEYBADGER_API_KEY,
     },
     define: {
+      'import.meta.env.SCRIVITO_DEFAULT_CONTENT_ID': JSON.stringify(
+        env.SCRIVITO_DEFAULT_CONTENT_ID || 'c2a0aab78be05a4e',
+      ),
       'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(scrivitoOrigin(env)),
       'import.meta.env.SCRIVITO_TENANT': JSON.stringify(env.SCRIVITO_TENANT),
-      'import.meta.env.SCRIVITO_ROOT_OBJ_ID': JSON.stringify(
-        env.SCRIVITO_ROOT_OBJ_ID || 'c2a0aab78be05a4e',
-      ),
       'import.meta.env.HONEYBADGER_API_KEY':
         JSON.stringify(HONEYBADGER_API_KEY),
       'import.meta.env.HONEYBADGER_ENVIRONMENT': JSON.stringify(
@@ -75,6 +75,9 @@ export default defineConfig(({ mode }) => {
         JSON.stringify(HONEYBADGER_REVISION),
       'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
       'import.meta.env.PRIVATE_JR_PLATFORM': JSON.stringify(privateJrPlatform),
+      'import.meta.env.PISA_SALES_API_URL': JSON.stringify(
+        env.PISA_SALES_API_URL,
+      ),
     },
     optimizeDeps: {
       force: true,

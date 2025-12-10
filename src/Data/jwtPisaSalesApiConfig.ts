@@ -1,7 +1,9 @@
-import type { ApiClientOptions } from 'scrivito'
-import { currentLanguage, load, Obj } from 'scrivito'
+import type { ApiClientOptions, Obj } from 'scrivito'
+import { currentLanguage, load } from 'scrivito'
+import { orderBy } from 'lodash-es'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { getTokenAuthorization } from './getTokenAuthorization'
+import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
 
 export async function jwtPisaSalesApiConfig({
   subPath,
@@ -23,13 +25,19 @@ export async function jwtPisaSalesApiConfig({
   }
 }
 
+export function jwtPisaSalesConfigSite(): Obj | undefined {
+  return orderBy(defaultSiteVersions().toArray(), [
+    (site) => (site.language() === 'en' ? 0 : 1),
+    (site) => site.createdAt(),
+    (site) => site.id(),
+  ])[0]
+}
+
 async function jwtPisaSalesApiUrl(): Promise<string | null> {
   if (import.meta.env.FORCE_LOCAL_STORAGE) return null
 
-  const defaultRoot = await load(() =>
-    Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID),
-  )
-  if (!isHomepage(defaultRoot)) return null
+  const root = await load(() => jwtPisaSalesConfigSite())
+  if (!isHomepage(root)) return null
 
-  return defaultRoot.get('jwtPisaSalesApiUrl') || null
+  return root.get('jwtPisaSalesApiUrl') || null
 }

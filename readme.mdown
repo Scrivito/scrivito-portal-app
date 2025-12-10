@@ -26,22 +26,30 @@ cd scrivito-portal-app/
 
 ### Install/check prerequisites
 
-Make sure that you have [![node ≥ 20.0](https://img.shields.io/badge/node-≥%2020.0-blue.svg)](https://nodejs.org) installed.
+Make sure that you have [![node ≥ 22.0](https://img.shields.io/badge/node-≥%2022.0-blue.svg)](https://nodejs.org) installed.
 
 ```
 node -v
-# should output something like v20.19.0
+# should output something like v22.20.0
 ```
 
 ### Install dependencies
 
 Now call `npm install` in the command line to install all JS dependencies (which are placed in the folder `node_modules/`).
 
-### Specify the Scrivito CMS to use
+### Configure environment variables
 
-The Scrivito Portal App requires the instance ID of your CMS. The ID is taken from the environment variable `SCRIVITO_TENANT`. The environment variable can also be set via [`.env`](https://github.com/motdotla/dotenv).
+The Scrivito Portal App uses environment variables for configuration. You can set these variables in your environment, or use the [dotenv](https://github.com/motdotla/dotenv) library to load them from a `.env` file in the project root.
 
-See `.env.example` for an example.
+See [.env.example](.env.example) for an example configuration file.
+
+#### Specify the Scrivito CMS to use
+
+The Scrivito Portal App requires the instance ID of your CMS. Set the `SCRIVITO_TENANT` environment variable to your CMS instance ID.
+
+#### Optional: Configure PisaSales API
+
+If you need to integrate with a PisaSales API, set the `PISA_SALES_API_URL` environment variable to your PisaSales API URL.
 
 ## How to develop
 

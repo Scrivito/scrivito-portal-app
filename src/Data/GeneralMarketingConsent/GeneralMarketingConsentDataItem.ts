@@ -1,10 +1,12 @@
 import {
+  ClientError,
   currentLanguage,
   DataAttributeDefinitions,
   load,
   provideDataItem,
 } from 'scrivito'
 import { neoletterClient } from '../neoletterClient'
+import { errorToast } from '../CurrentUser/errorToast'
 
 const GENERAL_TOPIC_ID = 'general'
 
@@ -29,7 +31,21 @@ export const GeneralMarketingConsent = provideDataItem(
         : 'General marketing consent',
     connection: {
       async get() {
-        const mySubscribedTopicIds = await fetchMySubscribedTopicIds()
+        let mySubscribedTopicIds: string[]
+        try {
+          mySubscribedTopicIds = await fetchMySubscribedTopicIds()
+        } catch (error) {
+          if (
+            error instanceof ClientError &&
+            error.code ===
+              'precondition_not_met.neoletter_feature_not_activated'
+          ) {
+            return { isConsentGiven: false }
+          }
+
+          errorToast('Failed to fetch general marketing consent', error)
+          throw error
+        }
 
         return {
           isConsentGiven: mySubscribedTopicIds.includes(GENERAL_TOPIC_ID),

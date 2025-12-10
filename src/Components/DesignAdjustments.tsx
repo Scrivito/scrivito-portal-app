@@ -1,5 +1,5 @@
 import { Obj, connect } from 'scrivito'
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from '@dr.pogodin/react-helmet'
 import { isFont } from '../Objs/Font/FontObjClass'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 

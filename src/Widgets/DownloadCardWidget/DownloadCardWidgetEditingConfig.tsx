@@ -1,7 +1,7 @@
 import { provideEditingConfig, Widget } from 'scrivito'
 import { DownloadCardWidget } from './DownloadCardWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ScrivitoBootstrapIconEditor } from 'scrivito-icon-editor'
+import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 
 provideEditingConfig(DownloadCardWidget, {
   title: 'Download Card',
@@ -11,7 +11,7 @@ provideEditingConfig(DownloadCardWidget, {
     {
       title: 'Icon',
       component: (props: { widget: Widget }) => (
-        <ScrivitoBootstrapIconEditor defaultValue="filetype-pdf" {...props} />
+        <ScrivitoBootstrapIconPicker defaultValue="filetype-pdf" {...props} />
       ),
       properties: ['icon'],
       key: 'icon-group',

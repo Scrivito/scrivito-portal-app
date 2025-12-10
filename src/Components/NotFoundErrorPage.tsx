@@ -10,17 +10,14 @@ import {
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
 import { Loading } from './Loading'
+import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (
-      isUserLoggedIn() &&
-      !currentSiteId() &&
-      !Obj.onAllSites().get(import.meta.env.SCRIVITO_ROOT_OBJ_ID)
-    ) {
+    if (isUserLoggedIn() && !currentSiteId() && isPortalAppContentMissing()) {
       return <NotFound />
     }
 
@@ -54,19 +51,33 @@ const NotFound = connect(function NotFound() {
 
     async function beginEditingIfContentIsEmpty() {
       if (await load(() => isEditorLoggedIn())) return
-      if (await load(() => Obj.onAllSites().all().count() > 0)) return
+      if (await load(() => hasSomeContent())) return
 
       location.href = `https://edit.scrivito.com/${location.href}`
     }
   }, [])
 
-  if (!root) {
+  if (isPortalAppContentMissing() && hasSomeContent()) {
     return (
       <main id="main">
         <section className="py-1">
           <div className="container">
-            <div>Page not found.</div>
+            <h6>Portal App content is missing!</h6>
+            <div>
+              Your instance contains content, but the Portal App root object is
+              not available.
+            </div>
           </div>
+        </section>
+      </main>
+    )
+  }
+
+  if (!root) {
+    return (
+      <main id="main">
+        <section className="py-1">
+          <div className="container">Page not found.</div>
         </section>
       </main>
     )
@@ -91,3 +102,11 @@ const NotFound = connect(function NotFound() {
     </>
   )
 })
+
+function isPortalAppContentMissing(): boolean {
+  return !defaultSiteVersions().toArray().length
+}
+
+function hasSomeContent(): boolean {
+  return Obj.onAllSites().all().count() > 0
+}

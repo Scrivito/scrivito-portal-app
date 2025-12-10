@@ -1,6 +1,5 @@
 import { provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
-import { SiteColorsPicker } from './SiteColorsPicker'
 import {
   defaultPageEditingConfigAttributes,
   defaultPageInitialContent,
@@ -13,6 +12,7 @@ import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNaviga
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
+import { jwtPisaSalesConfigSite } from '../../Data/jwtPisaSalesApiConfig'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -40,6 +40,36 @@ provideEditingConfig(Homepage, {
       title: 'Favicon',
     },
     siteCartPage: { title: 'Location of cart page' },
+    siteColorPrimary: {
+      title: 'Primary color',
+      description: 'Default: #274486',
+      editor: 'colorPicker',
+    },
+    siteColorSecondary: {
+      title: 'Secondary color',
+      description: 'Default: #39a9eb',
+      editor: 'colorPicker',
+    },
+    siteColorTextDark: {
+      title: 'Dark text',
+      description: 'Default: #454545',
+      editor: 'colorPicker',
+    },
+    siteColorTextDarkHeadline: {
+      title: 'Dark headline text',
+      description: 'Default: #3b3b3b',
+      editor: 'colorPicker',
+    },
+    siteColorTextLight: {
+      title: 'Light text',
+      description: 'Default: #ffffff',
+      editor: 'colorPicker',
+    },
+    siteColorTextLightHeadline: {
+      title: 'Light headline text',
+      description: 'Default: #ffffff',
+      editor: 'colorPicker',
+    },
     siteDropShadow: {
       title: 'Show drop-shadow?',
       description: 'Default: Yes',
@@ -91,7 +121,7 @@ provideEditingConfig(Homepage, {
       properties: [
         'contentTitle',
         'baseUrl',
-        site.id() === import.meta.env.SCRIVITO_ROOT_OBJ_ID
+        site.id() === jwtPisaSalesConfigSite()?.id()
           ? 'jwtPisaSalesApiUrl'
           : null,
         'siteLogoDark',
@@ -110,7 +140,6 @@ provideEditingConfig(Homepage, {
     },
     {
       title: 'Colors',
-      component: SiteColorsPicker,
       properties: [
         'siteColorPrimary',
         'siteColorSecondary',
@@ -151,6 +180,12 @@ provideEditingConfig(Homepage, {
     layoutHeader: [new TopNavigationWidget()],
     layoutShowHeader: true,
     siteBorderRadius: '8.5px',
+    siteColorPrimary: '#274486',
+    siteColorSecondary: '#39a9eb',
+    siteColorTextDark: '#454545',
+    siteColorTextDarkHeadline: '#3b3b3b',
+    siteColorTextLight: '#ffffff',
+    siteColorTextLightHeadline: '#ffffff',
     siteDropShadow: true,
     siteFontBodyWeight: '500',
     siteFontHeadlineWeight: '500',

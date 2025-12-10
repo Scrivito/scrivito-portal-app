@@ -10,3 +10,5 @@ updates:
           - 'patch'
     schedule:
       interval: 'monthly'
+    cooldown:
+      default-days: 7

@@ -49,20 +49,22 @@ const DisplayDate = connect(function DisplayDate({
 })
 
 function formatDistance(date: Date, currentDate: Date) {
-  const days = Math.round(
-    (date.getTime() - currentDate.getTime()) / (24 * 3600 * 1000),
+  const minutes = Math.round(
+    (date.getTime() - currentDate.getTime()) / (60 * 1000),
   )
+  const hours = Math.round(minutes / 60)
+  const days = Math.round(hours / 24)
   const months = Math.round(days / 30.436875)
   const years = date.getFullYear() - new Date(currentDate).getFullYear()
 
   const relativeTimeFormat = new Intl.RelativeTimeFormat(
     currentLanguage() ?? 'en',
-    {
-      numeric: 'auto',
-    },
+    { numeric: 'auto' },
   )
 
   if (years !== 0) return relativeTimeFormat.format(years, 'year')
   if (months !== 0) return relativeTimeFormat.format(months, 'month')
-  return relativeTimeFormat.format(days, 'day')
+  if (days !== 0) return relativeTimeFormat.format(days, 'day')
+  if (hours !== 0) return relativeTimeFormat.format(hours, 'hour')
+  return relativeTimeFormat.format(minutes, 'minute')
 }
