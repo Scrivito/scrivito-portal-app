@@ -5,7 +5,7 @@ import {
   Widget,
 } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
-import { ColumnsEditorTab } from './ColumnsEditorTab'
+import { ColumnsEditor } from './ColumnsEditor'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 import { AdvancedEnumEditor } from '../../Components/ScrivitoExtensions/AdvancedEnumEditor'
 import startSvg from './alignment-start.svg'
@@ -85,7 +85,7 @@ provideEditingConfig(ColumnContainerWidget, {
       'columns',
       {
         component: ({ widget }: { widget: Widget }) => (
-          <ColumnsEditorTab widget={widget} />
+          <ColumnsEditor widget={widget} />
         ),
       },
     ],
