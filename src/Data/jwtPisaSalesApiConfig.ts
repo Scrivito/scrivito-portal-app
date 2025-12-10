@@ -10,19 +10,29 @@ export async function jwtPisaSalesApiConfig({
 }: {
   subPath: string
 }): Promise<({ url: string } & ApiClientOptions) | null> {
-  const tokenAuthorization = getTokenAuthorization()
-  if (!tokenAuthorization) return null
-
-  const baseUrl = await jwtPisaSalesApiUrl()
-  if (!baseUrl) return null
+  const jwtConfig = await jwtPisaSalesApiAuth()
+  if (!jwtConfig) return null
 
   return {
-    url: `${baseUrl}/${subPath}`,
+    url: `${jwtConfig.apiUrl}/${subPath}`,
     headers: {
       'Accept-Language': await load(() => currentLanguage() ?? 'en'),
-      Authorization: tokenAuthorization,
+      Authorization: jwtConfig.token,
     },
   }
+}
+
+export async function jwtPisaSalesApiAuth(): Promise<{
+  apiUrl: string
+  token: string
+} | null> {
+  const apiUrl = await jwtPisaSalesApiUrl()
+  if (!apiUrl) return null
+
+  const token = getTokenAuthorization()
+  if (!token) return null
+
+  return { apiUrl, token }
 }
 
 export function jwtPisaSalesConfigSite(): Obj | undefined {
