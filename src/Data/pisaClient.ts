@@ -3,8 +3,11 @@ import {
   currentLanguage,
   isUserLoggedIn,
   load,
+  Obj,
 } from 'scrivito'
 import { getJrPlatformPisaSalesApiUrl } from '../privateJrPlatform/getJrPlatformPisaSalesApiUrl'
+import { jwtPisaSalesApiUrl } from './jwtPisaSalesApiConfig'
+import { getTokenAuthorization } from './getTokenAuthorization'
 
 export async function pisaSalesApiUrl(): Promise<string | null> {
   if (import.meta.env.FORCE_LOCAL_STORAGE) return null
@@ -37,4 +40,15 @@ export async function pisaConfig(subPath: string) {
       'Accept-Language': await load(() => currentLanguage() ?? 'en'),
     },
   }
+}
+
+export async function questionnaireBackendConnection() {
+  // workaround to wait until configure is done
+  await load(() => Obj.onAllSites().all().count())
+  const defaultUrl = await pisaSalesApiUrl()
+  if (defaultUrl) {
+    return { apiUrl: defaultUrl, token: null }
+  }
+  const jwt = await jwtPisaSalesApiUrl()
+  return { apiUrl: jwt, token: getTokenAuthorization() }
 }
