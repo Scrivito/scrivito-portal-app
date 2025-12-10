@@ -1,22 +1,35 @@
-import { uiContext, canWrite, connect, Widget } from 'scrivito'
+import {
+  canEdit,
+  connect,
+  isComparisonActive,
+  uiContext,
+  Widget,
+} from 'scrivito'
 import Draggable from 'react-draggable'
 import { isEqual, times } from 'lodash-es'
 import {
   ColumnWidget,
   ColumnWidgetInstance,
 } from '../ColumnWidget/ColumnWidgetClass'
-import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
+import {
+  isColumnContainerWidgetInstance,
+  ColumnContainerWidgetInstance,
+} from './ColumnContainerWidgetClass'
 import './ColumnsEditorTab.scss'
 import { Component, createRef, useMemo } from 'react'
 
-export function ColumnsEditorTab({
+export const ColumnsEditorTab = connect(function ColumnsEditorTab({
   widget,
 }: {
-  widget: ColumnContainerWidgetInstance
+  widget: Widget
 }) {
+  if (!isColumnContainerWidgetInstance(widget)) return null
+
   const includedWidgetIds = calculateContentIds(calculateContents(widget))
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
+
+  const readOnly = !canEdit(widget.obj()) || isComparisonActive()
 
   return (
     <div className={`scrivito_${theme}`}>
@@ -24,12 +37,12 @@ export function ColumnsEditorTab({
         // reset component whenever a concurrent widget addition/deletion happened
         key={includedWidgetIds.join('-')}
         widget={widget}
-        readOnly={!canWrite()}
+        readOnly={readOnly}
         currentGrid={gridOfWidget(widget)}
       />
     </div>
   )
-}
+})
 
 const ColumnsEditor = connect(
   ({
@@ -53,9 +66,6 @@ const ColumnsEditor = connect(
 
     return (
       <div className="scrivito_detail_content">
-        <div className="scrivito_detail_label">
-          <span>Layout (desktop)</span>
-        </div>
         <div className="item_content">
           <div className="gle-preview-list">
             <div className="gle-preview-group">
@@ -229,6 +239,7 @@ function PresetGrid({
     <button
       className={classNames.join(' ')}
       title={title}
+      disabled={readOnly}
       onClick={() => adjustGrid(grid)}
     >
       {grid.map((colSize, index) => (
@@ -259,6 +270,7 @@ function FlexLayoutEditor({
               <button
                 className="btn grid-del"
                 title="delete column"
+                disabled={readOnly}
                 onClick={() =>
                   adjustGrow(currentGrow.filter((_, i) => i !== index))
                 }
@@ -267,6 +279,7 @@ function FlexLayoutEditor({
             <button
               className="btn grid-button"
               title={flexGrow ? 'shrink column' : 'grow column'}
+              disabled={readOnly}
               onClick={() =>
                 adjustGrow(currentGrow.map((v, i) => (i === index ? !v : v)))
               }
@@ -278,6 +291,7 @@ function FlexLayoutEditor({
           <button
             className="p-0 grid-handle grid-handle-plus"
             title="add a column"
+            disabled={readOnly}
             onClick={() => adjustGrow([...currentGrow, true])}
           />
         )}
