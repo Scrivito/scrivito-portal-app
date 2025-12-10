@@ -13,6 +13,7 @@ import centerSvg from './alignment-center.svg'
 import endSvg from './alignment-end.svg'
 import stretchSvg from './alignment-stretch.svg'
 import Thumbnail from './thumbnail.svg'
+import { InvertedBooleanEditor } from '../../Components/ScrivitoExtensions/InvertedBooleanEditor'
 
 provideEditingConfig(ColumnContainerWidget, {
   title: 'Columns',
@@ -29,6 +30,13 @@ provideEditingConfig(ColumnContainerWidget, {
         { value: 'flex', title: 'Flex' },
       ],
       description: 'Default: Grid',
+    },
+    disableGutters: {
+      title: 'Show gutters?',
+      description: 'Gutters are the spaces between columns in a layout.',
+    },
+    disableResponsiveAdaption: {
+      title: 'Responsive adaption?',
     },
   },
   properties: [
@@ -70,13 +78,41 @@ provideEditingConfig(ColumnContainerWidget, {
       },
     ],
     'layoutMode',
+    [
+      'disableResponsiveAdaption',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <InvertedBooleanEditor
+            attributeValue={widget.get('disableResponsiveAdaption') === true}
+            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            updateAttributeValue={(value) =>
+              widget.update({ disableResponsiveAdaption: value })
+            }
+          />
+        ),
+      },
+    ],
+    [
+      'disableGutters',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <InvertedBooleanEditor
+            attributeValue={widget.get('disableGutters') === true}
+            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            updateAttributeValue={(value) =>
+              widget.update({ disableGutters: value })
+            }
+          />
+        ),
+      },
+    ],
   ],
   propertiesGroups: [
     {
       title: 'Columns layout',
       key: 'columns-layout-group',
       component: ColumnsEditorTab,
-      properties: ['columns', 'disableGutters', 'disableResponsiveAdaption'],
+      properties: ['columns'],
     },
   ],
   initialContent: {
