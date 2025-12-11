@@ -19,7 +19,14 @@ export const Attachment = connect(function Attachment({
     let timeoutId: NodeJS.Timeout
     dataBinaryToUrl(attachment).then(({ url, maxAge }) => {
       setBinaryUrl(url)
-      timeoutId = setTimeout(() => setTrigger(Date.now()), maxAge * 1000)
+
+      // setTimeout has a maximum delay of 2^31-1 ms (~24.8 days)
+      // If delay exceeds this, it wraps to 1ms, causing immediate re-trigger
+      const MAX_TIMEOUT_DELAY = 2147483647
+      timeoutId = setTimeout(
+        () => setTrigger(Date.now()),
+        Math.min(maxAge * 1000, MAX_TIMEOUT_DELAY),
+      )
     })
 
     return () => {
