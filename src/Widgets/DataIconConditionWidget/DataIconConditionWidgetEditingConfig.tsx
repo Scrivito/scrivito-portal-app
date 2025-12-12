@@ -11,20 +11,20 @@ provideEditingConfig(DataIconConditionWidget, {
   },
   titleForContent: (content) =>
     `${content.get('attributeValue')} => ${content.get('icon')}`,
-  propertiesGroups: [
-    {
-      title: 'Value',
-      properties: ['attributeValue'],
-      key: 'value-group',
-    },
-    {
-      title: 'Icon',
-      component: (props: { widget: Widget }) => (
-        <ScrivitoBootstrapIconPicker defaultValue="box" {...props} />
-      ),
-      properties: ['icon'],
-      key: 'icon-group',
-    },
+  properties: [
+    'attributeValue',
+    [
+      'icon',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ScrivitoBootstrapIconPicker
+            attribute="icon"
+            defaultValue="box"
+            widget={widget}
+          />
+        ),
+      },
+    ],
   ],
   initialContent: {
     icon: 'bi-box',
