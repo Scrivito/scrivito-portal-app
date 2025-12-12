@@ -33,7 +33,7 @@ export function jwtPisaSalesConfigSite(): Obj | undefined {
   ])[0]
 }
 
-async function jwtPisaSalesApiUrl(): Promise<string | null> {
+export async function jwtPisaSalesApiUrl(): Promise<string | null> {
   if (import.meta.env.FORCE_LOCAL_STORAGE) return null
 
   const root = await load(() => jwtPisaSalesConfigSite())
