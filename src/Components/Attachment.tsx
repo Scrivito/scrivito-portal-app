@@ -1,5 +1,5 @@
 import prettyBytes from 'pretty-bytes'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { connect, currentLanguage } from 'scrivito'
 import { FullDataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
 
@@ -14,10 +14,13 @@ export const Attachment = connect(function Attachment({
 }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
   const [trigger, setTrigger] = useState<number>(0)
+  const cleanupRef = useRef<(() => void) | undefined>(undefined)
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
-    dataBinaryToUrl(attachment).then(({ url, maxAge }) => {
+    dataBinaryToUrl(attachment).then(({ url, maxAge, cleanup }) => {
+      cleanupRef.current?.()
+      cleanupRef.current = cleanup
       setBinaryUrl(url)
 
       // setTimeout has a maximum delay of 2^31-1 ms (~24.8 days)
@@ -31,6 +34,7 @@ export const Attachment = connect(function Attachment({
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId)
+      cleanupRef.current?.()
     }
   }, [attachment, trigger])
 
