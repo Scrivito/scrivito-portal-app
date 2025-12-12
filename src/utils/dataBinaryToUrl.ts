@@ -1,16 +1,17 @@
-import { fileToDataUrl } from './fileToDataUrl'
+import { fileToObjectUrl } from './fileToObjectUrl'
 import { isOptionalString } from './isOptionalString'
 import { pisaDataBinaryToUrl } from './pisaDataBinaryToUrl'
 
 export async function dataBinaryToUrl(
   binary: DataBinary,
-): Promise<{ url: string; maxAge: number }> {
+): Promise<{ url: string; maxAge: number; cleanup?: () => void }> {
   if (isUrlDataBinary(binary)) {
     return { url: binary.url, maxAge: Number.MAX_VALUE }
   }
 
   if (binary.file) {
-    return { url: await fileToDataUrl(binary.file), maxAge: Number.MAX_VALUE }
+    const { url, cleanup } = fileToObjectUrl(binary.file)
+    return { url, maxAge: Number.MAX_VALUE, cleanup }
   }
 
   if (binary.dataBase64) {
