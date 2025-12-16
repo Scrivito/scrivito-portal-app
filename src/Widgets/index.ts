@@ -1,6 +1,5 @@
 import { initNeoletterFormWidgets } from 'scrivito-neoletter-form-widgets'
-import { initPisaSalesQuestionnaireWidgets } from 'scrivito-pisasales-questionnaire-builder'
-import { questionnaireBackendConnection } from '../Data/pisaClient'
+import { configurePisaSalesQuestionnaireWidgets } from './configurePisaSalesQuestionnaireWidgets'
 
 import.meta.glob(['./**/*WidgetClass.ts', './**/*WidgetComponent.tsx'], {
   eager: true,
@@ -8,8 +7,6 @@ import.meta.glob(['./**/*WidgetClass.ts', './**/*WidgetComponent.tsx'], {
 
 initNeoletterFormWidgets()
 
-initPisaSalesQuestionnaireWidgets({
-  connection: questionnaireBackendConnection(),
-})
+configurePisaSalesQuestionnaireWidgets()
 
 export {}
