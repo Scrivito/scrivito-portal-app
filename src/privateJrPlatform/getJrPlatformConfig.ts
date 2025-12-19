@@ -7,7 +7,6 @@ export function getJrPlatformConfig() {
         'http://localhost:8090',
         'https://*.scrivito-ui.pages.dev',
       ],
-      widgetHighlighting: true,
     },
   }
 }
