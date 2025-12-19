@@ -1,4 +1,3 @@
-import { load, Obj } from 'scrivito'
 import {
   BackendConnectionData,
   initPisaSalesQuestionnaireWidgets,
@@ -13,8 +12,6 @@ export function configurePisaSalesQuestionnaireWidgets() {
 async function connection(): Promise<BackendConnectionData> {
   if (import.meta.env.FORCE_LOCAL_STORAGE) return { apiUrl: null, token: null }
 
-  // Workaround for issue #11896
-  await load(() => Obj.onAllSites().all().count())
   const defaultUrl = await pisaSalesApiUrl()
   if (defaultUrl) return { apiUrl: defaultUrl, token: null }
 
