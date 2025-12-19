@@ -19,7 +19,7 @@ export function getJrPlatformInstanceId(): string | null {
   if (!location) return null
 
   const pathInstance = location.pathname.match(/^\/([0-9a-f]{32})\b/)?.[1]
-  const queryInstance = new URLSearchParams(location.search).get('tenantId')
+  const queryInstance = new URLSearchParams(location.search).get('instanceId')
   const instance = pathInstance || queryInstance
 
   return instance
