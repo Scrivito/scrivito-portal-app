@@ -68,7 +68,8 @@ provideEditingConfig(ColumnContainerWidget, {
               {
                 value: 'stretch',
                 title: 'Stretch',
-                description: 'Only works with one box widget inside a column.',
+                description:
+                  'Stretch only works with one box widget inside a column.',
                 icon: stretchSvg,
               },
             ]}

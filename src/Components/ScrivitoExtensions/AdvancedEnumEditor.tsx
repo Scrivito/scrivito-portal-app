@@ -26,6 +26,7 @@ export const AdvancedEnumEditor = connect(function AdvancedEnumEditor({
   if (!theme) return null
 
   const currentValue = ensureString(attributeValue) || options[0]?.value
+  const currentOption = options.find((option) => option.value === currentValue)
 
   return (
     <div className={`advanced-enum-editor scrivito_${theme}`}>
@@ -41,7 +42,6 @@ export const AdvancedEnumEditor = connect(function AdvancedEnumEditor({
             }
             disabled={readOnly}
             onClick={() => updateAttributeValue(option.value)}
-            title={option.description}
           >
             {option.icon && (
               <div
@@ -53,6 +53,9 @@ export const AdvancedEnumEditor = connect(function AdvancedEnumEditor({
           </button>
         ))}
       </div>
+      {currentOption?.description && (
+        <div className="enum_description">{currentOption.description}</div>
+      )}
     </div>
   )
 })

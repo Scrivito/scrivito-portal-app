@@ -74,6 +74,15 @@
     }
   }
 
+  .enum_description {
+    color: #666;
+    font-size: 12px !important;
+    font-weight: bold;
+    line-height: 19px !important;
+    margin-top: 8px !important;
+    padding: 0 3px;
+  }
+
   &.scrivito_dark {
     .enum_attribute {
       button {
@@ -103,6 +112,12 @@
           }
         }
       }
+    }
+
+    .enum_description {
+      color: #aaa;
+      font-size: 11px !important;
+      line-height: 19px !important;
     }
   }
 }
