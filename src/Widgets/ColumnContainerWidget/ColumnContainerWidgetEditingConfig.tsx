@@ -43,6 +43,15 @@ provideEditingConfig(ColumnContainerWidget, {
     },
   },
   properties: [
+    'layoutMode',
+    [
+      'columns',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ColumnsEditor widget={widget} />
+        ),
+      },
+    ],
     [
       'alignment',
       {
@@ -78,15 +87,6 @@ provideEditingConfig(ColumnContainerWidget, {
               widget.update({ alignment: value })
             }
           />
-        ),
-      },
-    ],
-    'layoutMode',
-    [
-      'columns',
-      {
-        component: ({ widget }: { widget: Widget }) => (
-          <ColumnsEditor widget={widget} />
         ),
       },
     ],
