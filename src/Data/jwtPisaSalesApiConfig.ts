@@ -12,6 +12,7 @@ export async function jwtPisaSalesApiConfig({
 }): Promise<({ url: string } & ApiClientOptions) | null> {
   const jwtConfig = await jwtPisaSalesApiAuth()
   if (!jwtConfig) return null
+  if (jwtConfig.token === null) return null
 
   return {
     url: `${jwtConfig.apiUrl}/${subPath}`,
@@ -24,13 +25,13 @@ export async function jwtPisaSalesApiConfig({
 
 export async function jwtPisaSalesApiAuth(): Promise<{
   apiUrl: string
-  token: string
+  token: string | null
 } | null> {
   const apiUrl = await jwtPisaSalesApiUrl()
   if (!apiUrl) return null
 
   const token = getTokenAuthorization()
-  if (!token) return null
+  if (!token) return { apiUrl, token: null }
 
   return { apiUrl, token }
 }
