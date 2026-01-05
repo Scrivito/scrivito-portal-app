@@ -67,7 +67,7 @@ provideEditingConfig(ColumnContainerWidget, {
               },
               {
                 value: 'stretch',
-                title: 'Stretch (full height)',
+                title: 'Stretch',
                 description: 'Only works with one box widget inside a column.',
                 icon: stretchSvg,
               },
