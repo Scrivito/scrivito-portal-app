@@ -64,7 +64,7 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
   }
 
   return (
-    <div className="scrivito_detail_content">
+    <div className="columns-editor-content">
       <div className="item_content">
         <div className="gle-preview-list">
           <div className="gle-preview-group">
