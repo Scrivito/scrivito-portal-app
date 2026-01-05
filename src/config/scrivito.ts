@@ -13,7 +13,7 @@ export function configureScrivito(options?: { priority?: 'background' }) {
     autoConvertAttributes: true,
     baseUrlForSite,
     contentTagsForEmptyAttributes: false,
-    extensionsUrl: `/_scrivito_extensions.html?tenantId=${instanceId}`,
+    extensionsUrl: `/_scrivito_extensions.html?instanceId=${instanceId}`,
     instanceId,
     optimizedWidgetLoading: true,
     siteForUrl,
