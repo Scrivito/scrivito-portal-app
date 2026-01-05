@@ -10,7 +10,7 @@ const INSTANCE_ALIAS: Partial<Record<string, string>> = {
 }
 
 export function getJrPlatformInstanceId(): string | null {
-  const scrivitoInstance = import.meta.env.SCRIVITO_TENANT
+  const scrivitoInstance = import.meta.env.SCRIVITO_INSTANCE_ID
   if (scrivitoInstance) return scrivitoInstance
 
   const hostnameInstance = instanceFromHostname()
@@ -35,7 +35,7 @@ export function getJrPlatformInstanceBaseUrl(origin: string): string {
 }
 
 function isMultitenancyEnabled(): boolean {
-  return !import.meta.env.SCRIVITO_TENANT && !instanceFromHostname()
+  return !import.meta.env.SCRIVITO_INSTANCE_ID && !instanceFromHostname()
 }
 
 export function instanceFromHostname() {

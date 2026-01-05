@@ -26,5 +26,5 @@ export function configureScrivito(options?: { priority?: 'background' }) {
 function scrivitoTenantId(): string | null {
   if (import.meta.env.PRIVATE_JR_PLATFORM) return getJrPlatformInstanceId()
 
-  return import.meta.env.SCRIVITO_TENANT
+  return import.meta.env.SCRIVITO_INSTANCE_ID
 }
