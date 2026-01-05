@@ -1,4 +1,5 @@
 import { configureErrorReporting } from './configureErrorReporting'
+import { configurePisaSalesQuestionnaireWidgets } from './configurePisaSalesQuestionnaireWidgets'
 import { configureHistory } from './history'
 import { configureObjClassForContentType } from './objClassForContentType'
 import { configureScrivito } from './scrivito'
@@ -13,4 +14,5 @@ export function configure() {
   configureHistory()
   configureErrorReporting()
   configureWindowScrivito()
+  configurePisaSalesQuestionnaireWidgets()
 }
