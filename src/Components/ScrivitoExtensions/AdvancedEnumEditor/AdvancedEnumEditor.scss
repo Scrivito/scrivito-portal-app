@@ -67,7 +67,8 @@
         filter: brightness(0.6);
         left: -22px;
         position: absolute;
-        top: 14px;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }
