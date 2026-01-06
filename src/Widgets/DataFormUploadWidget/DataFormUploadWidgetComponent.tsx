@@ -1,4 +1,5 @@
 import {
+  connect,
   ContentTag,
   currentLanguage,
   InPlaceEditingOff,
@@ -8,10 +9,10 @@ import {
 import { DataFormUploadWidget } from './DataFormUploadWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { useDropzone } from 'react-dropzone'
-import { FileUploadPreview } from '../../Components/FileUploadPreview'
 import { useCallback, useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
 import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
+import { BoxAttachment } from '../../Components/BoxAttachment'
 
 const MAX_FILE_SIZE = 50 * 1000 * 1000
 
@@ -185,3 +186,30 @@ function getTooLargeMessage() {
       )} in size.`
   }
 }
+
+const FileUploadPreview = connect(function FileUploadPreview({
+  file,
+  onDelete,
+}: {
+  file: File
+  onDelete: () => void
+}) {
+  const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
+
+  useEffect(() => {
+    const url = URL.createObjectURL(file)
+    setBinaryUrl(url)
+
+    return () => URL.revokeObjectURL(url)
+  }, [file])
+
+  return (
+    <BoxAttachment
+      binaryUrl={binaryUrl}
+      filename={file.name}
+      contentType={file.type}
+      contentLength={file.size}
+      onDelete={onDelete}
+    />
+  )
+})
