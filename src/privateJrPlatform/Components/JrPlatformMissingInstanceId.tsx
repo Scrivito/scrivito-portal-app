@@ -1,7 +1,7 @@
 import errorBackground from '../../assets/images/error-background.jpg'
 import spaceman from '../../assets/images/spaceman.svg'
 
-export function JrPlatformMissingInstance() {
+export function JrPlatformMissingInstanceId() {
   return (
     <main id="main">
       <section className="bg-danger vh-100 py-5">

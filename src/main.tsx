@@ -9,7 +9,7 @@ import { renderOrHydrateApp } from './renderOrHydrateApp'
 import { getJrPlatformInstanceId } from './privateJrPlatform/multiTenancy'
 import { createRoot } from 'react-dom/client'
 import { StrictMode } from 'react'
-import { JrPlatformMissingInstance } from './privateJrPlatform/Components/JrPlatformMissingInstance'
+import { JrPlatformMissingInstanceId } from './privateJrPlatform/Components/JrPlatformMissingInstanceId'
 import { isJrPlatformValidContentFormat } from './privateJrPlatform/isJrPlatformValidContentFormat'
 import { JrPlatformWrongContentFormat } from './privateJrPlatform/Components/JrPlatformWrongContentFormat'
 import { ensureSiteIsPresent } from './multiSite/ensureSiteIsPresent'
@@ -24,7 +24,7 @@ async function boot() {
     if (!getJrPlatformInstanceId()) {
       return createRoot(rootElement).render(
         <StrictMode>
-          <JrPlatformMissingInstance />
+          <JrPlatformMissingInstanceId />
         </StrictMode>,
       )
     }
