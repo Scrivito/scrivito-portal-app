@@ -5,12 +5,8 @@ import { BoxAttachment } from './BoxAttachment'
 
 export const Attachment = connect(function Attachment({
   attachment,
-  onDelete,
-  readonly,
 }: {
   attachment: FullDataBinary
-  onDelete?: () => void
-  readonly?: boolean
 }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
   const [trigger, setTrigger] = useState<number>(0)
@@ -38,26 +34,19 @@ export const Attachment = connect(function Attachment({
     }
   }, [attachment, trigger])
 
-  const core = (
-    <BoxAttachment
-      binaryUrl={binaryUrl}
-      filename={attachment.filename}
-      contentType={attachment.contentType}
-      contentLength={attachment.contentLength}
-      onDelete={onDelete}
-    />
-  )
-
-  return readonly ? (
-    core
-  ) : (
+  return (
     <a
       href={binaryUrl}
       target="_blank"
       rel="noreferrer"
       title={getDownloadMessage(attachment.filename)}
     >
-      {core}
+      <BoxAttachment
+        binaryUrl={binaryUrl}
+        filename={attachment.filename}
+        contentType={attachment.contentType}
+        contentLength={attachment.contentLength}
+      />
     </a>
   )
 })
