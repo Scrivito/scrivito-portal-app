@@ -27,8 +27,6 @@ export default defineConfig(({ mode }) => {
     : 'Development'
   const HONEYBADGER_REVISION = env.CF_PAGES_COMMIT_SHA || 'unknown'
 
-  ensureScrivitoInstanceIdIsPresent(env)
-
   return {
     build: {
       outDir,
@@ -66,7 +64,7 @@ export default defineConfig(({ mode }) => {
       ),
       'import.meta.env.SCRIVITO_ORIGIN': JSON.stringify(scrivitoOrigin(env)),
       'import.meta.env.SCRIVITO_INSTANCE_ID': JSON.stringify(
-        env.SCRIVITO_INSTANCE_ID || env.SCRIVITO_TENANT,
+        getScrivitoInstanceId(env),
       ),
       'import.meta.env.HONEYBADGER_API_KEY':
         JSON.stringify(HONEYBADGER_API_KEY),
@@ -112,18 +110,19 @@ export default defineConfig(({ mode }) => {
   }
 })
 
-function ensureScrivitoInstanceIdIsPresent(env: Record<string, string>): void {
-  if (env.PRIVATE_JR_PLATFORM === 'true') return
+function getScrivitoInstanceId(env: Record<string, string>): string | null {
+  if (env.PRIVATE_JR_PLATFORM === 'true') return null
 
-  const instanceId = env.SCRIVITO_INSTANCE_ID || env.SCRIVITO_TENANT
+  const scrivitoTenant = env.SCRIVITO_TENANT
+  const instanceId = env.SCRIVITO_INSTANCE_ID || scrivitoTenant
 
   if (typeof instanceId === 'string' && instanceId) {
-    if (env.SCRIVITO_TENANT) {
+    if (scrivitoTenant) {
       console.warn(
         'DEPRECATION WARNING: SCRIVITO_TENANT is deprecated. Please use SCRIVITO_INSTANCE_ID instead.',
       )
     }
-    return
+    return instanceId
   }
 
   throw new Error(
