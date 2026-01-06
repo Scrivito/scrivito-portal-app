@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { connect } from 'scrivito'
-import { fileToObjectUrl } from '../utils/fileToObjectUrl'
 import { BoxAttachment } from './BoxAttachment'
 
 export const FileUploadPreview = connect(function FileUploadPreview({
@@ -11,17 +10,12 @@ export const FileUploadPreview = connect(function FileUploadPreview({
   onDelete: () => void
 }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
-  const cleanupRef = useRef<(() => void) | undefined>(undefined)
 
   useEffect(() => {
-    const { url, cleanup } = fileToObjectUrl(file)
-    cleanupRef.current?.()
-    cleanupRef.current = cleanup
+    const url = URL.createObjectURL(file)
     setBinaryUrl(url)
 
-    return () => {
-      cleanupRef.current?.()
-    }
+    return () => URL.revokeObjectURL(url)
   }, [file])
 
   return (
