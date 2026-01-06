@@ -10,7 +10,7 @@ const INSTANCE_ALIAS: Partial<Record<string, string>> = {
 }
 
 export function getJrPlatformInstanceId(): string | null {
-  const scrivitoInstance = import.meta.env.SCRIVITO_TENANT
+  const scrivitoInstance = import.meta.env.SCRIVITO_INSTANCE_ID
   if (scrivitoInstance) return scrivitoInstance
 
   const hostnameInstance = instanceFromHostname()
@@ -19,7 +19,7 @@ export function getJrPlatformInstanceId(): string | null {
   if (!location) return null
 
   const pathInstance = location.pathname.match(/^\/([0-9a-f]{32})\b/)?.[1]
-  const queryInstance = new URLSearchParams(location.search).get('tenantId')
+  const queryInstance = new URLSearchParams(location.search).get('instanceId')
   const instance = pathInstance || queryInstance
 
   return instance
@@ -35,7 +35,7 @@ export function getJrPlatformInstanceBaseUrl(origin: string): string {
 }
 
 function isMultitenancyEnabled(): boolean {
-  return !import.meta.env.SCRIVITO_TENANT && !instanceFromHostname()
+  return !import.meta.env.SCRIVITO_INSTANCE_ID && !instanceFromHostname()
 }
 
 export function instanceFromHostname() {
