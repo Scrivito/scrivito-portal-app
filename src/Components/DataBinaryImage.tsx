@@ -1,4 +1,4 @@
-import { CSSProperties, useEffect, useState, useRef } from 'react'
+import { CSSProperties, useEffect, useState } from 'react'
 import { DataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
 import { RetryingImage } from './RetryingImage'
 
@@ -14,17 +14,8 @@ export function DataBinaryImage({
   style?: CSSProperties
 }) {
   const [src, setSrc] = useState<string | undefined>(undefined)
-  const cleanupRef = useRef<(() => void) | undefined>(undefined)
   useEffect(() => {
-    dataBinaryToUrl(dataBinary).then(({ url, cleanup }) => {
-      cleanupRef.current?.()
-      cleanupRef.current = cleanup
-      setSrc(url)
-    })
-
-    return () => {
-      cleanupRef.current?.()
-    }
+    dataBinaryToUrl(dataBinary).then(({ url }) => setSrc(url))
   }, [dataBinary])
 
   if (!src) return null

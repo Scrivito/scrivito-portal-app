@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { connect, currentLanguage } from 'scrivito'
 import { FullDataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
 import { BoxAttachment } from './BoxAttachment'
@@ -10,13 +10,10 @@ export const Attachment = connect(function Attachment({
 }) {
   const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
   const [trigger, setTrigger] = useState<number>(0)
-  const cleanupRef = useRef<(() => void) | undefined>(undefined)
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout
-    dataBinaryToUrl(attachment).then(({ url, maxAge, cleanup }) => {
-      cleanupRef.current?.()
-      cleanupRef.current = cleanup
+    dataBinaryToUrl(attachment).then(({ url, maxAge }) => {
       setBinaryUrl(url)
 
       // setTimeout has a maximum delay of 2^31-1 ms (~24.8 days)
@@ -30,7 +27,6 @@ export const Attachment = connect(function Attachment({
 
     return () => {
       if (timeoutId) clearTimeout(timeoutId)
-      cleanupRef.current?.()
     }
   }, [attachment, trigger])
 
