@@ -118,7 +118,7 @@ function ensureScrivitoInstanceIdIsPresent(env: Record<string, string>): void {
   const instanceId = env.SCRIVITO_INSTANCE_ID || env.SCRIVITO_TENANT
 
   if (typeof instanceId === 'string' && instanceId) {
-    if (env.SCRIVITO_TENANT && !env.SCRIVITO_INSTANCE_ID) {
+    if (env.SCRIVITO_TENANT) {
       console.warn(
         'DEPRECATION WARNING: SCRIVITO_TENANT is deprecated. Please use SCRIVITO_INSTANCE_ID instead.',
       )
