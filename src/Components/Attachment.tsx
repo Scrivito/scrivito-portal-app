@@ -1,7 +1,7 @@
-import prettyBytes from 'pretty-bytes'
 import { useState, useEffect, useRef } from 'react'
 import { connect, currentLanguage } from 'scrivito'
 import { FullDataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
+import { BoxAttachment } from './BoxAttachment'
 
 export const Attachment = connect(function Attachment({
   attachment,
@@ -38,78 +38,29 @@ export const Attachment = connect(function Attachment({
     }
   }, [attachment, trigger])
 
-  const content = (
-    <>
-      <div className="box-preview">
-        <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
-      </div>
-      <div className="box-meta flex-row">
-        <div className="d-flex flex-column flex-grow-1 min-vw-0">
-          <span className="box-name text-truncate">{attachment.filename}</span>
-          <span className="box-size">
-            {prettyBytes(attachment.contentLength, {
-              locale: currentLanguage() ?? 'en',
-            })}
-          </span>
-        </div>
-        {onDelete && (
-          <div className="d-flex">
-            <button
-              className="btn btn-sm"
-              onClick={(e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                onDelete()
-              }}
-              title={getDeleteButtonMessage()}
-            >
-              <i className="bi bi-trash3"></i>
-            </button>
-          </div>
-        )}
-      </div>
-    </>
+  const core = (
+    <BoxAttachment
+      binaryUrl={binaryUrl}
+      filename={attachment.filename}
+      contentType={attachment.contentType}
+      contentLength={attachment.contentLength}
+      onDelete={onDelete}
+    />
   )
 
   return readonly ? (
-    <div className="box-attachment">{content}</div>
+    core
   ) : (
     <a
       href={binaryUrl}
       target="_blank"
       rel="noreferrer"
-      className="box-attachment"
       title={getDownloadMessage(attachment.filename)}
     >
-      {content}
+      {core}
     </a>
   )
 })
-
-function BoxPreviewContent({
-  binaryUrl,
-  attachment,
-}: {
-  binaryUrl?: string
-  attachment: FullDataBinary
-}) {
-  if (binaryUrl && attachment.contentType.startsWith('image/')) {
-    return <img src={binaryUrl} alt="" />
-  }
-
-  let iconName = 'bi-file-earmark'
-  const filename = attachment.filename
-  if (filename.endsWith('.pdf')) iconName = 'bi-filetype-pdf'
-  if (filename.endsWith('.docx')) iconName = 'bi-filetype-docx'
-  if (filename.endsWith('.doc')) iconName = 'bi-filetype-doc'
-  if (filename.endsWith('.csv')) iconName = 'bi-filetype-csv'
-  if (filename.endsWith('.json')) iconName = 'bi-filetype-json'
-  if (filename.endsWith('.xml')) iconName = 'bi-filetype-xml'
-  if (filename.endsWith('.txt')) iconName = 'bi-filetype-txt'
-  if (filename.endsWith('.md')) iconName = 'bi-filetype-md'
-
-  return <i className={`bi ${iconName}`}></i>
-}
 
 function getDownloadMessage(subject: string) {
   switch (currentLanguage()) {
@@ -121,18 +72,5 @@ function getDownloadMessage(subject: string) {
       return `Pobierz ${subject}`
     default:
       return `Download ${subject}`
-  }
-}
-
-function getDeleteButtonMessage() {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Datei aus der Auswahl löschen'
-    case 'fr':
-      return 'Supprimer le fichier de la sélection'
-    case 'pl':
-      return 'Usuń plik z wyboru'
-    default:
-      return 'Delete file from selection'
   }
 }
