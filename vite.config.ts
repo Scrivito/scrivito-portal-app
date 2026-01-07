@@ -111,8 +111,6 @@ export default defineConfig(({ mode }) => {
 })
 
 function getScrivitoInstanceId(env: Record<string, string>): string | null {
-  if (env.PRIVATE_JR_PLATFORM === 'true') return null
-
   const scrivitoTenant = env.SCRIVITO_TENANT
   const instanceId = env.SCRIVITO_INSTANCE_ID || scrivitoTenant
 
@@ -124,6 +122,8 @@ function getScrivitoInstanceId(env: Record<string, string>): string | null {
     }
     return instanceId
   }
+
+  if (env.PRIVATE_JR_PLATFORM === 'true') return null
 
   throw new Error(
     'Environment variable "SCRIVITO_INSTANCE_ID" is not defined!' +

@@ -1,4 +1,5 @@
 import {
+  connect,
   ContentTag,
   currentLanguage,
   InPlaceEditingOff,
@@ -8,10 +9,10 @@ import {
 import { DataFormUploadWidget } from './DataFormUploadWidgetClass'
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { useDropzone } from 'react-dropzone'
-import { Attachment } from '../../Components/Attachment'
 import { useCallback, useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
 import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
+import { BoxAttachment } from '../../Components/BoxAttachment'
 
 const MAX_FILE_SIZE = 50 * 1000 * 1000
 
@@ -22,9 +23,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     useData().dataItem()?.id(),
   ].join('-')
   const attributeName = useData().attributeName()
-  const [attachments, setAttachments] = useState<
-    Array<{ file: File; key: string }>
-  >([])
+  const [files, setFiles] = useState<Array<{ file: File; key: string }>>([])
   const [isTooLarge, setIsTooLarge] = useState(false)
 
   const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
@@ -35,8 +34,8 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     onDropAccepted,
     onDropRejected,
     onDrop: (acceptedFiles) => {
-      setAttachments((prevAttachments) => [
-        ...prevAttachments,
+      setFiles((prevFiles) => [
+        ...prevFiles,
         ...acceptedFiles.map((file) => ({
           file,
           key: pseudoRandom32CharHex(),
@@ -49,10 +48,10 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     if (!inputRef.current) return
 
     const dataTransfer = new DataTransfer()
-    attachments.forEach((attachment) => dataTransfer.items.add(attachment.file))
+    files.forEach((item) => dataTransfer.items.add(item.file))
 
     inputRef.current.files = dataTransfer.files
-  }, [attachments, inputRef])
+  }, [files, inputRef])
 
   return (
     <div className="mb-3" key={[id, attributeName].join('-')}>
@@ -120,24 +119,15 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
       )}
       <div>
         <div className="d-flex flex-wrap mt-2 gap-1">
-          {attachments.map(({ file, key }) => (
-            <Attachment
-              attachment={{
-                _id: key,
-                contentLength: file.size,
-                contentType: file.type,
-                file,
-                filename: file.name,
-              }}
+          {files.map(({ file, key }) => (
+            <FileUploadPreview
+              file={file}
               key={key}
               onDelete={() => {
-                setAttachments((prevAttachments) =>
-                  prevAttachments.filter(
-                    (attachment) => attachment.key !== key,
-                  ),
+                setFiles((prevFiles) =>
+                  prevFiles.filter((item) => item.key !== key),
                 )
               }}
-              readonly
             />
           ))}
         </div>
@@ -196,3 +186,30 @@ function getTooLargeMessage() {
       )} in size.`
   }
 }
+
+const FileUploadPreview = connect(function FileUploadPreview({
+  file,
+  onDelete,
+}: {
+  file: File
+  onDelete: () => void
+}) {
+  const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
+
+  useEffect(() => {
+    const url = URL.createObjectURL(file)
+    setBinaryUrl(url)
+
+    return () => URL.revokeObjectURL(url)
+  }, [file])
+
+  return (
+    <BoxAttachment
+      binaryUrl={binaryUrl}
+      filename={file.name}
+      contentType={file.type}
+      contentLength={file.size}
+      onDelete={onDelete}
+    />
+  )
+})
