@@ -7,7 +7,6 @@ import {
   defaultPagePropertiesGroups,
   defaultPageValidations,
 } from '../defaultPageEditingConfig'
-import { SiteBorderRadiusEditor } from '../../Components/ScrivitoExtensions/SiteBorderRadiusEditor'
 import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNavigationWidgetClass'
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
@@ -38,6 +37,13 @@ provideEditingConfig(Homepage, {
     },
     siteFavicon: {
       title: 'Favicon',
+    },
+    siteBorderRadius: {
+      title: 'Rounded corners',
+      description:
+        'Applies to elements such as cards, buttons, and forms throughout the site. Set to 0 to disable rounded corners. Default: 8.5px',
+      editor: 'dimensionPicker',
+      options: { units: ['px'] },
     },
     siteCartPage: { title: 'Location of cart page' },
     siteColorPrimary: {
@@ -76,8 +82,7 @@ provideEditingConfig(Homepage, {
     },
     siteRoundedCorners: {
       title: 'Show rounded corners?',
-      description:
-        'Deprecated in favour of “Site rounded corners”. Default: Yes',
+      description: 'Deprecated in favour of “Rounded corners”. Default: Yes',
     },
     siteSearchResultsPage: {
       title: 'Location of search results page',
@@ -131,6 +136,7 @@ provideEditingConfig(Homepage, {
         'siteSearchResultsPage',
         'siteUserProfilePage',
         'siteDropShadow',
+        'siteBorderRadius',
         ...(site.get('siteBorderRadius') ? [] : ['siteRoundedCorners']),
         'siteFacebookAppId',
         'siteTwitterSite',
@@ -159,12 +165,6 @@ provideEditingConfig(Homepage, {
         'siteFontBodyWeight',
       ],
       key: 'site-fonts-group',
-    },
-    {
-      title: 'Rounded corners',
-      component: SiteBorderRadiusEditor,
-      properties: ['siteBorderRadius'],
-      key: 'site-rounded-corners-group',
     },
   ],
   properties: [...defaultPageProperties],
