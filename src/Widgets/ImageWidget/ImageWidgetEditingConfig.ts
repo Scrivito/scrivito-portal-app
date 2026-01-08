@@ -25,6 +25,11 @@ provideEditingConfig(ImageWidget, {
     attributeName: {
       title: 'Data item attribute name',
     },
+    height: {
+      title: 'Height',
+      editor: 'dimensionPicker',
+      options: { units: ['px'] },
+    },
     imageFromDataItem: {
       title: 'Show image from data item?',
     },
@@ -35,9 +40,16 @@ provideEditingConfig(ImageWidget, {
     roundCorners: {
       title: 'Round corners?',
     },
+    width: {
+      title: 'Width',
+      editor: 'dimensionPicker',
+      options: { units: ['px', '%'] },
+    },
   },
   properties: (widget) => [
     'alignment',
+    'width',
+    'height',
     'alternativeText',
     'link',
     [
@@ -52,10 +64,10 @@ provideEditingConfig(ImageWidget, {
   ],
   propertiesGroups: [
     {
-      title: 'Dimensions',
-      properties: ['height', 'objectFit', 'width'],
+      title: 'Object fit',
+      properties: ['objectFit'],
       component: ImageDimensionsEditor,
-      key: 'dimensions-group',
+      key: 'object-fit-group',
     },
   ],
   initialContent: {

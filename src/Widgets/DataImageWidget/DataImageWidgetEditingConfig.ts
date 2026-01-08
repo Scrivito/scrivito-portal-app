@@ -16,6 +16,14 @@ provideEditingConfig(DataImageWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    data: {
+      restrictDataTo: ['itemAttribute'],
+    },
+    height: {
+      title: 'Height',
+      editor: 'dimensionPicker',
+      options: { units: ['px'] },
+    },
     link: {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
@@ -23,17 +31,19 @@ provideEditingConfig(DataImageWidget, {
     roundCorners: {
       title: 'Round corners?',
     },
-    data: {
-      restrictDataTo: ['itemAttribute'],
+    width: {
+      title: 'Width',
+      editor: 'dimensionPicker',
+      options: { units: ['px', '%'] },
     },
   },
-  properties: ['alignment', 'link', 'roundCorners'],
+  properties: ['alignment', 'width', 'height', 'link', 'roundCorners'],
   propertiesGroups: [
     {
-      title: 'Dimensions',
-      properties: ['height', 'objectFit', 'width'],
+      title: 'Object fit',
+      properties: ['objectFit'],
       component: ImageDimensionsEditor,
-      key: 'dimensions-group',
+      key: 'object-fit-group',
     },
   ],
   initialContent: {
