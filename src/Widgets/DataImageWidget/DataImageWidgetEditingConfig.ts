@@ -1,7 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataImageWidget } from './DataImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
+import { ObjectFitEditor } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
 
 provideEditingConfig(DataImageWidget, {
   title: 'Data Image',
@@ -28,6 +28,10 @@ provideEditingConfig(DataImageWidget, {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
     },
+    objectFit: {
+      title: 'Object fit',
+      description: 'Default: Contain',
+    },
     roundCorners: {
       title: 'Round corners?',
     },
@@ -37,14 +41,15 @@ provideEditingConfig(DataImageWidget, {
       options: { units: ['px', '%'] },
     },
   },
-  properties: ['alignment', 'width', 'height', 'link', 'roundCorners'],
-  propertiesGroups: [
-    {
-      title: 'Object fit',
-      properties: ['objectFit'],
-      component: ImageDimensionsEditor,
-      key: 'object-fit-group',
-    },
+  properties: (widget) => [
+    'alignment',
+    'width',
+    'height',
+    ...(widget.get('height')
+      ? ([['objectFit', { component: ObjectFitEditor }]] as const)
+      : []),
+    'link',
+    'roundCorners',
   ],
   initialContent: {
     alignment: 'left',

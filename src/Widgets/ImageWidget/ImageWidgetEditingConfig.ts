@@ -1,7 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
+import { ObjectFitEditor } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
@@ -37,6 +37,10 @@ provideEditingConfig(ImageWidget, {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
     },
+    objectFit: {
+      title: 'Object fit',
+      description: 'Default: Contain',
+    },
     roundCorners: {
       title: 'Round corners?',
     },
@@ -50,6 +54,9 @@ provideEditingConfig(ImageWidget, {
     'alignment',
     'width',
     'height',
+    ...(widget.get('height')
+      ? ([['objectFit', { component: ObjectFitEditor }]] as const)
+      : []),
     'alternativeText',
     'link',
     [
@@ -61,14 +68,6 @@ provideEditingConfig(ImageWidget, {
           ) !== '0px',
       },
     ],
-  ],
-  propertiesGroups: [
-    {
-      title: 'Object fit',
-      properties: ['objectFit'],
-      component: ImageDimensionsEditor,
-      key: 'object-fit-group',
-    },
   ],
   initialContent: {
     alignment: 'left',
