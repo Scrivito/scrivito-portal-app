@@ -49,7 +49,15 @@ provideEditingConfig(DataImageWidget, {
       ? ([['objectFit', { component: ObjectFitEditor }]] as const)
       : []),
     'link',
-    'roundCorners',
+    [
+      'roundCorners',
+      {
+        enabled:
+          (widget.obj().ancestors()[0] || widget.obj()).get(
+            'siteBorderRadius',
+          ) !== '0px',
+      },
+    ],
   ],
   initialContent: {
     alignment: 'left',
