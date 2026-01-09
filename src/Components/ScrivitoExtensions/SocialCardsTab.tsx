@@ -11,11 +11,11 @@ import { getMetadata } from '../../utils/getMetadata'
 import './SocialCardsTab.scss'
 
 export function SocialCardsTab({ obj }: { obj: Obj }) {
-  const uiCtx = uiContext()
-  if (!uiCtx) return null
+  const { theme } = uiContext() || { theme: null }
+  if (!theme) return null
 
   return (
-    <div className={`scrivito_${uiCtx.theme}`}>
+    <div className={`scrivito_${theme}`}>
       <div className="scrivito_detail_content">
         <div className="row">
           <div className="col-sm-6">
