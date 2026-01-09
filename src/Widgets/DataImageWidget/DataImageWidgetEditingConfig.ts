@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { Obj, provideEditingConfig } from 'scrivito'
 import { DataImageWidget } from './DataImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
 import { ObjectFitEditor } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
@@ -49,17 +49,13 @@ provideEditingConfig(DataImageWidget, {
       ? ([['objectFit', { component: ObjectFitEditor }]] as const)
       : []),
     'link',
-    [
-      'roundCorners',
-      {
-        enabled:
-          (widget.obj().ancestors()[0] || widget.obj()).get(
-            'siteBorderRadius',
-          ) !== '0px',
-      },
-    ],
+    ['roundCorners', { enabled: siteHasBorderRadius(widget.obj()) }],
   ],
   initialContent: {
     alignment: 'left',
   },
 })
+
+function siteHasBorderRadius(obj: Obj): boolean {
+  return (obj.ancestors()[0] || obj).get('siteBorderRadius') !== '0px'
+}
