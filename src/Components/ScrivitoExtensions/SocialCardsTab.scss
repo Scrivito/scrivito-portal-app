@@ -205,6 +205,8 @@ $blueDarken: #0085ac;
   // --------------------------------------------------------------- //
 
   &.scrivito_dark {
+    background: var(--jr-grey-middle);
+
     .scrivito_detail_label span.headline {
       color: #aaa;
     }
