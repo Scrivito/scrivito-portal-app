@@ -39,10 +39,12 @@ export const defaultPageAttributes = {
   tcDescription: 'string',
   tcImage: ['reference', { only: ['Image'] }],
   tcTitle: 'string',
+  tcPreview: 'boolean', // TODO: Remove workaround for issue #12704
   // Open Graph attributes (used by Facebook)
   ogDescription: 'string',
   ogImage: ['reference', { only: ['Image'] }],
   ogTitle: 'string',
+  ogPreview: 'boolean', // TODO: Remove workaround for issue #12704
   // The order of the child pages
   childOrder: 'referencelist',
 } as const

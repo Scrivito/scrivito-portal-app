@@ -1,6 +1,9 @@
 import { Obj } from 'scrivito'
-import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
+import {
+  FacebookPreview,
+  TwitterPreview,
+} from '../Components/ScrivitoExtensions/SocialCardsTab'
 import { ensureString } from '../utils/ensureString'
 
 export const defaultPageEditingConfigAttributes = {
@@ -54,6 +57,40 @@ export const defaultPageEditingConfigAttributes = {
     description:
       'The right sidebar will be displayed on this page and all its descendant pages.',
   },
+  tcCreator: {
+    title: 'X Twitter creator',
+    description: 'Username of the content creator. Start with @',
+  },
+  tcImage: {
+    title: 'X Twitter image',
+  },
+  tcTitle: {
+    title: 'X Twitter title',
+    description: 'Overwrite the page title specifically for X Twitter.',
+  },
+  tcDescription: {
+    title: 'X Twitter description',
+    description:
+      'Overwrite the page description specifically for X Twitter. Limit to 200 characters.',
+  },
+  tcPreview: {
+    title: 'X Twitter preview',
+  },
+  ogImage: {
+    title: 'Facebook image',
+  },
+  ogTitle: {
+    title: 'Facebook title',
+    description: 'Overwrite the page title specifically for Facebook.',
+  },
+  ogDescription: {
+    title: 'Facebook description',
+    description:
+      'Overwrite the page description specifically for Facebook. Limit to 300 characters.',
+  },
+  ogPreview: {
+    title: 'Facebook preview',
+  },
 }
 
 export const defaultPageInitialContent = {
@@ -93,15 +130,16 @@ export const defaultPagePropertiesGroups = [
   },
   {
     title: 'Social cards',
-    component: SocialCardsTab,
     properties: [
-      'ogDescription',
-      'ogImage',
-      'ogTitle',
       'tcCreator',
-      'tcDescription',
       'tcImage',
       'tcTitle',
+      'tcDescription',
+      ['tcPreview', { component: TwitterPreview }],
+      'ogImage',
+      'ogTitle',
+      'ogDescription',
+      ['ogPreview', { component: FacebookPreview }],
     ],
     key: 'social-cards-group',
   },
