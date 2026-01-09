@@ -1,6 +1,6 @@
 import { Obj } from 'scrivito'
 import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
-import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
+import { ScrivitoBootstrapIconPicker } from '../Components/ScrivitoExtensions/ScrivitoBootstrapIconPicker'
 import { ensureString } from '../utils/ensureString'
 
 export const defaultPageEditingConfigAttributes = {
@@ -63,19 +63,6 @@ export const defaultPageInitialContent = {
 
 export const defaultPagePropertiesGroups = [
   {
-    title: 'Link icon',
-    component: (props: { page: Obj }) => (
-      <ScrivitoBootstrapIconPicker
-        attribute="linkIcon"
-        description="This icon may appear in a vertical navigation widget, for example."
-        showClearButton
-        {...props}
-      />
-    ),
-    properties: ['linkIcon'],
-    key: 'icon-group',
-  },
-  {
     title: 'Layout',
     properties: [
       'layoutMainBackgroundColor',
@@ -107,7 +94,22 @@ export const defaultPagePropertiesGroups = [
   },
 ] as const
 
-export const defaultPageProperties = ['title']
+export const defaultPageProperties = [
+  'title',
+  [
+    'linkIcon',
+    {
+      component: ({ page }: { page: Obj }) => (
+        <ScrivitoBootstrapIconPicker
+          page={page}
+          attribute="linkIcon"
+          description="This icon may appear in a vertical navigation widget, for example."
+          showClearButton
+        />
+      ),
+    },
+  ],
+] as const
 
 export const defaultPageValidations = [
   [

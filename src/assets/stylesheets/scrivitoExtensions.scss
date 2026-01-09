@@ -26,8 +26,6 @@ body {
 }
 
 .scrivito_dark {
-  background: var(--jr-grey-middle);
-
   [data-scrivito-editors-placeholder]:empty:not(:focus):before {
     color: #aaa !important;
   }
