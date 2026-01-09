@@ -1,7 +1,7 @@
 import thumbnail from './thumbnail.svg'
 import { TickListItemWidget } from '../TickListItemWidget/TickListItemWidgetClass'
 import { provideEditingConfig, Widget } from 'scrivito'
-import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
+import { ScrivitoBootstrapIconPicker } from '../../Components/ScrivitoExtensions/ScrivitoBootstrapIconPicker'
 import { TickListWidget } from './TickListWidgetClass'
 
 provideEditingConfig(TickListWidget, {

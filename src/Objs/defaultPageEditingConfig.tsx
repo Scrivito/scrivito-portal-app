@@ -1,6 +1,6 @@
 import { Obj } from 'scrivito'
 import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
-import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
+import { ScrivitoBootstrapIconPicker } from '../Components/ScrivitoExtensions/ScrivitoBootstrapIconPicker'
 import { ensureString } from '../utils/ensureString'
 
 export const defaultPageEditingConfigAttributes = {
