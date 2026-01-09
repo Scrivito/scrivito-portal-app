@@ -1,7 +1,7 @@
-import { provideEditingConfig } from 'scrivito'
+import { Obj, provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
+import { ObjectFitEditor } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
@@ -25,6 +25,11 @@ provideEditingConfig(ImageWidget, {
     attributeName: {
       title: 'Data item attribute name',
     },
+    height: {
+      title: 'Height',
+      editor: 'dimensionPicker',
+      options: { units: ['px'] },
+    },
     imageFromDataItem: {
       title: 'Show image from data item?',
     },
@@ -32,33 +37,40 @@ provideEditingConfig(ImageWidget, {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
     },
+    objectFit: {
+      title: 'Object fit',
+      description: 'Default: Contain',
+    },
     roundCorners: {
       title: 'Round corners?',
+    },
+    width: {
+      title: 'Width',
+      editor: 'dimensionPicker',
+      options: { units: ['px', '%'] },
     },
   },
   properties: (widget) => [
     'alignment',
+    'width',
+    'height',
+    ...(widget.get('height')
+      ? ([['objectFit', { component: ObjectFitEditor }]] as const)
+      : []),
     'alternativeText',
     'link',
     [
       'roundCorners',
       {
-        enabled:
-          (widget.obj().ancestors()[0] || widget.obj()).get(
-            'siteBorderRadius',
-          ) !== '0px',
+        enabled: siteHasBorderRadius(widget.obj()),
       },
     ],
-  ],
-  propertiesGroups: [
-    {
-      title: 'Dimensions',
-      properties: ['height', 'objectFit', 'width'],
-      component: ImageDimensionsEditor,
-      key: 'dimensions-group',
-    },
   ],
   initialContent: {
     alignment: 'left',
   },
 })
+
+function siteHasBorderRadius(obj: Obj): boolean {
+  return (obj.ancestors()[0] || obj).get('siteBorderRadius') !== '0px'
+}
