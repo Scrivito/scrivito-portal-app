@@ -15,7 +15,7 @@ export function SocialCardsTab({ obj }: { obj: Obj }) {
   if (!theme) return null
 
   return (
-    <div className={`scrivito_${theme}`}>
+    <div className={`social-cards-tab scrivito_${theme}`}>
       <div className="scrivito_detail_content">
         <div className="row">
           <div className="col-sm-6">
