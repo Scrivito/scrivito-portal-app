@@ -32,9 +32,7 @@ export const ObjectFitEditor = connect(function ObjectFitEditor({
         },
       ]}
       readOnly={!canEdit(widget.obj()) || isComparisonActive()}
-      updateAttributeValue={(value: string) =>
-        widget.update({ objectFit: value })
-      }
+      updateAttributeValue={(objectFit: string) => widget.update({ objectFit })}
     />
   )
 })
