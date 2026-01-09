@@ -1,5 +1,6 @@
-.dimensions-editor {
+.advanced-enum-editor {
   overflow: hidden;
+  font-family: 'Manrope', Helvetica, Arial, sans-serif;
 
   .enum_attribute {
     margin: 0;
@@ -7,6 +8,7 @@
     display: grid;
     gap: 6px;
     grid-template-columns: repeat(auto-fit, minmax(105px, 1fr));
+    grid-auto-rows: 1fr;
 
     button {
       background: #fafafa;
@@ -27,13 +29,7 @@
         width: 45px;
         height: 30px;
         margin: 2px auto;
-        &.contain {
-          background: no-repeat center/ contain url('object-fit-contain.svg');
-        }
-
-        &.cover {
-          background: no-repeat center/ contain url('object-fit-cover.svg');
-        }
+        background: no-repeat center/ contain;
       }
 
       span {
@@ -73,9 +69,19 @@
         filter: brightness(0.6);
         left: -22px;
         position: absolute;
-        top: 14px;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
+  }
+
+  .enum_description {
+    color: #666;
+    font-size: 12px !important;
+    font-weight: bold;
+    line-height: 19px !important;
+    margin-top: 8px !important;
+    padding: 0 3px;
   }
 
   &.scrivito_dark {
@@ -107,6 +113,12 @@
           }
         }
       }
+    }
+
+    .enum_description {
+      color: #aaa;
+      font-size: 11px !important;
+      line-height: 19px !important;
     }
   }
 }

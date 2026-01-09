@@ -1,42 +1,33 @@
 import prettyBytes from 'pretty-bytes'
-import { useState, useEffect } from 'react'
 import { connect, currentLanguage } from 'scrivito'
-import { FullDataBinary, dataBinaryToUrl } from '../utils/dataBinaryToUrl'
 
-export const Attachment = connect(function Attachment({
-  attachment,
+export const BoxAttachment = connect(function BoxAttachment({
+  binaryUrl,
+  filename,
+  contentType,
+  contentLength,
   onDelete,
-  readonly,
 }: {
-  attachment: FullDataBinary
+  binaryUrl?: string
+  filename: string
+  contentType: string
+  contentLength: number
   onDelete?: () => void
-  readonly?: boolean
 }) {
-  const [binaryUrl, setBinaryUrl] = useState<string | undefined>(undefined)
-  const [trigger, setTrigger] = useState<number>(0)
-
-  useEffect(() => {
-    let timeoutId: NodeJS.Timeout
-    dataBinaryToUrl(attachment).then(({ url, maxAge }) => {
-      setBinaryUrl(url)
-      timeoutId = setTimeout(() => setTrigger(Date.now()), maxAge * 1000)
-    })
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId)
-    }
-  }, [attachment, trigger])
-
-  const content = (
-    <>
+  return (
+    <div className="box-attachment">
       <div className="box-preview">
-        <BoxPreviewContent binaryUrl={binaryUrl} attachment={attachment} />
+        <BoxPreviewContent
+          binaryUrl={binaryUrl}
+          contentType={contentType}
+          filename={filename}
+        />
       </div>
       <div className="box-meta flex-row">
         <div className="d-flex flex-column flex-grow-1 min-vw-0">
-          <span className="box-name text-truncate">{attachment.filename}</span>
+          <span className="box-name text-truncate">{filename}</span>
           <span className="box-size">
-            {prettyBytes(attachment.contentLength, {
+            {prettyBytes(contentLength, {
               locale: currentLanguage() ?? 'en',
             })}
           </span>
@@ -57,37 +48,24 @@ export const Attachment = connect(function Attachment({
           </div>
         )}
       </div>
-    </>
-  )
-
-  return readonly ? (
-    <div className="box-attachment">{content}</div>
-  ) : (
-    <a
-      href={binaryUrl}
-      target="_blank"
-      rel="noreferrer"
-      className="box-attachment"
-      title={getDownloadMessage(attachment.filename)}
-    >
-      {content}
-    </a>
+    </div>
   )
 })
 
 function BoxPreviewContent({
   binaryUrl,
-  attachment,
+  contentType,
+  filename,
 }: {
   binaryUrl?: string
-  attachment: FullDataBinary
+  contentType: string
+  filename: string
 }) {
-  if (binaryUrl && attachment.contentType.startsWith('image/')) {
+  if (binaryUrl && contentType.startsWith('image/')) {
     return <img src={binaryUrl} alt="" />
   }
 
   let iconName = 'bi-file-earmark'
-  const filename = attachment.filename
   if (filename.endsWith('.pdf')) iconName = 'bi-filetype-pdf'
   if (filename.endsWith('.docx')) iconName = 'bi-filetype-docx'
   if (filename.endsWith('.doc')) iconName = 'bi-filetype-doc'
@@ -98,19 +76,6 @@ function BoxPreviewContent({
   if (filename.endsWith('.md')) iconName = 'bi-filetype-md'
 
   return <i className={`bi ${iconName}`}></i>
-}
-
-function getDownloadMessage(subject: string) {
-  switch (currentLanguage()) {
-    case 'de':
-      return `${subject} herunterladen`
-    case 'fr':
-      return `Télécharger ${subject}`
-    case 'pl':
-      return `Pobierz ${subject}`
-    default:
-      return `Download ${subject}`
-  }
 }
 
 function getDeleteButtonMessage() {

@@ -1,7 +1,7 @@
 import errorBackground from '../../assets/images/error-background.jpg'
 import spaceman from '../../assets/images/spaceman.svg'
 
-export function JrPlatformMissingTenant() {
+export function JrPlatformMissingInstanceId() {
   return (
     <main id="main">
       <section className="bg-danger vh-100 py-5">
@@ -17,7 +17,7 @@ export function JrPlatformMissingTenant() {
             </div>
             <div className="col-sm-6">
               <h1 className="display-1">Error</h1>
-              <h3 className="h3">The tenant ID is missing.</h3>
+              <h3 className="h3">The instance ID is missing.</h3>
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ function headers(environment: string) {
       directives: {
         'base-uri': "'none'",
         'default-src': ["'self'", 'data:', 'https:', 'wss:'],
+        'img-src': ["'self'", 'data:', 'https:', 'blob:'],
         'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
         'script-src': [
           "'self'",

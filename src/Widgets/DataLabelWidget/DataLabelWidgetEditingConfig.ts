@@ -53,13 +53,12 @@ provideEditingConfig(DataLabelWidget, {
       restrictDataTo: ['itemAttribute'],
     },
   },
-  properties: (widget) =>
-    [
-      'showAs',
-      widget.get('showAs') === 'datetime' ? 'datetimeFormat' : null,
-      'valueSize',
-      'marginBottom',
-    ].filter((p): p is string => typeof p === 'string'),
+  properties: (widget) => [
+    'showAs',
+    ...(widget.get('showAs') === 'datetime' ? ['datetimeFormat'] : []),
+    'valueSize',
+    'marginBottom',
+  ],
   initialContent: {
     datetimeFormat: 'date',
     label: 'Label',

@@ -45,7 +45,7 @@ See [.env.example](.env.example) for an example configuration file.
 
 #### Specify the Scrivito CMS to use
 
-The Scrivito Portal App requires the instance ID of your CMS. Set the `SCRIVITO_TENANT` environment variable to your CMS instance ID.
+The Scrivito Portal App requires the instance ID of your CMS. Set the `SCRIVITO_INSTANCE_ID` environment variable to your CMS instance ID.
 
 #### Optional: Configure PisaSales API
 

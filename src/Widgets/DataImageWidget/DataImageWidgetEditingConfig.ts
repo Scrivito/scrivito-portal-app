@@ -1,7 +1,7 @@
-import { provideEditingConfig } from 'scrivito'
+import { Obj, provideEditingConfig } from 'scrivito'
 import { DataImageWidget } from './DataImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ImageDimensionsEditor } from '../../Components/ScrivitoExtensions/ImageDimensionsEditor'
+import { ObjectFitEditor } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
 
 provideEditingConfig(DataImageWidget, {
   title: 'Data Image',
@@ -16,27 +16,46 @@ provideEditingConfig(DataImageWidget, {
         { value: 'right', title: 'Right' },
       ],
     },
+    data: {
+      restrictDataTo: ['itemAttribute'],
+    },
+    height: {
+      title: 'Height',
+      editor: 'dimensionPicker',
+      options: { units: ['px'] },
+    },
     link: {
       title: 'Link (optional)',
       description: 'The page to open after clicking the image.',
     },
+    objectFit: {
+      title: 'Object fit',
+      description: 'Default: Contain',
+    },
     roundCorners: {
       title: 'Round corners?',
     },
-    data: {
-      restrictDataTo: ['itemAttribute'],
+    width: {
+      title: 'Width',
+      editor: 'dimensionPicker',
+      options: { units: ['px', '%'] },
     },
   },
-  properties: ['alignment', 'link', 'roundCorners'],
-  propertiesGroups: [
-    {
-      title: 'Dimensions',
-      properties: ['height', 'objectFit', 'width'],
-      component: ImageDimensionsEditor,
-      key: 'dimensions-group',
-    },
+  properties: (widget) => [
+    'alignment',
+    'width',
+    'height',
+    ...(widget.get('height')
+      ? ([['objectFit', { component: ObjectFitEditor }]] as const)
+      : []),
+    'link',
+    ['roundCorners', { enabled: siteHasBorderRadius(widget.obj()) }],
   ],
   initialContent: {
     alignment: 'left',
   },
 })
+
+function siteHasBorderRadius(obj: Obj): boolean {
+  return (obj.ancestors()[0] || obj).get('siteBorderRadius') !== '0px'
+}
