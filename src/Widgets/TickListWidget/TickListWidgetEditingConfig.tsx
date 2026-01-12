@@ -1,21 +1,25 @@
 import thumbnail from './thumbnail.svg'
 import { TickListItemWidget } from '../TickListItemWidget/TickListItemWidgetClass'
 import { provideEditingConfig, Widget } from 'scrivito'
-import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
+import { ScrivitoBootstrapIconPicker } from '../../Components/ScrivitoExtensions/ScrivitoBootstrapIconPicker'
 import { TickListWidget } from './TickListWidgetClass'
 
 provideEditingConfig(TickListWidget, {
   title: 'Tick List',
   thumbnail,
-  propertiesGroups: [
-    {
-      title: 'Icon',
-      component: (props: { widget: Widget }) => (
-        <ScrivitoBootstrapIconPicker defaultValue="check" {...props} />
-      ),
-      properties: ['icon'],
-      key: 'icon-group',
-    },
+  properties: [
+    [
+      'icon',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <ScrivitoBootstrapIconPicker
+            attribute="icon"
+            defaultValue="check"
+            widget={widget}
+          />
+        ),
+      },
+    ],
   ],
   initialContent: {
     icon: 'bi-check',
