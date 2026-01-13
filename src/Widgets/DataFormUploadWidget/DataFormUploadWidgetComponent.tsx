@@ -27,9 +27,11 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
   const [state, setState] = useState<{
     files: Array<{ file: File; key: string }>
     tooLargeFiles: string[]
+    tooManyFiles: boolean
   }>({
     files: [],
     tooLargeFiles: [],
+    tooManyFiles: false,
   })
 
   const onDrop = useCallback((droppedFiles: File[]) => {
@@ -43,16 +45,23 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
       return true
     })
 
-    setState((prevState) => ({
-      files: [
-        ...prevState.files,
-        ...acceptedFiles.map((file) => ({
-          file,
-          key: pseudoRandom32CharHex(),
-        })),
-      ],
-      tooLargeFiles,
-    }))
+    setState((prevState) => {
+      const availableSlots = 10 - prevState.files.length
+      const filesToAdd = acceptedFiles.slice(0, availableSlots)
+      const tooManyFiles = acceptedFiles.length > availableSlots
+
+      return {
+        files: [
+          ...prevState.files,
+          ...filesToAdd.map((file) => ({
+            file,
+            key: pseudoRandom32CharHex(),
+          })),
+        ],
+        tooLargeFiles,
+        tooManyFiles,
+      }
+    })
   }, [])
 
   const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
@@ -65,6 +74,10 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     state.tooLargeFiles.forEach((filename) => {
       simpleErrorToast(getTooLargeMessage(filename))
     })
+
+    if (state.tooManyFiles) {
+      simpleErrorToast(getTooManyFilesMessage())
+    }
 
     const dataTransfer = new DataTransfer()
     state.files.forEach((item) => dataTransfer.items.add(item.file))
@@ -140,6 +153,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
                 setState((prevState) => ({
                   files: prevState.files.filter((item) => item.key !== key),
                   tooLargeFiles: [],
+                  tooManyFiles: false,
                 }))
               }}
             />
@@ -198,6 +212,19 @@ function getTooLargeMessage(filename: string) {
         MAX_FILE_SIZE,
         { locale: 'en' },
       )} in size.`
+  }
+}
+
+function getTooManyFilesMessage() {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Zu viele Dateien ausgewählt. Bitte wählen Sie maximal 10 Dateien aus.'
+    case 'fr':
+      return 'Trop de fichiers sélectionnés. Veuillez sélectionner 10 fichiers maximum.'
+    case 'pl':
+      return 'Wybrano zbyt wiele plików. Proszę wybrać maksymalnie 10 plików.'
+    default:
+      return 'Too many files selected. Please select a maximum of 10 files.'
   }
 }
 
