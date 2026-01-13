@@ -13,6 +13,7 @@ import { useCallback, useEffect, useState } from 'react'
 import prettyBytes from 'pretty-bytes'
 import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 import { BoxAttachment } from '../../Components/BoxAttachment'
+import { simpleErrorToast } from '../../Data/CurrentUser/errorToast'
 
 const MAX_FILE_SIZE = 50 * 1000 * 1000
 
@@ -23,35 +24,53 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     useData().dataItem()?.id(),
   ].join('-')
   const attributeName = useData().attributeName()
-  const [files, setFiles] = useState<Array<{ file: File; key: string }>>([])
-  const [isTooLarge, setIsTooLarge] = useState(false)
+  const [state, setState] = useState<{
+    files: Array<{ file: File; key: string }>
+    tooLargeFiles: string[]
+  }>({
+    files: [],
+    tooLargeFiles: [],
+  })
 
-  const onDropAccepted = useCallback(() => setIsTooLarge(false), [])
-  const onDropRejected = useCallback(() => setIsTooLarge(true), [])
+  const onDrop = useCallback((droppedFiles: File[]) => {
+    const tooLargeFiles: string[] = []
+    const acceptedFiles = droppedFiles.filter((file) => {
+      if (file.size > MAX_FILE_SIZE) {
+        tooLargeFiles.push(file.name)
+        return false
+      }
 
-  const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
-    maxSize: MAX_FILE_SIZE,
-    onDropAccepted,
-    onDropRejected,
-    onDrop: (acceptedFiles) => {
-      setFiles((prevFiles) => [
-        ...prevFiles,
+      return true
+    })
+
+    setState((prevState) => ({
+      files: [
+        ...prevState.files,
         ...acceptedFiles.map((file) => ({
           file,
           key: pseudoRandom32CharHex(),
         })),
-      ])
-    },
+      ],
+      tooLargeFiles,
+    }))
+  }, [])
+
+  const { getRootProps, getInputProps, inputRef, isDragActive } = useDropzone({
+    onDrop,
   })
 
   useEffect(() => {
     if (!inputRef.current) return
 
+    state.tooLargeFiles.forEach((filename) => {
+      simpleErrorToast(getTooLargeMessage(filename))
+    })
+
     const dataTransfer = new DataTransfer()
-    files.forEach((item) => dataTransfer.items.add(item.file))
+    state.files.forEach((item) => dataTransfer.items.add(item.file))
 
     inputRef.current.files = dataTransfer.files
-  }, [files, inputRef])
+  }, [state, inputRef])
 
   return (
     <div className="mb-3" key={[id, attributeName].join('-')}>
@@ -111,22 +130,17 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
         />
         {getDropMessage(widget.get('multiple'))}
       </div>
-      {isTooLarge && (
-        <div>
-          <i className="bi bi-exclamation-diamond" aria-hidden="true" />{' '}
-          {getTooLargeMessage()}
-        </div>
-      )}
       <div>
         <div className="d-flex flex-wrap mt-2 gap-1">
-          {files.map(({ file, key }) => (
+          {state.files.map(({ file, key }) => (
             <FileUploadPreview
               file={file}
               key={key}
               onDelete={() => {
-                setFiles((prevFiles) =>
-                  prevFiles.filter((item) => item.key !== key),
-                )
+                setState((prevState) => ({
+                  files: prevState.files.filter((item) => item.key !== key),
+                  tooLargeFiles: [],
+                }))
               }}
             />
           ))}
@@ -162,25 +176,25 @@ function getDropMessage(multiple: boolean) {
   }
 }
 
-function getTooLargeMessage() {
+function getTooLargeMessage(filename: string) {
   switch (currentLanguage()) {
     case 'de':
-      return `Eine oder mehrere Dateien sind zu groß. Bitte laden Sie Dateien bis maximal ${prettyBytes(
+      return `Die Datei "${filename}" ist zu groß. Bitte laden Sie Dateien bis maximal ${prettyBytes(
         MAX_FILE_SIZE,
         { locale: 'de' },
       )} hoch.`
     case 'fr':
-      return `Un ou plusieurs fichiers sont trop volumineux. Veuillez télécharger des fichiers d'une taille maximale de ${prettyBytes(
+      return `Le fichier "${filename}" est trop volumineux. Veuillez télécharger des fichiers d'une taille maximale de ${prettyBytes(
         MAX_FILE_SIZE,
         { locale: 'fr' },
       )}.`
     case 'pl':
-      return `Za duży rozmiar pliku lub plików. Maksymalny rozmiar to ${prettyBytes(
+      return `Plik "${filename}" jest za duży. Maksymalny rozmiar to ${prettyBytes(
         MAX_FILE_SIZE,
         { locale: 'pl' },
       )}.`
     default:
-      return `One or more files are too large. Please upload files up to ${prettyBytes(
+      return `The file "${filename}" is too large. Please upload files up to ${prettyBytes(
         MAX_FILE_SIZE,
         { locale: 'en' },
       )} in size.`
