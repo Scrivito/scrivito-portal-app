@@ -59,7 +59,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
             key: pseudoRandom32CharHex(),
           })),
         ],
-        tooLargeFiles,
+        tooLargeFiles: tooManyFiles ? [] : tooLargeFiles,
         tooManyFiles,
       }
     })
