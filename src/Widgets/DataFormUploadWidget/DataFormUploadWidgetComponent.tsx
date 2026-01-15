@@ -16,6 +16,7 @@ import { BoxAttachment } from '../../Components/BoxAttachment'
 import { simpleErrorToast } from '../../Data/CurrentUser/errorToast'
 
 const MAX_FILE_SIZE = 50 * 1000 * 1000
+const MAX_FILE_COUNT = 10
 
 provideComponent(DataFormUploadWidget, ({ widget }) => {
   const id = [
@@ -46,7 +47,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
     })
 
     setState((prevState) => {
-      const availableSlots = 10 - prevState.files.length
+      const availableSlots = MAX_FILE_COUNT - prevState.files.length
       const filesToAdd = acceptedFiles.slice(0, availableSlots)
       const tooManyFiles = acceptedFiles.length > availableSlots
 
@@ -218,13 +219,13 @@ function getTooLargeMessage(filename: string) {
 function getTooManyFilesMessage() {
   switch (currentLanguage()) {
     case 'de':
-      return 'Zu viele Dateien ausgewählt. Bitte wählen Sie maximal 10 Dateien aus.'
+      return `Zu viele Dateien ausgewählt. Bitte wählen Sie maximal ${MAX_FILE_COUNT} Dateien aus.`
     case 'fr':
-      return 'Trop de fichiers sélectionnés. Veuillez sélectionner 10 fichiers maximum.'
+      return `Trop de fichiers sélectionnés. Veuillez sélectionner ${MAX_FILE_COUNT} fichiers maximum.`
     case 'pl':
-      return 'Wybrano zbyt wiele plików. Proszę wybrać maksymalnie 10 plików.'
+      return `Wybrano zbyt wiele plików. Proszę wybrać maksymalnie ${MAX_FILE_COUNT} plików.`
     default:
-      return 'Too many files selected. Please select a maximum of 10 files.'
+      return `Too many files selected. Please select a maximum of ${MAX_FILE_COUNT} files.`
   }
 }
 
