@@ -1,7 +1,7 @@
+import { useState } from 'react'
 import { isUserLoggedIn } from 'scrivito'
 import { Chatbot } from '@justrelate/chatbot'
 
-import '@justrelate/chatbot/dist/index.css'
 import './portal_bot.css'
 
 import { Contract } from './Data/Contract/ContractDataClass'
@@ -47,13 +47,28 @@ const systemPrompt =
   '* The "Equipment" type represents what the current customer already bought.'
 
 export function PortalBot() {
+  const [showChatbot, setShowChatbot] = useState(false)
   if (!isUserLoggedIn()) return null
 
   return (
-    <Chatbot
-      config={{ name: 'PortalBot', systemPrompt, dataTypes }}
-      showHistory
-      conversationSharing
-    />
+    <>
+      <Chatbot
+        config={{ name: 'PortalBot', systemPrompt, dataTypes }}
+        isVisible={showChatbot}
+        hide={() => setShowChatbot(false)}
+        showHistory
+        conversationSharing
+      />
+
+      {!showChatbot && (
+        // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+        <div
+          className="jr-ai-assist-floating-button"
+          onClick={() => setShowChatbot(true)}
+        >
+          <span>Chatbot</span>
+        </div>
+      )}
+    </>
   )
 }
