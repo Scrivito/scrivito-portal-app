@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const ButtonWidget = provideWidgetClass('ButtonWidget', {
   attributes: {
@@ -16,5 +17,6 @@ export const ButtonWidget = provideWidgetClass('ButtonWidget', {
     ],
     buttonSize: ['enum', { values: ['small', 'medium', 'large'] }],
     target: 'link',
+    ...paddingAttributes,
   },
 })

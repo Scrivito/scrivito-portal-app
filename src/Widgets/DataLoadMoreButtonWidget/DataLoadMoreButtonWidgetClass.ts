@@ -1,9 +1,11 @@
 import { provideWidgetClass } from 'scrivito'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const DataLoadMoreButtonWidget = provideWidgetClass(
   'DataLoadMoreButtonWidget',
   {
     attributes: {
+      ...paddingAttributes,
       alignment: ['enum', { values: ['left', 'center', 'right', 'block'] }],
       buttonColor: [
         'enum',

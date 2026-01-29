@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataDeleteButtonWidget } from './DataDeleteButtonWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(DataDeleteButtonWidget, {
   title: 'Data Delete Button',
@@ -39,7 +43,9 @@ provideEditingConfig(DataDeleteButtonWidget, {
       title: 'Redirect after delete',
       description: 'Leave the attribute empty for no redirection.',
     },
+    ...paddingEditAttributes,
   },
+  propertiesGroups: [paddingGroup],
   properties: (widget) => [
     'title',
     'alignment',

@@ -9,6 +9,7 @@ import {
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { LogInButtonWidget } from './LogInButtonWidgetClass'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 
 provideComponent(LogInButtonWidget, ({ widget }) => {
   if (isUserLoggedIn() && !isEditorLoggedIn()) return null
@@ -21,7 +22,10 @@ provideComponent(LogInButtonWidget, ({ widget }) => {
   if (buttonSize) buttonClassNames.push(buttonSize)
 
   return (
-    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
+    <WidgetTag
+      className={alignmentClassNameWithBlock(widget.get('alignment'))}
+      style={applyPadding(widget)}
+    >
       <button
         className={buttonClassNames.join(' ')}
         onClick={() => ensureUserIsLoggedIn()}

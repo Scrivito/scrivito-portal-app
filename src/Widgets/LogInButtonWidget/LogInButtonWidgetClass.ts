@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const LogInButtonWidget = provideWidgetClass('LogInButtonWidget', {
   attributes: {
@@ -16,5 +17,6 @@ export const LogInButtonWidget = provideWidgetClass('LogInButtonWidget', {
       },
     ],
     buttonSize: ['enum', { values: ['small', 'medium', 'large'] }],
+    ...paddingAttributes,
   },
 })

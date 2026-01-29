@@ -2,6 +2,10 @@ import { provideEditingConfig } from 'scrivito'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
 import Thumbnail from './thumbnail.svg'
 import { insideDataFormContainerValidation } from '../DataFormContainerWidget/insideDataFormContainerValidation'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(DataFormSubmitButtonWidget, {
   title: 'Data Form Submit Button',
@@ -35,7 +39,11 @@ provideEditingConfig(DataFormSubmitButtonWidget, {
       title: 'Button size',
       description: 'Default: medium',
     },
+
+    ...paddingEditAttributes,
   },
+
+  propertiesGroups: [paddingGroup],
 
   properties(widget) {
     const properties = ['submitTitle', 'alignment', 'size', 'hasReset']

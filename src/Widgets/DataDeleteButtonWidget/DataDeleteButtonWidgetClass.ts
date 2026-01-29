@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const DataDeleteButtonWidget = provideWidgetClass(
   'DataDeleteButtonWidget',
@@ -25,6 +26,7 @@ export const DataDeleteButtonWidget = provideWidgetClass(
       redirectAfterDelete: 'reference',
       requireConfirmation: 'boolean',
       title: 'string',
+      ...paddingAttributes,
     },
   },
 )

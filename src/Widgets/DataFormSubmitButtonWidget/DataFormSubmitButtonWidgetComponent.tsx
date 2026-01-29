@@ -8,6 +8,7 @@ import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { DataFormSubmitButtonWidget } from './DataFormSubmitButtonWidgetClass'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { MouseEvent } from 'react'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 
 provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
   const baseButtonStyles = ['btn']
@@ -15,7 +16,10 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
   if (size) baseButtonStyles.push(size)
 
   return (
-    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
+    <WidgetTag
+      className={alignmentClassNameWithBlock(widget.get('alignment'))}
+      style={applyPadding(widget)}
+    >
       <InPlaceEditingOff>
         <ContentTag
           tag="button"

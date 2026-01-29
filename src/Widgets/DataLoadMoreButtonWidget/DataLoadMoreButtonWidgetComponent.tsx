@@ -9,6 +9,7 @@ import { useContext } from 'react'
 import { DataBatchContext } from '../../Components/DataBatchContext'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 
 provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
   const { hasMore, loadMore } = useContext(DataBatchContext)
@@ -30,14 +31,14 @@ provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
 
     classNames.push('opacity-60')
     return (
-      <WidgetTag className={alignmentClassName}>
+      <WidgetTag className={alignmentClassName} style={applyPadding(widget)}>
         <button className={classNames.join(' ')}>{widget.get('title')}</button>
       </WidgetTag>
     )
   }
 
   return (
-    <WidgetTag className={alignmentClassName}>
+    <WidgetTag className={alignmentClassName} style={applyPadding(widget)}>
       <button className={classNames.join(' ')} onClick={loadMore}>
         {widget.get('title')}
       </button>

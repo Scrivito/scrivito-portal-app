@@ -16,6 +16,7 @@ import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
 import { ModalSpinner } from '../../Components/ModalSpinner'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 
 provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -44,7 +45,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
 
   if (showConfirmation && widget.get('requireConfirmation')) {
     return (
-      <WidgetTag className={alignmentClassName}>
+      <WidgetTag className={alignmentClassName} style={applyPadding(widget)}>
         <InPlaceEditingOff>
           <ContentTag
             content={widget}
@@ -68,7 +69,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag className={alignmentClassName}>
+    <WidgetTag className={alignmentClassName} style={applyPadding(widget)}>
       <EditorNote>Deletes {dataItem.dataClass().name()}.</EditorNote>
       <InPlaceEditingOff>
         <ContentTag

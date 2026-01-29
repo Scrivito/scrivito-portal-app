@@ -1,11 +1,16 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataLoadMoreButtonWidget } from './DataLoadMoreButtonWidgetClass'
 import thumbnail from './thumbnail.svg'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(DataLoadMoreButtonWidget, {
   title: 'Data Load More Button',
   thumbnail,
   attributes: {
+    ...paddingEditAttributes,
     alignment: {
       title: 'Alignment',
       description: 'Default: Left',
@@ -34,6 +39,7 @@ provideEditingConfig(DataLoadMoreButtonWidget, {
     },
   },
   properties: ['title', 'alignment', 'buttonColor', 'buttonSize'],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     alignment: 'left',
     title: 'Load more',

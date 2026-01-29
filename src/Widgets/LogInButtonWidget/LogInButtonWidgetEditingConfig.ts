@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { LogInButtonWidget } from './LogInButtonWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(LogInButtonWidget, {
   title: 'Login Button',
@@ -30,8 +34,10 @@ provideEditingConfig(LogInButtonWidget, {
       title: 'Button size',
       description: 'Default: medium',
     },
+    ...paddingEditAttributes,
   },
   properties: ['title', 'alignment', 'buttonColor', 'buttonSize'],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     alignment: 'left',
     buttonColor: 'btn-primary',

@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { CheckoutButtonWidget } from './CheckoutButtonWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(CheckoutButtonWidget, {
   title: 'Checkout Button',
@@ -31,6 +35,7 @@ provideEditingConfig(CheckoutButtonWidget, {
       title: 'Button size',
       description: 'Default: medium',
     },
+    ...paddingEditAttributes,
   },
   thumbnail: Thumbnail,
   properties: [
@@ -40,6 +45,7 @@ provideEditingConfig(CheckoutButtonWidget, {
     'buttonColor',
     'buttonSize',
   ],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     alignment: 'center',
     buttonColor: 'btn-primary',

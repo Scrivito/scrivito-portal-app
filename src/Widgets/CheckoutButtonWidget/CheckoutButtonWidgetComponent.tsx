@@ -15,6 +15,7 @@ import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { useState } from 'react'
 import { ModalSpinner } from '../../Components/ModalSpinner'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -33,7 +34,10 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
   if (buttonSize) buttonClassNames.push(buttonSize)
 
   return (
-    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
+    <WidgetTag
+      className={alignmentClassNameWithBlock(widget.get('alignment'))}
+      style={applyPadding(widget)}
+    >
       <InPlaceEditingOff>
         <ContentTag
           content={widget}
