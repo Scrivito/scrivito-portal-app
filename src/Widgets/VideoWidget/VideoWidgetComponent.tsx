@@ -5,7 +5,7 @@ import {
   Obj,
   provideComponent,
 } from 'scrivito'
-import { VideoWidget } from './VideoWidgetObjClass'
+import { VideoWidget } from './VideoWidgetClass'
 import { videoPlaceholder } from './videoPlaceholder'
 import './VideoWidget.scss'
 

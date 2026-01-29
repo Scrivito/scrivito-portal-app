@@ -1,6 +1,6 @@
 import { provideEditingConfig } from 'scrivito'
 import Thumbnail from './thumbnail.svg'
-import { VideoWidget } from './VideoWidgetObjClass'
+import { VideoWidget } from './VideoWidgetClass'
 
 provideEditingConfig(VideoWidget, {
   title: 'Video',
