@@ -5,6 +5,10 @@ import {
   textStyleGroup,
   textStyleInitialContent,
 } from '../propertiesGroups/textStyle/textStyleEditingConfig'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
 // @ts-expect-error - TODO: Remove once #12736 is fixed
@@ -58,28 +62,30 @@ provideEditingConfig(HeadlineWidget, {
     },
     margin: {
       title: 'Margin',
-      description: 'Space below the widget. Default: mb-2',
+      description:
+        'Space below the widget. Deprecated in favour of “Bottom” in Margins group. Default: mb-2',
     },
     uppercase: {
       title: 'Uppercase?',
       description: 'Deprecated in favour of “Case changes”. Default: No',
     },
+    ...paddingEditAttributes,
     ...textStyleEditAttributes,
   },
   properties: (widget) => [
     'style',
     'level',
     'alignment',
-    'margin',
+    ...(!widget.get('paddingBottom') ? ['margin'] : []),
     ...(!widget.get('textTransform') ? ['uppercase'] : []),
   ],
-  propertiesGroups: [textStyleGroup],
+  propertiesGroups: [textStyleGroup, paddingGroup],
   initialContent: {
     alignment: 'left',
     headline: 'Headline',
-    margin: 'mb-2',
     style: 'h2',
     ...textStyleInitialContent,
+    paddingBottom: '8px', // TODO: Apply paddingBottom to initial content
   },
   validations: [
     [

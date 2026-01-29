@@ -1,5 +1,6 @@
 import { provideWidgetClass } from 'scrivito'
 import { textStyleAttributes } from '../propertiesGroups/textStyle/textStyleAttributes'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const BannerHeadlineWidget = provideWidgetClass('BannerHeadlineWidget', {
   onlyInside: 'BannerHeadlineContainerWidget',
@@ -42,6 +43,7 @@ export const BannerHeadlineWidget = provideWidgetClass('BannerHeadlineWidget', {
         ],
       },
     ],
+    ...paddingAttributes,
     ...textStyleAttributes,
   },
   extractTextAttributes: ['headline'],

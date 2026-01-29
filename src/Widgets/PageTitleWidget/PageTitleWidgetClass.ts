@@ -1,5 +1,6 @@
 import { provideWidgetClass } from 'scrivito'
 import { textStyleAttributes } from '../propertiesGroups/textStyle/textStyleAttributes'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const PageTitleWidget = provideWidgetClass('PageTitleWidget', {
   attributes: {
@@ -20,6 +21,7 @@ export const PageTitleWidget = provideWidgetClass('PageTitleWidget', {
         ],
       },
     ],
+    ...paddingAttributes,
     ...textStyleAttributes,
   },
 })

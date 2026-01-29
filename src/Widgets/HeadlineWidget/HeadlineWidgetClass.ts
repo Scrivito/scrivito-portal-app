@@ -1,5 +1,6 @@
 import { provideWidgetClass } from 'scrivito'
 import { textStyleAttributes } from '../propertiesGroups/textStyle/textStyleAttributes'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const HeadlineWidget = provideWidgetClass('HeadlineWidget', {
   attributes: {
@@ -9,7 +10,7 @@ export const HeadlineWidget = provideWidgetClass('HeadlineWidget', {
     margin: [
       'enum',
       { values: ['mb-0', 'mb-1', 'mb-2', 'mb-3', 'mb-4', 'mb-5'] },
-    ],
+    ], // deprecated by paddingBottom from marginAttributes
     style: [
       'enum',
       {
@@ -32,6 +33,7 @@ export const HeadlineWidget = provideWidgetClass('HeadlineWidget', {
       },
     ],
     uppercase: 'boolean', // deprecated by textTransform from textStyleAttributes
+    ...paddingAttributes,
     ...textStyleAttributes,
   },
   extractTextAttributes: ['headline'],

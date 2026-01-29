@@ -1,7 +1,9 @@
-import { provideComponent, ContentTag } from 'scrivito'
+import { provideComponent, ContentTag, WidgetTag } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
+import { marginBottomToPixels } from '../propertiesGroups/padding/marginBottomToPixels'
 import { slugify } from '@justrelate/slugify'
 
 provideComponent(HeadlineWidget, ({ widget }) => {
@@ -19,19 +21,23 @@ provideComponent(HeadlineWidget, ({ widget }) => {
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
 
-  classNames.push(widget.get('margin') ?? 'mb-2')
-
   return (
-    <ContentTag
-      content={widget}
-      attribute="headline"
-      className={classNames.join(' ')}
-      style={applyTextStyle(widget, {
-        textTransform: widget.get('uppercase') ? 'uppercase' : undefined,
+    <WidgetTag
+      style={applyPadding(widget, {
+        paddingBottom: marginBottomToPixels(widget.get('margin')),
       })}
-      tag={tag(widget.get('level'), style)}
-      id={slugify(widget.get('headline'))}
-    />
+    >
+      <ContentTag
+        content={widget}
+        attribute="headline"
+        className={classNames.join(' ')}
+        style={applyTextStyle(widget, {
+          textTransform: widget.get('uppercase') ? 'uppercase' : undefined,
+        })}
+        tag={tag(widget.get('level'), style)}
+        id={slugify(widget.get('headline'))}
+      />
+    </WidgetTag>
   )
 })
 

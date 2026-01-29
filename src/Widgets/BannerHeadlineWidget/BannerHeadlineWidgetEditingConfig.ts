@@ -5,6 +5,10 @@ import {
   textStyleGroup,
   textStyleInitialContent,
 } from '../propertiesGroups/textStyle/textStyleEditingConfig'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
 // @ts-expect-error - TODO: Remove once #12736 is fixed
@@ -60,14 +64,16 @@ provideEditingConfig(BannerHeadlineWidget, {
         { value: 'h6', title: 'h6' },
       ],
     },
+    ...paddingEditAttributes,
     ...textStyleEditAttributes,
   },
   properties: ['style', 'level', 'backgroundColor'],
-  propertiesGroups: [textStyleGroup],
+  propertiesGroups: [textStyleGroup, paddingGroup],
   initialContent: {
     backgroundColor: 'white',
     headline: 'Headline',
     style: 'h2',
     ...textStyleInitialContent,
+    paddingBottom: '8px', // TODO: Apply paddingBottom to initial content
   },
 })

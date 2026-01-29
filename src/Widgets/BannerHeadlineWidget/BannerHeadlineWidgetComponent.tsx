@@ -1,5 +1,6 @@
 import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
 import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 
 provideComponent(BannerHeadlineWidget, ({ widget }) => {
@@ -11,7 +12,7 @@ provideComponent(BannerHeadlineWidget, ({ widget }) => {
     <WidgetTag
       tag={tag(widget.get('level'), style)}
       className={style}
-      style={applyTextStyle(widget)}
+      style={{ ...applyPadding(widget), ...applyTextStyle(widget) }}
     >
       <ContentTag
         content={widget}
