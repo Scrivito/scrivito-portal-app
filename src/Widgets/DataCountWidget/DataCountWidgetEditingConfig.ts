@@ -1,7 +1,13 @@
 import { provideEditingConfig } from 'scrivito'
 import { DataCountWidget } from './DataCountWidgetClass'
+import {
+  textStyleEditAttributes,
+  textStyleGroup,
+  textStyleInitialContent,
+} from '../propertiesGroups/textStyle/textStyleEditingConfig'
 import thumbnail from './thumbnail.svg'
 
+// @ts-expect-error - TODO: Remove once #12736 is fixed
 provideEditingConfig(DataCountWidget, {
   title: 'Data Count',
   thumbnail,
@@ -47,6 +53,7 @@ provideEditingConfig(DataCountWidget, {
         { value: 'display-6', title: 'Display heading 6' },
       ],
     },
+    ...textStyleEditAttributes,
   },
   properties: [
     'loadingHeadline',
@@ -57,6 +64,7 @@ provideEditingConfig(DataCountWidget, {
     'style',
     'margin',
   ],
+  propertiesGroups: [textStyleGroup],
   initialContent: {
     alignment: 'left',
     headline: '__count__ items',
@@ -65,6 +73,7 @@ provideEditingConfig(DataCountWidget, {
     loadingHeadline: 'Items',
     style: 'body-font-size',
     margin: 'mb-2',
+    ...textStyleInitialContent,
   },
   validations: [
     [

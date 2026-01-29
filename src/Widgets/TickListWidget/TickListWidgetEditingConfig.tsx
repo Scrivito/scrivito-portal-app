@@ -3,10 +3,19 @@ import { TickListItemWidget } from '../TickListItemWidget/TickListItemWidgetClas
 import { provideEditingConfig, Widget } from 'scrivito'
 import { ScrivitoBootstrapIconPicker } from '../../Components/ScrivitoExtensions/ScrivitoBootstrapIconPicker'
 import { TickListWidget } from './TickListWidgetClass'
+import {
+  textStyleEditAttributes,
+  textStyleGroup,
+  textStyleInitialContent,
+} from '../propertiesGroups/textStyle/textStyleEditingConfig'
 
+// @ts-expect-error - TODO: Remove once #12736 is fixed
 provideEditingConfig(TickListWidget, {
   title: 'Tick List',
   thumbnail,
+  attributes: {
+    ...textStyleEditAttributes,
+  },
   properties: [
     [
       'icon',
@@ -21,6 +30,7 @@ provideEditingConfig(TickListWidget, {
       },
     ],
   ],
+  propertiesGroups: [textStyleGroup],
   initialContent: {
     icon: 'bi-check',
     items: [
@@ -28,6 +38,7 @@ provideEditingConfig(TickListWidget, {
       new TickListItemWidget({}),
       new TickListItemWidget({}),
     ],
+    ...textStyleInitialContent,
   },
   validations: [
     [

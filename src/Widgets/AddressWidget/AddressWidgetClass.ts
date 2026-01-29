@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { textStyleAttributes } from '../propertiesGroups/textStyle/textStyleAttributes'
 
 export const AddressWidget = provideWidgetClass('AddressWidget', {
   attributes: {
@@ -17,6 +18,7 @@ export const AddressWidget = provideWidgetClass('AddressWidget', {
     faxLabel: 'string',
     email: 'string',
     emailLabel: 'string',
+    ...textStyleAttributes,
   },
   extractTextAttributes: [
     'locationName',

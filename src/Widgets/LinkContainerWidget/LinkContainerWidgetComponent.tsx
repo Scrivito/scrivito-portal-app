@@ -1,4 +1,5 @@
 import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
+import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
 import { LinkContainerWidget } from './LinkContainerWidgetClass'
 
 provideComponent(LinkContainerWidget, ({ widget }) => (
@@ -8,6 +9,7 @@ provideComponent(LinkContainerWidget, ({ widget }) => (
       className="mb-3"
       content={widget}
       attribute="headline"
+      style={applyTextStyle(widget)}
     />
     <ContentTag
       className="list-unstyled list-py-1 mb-0"

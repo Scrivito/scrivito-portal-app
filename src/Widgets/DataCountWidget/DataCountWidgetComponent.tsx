@@ -11,6 +11,7 @@ import {
 } from './DataCountWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { alignmentClassName } from '../../utils/alignmentClassName'
+import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
 import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(DataCountWidget, ({ widget }) => {
@@ -23,7 +24,7 @@ provideComponent(DataCountWidget, ({ widget }) => {
   if (alignment) classNames.push(alignment)
 
   return (
-    <WidgetTag className={classNames.join(' ')}>
+    <WidgetTag className={classNames.join(' ')} style={applyTextStyle(widget)}>
       <Count widget={widget} />
     </WidgetTag>
   )

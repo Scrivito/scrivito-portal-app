@@ -9,11 +9,12 @@ import {
   ContentTag,
 } from 'scrivito'
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
+import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(AddressWidget, ({ widget }) => (
-  <WidgetTag>
+  <WidgetTag style={applyTextStyle(widget)}>
     {widget.get('showLogo') && <Logo />}
     <address>
       <Address addressWidget={widget} />

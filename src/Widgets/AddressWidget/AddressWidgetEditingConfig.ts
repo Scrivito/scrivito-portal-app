@@ -1,7 +1,13 @@
 import { provideEditingConfig } from 'scrivito'
 import { AddressWidget } from './AddressWidgetClass'
+import {
+  textStyleEditAttributes,
+  textStyleGroup,
+  textStyleInitialContent,
+} from '../propertiesGroups/textStyle/textStyleEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
+// @ts-expect-error - TODO: Remove once #12736 is fixed
 provideEditingConfig(AddressWidget, {
   title: 'Address',
   thumbnail: Thumbnail,
@@ -43,6 +49,7 @@ provideEditingConfig(AddressWidget, {
     email: {
       title: 'Email',
     },
+    ...textStyleEditAttributes,
   },
   properties: [
     'showLogo',
@@ -56,10 +63,12 @@ provideEditingConfig(AddressWidget, {
     'fax',
     'email',
   ],
+  propertiesGroups: [textStyleGroup],
   initialContent: {
     showLogo: true,
     phoneLabel: 'Phone',
     faxLabel: 'Fax',
     emailLabel: 'Email',
+    ...textStyleInitialContent,
   },
 })

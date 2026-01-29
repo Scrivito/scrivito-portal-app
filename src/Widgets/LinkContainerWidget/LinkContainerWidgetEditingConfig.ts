@@ -1,11 +1,21 @@
 import { Link, provideEditingConfig } from 'scrivito'
 import { LinkWidget } from '../LinkWidget/LinkWidgetClass'
 import { LinkContainerWidget } from './LinkContainerWidgetClass'
+import {
+  textStyleEditAttributes,
+  textStyleGroup,
+  textStyleInitialContent,
+} from '../propertiesGroups/textStyle/textStyleEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
+// @ts-expect-error - TODO: Remove once #12736 is fixed
 provideEditingConfig(LinkContainerWidget, {
   title: 'Link List',
   thumbnail: Thumbnail,
+  attributes: {
+    ...textStyleEditAttributes,
+  },
+  propertiesGroups: [textStyleGroup],
   initialContent: {
     headline: 'Links headline',
     links: ['Link 1', 'Link 2', 'Link 3'].map(
@@ -18,6 +28,7 @@ provideEditingConfig(LinkContainerWidget, {
           }),
         }),
     ),
+    ...textStyleInitialContent,
   },
   validations: [
     [

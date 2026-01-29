@@ -1,5 +1,6 @@
 import { Link, LinkTag, provideComponent, WidgetTag } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
+import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
 import { LinkWidget } from './LinkWidgetClass'
 import { ensureString } from '../../utils/ensureString'
 
@@ -8,7 +9,7 @@ provideComponent(LinkWidget, ({ widget }) => {
 
   if (!link) {
     return (
-      <WidgetTag tag="li">
+      <WidgetTag tag="li" style={applyTextStyle(widget)}>
         <InPlaceEditingPlaceholder>
           Provide a link in the widget properties.
         </InPlaceEditingPlaceholder>
@@ -17,7 +18,7 @@ provideComponent(LinkWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag tag="li">
+    <WidgetTag tag="li" style={applyTextStyle(widget)}>
       <LinkTag to={link}>{linkTitle(link)}</LinkTag>
     </WidgetTag>
   )

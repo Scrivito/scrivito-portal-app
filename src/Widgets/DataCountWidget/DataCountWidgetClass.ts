@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { textStyleAttributes } from '../propertiesGroups/textStyle/textStyleAttributes'
 
 export const DataCountWidget = provideWidgetClass('DataCountWidget', {
   attributes: {
@@ -32,6 +33,7 @@ export const DataCountWidget = provideWidgetClass('DataCountWidget', {
         ],
       },
     ],
+    ...textStyleAttributes,
   },
 })
 
