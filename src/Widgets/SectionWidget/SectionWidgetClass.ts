@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const SectionWidget = provideWidgetClass('SectionWidget', {
   attributes: {
@@ -23,11 +24,12 @@ export const SectionWidget = provideWidgetClass('SectionWidget', {
     ],
     backgroundImage: ['reference', { only: ['Image', 'Video'] }],
     content: 'widgetlist',
-    showPadding: 'boolean',
+    showPadding: 'boolean', // deprecated by paddingTop/paddingBottom from paddingAttributes
     containerWidth: [
       'enum',
       { values: ['fixed', '95-percent', '100-percent'] },
     ],
+    ...paddingAttributes,
   },
   extractTextAttributes: ['content'],
 })

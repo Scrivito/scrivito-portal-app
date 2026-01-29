@@ -1,4 +1,5 @@
 import { provideComponent, ContentTag, connect } from 'scrivito'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnWidgetInstance } from '../ColumnWidget/ColumnWidgetClass'
 import './ColumnContainerWidget.scss'
@@ -24,7 +25,7 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
   }
 
   return (
-    <div className={classNames.join(' ')}>
+    <div className={classNames.join(' ')} style={applyPadding(widget)}>
       {columns.map((columnWidget: ColumnWidgetInstance) => {
         return (
           <Column

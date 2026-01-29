@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { SliderWidget } from './SliderWidgetClass'
 import { SlideWidget } from '../SlideWidget/SlideWidgetClass'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SliderWidget, {
@@ -21,7 +25,8 @@ provideEditingConfig(SliderWidget, {
     },
     margin: {
       title: 'Margin',
-      description: 'Space below the widget. Default: mb-4',
+      description:
+        'Space below the widget. Deprecated in favour of "Bottom" in Margins group. Default: mb-4',
     },
     minHeight: {
       title: 'Minimum height (in px)',
@@ -31,6 +36,7 @@ provideEditingConfig(SliderWidget, {
     slides: {
       title: 'Slides',
     },
+    ...paddingEditAttributes,
   },
   properties: ['slides', 'minHeight'],
   propertiesGroups: (widget) => [
@@ -43,17 +49,22 @@ provideEditingConfig(SliderWidget, {
         ['controls', { enabled: widget.get('autoplay') }],
       ],
     },
-    {
-      title: 'Margin',
-      key: 'margin-group',
-      properties: ['margin'],
-    },
+    ...(!widget.get('paddingBottom')
+      ? [
+          {
+            title: 'Margin',
+            key: 'margin-group',
+            properties: ['margin'],
+          },
+        ]
+      : []),
+    paddingGroup,
   ],
   initialContent: {
     autoplayInterval: 5,
     controls: true,
-    margin: 'mb-4',
     minHeight: 400,
     slides: [new SlideWidget({}), new SlideWidget({})],
+    paddingBottom: '8px', // TODO: Apply paddingBottom to initial content
   },
 })

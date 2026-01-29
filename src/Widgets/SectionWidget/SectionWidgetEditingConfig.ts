@@ -1,5 +1,9 @@
 import { provideEditingConfig } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(SectionWidget, {
@@ -41,19 +45,25 @@ provideEditingConfig(SectionWidget, {
     },
     showPadding: {
       title: 'Padding',
-      description: 'Padding adds space around this section. Default: Yes',
+      description:
+        'Padding adds space around this section. Deprecated in favour of "Top" and "Bottom" in Margins group. Default: Yes',
     },
+    ...paddingEditAttributes,
   },
   properties: (widget) => [
     'backgroundColor',
     'backgroundImage',
     ['backgroundAnimateOnHover', { enabled: !!widget.get('backgroundImage') }],
     'containerWidth',
-    'showPadding',
+    ...(!widget.get('paddingTop') && !widget.get('paddingBottom')
+      ? ['showPadding']
+      : []),
   ],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     backgroundColor: 'transparent',
     containerWidth: 'fixed',
-    showPadding: true,
+    paddingTop: '48px', // TODO: Apply paddingTop to initial content
+    paddingBottom: '48px', // TODO: Apply paddingBottom to initial content
   },
 })

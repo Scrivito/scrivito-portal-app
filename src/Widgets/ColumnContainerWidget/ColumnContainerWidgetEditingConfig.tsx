@@ -8,6 +8,10 @@ import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnsEditor } from './ColumnsEditor'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 import { AdvancedEnumEditor } from '../../Components/ScrivitoExtensions/AdvancedEnumEditor'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import startSvg from './alignment-start.svg'
 import centerSvg from './alignment-center.svg'
 import endSvg from './alignment-end.svg'
@@ -41,6 +45,7 @@ provideEditingConfig(ColumnContainerWidget, {
     disableResponsiveAdaption: {
       title: 'Responsive adaption?',
     },
+    ...paddingEditAttributes,
   },
   properties: [
     'layoutMode',
@@ -119,6 +124,7 @@ provideEditingConfig(ColumnContainerWidget, {
       },
     ],
   ],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     columns: [
       new ColumnWidget({ colSize: 4, flexGrow: true }),

@@ -1,6 +1,7 @@
 import { provideComponent, ContentTag, WidgetTag } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 import { useRef } from 'react'
 
 provideComponent(SectionWidget, ({ widget }) => {
@@ -12,8 +13,6 @@ provideComponent(SectionWidget, ({ widget }) => {
     sectionClassNames.push(`bg-${backgroundColor}`)
   }
 
-  if (widget.get('showPadding')) sectionClassNames.push('py-5')
-
   let contentClassName = 'container'
   if (widget.get('containerWidth') === '95-percent') {
     contentClassName = 'container-fluid'
@@ -22,10 +21,16 @@ provideComponent(SectionWidget, ({ widget }) => {
     contentClassName = ''
   }
 
+  const showPaddingFallback = widget.get('showPadding') ? '48px' : undefined
+
   return (
     <WidgetTag
       tag="section"
       className={sectionClassNames.join(' ')}
+      style={applyPadding(widget, {
+        paddingTop: showPaddingFallback,
+        paddingBottom: showPaddingFallback,
+      })}
       onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
     >
       <ImageOrVideo

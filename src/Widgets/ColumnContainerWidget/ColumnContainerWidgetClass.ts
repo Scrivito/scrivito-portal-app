@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const ColumnContainerWidget = provideWidgetClass(
   'ColumnContainerWidget',
@@ -9,6 +10,7 @@ export const ColumnContainerWidget = provideWidgetClass(
       disableGutters: 'boolean',
       disableResponsiveAdaption: 'boolean',
       layoutMode: ['enum', { values: ['grid', 'flex'] }],
+      ...paddingAttributes,
     },
     extractTextAttributes: ['columns'],
   },
