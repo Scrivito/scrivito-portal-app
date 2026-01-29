@@ -1,6 +1,7 @@
 import { provideComponent, ContentTag } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
+import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
 import { slugify } from '@justrelate/slugify'
 
 provideComponent(HeadlineWidget, ({ widget }) => {
@@ -18,8 +19,6 @@ provideComponent(HeadlineWidget, ({ widget }) => {
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
 
-  if (widget.get('uppercase')) classNames.push('text-uppercase')
-
   classNames.push(widget.get('margin') ?? 'mb-2')
 
   return (
@@ -27,6 +26,9 @@ provideComponent(HeadlineWidget, ({ widget }) => {
       content={widget}
       attribute="headline"
       className={classNames.join(' ')}
+      style={applyTextStyle(widget, {
+        textTransform: widget.get('uppercase') ? 'uppercase' : undefined,
+      })}
       tag={tag(widget.get('level'), style)}
       id={slugify(widget.get('headline'))}
     />

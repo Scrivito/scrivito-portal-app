@@ -1,7 +1,13 @@
 import { provideEditingConfig } from 'scrivito'
 import { PageTitleWidget } from './PageTitleWidgetClass'
+import {
+  textStyleEditAttributes,
+  textStyleGroup,
+  textStyleInitialContent,
+} from '../propertiesGroups/textStyle/textStyleEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
+// @ts-expect-error - TODO: Remove once #12736 is fixed
 provideEditingConfig(PageTitleWidget, {
   title: 'Page Title',
   thumbnail: Thumbnail,
@@ -22,9 +28,12 @@ provideEditingConfig(PageTitleWidget, {
         { value: 'danger', title: 'Danger' },
       ],
     },
+    ...textStyleEditAttributes,
   },
   properties: ['backgroundColor'],
+  propertiesGroups: [textStyleGroup],
   initialContent: {
     backgroundColor: 'primary',
+    ...textStyleInitialContent,
   },
 })

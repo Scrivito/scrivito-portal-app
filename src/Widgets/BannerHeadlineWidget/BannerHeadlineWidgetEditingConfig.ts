@@ -1,7 +1,13 @@
 import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
+import {
+  textStyleEditAttributes,
+  textStyleGroup,
+  textStyleInitialContent,
+} from '../propertiesGroups/textStyle/textStyleEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
+// @ts-expect-error - TODO: Remove once #12736 is fixed
 provideEditingConfig(BannerHeadlineWidget, {
   title: 'Banner Headline',
   thumbnail: Thumbnail,
@@ -54,11 +60,14 @@ provideEditingConfig(BannerHeadlineWidget, {
         { value: 'h6', title: 'h6' },
       ],
     },
+    ...textStyleEditAttributes,
   },
   properties: ['style', 'level', 'backgroundColor'],
+  propertiesGroups: [textStyleGroup],
   initialContent: {
     backgroundColor: 'white',
     headline: 'Headline',
     style: 'h2',
+    ...textStyleInitialContent,
   },
 })

@@ -1,4 +1,5 @@
 import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
+import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 
 provideComponent(BannerHeadlineWidget, ({ widget }) => {
@@ -7,7 +8,11 @@ provideComponent(BannerHeadlineWidget, ({ widget }) => {
   const backgroundColor = widget.get('backgroundColor') || 'white'
 
   return (
-    <WidgetTag tag={tag(widget.get('level'), style)} className={style}>
+    <WidgetTag
+      tag={tag(widget.get('level'), style)}
+      className={style}
+      style={applyTextStyle(widget)}
+    >
       <ContentTag
         content={widget}
         attribute="headline"

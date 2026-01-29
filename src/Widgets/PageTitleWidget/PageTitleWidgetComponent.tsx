@@ -1,4 +1,5 @@
 import { ContentTag, currentPage, provideComponent } from 'scrivito'
+import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
 import { PageTitleWidget } from './PageTitleWidgetClass'
 
 provideComponent(PageTitleWidget, ({ widget }) => {
@@ -6,7 +7,7 @@ provideComponent(PageTitleWidget, ({ widget }) => {
 
   return (
     <div className="header-caption">
-      <h1 className="h3">
+      <h1 className="h3" style={applyTextStyle(widget)}>
         <ContentTag
           content={currentPage()}
           attribute="title"

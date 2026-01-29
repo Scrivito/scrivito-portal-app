@@ -1,7 +1,13 @@
 import { provideEditingConfig } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
+import {
+  textStyleEditAttributes,
+  textStyleGroup,
+  textStyleInitialContent,
+} from '../propertiesGroups/textStyle/textStyleEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
+// @ts-expect-error - TODO: Remove once #12736 is fixed
 provideEditingConfig(HeadlineWidget, {
   title: 'Headline',
   thumbnail: Thumbnail,
@@ -54,14 +60,26 @@ provideEditingConfig(HeadlineWidget, {
       title: 'Margin',
       description: 'Space below the widget. Default: mb-2',
     },
-    uppercase: { title: 'Uppercase?', description: 'Default: No' },
+    uppercase: {
+      title: 'Uppercase?',
+      description: 'Deprecated in favour of “Case changes”. Default: No',
+    },
+    ...textStyleEditAttributes,
   },
-  properties: ['style', 'level', 'alignment', 'margin', 'uppercase'],
+  properties: (widget) => [
+    'style',
+    'level',
+    'alignment',
+    'margin',
+    ...(!widget.get('textTransform') ? ['uppercase'] : []),
+  ],
+  propertiesGroups: [textStyleGroup],
   initialContent: {
     alignment: 'left',
     headline: 'Headline',
     margin: 'mb-2',
     style: 'h2',
+    ...textStyleInitialContent,
   },
   validations: [
     [
