@@ -11,6 +11,7 @@ import { alignmentClassName } from '../../utils/alignmentClassName'
 import { ImageWidget } from './ImageWidgetClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 import { CSSProperties } from 'react'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 
 provideComponent(ImageWidget, ({ widget }) => {
   const classNames = ['image-widget']
@@ -26,7 +27,7 @@ provideComponent(ImageWidget, ({ widget }) => {
   if (height && objectFit === 'cover') style = { ...style, objectFit }
 
   return (
-    <WidgetTag className={classNames.join(' ')}>
+    <WidgetTag className={classNames.join(' ')} style={applyPadding(widget)}>
       <LinkWrapper link={widget.get('link')}>
         <ImageTag
           alt={

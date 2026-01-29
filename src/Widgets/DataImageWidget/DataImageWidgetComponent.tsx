@@ -18,6 +18,7 @@ import {
 import { isDataBinary } from '../../utils/dataBinaryToUrl'
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
 import { CSSProperties } from 'react'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 
 provideComponent(DataImageWidget, ({ widget }) => {
   const classNames = ['image-widget']
@@ -25,7 +26,7 @@ provideComponent(DataImageWidget, ({ widget }) => {
   if (alignment) classNames.push(alignment)
 
   return (
-    <WidgetTag className={classNames.join(' ')}>
+    <WidgetTag className={classNames.join(' ')} style={applyPadding(widget)}>
       <LinkWrapper link={widget.get('link')}>
         <ImageComponent widget={widget} />
       </LinkWrapper>

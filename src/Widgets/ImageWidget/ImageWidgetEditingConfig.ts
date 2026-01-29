@@ -2,6 +2,10 @@ import { Obj, provideEditingConfig } from 'scrivito'
 import { ImageWidget } from './ImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
 import { ObjectFitEditor } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(ImageWidget, {
   title: 'Image',
@@ -49,6 +53,7 @@ provideEditingConfig(ImageWidget, {
       editor: 'dimensionPicker',
       options: { units: ['px', '%'] },
     },
+    ...paddingEditAttributes,
   },
   properties: (widget) => [
     'alignment',
@@ -66,6 +71,7 @@ provideEditingConfig(ImageWidget, {
       },
     ],
   ],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     alignment: 'left',
   },

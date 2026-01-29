@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import Thumbnail from './thumbnail.svg'
 import { VimeoVideoWidget } from './VimeoVideoWidgetClass'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(VimeoVideoWidget, {
   title: 'Vimeo Video',
@@ -25,8 +29,10 @@ provideEditingConfig(VimeoVideoWidget, {
         { value: '9to16', title: 'Portrait HD TV (9:16)' },
       ],
     },
+    ...paddingEditAttributes,
   },
   properties: ['vimeoVideoId', 'aspectRatio'],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     aspectRatio: '16to9',
     vimeoVideoId: '15069551',

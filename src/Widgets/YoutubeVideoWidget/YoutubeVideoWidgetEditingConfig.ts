@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import { YoutubeVideoWidget } from './YoutubeVideoWidgetClass'
 import Thumbnail from './thumbnail.svg'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(YoutubeVideoWidget, {
   title: 'YouTube Video',
@@ -25,8 +29,10 @@ provideEditingConfig(YoutubeVideoWidget, {
         { value: '9to16', title: 'Portrait HD TV (9:16)' },
       ],
     },
+    ...paddingEditAttributes,
   },
   properties: ['youtubeVideoId', 'aspectRatio'],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     aspectRatio: '16to9',
     youtubeVideoId: 'Ys1w9A4DrO4',

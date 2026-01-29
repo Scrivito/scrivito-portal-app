@@ -1,6 +1,10 @@
 import { provideEditingConfig } from 'scrivito'
 import Thumbnail from './thumbnail.svg'
 import { VideoWidget } from './VideoWidgetClass'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(VideoWidget, {
   title: 'Video',
@@ -29,8 +33,10 @@ provideEditingConfig(VideoWidget, {
         'This poster image is shown, until the video is loaded.' +
         ' Without an poster image, the browser may show the first frame of the video.',
     },
+    ...paddingEditAttributes,
   },
   properties: ['source', 'poster', 'aspectRatio'],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     aspectRatio: '16to9',
   },

@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const YoutubeVideoWidget = provideWidgetClass('YoutubeVideoWidget', {
   attributes: {
@@ -7,5 +8,6 @@ export const YoutubeVideoWidget = provideWidgetClass('YoutubeVideoWidget', {
       'enum',
       { values: ['21to9', '16to9', '4to3', '1to1', '3to4', '9to16'] },
     ],
+    ...paddingAttributes,
   },
 })

@@ -1,4 +1,5 @@
 import { provideWidgetClass } from 'scrivito'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const ImageWidget = provideWidgetClass('ImageWidget', {
   attributes: {
@@ -10,6 +11,7 @@ export const ImageWidget = provideWidgetClass('ImageWidget', {
     objectFit: ['enum', { values: ['cover', 'contain'] }],
     roundCorners: 'boolean',
     width: 'string',
+    ...paddingAttributes,
   },
 })
 

@@ -2,6 +2,10 @@ import { Obj, provideEditingConfig } from 'scrivito'
 import { DataImageWidget } from './DataImageWidgetClass'
 import Thumbnail from './thumbnail.svg'
 import { ObjectFitEditor } from '../../Components/ScrivitoExtensions/ObjectFitEditor'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 provideEditingConfig(DataImageWidget, {
   title: 'Data Image',
@@ -40,6 +44,7 @@ provideEditingConfig(DataImageWidget, {
       editor: 'dimensionPicker',
       options: { units: ['px', '%'] },
     },
+    ...paddingEditAttributes,
   },
   properties: (widget) => [
     'alignment',
@@ -51,6 +56,7 @@ provideEditingConfig(DataImageWidget, {
     'link',
     ['roundCorners', { enabled: siteHasBorderRadius(widget.obj()) }],
   ],
+  propertiesGroups: [paddingGroup],
   initialContent: {
     alignment: 'left',
   },

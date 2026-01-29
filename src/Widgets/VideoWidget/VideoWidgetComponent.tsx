@@ -4,10 +4,12 @@ import {
   isInPlaceEditingActive,
   Obj,
   provideComponent,
+  WidgetTag,
 } from 'scrivito'
 import { VideoWidget } from './VideoWidgetClass'
 import { videoPlaceholder } from './videoPlaceholder'
 import './VideoWidget.scss'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 
 provideComponent(VideoWidget, ({ widget }) => {
   const aspectRatio = widget.get('aspectRatio') || '16to9'
@@ -20,17 +22,19 @@ provideComponent(VideoWidget, ({ widget }) => {
   if (!sourceUrl && !posterUrl && !isPlaceholderActive) return null
 
   return (
-    <ContentTag
-      tag="video"
-      key={`${src}${posterUrl}`}
-      className={`video-widget aspect-ratio-${aspectRatio}`}
-      src={src}
-      content={widget}
-      attribute="source"
-      poster={posterUrl}
-      controls={!isPlaceholderActive}
-      style={isPlaceholderActive ? videoPlaceholder : undefined}
-    />
+    <WidgetTag style={applyPadding(widget)}>
+      <ContentTag
+        tag="video"
+        key={`${src}${posterUrl}`}
+        className={`video-widget aspect-ratio-${aspectRatio}`}
+        src={src}
+        content={widget}
+        attribute="source"
+        poster={posterUrl}
+        controls={!isPlaceholderActive}
+        style={isPlaceholderActive ? videoPlaceholder : undefined}
+      />
+    </WidgetTag>
   )
 })
 
