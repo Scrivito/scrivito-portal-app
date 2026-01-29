@@ -5,6 +5,10 @@ import {
   textStyleGroup,
   textStyleInitialContent,
 } from '../propertiesGroups/textStyle/textStyleEditingConfig'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import thumbnail from './thumbnail.svg'
 
 // @ts-expect-error - TODO: Remove once #12736 is fixed
@@ -31,7 +35,8 @@ provideEditingConfig(DataCountWidget, {
     },
     margin: {
       title: 'Margin',
-      description: 'Space below the widget. Default: mb-2',
+      description:
+        'Space below the widget. Deprecated in favour of "Bottom" in Margins group. Default: mb-2',
     },
     style: {
       title: 'Style',
@@ -53,18 +58,19 @@ provideEditingConfig(DataCountWidget, {
         { value: 'display-6', title: 'Display heading 6' },
       ],
     },
+    ...paddingEditAttributes,
     ...textStyleEditAttributes,
   },
-  properties: [
+  properties: (widget) => [
     'loadingHeadline',
     'headline0',
     'headline1',
     'headline',
     'alignment',
     'style',
-    'margin',
+    ...(!widget.get('paddingBottom') ? ['margin'] : []),
   ],
-  propertiesGroups: [textStyleGroup],
+  propertiesGroups: [textStyleGroup, paddingGroup],
   initialContent: {
     alignment: 'left',
     headline: '__count__ items',
@@ -72,8 +78,8 @@ provideEditingConfig(DataCountWidget, {
     headline1: '1 item',
     loadingHeadline: 'Items',
     style: 'body-font-size',
-    margin: 'mb-2',
     ...textStyleInitialContent,
+    paddingBottom: '8px', // TODO: Apply paddingBottom to initial content
   },
   validations: [
     [

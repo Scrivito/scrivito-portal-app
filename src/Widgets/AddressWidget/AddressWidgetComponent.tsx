@@ -10,11 +10,12 @@ import {
 } from 'scrivito'
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(AddressWidget, ({ widget }) => (
-  <WidgetTag style={applyTextStyle(widget)}>
+  <WidgetTag style={{ ...applyPadding(widget), ...applyTextStyle(widget) }}>
     {widget.get('showLogo') && <Logo />}
     <address>
       <Address addressWidget={widget} />

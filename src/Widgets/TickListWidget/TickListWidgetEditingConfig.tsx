@@ -8,12 +8,17 @@ import {
   textStyleGroup,
   textStyleInitialContent,
 } from '../propertiesGroups/textStyle/textStyleEditingConfig'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 
 // @ts-expect-error - TODO: Remove once #12736 is fixed
 provideEditingConfig(TickListWidget, {
   title: 'Tick List',
   thumbnail,
   attributes: {
+    ...paddingEditAttributes,
     ...textStyleEditAttributes,
   },
   properties: [
@@ -30,7 +35,7 @@ provideEditingConfig(TickListWidget, {
       },
     ],
   ],
-  propertiesGroups: [textStyleGroup],
+  propertiesGroups: [textStyleGroup, paddingGroup],
   initialContent: {
     icon: 'bi-check',
     items: [

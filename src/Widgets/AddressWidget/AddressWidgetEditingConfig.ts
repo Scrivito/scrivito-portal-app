@@ -5,6 +5,10 @@ import {
   textStyleGroup,
   textStyleInitialContent,
 } from '../propertiesGroups/textStyle/textStyleEditingConfig'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
 // @ts-expect-error - TODO: Remove once #12736 is fixed
@@ -49,6 +53,7 @@ provideEditingConfig(AddressWidget, {
     email: {
       title: 'Email',
     },
+    ...paddingEditAttributes,
     ...textStyleEditAttributes,
   },
   properties: [
@@ -63,7 +68,7 @@ provideEditingConfig(AddressWidget, {
     'fax',
     'email',
   ],
-  propertiesGroups: [textStyleGroup],
+  propertiesGroups: [textStyleGroup, paddingGroup],
   initialContent: {
     showLogo: true,
     phoneLabel: 'Phone',

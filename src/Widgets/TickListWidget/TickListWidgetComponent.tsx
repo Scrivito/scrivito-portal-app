@@ -1,6 +1,7 @@
 import { createContext } from 'react'
 import { ContentTag, provideComponent } from 'scrivito'
 import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 import { TickListWidget } from './TickListWidgetClass'
 import './TickListWidget.scss'
 
@@ -13,7 +14,7 @@ provideComponent(TickListWidget, ({ widget }) => (
       className="tick-list-widget list-unstyled"
       content={widget}
       attribute="items"
-      style={applyTextStyle(widget)}
+      style={{ ...applyPadding(widget), ...applyTextStyle(widget) }}
     />
   </TickListIconContext>
 ))

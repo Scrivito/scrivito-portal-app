@@ -5,6 +5,10 @@ import {
   textStyleGroup,
   textStyleInitialContent,
 } from '../propertiesGroups/textStyle/textStyleEditingConfig'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
 // @ts-expect-error - TODO: Remove once #12736 is fixed
@@ -24,10 +28,11 @@ provideEditingConfig(TextWidget, {
     text: {
       title: 'Content',
     },
+    ...paddingEditAttributes,
     ...textStyleEditAttributes,
   },
   properties: ['alignment', 'text'],
-  propertiesGroups: [textStyleGroup],
+  propertiesGroups: [textStyleGroup, paddingGroup],
   initialContent: {
     alignment: 'left',
     text: 'Text',

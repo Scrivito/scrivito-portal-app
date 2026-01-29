@@ -12,10 +12,12 @@ import {
 import { EditorNote } from '../../Components/EditorNote'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { applyTextStyle } from '../propertiesGroups/textStyle/applyTextStyle'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
+import { marginBottomToPixels } from '../propertiesGroups/padding/marginBottomToPixels'
 import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(DataCountWidget, ({ widget }) => {
-  const classNames: string[] = [widget.get('margin') ?? 'mb-2']
+  const classNames: string[] = []
 
   const style = widget.get('style') ?? 'body-font-size'
   if (style !== 'body-font-size') classNames.push(style)
@@ -24,7 +26,15 @@ provideComponent(DataCountWidget, ({ widget }) => {
   if (alignment) classNames.push(alignment)
 
   return (
-    <WidgetTag className={classNames.join(' ')} style={applyTextStyle(widget)}>
+    <WidgetTag
+      className={classNames.join(' ')}
+      style={{
+        ...applyPadding(widget, {
+          paddingBottom: marginBottomToPixels(widget.get('margin')),
+        }),
+        ...applyTextStyle(widget),
+      }}
+    >
       <Count widget={widget} />
     </WidgetTag>
   )

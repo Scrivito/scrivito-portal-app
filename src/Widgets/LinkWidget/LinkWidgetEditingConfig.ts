@@ -5,6 +5,10 @@ import {
   textStyleGroup,
   textStyleInitialContent,
 } from '../propertiesGroups/textStyle/textStyleEditingConfig'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
 // @ts-expect-error - TODO: Remove once #12736 is fixed
@@ -17,10 +21,11 @@ provideEditingConfig(LinkWidget, {
       description:
         "If no title is given, the obj's title or the external URl will be shown.",
     },
+    ...paddingEditAttributes,
     ...textStyleEditAttributes,
   },
   properties: ['link'],
-  propertiesGroups: [textStyleGroup],
+  propertiesGroups: [textStyleGroup, paddingGroup],
   initialContent: {
     ...textStyleInitialContent,
   },

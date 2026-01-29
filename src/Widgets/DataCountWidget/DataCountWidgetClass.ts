@@ -1,5 +1,6 @@
 import { provideWidgetClass } from 'scrivito'
 import { textStyleAttributes } from '../propertiesGroups/textStyle/textStyleAttributes'
+import { paddingAttributes } from '../propertiesGroups/padding/paddingAttributes'
 
 export const DataCountWidget = provideWidgetClass('DataCountWidget', {
   attributes: {
@@ -11,7 +12,7 @@ export const DataCountWidget = provideWidgetClass('DataCountWidget', {
     margin: [
       'enum',
       { values: ['mb-0', 'mb-1', 'mb-2', 'mb-3', 'mb-4', 'mb-5'] },
-    ],
+    ], // deprecated by paddingBottom from paddingAttributes
     style: [
       'enum',
       {
@@ -33,6 +34,7 @@ export const DataCountWidget = provideWidgetClass('DataCountWidget', {
         ],
       },
     ],
+    ...paddingAttributes,
     ...textStyleAttributes,
   },
 })

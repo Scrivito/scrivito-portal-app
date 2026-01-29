@@ -6,6 +6,10 @@ import {
   textStyleGroup,
   textStyleInitialContent,
 } from '../propertiesGroups/textStyle/textStyleEditingConfig'
+import {
+  paddingEditAttributes,
+  paddingGroup,
+} from '../propertiesGroups/padding/paddingEditingConfig'
 import Thumbnail from './thumbnail.svg'
 
 // @ts-expect-error - TODO: Remove once #12736 is fixed
@@ -13,9 +17,10 @@ provideEditingConfig(LinkContainerWidget, {
   title: 'Link List',
   thumbnail: Thumbnail,
   attributes: {
+    ...paddingEditAttributes,
     ...textStyleEditAttributes,
   },
-  propertiesGroups: [textStyleGroup],
+  propertiesGroups: [textStyleGroup, paddingGroup],
   initialContent: {
     headline: 'Links headline',
     links: ['Link 1', 'Link 2', 'Link 3'].map(
