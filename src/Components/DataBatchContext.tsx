@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react'
+import { CSSProperties, createContext, useEffect, useState } from 'react'
 import { connect, useData, Obj, Widget, ContentTag } from 'scrivito'
 
 export const DataBatchContext = createContext<{
@@ -19,11 +19,13 @@ export const DataBatchContextProvider = connect(
     attribute,
     content,
     id,
+    style,
     tag,
   }: {
     attribute: string
     content: Obj | Widget
     id?: string
+    style?: CSSProperties
     tag?: string
   }) {
     const dataScope = useData()
@@ -68,6 +70,7 @@ export const DataBatchContextProvider = connect(
         <ContentTag
           tag={tag}
           id={id}
+          style={style}
           key={dataKeys.join('-')}
           content={content}
           attribute={attribute}

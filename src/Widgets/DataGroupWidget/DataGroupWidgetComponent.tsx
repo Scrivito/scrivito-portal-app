@@ -1,4 +1,5 @@
 import { provideComponent, useData } from 'scrivito'
+import { applyPadding } from '../propertiesGroups/padding/applyPadding'
 import { DataGroupWidget } from './DataGroupWidgetClass'
 import { DataBatchContextProvider } from '../../Components/DataBatchContext'
 
@@ -8,6 +9,11 @@ provideComponent(DataGroupWidget, ({ widget }) => {
   )
 
   return (
-    <DataBatchContextProvider key={id} content={widget} attribute="content" />
+    <DataBatchContextProvider
+      key={id}
+      content={widget}
+      attribute="content"
+      style={applyPadding(widget)}
+    />
   )
 })
