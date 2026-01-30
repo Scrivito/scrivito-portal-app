@@ -106,14 +106,14 @@
   "_first_published_at": "20250911091033",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20250912111925",
+  "_last_changed": "20260130103504",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20250912111945",
+  "_published_at": "20260130103720",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "202509121119450000000000000000e1999f383559b7e6",
+  "_version": "202601301037200000000000000000325f016c9943ab70",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -1219,7 +1219,7 @@
       "_obj_class": "HeadlineWidget",
       "headline": [
         "string",
-        "© MIXX 2025 All rights reserved."
+        "© MIXX 2026 All rights reserved."
       ],
       "level": [
         "string",

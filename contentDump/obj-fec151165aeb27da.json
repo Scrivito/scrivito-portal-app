@@ -28,14 +28,14 @@
   "_first_published_at": "20230516091834",
   "_id": "fec151165aeb27da",
   "_language": "en",
-  "_last_changed": "20250805132940",
+  "_last_changed": "20260130103236",
   "_modification": null,
   "_path": "/33cbdf671c7b83b1/3cc07265490102de",
   "_permalink": null,
-  "_published_at": "20250806071623",
+  "_published_at": "20260130103720",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202508060716230000000000000000297565bdf5c97a35",
+  "_version": "202601301037200000000000000000325f016c9943ab70",
   "_widget_pool": {
     "74168031": {
       "_obj_class": "HeadlineWidget",
@@ -550,7 +550,7 @@
       ],
       "headline": [
         "string",
-        "EXPO 2025"
+        "EXPO 2026"
       ],
       "alignment": [
         "string",
@@ -654,7 +654,7 @@
       ],
       "headline": [
         "string",
-        "Hannover Industry Exhibition 2025"
+        "Hannover Industry Exhibition 2026"
       ],
       "margin": [
         "string",
