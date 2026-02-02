@@ -10,6 +10,8 @@ function headers(environment: string) {
         'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
         'script-src': [
           "'self'",
+          'https://*.etracker.com',
+          'https://*.etracker.de',
           'https://api.scrivito.com',
           'https://assets.scrivito.com',
         ].concat(
