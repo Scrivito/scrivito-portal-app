@@ -31,6 +31,7 @@ function headers(environment: string) {
             : [
                 "'self'",
                 'https://*.scrivito.com',
+                'https://*.etracker.com',
 
                 // TODO: Remove later on:
                 'http://localhost:8090',
