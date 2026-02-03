@@ -1,7 +1,7 @@
 import { provideEditingConfig, Widget } from 'scrivito'
 import { DataIconConditionWidget } from './DataIconConditionWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ScrivitoBootstrapIconPicker } from '../../Components/ScrivitoExtensions/ScrivitoBootstrapIconPicker'
+import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 
 provideEditingConfig(DataIconConditionWidget, {
   title: 'Data Icon Condition',
