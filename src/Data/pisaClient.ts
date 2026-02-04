@@ -1,9 +1,4 @@
-import {
-  createRestApiClient,
-  currentLanguage,
-  isUserLoggedIn,
-  load,
-} from 'scrivito'
+import { createRestApiClient, isUserLoggedIn } from 'scrivito'
 import { getJrPlatformPisaSalesApiUrl } from '../privateJrPlatform/getJrPlatformPisaSalesApiUrl'
 
 export async function pisaSalesApiUrl(): Promise<string | null> {
@@ -34,7 +29,7 @@ export async function pisaConfig(subPath: string) {
   return {
     url: `${baseUrl}/${subPath}`,
     headers: {
-      'Accept-Language': await load(() => currentLanguage() ?? 'en'),
+      'Accept-Language': 'fr',
     },
   }
 }
