@@ -15,8 +15,6 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const outDir = 'dist'
 
-  const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
-
   // This flag is only used by the Scrivito SDK team (e.g. for multi-tenancy).
   // Feel free to remove it in your project.
   const privateJrPlatform = env.PRIVATE_JR_PLATFORM === 'true'
@@ -73,7 +71,6 @@ export default defineConfig(({ mode }) => {
       ),
       'import.meta.env.HONEYBADGER_REVISION':
         JSON.stringify(HONEYBADGER_REVISION),
-      'import.meta.env.FORCE_LOCAL_STORAGE': JSON.stringify(forceLocalStorage),
       'import.meta.env.PRIVATE_JR_PLATFORM': JSON.stringify(privateJrPlatform),
       'import.meta.env.PISA_SALES_API_URL': JSON.stringify(
         env.PISA_SALES_API_URL,
