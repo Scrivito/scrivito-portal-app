@@ -10,6 +10,8 @@ function headers(environment: string) {
         'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
         'script-src': [
           "'self'",
+          'https://*.etracker.com',
+          'https://*.etracker.de',
           'https://api.scrivito.com',
           'https://assets.scrivito.com',
         ].concat(
@@ -29,6 +31,7 @@ function headers(environment: string) {
             : [
                 "'self'",
                 'https://*.scrivito.com',
+                'https://*.etracker.com',
 
                 // TODO: Remove later on:
                 'http://localhost:8090',
