@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import {
   connect,
   ContentTag,
+  currentLanguage,
   currentSiteId,
   isEditorLoggedIn,
   isUserLoggedIn,
@@ -9,6 +10,7 @@ import {
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
+import { Helmet } from '@dr.pogodin/react-helmet'
 import { Loading } from './Loading'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
 
@@ -87,6 +89,7 @@ const NotFound = connect(function NotFound() {
 
   return (
     <>
+      <Helmet title={localizePageNotFound()} />
       {!!root.get('layoutShowHeader') && (
         <ContentTag tag="header" content={root} attribute="layoutHeader" />
       )}
@@ -109,4 +112,17 @@ function isPortalAppContentMissing(): boolean {
 
 function hasSomeContent(): boolean {
   return Obj.onAllSites().all().count() > 0
+}
+
+function localizePageNotFound(): string {
+  switch (currentLanguage()) {
+    case 'de':
+      return 'Seite nicht gefunden'
+    case 'fr':
+      return 'Page non trouvée'
+    case 'pl':
+      return 'Nie znaleziono strony'
+    default:
+      return 'Page not found'
+  }
 }
