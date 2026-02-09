@@ -1,0 +1,16 @@
+{
+  "name": "scrivito-portal-app",
+  "description": "Scrivito Portal App",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "mkdir -p dist"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260124.0"
+  }
+}
