@@ -10,10 +10,9 @@ function headers(environment: string) {
         'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
         'script-src': [
           "'self'",
-          'https://*.etracker.com',
-          'https://*.etracker.de',
           'https://api.scrivito.com',
           'https://assets.scrivito.com',
+          'https://webcontr.scrivito-portal-app.pages.dev',
         ].concat(
           // The package `@vitejs/plugin-react-swc` include an inline script into index.html (see [1]).
           // [1] https://github.com/vitejs/vite-plugin-react/blob/7517103485081b26004e79f169efdd2d12a60946/packages/common/refresh-utils.ts#L7-L12

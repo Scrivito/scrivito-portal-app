@@ -4,6 +4,7 @@ import { instanceFromHostname } from './multiTenancy'
 declare global {
   interface Window {
     _etr?: { protocol: string }
+    et_proxy_redirect?: string
   }
 }
 
@@ -23,6 +24,7 @@ export function jrPlatformConfigureEtracker() {
   // No reproduction, publication or modification allowed without permission.
   // etracker code 6.0
   window._etr = { protocol: 'https://' }
+  window.et_proxy_redirect = 'https://webcontr.scrivito-portal-app.pages.dev'
 
   const script = document.createElement('script')
   script.id = '_etLoader'
@@ -30,7 +32,7 @@ export function jrPlatformConfigureEtracker() {
   script.setAttribute('data-block-cookies', 'true')
   script.setAttribute('data-secure-code', 'L9bLhx')
   script.setAttribute('data-page-changed-detection', 'url')
-  script.src = 'https://code.etracker.com/code/e.js'
+  script.src = 'https://webcontr.scrivito-portal-app.pages.dev/code/e.js'
   script.async = true
 
   document.head.appendChild(script)
