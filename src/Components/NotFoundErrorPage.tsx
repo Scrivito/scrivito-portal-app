@@ -10,7 +10,6 @@ import {
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
-import { Helmet } from '@dr.pogodin/react-helmet'
 import { Loading } from './Loading'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
 
@@ -89,7 +88,7 @@ const NotFound = connect(function NotFound() {
 
   return (
     <>
-      <Helmet title={localizePageNotFound()} />
+      <title>{localizePageNotFound()}</title>
       {!!root.get('layoutShowHeader') && (
         <ContentTag tag="header" content={root} attribute="layoutHeader" />
       )}
