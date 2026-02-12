@@ -11,50 +11,72 @@ import {
   ColumnWidget,
   ColumnWidgetInstance,
 } from '../ColumnWidget/ColumnWidgetClass'
-import {
-  isColumnContainerWidgetInstance,
-  ColumnContainerWidgetInstance,
-} from './ColumnContainerWidgetClass'
+import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditor.scss'
-import { Component, createRef, useMemo } from 'react'
+import { Component, createRef, useRef } from 'react'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
 }: {
-  widget: Widget
+  widget: ColumnContainerWidgetInstance
 }) {
-  if (!isColumnContainerWidgetInstance(widget)) return null
+  const originalContentsRef = useRef<Widget[][]>([])
+  const isInternalChangeRef = useRef(false)
 
-  const includedWidgetIds = calculateContentIds(calculateContents(widget))
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
   const readOnly = !canEdit(widget.obj()) || isComparisonActive()
 
+  // Read unconditionally, so "connect" always tracks column contents and rerenders on external changes
+  const currentContents = calculateContents(widget)
+
+  if (isInternalChangeRef.current) {
+    // Ignore changes caused by this component itself
+    isInternalChangeRef.current = false
+  } else {
+    originalContentsRef.current = currentContents
+  }
+  // Reset component whenever column contents change externally (widget added, removed, or moved)
+  const key = originalContentsRef.current
+    .map((content) => content.map((w) => w.id()).join(','))
+    .join('|')
+
+  const currentGrid = gridOfWidget(widget)
+
   return (
     <div className={`scrivito_${theme}`}>
       <ColumnsLayoutEditor
-        // reset component whenever a concurrent widget addition/deletion happened
-        key={includedWidgetIds.join('-')}
+        key={key}
         widget={widget}
         readOnly={readOnly}
-        currentGrid={gridOfWidget(widget)}
+        currentGrid={currentGrid}
+        adjustCols={adjustCols}
       />
     </div>
   )
+
+  function adjustCols(newGrid: number[]) {
+    if (!isEqual(currentGrid, newGrid)) {
+      isInternalChangeRef.current = true
+      adjustNumberOfColumns(widget, newGrid.length)
+      distributeContents(widget.get('columns'), originalContentsRef.current)
+      adjustColSize(widget.get('columns'), newGrid)
+    }
+  }
 })
 
 const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
   widget,
   readOnly,
   currentGrid,
+  adjustCols,
 }: {
   widget: ColumnContainerWidgetInstance
   readOnly: boolean
   currentGrid: number[]
+  adjustCols: (newGrid: number[]) => void
 }) {
-  const originalContents = useMemo(() => calculateContents(widget), [widget])
-
   const isFlex = widget.get('layoutMode') === 'flex'
 
   function isActive(grid: number[]) {
@@ -196,24 +218,12 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
     adjustCols(newGrid)
     adjustFlexGrow(widget.get('columns'), newGrow)
   }
-
-  function adjustCols(newGrid: number[]) {
-    if (!isEqual(currentGrid, newGrid)) {
-      adjustNumberOfColumns(widget, newGrid.length)
-      distributeContents(widget.get('columns'), originalContents)
-      adjustColSize(widget.get('columns'), newGrid)
-    }
-  }
 })
 
 function calculateContents(widget: ColumnContainerWidgetInstance) {
   return widget
     .get('columns')
     .map((column) => (column as ColumnWidgetInstance).get('content'))
-}
-
-function calculateContentIds(contents: Widget[][]) {
-  return contents.map((content) => content.map((o) => o.id())).flat()
 }
 
 function PresetGrid({
