@@ -11,22 +11,17 @@ import {
   ColumnWidget,
   ColumnWidgetInstance,
 } from '../ColumnWidget/ColumnWidgetClass'
-import {
-  isColumnContainerWidgetInstance,
-  ColumnContainerWidgetInstance,
-} from './ColumnContainerWidgetClass'
+import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditor.scss'
 import { Component, createRef, useRef } from 'react'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
 }: {
-  widget: Widget
+  widget: ColumnContainerWidgetInstance
 }) {
   const originalContentsRef = useRef<Widget[][]>([])
   const isInternalChangeRef = useRef(false)
-
-  if (!isColumnContainerWidgetInstance(widget)) return null
 
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
@@ -62,8 +57,6 @@ export const ColumnsEditor = connect(function ColumnsEditor({
   )
 
   function adjustCols(newGrid: number[]) {
-    if (!isColumnContainerWidgetInstance(widget)) return
-
     if (!isEqual(currentGrid, newGrid)) {
       isInternalChangeRef.current = true
       adjustNumberOfColumns(widget, newGrid.length)
