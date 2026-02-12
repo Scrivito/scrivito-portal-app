@@ -16,7 +16,7 @@ import {
   ColumnContainerWidgetInstance,
 } from './ColumnContainerWidgetClass'
 import './ColumnsEditor.scss'
-import { Component, createRef, useMemo } from 'react'
+import { Component, createRef } from 'react'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
@@ -25,36 +25,50 @@ export const ColumnsEditor = connect(function ColumnsEditor({
 }) {
   if (!isColumnContainerWidgetInstance(widget)) return null
 
-  const includedWidgetIds = calculateContentIds(calculateContents(widget))
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
   const readOnly = !canEdit(widget.obj()) || isComparisonActive()
 
+  const originalContents = calculateContents(widget)
+  // reset component whenever a concurrent widget addition/deletion happened
+  const key = calculateContentIds(originalContents).join('-')
+  const currentGrid = gridOfWidget(widget)
+
   return (
     <div className={`scrivito_${theme}`}>
       <ColumnsLayoutEditor
-        // reset component whenever a concurrent widget addition/deletion happened
-        key={includedWidgetIds.join('-')}
+        key={key}
         widget={widget}
         readOnly={readOnly}
-        currentGrid={gridOfWidget(widget)}
+        currentGrid={currentGrid}
+        adjustCols={adjustCols}
       />
     </div>
   )
+
+  function adjustCols(newGrid: number[]) {
+    if (!isColumnContainerWidgetInstance(widget)) return
+
+    if (!isEqual(currentGrid, newGrid)) {
+      adjustNumberOfColumns(widget, newGrid.length)
+      distributeContents(widget.get('columns'), originalContents)
+      adjustColSize(widget.get('columns'), newGrid)
+    }
+  }
 })
 
 const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
   widget,
   readOnly,
   currentGrid,
+  adjustCols,
 }: {
   widget: ColumnContainerWidgetInstance
   readOnly: boolean
   currentGrid: number[]
+  adjustCols: (newGrid: number[]) => void
 }) {
-  const originalContents = useMemo(() => calculateContents(widget), [widget])
-
   const isFlex = widget.get('layoutMode') === 'flex'
 
   function isActive(grid: number[]) {
@@ -195,14 +209,6 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
         : newGrow.map(() => 12 / newGrow.length)
     adjustCols(newGrid)
     adjustFlexGrow(widget.get('columns'), newGrow)
-  }
-
-  function adjustCols(newGrid: number[]) {
-    if (!isEqual(currentGrid, newGrid)) {
-      adjustNumberOfColumns(widget, newGrid.length)
-      distributeContents(widget.get('columns'), originalContents)
-      adjustColSize(widget.get('columns'), newGrid)
-    }
   }
 })
 
