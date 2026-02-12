@@ -16,13 +16,16 @@ import {
   ColumnContainerWidgetInstance,
 } from './ColumnContainerWidgetClass'
 import './ColumnsEditor.scss'
-import { Component, createRef } from 'react'
+import { Component, createRef, useRef } from 'react'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
 }: {
   widget: Widget
 }) {
+  const originalContentsRef = useRef<Widget[][]>([])
+  const isInternalChangeRef = useRef(false)
+
   if (!isColumnContainerWidgetInstance(widget)) return null
 
   const { theme } = uiContext() || { theme: null }
@@ -30,9 +33,20 @@ export const ColumnsEditor = connect(function ColumnsEditor({
 
   const readOnly = !canEdit(widget.obj()) || isComparisonActive()
 
-  const originalContents = calculateContents(widget)
-  // reset component whenever a concurrent widget addition/deletion happened
-  const key = calculateContentIds(originalContents).join('-')
+  // Read unconditionally, so "connect" always tracks column contents and rerenders on external changes
+  const currentContents = calculateContents(widget)
+
+  if (isInternalChangeRef.current) {
+    // Ignore changes caused by this component itself
+    isInternalChangeRef.current = false
+  } else {
+    originalContentsRef.current = currentContents
+  }
+  // Reset component whenever column contents change externally (widget added, removed, or moved)
+  const key = originalContentsRef.current
+    .map((content) => content.map((w) => w.id()).join(','))
+    .join('|')
+
   const currentGrid = gridOfWidget(widget)
 
   return (
@@ -51,8 +65,9 @@ export const ColumnsEditor = connect(function ColumnsEditor({
     if (!isColumnContainerWidgetInstance(widget)) return
 
     if (!isEqual(currentGrid, newGrid)) {
+      isInternalChangeRef.current = true
       adjustNumberOfColumns(widget, newGrid.length)
-      distributeContents(widget.get('columns'), originalContents)
+      distributeContents(widget.get('columns'), originalContentsRef.current)
       adjustColSize(widget.get('columns'), newGrid)
     }
   }
@@ -216,10 +231,6 @@ function calculateContents(widget: ColumnContainerWidgetInstance) {
   return widget
     .get('columns')
     .map((column) => (column as ColumnWidgetInstance).get('content'))
-}
-
-function calculateContentIds(contents: Widget[][]) {
-  return contents.map((content) => content.map((o) => o.id())).flat()
 }
 
 function PresetGrid({
