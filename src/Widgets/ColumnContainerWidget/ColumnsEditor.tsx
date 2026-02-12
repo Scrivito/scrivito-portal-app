@@ -339,7 +339,7 @@ class GridLayoutEditor extends Component<
     const parentElement = this.gridRulerRef.current?.parentElement
     if (!parentElement) return
     const isSmallScreen = parentElement.offsetWidth <= 400
-    const columnSpacing = isSmallScreen ? 0.25 : 10
+    const columnSpacing = isSmallScreen ? 1 : 10
     const draggableGrid =
       firstChild.getBoundingClientRect().width + columnSpacing
 
