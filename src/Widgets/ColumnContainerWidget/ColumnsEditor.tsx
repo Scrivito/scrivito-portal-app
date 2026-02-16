@@ -11,50 +11,71 @@ import {
   ColumnWidget,
   ColumnWidgetInstance,
 } from '../ColumnWidget/ColumnWidgetClass'
-import {
-  isColumnContainerWidgetInstance,
-  ColumnContainerWidgetInstance,
-} from './ColumnContainerWidgetClass'
+import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditor.scss'
-import { useMemo } from 'react'
+import { useRef } from 'react'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
 }: {
-  widget: Widget
+  widget: ColumnContainerWidgetInstance
 }) {
-  if (!isColumnContainerWidgetInstance(widget)) return null
+  const baselineRef = useRef<Widget[][]>([])
+  const preserveBaselineRef = useRef(false)
 
-  const includedWidgetIds = calculateContentIds(calculateContents(widget))
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
 
   const readOnly = !canEdit(widget.obj()) || isComparisonActive()
 
+  // Read unconditionally, so "connect" always tracks column contents and rerenders on external changes
+  const currentContents = calculateContents(widget)
+
+  if (preserveBaselineRef.current) {
+    preserveBaselineRef.current = false
+  } else {
+    baselineRef.current = currentContents
+  }
+
+  const baselineKey = baselineRef.current
+    .map((content) => content.map((w) => w.id()).join(','))
+    .join('|')
+
+  const currentGrid = gridOfWidget(widget)
+
   return (
     <div className={`scrivito_${theme}`}>
       <ColumnsLayoutEditor
-        // reset component whenever a concurrent widget addition/deletion happened
-        key={includedWidgetIds.join('-')}
+        key={baselineKey}
         widget={widget}
         readOnly={readOnly}
-        currentGrid={gridOfWidget(widget)}
+        currentGrid={currentGrid}
+        adjustCols={adjustCols}
       />
     </div>
   )
+
+  function adjustCols(newGrid: number[]) {
+    if (isEqual(currentGrid, newGrid)) return
+
+    preserveBaselineRef.current = true
+    adjustNumberOfColumns(widget, newGrid.length)
+    distributeContents(widget.get('columns'), baselineRef.current)
+    adjustColSize(widget.get('columns'), newGrid)
+  }
 })
 
 const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
   widget,
   readOnly,
   currentGrid,
+  adjustCols,
 }: {
   widget: ColumnContainerWidgetInstance
   readOnly: boolean
   currentGrid: number[]
+  adjustCols: (newGrid: number[]) => void
 }) {
-  const originalContents = useMemo(() => calculateContents(widget), [widget])
-
   const isFlex = widget.get('layoutMode') === 'flex'
 
   function isActive(grid: number[]) {
@@ -196,24 +217,12 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
     adjustCols(newGrid)
     adjustFlexGrow(widget.get('columns'), newGrow)
   }
-
-  function adjustCols(newGrid: number[]) {
-    if (!isEqual(currentGrid, newGrid)) {
-      adjustNumberOfColumns(widget, newGrid.length)
-      distributeContents(widget.get('columns'), originalContents)
-      adjustColSize(widget.get('columns'), newGrid)
-    }
-  }
 })
 
 function calculateContents(widget: ColumnContainerWidgetInstance) {
   return widget
     .get('columns')
     .map((column) => (column as ColumnWidgetInstance).get('content'))
-}
-
-function calculateContentIds(contents: Widget[][]) {
-  return contents.map((content) => content.map((o) => o.id())).flat()
 }
 
 function PresetGrid({
@@ -381,7 +390,7 @@ function GridSlider({
       key={index}
       className="grid-slider"
       max={12}
-      onValueChange={([v]) => handleBoundaryChange(index, v || 0)}
+      onValueChange={([v]: number[]) => handleBoundaryChange(index, v || 0)}
       value={[value]}
     >
       <Slider.Thumb className="grid-handle" />
@@ -419,13 +428,13 @@ function adjustNumberOfColumns(
 /**
  * Copy first n - 1 columns and merge last columns into one
  */
-function distributeContents(columns: Widget[], originalContents: Widget[][]) {
+function distributeContents(columns: Widget[], baseline: Widget[][]) {
   columns.forEach((column, index) =>
     column.update({
       content:
         index < columns.length - 1
-          ? originalContents[index] || []
-          : originalContents.slice(index).flat(),
+          ? baseline[index] || []
+          : baseline.slice(index).flat(),
     }),
   )
 }
