@@ -20,7 +20,7 @@ export const ColumnsEditor = connect(function ColumnsEditor({
 }: {
   widget: ColumnContainerWidgetInstance
 }) {
-  const originalContentsRef = useRef<Widget[][]>([])
+  const baselineRef = useRef<Widget[][]>([])
   const isInternalChangeRef = useRef(false)
 
   const { theme } = uiContext() || { theme: null }
@@ -35,10 +35,10 @@ export const ColumnsEditor = connect(function ColumnsEditor({
     // Ignore changes caused by this component itself
     isInternalChangeRef.current = false
   } else {
-    originalContentsRef.current = currentContents
+    baselineRef.current = currentContents
   }
   // Reset component whenever column contents change externally (widget added, removed, or moved)
-  const key = originalContentsRef.current
+  const key = baselineRef.current
     .map((content) => content.map((w) => w.id()).join(','))
     .join('|')
 
@@ -60,7 +60,7 @@ export const ColumnsEditor = connect(function ColumnsEditor({
     if (!isEqual(currentGrid, newGrid)) {
       isInternalChangeRef.current = true
       adjustNumberOfColumns(widget, newGrid.length)
-      distributeContents(widget.get('columns'), originalContentsRef.current)
+      distributeContents(widget.get('columns'), baselineRef.current)
       adjustColSize(widget.get('columns'), newGrid)
     }
   }
@@ -520,13 +520,13 @@ function adjustNumberOfColumns(
 /**
  * Copy first n - 1 columns and merge last columns into one
  */
-function distributeContents(columns: Widget[], originalContents: Widget[][]) {
+function distributeContents(columns: Widget[], baseline: Widget[][]) {
   columns.forEach((column, index) =>
     column.update({
       content:
         index < columns.length - 1
-          ? originalContents[index] || []
-          : originalContents.slice(index).flat(),
+          ? baseline[index] || []
+          : baseline.slice(index).flat(),
     }),
   )
 }
