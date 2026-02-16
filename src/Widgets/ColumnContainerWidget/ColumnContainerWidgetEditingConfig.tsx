@@ -4,7 +4,10 @@ import {
   provideEditingConfig,
   Widget,
 } from 'scrivito'
-import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
+import {
+  ColumnContainerWidget,
+  ColumnContainerWidgetInstance,
+} from './ColumnContainerWidgetClass'
 import { ColumnsEditor } from './ColumnsEditor'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
 import { AdvancedEnumEditor } from '../../Components/ScrivitoExtensions/AdvancedEnumEditor'
@@ -48,7 +51,7 @@ provideEditingConfig(ColumnContainerWidget, {
       'columns',
       {
         component: ({ widget }: { widget: Widget }) => (
-          <ColumnsEditor widget={widget} />
+          <ColumnsEditor widget={widget as ColumnContainerWidgetInstance} />
         ),
       },
     ],
