@@ -56,12 +56,12 @@ export const ColumnsEditor = connect(function ColumnsEditor({
   )
 
   function adjustCols(newGrid: number[]) {
-    if (!isEqual(currentGrid, newGrid)) {
-      preserveBaselineRef.current = true
-      adjustNumberOfColumns(widget, newGrid.length)
-      distributeContents(widget.get('columns'), baselineRef.current)
-      adjustColSize(widget.get('columns'), newGrid)
-    }
+    if (isEqual(currentGrid, newGrid)) return
+
+    preserveBaselineRef.current = true
+    adjustNumberOfColumns(widget, newGrid.length)
+    distributeContents(widget.get('columns'), baselineRef.current)
+    adjustColSize(widget.get('columns'), newGrid)
   }
 })
 
