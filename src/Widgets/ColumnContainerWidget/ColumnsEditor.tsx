@@ -21,7 +21,7 @@ export const ColumnsEditor = connect(function ColumnsEditor({
   widget: ColumnContainerWidgetInstance
 }) {
   const baselineRef = useRef<Widget[][]>([])
-  const isInternalChangeRef = useRef(false)
+  const preserveBaselineRef = useRef(false)
 
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
@@ -31,9 +31,8 @@ export const ColumnsEditor = connect(function ColumnsEditor({
   // Read unconditionally, so "connect" always tracks column contents and rerenders on external changes
   const currentContents = calculateContents(widget)
 
-  if (isInternalChangeRef.current) {
-    // Ignore changes caused by this component itself
-    isInternalChangeRef.current = false
+  if (preserveBaselineRef.current) {
+    preserveBaselineRef.current = false
   } else {
     baselineRef.current = currentContents
   }
@@ -58,7 +57,7 @@ export const ColumnsEditor = connect(function ColumnsEditor({
 
   function adjustCols(newGrid: number[]) {
     if (!isEqual(currentGrid, newGrid)) {
-      isInternalChangeRef.current = true
+      preserveBaselineRef.current = true
       adjustNumberOfColumns(widget, newGrid.length)
       distributeContents(widget.get('columns'), baselineRef.current)
       adjustColSize(widget.get('columns'), newGrid)
