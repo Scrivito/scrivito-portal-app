@@ -36,8 +36,8 @@ export const ColumnsEditor = connect(function ColumnsEditor({
   } else {
     baselineRef.current = currentContents
   }
-  // Reset component whenever column contents change externally (widget added, removed, or moved)
-  const key = baselineRef.current
+
+  const baselineKey = baselineRef.current
     .map((content) => content.map((w) => w.id()).join(','))
     .join('|')
 
@@ -46,7 +46,7 @@ export const ColumnsEditor = connect(function ColumnsEditor({
   return (
     <div className={`scrivito_${theme}`}>
       <ColumnsLayoutEditor
-        key={key}
+        key={baselineKey}
         widget={widget}
         readOnly={readOnly}
         currentGrid={currentGrid}
