@@ -78,12 +78,6 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
 }) {
   const isFlex = widget.get('layoutMode') === 'flex'
 
-  function isActive(grid: number[]) {
-    return isFlex
-      ? isEqual(growFromGrid(grid), growOfWidget(widget))
-      : isEqual(grid, currentGrid)
-  }
-
   return (
     <div className="columns-editor-content">
       <div className="item_content">
@@ -202,6 +196,12 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
     </div>
   )
 
+  function isActive(grid: number[]) {
+    return isFlex
+      ? isEqual(growFromGrid(grid), growOfWidget(widget))
+      : isEqual(grid, currentGrid)
+  }
+
   function adjustGrid(newGrid: number[]) {
     if (readOnly) return
     adjustCols(newGrid)
@@ -317,18 +317,6 @@ function GridLayoutEditor({
   adjustGrid,
   readOnly,
 }: GridLayoutEditorProps) {
-  function adjustNumberOfColumns(wantedCols: number) {
-    if (wantedCols > 6 || wantedCols < 1) return
-
-    if (wantedCols === 5) {
-      adjustGrid([2, 2, 2, 2, 4])
-      return
-    }
-
-    const newColSize = 12 / wantedCols
-    adjustGrid(times(wantedCols).map(() => newColSize))
-  }
-
   return (
     <div className="gle">
       <div className="grid-ruler">
@@ -367,6 +355,18 @@ function GridLayoutEditor({
       </div>
     </div>
   )
+
+  function adjustNumberOfColumns(wantedCols: number) {
+    if (wantedCols > 6 || wantedCols < 1) return
+
+    if (wantedCols === 5) {
+      adjustGrid([2, 2, 2, 2, 4])
+      return
+    }
+
+    const newColSize = 12 / wantedCols
+    adjustGrid(times(wantedCols).map(() => newColSize))
+  }
 }
 
 function GridSlider({
@@ -377,13 +377,6 @@ function GridSlider({
   adjustGrid: (newGrid: number[]) => void
 }) {
   const boundaries = gridToBoundaries(currentGrid)
-
-  function handleBoundaryChange(index: number, value: number) {
-    const min = (boundaries[index - 1] || 0) + 1
-    const max = (boundaries[index + 1] || 12) - 1
-    if (value < min || value > max) return
-    adjustGrid(boundariesToGrid(boundaries.with(index, value)))
-  }
 
   return boundaries.map((value, index) => (
     <Slider.Root
@@ -396,6 +389,13 @@ function GridSlider({
       <Slider.Thumb className="grid-handle" />
     </Slider.Root>
   ))
+
+  function handleBoundaryChange(index: number, value: number) {
+    const min = (boundaries[index - 1] || 0) + 1
+    const max = (boundaries[index + 1] || 12) - 1
+    if (value < min || value > max) return
+    adjustGrid(boundariesToGrid(boundaries.with(index, value)))
+  }
 }
 
 function gridOfWidget(containerWidget: ColumnContainerWidgetInstance) {
