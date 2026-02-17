@@ -1,7 +1,7 @@
 import { provideEditingConfig, Widget } from 'scrivito'
 import { DataIconWidget } from './DataIconWidgetClass'
 import Thumbnail from './thumbnail.svg'
-import { ScrivitoBootstrapIconPicker } from '../../Components/ScrivitoExtensions/ScrivitoBootstrapIconPicker'
+import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 
 provideEditingConfig(DataIconWidget, {
   title: 'Data Icon',
