@@ -5,7 +5,7 @@ import {
   uiContext,
   Widget,
 } from 'scrivito'
-import Draggable from 'react-draggable'
+import * as Slider from '@radix-ui/react-slider'
 import { isEqual, times } from 'lodash-es'
 import {
   ColumnWidget,
@@ -13,7 +13,7 @@ import {
 } from '../ColumnWidget/ColumnWidgetClass'
 import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditor.scss'
-import { Component, createRef, useRef } from 'react'
+import { useRef } from 'react'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
@@ -77,12 +77,6 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
   adjustCols: (newGrid: number[]) => void
 }) {
   const isFlex = widget.get('layoutMode') === 'flex'
-
-  function isActive(grid: number[]) {
-    return isFlex
-      ? isEqual(growFromGrid(grid), growOfWidget(widget))
-      : isEqual(grid, currentGrid)
-  }
 
   return (
     <div className="columns-editor-content">
@@ -202,6 +196,12 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
     </div>
   )
 
+  function isActive(grid: number[]) {
+    return isFlex
+      ? isEqual(growFromGrid(grid), growOfWidget(widget))
+      : isEqual(grid, currentGrid)
+  }
+
   function adjustGrid(newGrid: number[]) {
     if (readOnly) return
     adjustCols(newGrid)
@@ -312,180 +312,89 @@ interface GridLayoutEditorProps {
   readOnly: boolean
 }
 
-class GridLayoutEditor extends Component<
-  GridLayoutEditorProps,
-  { draggableGrid: number }
-> {
-  private gridRulerRef: React.RefObject<HTMLDivElement | null>
+function GridLayoutEditor({
+  currentGrid,
+  adjustGrid,
+  readOnly,
+}: GridLayoutEditorProps) {
+  return (
+    <div className="gle">
+      <div className="grid-ruler">
+        {times(12).map((index) => (
+          <div key={index} className="grid-col" />
+        ))}
+      </div>
+      <div className={readOnly ? 'grid-columns' : 'grid-columns clickable'}>
+        {currentGrid.map((colSize, colIndex) => (
+          <div
+            key={`grid-col-${colIndex}`}
+            className={`grid-col-${colSize} noselect`}
+          >
+            {colIndex === currentGrid.length - 1 &&
+            colIndex < 5 &&
+            !readOnly ? (
+              <button
+                className="p-0 grid-handle grid-handle-plus"
+                title="add a column"
+                onClick={() => adjustNumberOfColumns(currentGrid.length + 1)}
+              />
+            ) : null}
+            <div className="grid-label">{colSize}</div>
+            {currentGrid.length > 1 && !readOnly ? (
+              <button
+                className="btn border-0 grid-del"
+                title="delete column"
+                onClick={() => adjustNumberOfColumns(currentGrid.length - 1)}
+              />
+            ) : null}
+          </div>
+        ))}
+        {!readOnly && currentGrid.length > 1 && (
+          <GridSlider currentGrid={currentGrid} adjustGrid={adjustGrid} />
+        )}
+      </div>
+    </div>
+  )
 
-  constructor(props: GridLayoutEditorProps) {
-    super(props)
-
-    this.state = {
-      draggableGrid: 0,
-    }
-
-    this.gridRulerRef = createRef()
-
-    this.adjustNumberOfColumns = this.adjustNumberOfColumns.bind(this)
-    this.handleResize = this.handleResize.bind(this)
-    this.onDragStop = this.onDragStop.bind(this)
-  }
-
-  componentDidMount() {
-    this.handleResize()
-    window.addEventListener('resize', this.handleResize)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize)
-  }
-
-  handleResize() {
-    const firstChild = this.gridRulerRef.current?.firstChild
-    if (!firstChild || !(firstChild instanceof HTMLElement)) return
-
-    const parentElement = this.gridRulerRef.current?.parentElement
-    if (!parentElement) return
-    const isSmallScreen = parentElement.offsetWidth <= 400
-    const columnSpacing = isSmallScreen ? 0.25 : 10
-    const draggableGrid =
-      firstChild.getBoundingClientRect().width + columnSpacing
-
-    if (this.state.draggableGrid !== draggableGrid) {
-      this.setState({ draggableGrid })
-    }
-  }
-
-  onDragStop({
-    colIndex,
-    deltaColSize,
-  }: {
-    colIndex: number
-    deltaColSize: number
-  }) {
-    if (deltaColSize === 0) return
-
-    const newGrid = [...this.props.currentGrid]
-
-    const nextColIndex = colIndex + 1
-    const previousColIndexValue = newGrid[colIndex]
-    const previousColNextIndexValue = newGrid[nextColIndex]
-
-    if (
-      typeof previousColIndexValue !== 'number' ||
-      typeof previousColNextIndexValue !== 'number'
-    ) {
-      return
-    }
-
-    newGrid[colIndex] = previousColIndexValue + deltaColSize
-    newGrid[nextColIndex] = previousColNextIndexValue - deltaColSize
-
-    this.props.adjustGrid(newGrid)
-  }
-
-  adjustNumberOfColumns(wantedCols: number) {
+  function adjustNumberOfColumns(wantedCols: number) {
     if (wantedCols > 6 || wantedCols < 1) return
 
     if (wantedCols === 5) {
-      this.props.adjustGrid([2, 2, 2, 2, 4])
+      adjustGrid([2, 2, 2, 2, 4])
       return
     }
 
     const newColSize = 12 / wantedCols
-    this.props.adjustGrid(times(wantedCols).map(() => newColSize))
+    adjustGrid(times(wantedCols).map(() => newColSize))
   }
+}
 
-  render() {
-    const gridColumns = this.props.currentGrid.map((colSize, colIndex) => {
-      const innerContent = [
-        <div key="grid-label" className="grid-label">
-          {colSize}
-        </div>,
-      ]
+function GridSlider({
+  currentGrid,
+  adjustGrid,
+}: {
+  currentGrid: number[]
+  adjustGrid: (newGrid: number[]) => void
+}) {
+  const boundaries = gridToBoundaries(currentGrid)
 
-      const nextColSize = this.props.currentGrid[colIndex + 1]
-      if (nextColSize) {
-        const leftBound = -(colSize - 1)
-        const rightBound = nextColSize - 1
-        const nodeRef = createRef<HTMLDivElement>()
+  return boundaries.map((value, index) => (
+    <Slider.Root
+      key={index}
+      className="grid-slider"
+      max={12}
+      onValueChange={([v]: number[]) => handleBoundaryChange(index, v || 0)}
+      value={[value]}
+    >
+      <Slider.Thumb className="grid-handle" />
+    </Slider.Root>
+  ))
 
-        innerContent.unshift(
-          <Draggable
-            disabled={this.props.readOnly}
-            key="grid-handle"
-            bounds={{
-              left: this.state.draggableGrid * leftBound,
-              right: this.state.draggableGrid * rightBound,
-            }}
-            axis="x"
-            grid={[this.state.draggableGrid, 0]}
-            position={{ x: 0, y: 0 }}
-            onStop={(_e, { x }) =>
-              this.onDragStop({
-                colIndex,
-                deltaColSize: Math.round(x / this.state.draggableGrid),
-              })
-            }
-            nodeRef={nodeRef}
-          >
-            <div
-              ref={nodeRef}
-              className={this.props.readOnly ? '' : 'grid-handle'}
-            />
-          </Draggable>,
-        )
-      } else if (colIndex < 5 && !this.props.readOnly) {
-        innerContent.unshift(
-          <button
-            key="grid-handle-plus"
-            className="p-0 grid-handle grid-handle-plus"
-            title="add a column"
-            onClick={() =>
-              this.adjustNumberOfColumns(this.props.currentGrid.length + 1)
-            }
-          />,
-        )
-      }
-
-      if (this.props.currentGrid.length > 1 && !this.props.readOnly) {
-        innerContent.push(
-          <button
-            key="grid-del"
-            className="btn border-0 grid-del"
-            title="delete column"
-            onClick={() =>
-              this.adjustNumberOfColumns(this.props.currentGrid.length - 1)
-            }
-          />,
-        )
-      }
-
-      return (
-        <div
-          key={`grid-col-${colIndex}`}
-          className={`grid-col-${colSize} noselect`}
-        >
-          {innerContent}
-        </div>
-      )
-    })
-
-    const gridColumnsClass = this.props.readOnly
-      ? 'grid-columns'
-      : 'grid-columns clickable'
-
-    return (
-      <div className="gle">
-        <div className="grid-ruler" ref={this.gridRulerRef}>
-          {times(12).map((index) => (
-            <div key={index} className="grid-col" />
-          ))}
-        </div>
-        <div className={gridColumnsClass}>{gridColumns}</div>
-      </div>
-    )
+  function handleBoundaryChange(index: number, value: number) {
+    const min = (boundaries[index - 1] || 0) + 1
+    const max = (boundaries[index + 1] || 12) - 1
+    if (value < min || value > max) return
+    adjustGrid(boundariesToGrid(boundaries.with(index, value)))
   }
 }
 
@@ -552,4 +461,13 @@ function adjustFlexGrowFromGrid(columns: Widget[], grid: number[]) {
 function growFromGrid(grid: number[]) {
   const max = Math.max(...grid)
   return grid.map((colSize) => colSize === max)
+}
+
+function gridToBoundaries(columnWidths: number[]) {
+  let cumulativeWidth = 0
+  return columnWidths.slice(0, -1).map((width) => (cumulativeWidth += width))
+}
+
+function boundariesToGrid(boundaries: number[]) {
+  return [...boundaries, 12].map((edge, i, edges) => edge - (edges[i - 1] ?? 0))
 }
