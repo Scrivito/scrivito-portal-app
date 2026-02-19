@@ -194,11 +194,13 @@
 }
 
 .gle .grid-columns .grid-slider {
+  --slider-offset: -6px;
+
   position: absolute;
   top: 0;
   bottom: 0;
-  left: -6px;
-  right: -6px;
+  left: var(--slider-offset);
+  right: var(--slider-offset);
   pointer-events: none;
 
   > span {
@@ -401,13 +403,11 @@
   // -- grid-handle adaptions -- //
 
   .gle .grid-columns .grid-slider {
-    left: -3px;
-    right: -3px;
+    --slider-offset: -3px;
   }
 
   .scrivito_dark .gle .grid-columns .grid-slider {
-    left: -5px;
-    right: -5px;
+    --slider-offset: -5px;
   }
 
   .scrivito_dark .gle .grid-columns .grid-handle:not(.grid-handle-plus) {
