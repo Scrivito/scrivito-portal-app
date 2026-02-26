@@ -1,5 +1,9 @@
+import { setupVisitorI18n } from '../i18n'
 import prettyBytes from 'pretty-bytes'
 import { connect, currentLanguage } from 'scrivito'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 export const BoxAttachment = connect(function BoxAttachment({
   binaryUrl,
@@ -41,7 +45,7 @@ export const BoxAttachment = connect(function BoxAttachment({
                 e.stopPropagation()
                 onDelete()
               }}
-              title={getDeleteButtonMessage()}
+              title={t('deleteButton')}
             >
               <i className="bi bi-trash3"></i>
             </button>
@@ -76,17 +80,4 @@ function BoxPreviewContent({
   if (filename.endsWith('.md')) iconName = 'bi-filetype-md'
 
   return <i className={`bi ${iconName}`}></i>
-}
-
-function getDeleteButtonMessage() {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Datei aus der Auswahl löschen'
-    case 'fr':
-      return 'Supprimer le fichier de la sélection'
-    case 'pl':
-      return 'Usuń plik z wyboru'
-    default:
-      return 'Delete file from selection'
-  }
 }

@@ -1,0 +1,14 @@
+{
+  "en": {
+    "errorMessage": "Operation failed. We\u2019re sorry for the inconvenience."
+  },
+  "de": {
+    "errorMessage": "Aktion fehlgeschlagen. Wir bedauern die Unannehmlichkeiten."
+  },
+  "fr": {
+    "errorMessage": "L\u2019op\u00e9ration a \u00e9chou\u00e9. Nous sommes d\u00e9sol\u00e9s pour le d\u00e9sagr\u00e9ment."
+  },
+  "pl": {
+    "errorMessage": "Operacja nie powiod\u0142a si\u0119. Przepraszamy za utrudnienia."
+  }
+}

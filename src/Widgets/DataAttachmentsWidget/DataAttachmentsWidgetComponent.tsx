@@ -1,10 +1,5 @@
-import {
-  connect,
-  ContentTag,
-  currentLanguage,
-  provideComponent,
-  useData,
-} from 'scrivito'
+import { setupVisitorI18n } from '../../i18n'
+import { connect, ContentTag, provideComponent, useData } from 'scrivito'
 import { DataAttachmentsWidget } from './DataAttachmentsWidgetClass'
 import {
   dataBinaryToUrl,
@@ -13,6 +8,9 @@ import {
 } from '../../utils/dataBinaryToUrl'
 import { useEffect, useState } from 'react'
 import { BoxAttachment } from '../../Components/BoxAttachment'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 provideComponent(DataAttachmentsWidget, ({ widget }) => {
   const value = useData().dataItemAttribute()?.get()
@@ -86,14 +84,5 @@ const Attachment = connect(function Attachment({
 })
 
 function getDownloadMessage(subject: string) {
-  switch (currentLanguage()) {
-    case 'de':
-      return `${subject} herunterladen`
-    case 'fr':
-      return `Télécharger ${subject}`
-    case 'pl':
-      return `Pobierz ${subject}`
-    default:
-      return `Download ${subject}`
-  }
+  return t('download').replace('{subject}', subject)
 }

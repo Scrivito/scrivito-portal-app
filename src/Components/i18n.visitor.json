@@ -1,0 +1,30 @@
+{
+  "en": {
+    "deleteButton": "Delete file from selection",
+    "loadingData": "Loading data…",
+    "pageNotFound": "Page not found",
+    "playVideo": "Play video",
+    "pauseVideo": "Pause video"
+  },
+  "de": {
+    "deleteButton": "Datei aus der Auswahl löschen",
+    "loadingData": "Daten werden geladen…",
+    "pageNotFound": "Seite nicht gefunden",
+    "playVideo": "Video abspielen",
+    "pauseVideo": "Video pausieren"
+  },
+  "fr": {
+    "deleteButton": "Supprimer le fichier de la sélection",
+    "loadingData": "Chargement des données…",
+    "pageNotFound": "Page non trouvée",
+    "playVideo": "Lire la vidéo",
+    "pauseVideo": "Mettre la vidéo en pause"
+  },
+  "pl": {
+    "deleteButton": "Usuń plik z wyboru",
+    "loadingData": "Ładowanie danych…",
+    "pageNotFound": "Nie znaleziono strony",
+    "playVideo": "Odtwórz wideo",
+    "pauseVideo": "Wstrzymaj wideo"
+  }
+}

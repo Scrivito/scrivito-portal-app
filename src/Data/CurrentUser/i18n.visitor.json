@@ -1,0 +1,34 @@
+{
+  "en": {
+    "unableToConnect": "No backend connection.",
+    "pisaSalesServerRunning": "Is the PisaSales server running?",
+    "backendNowConnected": "Backend is now connected.",
+    "expiredLink": "The link is expired or invalid. Please request a new one.",
+    "failedFetch": "Failed to fetch user profile.",
+    "emailMismatch": "This link is for {linkFor}, but you are logged in as {currentUserEmail}. Please log out first."
+  },
+  "de": {
+    "unableToConnect": "Keine Backend-Verbindung.",
+    "pisaSalesServerRunning": "Läuft der PisaSales-Server?",
+    "backendNowConnected": "Backend ist jetzt verbunden.",
+    "expiredLink": "Der Link ist abgelaufen oder ungültig. Bitte fordern Sie einen neuen an.",
+    "failedFetch": "Benutzerprofil konnte nicht abgerufen werden.",
+    "emailMismatch": "Dieser Link ist für {linkFor}, aber Sie sind als {currentUserEmail} eingeloggt. Bitte melden Sie sich zuerst ab."
+  },
+  "fr": {
+    "unableToConnect": "Pas de connexion au backend.",
+    "pisaSalesServerRunning": "Le serveur PisaSales est-il en cours d'exécution\u00a0?",
+    "backendNowConnected": "Le backend est maintenant connecté.",
+    "expiredLink": "Le lien est expiré ou invalide. Veuillez en demander un nouveau.",
+    "failedFetch": "Impossible de récupérer le profil utilisateur.",
+    "emailMismatch": "Ce lien est destiné à {linkFor}, mais vous êtes connecté en tant que {currentUserEmail}. Veuillez d'abord vous déconnecter."
+  },
+  "pl": {
+    "unableToConnect": "Brak połączenia z backendem.",
+    "pisaSalesServerRunning": "Czy serwer PisaSales działa?",
+    "backendNowConnected": "Backend został teraz połączony.",
+    "expiredLink": "Link jest wygasły lub nieważny. Proszę o nowy.",
+    "failedFetch": "Nie udało się pobrać profilu użytkownika.",
+    "emailMismatch": "Ten link jest przeznaczony dla {linkFor}, ale jesteś zalogowany jako {currentUserEmail}. Najpierw się wyloguj."
+  }
+}

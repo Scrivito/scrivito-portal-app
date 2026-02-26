@@ -1,8 +1,8 @@
+import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
   ImageTag,
   connect,
-  currentLanguage,
   ensureUserIsLoggedIn,
   isUserLoggedIn,
   provideComponent,
@@ -20,6 +20,9 @@ import {
   updateQuantityInCart,
 } from '../../Data/CartItem/Cart'
 import { useCallback, useRef } from 'react'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -203,8 +206,8 @@ const CartActionButton = connect(function CartActionButton({
 
   const productTitle = product.get('title')
 
-  function getMessage(attribute: keyof (typeof LOCALIZERS)['en']) {
-    return getLocalizer(attribute).replaceAll('__product__', productTitle)
+  function getMessage(attribute: keyof typeof messages.en) {
+    return t(attribute, { product: productTitle })
   }
 
   const cartAddedMessage = getMessage('cartAddedMessage')
@@ -295,85 +298,14 @@ const Label = connect(function Label({
 }: {
   className?: string
   id?: string
-  localizer: keyof (typeof LOCALIZERS)['en']
+  localizer: keyof typeof messages.en
   tag?: 'h3'
 }) {
   const Tag = tag || 'span'
 
   return (
     <Tag className={className} id={id}>
-      {getLocalizer(localizer)}
+      {t(localizer)}
     </Tag>
   )
 })
-
-function getLocalizer(localizer: keyof (typeof LOCALIZERS)['en']) {
-  const language = currentLanguage()
-  const localizers = isLocalizersKey(language)
-    ? LOCALIZERS[language]
-    : LOCALIZERS['en']
-  return localizers[localizer]
-}
-
-function isLocalizersKey(
-  key?: PropertyKey | null,
-): key is keyof typeof LOCALIZERS {
-  return !!key && key in LOCALIZERS
-}
-
-const LOCALIZERS = {
-  de: {
-    cartAddedMessage: '__product__ wurde dem Warenkorb hinzugefügt.',
-    cartAddLabel: 'In den Warenkorb',
-    cartRemovedMessage: '__product__ wurde aus dem Warenkorb entfernt.',
-    cartRemoveLabel: 'Aus dem Warenkorb entfernen',
-    cartLoginLabel: 'Anmelden',
-    cartUnavailableMessage:
-      'Bitte melden Sie sich an, um __product__ zum Warenkorb hinzuzufügen.',
-    data: 'Daten',
-    description: 'Beschreibung',
-    downloads: 'Downloads',
-    quantityLabel: 'Anzahl',
-    suitableAccessories: 'Passendes Zubehör',
-  },
-  en: {
-    cartAddedMessage: 'Added __product__ to cart.',
-    cartAddLabel: 'Add to cart',
-    cartRemovedMessage: 'Removed __product__ from cart.',
-    cartRemoveLabel: 'Remove from cart',
-    cartLoginLabel: 'Log in',
-    cartUnavailableMessage: 'Please log in to add __product__ to cart.',
-    data: 'Data',
-    description: 'Description',
-    downloads: 'Downloads',
-    quantityLabel: 'Quantity',
-    suitableAccessories: 'Suitable accessories',
-  },
-  fr: {
-    cartAddedMessage: '__product__ a été ajouté au panier.',
-    cartAddLabel: 'Ajouter au panier',
-    cartRemovedMessage: '__product__ a été retiré du panier.',
-    cartRemoveLabel: 'Retirer du panier',
-    cartLoginLabel: 'Se connecter',
-    cartUnavailableMessage:
-      'Veuillez vous connecter pour ajouter __product__ dans le panier.',
-    data: 'Données',
-    description: 'Description',
-    downloads: 'Téléchargements',
-    quantityLabel: 'Quantité',
-    suitableAccessories: 'Accessoires appropriés',
-  },
-  pl: {
-    cartAddedMessage: '__product__ został dodany do koszyka.',
-    cartAddLabel: 'Dodaj do koszyka',
-    cartRemovedMessage: '__product__ został usunięty z koszyka.',
-    cartRemoveLabel: 'Usuń z koszyka',
-    cartLoginLabel: 'Zaloguj się',
-    cartUnavailableMessage: 'Zaloguj się, aby dodać __product__ do koszyka.',
-    data: 'Dane',
-    description: 'Opis',
-    downloads: 'Pobrania',
-    quantityLabel: 'Ilość',
-    suitableAccessories: 'Odpowiednie akcesoria',
-  },
-}

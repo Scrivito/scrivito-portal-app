@@ -1,36 +1,38 @@
+import { setupEditorI18n } from '../../i18n'
 import { provideEditingConfig } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
+import messages from './i18n.editing.json'
 import Thumbnail from './thumbnail.svg'
 
+const t = await setupEditorI18n(messages)
+
 provideEditingConfig(HeadlineWidget, {
-  title: 'Headline',
+  title: t('widgetTitle'),
   thumbnail: Thumbnail,
   attributes: {
     style: {
-      title: 'Style',
-      description: 'Default: Heading 2',
+      title: t('style.title'),
+      description: t('style.description'),
       values: [
-        { value: 'h1', title: 'Heading 1' },
-        { value: 'h2', title: 'Heading 2' },
-        { value: 'h3', title: 'Heading 3' },
-        { value: 'h4', title: 'Heading 4' },
-        { value: 'h5', title: 'Heading 5' },
-        { value: 'h6', title: 'Heading 6' },
-        { value: 'display-1', title: 'Display heading 1' },
-        { value: 'display-2', title: 'Display heading 2' },
-        { value: 'display-3', title: 'Display heading 3' },
-        { value: 'display-4', title: 'Display heading 4' },
-        { value: 'display-5', title: 'Display heading 5' },
-        { value: 'display-6', title: 'Display heading 6' },
-        { value: 'label-headline', title: 'Label heading' },
-        { value: 'label-subtitle', title: 'Label subtitle' },
+        { value: 'h1', title: t('style.h1') },
+        { value: 'h2', title: t('style.h2') },
+        { value: 'h3', title: t('style.h3') },
+        { value: 'h4', title: t('style.h4') },
+        { value: 'h5', title: t('style.h5') },
+        { value: 'h6', title: t('style.h6') },
+        { value: 'display-1', title: t('style.display1') },
+        { value: 'display-2', title: t('style.display2') },
+        { value: 'display-3', title: t('style.display3') },
+        { value: 'display-4', title: t('style.display4') },
+        { value: 'display-5', title: t('style.display5') },
+        { value: 'display-6', title: t('style.display6') },
+        { value: 'label-headline', title: t('style.labelHeadline') },
+        { value: 'label-subtitle', title: t('style.labelSubtitle') },
       ],
     },
     level: {
-      title: 'Heading tag (optional)',
-      description:
-        'May be used for SEO, for generating a table of contents,' +
-        ' or for improving accessibility. Default: Derived from Style',
+      title: t('level.title'),
+      description: t('level.description'),
       values: [
         { value: 'h1', title: 'h1' },
         { value: 'h2', title: 'h2' },
@@ -38,23 +40,26 @@ provideEditingConfig(HeadlineWidget, {
         { value: 'h4', title: 'h4' },
         { value: 'h5', title: 'h5' },
         { value: 'h6', title: 'h6' },
-        { value: 'div', title: 'No semantic tag' },
+        { value: 'div', title: t('level.noSemanticTag') },
       ],
     },
     alignment: {
-      title: 'Alignment',
-      description: 'Default: Left',
+      title: t('alignment.title'),
+      description: t('alignment.description'),
       values: [
-        { value: 'left', title: 'Left' },
-        { value: 'center', title: 'Center' },
-        { value: 'right', title: 'Right' },
+        { value: 'left', title: t('alignment.left') },
+        { value: 'center', title: t('alignment.center') },
+        { value: 'right', title: t('alignment.right') },
       ],
     },
     margin: {
-      title: 'Margin',
-      description: 'Space below the widget. Default: mb-2',
+      title: t('margin.title'),
+      description: t('margin.description'),
     },
-    uppercase: { title: 'Uppercase?', description: 'Default: No' },
+    uppercase: {
+      title: t('uppercase.title'),
+      description: t('uppercase.description'),
+    },
   },
   properties: ['style', 'level', 'alignment', 'margin', 'uppercase'],
   initialContent: {
@@ -69,7 +74,10 @@ provideEditingConfig(HeadlineWidget, {
 
       (headline) => {
         if (!headline) {
-          return { message: 'The headline must be set.', severity: 'error' }
+          return {
+            message: t('validation.headlineMustBeSet'),
+            severity: 'error',
+          }
         }
       },
     ],

@@ -1,6 +1,6 @@
+import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
-  currentLanguage,
   InPlaceEditingOff,
   navigateTo,
   provideComponent,
@@ -8,14 +8,17 @@ import {
   useResolvedStringValue,
   WidgetTag,
 } from 'scrivito'
-import { DataDeleteButtonWidget } from './DataDeleteButtonWidgetClass'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import { DataDeleteButtonWidget } from './DataDeleteButtonWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
 import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
 import { ModalSpinner } from '../../Components/ModalSpinner'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -31,7 +34,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   }
 
   const deletedMessage = useResolvedStringValue(widget.get('deletedMessage'))
-  const errorMessage = getErrorMessage()
+  const errorMessage = t('errorMessage')
   const redirectAfterDelete = widget.get('redirectAfterDelete')
   const buttonColor = widget.get('buttonColor') || 'btn-danger'
   if (buttonColor) buttonClassNames.push(buttonColor)
@@ -116,16 +119,3 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
     }
   }
 })
-
-function getErrorMessage(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Aktion fehlgeschlagen. Wir bedauern die Unannehmlichkeiten.'
-    case 'fr':
-      return 'L’opération a échoué. Nous sommes désolés pour le désagrément.'
-    case 'pl':
-      return 'Operacja nie powiodła się. Przepraszamy za utrudnienia.'
-    default:
-      return 'Operation failed. We’re sorry for the inconvenience.'
-  }
-}

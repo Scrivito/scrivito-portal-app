@@ -1,0 +1,14 @@
+{
+  "en": {
+    "errorMessage": "We’re sorry for the inconvenience."
+  },
+  "de": {
+    "errorMessage": "Wir bedauern die Unannehmlichkeiten."
+  },
+  "fr": {
+    "errorMessage": "Nous sommes désolés pour le désagrément."
+  },
+  "pl": {
+    "errorMessage": "Przepraszamy za utrudnienia."
+  }
+}

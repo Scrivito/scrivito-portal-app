@@ -1,3 +1,4 @@
+import { setupVisitorI18n } from '../../i18n'
 import {
   connect,
   ContentTag,
@@ -14,6 +15,9 @@ import prettyBytes from 'pretty-bytes'
 import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 import { BoxAttachment } from '../../Components/BoxAttachment'
 import { simpleErrorToast } from '../../Data/CurrentUser/errorToast'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 const MAX_FILE_SIZE = 50 * 1000 * 1000
 const MAX_FILE_COUNT = 10
@@ -166,67 +170,17 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
 })
 
 function getDropMessage(multiple: boolean) {
-  if (multiple) {
-    switch (currentLanguage()) {
-      case 'de':
-        return 'Dateien auswählen oder hierher ziehen.'
-      case 'fr':
-        return 'Choisissez des fichiers ou glissez-les ici.'
-      case 'pl':
-        return 'Wybierz pliki lub przeciągnij je tutaj.'
-      default:
-        return 'Choose files or drag them here.'
-    }
-  }
-
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Datei auswählen oder hierher ziehen.'
-    case 'fr':
-      return 'Choisissez un fichier ou glissez-le ici.'
-    case 'pl':
-      return 'Wybierz plik lub przeciągnij go tutaj.'
-    default:
-      return 'Choose a file or drag it here.'
-  }
+  return multiple ? t('dropMultiple') : t('dropSingle')
 }
 
 function getTooLargeMessage(filename: string) {
-  switch (currentLanguage()) {
-    case 'de':
-      return `Die Datei "${filename}" ist zu groß. Bitte laden Sie Dateien bis maximal ${prettyBytes(
-        MAX_FILE_SIZE,
-        { locale: 'de' },
-      )} hoch.`
-    case 'fr':
-      return `Le fichier "${filename}" est trop volumineux. Veuillez télécharger des fichiers d'une taille maximale de ${prettyBytes(
-        MAX_FILE_SIZE,
-        { locale: 'fr' },
-      )}.`
-    case 'pl':
-      return `Plik "${filename}" jest za duży. Maksymalny rozmiar to ${prettyBytes(
-        MAX_FILE_SIZE,
-        { locale: 'pl' },
-      )}.`
-    default:
-      return `The file "${filename}" is too large. Please upload files up to ${prettyBytes(
-        MAX_FILE_SIZE,
-        { locale: 'en' },
-      )} in size.`
-  }
+  const locale = currentLanguage() ?? 'en'
+  const maxFileSize = prettyBytes(MAX_FILE_SIZE, { locale })
+  return t('tooLarge', { filename, maxFileSize })
 }
 
 function getTooManyFilesMessage() {
-  switch (currentLanguage()) {
-    case 'de':
-      return `Zu viele Dateien ausgewählt. Bitte wählen Sie maximal ${MAX_FILE_COUNT} Dateien aus.`
-    case 'fr':
-      return `Trop de fichiers sélectionnés. Veuillez sélectionner ${MAX_FILE_COUNT} fichiers maximum.`
-    case 'pl':
-      return `Wybrano zbyt wiele plików. Proszę wybrać maksymalnie ${MAX_FILE_COUNT} plików.`
-    default:
-      return `Too many files selected. Please select a maximum of ${MAX_FILE_COUNT} files.`
-  }
+  return t('tooMany', { maxFileCount: MAX_FILE_COUNT })
 }
 
 const FileUploadPreview = connect(function FileUploadPreview({

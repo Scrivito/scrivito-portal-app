@@ -1,0 +1,26 @@
+{
+  "en": {
+    "dropMultiple": "Choose files or drag them here.",
+    "dropSingle": "Choose a file or drag it here.",
+    "tooLarge": "The file \"{filename}\" is too large. Please upload files up to {maxFileSize} in size.",
+    "tooMany": "Too many files selected. Please select a maximum of {maxFileCount} files."
+  },
+  "de": {
+    "dropMultiple": "Dateien auswählen oder hierher ziehen.",
+    "dropSingle": "Datei auswählen oder hierher ziehen.",
+    "tooLarge": "Die Datei \"{filename}\" ist zu groß. Bitte laden Sie Dateien bis maximal {maxFileSize} hoch.",
+    "tooMany": "Zu viele Dateien ausgewählt. Bitte wählen Sie maximal {maxFileCount} Dateien aus."
+  },
+  "fr": {
+    "dropMultiple": "Choisissez des fichiers ou glissez-les ici.",
+    "dropSingle": "Choisissez un fichier ou glissez-le ici.",
+    "tooLarge": "Le fichier \"{filename}\" est trop volumineux. Veuillez télécharger des fichiers d'une taille maximale de {maxFileSize}.",
+    "tooMany": "Trop de fichiers sélectionnés. Veuillez sélectionner {maxFileCount} fichiers maximum."
+  },
+  "pl": {
+    "dropMultiple": "Wybierz pliki lub przeciągnij je tutaj.",
+    "dropSingle": "Wybierz plik lub przeciągnij go tutaj.",
+    "tooLarge": "Plik \"{filename}\" jest za duży. Maksymalny rozmiar to {maxFileSize}.",
+    "tooMany": "Wybrano zbyt wiele plików. Proszę wybrać maksymalnie {maxFileCount} plików."
+  }
+}

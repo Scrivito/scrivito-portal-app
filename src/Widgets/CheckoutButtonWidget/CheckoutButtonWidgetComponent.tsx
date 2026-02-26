@@ -1,8 +1,8 @@
+import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
   InPlaceEditingOff,
   WidgetTag,
-  currentLanguage,
   navigateTo,
   provideComponent,
 } from 'scrivito'
@@ -15,6 +15,9 @@ import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { useState } from 'react'
 import { ModalSpinner } from '../../Components/ModalSpinner'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -24,7 +27,6 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
   }
 
   const successMessage = widget.get('successMessage')
-  const errorMessage = getErrorMessage()
 
   const buttonClassNames = ['btn']
   buttonClassNames.push(widget.get('buttonColor') || 'btn-primary')
@@ -67,22 +69,9 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
       navigateTo(result)
       if (successMessage) toast.success(successMessage)
     } catch (error) {
-      errorToast(errorMessage, error)
+      errorToast(t('errorMessage.sorry'), error)
     } finally {
       setIsSubmitting(false)
     }
   }
 })
-
-function getErrorMessage(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Wir bedauern die Unannehmlichkeiten.'
-    case 'fr':
-      return 'Nous sommes désolés pour le dérangement.'
-    case 'pl':
-      return 'Przepraszamy za utrudnienia.'
-    default:
-      return 'We’re sorry for the inconvenience.'
-  }
-}

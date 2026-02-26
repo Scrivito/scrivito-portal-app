@@ -1,5 +1,7 @@
-import { connect, currentLanguage, CurrentPage } from 'scrivito'
+import { setupVisitorI18n } from './i18n'
+import { connect, CurrentPage } from 'scrivito'
 import { HelmetProvider, HelmetServerState } from '@dr.pogodin/react-helmet'
+import messages from './i18n.visitor.json'
 
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
@@ -7,6 +9,8 @@ import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 import { SinglePageSite } from './Components/SinglePageSite'
+
+const t = setupVisitorI18n(messages)
 
 export const helmetContext: { helmet?: HelmetServerState } = {}
 
@@ -39,22 +43,9 @@ const SkipToContent = connect(function SkipToContent() {
     <div className="skippy visually-hidden-focusable overflow-hidden">
       <div className="container my-4">
         <a href="#main" className="btn btn-primary">
-          {localizeSkipToContent()}
+          {t('skipToContent')}
         </a>
       </div>
     </div>
   )
 })
-
-function localizeSkipToContent(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Zum Inhalt springen'
-    case 'fr':
-      return 'Aller au contenu'
-    case 'pl':
-      return 'Przejdź do treści'
-    default:
-      return 'Skip to content'
-  }
-}

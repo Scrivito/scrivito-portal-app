@@ -1,0 +1,14 @@
+{
+  "en": {
+    "download": "Download {subject}"
+  },
+  "de": {
+    "download": "{subject} herunterladen"
+  },
+  "fr": {
+    "download": "Télécharger {subject}"
+  },
+  "pl": {
+    "download": "Pobierz {subject}"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "en": {
+    "logOut": "Log out",
+    "search": "Search"
+  },
+  "de": {
+    "logOut": "Abmelden",
+    "search": "Suche"
+  },
+  "fr": {
+    "logOut": "Se déconnecter",
+    "search": "Recherche"
+  },
+  "pl": {
+    "logOut": "Wyloguj się",
+    "search": "Szukaj"
+  }
+}

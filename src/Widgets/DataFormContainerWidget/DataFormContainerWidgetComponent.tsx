@@ -1,6 +1,6 @@
+import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
-  currentLanguage,
   DataItem,
   InPlaceEditingOff,
   navigateTo,
@@ -16,6 +16,9 @@ import './DataFormContainerWidget.scss'
 import { ModalSpinner } from '../../Components/ModalSpinner'
 import { blobToBinary, DataBinaryUpload } from '../../utils/blobToBinary'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataScope = useData()
@@ -32,7 +35,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     widget.get('submittedMessage'),
   )
 
-  const errorMessage = getErrorMessage()
+  const errorMessage = t('errorMessage')
 
   return (
     <WidgetTag className="data-form-container-widget">
@@ -151,17 +154,4 @@ async function valueFromElement(
   }
 
   return element.value
-}
-
-function getErrorMessage(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Wir bedauern die Unannehmlichkeiten.'
-    case 'fr':
-      return 'Nous sommes désolés pour le désagrément.'
-    case 'pl':
-      return 'Przepraszamy za utrudnienia.'
-    default:
-      return 'We’re sorry for the inconvenience.'
-  }
 }

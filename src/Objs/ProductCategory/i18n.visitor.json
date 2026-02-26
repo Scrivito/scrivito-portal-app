@@ -1,0 +1,26 @@
+{
+  "de": {
+    "headline": "Produktgruppe",
+    "items0": "Keine Artikel",
+    "items1": "1 Artikel",
+    "itemsMany": "{count} Artikel"
+  },
+  "en": {
+    "headline": "Product category",
+    "items0": "No items",
+    "items1": "1 item",
+    "itemsMany": "{count} items"
+  },
+  "fr": {
+    "headline": "Catégorie de produit",
+    "items0": "Aucun article",
+    "items1": "1 article",
+    "itemsMany": "{count} articles"
+  },
+  "pl": {
+    "headline": "Kategoria produktu",
+    "items0": "Brak produktów",
+    "items1": "1 produkt",
+    "itemsMany": "Liczba produktów: {count}"
+  }
+}

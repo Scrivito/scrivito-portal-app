@@ -1,3 +1,4 @@
+import { setupVisitorI18n } from '../../i18n'
 import {
   connect,
   ContentTag,
@@ -16,6 +17,9 @@ import {
 } from '../../utils/formatDate'
 import { useEnumOptions } from '../../utils/useEnumOptions'
 import { Loading } from '../../Components/Loading'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 const CURRENCY = 'EUR' // ISO 4217 Code
 
@@ -84,7 +88,7 @@ const AttributeValue = connect(
 )
 
 const Text = connect(function Text({ value }: { value: unknown }) {
-  return value ? value.toString() : localizeNotAvailable()
+  return value ? value.toString() : t('notAvailable')
 })
 
 const NumberText = connect(function NumberText({ value }: { value: number }) {
@@ -94,11 +98,11 @@ const NumberText = connect(function NumberText({ value }: { value: number }) {
 })
 
 const Currency = connect(function Currency({ value }: { value: unknown }) {
-  if (value === null) return localizeNotAvailable()
-  if (value instanceof Date) return localizeNotAvailable()
+  if (value === null) return t('notAvailable')
+  if (value instanceof Date) return t('notAvailable')
 
   const number = Number(value)
-  if (Number.isNaN(number)) return localizeNotAvailable()
+  if (Number.isNaN(number)) return t('notAvailable')
 
   const formatter = new Intl.NumberFormat(currentLanguage() ?? 'en', {
     style: 'currency',
@@ -115,13 +119,13 @@ const Datetime = connect(function Datetime({
   value: unknown
   datetimeFormat: string | null
 }) {
-  if (value === null) return localizeNotAvailable()
+  if (value === null) return t('notAvailable')
   if (typeof value !== 'string' && !(value instanceof Date)) {
-    return localizeNotAvailable()
+    return t('notAvailable')
   }
 
   const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return localizeNotAvailable()
+  if (Number.isNaN(date.getTime())) return t('notAvailable')
 
   if (datetimeFormat === 'relative') {
     return <RelativeDate date={date} />
@@ -141,25 +145,12 @@ const Datetime = connect(function Datetime({
 })
 
 function Link({ value }: { value: unknown }) {
-  if (typeof value !== 'string') return localizeNotAvailable()
-  if (!value) return localizeNotAvailable()
+  if (typeof value !== 'string') return t('notAvailable')
+  if (!value) return t('notAvailable')
 
   return (
     <a href={value} target="_blank" rel="noreferrer">
       {value}
     </a>
   )
-}
-
-function localizeNotAvailable(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'k.A.'
-    case 'fr':
-      return 'ND'
-    case 'pl':
-      return 'bd.'
-    default:
-      return 'N/A'
-  }
 }

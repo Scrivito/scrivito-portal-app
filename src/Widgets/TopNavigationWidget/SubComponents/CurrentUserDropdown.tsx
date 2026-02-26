@@ -1,7 +1,7 @@
+import { setupVisitorI18n } from '../../../i18n'
 import {
   connect,
   ContentTag,
-  currentLanguage,
   isCurrentPage,
   isEditorLoggedIn,
   isUserLoggedIn,
@@ -18,6 +18,9 @@ import { HomepageInstance } from '../../../Objs/Homepage/HomepageObjClass'
 import personCircle from '../../../assets/images/person-circle.svg'
 import { Loading } from '../../../Components/Loading'
 import { RetryingImage } from '../../../Components/RetryingImage'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   root,
@@ -100,7 +103,7 @@ const LogOutButton = connect(function LogOutButton({
             style={{ color: 'rgba(0, 0, 0, 0.5)' }}
           >
             <i className="bi bi-box-arrow-right"></i>
-            {localizeLogOutLabel()}
+            {t('logOut')}
           </NavDropdown.Item>
         </div>
       </OverlayTrigger>
@@ -116,7 +119,7 @@ const LogOutButton = connect(function LogOutButton({
       onClick={() => logout(rootUrl)}
     >
       <i className="bi bi-box-arrow-right"></i>
-      {localizeLogOutLabel()}
+      {t('logOut')}
     </NavDropdown.Item>
   )
 })
@@ -133,16 +136,3 @@ const ProfileImg = connect(
   },
   { loading: Loading },
 )
-
-function localizeLogOutLabel(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Abmelden'
-    case 'fr':
-      return 'Se déconnecter'
-    case 'pl':
-      return 'Wyloguj się'
-    default:
-      return 'Log out'
-  }
-}

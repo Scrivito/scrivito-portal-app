@@ -1,3 +1,4 @@
+import { setupVisitorI18n } from '../../i18n'
 import {
   DataItem,
   currentLanguage,
@@ -9,6 +10,9 @@ import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
 import { ensureString } from '../../utils/ensureString'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 export async function updateQuantityInCart(
   product: ProductInstance,
@@ -95,13 +99,9 @@ export async function checkoutCart(): Promise<DataItem> {
 
 async function getTitle() {
   const name = await load(() => currentUser()?.name())
-
   if (name === undefined) throw new Error('Missing current user.')
 
-  switch (await load(() => currentLanguage())) {
-    case 'de':
-      return `${name}s Warenkorb vom ${new Date().toLocaleString('de')}`
-    default:
-      return `${name}’s shopping cart of ${new Date().toLocaleString('en')}`
-  }
+  const locale = currentLanguage() ?? 'en'
+  const date = new Date().toLocaleString(locale)
+  return t('cartTitle', { name, date })
 }

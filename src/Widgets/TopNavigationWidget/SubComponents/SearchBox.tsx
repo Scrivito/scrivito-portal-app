@@ -1,5 +1,9 @@
-import { connect, currentLanguage, navigateTo, Obj } from 'scrivito'
+import { setupVisitorI18n } from '../../../i18n'
+import { connect, navigateTo, Obj } from 'scrivito'
 import { useRef } from 'react'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 export const SearchBox = connect(function SearchBox({
   searchResultsPage,
@@ -27,15 +31,15 @@ export const SearchBox = connect(function SearchBox({
         <input
           className="form-control"
           type="search"
-          placeholder={localizeSearchInputLabel()}
-          aria-label={localizeSearchInputLabel()}
+          placeholder={t('search')}
+          aria-label={t('search')}
           ref={inputRef}
         />
 
         <button
           type="submit"
           className="btn btn-primary"
-          aria-label={localizeSearchInputLabel()}
+          aria-label={t('search')}
         >
           <i className="bi bi-search" aria-hidden="true"></i>
         </button>
@@ -43,16 +47,3 @@ export const SearchBox = connect(function SearchBox({
     </form>
   )
 })
-
-function localizeSearchInputLabel(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Suche'
-    case 'fr':
-      return 'Recherche'
-    case 'pl':
-      return 'Szukaj'
-    default:
-      return 'Search'
-  }
-}

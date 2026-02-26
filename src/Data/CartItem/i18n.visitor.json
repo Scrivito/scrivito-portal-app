@@ -1,0 +1,14 @@
+{
+  "en": {
+    "cartTitle": "{name}'s shopping cart of {date}"
+  },
+  "de": {
+    "cartTitle": "{name}s Warenkorb vom {date}"
+  },
+  "fr": {
+    "cartTitle": "Panier d'achats de {name} du {date}"
+  },
+  "pl": {
+    "cartTitle": "Koszyk zakupów użytkownika {name} z dnia {date}"
+  }
+}

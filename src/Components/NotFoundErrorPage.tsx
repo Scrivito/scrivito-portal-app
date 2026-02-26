@@ -1,8 +1,8 @@
+import { setupVisitorI18n } from '../i18n'
 import { useEffect } from 'react'
 import {
   connect,
   ContentTag,
-  currentLanguage,
   currentSiteId,
   isEditorLoggedIn,
   isUserLoggedIn,
@@ -10,8 +10,11 @@ import {
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
+import messages from './i18n.visitor.json'
 import { Loading } from './Loading'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
+
+const t = setupVisitorI18n(messages)
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']
@@ -88,7 +91,7 @@ const NotFound = connect(function NotFound() {
 
   return (
     <>
-      <title>{localizePageNotFound()}</title>
+      <title>{t('pageNotFound')}</title>
       {!!root.get('layoutShowHeader') && (
         <ContentTag tag="header" content={root} attribute="layoutHeader" />
       )}
@@ -111,17 +114,4 @@ function isPortalAppContentMissing(): boolean {
 
 function hasSomeContent(): boolean {
   return Obj.onAllSites().all().count() > 0
-}
-
-function localizePageNotFound(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Seite nicht gefunden'
-    case 'fr':
-      return 'Page non trouvée'
-    case 'pl':
-      return 'Nie znaleziono strony'
-    default:
-      return 'Page not found'
-  }
 }

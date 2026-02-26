@@ -1,8 +1,8 @@
+import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
   WidgetTag,
   connect,
-  currentLanguage,
   provideComponent,
   useData,
 } from 'scrivito'
@@ -15,6 +15,9 @@ import {
 import { IconComponent } from '../../Components/Icon'
 import { ensureString } from '../../utils/ensureString'
 import { useEnumOptions } from '../../utils/useEnumOptions'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 provideComponent(DataIconWidget, ({ widget }) => {
   return (
@@ -64,22 +67,9 @@ const Icon = connect(
         }
         size={size}
         link={null}
-        title={title || localizeNotAvailable()}
+        title={title || t('notAvailable')}
       />
     )
   },
   { loading: () => null },
 )
-
-function localizeNotAvailable(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'k.A.'
-    case 'fr':
-      return 'ND'
-    case 'pl':
-      return 'bd.'
-    default:
-      return 'N/A'
-  }
-}

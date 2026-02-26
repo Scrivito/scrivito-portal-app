@@ -1,5 +1,9 @@
+import { setupVisitorI18n } from '../i18n'
 import { PropsWithChildren } from 'react'
-import { connect, currentLanguage } from 'scrivito'
+import { connect } from 'scrivito'
+import messages from './i18n.visitor.json'
+
+const t = setupVisitorI18n(messages)
 
 export const Loading = (
   props: object | PropsWithChildren<{ className?: string }> = {},
@@ -12,7 +16,7 @@ const LoadingPlaceholder = connect(function LoadingPlaceholder({
   const classNames = ['loading-placeholder']
   if (className) classNames.push(className)
 
-  const message = getMessage()
+  const message = t('loadingData')
 
   return (
     <div
@@ -26,16 +30,3 @@ const LoadingPlaceholder = connect(function LoadingPlaceholder({
     </div>
   )
 })
-
-function getMessage(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Daten werden geladen…'
-    case 'fr':
-      return 'Chargement des données…'
-    case 'pl':
-      return 'Ładowanie danych…'
-    default:
-      return 'Loading data…'
-  }
-}

@@ -1,13 +1,11 @@
+import { setupVisitorI18n } from '../i18n'
 import { useImperativeHandle, useRef, useState, useEffect } from 'react'
-import {
-  connect,
-  Widget,
-  InPlaceEditingOff,
-  ImageTag,
-  currentLanguage,
-} from 'scrivito'
+import { connect, Widget, InPlaceEditingOff, ImageTag } from 'scrivito'
+import messages from './i18n.visitor.json'
 import { useMotionPreference } from '../hooks/useMotionPreference'
 import './ImageOrVideo.scss'
+
+const t = setupVisitorI18n(messages)
 
 export interface TogglePlayPauseRef {
   togglePlayPause: (e: React.MouseEvent) => void
@@ -80,9 +78,7 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
         />
         <button
           className={`image-or-video-play-button ${isPaused ? 'is-paused' : ''}`}
-          aria-label={
-            isPaused ? localizePlayVideoLabel() : localizePauseVideoLabel()
-          }
+          aria-label={isPaused ? t('playVideo') : t('pauseVideo')}
         >
           <i className="bi bi-play-fill text-white bi-3x" />
         </button>
@@ -101,29 +97,3 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
     </InPlaceEditingOff>
   )
 })
-
-function localizePlayVideoLabel(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Video abspielen'
-    case 'fr':
-      return 'Lire la vidéo'
-    case 'pl':
-      return 'Odtwórz wideo'
-    default:
-      return 'Play video'
-  }
-}
-
-function localizePauseVideoLabel(): string {
-  switch (currentLanguage()) {
-    case 'de':
-      return 'Video pausieren'
-    case 'fr':
-      return 'Mettre la vidéo en pause'
-    case 'pl':
-      return 'Wstrzymaj wideo'
-    default:
-      return 'Pause video'
-  }
-}
