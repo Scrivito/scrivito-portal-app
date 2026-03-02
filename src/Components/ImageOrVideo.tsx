@@ -1,11 +1,19 @@
-import { setupVisitorI18n } from '../i18n'
 import { useImperativeHandle, useRef, useState, useEffect } from 'react'
-import { connect, Widget, InPlaceEditingOff, ImageTag } from 'scrivito'
+import {
+  connect,
+  currentLanguage,
+  Widget,
+  InPlaceEditingOff,
+  ImageTag,
+} from 'scrivito'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 import { useMotionPreference } from '../hooks/useMotionPreference'
 import './ImageOrVideo.scss'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export interface TogglePlayPauseRef {
   togglePlayPause: (e: React.MouseEvent) => void
@@ -78,7 +86,7 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
         />
         <button
           className={`image-or-video-play-button ${isPaused ? 'is-paused' : ''}`}
-          aria-label={isPaused ? t('playVideo') : t('pauseVideo')}
+          aria-label={isPaused ? i18n.t('playVideo') : i18n.t('pauseVideo')}
         >
           <i className="bi bi-play-fill text-white bi-3x" />
         </button>

@@ -1,6 +1,6 @@
-import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
+  currentLanguage,
   WidgetTag,
   connect,
   provideComponent,
@@ -16,8 +16,11 @@ import { IconComponent } from '../../Components/Icon'
 import { ensureString } from '../../utils/ensureString'
 import { useEnumOptions } from '../../utils/useEnumOptions'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 provideComponent(DataIconWidget, ({ widget }) => {
   return (
@@ -67,7 +70,7 @@ const Icon = connect(
         }
         size={size}
         link={null}
-        title={title || t('notAvailable')}
+        title={title || i18n.t('notAvailable')}
       />
     )
   },

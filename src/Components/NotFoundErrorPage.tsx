@@ -1,8 +1,8 @@
-import { setupVisitorI18n } from '../i18n'
 import { useEffect } from 'react'
 import {
   connect,
   ContentTag,
+  currentLanguage,
   currentSiteId,
   isEditorLoggedIn,
   isUserLoggedIn,
@@ -11,10 +11,13 @@ import {
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 import { Loading } from './Loading'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']
@@ -91,7 +94,7 @@ const NotFound = connect(function NotFound() {
 
   return (
     <>
-      <title>{t('pageNotFound')}</title>
+      <title>{i18n.t('pageNotFound')}</title>
       {!!root.get('layoutShowHeader') && (
         <ContentTag tag="header" content={root} attribute="layoutHeader" />
       )}

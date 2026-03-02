@@ -1,38 +1,40 @@
-import { setupEditorI18n } from '../../i18n'
-import { provideEditingConfig } from 'scrivito'
+import { editorLanguage, load, provideEditingConfig } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
 import messages from './i18n.editing.json'
+import rosetta from 'rosetta'
 import Thumbnail from './thumbnail.svg'
 
-const t = await setupEditorI18n(messages)
+const i18n = rosetta(messages)
+const lang = (await load(() => editorLanguage())) ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 provideEditingConfig(HeadlineWidget, {
-  title: t('widgetTitle'),
+  title: i18n.t('widgetTitle'),
   thumbnail: Thumbnail,
   attributes: {
     style: {
-      title: t('style.title'),
-      description: t('style.description'),
+      title: i18n.t('style.title'),
+      description: i18n.t('style.description'),
       values: [
-        { value: 'h1', title: t('style.h1') },
-        { value: 'h2', title: t('style.h2') },
-        { value: 'h3', title: t('style.h3') },
-        { value: 'h4', title: t('style.h4') },
-        { value: 'h5', title: t('style.h5') },
-        { value: 'h6', title: t('style.h6') },
-        { value: 'display-1', title: t('style.display1') },
-        { value: 'display-2', title: t('style.display2') },
-        { value: 'display-3', title: t('style.display3') },
-        { value: 'display-4', title: t('style.display4') },
-        { value: 'display-5', title: t('style.display5') },
-        { value: 'display-6', title: t('style.display6') },
-        { value: 'label-headline', title: t('style.labelHeadline') },
-        { value: 'label-subtitle', title: t('style.labelSubtitle') },
+        { value: 'h1', title: i18n.t('style.h1') },
+        { value: 'h2', title: i18n.t('style.h2') },
+        { value: 'h3', title: i18n.t('style.h3') },
+        { value: 'h4', title: i18n.t('style.h4') },
+        { value: 'h5', title: i18n.t('style.h5') },
+        { value: 'h6', title: i18n.t('style.h6') },
+        { value: 'display-1', title: i18n.t('style.display1') },
+        { value: 'display-2', title: i18n.t('style.display2') },
+        { value: 'display-3', title: i18n.t('style.display3') },
+        { value: 'display-4', title: i18n.t('style.display4') },
+        { value: 'display-5', title: i18n.t('style.display5') },
+        { value: 'display-6', title: i18n.t('style.display6') },
+        { value: 'label-headline', title: i18n.t('style.labelHeadline') },
+        { value: 'label-subtitle', title: i18n.t('style.labelSubtitle') },
       ],
     },
     level: {
-      title: t('level.title'),
-      description: t('level.description'),
+      title: i18n.t('level.title'),
+      description: i18n.t('level.description'),
       values: [
         { value: 'h1', title: 'h1' },
         { value: 'h2', title: 'h2' },
@@ -40,25 +42,25 @@ provideEditingConfig(HeadlineWidget, {
         { value: 'h4', title: 'h4' },
         { value: 'h5', title: 'h5' },
         { value: 'h6', title: 'h6' },
-        { value: 'div', title: t('level.noSemanticTag') },
+        { value: 'div', title: i18n.t('level.noSemanticTag') },
       ],
     },
     alignment: {
-      title: t('alignment.title'),
-      description: t('alignment.description'),
+      title: i18n.t('alignment.title'),
+      description: i18n.t('alignment.description'),
       values: [
-        { value: 'left', title: t('alignment.left') },
-        { value: 'center', title: t('alignment.center') },
-        { value: 'right', title: t('alignment.right') },
+        { value: 'left', title: i18n.t('alignment.left') },
+        { value: 'center', title: i18n.t('alignment.center') },
+        { value: 'right', title: i18n.t('alignment.right') },
       ],
     },
     margin: {
-      title: t('margin.title'),
-      description: t('margin.description'),
+      title: i18n.t('margin.title'),
+      description: i18n.t('margin.description'),
     },
     uppercase: {
-      title: t('uppercase.title'),
-      description: t('uppercase.description'),
+      title: i18n.t('uppercase.title'),
+      description: i18n.t('uppercase.description'),
     },
   },
   properties: ['style', 'level', 'alignment', 'margin', 'uppercase'],
@@ -75,7 +77,7 @@ provideEditingConfig(HeadlineWidget, {
       (headline) => {
         if (!headline) {
           return {
-            message: t('validation.headlineMustBeSet'),
+            message: i18n.t('validation.headlineMustBeSet'),
             severity: 'error',
           }
         }

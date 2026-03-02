@@ -1,6 +1,6 @@
-import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
+  currentLanguage,
   InPlaceEditingOff,
   navigateTo,
   provideComponent,
@@ -17,8 +17,11 @@ import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
 import { ModalSpinner } from '../../Components/ModalSpinner'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -34,7 +37,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   }
 
   const deletedMessage = useResolvedStringValue(widget.get('deletedMessage'))
-  const errorMessage = t('errorMessage')
+  const errorMessage = i18n.t('errorMessage')
   const redirectAfterDelete = widget.get('redirectAfterDelete')
   const buttonColor = widget.get('buttonColor') || 'btn-danger'
   if (buttonColor) buttonClassNames.push(buttonColor)

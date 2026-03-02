@@ -1,4 +1,3 @@
-import { setupVisitorI18n } from '../../i18n'
 import {
   connect,
   ContentTag,
@@ -16,8 +15,11 @@ import { pseudoRandom32CharHex } from '../../utils/pseudoRandom32CharHex'
 import { BoxAttachment } from '../../Components/BoxAttachment'
 import { simpleErrorToast } from '../../Data/CurrentUser/errorToast'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 const MAX_FILE_SIZE = 50 * 1000 * 1000
 const MAX_FILE_COUNT = 10
@@ -170,17 +172,17 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
 })
 
 function getDropMessage(multiple: boolean) {
-  return multiple ? t('dropMultiple') : t('dropSingle')
+  return multiple ? i18n.t('dropMultiple') : i18n.t('dropSingle')
 }
 
 function getTooLargeMessage(filename: string) {
   const locale = currentLanguage() ?? 'en'
   const maxFileSize = prettyBytes(MAX_FILE_SIZE, { locale })
-  return t('tooLarge', { filename, maxFileSize })
+  return i18n.t('tooLarge', { filename, maxFileSize })
 }
 
 function getTooManyFilesMessage() {
-  return t('tooMany', { maxFileCount: MAX_FILE_COUNT })
+  return i18n.t('tooMany', { maxFileCount: MAX_FILE_COUNT })
 }
 
 const FileUploadPreview = connect(function FileUploadPreview({

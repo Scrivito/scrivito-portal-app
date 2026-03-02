@@ -1,6 +1,6 @@
-import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
+  currentLanguage,
   InPlaceEditingOff,
   WidgetTag,
   navigateTo,
@@ -16,8 +16,11 @@ import { useState } from 'react'
 import { ModalSpinner } from '../../Components/ModalSpinner'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 provideComponent(CheckoutButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -69,7 +72,7 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
       navigateTo(result)
       if (successMessage) toast.success(successMessage)
     } catch (error) {
-      errorToast(t('errorMessage.sorry'), error)
+      errorToast(i18n.t('errorMessage.sorry'), error)
     } finally {
       setIsSubmitting(false)
     }

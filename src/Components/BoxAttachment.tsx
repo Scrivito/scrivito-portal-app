@@ -1,9 +1,11 @@
-import { setupVisitorI18n } from '../i18n'
 import prettyBytes from 'pretty-bytes'
 import { connect, currentLanguage } from 'scrivito'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export const BoxAttachment = connect(function BoxAttachment({
   binaryUrl,
@@ -45,7 +47,7 @@ export const BoxAttachment = connect(function BoxAttachment({
                 e.stopPropagation()
                 onDelete()
               }}
-              title={t('deleteButton')}
+              title={i18n.t('deleteButton')}
             >
               <i className="bi bi-trash3"></i>
             </button>

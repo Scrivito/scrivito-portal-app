@@ -1,6 +1,6 @@
-import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
+  currentLanguage,
   DataItem,
   InPlaceEditingOff,
   navigateTo,
@@ -17,8 +17,11 @@ import { ModalSpinner } from '../../Components/ModalSpinner'
 import { blobToBinary, DataBinaryUpload } from '../../utils/blobToBinary'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 provideComponent(DataFormContainerWidget, ({ widget }) => {
   const dataScope = useData()
@@ -35,7 +38,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
     widget.get('submittedMessage'),
   )
 
-  const errorMessage = t('errorMessage')
+  const errorMessage = i18n.t('errorMessage')
 
   return (
     <WidgetTag className="data-form-container-widget">

@@ -1,8 +1,8 @@
-import { setupVisitorI18n } from '../../i18n'
 import {
   ContentTag,
   ImageTag,
   connect,
+  currentLanguage,
   ensureUserIsLoggedIn,
   isUserLoggedIn,
   provideComponent,
@@ -21,8 +21,11 @@ import {
 } from '../../Data/CartItem/Cart'
 import { useCallback, useRef } from 'react'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 provideComponent(Product, ({ page }) => {
   const plainParameters = page
@@ -207,7 +210,7 @@ const CartActionButton = connect(function CartActionButton({
   const productTitle = product.get('title')
 
   function getMessage(attribute: keyof typeof messages.en) {
-    return t(attribute, { product: productTitle })
+    return i18n.t(attribute, { product: productTitle })
   }
 
   const cartAddedMessage = getMessage('cartAddedMessage')
@@ -305,7 +308,7 @@ const Label = connect(function Label({
 
   return (
     <Tag className={className} id={id}>
-      {t(localizer)}
+      {i18n.t(localizer)}
     </Tag>
   )
 })

@@ -1,7 +1,7 @@
-import { setupVisitorI18n } from '../../../i18n'
 import {
   connect,
   ContentTag,
+  currentLanguage,
   isCurrentPage,
   isEditorLoggedIn,
   isUserLoggedIn,
@@ -19,8 +19,11 @@ import personCircle from '../../../assets/images/person-circle.svg'
 import { Loading } from '../../../Components/Loading'
 import { RetryingImage } from '../../../Components/RetryingImage'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export const CurrentUserDropdown = connect(function CurrentUserDropdown({
   root,
@@ -103,7 +106,7 @@ const LogOutButton = connect(function LogOutButton({
             style={{ color: 'rgba(0, 0, 0, 0.5)' }}
           >
             <i className="bi bi-box-arrow-right"></i>
-            {t('logOut')}
+            {i18n.t('logOut')}
           </NavDropdown.Item>
         </div>
       </OverlayTrigger>
@@ -119,7 +122,7 @@ const LogOutButton = connect(function LogOutButton({
       onClick={() => logout(rootUrl)}
     >
       <i className="bi bi-box-arrow-right"></i>
-      {t('logOut')}
+      {i18n.t('logOut')}
     </NavDropdown.Item>
   )
 })

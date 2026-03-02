@@ -1,7 +1,7 @@
-import { setupVisitorI18n } from './i18n'
-import { connect, CurrentPage } from 'scrivito'
+import { connect, currentLanguage, CurrentPage } from 'scrivito'
 import { HelmetProvider, HelmetServerState } from '@dr.pogodin/react-helmet'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
@@ -10,7 +10,9 @@ import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 import { SinglePageSite } from './Components/SinglePageSite'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export const helmetContext: { helmet?: HelmetServerState } = {}
 
@@ -43,7 +45,7 @@ const SkipToContent = connect(function SkipToContent() {
     <div className="skippy visually-hidden-focusable overflow-hidden">
       <div className="container my-4">
         <a href="#main" className="btn btn-primary">
-          {t('skipToContent')}
+          {i18n.t('skipToContent')}
         </a>
       </div>
     </div>

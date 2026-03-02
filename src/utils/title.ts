@@ -1,9 +1,11 @@
-import { setupVisitorI18n } from '../i18n'
-import { Obj } from 'scrivito'
+import { currentLanguage, Obj } from 'scrivito'
 import { ensureString } from './ensureString'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export function objTitle(obj: Obj): string {
   return (
@@ -14,5 +16,5 @@ export function objTitle(obj: Obj): string {
 }
 
 export function localizeNoTitle(): string {
-  return t('noTitle')
+  return i18n.t('noTitle')
 }

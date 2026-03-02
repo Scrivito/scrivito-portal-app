@@ -1,8 +1,11 @@
-import { setupVisitorI18n } from '../../i18n'
+import { currentLanguage } from 'scrivito'
 import { toast, Zoom } from 'react-toastify'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export async function notifyOnConnectionTimeout<T>(connection: Promise<T>) {
   const connectionSucceeded = await Promise.race([
@@ -13,8 +16,8 @@ export async function notifyOnConnectionTimeout<T>(connection: Promise<T>) {
 
   const toastId = toast.warning(
     <div>
-      <div>{t('unableToConnect')}</div>
-      <small>{t('pisaSalesServerRunning')}</small>
+      <div>{i18n.t('unableToConnect')}</div>
+      <small>{i18n.t('pisaSalesServerRunning')}</small>
     </div>,
     { autoClose: false, closeButton: true },
   )
@@ -22,7 +25,7 @@ export async function notifyOnConnectionTimeout<T>(connection: Promise<T>) {
   await connection
   toast.update(toastId, {
     type: 'success',
-    render: <div>{t('backendNowConnected')}</div>,
+    render: <div>{i18n.t('backendNowConnected')}</div>,
     autoClose: 5000,
     transition: Zoom,
   })

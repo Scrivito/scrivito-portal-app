@@ -1,9 +1,11 @@
-import { setupVisitorI18n } from '../i18n'
 import { PropsWithChildren } from 'react'
-import { connect } from 'scrivito'
+import { connect, currentLanguage } from 'scrivito'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export const Loading = (
   props: object | PropsWithChildren<{ className?: string }> = {},
@@ -16,7 +18,7 @@ const LoadingPlaceholder = connect(function LoadingPlaceholder({
   const classNames = ['loading-placeholder']
   if (className) classNames.push(className)
 
-  const message = t('loadingData')
+  const message = i18n.t('loadingData')
 
   return (
     <div

@@ -1,4 +1,3 @@
-import { setupVisitorI18n } from '../../i18n'
 import {
   DataItem,
   currentLanguage,
@@ -11,8 +10,11 @@ import { CartItem } from './CartItemDataClass'
 import { Opportunity } from '../Opportunity/OpportunityDataClass'
 import { ensureString } from '../../utils/ensureString'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export async function updateQuantityInCart(
   product: ProductInstance,
@@ -103,5 +105,5 @@ async function getTitle() {
 
   const locale = currentLanguage() ?? 'en'
   const date = new Date().toLocaleString(locale)
-  return t('cartTitle', { name, date })
+  return i18n.t('cartTitle', { name, date })
 }

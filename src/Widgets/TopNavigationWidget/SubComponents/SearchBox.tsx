@@ -1,9 +1,11 @@
-import { setupVisitorI18n } from '../../../i18n'
-import { connect, navigateTo, Obj } from 'scrivito'
+import { connect, currentLanguage, navigateTo, Obj } from 'scrivito'
 import { useRef } from 'react'
 import messages from './i18n.visitor.json'
+import rosetta from 'rosetta'
 
-const t = setupVisitorI18n(messages)
+const i18n = rosetta(messages)
+const lang = currentLanguage() ?? 'en'
+i18n.locale(lang in messages ? lang : 'en')
 
 export const SearchBox = connect(function SearchBox({
   searchResultsPage,
@@ -31,15 +33,15 @@ export const SearchBox = connect(function SearchBox({
         <input
           className="form-control"
           type="search"
-          placeholder={t('search')}
-          aria-label={t('search')}
+          placeholder={i18n.t('search')}
+          aria-label={i18n.t('search')}
           ref={inputRef}
         />
 
         <button
           type="submit"
           className="btn btn-primary"
-          aria-label={t('search')}
+          aria-label={i18n.t('search')}
         >
           <i className="bi bi-search" aria-hidden="true"></i>
         </button>
