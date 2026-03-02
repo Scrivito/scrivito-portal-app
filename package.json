@@ -14,7 +14,7 @@
     "lint": "eslint --max-warnings 0 'src/**/*.ts' 'src/**/*.tsx' && knip",
     "lighthouse": "SCRIVITO_ORIGIN=http://localhost:8080 PRERENDER_OBJ_ID=c2a0aab78be05a4e npm run prerender && npm run prerender-precompress && for run in $(seq 6); do lhci autorun && break; done",
     "prerender": "vite build && vite-node --options.deps.external='/scrivito/' src/prerenderContent.ts",
-    "prerender-precompress": "precompress --include '(**).(css|html|js)' --types br dist-ssr",
+    "prerender-precompress": "precompress --include '**/*.css' --include '**/*.html' --include '**/*.js' --types br dist-ssr",
     "prerender-preview": "ws",
     "prettier": "prettier --check .",
     "start": "vite"
