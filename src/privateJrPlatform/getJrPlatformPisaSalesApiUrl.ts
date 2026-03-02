@@ -1,17 +1,15 @@
-import { createRestApiClient, getInstanceId } from 'scrivito'
+import { getInstanceId, load, provideDataClass } from 'scrivito'
 
-interface InstanceConfig {
-  pisa_sales_api_url?: string | null
-}
-
-let cachedInstanceConfigPromise: Promise<InstanceConfig> | undefined
-
-async function getInstanceConfig(): Promise<InstanceConfig> {
-  return (cachedInstanceConfigPromise ||= createRestApiClient(
-    'https://api.justrelate.com',
-  ).get(`/ams/instances/${getInstanceId()}`) as Promise<InstanceConfig>)
-}
+const InstanceConfigDataClass = provideDataClass({
+  restApi: 'https://api.justrelate.com/ams/instances',
+  attributes: {},
+})
 
 export async function getJrPlatformPisaSalesApiUrl(): Promise<string | null> {
-  return (await getInstanceConfig()).pisa_sales_api_url || null
+  const instanceConfig = await load(() =>
+    InstanceConfigDataClass.get(getInstanceId()),
+  )
+  if (!instanceConfig) return null
+
+  return instanceConfig.get('pisa_sales_api_url') as string | null
 }
