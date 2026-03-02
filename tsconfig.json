@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext",
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "paths": {
+      "rosetta": ["./src/rosetta"]
+    }
   },
   "include": ["src"],
   "exclude": ["node"],
