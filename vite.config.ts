@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const outDir = 'dist'
 
-  const forceLocalStorage = env.FORCE_LOCAL_STORAGE === 'true'
+  const forceLocalStorage = false
 
   // This flag is only used by the Scrivito SDK team (e.g. for multi-tenancy).
   // Feel free to remove it in your project.
@@ -111,18 +111,6 @@ export default defineConfig(({ mode }) => {
 })
 
 function getScrivitoInstanceId(env: Record<string, string>): string | null {
-  const scrivitoTenant = env.SCRIVITO_TENANT
-  const instanceId = env.SCRIVITO_INSTANCE_ID || scrivitoTenant
-
-  if (typeof instanceId === 'string' && instanceId) {
-    if (scrivitoTenant) {
-      console.warn(
-        'DEPRECATION WARNING: SCRIVITO_TENANT is deprecated. Please use SCRIVITO_INSTANCE_ID instead.',
-      )
-    }
-    return instanceId
-  }
-
   if (env.PRIVATE_JR_PLATFORM === 'true') return null
 
   throw new Error(
