@@ -5,11 +5,13 @@ export function JrPlatformMissingInstanceId() {
   return (
     <main id="main">
       <section className="bg-danger vh-100 py-5">
-        <img
-          src={errorBackground}
-          alt="factory"
-          className="img-background img-zoom"
-        />
+        <div className="img-zoom-container">
+          <img
+            src={errorBackground}
+            alt="factory"
+            className="img-background img-zoom"
+          />
+        </div>
         <div className="container h-100">
           <div className="row h-100 align-items-center">
             <div className="col-sm-6">
