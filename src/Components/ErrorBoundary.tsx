@@ -47,7 +47,7 @@ export class ErrorBoundary extends Component<
               <div>
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-light"
                   onClick={window.location.reload}
                 >
                   Please try again
