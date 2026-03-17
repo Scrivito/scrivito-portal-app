@@ -29,11 +29,13 @@ export class ErrorBoundary extends Component<
 
     return (
       <section className="bg-danger vh-100 py-5">
-        <img
-          src={errorBackground}
-          alt="factory"
-          className="img-background img-zoom"
-        />
+        <div className="img-zoom-container">
+          <img
+            src={errorBackground}
+            alt="factory"
+            className="img-background img-zoom"
+          />
+        </div>
         <div className="container h-100">
           <div className="row h-100 align-items-center">
             <div className="col-sm-6">
@@ -45,7 +47,7 @@ export class ErrorBoundary extends Component<
               <div>
                 <button
                   type="button"
-                  className="btn btn-secondary"
+                  className="btn btn-light"
                   onClick={window.location.reload}
                 >
                   Please try again
