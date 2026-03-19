@@ -8,7 +8,13 @@ export function extractFromUrl(url: string): {
 } {
   const contentId = '[0-9a-z]{16}'
 
-  const language = '[a-z]{2,3}(-[A-Z][a-z]{3})?(-([A-Z]{2}|[0-9]{3}))?'
+  // Subset of BCP 47 (case-sensitive): language + optional script + optional region.
+  // Variants, extensions, and private use are not supported.
+  // See https://www.codegenes.net/blog/regular-expression-for-a-language-tag-as-defined-by-bcp47/
+  const language =
+    '[a-z]{2,3}' + // ISO 639 language code
+    '(-[A-Z][a-z]{3})?' + // optional script code (e.g. 'Latn')
+    '(-([A-Z]{2}|[0-9]{3}))?' // optional region code (e.g. 'US' or '419')
 
   const location = '([?/].*)|$'
 
