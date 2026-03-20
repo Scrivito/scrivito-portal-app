@@ -25,13 +25,13 @@ export async function ensureSiteIsPresent() {
 
 function redirectToSiteUrl(siteUrl: string) {
   const { origin, pathname, search, hash } = window.location
-  const { contentId, defaultLocation, location } = extractFromUrl(
+  const { contentId, defaultLocation, pagePath } = extractFromUrl(
     origin + pathname,
   )
 
   const rawPath =
     (extractFromUrl(siteUrl).contentId === contentId
-      ? location
+      ? pagePath
       : defaultLocation) || ''
   const path = rawPath.endsWith('/') ? rawPath.slice(0, -1) : rawPath
 
