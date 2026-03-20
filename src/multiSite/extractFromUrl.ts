@@ -10,11 +10,11 @@ export function extractFromUrl(url: string): {
 
   // Subset of BCP 47 (case-sensitive): language + optional script + optional region.
   // Variants, extensions, and private use are not supported.
-  // See https://www.codegenes.net/blog/regular-expression-for-a-language-tag-as-defined-by-bcp47/
+  // See https://developer.mozilla.org/en-US/docs/Glossary/BCP_47_language_tag
   const language =
-    '[a-z]{2,3}' + // ISO 639 language code
-    '(-[A-Z][a-z]{3})?' + // optional script code (e.g. 'Latn')
-    '(-([A-Z]{2}|[0-9]{3}))?' // optional region code (e.g. 'US' or '419')
+    '[a-z]{2,3}' + // ISO 639 language code (e.g. 'en' or 'bdz')
+    '(-[A-Z][a-z]{3})?' + // optional script code (e.g. 'Cyrl' or 'Latn')
+    '(-([A-Z]{2}|[0-9]{3}))?' // optional region code (e.g. 'US' or '013')
 
   const location = '([?/].*)|$'
 
