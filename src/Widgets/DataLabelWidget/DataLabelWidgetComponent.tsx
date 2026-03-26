@@ -20,7 +20,7 @@ import { Loading } from '../../Components/Loading'
 const CURRENCY = 'EUR' // ISO 4217 Code
 
 provideComponent(DataLabelWidget, ({ widget }) => {
-  const valueCssClassNames = ['text-multiline']
+  const valueCssClassNames = ['text-multiline', 'mb-0']
 
   const valueSize = widget.get('valueSize')
   if (valueSize && valueSize !== 'body-font-size') {
