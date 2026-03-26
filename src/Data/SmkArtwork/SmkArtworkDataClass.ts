@@ -8,7 +8,7 @@ import { ensureObject } from '../../utils/ensureObject'
 import { ensureString } from '../../utils/ensureString'
 
 export const SmkArtwork = provideDataClass('SmkArtwork', {
-  title: 'Statens Museum for Kunst - Artwork',
+  title: 'National Gallery of Denmark - Artwork',
   attributes: {
     acquisition_date: ['date', { title: 'Acquisition date' }],
     creator_date_of_birth: ['date', { title: 'Artist’s date of birth' }],
