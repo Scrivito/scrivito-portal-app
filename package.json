@@ -9,6 +9,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build && rm -f dist/assets/*.js.map",
+    "check": "concurrently --raw 'npm run types' 'npm run lint' 'npm run prettier' 'npm run build'",
     "types": "tsc",
     "preview": "vite preview",
     "lint": "eslint --max-warnings 0 'src/**/*.ts' 'src/**/*.tsx' && knip",
@@ -55,6 +56,7 @@
     "@typescript-eslint/parser": "^8.42.0",
     "@vitejs/plugin-react-swc": "^4.2.3",
     "bootstrap-icons": "^1.13.1",
+    "concurrently": "^9.2.1",
     "content-security-policy-builder": "^2.3.0",
     "eslint": "^9.39.2",
     "eslint-plugin-import": "^2.32.0",
