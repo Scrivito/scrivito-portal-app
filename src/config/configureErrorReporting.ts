@@ -17,11 +17,14 @@ export async function configureErrorReporting() {
   })
 
   const user = await load(() => currentUser())
+  const email = user?.email()
+
   honeybadger.setContext({
     instance_id: getInstanceId(),
     is_editor: isEditorLoggedIn(),
     workspace_id: currentWorkspaceId(),
     // ⚠️ Do not include plain text e-mail addresses in the context. ⚠️
+    user_email: email?.endsWith('@justrelate.com') ? email : undefined,
     user_id: user?.id(),
   })
 }
