@@ -13,6 +13,7 @@ import { JrPlatformMissingInstanceId } from './privateJrPlatform/Components/JrPl
 import { isJrPlatformValidContentFormat } from './privateJrPlatform/isJrPlatformValidContentFormat'
 import { JrPlatformWrongContentFormat } from './privateJrPlatform/Components/JrPlatformWrongContentFormat'
 import { ensureSiteIsPresent } from './multiSite/ensureSiteIsPresent'
+import './assets/stylesheets/index.scss'
 
 boot()
 
