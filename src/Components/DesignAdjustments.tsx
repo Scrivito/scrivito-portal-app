@@ -14,48 +14,52 @@ export const DesignAdjustments = connect(
     const styles: string[] = []
 
     const darkText = root.get('siteColorTextDark')
-    if (darkText) styles.push(`--dark-text-color: ${darkText};`)
+    if (darkText) styles.push(`--dark-text-color: ${darkText} !important;`)
 
     const darkHeadlineText = root.get('siteColorTextDarkHeadline')
     if (darkHeadlineText) {
-      styles.push(`--dark-headline-text-color: ${darkHeadlineText};`)
+      styles.push(`--dark-headline-text-color: ${darkHeadlineText} !important;`)
     }
 
     const lightText = root.get('siteColorTextLight')
-    if (lightText) styles.push(`--light-text-color: ${lightText};`)
+    if (lightText) styles.push(`--light-text-color: ${lightText} !important;`)
 
     const lightHeadlineText = root.get('siteColorTextLightHeadline')
     if (lightHeadlineText) {
-      styles.push(`--light-headline-text-color: ${lightHeadlineText};`)
+      styles.push(
+        `--light-headline-text-color: ${lightHeadlineText} !important;`,
+      )
     }
 
     const primary = root.get('siteColorPrimary')
-    if (primary) styles.push(`--bs-primary: ${primary};`)
+    if (primary) styles.push(`--bs-primary: ${primary} !important;`)
 
     const secondary = root.get('siteColorSecondary')
-    if (secondary) styles.push(`--bs-secondary: ${secondary};`)
+    if (secondary) styles.push(`--bs-secondary: ${secondary} !important;`)
 
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none;')
 
     const siteBorderRadius = root.get('siteBorderRadius')
     if (siteBorderRadius) {
-      styles.push(`--bs-border-radius: ${siteBorderRadius};`)
+      styles.push(`--bs-border-radius: ${siteBorderRadius} !important;`)
     } else {
       const roundedCorners = root.get('siteRoundedCorners')
       if (!roundedCorners) styles.push('--bs-border-radius: 0;')
     }
 
     const fontBodyWeight = root.get('siteFontBodyWeight') || '500'
-    styles.push(`--bs-body-font-weight: ${fontBodyWeight};`)
+    styles.push(`--bs-body-font-weight: ${fontBodyWeight} !important;`)
     if (root.get('siteFontBody').length > 0) {
-      styles.push(`--bs-body-font-family: ${bodyFontFamily};`)
+      styles.push(`--bs-body-font-family: ${bodyFontFamily} !important;`)
     }
 
     const fontHeadlineWeight = root.get('siteFontHeadlineWeight') || '500'
-    styles.push(`--jr-headline-font-weight: ${fontHeadlineWeight};`)
+    styles.push(`--jr-headline-font-weight: ${fontHeadlineWeight} !important;`)
     if (root.get('siteFontHeadline').length > 0) {
-      styles.push(`--jr-headline-font-family: ${headlineFontFamily};`)
+      styles.push(
+        `--jr-headline-font-family: ${headlineFontFamily} !important;`,
+      )
     }
 
     return (
@@ -104,7 +108,7 @@ const FontFace = connect(
             font-family: '${fontFamily}';
             font-display: swap;
             src: url('${encodeURI(fontUrl)}');
-            ${weight ? `font-weight: ${weight};` : ''}
+            ${weight ? `font-weight: ${weight} !important;` : ''}
           }
         `}
         </style>
