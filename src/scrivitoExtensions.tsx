@@ -1,5 +1,5 @@
-import { Extensions } from 'scrivito'
 import { createRoot } from 'react-dom/client'
+import { Extensions } from 'scrivito'
 import './Data'
 import './Data/editingConfigs'
 import './Objs'
