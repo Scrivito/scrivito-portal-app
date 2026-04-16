@@ -35,7 +35,7 @@
     "react-dropzone": "^15.0.0",
     "react-toastify": "^11.0.5",
     "scrivito": "^1.59.1",
-    "scrivito-neoletter-form-widgets": "^0.0.42",
+    "scrivito-neoletter-form-widgets": "^0.0.43",
     "scrivito-pisasales-questionnaire-builder": "^1.1.1",
     "scroll-to-fragment": "^1.1.0"
   },
