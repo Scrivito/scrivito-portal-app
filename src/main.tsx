@@ -14,6 +14,7 @@ import { isJrPlatformValidContentFormat } from './privateJrPlatform/isJrPlatform
 import { JrPlatformWrongContentFormat } from './privateJrPlatform/Components/JrPlatformWrongContentFormat'
 import { ensureSiteIsPresent } from './multiSite/ensureSiteIsPresent'
 import './assets/stylesheets/index.scss'
+import './assets/stylesheets/index-next.css'
 
 boot()
 
