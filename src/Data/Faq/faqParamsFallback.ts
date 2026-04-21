@@ -136,6 +136,17 @@ export function faqParamsFallback() {
     connection: localStorageDataConnection('Faq', {
       initialContent: [
         {
+          _id: '49CF8AD8CE0C49F3B4578C18198D0D02',
+          keyword: 'No lubricant',
+          number: 'FAQ-26-000335',
+          question: 'Why is my lubrication machine not delivering lubricant?',
+          answer:
+            'If your lubrication machine is not supplying lubricant, several common causes should be checked step by step:\n\n- Empty or Low Reservoir \nEnsure the lubricant reservoir is filled to the required level. Many systems stop automatically when the level is too low. \n\n- Blocked or Clogged Lines \nInspect all lubrication lines and outlets for blockages caused by dried grease, contamination, or debris.\n\n- Faulty or Air-Locked Pump \nThe pump may not be operating correctly or could be air-locked. Try priming the pump if your system supports it.\n\n- Incorrect Settings or Configuration \nVerify that lubrication intervals and quantities are configured correctly in the control system or PLC.\n\n- Pressure Issues \nCheck if the system is building sufficient pressure. Low pressure may indicate leaks, worn seals, or pump failure.\n\n- Electrical or Control Failure \nConfirm that the machine is powered and that all electrical connections and control signals are functioning properly.\n\n- Clogged Filters \nDirty or clogged filters can restrict lubricant flow and should be cleaned or replaced regularly.\n\nIf the issue persists after these checks, consult the system manual or contact technical support, as internal components may require servicing.',
+          type1: 'PSA_FAQ_TYP_80',
+          language: 'ENG',
+          createdAt: '2026-04-17T07:04:31Z',
+        },
+        {
           _id: '04AF72A23ABA40A6966A41E168001A7B',
           keyword: "Oil pump of lubrication system dosn't work",
           number: 'FAQ-09.000287',
