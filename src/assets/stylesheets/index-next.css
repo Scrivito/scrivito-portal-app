@@ -135,7 +135,34 @@ video {
 }
 
 /* color / helper classes
+ TODO: Check if "build in" tailwind class names are better
  =================================================================== */
+
+.text-muted {
+  opacity: 0.9;
+  color: inherit !important;
+}
+
+.text-bold {
+  font-weight: bolder;
+}
+
+.text-small {
+  font-size: 0.75rem;
+}
+
+.text-extra-small {
+  font-size: 0.65rem;
+}
+
+.text-multiline {
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.opacity-60 {
+  opacity: 0.6;
+}
 
 /* Base class for all background colors that automatically calculates optimal text colors */
 .bg-danger,
@@ -364,6 +391,102 @@ section:focus >,
   background: rgba(255, 255, 255, 0.85);
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.95);
   transition: all ease-in-out 0.3s;
+}
+
+/* Headline styles
+ ================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+  color: var(--headline-text-color);
+  font-family: var(--jr-headline-font-family), sans-serif;
+  font-weight: var(--jr-headline-font-weight);
+  letter-spacing: -0.5px;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+h1,
+.h1 {
+  font-size: 2.5rem;
+}
+h2,
+.h2 {
+  font-size: 2rem;
+}
+h3,
+.h3 {
+  font-size: 1.75rem;
+}
+h4,
+.h4 {
+  font-size: 1.5rem;
+}
+h5,
+.h5 {
+  font-size: 1.25rem;
+}
+h6,
+.h6 {
+  font-size: 1rem;
+}
+
+.display-1 {
+  font-size: 5rem;
+}
+.display-2 {
+  font-size: 4.5rem;
+}
+.display-3 {
+  font-size: 4rem;
+}
+.display-4 {
+  font-size: 3.5rem;
+}
+.display-5 {
+  font-size: 3rem;
+}
+.display-6 {
+  font-size: 2.5rem;
+}
+
+@media (width < theme(--breakpoint-lg)) {
+  h1,
+  .h1 {
+    font-size: 2rem;
+  }
+  h2,
+  .h2 {
+    font-size: 1.75rem;
+  }
+  h3,
+  .h3 {
+    font-size: 1.5rem;
+  }
+  h4,
+  .h4 {
+    font-size: 1.25rem;
+  }
+  h5,
+  .h5 {
+    font-size: 1.15rem;
+  }
 }
 
 /* full height website

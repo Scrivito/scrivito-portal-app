@@ -3,6 +3,15 @@ import { HeadlineWidget } from './HeadlineWidgetClass'
 import { alignmentClassName } from '../../utils/alignmentClassName'
 import { slugify } from '@justrelate/slugify'
 
+const MARGIN_CLASSES: Record<string, string> = {
+  'mb-0': 'mb-0',
+  'mb-1': 'mb-1',
+  'mb-2': 'mb-2',
+  'mb-3': 'mb-4',
+  'mb-4': 'mb-6',
+  'mb-5': 'mb-12',
+}
+
 provideComponent(HeadlineWidget, ({ widget }) => {
   const classNames: string[] = []
 
@@ -18,9 +27,10 @@ provideComponent(HeadlineWidget, ({ widget }) => {
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
 
-  if (widget.get('uppercase')) classNames.push('text-uppercase')
+  if (widget.get('uppercase')) classNames.push('uppercase')
 
-  classNames.push(widget.get('margin') ?? 'mb-2')
+  const margin = widget.get('margin') ?? 'mb-2'
+  classNames.push(MARGIN_CLASSES[margin] ?? margin)
 
   return (
     <ContentTag
