@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+@import './theme/fonts.css';
 
 /* Use bootstrap 5 breakpoints */
 @theme {
@@ -28,6 +29,12 @@
   @media (width >= theme(--breakpoint-2xl)) {
     max-width: 1320px;
   }
+}
+
+body {
+  font-family: var(--bs-body-font-family);
+  font-weight: var(--bs-body-font-weight);
+  margin: 0;
 }
 
 img,
