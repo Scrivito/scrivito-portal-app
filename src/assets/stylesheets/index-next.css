@@ -29,6 +29,13 @@
   }
 }
 
+img,
+video {
+  display: inline-block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 :root {
   --light-grey: #f2f3f7;
   --middle-grey: #e8e8e8;
