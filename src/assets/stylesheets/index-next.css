@@ -4,6 +4,7 @@
 @import './theme/loader.css';
 @import './theme/table.css';
 @import './theme/loading-placeholder.css';
+/* TODO: Decide on 'theme/print' */
 @import './theme/attachment.css';
 @import './theme/box-comment.css';
 
