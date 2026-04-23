@@ -5,6 +5,7 @@
 @import './theme/table.css';
 @import './theme/loading-placeholder.css';
 @import './theme/attachment.css';
+@import './theme/box-comment.css';
 
 /* Use bootstrap 5 breakpoints */
 @theme {
