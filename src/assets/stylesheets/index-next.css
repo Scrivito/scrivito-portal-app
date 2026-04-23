@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+@import 'scrivito-neoletter-form-widgets/index.css';
+@import 'scrivito-pisasales-questionnaire-builder/index.css';
 @import './theme/fonts.css';
 @import './theme/loader.css';
 @import './theme/table.css';
