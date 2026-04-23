@@ -1,1 +1,210 @@
 @import 'tailwindcss';
+
+:root {
+  --light-grey: #f2f3f7;
+  --middle-grey: #e8e8e8;
+  --dark-grey: #2f2f2f;
+
+  /* Dark text color variables for text on light backgrounds */
+  --dark-text-color: #454545;
+  --dark-headline-text-color: #3b3b3b;
+
+  /* Light text color variables for text on dark backgrounds */
+  --light-text-color: #fff;
+  --light-headline-text-color: #fff;
+
+  --bg-color: unset;
+  --headline-text-color: var(--dark-headline-text-color);
+  --text-color: var(--dark-text-color);
+
+  --border: rgba(0, 0, 0, 0.1);
+
+  /* The variable var(--bs-primary) is utilized in packages like `scrivito-neoletter-form-widgets`. */
+  --bs-primary: #274486;
+  --bs-primary-text-color: var(
+    --light-text-color
+  ); /* TODO: Reintroduce best-contrast */
+  --bs-primary-headline-text-color: var(
+    --light-headline-text-color
+  ); /* TODO: Reintroduce best-contrast */
+  --bs-primary-lighten: hsl(from var(--bs-primary) h s calc(l + 8));
+  --bs-primary-darken: hsl(from var(--bs-primary) h s calc(l - 8));
+
+  /* The variable var(--bs-secondary) is utilized in packages like `scrivito-neoletter-form-widgets`. */
+  --bs-secondary: #39a9eb;
+  --bs-secondary-text-color: var(
+    --dark-text-color
+  ); /* TODO: Reintroduce best-contrast */
+  --bs-secondary-headline-text-color: var(
+    --dark-text-color
+  ); /* TODO: Reintroduce best-contrast */
+
+  --bs-success: #21704b;
+  --bs-info: #39a9eb;
+  --bs-warning: #f9bf29;
+  --bs-danger: #9b1d1d;
+
+  --bs-body-font-family: 'Manrope';
+  --bs-body-font-size: 1rem;
+  --bs-body-font-weight: 500;
+  --bs-body-line-height: 1.75;
+  --bs-body-color: var(--dark-text-color);
+
+  --bs-border-radius: 8.5px;
+  --jr-box-shadow: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
+  --jr-headline-font-family: 'Firava';
+  --jr-headline-font-weight: 500;
+
+  hyphens: auto;
+}
+
+/* color / helper classes
+ =================================================================== */
+
+/* Base class for all background colors that automatically calculates optimal text colors */
+.bg-danger,
+.bg-dark-grey,
+.bg-info,
+.bg-light-grey,
+.bg-middle-grey,
+.bg-primary,
+.bg-secondary,
+.bg-success,
+.bg-warning,
+.bg-white {
+  --text-color: --best-contrast(
+    var(--bg-color),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --headline-text-color: --best-contrast(
+    var(--bg-color),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
+}
+
+/* Individual background color definitions */
+.bg-white {
+  --bg-color: #fff;
+}
+.bg-primary {
+  --bg-color: var(--bs-primary);
+}
+.bg-dark-grey {
+  --bg-color: var(--dark-grey);
+}
+.bg-secondary {
+  --bg-color: var(--bs-secondary);
+}
+.bg-info {
+  --bg-color: var(--bs-info);
+}
+.bg-success {
+  --bg-color: var(--bs-success);
+}
+.bg-warning {
+  --bg-color: var(--bs-warning);
+}
+.bg-danger {
+  --bg-color: var(--bs-danger);
+}
+.bg-light-grey {
+  --bg-color: var(--light-grey);
+}
+.bg-middle-grey {
+  --bg-color: var(--middle-grey);
+}
+
+.bg-danger,
+.bg-dark-grey,
+.bg-info,
+.bg-light-grey,
+.bg-middle-grey,
+.bg-primary,
+.bg-secondary,
+.bg-success,
+.bg-warning,
+.bg-white {
+  background: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+/* -- color content adaptions -- */
+
+a {
+  &.bg-primary,
+  &.bg-secondary,
+  &.bg-dark-grey,
+  &.bg-success,
+  &.bg-warning,
+  &.bg-danger,
+  &.bg-info,
+  &.bg-white,
+  &.bg-light-grey,
+  &.bg-middle-grey {
+    color: var(--text-color) !important;
+  }
+}
+
+.bg-danger,
+.bg-dark-grey,
+.bg-info,
+.bg-primary,
+.bg-secondary,
+.bg-success,
+.bg-warning {
+  .btn-outline-primary,
+  .btn-outline-secondary {
+    color: var(--text-color);
+    border-color: var(--text-color);
+  }
+}
+
+.btn-outline-primary,
+.btn-outline-secondary {
+  &:hover,
+  &:active {
+    color: --best-contrast(
+      var(--btn-color),
+      var(--dark-text-color),
+      var(--light-text-color)
+    ) !important;
+  }
+}
+
+/* -- new override -- */
+
+a:not(.btn, .nav-link),
+p,
+th,
+td,
+.form-label,
+.text-mandatory {
+  color: var(--text-color);
+}
+
+.text-primary {
+  color: var(--bs-primary) !important;
+}
+.text-secondary {
+  color: var(--bs-secondary) !important;
+}
+
+.card,
+.card .card,
+.carousel-item,
+.carousel-item .card {
+  &.bg-white,
+  &.bg-light-grey,
+  &.bg-middle-grey {
+    .btn-outline-primary {
+      color: var(--bs-primary);
+      border-color: var(--bs-primary);
+    }
+    .btn-outline-secondary {
+      color: var(--bs-secondary);
+      border-color: var(--bs-secondary);
+    }
+  }
+}
