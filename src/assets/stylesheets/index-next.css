@@ -2,6 +2,7 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import './theme/fonts.css';
 @import './theme/loader.css';
+@import './theme/table.css';
 
 /* Use bootstrap 5 breakpoints */
 @theme {
