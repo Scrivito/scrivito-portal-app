@@ -1,0 +1,79 @@
+/* --------------------------------------------------------- */
+/* loading-placeholder */
+/* --------------------------------------------------------- */
+
+@keyframes animation_left {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translate3d(50%, -50%, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(-150%, -50%, 0);
+  }
+}
+
+@keyframes animation_right {
+  0%,
+  100% {
+    opacity: 1;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(150%, -50%, 0);
+  }
+}
+
+.loading-placeholder {
+  display: inline-block;
+  min-width: 25px;
+  min-height: 9px;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 998;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    opacity: 0;
+  }
+
+  &:before {
+    background-color: rgba(0, 0, 0, 0.8);
+    left: 50%;
+    animation: animation_left 2s infinite ease-in-out;
+  }
+
+  &:not(.no_delay):before {
+    animation-delay: 1s;
+  }
+
+  &:after {
+    background-color: rgba(150, 150, 150, 0.8);
+    right: 50%;
+    animation: animation_right 2s infinite ease-in-out;
+  }
+
+  &:not(.no_delay):after {
+    animation-delay: 1s;
+  }
+}
+
+.btn .loading-placeholder {
+  min-height: 21px;
+}
+
+.form-loading {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
