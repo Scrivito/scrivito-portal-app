@@ -9,6 +9,26 @@
   --breakpoint-2xl: 87.5rem; /* 1400px — Bootstrap's `xxl` */
 }
 
+/* Use bootstrap 5 container widths */
+@utility container {
+  width: 100%;
+  @media (width >= theme(--breakpoint-sm)) {
+    max-width: 540px;
+  }
+  @media (width >= theme(--breakpoint-md)) {
+    max-width: 720px;
+  }
+  @media (width >= theme(--breakpoint-lg)) {
+    max-width: 960px;
+  }
+  @media (width >= theme(--breakpoint-xl)) {
+    max-width: 1140px;
+  }
+  @media (width >= theme(--breakpoint-2xl)) {
+    max-width: 1320px;
+  }
+}
+
 :root {
   --light-grey: #f2f3f7;
   --middle-grey: #e8e8e8;
@@ -215,5 +235,73 @@ td,
       color: var(--bs-secondary);
       border-color: var(--bs-secondary);
     }
+  }
+}
+
+/* img-zoom
+ =================================================================== */
+
+.img-zoom-container {
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.img-background {
+  border-radius: inherit;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 1s ease-in-out;
+  z-index: -1;
+}
+
+section {
+  flex: 1;
+}
+
+section:has(.img-background) {
+  position: relative;
+  z-index: 1;
+}
+
+header section {
+  overflow: visible;
+  position: relative;
+  z-index: 2;
+}
+
+.bg-primary,
+.bg-secondary,
+.bg-dark-grey,
+.bg-middle-grey,
+.bg-light-grey,
+.bg-success,
+.bg-warning,
+.bg-danger,
+.bg-info,
+.bg-white,
+.img-zoom-container {
+  > .img-background {
+    opacity: 0.2;
+    filter: blur(0px) grayscale(0.8);
+  }
+}
+
+section:hover >,
+section:focus >,
+.card:not([data-scrivito-private-widget]):hover,
+.card:not([data-scrivito-private-widget]):focus {
+  .img-zoom-container > .img-background.img-zoom,
+  .img-background.img-zoom {
+    transform: scale(1.2);
+    filter: blur(10px);
   }
 }
