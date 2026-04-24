@@ -12,7 +12,7 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
   const isResponsive = !widget.get('disableResponsiveAdaption')
   const isFlex = widget.get('layoutMode') === 'flex'
 
-  const colSizes = isFlex
+  const normalizedColSizes = isFlex
     ? columns.map(() => 1)
     : normalizeColSizes(columns as ColumnWidgetInstance[])
   const classNames = [`align-items-${alignment}`]
@@ -34,7 +34,7 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
           <Column
             key={columnWidget.id()}
             columnWidget={columnWidget}
-            colSize={colSizes[index]!} // colSizes is guaranteed to have the same length as columns
+            normalizedColSize={normalizedColSizes[index]!} // normalizedColSizes is guaranteed to have the same length as columns
             isFlex={isFlex}
             isResponsive={isResponsive}
             isStretch={alignment === 'stretch'}
@@ -47,13 +47,13 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
 
 const Column = connect(function Column({
   columnWidget,
-  colSize,
+  normalizedColSize,
   isFlex,
   isResponsive,
   isStretch,
 }: {
   columnWidget: ColumnWidgetInstance
-  colSize: number
+  normalizedColSize: number
   isFlex: boolean
   isResponsive: boolean
   isStretch: boolean
@@ -69,7 +69,9 @@ const Column = connect(function Column({
       classNames.push(isResponsive ? 'd-md-flex' : 'd-flex')
     }
   } else {
-    classNames.push(isResponsive ? `col-md-${colSize}` : `col-${colSize}`)
+    classNames.push(
+      isResponsive ? `col-md-${normalizedColSize}` : `col-${normalizedColSize}`,
+    )
   }
 
   return (
