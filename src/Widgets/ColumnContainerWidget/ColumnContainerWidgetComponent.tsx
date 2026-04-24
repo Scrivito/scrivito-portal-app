@@ -1,6 +1,7 @@
 import { provideComponent, ContentTag, connect } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnWidgetInstance } from '../ColumnWidget/ColumnWidgetClass'
+import { normalizeColSizes } from './normalizeColSizes'
 import './ColumnContainerWidget.scss'
 
 provideComponent(ColumnContainerWidget, ({ widget }) => {
@@ -11,6 +12,9 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
   const isResponsive = !widget.get('disableResponsiveAdaption')
   const isFlex = widget.get('layoutMode') === 'flex'
 
+  const normalizedColSizes = isFlex
+    ? columns.map(() => 1)
+    : normalizeColSizes(columns as ColumnWidgetInstance[])
   const classNames = [`align-items-${alignment}`]
 
   if (isFlex) {
@@ -25,11 +29,12 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
 
   return (
     <div className={classNames.join(' ')}>
-      {columns.map((columnWidget: ColumnWidgetInstance) => {
+      {columns.map((columnWidget: ColumnWidgetInstance, index: number) => {
         return (
           <Column
             key={columnWidget.id()}
             columnWidget={columnWidget}
+            normalizedColSize={normalizedColSizes[index]!} // normalizedColSizes is guaranteed to have the same length as columns
             isFlex={isFlex}
             isResponsive={isResponsive}
             isStretch={alignment === 'stretch'}
@@ -42,11 +47,13 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
 
 const Column = connect(function Column({
   columnWidget,
+  normalizedColSize,
   isFlex,
   isResponsive,
   isStretch,
 }: {
   columnWidget: ColumnWidgetInstance
+  normalizedColSize: number
   isFlex: boolean
   isResponsive: boolean
   isStretch: boolean
@@ -62,8 +69,9 @@ const Column = connect(function Column({
       classNames.push(isResponsive ? 'd-md-flex' : 'd-flex')
     }
   } else {
-    const colSize = columnWidget.get('colSize') || 1
-    classNames.push(isResponsive ? `col-md-${colSize}` : `col-${colSize}`)
+    classNames.push(
+      isResponsive ? `col-md-${normalizedColSize}` : `col-${normalizedColSize}`,
+    )
   }
 
   return (
