@@ -67,6 +67,7 @@
     "postcss": "^8.5.26",
     "precompress": "^13.0.7",
     "prettier": "^3.9.6",
+    "prettier-plugin-tailwindcss": "^0.8.1",
     "sass": "^1.78.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.67.0",
