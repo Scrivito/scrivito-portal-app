@@ -145,7 +145,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
         {getDropMessage(widget.get('multiple'))}
       </div>
       <div>
-        <div className="d-flex flex-wrap mt-2 gap-1">
+        <div className="d-flex mt-2 flex-wrap gap-1">
           {state.files.map(({ file, key }) => (
             <FileUploadPreview
               file={file}

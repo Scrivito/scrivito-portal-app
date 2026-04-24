@@ -49,14 +49,14 @@ provideComponent(Product, ({ page }) => {
                   <ContentTag
                     content={page}
                     attribute="title"
-                    className="h3 mb-0 text-primary"
+                    className="h3 text-primary mb-0"
                     tag="h3"
                   />
 
                   <ContentTag
                     content={page}
                     attribute="subtitle"
-                    className="mb-1 text-muted text-uppercase"
+                    className="text-muted text-uppercase mb-1"
                     tag="p"
                   />
 
@@ -128,7 +128,7 @@ provideComponent(Product, ({ page }) => {
           <Label tag="h3" className="h4" id="data" localizer="data" />
           <div className="row">
             <div className="col-md-6">
-              <table className="table table-hover table-small m-0">
+              <table className="table-hover table-small m-0 table">
                 <tbody>
                   {plainParameters.map(({ parameter, values }) => (
                     <tr key={`Product-${page.id()}-${parameter}`}>
@@ -231,8 +231,8 @@ const CartActionButton = connect(function CartActionButton({
   const quantity = quantityInCart(product)
   if (quantity) {
     return (
-      <div className="row mt-0 mb-1 g-1">
-        <div className="col-4 col-sm-3 col-md-3 col-xl-2">
+      <div className="row g-1 mt-0 mb-1">
+        <div className="col-sm-3 col-md-3 col-xl-2 col-4">
           <div className="input-group input-group-sm">
             <button
               aria-label="-"
@@ -243,7 +243,7 @@ const CartActionButton = connect(function CartActionButton({
               <i className="bi bi-dash-lg px-0" />
             </button>
             <input
-              className="form-control text-center no-arrows"
+              className="form-control no-arrows text-center"
               defaultValue={quantity}
               min={1}
               onChange={onChange}

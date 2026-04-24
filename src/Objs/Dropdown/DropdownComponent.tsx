@@ -5,13 +5,13 @@ provideComponent(Dropdown, () => {
   if (isEditorLoggedIn()) {
     return (
       <main id="main">
-        <div className="container d-flex h-100">
+        <div className="d-flex container h-100">
           <div className="alert alert-warning d-flex m-auto">
             <i
               className="bi bi-exclamation-circle bi-2x"
               aria-hidden="true"
             ></i>
-            <div className="my-auto mx-2">
+            <div className="mx-2 my-auto">
               This obj is only a placeholder, so that a dropdown can be rendered
               in the navigation.
             </div>
