@@ -34,7 +34,7 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
           <Column
             key={columnWidget.id()}
             columnWidget={columnWidget}
-            colSize={colSizes[index]!}
+            colSize={colSizes[index]!} // colSizes is guaranteed to have the same length as columns
             isFlex={isFlex}
             isResponsive={isResponsive}
             isStretch={alignment === 'stretch'}
