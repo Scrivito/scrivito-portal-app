@@ -19,7 +19,7 @@ provideComponent(ProductsOverview, ({ page }) => {
             <InPlaceEditingOff>
               {categories.map((category) => (
                 <div className="col" key={`ProductsOverview-${category.id()}`}>
-                  <div className="card mb-4 bg-primary">
+                  <div className="card bg-primary mb-4">
                     <LinkTag to={category}>
                       <ImageTag
                         content={category}
@@ -32,13 +32,13 @@ provideComponent(ProductsOverview, ({ page }) => {
                           content={category}
                           attribute="title"
                           tag="h3"
-                          className="h5 text-center m-0"
+                          className="h5 m-0 text-center"
                         />
                         <ContentTag
                           content={category}
                           attribute="description"
                           tag="p"
-                          className="small text-center m-0"
+                          className="small m-0 text-center"
                         />
                       </div>
                     </LinkTag>

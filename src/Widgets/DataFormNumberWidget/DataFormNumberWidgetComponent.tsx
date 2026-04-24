@@ -90,7 +90,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
           <i className="bi bi-dash-lg px-0 text-white" />
         </button>
         <input
-          className="form-control text-center no-arrows"
+          className="form-control no-arrows text-center"
           defaultValue={defaultValue}
           id={id}
           max={max}
