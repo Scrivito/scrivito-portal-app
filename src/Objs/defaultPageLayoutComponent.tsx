@@ -89,7 +89,7 @@ const SidebarLayout = connect(function SidebarLayout({
         </div>
 
         {showRightSidebar && (
-          <div className="col-lg-2 order-first order-lg-last">
+          <div className="col-lg-2 order-lg-last order-first">
             <ContentTag
               tag="aside"
               content={page}

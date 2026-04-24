@@ -84,7 +84,7 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
             isPaused ? localizePlayVideoLabel() : localizePauseVideoLabel()
           }
         >
-          <i className="bi bi-play-fill text-white bi-3x" />
+          <i className="bi bi-play-fill bi-3x text-white" />
         </button>
       </>
     )
