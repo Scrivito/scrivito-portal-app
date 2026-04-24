@@ -3,6 +3,7 @@ import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
 import type { Rollup } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import tailwindcss from '@tailwindcss/vite'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
 import sri from 'vite-plugin-sri-gen'
@@ -93,6 +94,7 @@ export default defineConfig(({ mode }) => {
       force: true,
     },
     plugins: [
+      tailwindcss(),
       react(),
       sri({ preloadDynamicChunks: false }),
       writeProductionHeadersFile(outDir),
