@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 /* Use bootstrap 5 breakpoints */
 @theme {
@@ -26,6 +27,32 @@
   }
   @media (width >= theme(--breakpoint-2xl)) {
     max-width: 1320px;
+  }
+}
+
+/* Bootstrap Icons - Sizes Add-on
+ ================================================== */
+
+.bi {
+  &.bi-1x {
+    font-size: 1em;
+    line-height: 1;
+  }
+  &.bi-2x {
+    font-size: 1.5em;
+    line-height: 1;
+  }
+  &.bi-3x {
+    font-size: 2em;
+    line-height: 1;
+  }
+  &.bi-4x {
+    font-size: 2.5em;
+    line-height: 1;
+  }
+  &.bi-5x {
+    font-size: 3em;
+    line-height: 1;
   }
 }
 
