@@ -19,7 +19,7 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
     <Navbar expand="lg" collapseOnSelect>
       <div>
         <Navbar.Toggle className="btn mb-3 w-100">
-          <span className="d-flex px-2 justify-content-between align-items-center w-100">
+          <span className="d-flex justify-content-between align-items-center w-100 px-2">
             <span>Menu</span>
             <span className="navbar-toggler-default">
               <i className="bi-list"></i>
