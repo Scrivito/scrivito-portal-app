@@ -8,3 +8,23 @@
   --breakpoint-xl: 75rem; /* 1200px */
   --breakpoint-2xl: 87.5rem; /* 1400px — Bootstrap's `xxl` */
 }
+
+/* Use bootstrap 5 container widths */
+@utility container {
+  width: 100%;
+  @media (width >= theme(--breakpoint-sm)) {
+    max-width: 540px;
+  }
+  @media (width >= theme(--breakpoint-md)) {
+    max-width: 720px;
+  }
+  @media (width >= theme(--breakpoint-lg)) {
+    max-width: 960px;
+  }
+  @media (width >= theme(--breakpoint-xl)) {
+    max-width: 1140px;
+  }
+  @media (width >= theme(--breakpoint-2xl)) {
+    max-width: 1320px;
+  }
+}
