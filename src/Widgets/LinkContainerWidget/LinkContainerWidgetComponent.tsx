@@ -2,7 +2,7 @@ import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
 import { LinkContainerWidget } from './LinkContainerWidgetClass'
 
 provideComponent(LinkContainerWidget, ({ widget }) => (
-  <WidgetTag className="mb-7 mb-sm-0">
+  <WidgetTag className="mb-sm-0 mb-7">
     <ContentTag
       tag="h5"
       className="mb-3"

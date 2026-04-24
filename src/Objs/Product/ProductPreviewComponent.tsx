@@ -28,18 +28,18 @@ export const ProductPreview = connect(function ProductPreview({
             <div className="card-body p-2">
               <ContentTag
                 attribute="title"
-                className="h6 mb-0 text-primary"
+                className="h6 text-primary mb-0"
                 content={product}
                 tag="h3"
               />
               <ContentTag
                 attribute="subtitle"
-                className="mb-1 text-muted text-uppercase text-small"
+                className="text-muted text-uppercase text-small mb-1"
                 content={product}
                 tag="p"
               />
 
-              <table className="table table-small m-0">
+              <table className="table-small m-0 table">
                 <tbody>
                   {product
                     .get('parameters')

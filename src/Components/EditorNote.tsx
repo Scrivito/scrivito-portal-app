@@ -7,7 +7,7 @@ export function EditorNote({ children }: { children: React.ReactNode }) {
   return (
     <div className="alert alert-warning d-flex m-auto">
       <i className="bi bi-exclamation-circle bi-2x" aria-hidden="true"></i>
-      <div className="my-auto mx-2">
+      <div className="mx-2 my-auto">
         <b>Editor note:</b> {children}
       </div>
     </div>

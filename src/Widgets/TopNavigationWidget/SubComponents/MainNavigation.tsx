@@ -12,7 +12,7 @@ export const MainNavigation = connect(function MainNavigation({
   return (
     <Nav className="navbar-main">
       <ChildListTag
-        className="navbar-nav me-auto mb-2 mb-md-0"
+        className="navbar-nav mb-md-0 me-auto mb-2"
         tag="div"
         parent={root}
         renderChild={(child) => (
