@@ -87,12 +87,13 @@ const NestedNavItem = connect(
 
     const key = `VerticalNavigationWidget-nested-${obj.id()}`
 
+    const spanClassNames = ['dropdown-toggle', 'nav-link']
+    if (isActive) spanClassNames.push('show')
+
     return (
       <li className={isActive ? 'active' : ''}>
         <Nav.Link as={LinkTag} eventKey={key} key={key} to={obj}>
-          <span
-            className={`dropdown-toggle nav-link${isActive ? ' show' : ''}`}
-          />
+          <span className={spanClassNames.join(' ')} />
           <ObjIconAndTitle obj={obj} />
         </Nav.Link>
 
