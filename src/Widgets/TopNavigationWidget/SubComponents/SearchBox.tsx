@@ -23,7 +23,7 @@ export const SearchBox = connect(function SearchBox({
         navigateTo(searchResultsPage, { q })
       }}
     >
-      <div className="input-group ">
+      <div className="input-group">
         <input
           className="form-control"
           type="search"

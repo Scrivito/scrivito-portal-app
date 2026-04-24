@@ -299,7 +299,7 @@ function FlexLayoutEditor({
 
         {!readOnly && currentGrow.length < 6 && (
           <button
-            className="p-0 grid-handle grid-handle-plus"
+            className="grid-handle grid-handle-plus p-0"
             title="add a column"
             disabled={readOnly}
             onClick={() => adjustGrow([...currentGrow, true])}
@@ -337,7 +337,7 @@ function GridLayoutEditor({
             colIndex < 5 &&
             !readOnly ? (
               <button
-                className="p-0 grid-handle grid-handle-plus"
+                className="grid-handle grid-handle-plus p-0"
                 title="add a column"
                 onClick={() => adjustNumberOfColumns(currentGrid.length + 1)}
               />
@@ -345,7 +345,7 @@ function GridLayoutEditor({
             <div className="grid-label">{colSize}</div>
             {currentGrid.length > 1 && !readOnly ? (
               <button
-                className="btn border-0 grid-del"
+                className="btn grid-del border-0"
                 title="delete column"
                 onClick={() => adjustNumberOfColumns(currentGrid.length - 1)}
               />
