@@ -30,7 +30,7 @@ export const SinglePageSite = connect(
               className="bi bi-exclamation-circle bi-2x"
               aria-hidden="true"
             ></i>
-            <div className="my-auto mx-2">
+            <div className="mx-2 my-auto">
               <b>Editor note:</b> This page is hidden from both visitors and
               logged-in users because the “Single page site” setting is
               currently set to “

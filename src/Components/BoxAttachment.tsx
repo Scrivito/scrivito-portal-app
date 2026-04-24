@@ -24,7 +24,7 @@ export const BoxAttachment = connect(function BoxAttachment({
         />
       </div>
       <div className="box-meta flex-row">
-        <div className="d-flex flex-column flex-grow-1 min-vw-0">
+        <div className="d-flex flex-column min-vw-0 flex-grow-1">
           <span className="box-name text-truncate">{filename}</span>
           <span className="box-size">
             {prettyBytes(contentLength, {
