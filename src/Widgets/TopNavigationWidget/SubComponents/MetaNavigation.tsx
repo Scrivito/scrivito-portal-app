@@ -32,7 +32,7 @@ export const MetaNavigation = connect(function MetaNavigation({
         ))}
       </Nav>
 
-      <Nav className="ms-auto border-left">
+      <Nav className="border-left ms-auto">
         <LanguageSwitch align="start" />
         {showCart && (
           <Nav.Item>
