@@ -31,6 +31,13 @@
   }
 }
 
+img,
+video {
+  display: inline-block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 body {
   font-family: var(--bs-body-font-family);
   font-weight: var(--bs-body-font-weight);

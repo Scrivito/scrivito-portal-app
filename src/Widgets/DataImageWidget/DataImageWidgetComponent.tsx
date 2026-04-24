@@ -51,7 +51,9 @@ const ImageComponent = connect(function ImageComponent({
 }: {
   widget: DataImageWidgetInstance
 }) {
-  const className = widget.get('roundCorners') ? 'rounded' : undefined
+  const className = widget.get('roundCorners')
+    ? 'rounded-(--bs-border-radius)'
+    : undefined
 
   const dataItemAttribute = useData().dataItemAttribute()
   if (!dataItemAttribute) return null

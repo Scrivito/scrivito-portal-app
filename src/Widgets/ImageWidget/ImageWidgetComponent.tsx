@@ -33,7 +33,11 @@ provideComponent(ImageWidget, ({ widget }) => {
             widget.get('alternativeText') ||
             alternativeTextForObj(widget.get('image'))
           }
-          className={widget.get('roundCorners') ? 'rounded' : undefined}
+          className={
+            widget.get('roundCorners')
+              ? 'rounded-(--bs-border-radius)'
+              : undefined
+          }
           attribute="image"
           content={widget}
           style={style}
