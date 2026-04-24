@@ -37,7 +37,7 @@ export class ErrorBoundary extends Component<
           />
         </div>
         <div className="container h-100">
-          <div className="row h-100 align-items-center">
+          <div className="row align-items-center h-100">
             <div className="col-sm-6">
               <img src={spaceman} alt="spaceman" />
             </div>
