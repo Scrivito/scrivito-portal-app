@@ -7,7 +7,7 @@ import './Objs/editingConfigs'
 import './Widgets'
 import './Widgets/editingConfigs'
 import { configure } from './config'
-import './assets/stylesheets/index.scss'
+import './assets/stylesheets/index.css'
 import './assets/stylesheets/scrivitoExtensions.scss'
 
 createRoot(document.createElement('div')).render(<Extensions />)
