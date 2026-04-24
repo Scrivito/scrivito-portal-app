@@ -67,6 +67,7 @@
     "jsontoxml": "^1.0.1",
     "knip": "^6.3.1",
     "local-web-server": "^5.4.0",
+    "postcss": "^8.5.10",
     "precompress": "^13.0.5",
     "prettier": "^3.8.1",
     "sass": "^1.78.0",
