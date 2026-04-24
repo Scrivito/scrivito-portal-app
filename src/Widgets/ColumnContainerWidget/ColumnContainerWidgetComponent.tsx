@@ -1,7 +1,7 @@
 import { provideComponent, ContentTag, connect } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnWidgetInstance } from '../ColumnWidget/ColumnWidgetClass'
-import { inferredColSizes } from './inferredColSizes'
+import { normalizeColSizes } from './normalizeColSizes'
 import './ColumnContainerWidget.scss'
 
 provideComponent(ColumnContainerWidget, ({ widget }) => {
@@ -14,7 +14,7 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
 
   const colSizes = isFlex
     ? columns.map(() => 1)
-    : inferredColSizes(columns as ColumnWidgetInstance[])
+    : normalizeColSizes(columns as ColumnWidgetInstance[])
   const classNames = [`align-items-${alignment}`]
 
   if (isFlex) {

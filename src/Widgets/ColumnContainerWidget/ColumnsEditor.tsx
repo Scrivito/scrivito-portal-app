@@ -14,7 +14,7 @@ import {
 import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditor.scss'
 import { useRef } from 'react'
-import { inferredColSizes } from './inferredColSizes'
+import { normalizeColSizes } from './normalizeColSizes'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
@@ -42,7 +42,7 @@ export const ColumnsEditor = connect(function ColumnsEditor({
     .map((content) => content.map((w) => w.id()).join(','))
     .join('|')
 
-  const currentGrid = inferredColSizes(
+  const currentGrid = normalizeColSizes(
     widget.get('columns') as ColumnWidgetInstance[],
   )
 
