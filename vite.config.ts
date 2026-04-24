@@ -2,6 +2,7 @@ import dns from 'dns'
 import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import tailwindcss from '@tailwindcss/vite'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
 import { productionHeaders, developmentHeaders } from './headers.config'
@@ -82,7 +83,7 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       force: true,
     },
-    plugins: [react(), writeProductionHeaders(outDir)],
+    plugins: [tailwindcss(), react(), writeProductionHeaders(outDir)],
     preview: {
       port: 8080,
       strictPort: true,
