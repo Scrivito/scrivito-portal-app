@@ -14,6 +14,7 @@ import {
 import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
 import './ColumnsEditor.scss'
 import { useRef } from 'react'
+import { normalizeColSizes } from './normalizeColSizes'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
@@ -41,7 +42,9 @@ export const ColumnsEditor = connect(function ColumnsEditor({
     .map((content) => content.map((w) => w.id()).join(','))
     .join('|')
 
-  const currentGrid = gridOfWidget(widget)
+  const currentGrid = normalizeColSizes(
+    widget.get('columns') as ColumnWidgetInstance[],
+  )
 
   return (
     <div className={`scrivito_${theme}`}>
@@ -396,12 +399,6 @@ function GridSlider({
     if (value < min || value > max) return
     adjustGrid(boundariesToGrid(boundaries.with(index, value)))
   }
-}
-
-function gridOfWidget(containerWidget: ColumnContainerWidgetInstance) {
-  return containerWidget
-    .get('columns')
-    .map((column) => (column as ColumnWidgetInstance).get('colSize') || 1)
 }
 
 function growOfWidget(containerWidget: ColumnContainerWidgetInstance) {
