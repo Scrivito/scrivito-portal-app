@@ -10,7 +10,7 @@
   "scripts": {
     "build": "vite build && rm -f dist/assets/*.js.map",
     "check": "concurrently --raw 'npm run types' 'npm run lint' 'npm run prettier' 'npm run build'",
-    "types": "tsc",
+    "types": "tsc --noEmit && tsc --noEmit --project tsconfig.node.json",
     "preview": "vite preview",
     "lint": "eslint --max-warnings 0 'src/**/*.ts' 'src/**/*.tsx' && knip",
     "lighthouse": "SCRIVITO_ORIGIN=http://localhost:8080 PRERENDER_OBJ_ID=c2a0aab78be05a4e npm run prerender && npm run prerender-precompress && for run in $(seq 6); do lhci autorun && break; done",
