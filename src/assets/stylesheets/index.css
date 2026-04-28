@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 /* Use bootstrap 5 breakpoints */
 @theme {
@@ -17,6 +18,29 @@
   @apply lg:max-w-[60rem]; /* 960px */
   @apply xl:max-w-[71.25rem]; /* 1140px */
   @apply 2xl:max-w-[82.5rem]; /* 1320px */
+}
+
+/* Bootstrap Icons - Sizes Add-on
+ ================================================== */
+
+@layer components {
+  .bi {
+    &.bi-1x {
+      @apply text-[1em] leading-none;
+    }
+    &.bi-2x {
+      @apply text-[1.5em] leading-none;
+    }
+    &.bi-3x {
+      @apply text-[2em] leading-none;
+    }
+    &.bi-4x {
+      @apply text-[2.5em] leading-none;
+    }
+    &.bi-5x {
+      @apply text-[3em] leading-none;
+    }
+  }
 }
 
 /* full height website
