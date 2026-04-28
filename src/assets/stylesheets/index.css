@@ -18,3 +18,22 @@
   @apply xl:max-w-[71.25rem]; /* 1140px */
   @apply 2xl:max-w-[82.5rem]; /* 1320px */
 }
+
+/* full height website
+ ================================================== */
+
+@layer base {
+  html,
+  body {
+    @apply h-full;
+  }
+
+  #root,
+  #app-wrapper {
+    @apply flex h-full flex-col;
+  }
+
+  main {
+    @apply flex-1;
+  }
+}

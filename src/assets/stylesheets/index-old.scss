@@ -126,20 +126,6 @@
   }
 }
 
-.skippy.visually-hidden-focusable:not(:focus):not(:focus-within) {
-  width: 100% !important;
-}
-.skippy:focus-within {
-  overflow: visible !important;
-  z-index: 10;
-  width: 100%;
-  top: 0;
-  position: absolute;
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 0 60px rgba(255, 255, 255, 0.95);
-  transition: all ease-in-out 0.3s;
-}
-
 .btn {
   --bs-btn-border-color: transparent;
   --bs-btn-hover-border-color: transparent;
@@ -549,23 +535,6 @@ strong {
 
 .max-width-350 {
   max-width: 350px;
-}
-
-/* full height website
- ================================================== */
-
-html,
-body {
-  height: 100%;
-}
-#root,
-#app-wrapper {
-  display: flex;
-  height: 100%;
-  flex-flow: column;
-}
-main {
-  flex: 1;
 }
 
 /* equal height for row-cols
