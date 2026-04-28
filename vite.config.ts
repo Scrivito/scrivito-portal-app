@@ -4,7 +4,7 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
-import { productionHeaders, developmentHeaders } from './headers.config'
+import { developmentHeaders, productionHeadersFile } from './headers.config'
 
 // Ensure, that vite prints "localhost" instead of 127.0.0.1
 // See https://vitejs.dev/config/server-options.html#server-host
@@ -82,7 +82,7 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       force: true,
     },
-    plugins: [react(), writeProductionHeaders(outDir)],
+    plugins: [react(), writeProductionHeadersFile(outDir)],
     preview: {
       port: 8080,
       strictPort: true,
@@ -143,14 +143,14 @@ function scrivitoOrigin(env: Record<string, string>) {
   return env.SCRIVITO_ORIGIN || cloudflarePagesDeployUrl || netlifyDeployUrl
 }
 
-function writeProductionHeaders(outDir: string) {
+function writeProductionHeadersFile(outDir: string) {
   return {
     name: 'write-production-headers',
     apply: 'build' as const,
     async writeBundle() {
       await fs.promises.writeFile(
         resolve(__dirname, outDir, '_headers'),
-        productionHeaders(),
+        productionHeadersFile(),
       )
     },
   }
