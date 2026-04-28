@@ -8,3 +8,13 @@
   --breakpoint-xl: 75rem; /* 1200px */
   --breakpoint-2xl: 87.5rem; /* 1400px — Bootstrap's `xxl` */
 }
+
+/* Use bootstrap 5 container widths */
+@utility container {
+  @apply w-full;
+  @apply sm:max-w-[33.75rem]; /* 540px */
+  @apply md:max-w-[45rem]; /* 720px */
+  @apply lg:max-w-[60rem]; /* 960px */
+  @apply xl:max-w-[71.25rem]; /* 1140px */
+  @apply 2xl:max-w-[82.5rem]; /* 1320px */
+}
