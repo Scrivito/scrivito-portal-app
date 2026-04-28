@@ -12,11 +12,11 @@ provideComponent(SectionWidget, ({ widget }) => {
     sectionClassNames.push(`bg-${backgroundColor}`)
   }
 
-  if (widget.get('showPadding')) sectionClassNames.push('py-5')
+  if (widget.get('showPadding')) sectionClassNames.push('py-12!')
 
-  let contentClassName = 'container'
+  let contentClassName = 'container mx-auto px-3'
   if (widget.get('containerWidth') === '95-percent') {
-    contentClassName = 'container-fluid'
+    contentClassName = 'w-full mx-auto px-3'
   }
   if (widget.get('containerWidth') === '100-percent') {
     contentClassName = ''
