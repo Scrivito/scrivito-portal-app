@@ -4,7 +4,6 @@
  ================================================== */
 
 @import 'vendor/bs5/bootstrap';
-@import 'bootstrap-icons/font/bootstrap-icons.css';
 @import 'scrivito-neoletter-form-widgets/index.css';
 @import 'scrivito-pisasales-questionnaire-builder/index.css';
 
@@ -755,32 +754,6 @@ img.img-flag {
   margin: -3px 6px 0 0;
   max-height: 15px;
   width: 17px;
-}
-
-/* Bootstrap Icons - Sizes Add-on
- ================================================== */
-
-.bi {
-  &.bi-1x {
-    font-size: 1em;
-    line-height: 1;
-  }
-  &.bi-2x {
-    font-size: 1.5em;
-    line-height: 1;
-  }
-  &.bi-3x {
-    font-size: 2em;
-    line-height: 1;
-  }
-  &.bi-4x {
-    font-size: 2.5em;
-    line-height: 1;
-  }
-  &.bi-5x {
-    font-size: 3em;
-    line-height: 1;
-  }
 }
 
 /* section / card background upgrades
