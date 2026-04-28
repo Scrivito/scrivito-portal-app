@@ -57,6 +57,20 @@ ${Object.entries(productionHeaders())
 `
 }
 
+export function parseProductionHeadersFile(
+  content: string,
+): Record<string, string> {
+  return Object.fromEntries(
+    content
+      .split('\n')
+      .filter((line) => line.startsWith('  '))
+      .map((line) => {
+        const colonIndex = line.indexOf(': ')
+        return [line.slice(2, colonIndex), line.slice(colonIndex + 2)]
+      }),
+  )
+}
+
 export function developmentHeaders(): Record<string, string> {
   return headers('development')
 }

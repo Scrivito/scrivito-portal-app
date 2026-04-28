@@ -4,7 +4,11 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
-import { developmentHeaders, productionHeadersFile } from './headers.config'
+import {
+  developmentHeaders,
+  parseProductionHeadersFile,
+  productionHeadersFile,
+} from './headers.config'
 
 // Ensure, that vite prints "localhost" instead of 127.0.0.1
 // See https://vitejs.dev/config/server-options.html#server-host
@@ -86,6 +90,7 @@ export default defineConfig(({ mode }) => {
     preview: {
       port: 8080,
       strictPort: true,
+      headers: readProductionHeadersFile(outDir),
     },
     resolve: {
       alias: {
@@ -154,6 +159,13 @@ function writeProductionHeadersFile(outDir: string) {
       )
     },
   }
+}
+
+function readProductionHeadersFile(outDir: string) {
+  const headersPath = resolve(__dirname, outDir, '_headers')
+  if (!fs.existsSync(headersPath)) return {}
+  const headersContent = fs.readFileSync(headersPath, 'utf-8')
+  return parseProductionHeadersFile(headersContent)
 }
 
 export function getJrHoneybadgerEnvironment(
