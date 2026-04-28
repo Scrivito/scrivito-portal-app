@@ -36,8 +36,8 @@ export function App({
 
 const SkipToContent = connect(function SkipToContent() {
   return (
-    <div className="skippy visually-hidden-focusable overflow-hidden">
-      <div className="container my-4">
+    <div className="sr-only focus-within:not-sr-only focus-within:absolute focus-within:top-0 focus-within:z-10 focus-within:w-full focus-within:bg-white/85 focus-within:shadow-[0_0_60px_rgba(255,255,255,0.95)] focus-within:transition-all focus-within:duration-300 focus-within:ease-in-out">
+      <div className="container mx-auto my-6 px-3">
         <a href="#main" className="btn btn-primary">
           {localizeSkipToContent()}
         </a>
