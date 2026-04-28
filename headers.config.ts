@@ -1,6 +1,12 @@
 import cspBuilder from 'content-security-policy-builder'
 
-function headers(mode: 'development' | 'production') {
+function headers({
+  scriptSrc,
+  frameAncestors,
+}: {
+  scriptSrc: string[]
+  frameAncestors: string[]
+}) {
   return {
     'Content-Security-Policy': cspBuilder({
       directives: {
@@ -8,35 +14,10 @@ function headers(mode: 'development' | 'production') {
         'default-src': ["'self'", 'data:', 'https:', 'wss:'],
         'img-src': ["'self'", 'data:', 'https:', 'blob:'],
         'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
-        'script-src': [
-          "'self'",
-          'https://*.etracker.com',
-          'https://*.etracker.de',
-          'https://api.scrivito.com',
-          'https://assets.scrivito.com',
-        ].concat(
-          // The package `@vitejs/plugin-react-swc` include an inline script into index.html (see [1]).
-          // [1] https://github.com/vitejs/vite-plugin-react/blob/7517103485081b26004e79f169efdd2d12a60946/packages/common/refresh-utils.ts#L7-L12
-          // In case it breaks please look into the JS console and search for "CSP".
-          // There you can find the current "sha256-x" value, which is to be copied over here.
-          mode === 'development'
-            ? ["'sha256-Z2/iFzh9VMlVkEOar1f/oSHWwQk3ve1qk/C2WdsC4Xk='"]
-            : [],
-        ),
+        'script-src': scriptSrc,
         'object-src': "'none'",
         'block-all-mixed-content': true,
-        'frame-ancestors':
-          mode === 'development'
-            ? ['*']
-            : [
-                "'self'",
-                'https://*.scrivito.com',
-                'https://*.etracker.com',
-
-                // TODO: Remove later on:
-                'http://localhost:8090',
-                'https://*.scrivito-ui.pages.dev',
-              ],
+        'frame-ancestors': frameAncestors,
       },
     }),
     'X-Frame-Options': 'sameorigin',
@@ -72,9 +53,40 @@ export function parseProductionHeadersFile(
 }
 
 export function developmentHeaders(): Record<string, string> {
-  return headers('development')
+  return headers({
+    scriptSrc: [
+      "'self'",
+      'https://*.etracker.com',
+      'https://*.etracker.de',
+      'https://api.scrivito.com',
+      'https://assets.scrivito.com',
+      // The package `@vitejs/plugin-react-swc` include an inline script into index.html (see [1]).
+      // [1] https://github.com/vitejs/vite-plugin-react/blob/7517103485081b26004e79f169efdd2d12a60946/packages/common/refresh-utils.ts#L7-L12
+      // In case it breaks please look into the JS console and search for "CSP".
+      // There you can find the current "sha256-x" value, which is to be copied over here.
+      "'sha256-Z2/iFzh9VMlVkEOar1f/oSHWwQk3ve1qk/C2WdsC4Xk='",
+    ],
+    frameAncestors: ['*'],
+  })
 }
 
 function productionHeaders(): Record<string, string> {
-  return headers('production')
+  return headers({
+    scriptSrc: [
+      "'self'",
+      'https://*.etracker.com',
+      'https://*.etracker.de',
+      'https://api.scrivito.com',
+      'https://assets.scrivito.com',
+    ],
+    frameAncestors: [
+      "'self'",
+      'https://*.scrivito.com',
+      'https://*.etracker.com',
+
+      // TODO: Remove later on:
+      'http://localhost:8090',
+      'https://*.scrivito-ui.pages.dev',
+    ],
+  })
 }
