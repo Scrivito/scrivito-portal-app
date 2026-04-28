@@ -28,8 +28,8 @@ export async function prerenderObjs(
   await asyncForEachSequential(objsGroups, async (objsGroup) =>
     asyncForEach(objsGroup, async (obj) => {
       try {
-        const prerenderedFiles = await prerenderObj(obj, baseHtmlTemplate)
-        await asyncForEachSequential(prerenderedFiles, storeFile)
+        const prerenderedFile = await prerenderObj(obj, baseHtmlTemplate)
+        await storeFile(prerenderedFile)
       } catch (e) {
         failedCount += 1
         const pageId = obj.id()

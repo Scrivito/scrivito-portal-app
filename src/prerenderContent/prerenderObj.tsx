@@ -8,7 +8,7 @@ import { Obj, renderPage, urlFor } from 'scrivito'
 export async function prerenderObj(
   obj: Obj,
   baseHtmlTemplate: string,
-): Promise<{ filename: string; content: string }[]> {
+): Promise<{ filename: string; content: string }> {
   const {
     result: { objUrl, ...data },
     preloadDump,
@@ -30,13 +30,11 @@ export async function prerenderObj(
 
   const preloadDumpScript = generatePreloadDumpScript(preloadDump)
 
-  return [
-    {
-      filename: filenameFromUrl(objUrl),
-      content: await generateHtml(baseHtmlTemplate, {
-        ...data,
-        preloadDumpScript,
-      }),
-    },
-  ]
+  return {
+    filename: filenameFromUrl(objUrl),
+    content: await generateHtml(baseHtmlTemplate, {
+      ...data,
+      preloadDumpScript,
+    }),
+  }
 }
