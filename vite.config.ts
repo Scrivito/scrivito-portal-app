@@ -4,6 +4,7 @@ import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
+import { StrictCsp } from 'strict-csp'
 import {
   developmentHeaders,
   parseProductionHeadersFile,
@@ -149,13 +150,31 @@ function scrivitoOrigin(env: Record<string, string>) {
 }
 
 function writeProductionHeadersFile(outDir: string) {
+  let inlineScriptHashes: string[] = []
+
   return {
     name: 'write-production-headers',
     apply: 'build' as const,
-    async writeBundle() {
+    enforce: 'post' as const,
+
+    buildStart() {
+      inlineScriptHashes = []
+    },
+
+    transformIndexHtml: {
+      order: 'post' as const,
+      handler(html: string) {
+        const strictCsp = new StrictCsp(html)
+        strictCsp.refactorSourcedScriptsForHashBasedCsp()
+        inlineScriptHashes.push(...strictCsp.hashAllInlineScripts())
+        return strictCsp.serializeDom()
+      },
+    },
+
+    async closeBundle() {
       await fs.promises.writeFile(
         resolve(__dirname, outDir, '_headers'),
-        productionHeadersFile(),
+        productionHeadersFile(inlineScriptHashes),
       )
     },
   }

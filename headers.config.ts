@@ -30,9 +30,9 @@ function headers({
 // Netlify or Cloudflare Pages headers format. For details:
 // * https://www.netlify.com/docs/headers-and-basic-auth/
 // * https://developers.cloudflare.com/pages/platform/headers/
-export function productionHeadersFile(): string {
+export function productionHeadersFile(inlineScriptHashes: string[]): string {
   return `/*
-${Object.entries(productionHeaders())
+${Object.entries(productionHeaders(inlineScriptHashes))
   .map(([key, value]) => `  ${key}: ${value}`)
   .join('\n')}
 `
@@ -70,15 +70,11 @@ export function developmentHeaders(): Record<string, string> {
   })
 }
 
-function productionHeaders(): Record<string, string> {
+function productionHeaders(
+  inlineScriptHashes: string[],
+): Record<string, string> {
   return headers({
-    scriptSrc: [
-      "'self'",
-      'https://*.etracker.com',
-      'https://*.etracker.de',
-      'https://api.scrivito.com',
-      'https://assets.scrivito.com',
-    ],
+    scriptSrc: ["'strict-dynamic'", ...inlineScriptHashes],
     frameAncestors: [
       "'self'",
       'https://*.scrivito.com',
