@@ -13,27 +13,30 @@ import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 import { CSSProperties } from 'react'
 
 provideComponent(ImageWidget, ({ widget }) => {
-  const classNames = ['image-widget']
-  const alignment = alignmentClassName(widget.get('alignment'))
-  if (alignment) classNames.push(alignment)
-
   let style: CSSProperties | undefined
   const height = widget.get('height')
   if (height) style = { ...style, height }
   const width = widget.get('width')
   if (width) style = { ...style, width }
-  const objectFit = widget.get('objectFit')
-  if (height && objectFit === 'cover') style = { ...style, objectFit }
+  if (height) {
+    const objectFit = widget.get('objectFit') === 'cover' ? 'cover' : 'contain'
+    style = { ...style, objectFit }
+  }
+
+  // `inline-block` undoes Tailwind Preflight's `img { display: block }`
+  // so the parent's `text-center` / `text-end` aligns the image.
+  const classNames = ['inline-block']
+  if (widget.get('roundCorners')) classNames.push('rounded-jr')
 
   return (
-    <WidgetTag className={classNames.join(' ')}>
+    <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
       <LinkWrapper link={widget.get('link')}>
         <ImageTag
           alt={
             widget.get('alternativeText') ||
             alternativeTextForObj(widget.get('image'))
           }
-          className={widget.get('roundCorners') ? 'rounded' : undefined}
+          className={classNames.join(' ')}
           attribute="image"
           content={widget}
           style={style}
