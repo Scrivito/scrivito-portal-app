@@ -20,12 +20,8 @@ import { DataBinaryImage } from '../../Components/DataBinaryImage'
 import { CSSProperties } from 'react'
 
 provideComponent(DataImageWidget, ({ widget }) => {
-  const classNames = ['image-widget']
-  const alignment = alignmentClassName(widget.get('alignment'))
-  if (alignment) classNames.push(alignment)
-
   return (
-    <WidgetTag className={classNames.join(' ')}>
+    <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
       <LinkWrapper link={widget.get('link')}>
         <ImageComponent widget={widget} />
       </LinkWrapper>
@@ -51,7 +47,10 @@ const ImageComponent = connect(function ImageComponent({
 }: {
   widget: DataImageWidgetInstance
 }) {
-  const className = widget.get('roundCorners') ? 'rounded' : undefined
+  // `inline-block` undoes Tailwind Preflight's `img { display: block }`
+  // so the parent's `text-center` / `text-end` aligns the image.
+  const classNames = ['inline-block']
+  if (widget.get('roundCorners')) classNames.push('rounded-jr')
 
   const dataItemAttribute = useData().dataItemAttribute()
   if (!dataItemAttribute) return null
@@ -61,8 +60,10 @@ const ImageComponent = connect(function ImageComponent({
   if (height) style = { ...style, height }
   const width = widget.get('width')
   if (width) style = { ...style, width }
-  const objectFit = widget.get('objectFit')
-  if (height && objectFit === 'cover') style = { ...style, objectFit }
+  if (height) {
+    const objectFit = widget.get('objectFit') === 'cover' ? 'cover' : 'contain'
+    style = { ...style, objectFit }
+  }
 
   const objValue = dataItemAttribute.dataItem().obj()
   if (objValue) {
@@ -71,7 +72,7 @@ const ImageComponent = connect(function ImageComponent({
         <ImageTag
           content={objValue}
           attribute={dataItemAttribute.attributeName()}
-          className={className}
+          className={classNames.join(' ')}
           style={style}
           alt=""
         />
@@ -85,7 +86,12 @@ const ImageComponent = connect(function ImageComponent({
     if (!content) return null
 
     return (
-      <ImageTag content={content} className={className} style={style} alt="" />
+      <ImageTag
+        content={content}
+        className={classNames.join(' ')}
+        style={style}
+        alt=""
+      />
     )
   }
 
@@ -93,7 +99,7 @@ const ImageComponent = connect(function ImageComponent({
     return (
       <DataBinaryImage
         dataBinary={attributeValue}
-        className={className}
+        className={classNames.join(' ')}
         style={style}
       />
     )
@@ -102,5 +108,12 @@ const ImageComponent = connect(function ImageComponent({
   if (typeof attributeValue !== 'string') return null
   if (!attributeValue) return null
 
-  return <img src={attributeValue} className={className} style={style} alt="" />
+  return (
+    <img
+      src={attributeValue}
+      className={classNames.join(' ')}
+      style={style}
+      alt=""
+    />
+  )
 })
