@@ -40,10 +40,10 @@ export const DesignAdjustments = connect(
 
     const siteBorderRadius = root.get('siteBorderRadius')
     if (siteBorderRadius) {
-      styles.push(`--radius-jr: ${siteBorderRadius}`)
+      styles.push(`--radius-portal: ${siteBorderRadius}`)
     } else {
       const roundedCorners = root.get('siteRoundedCorners')
-      if (!roundedCorners) styles.push('--radius-jr: 0')
+      if (!roundedCorners) styles.push('--radius-portal: 0')
     }
 
     const fontBodyWeight = root.get('siteFontBodyWeight') || '500'
