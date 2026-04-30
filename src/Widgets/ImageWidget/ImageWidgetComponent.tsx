@@ -26,7 +26,7 @@ provideComponent(ImageWidget, ({ widget }) => {
   // `inline-block` undoes Tailwind Preflight's `img { display: block }`
   // so the parent's `text-center` / `text-end` aligns the image.
   const classNames = ['inline-block']
-  if (widget.get('roundCorners')) classNames.push('rounded-jr')
+  if (widget.get('roundCorners')) classNames.push('rounded-portal')
 
   return (
     <WidgetTag className={alignmentClassName(widget.get('alignment'))}>
