@@ -1,13 +1,15 @@
 @import 'tailwindcss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
-/* Use bootstrap 5 breakpoints */
 @theme {
+  /* Use bootstrap 5 breakpoints */
   --breakpoint-sm: 36rem; /* 576px */
   --breakpoint-md: 48rem; /* 768px */
   --breakpoint-lg: 62rem; /* 992px */
   --breakpoint-xl: 75rem; /* 1200px */
   --breakpoint-2xl: 87.5rem; /* 1400px — Bootstrap's `xxl` */
+
+  --radius-portal: 8.5px;
 }
 
 /* Use bootstrap 5 container widths */
