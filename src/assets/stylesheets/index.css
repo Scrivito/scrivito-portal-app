@@ -14,7 +14,8 @@
 
 /* Use bootstrap 5 container widths */
 @utility container {
-  @apply w-full;
+  @apply mx-auto w-full px-3;
+
   @apply sm:max-w-[33.75rem]; /* 540px */
   @apply md:max-w-[45rem]; /* 720px */
   @apply lg:max-w-[60rem]; /* 960px */
