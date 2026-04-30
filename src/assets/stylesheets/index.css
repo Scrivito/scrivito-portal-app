@@ -9,7 +9,7 @@
   --breakpoint-xl: 75rem; /* 1200px */
   --breakpoint-2xl: 87.5rem; /* 1400px — Bootstrap's `xxl` */
 
-  --radius-jr: 8.5px;
+  --radius-portal: 8.5px;
 }
 
 /* Use bootstrap 5 container widths */
