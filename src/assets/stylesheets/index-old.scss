@@ -101,9 +101,9 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 
-  --radius-jr: 8.5px;
+  --radius-portal: 8.5px;
   --bs-border-radius: var(
-    --radius-jr
+    --radius-portal
   ); // backward compatibility for bs5 components
 
   --jr-box-shadow: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
@@ -148,7 +148,7 @@
   cursor: pointer;
   user-select: none;
   border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
-  border-radius: var(--radius-jr);
+  border-radius: var(--radius-portal);
   background-color: var(--bs-btn-bg);
   transition: all 0.2s ease-in-out;
 }
@@ -296,14 +296,14 @@ fieldset:disabled .btn {
 
 .input-group {
   .btn {
-    border-radius: var(--radius-jr);
+    border-radius: var(--radius-portal);
     &:last-child {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
   }
   .form-control {
-    border-radius: var(--radius-jr);
+    border-radius: var(--radius-portal);
     background: var(--light-grey);
     border-right: 0;
 
@@ -317,7 +317,7 @@ fieldset:disabled .btn {
     }
   }
   &:has(.btn + .form-control + .btn) {
-    border-radius: var(--radius-jr);
+    border-radius: var(--radius-portal);
     &:focus-within {
       box-shadow: 0 0 1rem 0 rgba(140, 152, 164, 0.25);
     }
@@ -519,7 +519,7 @@ a.btn {
 
 mark {
   padding: 0 3px;
-  border-radius: var(--radius-jr);
+  border-radius: var(--radius-portal);
   background: var(--bs-secondary);
   color: var(--bs-secondary-text-color);
   display: inline-block;
@@ -778,7 +778,7 @@ header section {
   --bs-card-title-spacer-y: 0.5rem;
   --bs-card-border-width: 0;
   --bs-card-border-color: rgba(108, 117, 140, 0.15);
-  --bs-card-border-radius: var(--radius-jr);
+  --bs-card-border-radius: var(--radius-portal);
   --bs-card-box-shadow: var(--jr-box-shadow);
   --bs-card-inner-border-radius: 0.4375rem;
   --bs-card-cap-bg: transparent;
@@ -895,17 +895,17 @@ section:focus >,
 .row [class*='col']:first-child .card-extended:after {
   right: 0;
   left: -2600px;
-  border-radius: var(--radius-jr);
+  border-radius: var(--radius-portal);
 }
 .row [class*='col']:last-child .card-extended:after {
   left: 0;
   right: -2600px;
-  border-radius: var(--radius-jr);
+  border-radius: var(--radius-portal);
 }
 .row [class*='col']:only-child .card-extended:after {
   left: 0;
   right: 0;
-  border-radius: var(--radius-jr);
+  border-radius: var(--radius-portal);
 }
 
 .card-extended {
@@ -1052,7 +1052,7 @@ section:focus >,
 .editor-img {
   max-width: 100%;
   object-fit: cover;
-  border-radius: var(--radius-jr);
+  border-radius: var(--radius-portal);
   box-shadow: var(--jr-box-shadow);
 }
 
@@ -1103,7 +1103,7 @@ section:focus >,
   background-clip: padding-box;
   border: 0.0625rem solid rgba(33, 50, 91, 0.1);
   appearance: none;
-  border-radius: var(--radius-jr);
+  border-radius: var(--radius-portal);
   transition:
     border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -1252,7 +1252,7 @@ section.bg-primary {
   margin: 0 5px -10px 0;
   padding: 5px 15px;
   background: #fff;
-  border-radius: 0 0 var(--radius-jr) var(--radius-jr);
+  border-radius: 0 0 var(--radius-portal) var(--radius-portal);
   box-shadow: var(--jr-box-shadow);
   align-self: stretch;
   display: flex;
@@ -1330,7 +1330,7 @@ section.bg-primary {
   }
   .profile-img {
     object-fit: cover;
-    border-radius: var(--radius-jr);
+    border-radius: var(--radius-portal);
     max-width: 30px;
     min-width: 30px;
     height: 30px;
