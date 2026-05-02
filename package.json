@@ -58,7 +58,7 @@
     "bootstrap-icons": "^1.13.1",
     "concurrently": "^9.2.1",
     "content-security-policy-builder": "^2.3.0",
-    "eslint": "^9.39.2",
+    "eslint": "^10.2.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
