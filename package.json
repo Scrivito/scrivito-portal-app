@@ -8,7 +8,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "vite build && rm -f dist/assets/*.js.map",
+    "build": "SCRIVITO_INSTANCE_ID=d0a154d76edf2a7bd991fc658e700a1d vite build && vite-node --options.deps.external='/scrivito/' src/prerenderContent.ts && rm -rf dist && mv dist-ssr dist",
     "check": "concurrently --raw 'npm run types' 'npm run lint' 'npm run prettier' 'npm run build'",
     "types": "tsc",
     "preview": "vite preview",
