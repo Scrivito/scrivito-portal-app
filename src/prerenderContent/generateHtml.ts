@@ -19,9 +19,9 @@ export async function generateHtml(
 }
 
 const replacements: Record<(typeof keys)[number], RegExp> = {
-  bodyAttributes: /data-bodyAttributes/,
+  bodyAttributes: /data-body-attributes/,
   bodyContent: /\n *<!-- bodyContent start -->[^!]*<!-- bodyContent end -->\s*/,
-  htmlAttributes: /data-htmlAttributes/,
+  htmlAttributes: /data-html-attributes/,
   link: /<!-- link -->/,
   meta: /<!-- meta -->/,
   preloadDumpScript: /<!-- preloadDumpScript -->/,

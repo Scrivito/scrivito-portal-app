@@ -7,16 +7,13 @@ import './Objs'
 import './Widgets'
 import { App } from './App'
 
-declare global {
-  interface Window {
-    preloadDump?: unknown
-  }
-}
-
 export function renderOrHydrateApp(container: HTMLElement) {
-  if (typeof window.preloadDump === 'string') {
-    return preload(window.preloadDump).then(({ dumpLoaded }) => {
-      delete window.preloadDump
+  const preloadElement = document.getElementById('preload-dump')
+  const preloadDump = preloadElement?.textContent
+
+  if (preloadDump) {
+    return preload(preloadDump).then(({ dumpLoaded }) => {
+      preloadElement?.remove()
 
       if (dumpLoaded) return hydrateApp(container)
 
