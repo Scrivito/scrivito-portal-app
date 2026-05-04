@@ -1,6 +1,12 @@
 import cspBuilder from 'content-security-policy-builder'
 
-function headers(environment: string) {
+function headers({
+  scriptSrc,
+  frameAncestors,
+}: {
+  scriptSrc: string[]
+  frameAncestors: string[]
+}) {
   return {
     'Content-Security-Policy': cspBuilder({
       directives: {
@@ -8,35 +14,10 @@ function headers(environment: string) {
         'default-src': ["'self'", 'data:', 'https:', 'wss:'],
         'img-src': ["'self'", 'data:', 'https:', 'blob:'],
         'style-src': ["'self'", 'data:', 'https:', 'wss:', "'unsafe-inline'"],
-        'script-src': [
-          "'self'",
-          'https://*.etracker.com',
-          'https://*.etracker.de',
-          'https://api.scrivito.com',
-          'https://assets.scrivito.com',
-        ].concat(
-          // The package `@vitejs/plugin-react-swc` include an inline script into index.html (see [1]).
-          // [1] https://github.com/vitejs/vite-plugin-react/blob/7517103485081b26004e79f169efdd2d12a60946/packages/common/refresh-utils.ts#L7-L12
-          // In case it breaks please look into the JS console and search for "CSP".
-          // There you can find the current "sha256-x" value, which is to be copied over here.
-          environment === 'development'
-            ? ["'sha256-Z2/iFzh9VMlVkEOar1f/oSHWwQk3ve1qk/C2WdsC4Xk='"]
-            : [],
-        ),
+        'script-src': scriptSrc,
         'object-src': "'none'",
         'block-all-mixed-content': true,
-        'frame-ancestors':
-          environment === 'development'
-            ? ['*']
-            : [
-                "'self'",
-                'https://*.scrivito.com',
-                'https://*.etracker.com',
-
-                // TODO: Remove later on:
-                'http://localhost:8090',
-                'https://*.scrivito-ui.pages.dev',
-              ],
+        'frame-ancestors': frameAncestors,
       },
     }),
     'X-Frame-Options': 'sameorigin',
@@ -49,14 +30,59 @@ function headers(environment: string) {
 // Netlify or Cloudflare Pages headers format. For details:
 // * https://www.netlify.com/docs/headers-and-basic-auth/
 // * https://developers.cloudflare.com/pages/platform/headers/
-export function productionHeaders(): string {
+export function productionHeadersFile(inlineScriptHashes: string[]): string {
   return `/*
-${Object.entries(headers('production'))
+${Object.entries(productionHeaders(inlineScriptHashes))
   .map(([key, value]) => `  ${key}: ${value}`)
   .join('\n')}
 `
 }
 
-export function developmentHeaders() {
-  return headers('development')
+export function parseProductionHeadersFile(
+  content: string,
+): Record<string, string> {
+  return Object.fromEntries(
+    content
+      .split('\n')
+      .filter((line) => line.startsWith('  '))
+      .map((line) => {
+        const colonIndex = line.indexOf(': ')
+        return [line.slice(2, colonIndex), line.slice(colonIndex + 2)]
+      }),
+  )
+}
+
+export function developmentHeaders(): Record<string, string> {
+  return headers({
+    scriptSrc: [
+      "'self'",
+      'https://*.etracker.com',
+      'https://*.etracker.de',
+      'https://api.scrivito.com',
+      'https://assets.scrivito.com',
+      // The package `@vitejs/plugin-react-swc` include an inline script into index.html (see [1]).
+      // [1] https://github.com/vitejs/vite-plugin-react/blob/7517103485081b26004e79f169efdd2d12a60946/packages/common/refresh-utils.ts#L7-L12
+      // In case it breaks please look into the JS console and search for "CSP".
+      // There you can find the current "sha256-x" value, which is to be copied over here.
+      "'sha256-Z2/iFzh9VMlVkEOar1f/oSHWwQk3ve1qk/C2WdsC4Xk='",
+    ],
+    frameAncestors: ['*'],
+  })
+}
+
+function productionHeaders(
+  inlineScriptHashes: string[],
+): Record<string, string> {
+  return headers({
+    scriptSrc: ["'strict-dynamic'", ...inlineScriptHashes],
+    frameAncestors: [
+      "'self'",
+      'https://*.scrivito.com',
+      'https://*.etracker.com',
+
+      // TODO: Remove later on:
+      'http://localhost:8090',
+      'https://*.scrivito-ui.pages.dev',
+    ],
+  })
 }
