@@ -10,6 +10,9 @@
   --breakpoint-2xl: 1400px;
 
   --radius-portal: 8.5px;
+
+  --color-portal-primary: #274486;
+  --color-portal-secondary: #39a9eb;
 }
 
 /* Use bootstrap 5 container widths */
