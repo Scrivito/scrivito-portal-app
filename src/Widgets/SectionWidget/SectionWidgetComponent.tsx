@@ -9,7 +9,13 @@ provideComponent(SectionWidget, ({ widget }) => {
 
   const backgroundColor = widget.get('backgroundColor')
   if (backgroundColor && backgroundColor !== 'transparent') {
-    sectionClassNames.push(`bg-${backgroundColor}`)
+    if (backgroundColor === 'primary') {
+      sectionClassNames.push('bg-portal-primary')
+    } else if (backgroundColor === 'secondary') {
+      sectionClassNames.push('bg-portal-secondary')
+    } else {
+      sectionClassNames.push(`bg-${backgroundColor}`)
+    }
   }
 
   if (widget.get('showPadding')) sectionClassNames.push('py-12!')
