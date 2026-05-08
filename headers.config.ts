@@ -54,18 +54,7 @@ export function parseProductionHeadersFile(
 
 export function developmentHeaders(): Record<string, string> {
   return headers({
-    scriptSrc: [
-      "'self'",
-      'https://*.etracker.com',
-      'https://*.etracker.de',
-      'https://api.scrivito.com',
-      'https://assets.scrivito.com',
-      // The package `@vitejs/plugin-react-swc` include an inline script into index.html (see [1]).
-      // [1] https://github.com/vitejs/vite-plugin-react/blob/7517103485081b26004e79f169efdd2d12a60946/packages/common/refresh-utils.ts#L7-L12
-      // In case it breaks please look into the JS console and search for "CSP".
-      // There you can find the current "sha256-x" value, which is to be copied over here.
-      "'sha256-Z2/iFzh9VMlVkEOar1f/oSHWwQk3ve1qk/C2WdsC4Xk='",
-    ],
+    scriptSrc: ["'strict-dynamic'", "'nonce-dev-csp-nonce'"],
     frameAncestors: ['*'],
   })
 }
