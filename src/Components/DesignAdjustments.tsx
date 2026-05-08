@@ -30,10 +30,10 @@ export const DesignAdjustments = connect(
     }
 
     const primary = root.get('siteColorPrimary')
-    if (primary) styles.push(`--bs-primary: ${primary}`)
+    if (primary) styles.push(`--color-portal-primary: ${primary}`)
 
     const secondary = root.get('siteColorSecondary')
-    if (secondary) styles.push(`--bs-secondary: ${secondary}`)
+    if (secondary) styles.push(`--color-portal-secondary: ${secondary}`)
 
     const dropShadow = root.get('siteDropShadow')
     if (!dropShadow) styles.push('--jr-box-shadow: none')
