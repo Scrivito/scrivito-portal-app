@@ -27,7 +27,13 @@ provideComponent(CardWidget, ({ widget }) => {
   cardClassNames.push(widget.get('margin') ?? 'mb-4')
 
   const backgroundColor = widget.get('backgroundColor') || 'white'
-  cardClassNames.push(`bg-${backgroundColor}`)
+  if (backgroundColor === 'primary') {
+    cardClassNames.push('bg-portal-primary')
+  } else if (backgroundColor === 'secondary') {
+    cardClassNames.push('bg-portal-secondary')
+  } else {
+    cardClassNames.push(`bg-${backgroundColor}`)
+  }
 
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
 
