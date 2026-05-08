@@ -15,6 +15,29 @@
   --color-portal-secondary: #39a9eb;
 }
 
+:root {
+  --dark-text-color: #454545;
+  --light-text-color: #fff;
+}
+
+@utility bg-portal-primary {
+  background-color: var(--color-portal-primary);
+  color: best-contrast(
+    var(--color-portal-primary),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+}
+
+@utility bg-portal-secondary {
+  background-color: var(--color-portal-secondary);
+  color: best-contrast(
+    var(--color-portal-secondary),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+}
+
 /* Use bootstrap 5 container widths */
 @utility container {
   @apply mx-auto w-full px-3;
