@@ -17,7 +17,9 @@
 
 :root {
   --dark-text-color: #454545;
+  --dark-headline-text-color: #3b3b3b;
   --light-text-color: #fff;
+  --light-headline-text-color: #fff;
 }
 
 @utility bg-portal-primary {
@@ -27,6 +29,11 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
+  --headline-text-color: best-contrast(
+    var(--color-portal-primary),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
 }
 
 @utility bg-portal-secondary {
@@ -35,6 +42,11 @@
     var(--color-portal-secondary),
     var(--dark-text-color),
     var(--light-text-color)
+  );
+  --headline-text-color: best-contrast(
+    var(--color-portal-secondary),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
   );
 }
 
@@ -88,5 +100,28 @@
 
   main {
     @apply flex-1;
+  }
+
+  :where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6,
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4,
+    .display-5,
+    .display-6
+  ) {
+    color: var(--headline-text-color, inherit);
   }
 }
