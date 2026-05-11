@@ -1,10 +1,11 @@
 import dns from 'dns'
 import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
+import type { Rollup } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
-import { StrictCsp } from 'strict-csp'
+import sri from 'vite-plugin-sri-gen'
 import {
   developmentHeaders,
   parseProductionHeadersFile,
@@ -88,7 +89,7 @@ export default defineConfig(({ mode, command }) => {
     optimizeDeps: {
       force: true,
     },
-    plugins: [react(), writeProductionHeadersFile(outDir)],
+    plugins: [react(), sri(), writeProductionHeadersFile(outDir)],
     preview: {
       port: 8080,
       strictPort: true,
@@ -151,32 +152,33 @@ function scrivitoOrigin(env: Record<string, string>) {
 }
 
 function writeProductionHeadersFile(outDir: string) {
-  let inlineScriptHashes: string[] = []
-
   return {
     name: 'write-production-headers',
     apply: 'build' as const,
     enforce: 'post' as const,
 
-    buildStart() {
-      inlineScriptHashes = []
-    },
-
-    transformIndexHtml: {
+    generateBundle: {
       order: 'post' as const,
-      handler(html: string) {
-        const strictCsp = new StrictCsp(html)
-        strictCsp.refactorSourcedScriptsForHashBasedCsp()
-        inlineScriptHashes.push(...strictCsp.hashAllInlineScripts())
-        return strictCsp.serializeDom()
-      },
-    },
+      async handler(_options: unknown, bundle: Rollup.OutputBundle) {
+        const scriptHashes = Object.values(bundle)
+          .filter(
+            (item): item is Rollup.OutputAsset & { source: string } =>
+              item.type === 'asset' &&
+              item.fileName?.endsWith('.html') &&
+              typeof item.source === 'string',
+          )
+          .flatMap(({ source }) =>
+            Array.from(source.matchAll(/<script[^<>]+\bintegrity="([^"]+)"/g)),
+          )
+          .map(([, hash]) => hash)
+          .filter((hash): hash is string => typeof hash === 'string')
+          .map((hash) => `'${hash}'`)
 
-    async closeBundle() {
-      await fs.promises.writeFile(
-        resolve(__dirname, outDir, '_headers'),
-        productionHeadersFile(inlineScriptHashes),
-      )
+        await fs.promises.writeFile(
+          resolve(__dirname, outDir, '_headers'),
+          productionHeadersFile(scriptHashes),
+        )
+      },
     },
   }
 }

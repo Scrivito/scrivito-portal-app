@@ -30,9 +30,9 @@ function headers({
 // Netlify or Cloudflare Pages headers format. For details:
 // * https://www.netlify.com/docs/headers-and-basic-auth/
 // * https://developers.cloudflare.com/pages/platform/headers/
-export function productionHeadersFile(inlineScriptHashes: string[]): string {
+export function productionHeadersFile(scriptHashes: string[]): string {
   return `/*
-${Object.entries(productionHeaders(inlineScriptHashes))
+${Object.entries(productionHeaders(scriptHashes))
   .map(([key, value]) => `  ${key}: ${value}`)
   .join('\n')}
 `
@@ -59,11 +59,9 @@ export function developmentHeaders(): Record<string, string> {
   })
 }
 
-function productionHeaders(
-  inlineScriptHashes: string[],
-): Record<string, string> {
+function productionHeaders(scriptHashes: string[]): Record<string, string> {
   return headers({
-    scriptSrc: ["'strict-dynamic'", ...inlineScriptHashes],
+    scriptSrc: ["'strict-dynamic'", ...scriptHashes],
     frameAncestors: [
       "'self'",
       'https://*.scrivito.com',
