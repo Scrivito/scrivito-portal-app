@@ -28,9 +28,9 @@ provideComponent(CardWidget, ({ widget }) => {
 
   const backgroundColor = widget.get('backgroundColor') || 'white'
   if (backgroundColor === 'primary') {
-    cardClassNames.push('bg-portal-primary')
+    cardClassNames.push('bg-portal-primary', 'text-on-portal-primary')
   } else if (backgroundColor === 'secondary') {
-    cardClassNames.push('bg-portal-secondary')
+    cardClassNames.push('bg-portal-secondary', 'text-on-portal-secondary')
   } else {
     cardClassNames.push(`bg-${backgroundColor}`)
   }
