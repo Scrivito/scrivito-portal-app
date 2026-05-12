@@ -12,8 +12,6 @@
   --radius-portal: 8.5px;
 
   --color-portal-primary: #274486;
-  --color-portal-secondary: #39a9eb;
-
   --color-on-portal-primary: best-contrast(
     var(--color-portal-primary),
     var(--dark-text-color),
@@ -24,6 +22,8 @@
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
   );
+
+  --color-portal-secondary: #39a9eb;
   --color-on-portal-secondary: best-contrast(
     var(--color-portal-secondary),
     var(--dark-text-color),
