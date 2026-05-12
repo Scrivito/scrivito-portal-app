@@ -10,9 +10,9 @@ provideComponent(SectionWidget, ({ widget }) => {
   const backgroundColor = widget.get('backgroundColor')
   if (backgroundColor && backgroundColor !== 'transparent') {
     if (backgroundColor === 'primary') {
-      sectionClassNames.push('bg-portal-primary')
+      sectionClassNames.push('bg-portal-primary', 'text-on-portal-primary')
     } else if (backgroundColor === 'secondary') {
-      sectionClassNames.push('bg-portal-secondary')
+      sectionClassNames.push('bg-portal-secondary', 'text-on-portal-secondary')
     } else {
       sectionClassNames.push(`bg-${backgroundColor}`)
     }
