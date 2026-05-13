@@ -18,7 +18,7 @@ import {
 dns.setDefaultResultOrder('verbatim')
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode, command }) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const outDir = 'dist'
 
@@ -86,7 +86,7 @@ export default defineConfig(({ mode, command }) => {
         env.PISA_SALES_API_URL,
       ),
     },
-    html: { cspNonce: command === 'serve' ? DEV_CSP_NONCE : undefined },
+    html: { cspNonce: mode === 'development' ? DEV_CSP_NONCE : undefined },
     optimizeDeps: {
       force: true,
     },
