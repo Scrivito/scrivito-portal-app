@@ -86,7 +86,9 @@ export default defineConfig(({ mode }) => {
         env.PISA_SALES_API_URL,
       ),
     },
-    html: { cspNonce: mode === 'development' ? DEV_CSP_NONCE : undefined },
+    html: {
+      ...(mode === 'development' && { cspNonce: DEV_CSP_NONCE }),
+    },
     optimizeDeps: {
       force: true,
     },
