@@ -12,6 +12,13 @@ executors:
       - image: cimg/node:24.14-browsers
 
 jobs:
+  audit-signatures:
+    executor: node
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm audit signatures --min-release-age=0
+
   execute-npm:
     parameters:
       executor:
@@ -37,6 +44,7 @@ workflows:
           npm-run-command: build
           setup:
             - run: node --version
+      - audit-signatures
       - execute-npm:
           name: npm run types
           npm-run-command: types
