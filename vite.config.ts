@@ -92,7 +92,11 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       force: true,
     },
-    plugins: [react(), sri(), writeProductionHeadersFile(outDir)],
+    plugins: [
+      react(),
+      sri({ preloadDynamicChunks: false }),
+      writeProductionHeadersFile(outDir),
+    ],
     preview: {
       port: 8080,
       strictPort: true,
