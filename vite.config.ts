@@ -7,6 +7,7 @@ import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
 import sri from 'vite-plugin-sri-gen'
 import {
+  DEV_CSP_NONCE,
   developmentHeaders,
   parseProductionHeadersFile,
   productionHeadersFile,
@@ -85,7 +86,7 @@ export default defineConfig(({ mode, command }) => {
         env.PISA_SALES_API_URL,
       ),
     },
-    html: { cspNonce: command === 'serve' ? 'dev-csp-nonce' : undefined },
+    html: { cspNonce: command === 'serve' ? DEV_CSP_NONCE : undefined },
     optimizeDeps: {
       force: true,
     },

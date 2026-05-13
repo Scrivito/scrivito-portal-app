@@ -1,5 +1,7 @@
 import cspBuilder from 'content-security-policy-builder'
 
+export const DEV_CSP_NONCE = 'dev-csp-nonce'
+
 function headers({
   scriptSrc,
   frameAncestors,
@@ -54,7 +56,7 @@ export function parseProductionHeadersFile(
 
 export function developmentHeaders(): Record<string, string> {
   return headers({
-    scriptSrc: ["'strict-dynamic'", "'nonce-dev-csp-nonce'"],
+    scriptSrc: ["'strict-dynamic'", `'nonce-${DEV_CSP_NONCE}'`],
     frameAncestors: ['*'],
   })
 }
