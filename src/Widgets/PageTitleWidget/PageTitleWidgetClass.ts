@@ -12,6 +12,7 @@ export const PageTitleWidget = provideWidgetClass('PageTitleWidget', {
           'light-grey',
           'middle-grey',
           'dark-grey',
+          'transparent',
           'success',
           'info',
           'warning',
