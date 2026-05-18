@@ -27,27 +27,7 @@ provideComponent(CardWidget, ({ widget }) => {
   cardClassNames.push(widget.get('margin') ?? 'mb-4')
 
   const backgroundColor = widget.get('backgroundColor') || 'white'
-  if (backgroundColor === 'primary') {
-    cardClassNames.push('bg-portal-primary', 'text-on-portal-primary')
-  } else if (backgroundColor === 'secondary') {
-    cardClassNames.push('bg-portal-secondary', 'text-on-portal-secondary')
-  } else if (backgroundColor === 'white') {
-    cardClassNames.push('bg-portal-white', 'text-on-portal-white')
-  } else if (backgroundColor === 'light-grey') {
-    cardClassNames.push('bg-portal-light-grey', 'text-on-portal-light-grey')
-  } else if (backgroundColor === 'middle-grey') {
-    cardClassNames.push('bg-portal-middle-grey', 'text-on-portal-middle-grey')
-  } else if (backgroundColor === 'dark-grey') {
-    cardClassNames.push('bg-portal-dark-grey', 'text-on-portal-dark-grey')
-  } else if (backgroundColor === 'success') {
-    cardClassNames.push('bg-portal-success', 'text-on-portal-success')
-  } else if (backgroundColor === 'info') {
-    cardClassNames.push('bg-portal-info', 'text-on-portal-info')
-  } else if (backgroundColor === 'warning') {
-    cardClassNames.push('bg-portal-warning', 'text-on-portal-warning')
-  } else if (backgroundColor === 'danger') {
-    cardClassNames.push('bg-portal-danger', 'text-on-portal-danger')
-  }
+  cardClassNames.push(backgroundClassName(backgroundColor))
 
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
 
@@ -93,6 +73,35 @@ provideComponent(CardWidget, ({ widget }) => {
     </WidgetTag>
   )
 })
+
+function backgroundClassName(backgroundColor: string): string {
+  switch (backgroundColor) {
+    case 'primary':
+      return 'bg-portal-primary text-on-portal-primary'
+    case 'secondary':
+      return 'bg-portal-secondary text-on-portal-secondary'
+    case 'white':
+      return 'bg-portal-white text-on-portal-white'
+    case 'light-grey':
+      return 'bg-portal-light-grey text-on-portal-light-grey'
+    case 'middle-grey':
+      return 'bg-portal-middle-grey text-on-portal-middle-grey'
+    case 'dark-grey':
+      return 'bg-portal-dark-grey text-on-portal-dark-grey'
+    case 'success':
+      return 'bg-portal-success text-on-portal-success'
+    case 'info':
+      return 'bg-portal-info text-on-portal-info'
+    case 'warning':
+      return 'bg-portal-warning text-on-portal-warning'
+    case 'danger':
+      return 'bg-portal-danger text-on-portal-danger'
+    case 'transparent':
+      return ''
+    default:
+      throw new Error(`Unknown backgroundColor: ${backgroundColor}`)
+  }
+}
 
 const LinkOrNotTag = connect(
   ({
