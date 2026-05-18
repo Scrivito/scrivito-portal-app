@@ -8,7 +8,11 @@
     "src/Objs/**/*{Component,EditingConfig,LayoutComponent,ObjClass}.{ts,tsx}",
     "src/Widgets/**/*{Component,EditingConfig,WidgetClass}.{ts,tsx}",
   ],
-  "ignore": ["src/honeybadgerStub.ts", "src/assets/stylesheets/vendor/**"],
+  "ignore": [
+    "src/honeybadgerStub.ts",
+    "src/assets/stylesheets/vendor/**",
+    "vendor/**",
+  ],
   "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
