@@ -34,6 +34,54 @@
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
   );
+
+  --color-portal-white: #fff;
+  --color-on-portal-white: best-contrast(
+    var(--color-portal-white),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --color-on-portal-white-heading: best-contrast(
+    var(--color-portal-white),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
+
+  --color-portal-light-grey: #f2f3f7;
+  --color-on-portal-light-grey: best-contrast(
+    var(--color-portal-light-grey),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --color-on-portal-light-grey-heading: best-contrast(
+    var(--color-portal-light-grey),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
+
+  --color-portal-middle-grey: #e8e8e8;
+  --color-on-portal-middle-grey: best-contrast(
+    var(--color-portal-middle-grey),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --color-on-portal-middle-grey-heading: best-contrast(
+    var(--color-portal-middle-grey),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
+
+  --color-portal-dark-grey: #2f2f2f;
+  --color-on-portal-dark-grey: best-contrast(
+    var(--color-portal-dark-grey),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --color-on-portal-dark-grey-heading: best-contrast(
+    var(--color-portal-dark-grey),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
 }
 
 :root {
@@ -106,6 +154,22 @@
 
   :where(.text-on-portal-secondary) {
     --headline-text-color: var(--color-on-portal-secondary-heading);
+  }
+
+  :where(.text-on-portal-white) {
+    --headline-text-color: var(--color-on-portal-white-heading);
+  }
+
+  :where(.text-on-portal-light-grey) {
+    --headline-text-color: var(--color-on-portal-light-grey-heading);
+  }
+
+  :where(.text-on-portal-middle-grey) {
+    --headline-text-color: var(--color-on-portal-middle-grey-heading);
+  }
+
+  :where(.text-on-portal-dark-grey) {
+    --headline-text-color: var(--color-on-portal-dark-grey-heading);
   }
 
   .display-1,
