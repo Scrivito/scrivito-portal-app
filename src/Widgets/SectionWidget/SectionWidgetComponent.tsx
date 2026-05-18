@@ -23,8 +23,14 @@ provideComponent(SectionWidget, ({ widget }) => {
     )
   } else if (backgroundColor === 'dark-grey') {
     sectionClassNames.push('bg-portal-dark-grey', 'text-on-portal-dark-grey')
-  } else if (backgroundColor && backgroundColor !== 'transparent') {
-    sectionClassNames.push(`bg-${backgroundColor}`)
+  } else if (backgroundColor === 'success') {
+    sectionClassNames.push('bg-portal-success', 'text-on-portal-success')
+  } else if (backgroundColor === 'info') {
+    sectionClassNames.push('bg-portal-info', 'text-on-portal-info')
+  } else if (backgroundColor === 'warning') {
+    sectionClassNames.push('bg-portal-warning', 'text-on-portal-warning')
+  } else if (backgroundColor === 'danger') {
+    sectionClassNames.push('bg-portal-danger', 'text-on-portal-danger')
   }
 
   if (widget.get('showPadding')) sectionClassNames.push('py-12!')
