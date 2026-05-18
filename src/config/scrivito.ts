@@ -9,7 +9,7 @@ export function configureScrivito(options?: { priority?: 'background' }) {
 
   configure({
     activateDataIntegration: true,
-    adoptUi: true,
+    adoptUi: 'https://patryk-create-site-from-temp.scrivito-ui.pages.dev',
     autoConvertAttributes: true,
     baseUrlForSite,
     contentTagsForEmptyAttributes: false,
