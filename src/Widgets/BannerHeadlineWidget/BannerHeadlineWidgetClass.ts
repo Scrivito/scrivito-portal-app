@@ -13,6 +13,7 @@ export const BannerHeadlineWidget = provideWidgetClass('BannerHeadlineWidget', {
           'light-grey',
           'middle-grey',
           'dark-grey',
+          'transparent',
           'success',
           'info',
           'warning',
