@@ -10,6 +10,7 @@ provideEditingConfig(PageTitleWidget, {
       title: 'Background color',
       description: 'Default: Primary color',
       values: [
+        { value: 'transparent', title: 'Transparent' },
         { value: 'white', title: 'White' },
         { value: 'primary', title: 'Primary color' },
         { value: 'secondary', title: 'Secondary color' },
