@@ -82,6 +82,54 @@
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
   );
+
+  --color-portal-success: #21704b;
+  --color-on-portal-success: best-contrast(
+    var(--color-portal-success),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --color-on-portal-success-heading: best-contrast(
+    var(--color-portal-success),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
+
+  --color-portal-info: #39a9eb;
+  --color-on-portal-info: best-contrast(
+    var(--color-portal-info),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --color-on-portal-info-heading: best-contrast(
+    var(--color-portal-info),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
+
+  --color-portal-warning: #f9bf29;
+  --color-on-portal-warning: best-contrast(
+    var(--color-portal-warning),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --color-on-portal-warning-heading: best-contrast(
+    var(--color-portal-warning),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
+
+  --color-portal-danger: #9b1d1d;
+  --color-on-portal-danger: best-contrast(
+    var(--color-portal-danger),
+    var(--dark-text-color),
+    var(--light-text-color)
+  );
+  --color-on-portal-danger-heading: best-contrast(
+    var(--color-portal-danger),
+    var(--dark-headline-text-color),
+    var(--light-headline-text-color)
+  );
 }
 
 :root {
@@ -170,6 +218,22 @@
 
   :where(.text-on-portal-dark-grey) {
     --headline-text-color: var(--color-on-portal-dark-grey-heading);
+  }
+
+  :where(.text-on-portal-success) {
+    --headline-text-color: var(--color-on-portal-success-heading);
+  }
+
+  :where(.text-on-portal-info) {
+    --headline-text-color: var(--color-on-portal-info-heading);
+  }
+
+  :where(.text-on-portal-warning) {
+    --headline-text-color: var(--color-on-portal-warning-heading);
+  }
+
+  :where(.text-on-portal-danger) {
+    --headline-text-color: var(--color-on-portal-danger-heading);
   }
 
   .display-1,
