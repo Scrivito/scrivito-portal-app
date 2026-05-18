@@ -7,31 +7,8 @@ provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
-  const backgroundColor = widget.get('backgroundColor')
-  if (backgroundColor === 'primary') {
-    sectionClassNames.push('bg-portal-primary', 'text-on-portal-primary')
-  } else if (backgroundColor === 'secondary') {
-    sectionClassNames.push('bg-portal-secondary', 'text-on-portal-secondary')
-  } else if (backgroundColor === 'white') {
-    sectionClassNames.push('bg-portal-white', 'text-on-portal-white')
-  } else if (backgroundColor === 'light-grey') {
-    sectionClassNames.push('bg-portal-light-grey', 'text-on-portal-light-grey')
-  } else if (backgroundColor === 'middle-grey') {
-    sectionClassNames.push(
-      'bg-portal-middle-grey',
-      'text-on-portal-middle-grey',
-    )
-  } else if (backgroundColor === 'dark-grey') {
-    sectionClassNames.push('bg-portal-dark-grey', 'text-on-portal-dark-grey')
-  } else if (backgroundColor === 'success') {
-    sectionClassNames.push('bg-portal-success', 'text-on-portal-success')
-  } else if (backgroundColor === 'info') {
-    sectionClassNames.push('bg-portal-info', 'text-on-portal-info')
-  } else if (backgroundColor === 'warning') {
-    sectionClassNames.push('bg-portal-warning', 'text-on-portal-warning')
-  } else if (backgroundColor === 'danger') {
-    sectionClassNames.push('bg-portal-danger', 'text-on-portal-danger')
-  }
+  const backgroundColor = widget.get('backgroundColor') || 'transparent'
+  sectionClassNames.push(backgroundClassName(backgroundColor))
 
   if (widget.get('showPadding')) sectionClassNames.push('py-12!')
 
@@ -66,3 +43,32 @@ provideComponent(SectionWidget, ({ widget }) => {
     </WidgetTag>
   )
 })
+
+function backgroundClassName(backgroundColor: string): string {
+  switch (backgroundColor) {
+    case 'primary':
+      return 'bg-portal-primary text-on-portal-primary'
+    case 'secondary':
+      return 'bg-portal-secondary text-on-portal-secondary'
+    case 'white':
+      return 'bg-portal-white text-on-portal-white'
+    case 'light-grey':
+      return 'bg-portal-light-grey text-on-portal-light-grey'
+    case 'middle-grey':
+      return 'bg-portal-middle-grey text-on-portal-middle-grey'
+    case 'dark-grey':
+      return 'bg-portal-dark-grey text-on-portal-dark-grey'
+    case 'success':
+      return 'bg-portal-success text-on-portal-success'
+    case 'info':
+      return 'bg-portal-info text-on-portal-info'
+    case 'warning':
+      return 'bg-portal-warning text-on-portal-warning'
+    case 'danger':
+      return 'bg-portal-danger text-on-portal-danger'
+    case 'transparent':
+      return ''
+    default:
+      throw new Error(`Unknown backgroundColor: ${backgroundColor}`)
+  }
+}
