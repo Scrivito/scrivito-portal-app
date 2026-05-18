@@ -1,6 +1,5 @@
 {
   "entry": [
-    "src/main.tsx",
     "src/scrivitoExtensions.tsx",
     "functions/auth/*.ts",
 
@@ -9,12 +8,7 @@
     "src/Objs/**/*{Component,EditingConfig,LayoutComponent,ObjClass}.{ts,tsx}",
     "src/Widgets/**/*{Component,EditingConfig,WidgetClass}.{ts,tsx}",
   ],
-  "ignore": [
-    "src/honeybadgerStub.ts",
-    "public/scrivito/**",
-    "src/assets/stylesheets/vendor/**",
-    "vendor/**",
-  ],
+  "ignore": ["src/honeybadgerStub.ts", "src/assets/stylesheets/vendor/**"],
   "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
