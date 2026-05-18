@@ -1,10 +1,17 @@
 import dns from 'dns'
 import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
+import type { Rollup } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
-import { productionHeaders, developmentHeaders } from './headers.config'
+import sri from 'vite-plugin-sri-gen'
+import {
+  DEV_CSP_NONCE,
+  developmentHeaders,
+  parseProductionHeadersFile,
+  productionHeadersFile,
+} from './headers.config'
 
 // Ensure, that vite prints "localhost" instead of 127.0.0.1
 // See https://vitejs.dev/config/server-options.html#server-host
@@ -79,13 +86,21 @@ export default defineConfig(({ mode }) => {
         env.PISA_SALES_API_URL,
       ),
     },
+    html: {
+      ...(mode === 'development' && { cspNonce: DEV_CSP_NONCE }),
+    },
     optimizeDeps: {
       force: true,
     },
-    plugins: [react(), writeProductionHeaders(outDir)],
+    plugins: [
+      react(),
+      sri({ preloadDynamicChunks: false }),
+      writeProductionHeadersFile(outDir),
+    ],
     preview: {
       port: 8080,
       strictPort: true,
+      headers: readProductionHeadersFile(outDir),
     },
     resolve: {
       alias: {
@@ -143,17 +158,43 @@ function scrivitoOrigin(env: Record<string, string>) {
   return env.SCRIVITO_ORIGIN || cloudflarePagesDeployUrl || netlifyDeployUrl
 }
 
-function writeProductionHeaders(outDir: string) {
+function writeProductionHeadersFile(outDir: string) {
   return {
     name: 'write-production-headers',
     apply: 'build' as const,
-    async writeBundle() {
-      await fs.promises.writeFile(
-        resolve(__dirname, outDir, '_headers'),
-        productionHeaders(),
-      )
+    enforce: 'post' as const,
+
+    generateBundle: {
+      order: 'post' as const,
+      async handler(_options: unknown, bundle: Rollup.OutputBundle) {
+        const scriptHashes = Object.values(bundle)
+          .filter(
+            (item): item is Rollup.OutputAsset & { source: string } =>
+              item.type === 'asset' &&
+              item.fileName?.endsWith('.html') &&
+              typeof item.source === 'string',
+          )
+          .flatMap(({ source }) =>
+            Array.from(source.matchAll(/<script[^<>]+\bintegrity="([^"]+)"/g)),
+          )
+          .map(([, hash]) => hash)
+          .filter((hash): hash is string => typeof hash === 'string')
+          .map((hash) => `'${hash}'`)
+
+        await fs.promises.writeFile(
+          resolve(__dirname, outDir, '_headers'),
+          productionHeadersFile(scriptHashes),
+        )
+      },
     },
   }
+}
+
+function readProductionHeadersFile(outDir: string) {
+  const headersPath = resolve(__dirname, outDir, '_headers')
+  if (!fs.existsSync(headersPath)) return {}
+  const headersContent = fs.readFileSync(headersPath, 'utf-8')
+  return parseProductionHeadersFile(headersContent)
 }
 
 export function getJrHoneybadgerEnvironment(
