@@ -39,8 +39,14 @@ provideComponent(CardWidget, ({ widget }) => {
     cardClassNames.push('bg-portal-middle-grey', 'text-on-portal-middle-grey')
   } else if (backgroundColor === 'dark-grey') {
     cardClassNames.push('bg-portal-dark-grey', 'text-on-portal-dark-grey')
-  } else {
-    cardClassNames.push(`bg-${backgroundColor}`)
+  } else if (backgroundColor === 'success') {
+    cardClassNames.push('bg-portal-success', 'text-on-portal-success')
+  } else if (backgroundColor === 'info') {
+    cardClassNames.push('bg-portal-info', 'text-on-portal-info')
+  } else if (backgroundColor === 'warning') {
+    cardClassNames.push('bg-portal-warning', 'text-on-portal-warning')
+  } else if (backgroundColor === 'danger') {
+    cardClassNames.push('bg-portal-danger', 'text-on-portal-danger')
   }
 
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
