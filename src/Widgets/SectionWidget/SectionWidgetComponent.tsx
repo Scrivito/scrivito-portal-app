@@ -8,14 +8,23 @@ provideComponent(SectionWidget, ({ widget }) => {
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   const backgroundColor = widget.get('backgroundColor')
-  if (backgroundColor && backgroundColor !== 'transparent') {
-    if (backgroundColor === 'primary') {
-      sectionClassNames.push('bg-portal-primary', 'text-on-portal-primary')
-    } else if (backgroundColor === 'secondary') {
-      sectionClassNames.push('bg-portal-secondary', 'text-on-portal-secondary')
-    } else {
-      sectionClassNames.push(`bg-${backgroundColor}`)
-    }
+  if (backgroundColor === 'primary') {
+    sectionClassNames.push('bg-portal-primary', 'text-on-portal-primary')
+  } else if (backgroundColor === 'secondary') {
+    sectionClassNames.push('bg-portal-secondary', 'text-on-portal-secondary')
+  } else if (backgroundColor === 'white') {
+    sectionClassNames.push('bg-portal-white', 'text-on-portal-white')
+  } else if (backgroundColor === 'light-grey') {
+    sectionClassNames.push('bg-portal-light-grey', 'text-on-portal-light-grey')
+  } else if (backgroundColor === 'middle-grey') {
+    sectionClassNames.push(
+      'bg-portal-middle-grey',
+      'text-on-portal-middle-grey',
+    )
+  } else if (backgroundColor === 'dark-grey') {
+    sectionClassNames.push('bg-portal-dark-grey', 'text-on-portal-dark-grey')
+  } else if (backgroundColor && backgroundColor !== 'transparent') {
+    sectionClassNames.push(`bg-${backgroundColor}`)
   }
 
   if (widget.get('showPadding')) sectionClassNames.push('py-12!')
