@@ -93,12 +93,12 @@
 }
 
 .gle-preview.clickable:hover > [class*='grid-col-'] {
-  box-shadow: 0 0 0 1px rgba(#426698, 0.5) inset;
-  background: rgba(#426698, 0.3);
+  box-shadow: 0 0 0 1px rgba(66, 102, 152, 0.5) inset;
+  background: rgba(66, 102, 152, 0.3);
 }
 .gle-preview.active > [class*='grid-col-'] {
-  box-shadow: 0 0 0 1px rgba(#426698, 1) inset;
-  background: rgba(#426698, 0.6);
+  box-shadow: 0 0 0 1px rgb(66, 102, 152) inset;
+  background: rgba(66, 102, 152, 0.6);
 }
 
 /* -- grid layout editor - editor -- */
@@ -325,7 +325,7 @@
   text-shadow: 0 1px 2px #fff;
 }
 
-// -- small screen adaptions -- //
+/* -- small screen adaptions -- */
 
 .gle {
   container-type: inline-size;
@@ -400,7 +400,7 @@
     font-size: 15px;
   }
 
-  // -- grid-handle adaptions -- //
+  /* -- grid-handle adaptions -- */
 
   .gle .grid-columns .grid-slider {
     --slider-offset: -3px;
@@ -418,7 +418,7 @@
   }
 }
 
-// -- dark mode -- //
+/* -- dark mode -- */
 
 .scrivito_dark {
   .gle-preview {
@@ -474,9 +474,9 @@
   }
 }
 
-// --------------------------------------------------------- //
-// gle flex edition
-// --------------------------------------------------------- //
+/* --------------------------------------------------------- */
+/* gle flex edition                                          */
+/* --------------------------------------------------------- */
 
 .gle.flex-layout {
   background-image: linear-gradient(
@@ -540,7 +540,7 @@
   }
 }
 
-// -- dark mode -- //
+/* -- dark mode -- */
 
 .scrivito_dark {
   .gle.flex-layout .grid-col,
@@ -549,7 +549,7 @@
   }
 }
 
-// -- small screen adaptions -- //
+/* -- small screen adaptions -- */
 
 @container (max-inline-size: 400px) {
   .gle.flex-layout .grid-columns .grid-handle.grid-handle-plus {
