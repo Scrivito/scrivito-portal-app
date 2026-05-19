@@ -12,7 +12,7 @@ import {
   ColumnWidgetInstance,
 } from '../ColumnWidget/ColumnWidgetClass'
 import { ColumnContainerWidgetInstance } from './ColumnContainerWidgetClass'
-import './ColumnsEditor.scss'
+import './ColumnsEditor.css'
 import { useRef } from 'react'
 import { normalizeColSizes } from './normalizeColSizes'
 
@@ -278,7 +278,7 @@ function FlexLayoutEditor({
           >
             {!readOnly && currentGrow.length > 1 && (
               <button
-                className="btn grid-del"
+                className="grid-del"
                 title="delete column"
                 disabled={readOnly}
                 onClick={() =>
@@ -287,7 +287,7 @@ function FlexLayoutEditor({
               />
             )}
             <button
-              className="btn grid-button"
+              className="grid-button"
               title={flexGrow ? 'shrink column' : 'grow column'}
               disabled={readOnly}
               onClick={() =>
@@ -345,7 +345,7 @@ function GridLayoutEditor({
             <div className="grid-label">{colSize}</div>
             {currentGrid.length > 1 && !readOnly ? (
               <button
-                className="btn grid-del border-0"
+                className="grid-del"
                 title="delete column"
                 onClick={() => adjustNumberOfColumns(currentGrid.length - 1)}
               />
