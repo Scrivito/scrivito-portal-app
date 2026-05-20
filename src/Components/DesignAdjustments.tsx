@@ -36,7 +36,7 @@ export const DesignAdjustments = connect(
     if (secondary) styles.push(`--color-portal-secondary: ${secondary}`)
 
     const dropShadow = root.get('siteDropShadow')
-    if (!dropShadow) styles.push('--jr-box-shadow: none')
+    if (!dropShadow) styles.push('--shadow-portal: none')
 
     const siteBorderRadius = root.get('siteBorderRadius')
     if (siteBorderRadius) {
