@@ -13,8 +13,6 @@
 
   --radius-portal: 8.5px;
 
-  --shadow-portal: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
-
   --color-portal-primary: #274486;
   --color-on-portal-primary: best-contrast(
     var(--color-portal-primary),
@@ -141,6 +139,8 @@
   --dark-headline-text-color: #3b3b3b;
   --light-text-color: #fff;
   --light-headline-text-color: #fff;
+
+  --shadow-portal: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
 
   --font-portal-body: 'Manrope', sans-serif;
   --font-weight-portal-body: 500;
