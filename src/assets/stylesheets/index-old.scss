@@ -106,7 +106,7 @@
     --radius-portal
   ); // backward compatibility for bs5 components
 
-  --jr-box-shadow: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
+  --shadow-portal: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
   --jr-headline-font-family: 'Firava';
   --jr-headline-font-weight: 500;
 
@@ -779,11 +779,11 @@ header section {
   --bs-card-border-width: 0;
   --bs-card-border-color: rgba(108, 117, 140, 0.15);
   --bs-card-border-radius: var(--radius-portal);
-  --bs-card-box-shadow: var(--jr-box-shadow);
+  --bs-card-box-shadow: var(--shadow-portal);
   --bs-card-inner-border-radius: 0.4375rem;
   --bs-card-cap-bg: transparent;
   --bs-card-bg: transparent;
-  box-shadow: var(--jr-box-shadow);
+  box-shadow: var(--shadow-portal);
 }
 .card,
 .carousel-item {
@@ -1053,7 +1053,7 @@ section:focus >,
   max-width: 100%;
   object-fit: cover;
   border-radius: var(--radius-portal);
-  box-shadow: var(--jr-box-shadow);
+  box-shadow: var(--shadow-portal);
 }
 
 //-- headline with background --//
@@ -1253,7 +1253,7 @@ section.bg-primary {
   padding: 5px 15px;
   background: #fff;
   border-radius: 0 0 var(--radius-portal) var(--radius-portal);
-  box-shadow: var(--jr-box-shadow);
+  box-shadow: var(--shadow-portal);
   align-self: stretch;
   display: flex;
 
@@ -1561,7 +1561,7 @@ header .navbar.navbar-expand-lg {
   line-height: 1;
   color: var(--bs-navbar-color);
   background: #fff;
-  box-shadow: var(--jr-box-shadow);
+  box-shadow: var(--shadow-portal);
 }
 .navbar-toggler .navbar-toggler-toggled {
   display: none;
