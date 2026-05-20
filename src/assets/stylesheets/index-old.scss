@@ -566,10 +566,6 @@ img.img-flag {
 /* section / card background upgrades
  ================================================== */
 
-section:has(.img-background) {
-  position: relative;
-  z-index: 1;
-}
 header section {
   overflow: visible;
   position: relative;
@@ -596,64 +592,6 @@ header section {
   &.bg-transparent {
     box-shadow: none;
     color: inherit;
-  }
-}
-.img-zoom-container {
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.img-background {
-  border-radius: inherit;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  object-position: center;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transition: all 1s ease-in-out;
-  z-index: -1;
-}
-
-.bg-primary,
-.bg-secondary,
-.bg-dark-grey,
-.bg-middle-grey,
-.bg-light-grey,
-.bg-success,
-.bg-warning,
-.bg-danger,
-.bg-info,
-.bg-white,
-.img-zoom-container {
-  > .img-background {
-    opacity: 0.2;
-    filter: blur(0px) grayscale(0.8);
-  }
-}
-
-section:hover >,
-section:focus >,
-.card:not([data-scrivito-private-widget]):hover,
-.card:not([data-scrivito-private-widget]):focus {
-  .img-zoom-container > .img-background.img-zoom,
-  .img-background.img-zoom {
-    transform: scale(1.2);
-    filter: blur(10px);
-  }
-}
-
-section:hover >,
-section:focus >,
-.card:hover,
-.card:focus {
-  .img-background:before {
-    display: block;
   }
 }
 
