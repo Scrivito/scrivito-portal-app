@@ -152,6 +152,24 @@
   @apply 2xl:max-w-[1320px];
 }
 
+/* Card
+ ================================================== */
+
+@layer components {
+  .card {
+    @apply rounded-portal relative z-[1] flex min-w-0 flex-col overflow-hidden break-words;
+    box-shadow: var(--shadow-portal);
+  }
+
+  .card-body {
+    @apply relative z-[1] flex-auto p-8;
+  }
+
+  .card-footer {
+    @apply relative z-[1] px-8 pb-4;
+  }
+}
+
 /* Bootstrap Icons - Sizes Add-on
  ================================================== */
 
