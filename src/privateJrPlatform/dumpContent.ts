@@ -5,10 +5,18 @@ import { loadEnv } from 'vite'
 
 type ObjData = {
   _id: string
+  _content_id?: string
   _path?: string
   _site_id?: string
   _widget_pool?: Record<string, WidgetData>
   pisa_url?: unknown
+}
+
+type ManifestEntry = {
+  id: string
+  siteId?: string
+  contentId?: string
+  path?: string
 }
 type WidgetData = Record<string, unknown>
 type SearchData = { continuation?: string; objs: ObjData[] }
@@ -63,7 +71,7 @@ function fileStats() {
 
 async function dumpContent() {
   let continuation: string | undefined
-  const objIds = []
+  const entries: ManifestEntry[] = []
 
   do {
     const data = (await scrivitoClient.put('workspaces/published/objs/search', {
@@ -87,19 +95,27 @@ async function dumpContent() {
     for (const objData of data.objs) {
       const processedObjData = ignorePerInstanceData(objData)
       await dumpObjAndBinaries(processedObjData)
-      objIds.push(processedObjData._id)
+      entries.push(toManifestEntry(processedObjData))
     }
 
     continuation = data.continuation
   } while (continuation)
 
-  dumpManifest(objIds)
+  dumpManifest(entries)
 }
 
-function dumpManifest(objIds: string[]) {
+function toManifestEntry(objData: ObjData): ManifestEntry {
+  const entry: ManifestEntry = { id: objData._id }
+  if (objData._site_id) entry.siteId = objData._site_id
+  if (objData._content_id) entry.contentId = objData._content_id
+  if (objData._path) entry.path = objData._path
+  return entry
+}
+
+function dumpManifest(objs: ManifestEntry[]) {
   fs.writeFileSync(
     `${DUMP_PATH}/index.json`,
-    JSON.stringify({ objIds }, null, 2),
+    JSON.stringify({ objs }, null, 2),
   )
 }
 
