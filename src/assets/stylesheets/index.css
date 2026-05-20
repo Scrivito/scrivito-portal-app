@@ -170,6 +170,53 @@
   }
 }
 
+/* Image / Video background
+ ================================================== */
+
+@layer components {
+  section:has(.img-background) {
+    @apply relative z-[1];
+  }
+
+  .img-zoom-container {
+    @apply absolute inset-0 overflow-hidden;
+  }
+
+  .img-background {
+    @apply absolute top-0 left-0 -z-[1] h-full w-full object-cover object-center;
+    border-radius: inherit;
+    transition: all 1s ease-in-out;
+  }
+
+  :is(
+      .bg-portal-primary,
+      .bg-portal-secondary,
+      .bg-portal-white,
+      .bg-portal-light-grey,
+      .bg-portal-middle-grey,
+      .bg-portal-dark-grey,
+      .bg-portal-success,
+      .bg-portal-info,
+      .bg-portal-warning,
+      .bg-portal-danger,
+      .img-zoom-container
+    )
+    > .img-background {
+    opacity: 0.2;
+    filter: blur(0px) grayscale(0.8);
+  }
+
+  section:hover > .img-background.img-zoom,
+  section:focus > .img-background.img-zoom,
+  section:hover > .img-zoom-container > .img-background.img-zoom,
+  section:focus > .img-zoom-container > .img-background.img-zoom,
+  .card:not([data-scrivito-private-widget]):hover .img-background.img-zoom,
+  .card:not([data-scrivito-private-widget]):focus .img-background.img-zoom {
+    transform: scale(1.2);
+    filter: blur(10px);
+  }
+}
+
 /* Bootstrap Icons - Sizes Add-on
  ================================================== */
 
