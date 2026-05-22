@@ -93,12 +93,12 @@
 }
 
 .gle-preview.clickable:hover > [class*='grid-col-'] {
-  box-shadow: 0 0 0 1px rgba(66, 102, 152, 0.5) inset;
-  background: rgba(66, 102, 152, 0.3);
+  box-shadow: 0 0 0 1px rgb(from #426698 r g b / 0.5) inset;
+  background: rgb(from #426698 r g b / 0.3);
 }
 .gle-preview.active > [class*='grid-col-'] {
-  box-shadow: 0 0 0 1px rgb(66, 102, 152) inset;
-  background: rgba(66, 102, 152, 0.6);
+  box-shadow: 0 0 0 1px #426698 inset;
+  background: rgb(from #426698 r g b / 0.6);
 }
 
 /* -- grid layout editor - editor -- */
