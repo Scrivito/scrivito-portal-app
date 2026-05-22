@@ -1,5 +1,5 @@
 import { connect, uiContext } from 'scrivito'
-import './InvertedBooleanEditor.scss'
+import './InvertedBooleanEditor.css'
 
 export const InvertedBooleanEditor = connect(function InvertedBooleanEditor({
   attributeValue,
