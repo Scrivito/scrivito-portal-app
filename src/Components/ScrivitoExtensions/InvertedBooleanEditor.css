@@ -1,6 +1,6 @@
-// --------------------------------------------------------- //
-// scrivito_switch
-// --------------------------------------------------------- //
+/* --------------------------------------------------------- */
+/* scrivito_switch                                           */
+/* --------------------------------------------------------- */
 
 .scrivito_switch {
   font-family: 'Manrope', Helvetica, Arial, sans-serif;
@@ -75,7 +75,7 @@
   color: #fff;
 }
 
-//-- scrivito_disabled --//
+/* -- scrivito_disabled -- */
 
 .scrivito_disabled .scrivito_switch {
   cursor: default !important;
@@ -85,7 +85,7 @@
   color: #fff !important;
 }
 
-// -- scrivito_dark adaptons -- //
+/* -- scrivito_dark adaptions -- */
 
 .scrivito_dark {
   .scrivito_switch {
