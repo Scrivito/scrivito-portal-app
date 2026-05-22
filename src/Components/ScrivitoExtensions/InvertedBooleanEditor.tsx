@@ -21,7 +21,6 @@ export const InvertedBooleanEditor = connect(function InvertedBooleanEditor({
       >
         <input
           type="checkbox"
-          className="btn-check"
           checked={!attributeValue}
           onChange={() => updateAttributeValue(!attributeValue)}
           disabled={readOnly}
