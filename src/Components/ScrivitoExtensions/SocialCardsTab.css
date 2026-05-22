@@ -1,12 +1,12 @@
-// -- forms -- //
-
-$red: #c04e4e;
-$yellow: #ff9f00;
-$yellowDarken: #cc7f00;
-$blue: #00addf;
-$blueDarken: #0085ac;
+/* -- forms -- */
 
 .social-cards-tab {
+  --sc-red: #c04e4e;
+  --sc-yellow: #ff9f00;
+  --sc-yellow-darken: #cc7f00;
+  --sc-blue: #00addf;
+  --sc-blue-darken: #0085ac;
+
   .content_property_input {
     background: #f3f3f3;
     border-radius: 3px;
@@ -27,7 +27,7 @@ $blueDarken: #0085ac;
     word-break: break-all;
   }
   .content_property_input:focus {
-    box-shadow: 0 0 0 2px #577fb6 inset !important;
+    box-shadow: 0 0 0 2px #577fb6 inset;
   }
 
   .scrivito_detail_label span.headline {
@@ -35,16 +35,16 @@ $blueDarken: #0085ac;
     color: #777;
   }
 
-  // -- validations -- //
+  /* -- validations -- */
 
   .scrivito_detail_label {
     &.scrivito_error {
       span,
       .social_card_icon,
       .social_card_icon:hover {
-        color: $red !important;
+        color: var(--sc-red);
         &.social_card_icon_error:after {
-          filter: drop-shadow(0 2em $red);
+          filter: drop-shadow(0 2em var(--sc-red));
         }
       }
     }
@@ -52,9 +52,9 @@ $blueDarken: #0085ac;
       span,
       .social_card_icon,
       .social_card_icon:hover {
-        color: $yellowDarken !important;
+        color: var(--sc-yellow-darken);
         &.social_card_icon_error:after {
-          filter: drop-shadow(0 2em $yellowDarken);
+          filter: drop-shadow(0 2em var(--sc-yellow-darken));
         }
       }
     }
@@ -62,9 +62,9 @@ $blueDarken: #0085ac;
       span,
       .social_card_icon,
       .social_card_icon:hover {
-        color: $blue !important;
+        color: var(--sc-blue);
         &.social_card_icon_error:after {
-          filter: drop-shadow(0 2em $blue);
+          filter: drop-shadow(0 2em var(--sc-blue));
         }
       }
     }
@@ -78,33 +78,36 @@ $blueDarken: #0085ac;
     background: rgba(255, 255, 255, 0.6);
 
     &.scrivito_error {
-      box-shadow: 0 0 0 2px $red inset;
+      box-shadow: 0 0 0 2px var(--sc-red) inset;
     }
     &.scrivito_warning {
-      box-shadow: 0 0 0 2px $yellow inset;
+      box-shadow: 0 0 0 2px var(--sc-yellow) inset;
     }
     &.scrivito_info {
-      box-shadow: 0 0 0 2px $blue inset;
+      box-shadow: 0 0 0 2px var(--sc-blue) inset;
     }
   }
 
   .scrivito_validation_notice {
-    border-left-width: 7px !important;
+    border-left-width: 7px;
     padding: 5px 10px;
     font-size: 14px;
     font-weight: normal;
 
     &.scrivito_error {
-      border-left: 2px solid $red;
-      color: $red;
+      border-left-style: solid;
+      border-left-color: var(--sc-red);
+      color: var(--sc-red);
     }
     &.scrivito_warning {
-      border-left: 2px solid $yellow;
-      color: $yellowDarken;
+      border-left-style: solid;
+      border-left-color: var(--sc-yellow);
+      color: var(--sc-yellow-darken);
     }
     &.scrivito_info {
-      border-left: 2px solid $blue;
-      color: $blueDarken;
+      border-left-style: solid;
+      border-left-color: var(--sc-blue);
+      color: var(--sc-blue-darken);
     }
   }
 
@@ -138,8 +141,8 @@ $blueDarken: #0085ac;
 
   @media (max-width: 768px) {
     .scrivito_validation_notice {
-      font-size: 11px !important;
-      line-height: 19px !important;
+      font-size: 11px;
+      line-height: 19px;
     }
   }
 
@@ -200,9 +203,9 @@ $blueDarken: #0085ac;
     }
   }
 
-  // --------------------------------------------------------------- //
-  // scrivito_dark adaptions
-  // --------------------------------------------------------------- //
+  /* --------------------------------------------------------------- */
+  /* scrivito_dark adaptions                                         */
+  /* --------------------------------------------------------------- */
 
   &.scrivito_dark {
     background: var(--jr-grey-middle);
@@ -221,10 +224,10 @@ $blueDarken: #0085ac;
         background: rgba(222, 222, 222, 0.2);
       }
       .card_text h5 {
-        color: #ccc !important;
+        color: #ccc;
       }
       .card_text p {
-        color: #ddd !important;
+        color: #ddd;
       }
       .creator {
         color: #5e86be;
