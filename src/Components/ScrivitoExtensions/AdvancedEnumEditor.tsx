@@ -1,6 +1,6 @@
 import { connect, uiContext } from 'scrivito'
 import { ensureString } from '../../utils/ensureString'
-import './AdvancedEnumEditor/AdvancedEnumEditor.scss'
+import './AdvancedEnumEditor/AdvancedEnumEditor.css'
 
 type EnumOption = {
   value: string
