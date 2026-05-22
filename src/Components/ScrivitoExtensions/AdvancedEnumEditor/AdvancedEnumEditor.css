@@ -29,7 +29,7 @@
         width: 45px;
         height: 30px;
         margin: 2px auto;
-        background: no-repeat center/ contain;
+        background: no-repeat center / contain;
       }
 
       span {
@@ -50,20 +50,20 @@
       }
 
       &.enum_attribute_active {
-        border-left: 30px solid var(--jr-blue) !important;
+        border-left: 30px solid var(--jr-blue);
         box-shadow: 0 0 0 2px var(--jr-blue) inset;
 
         &:not(:disabled):hover {
           background: #eee;
         }
 
-        &:before {
+        &::before {
           content: url('radio-selected.svg');
           filter: brightness(1);
         }
       }
 
-      &:before {
+      &::before {
         content: url('radio.svg');
         display: block;
         filter: brightness(0.6);
@@ -77,10 +77,10 @@
 
   .enum_description {
     color: #666;
-    font-size: 12px !important;
+    font-size: 12px;
     font-weight: bold;
-    line-height: 19px !important;
-    margin-top: 8px !important;
+    line-height: 19px;
+    margin-top: 8px;
     padding: 0 3px;
   }
 
@@ -96,7 +96,7 @@
         }
 
         &.enum_attribute_active {
-          border-left: 30px solid var(--jr-blue-light) !important;
+          border-left: 30px solid var(--jr-blue-light);
           box-shadow: 0 0 0 2px var(--jr-blue-light) inset;
         }
 
@@ -117,8 +117,8 @@
 
     .enum_description {
       color: #aaa;
-      font-size: 11px !important;
-      line-height: 19px !important;
+      font-size: 11px;
+      line-height: 19px;
     }
   }
 }
