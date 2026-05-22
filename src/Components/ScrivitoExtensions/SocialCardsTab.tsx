@@ -8,7 +8,7 @@ import {
   ContentTag,
 } from 'scrivito'
 import { getMetadata } from '../../utils/getMetadata'
-import './SocialCardsTab.scss'
+import './SocialCardsTab.css'
 
 export function SocialCardsTab({ obj }: { obj: Obj }) {
   const { theme } = uiContext() || { theme: null }
@@ -17,22 +17,22 @@ export function SocialCardsTab({ obj }: { obj: Obj }) {
   return (
     <div className={`social-cards-tab scrivito_${theme}`}>
       <div className="scrivito_detail_content">
-        <div className="row">
-          <div className="col-sm-6">
+        <div className="flex flex-wrap gap-6">
+          <div className="w-full sm:w-[calc(50%-0.75rem)]">
             <TwitterInput obj={obj} />
           </div>
-          <div className="col-sm-6">
+          <div className="w-full sm:w-[calc(50%-0.75rem)]">
             <TwitterPreview obj={obj} />
           </div>
         </div>
       </div>
 
       <div className="scrivito_detail_content">
-        <div className="row">
-          <div className="col-sm-6">
+        <div className="flex flex-wrap gap-6">
+          <div className="w-full sm:w-[calc(50%-0.75rem)]">
             <FacebookInput obj={obj} />
           </div>
-          <div className="col-sm-6">
+          <div className="w-full sm:w-[calc(50%-0.75rem)]">
             <FacebookPreview obj={obj} />
           </div>
         </div>
