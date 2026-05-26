@@ -53,9 +53,9 @@ export const DesignAdjustments = connect(
     }
 
     const fontHeadlineWeight = root.get('siteFontHeadlineWeight') || '500'
-    styles.push(`--jr-headline-font-weight: ${fontHeadlineWeight}`)
+    styles.push(`--font-weight-portal-headline: ${fontHeadlineWeight}`)
     if (root.get('siteFontHeadline').length > 0) {
-      styles.push(`--jr-headline-font-family: ${headlineFontFamily}`)
+      styles.push(`--font-portal-headline: ${headlineFontFamily}, sans-serif`)
     }
 
     return (
