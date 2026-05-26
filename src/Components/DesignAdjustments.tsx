@@ -47,9 +47,9 @@ export const DesignAdjustments = connect(
     }
 
     const fontBodyWeight = root.get('siteFontBodyWeight') || '500'
-    styles.push(`--bs-body-font-weight: ${fontBodyWeight}`)
+    styles.push(`--font-weight-portal-body: ${fontBodyWeight}`)
     if (root.get('siteFontBody').length > 0) {
-      styles.push(`--bs-body-font-family: ${bodyFontFamily}`)
+      styles.push(`--font-portal-body: ${bodyFontFamily}, sans-serif`)
     }
 
     const fontHeadlineWeight = root.get('siteFontHeadlineWeight') || '500'
