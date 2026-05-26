@@ -272,6 +272,7 @@
   h4,
   h5,
   h6 {
+    @apply mb-2 leading-[1.4] tracking-[-0.5px];
     color: var(--headline-text-color);
     font-family: var(--font-portal-headline);
     font-weight: var(--font-weight-portal-headline);
