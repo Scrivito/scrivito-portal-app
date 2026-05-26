@@ -76,13 +76,6 @@
   --bs-light-rgb: 248, 249, 250;
   --bs-dark-rgb: 33, 37, 41;
 
-  --bs-body-font-size: 1rem;
-  --bs-body-line-height: 1.75;
-  --bs-body-color: var(--dark-text-color);
-
-  --bs-body-bg: #fff;
-  --bs-body-bg-rgb: 255, 255, 255;
-
   --bs-secondary-color: rgba(33, 37, 41, 0.75);
   --bs-secondary-color-rgb: 33, 37, 41;
   --bs-secondary-bg: #e9ecef;
@@ -1222,7 +1215,7 @@ section.bg-primary {
     border: none;
     background: var(--bs-primary);
     color: var(--bs-primary-text-color);
-    line-height: var(--bs-body-line-height);
+    line-height: var(--line-height-portal-body);
     padding: var(--bs-nav-link-padding-y);
   }
   .nav-link.btn:hover {

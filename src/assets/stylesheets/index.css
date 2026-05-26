@@ -143,6 +143,7 @@
 
   --font-portal-body: 'Manrope', sans-serif;
   --font-weight-portal-body: 500;
+  --line-height-portal-body: 1.75;
 
   --font-portal-headline: 'Firava', sans-serif;
   --font-weight-portal-headline: 500;
@@ -194,6 +195,9 @@
   body {
     font-family: var(--font-portal-body);
     font-weight: var(--font-weight-portal-body);
+    line-height: var(--line-height-portal-body);
+    color: var(--dark-text-color);
+    background-color: #fff;
   }
 
   #root,
