@@ -113,42 +113,38 @@ function backgroundClassName(backgroundColor: string): string {
   }
 }
 
+const tailwindPaddingClassNames: Record<string, string> = {
+  'p-0': 'p-0',
+  'p-1': 'p-1',
+  'p-2': 'p-2',
+  'p-3': 'p-4',
+  'p-4': 'p-6',
+  'p-5': 'p-12',
+}
+
 function tailwindPaddingFor(bootstrapPadding: string): string {
-  switch (bootstrapPadding) {
-    case 'p-0':
-      return 'p-0'
-    case 'p-1':
-      return 'p-1'
-    case 'p-2':
-      return 'p-2'
-    case 'p-3':
-      return 'p-4'
-    case 'p-4':
-      return 'p-6'
-    case 'p-5':
-      return 'p-12'
-    default:
-      throw new Error(`Unknown bootstrap padding: ${bootstrapPadding}`)
+  const className = tailwindPaddingClassNames[bootstrapPadding]
+  if (className === undefined) {
+    throw new Error(`Unknown bootstrap padding: ${bootstrapPadding}`)
   }
+  return className
+}
+
+const tailwindMarginBottomClassNames: Record<string, string> = {
+  'mb-0': 'mb-0',
+  'mb-1': 'mb-1',
+  'mb-2': 'mb-2',
+  'mb-3': 'mb-4',
+  'mb-4': 'mb-6',
+  'mb-5': 'mb-12',
 }
 
 function tailwindMarginBottomFor(bootstrapMarginBottom: string): string {
-  switch (bootstrapMarginBottom) {
-    case 'mb-0':
-      return 'mb-0'
-    case 'mb-1':
-      return 'mb-1'
-    case 'mb-2':
-      return 'mb-2'
-    case 'mb-3':
-      return 'mb-4'
-    case 'mb-4':
-      return 'mb-6'
-    case 'mb-5':
-      return 'mb-12'
-    default:
-      throw new Error(`Unknown bootstrap margin: ${bootstrapMarginBottom}`)
+  const className = tailwindMarginBottomClassNames[bootstrapMarginBottom]
+  if (className === undefined) {
+    throw new Error(`Unknown bootstrap margin: ${bootstrapMarginBottom}`)
   }
+  return className
 }
 
 const LinkOrNotTag = connect(
