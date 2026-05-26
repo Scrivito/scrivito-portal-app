@@ -192,6 +192,12 @@
     @apply h-full;
   }
 
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-overflow-scrolling: touch;
+  }
+
   body {
     font-family: var(--font-portal-body);
     font-weight: var(--font-weight-portal-body);
