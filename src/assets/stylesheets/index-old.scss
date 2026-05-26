@@ -76,9 +76,7 @@
   --bs-light-rgb: 248, 249, 250;
   --bs-dark-rgb: 33, 37, 41;
 
-  --bs-body-font-family: 'Manrope';
   --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 500;
   --bs-body-line-height: 1.75;
   --bs-body-color: var(--dark-text-color);
 
@@ -375,8 +373,6 @@ html {
 }
 
 body {
-  font-family: var(--bs-body-font-family);
-  font-weight: var(--bs-body-font-weight);
   margin: 0;
 }
 
@@ -550,7 +546,7 @@ strong {
     0 8px 26px -4px rgba(20, 20, 20, 0.15),
     0 8px 9px -5px rgba(20, 20, 20, 0.06);
   font-size: 14px;
-  font-weight: var(--bs-body-font-weight);
+  font-weight: var(--font-weight-portal-body);
   line-height: 16px;
   margin: 10px 0;
   padding: 15px;
@@ -1007,7 +1003,7 @@ section:focus >,
   display: block;
   width: 100%;
   font-size: 0.9rem;
-  font-weight: var(--bs-body-font-weight);
+  font-weight: var(--font-weight-portal-body);
   line-height: 1.5;
   color: var(--dark-text-color);
   background-color: #fff;
@@ -1646,7 +1642,7 @@ header .navbar.navbar-expand-lg {
 
 .list-label {
   text-transform: uppercase;
-  font-weight: var(--bs-body-font-weight);
+  font-weight: var(--font-weight-portal-body);
   font-size: 0.65rem;
   display: block;
   opacity: 0.6;
