@@ -208,6 +208,10 @@
     background-color: #fff;
   }
 
+  p {
+    @apply mb-4;
+  }
+
   #root,
   #app-wrapper {
     @apply flex h-full flex-col;
