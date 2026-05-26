@@ -277,4 +277,29 @@
     font-family: var(--font-portal-headline);
     font-weight: var(--font-weight-portal-headline);
   }
+
+  h1,
+  .h1 {
+    @apply text-[2rem] lg:text-[2.5rem];
+  }
+  h2,
+  .h2 {
+    @apply text-[1.75rem] lg:text-[2rem];
+  }
+  h3,
+  .h3 {
+    @apply text-2xl lg:text-[1.75rem];
+  }
+  h4,
+  .h4 {
+    @apply text-xl lg:text-2xl;
+  }
+  h5,
+  .h5 {
+    @apply text-[1.15rem] lg:text-xl;
+  }
+  h6,
+  .h6 {
+    @apply text-base;
+  }
 }
