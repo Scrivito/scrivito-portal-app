@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+@import './theme/fonts.css';
 
 @theme {
   /* Use bootstrap 5 breakpoints */
