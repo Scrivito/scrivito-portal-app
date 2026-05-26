@@ -143,6 +143,9 @@
 
   --font-portal-body: 'Manrope', sans-serif;
   --font-weight-portal-body: 500;
+
+  --font-portal-headline: 'Firava', sans-serif;
+  --font-weight-portal-headline: 500;
 }
 
 /* Use bootstrap 5 container widths */
@@ -266,5 +269,7 @@
   h5,
   h6 {
     color: var(--headline-text-color);
+    font-family: var(--font-portal-headline);
+    font-weight: var(--font-weight-portal-headline);
   }
 }

@@ -105,8 +105,6 @@
   ); // backward compatibility for bs5 components
 
   --shadow-portal: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
-  --jr-headline-font-family: 'Firava';
-  --jr-headline-font-weight: 500;
 
   hyphens: auto;
 }
@@ -136,9 +134,9 @@
   --bs-btn-focus-box-shadow: 0 0 0 0 rgba(var(--bs-btn-focus-shadow-rgb), 0.5);
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
-  font-family: var(--jr-headline-font-family), sans-serif;
+  font-family: var(--font-portal-headline);
   font-size: var(--bs-btn-font-size);
-  font-weight: var(--jr-headline-font-weight);
+  font-weight: var(--font-weight-portal-headline);
   line-height: var(--bs-btn-line-height);
   color: var(--bs-btn-color);
   text-align: center;
@@ -412,8 +410,6 @@ h4,
 h5,
 h6 {
   color: var(--headline-text-color);
-  font-family: var(--jr-headline-font-family), sans-serif;
-  font-weight: var(--jr-headline-font-weight);
   letter-spacing: -0.5px;
   line-height: 1.4;
   margin-bottom: 0.5rem;
@@ -1137,8 +1133,8 @@ section:focus >,
 
 .dropdown-item,
 .nav-link {
-  font-family: var(--jr-headline-font-family), sans-serif;
-  font-weight: var(--jr-headline-font-weight);
+  font-family: var(--font-portal-headline);
+  font-weight: var(--font-weight-portal-headline);
 }
 .dropdown-item {
   color: var(--bs-dropdown-link-color) !important;
@@ -1275,7 +1271,7 @@ section.bg-primary {
 .navbar-landing {
   .nav-link {
     font-size: 1rem;
-    font-weight: var(--jr-headline-font-weight);
+    font-weight: var(--font-weight-portal-headline);
   }
 }
 // -- second line in items -- //
@@ -1293,7 +1289,7 @@ section.bg-primary {
     color: var(--dark-text-color);
     font-size: 9px;
     line-height: 12px;
-    font-weight: var(--jr-headline-font-weight);
+    font-weight: var(--font-weight-portal-headline);
     opacity: 0.9;
   }
 }
@@ -1657,8 +1653,8 @@ header .navbar.navbar-expand-lg {
 
 .breadcrumb-item {
   color: var(--dark-headline-text-color);
-  font-family: var(--jr-headline-font-family), sans-serif;
-  font-weight: var(--jr-headline-font-weight);
+  font-family: var(--font-portal-headline);
+  font-weight: var(--font-weight-portal-headline);
   font-size: 14px;
 
   &.active {
