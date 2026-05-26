@@ -8,9 +8,9 @@ provideComponent(HeadlineWidget, ({ widget }) => {
 
   const style = widget.get('style') || 'h2'
   if (style === 'label-headline') {
-    classNames.push('text-bold', 'text-extra-small')
+    classNames.push('font-bold', 'text-[0.65rem]')
   } else if (style === 'label-subtitle') {
-    classNames.push('text-small')
+    classNames.push('text-xs', 'leading-[1.75]')
   } else {
     classNames.push(style)
   }
@@ -18,9 +18,10 @@ provideComponent(HeadlineWidget, ({ widget }) => {
   const alignment = alignmentClassName(widget.get('alignment'))
   if (alignment) classNames.push(alignment)
 
-  if (widget.get('uppercase')) classNames.push('text-uppercase')
+  if (widget.get('uppercase')) classNames.push('uppercase')
 
-  classNames.push(widget.get('margin') ?? 'mb-2')
+  const bootstrapMarginBottom = widget.get('margin') ?? 'mb-2'
+  classNames.push(tailwindMarginBottomFor(bootstrapMarginBottom))
 
   return (
     <ContentTag
@@ -32,6 +33,23 @@ provideComponent(HeadlineWidget, ({ widget }) => {
     />
   )
 })
+
+const tailwindMarginBottomClassNames: Record<string, string> = {
+  'mb-0': 'mb-0',
+  'mb-1': 'mb-1',
+  'mb-2': 'mb-2',
+  'mb-3': 'mb-4',
+  'mb-4': 'mb-6',
+  'mb-5': 'mb-12',
+}
+
+function tailwindMarginBottomFor(bootstrapMarginBottom: string): string {
+  const className = tailwindMarginBottomClassNames[bootstrapMarginBottom]
+  if (className === undefined) {
+    throw new Error(`Unknown bootstrap margin: ${bootstrapMarginBottom}`)
+  }
+  return className
+}
 
 function tag(level: string | null, style: string): string {
   if (level) return level
