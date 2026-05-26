@@ -5,11 +5,10 @@
   font-family: 'Firava';
   font-display: swap;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 100 900;
   src:
     url('../../fonts/Firava.woff2') format('woff2') tech('variations'),
     url('../../fonts/Firava.woff2') format('woff2-variations');
-  font-weight: 100 900;
 }
 
 @font-face {
