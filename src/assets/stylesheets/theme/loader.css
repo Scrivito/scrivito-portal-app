@@ -1,0 +1,40 @@
+@layer components {
+  .loader {
+    @apply absolute z-[1111] mx-auto block size-[50px] overflow-hidden rounded-full indent-[-9999em] text-[10px];
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+    background: linear-gradient(
+      to right,
+      var(--color-portal-primary) 10%,
+      rgba(255, 255, 255, 0) 42%
+    );
+    animation: load3 1.4s infinite linear;
+
+    &:before {
+      @apply absolute top-0 left-0 size-1/2 content-[''];
+      background: var(--color-portal-primary);
+      border-radius: 100% 0 0 0;
+    }
+
+    &:after {
+      @apply absolute inset-0 m-auto size-3/4 rounded-full bg-white content-[''];
+    }
+  }
+
+  .loader-dialog {
+    @apply size-full border-0 bg-transparent outline-none;
+  }
+
+  dialog::backdrop {
+    @apply bg-white/40 backdrop-blur-[10px];
+  }
+}
+
+@keyframes load3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
