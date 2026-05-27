@@ -21,8 +21,7 @@
     }
   }
 
-  .loader-dialog,
-  .loader-dialog:focus-visible {
+  .loader-dialog {
     @apply size-full border-0 bg-transparent outline-none;
   }
 
