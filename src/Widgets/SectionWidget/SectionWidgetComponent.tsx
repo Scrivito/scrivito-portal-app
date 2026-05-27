@@ -2,7 +2,7 @@ import { provideComponent, ContentTag, WidgetTag } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
-import { backgroundClassName } from '../../utils/backgroundClassName'
+import { backgroundClassName } from '../../utils/theme/backgroundClassName'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const sectionClassNames: string[] = []

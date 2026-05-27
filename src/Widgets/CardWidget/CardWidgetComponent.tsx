@@ -11,7 +11,7 @@ import {
 } from 'scrivito'
 import { CardWidget } from './CardWidgetClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
-import { backgroundClassName } from '../../utils/backgroundClassName'
+import { backgroundClassName } from '../../utils/theme/backgroundClassName'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
 
