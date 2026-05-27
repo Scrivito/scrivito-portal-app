@@ -6,7 +6,7 @@ import {
   ObjClass,
   provideLayoutComponent,
 } from 'scrivito'
-import { backgroundClassName } from '../utils/backgroundClassName'
+import { backgroundClassName } from '../utils/theme/backgroundClassName'
 
 export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
   provideLayoutComponent(objClass, DefaultPageLayoutComponent)
