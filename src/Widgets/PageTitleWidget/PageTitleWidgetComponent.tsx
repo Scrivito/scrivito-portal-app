@@ -1,6 +1,6 @@
 import { ContentTag, currentPage, provideComponent } from 'scrivito'
 import { PageTitleWidget } from './PageTitleWidgetClass'
-import { backgroundClassName } from '../../utils/backgroundClassName'
+import { backgroundClassName } from '../../utils/theme/backgroundClassName'
 
 provideComponent(PageTitleWidget, ({ widget }) => {
   const backgroundColor = widget.get('backgroundColor') || 'primary'

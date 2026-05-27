@@ -1,6 +1,6 @@
 import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
-import { backgroundClassName } from '../../utils/backgroundClassName'
+import { backgroundClassName } from '../../utils/theme/backgroundClassName'
 
 provideComponent(BannerHeadlineWidget, ({ widget }) => {
   const style = widget.get('style') || 'h2'
