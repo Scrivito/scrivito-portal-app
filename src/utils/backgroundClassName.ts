@@ -14,7 +14,8 @@ const backgroundColorClassNames: Record<string, string> = {
 
 export function backgroundClassName(backgroundColor: string): string {
   const className = backgroundColorClassNames[backgroundColor]
-  if (className === undefined)
+  if (className === undefined) {
     throw new Error(`Unknown backgroundColor: ${backgroundColor}`)
+  }
   return className
 }
