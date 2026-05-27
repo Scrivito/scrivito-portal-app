@@ -17,7 +17,7 @@ export function SocialCardsTab({ obj }: { obj: Obj }) {
   return (
     <div className={`social-cards-tab scrivito_${theme}`}>
       <div className="scrivito_detail_content">
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap gap-2">
           <div className="w-full sm:w-[calc(50%-0.75rem)]">
             <TwitterInput obj={obj} />
           </div>
@@ -28,7 +28,7 @@ export function SocialCardsTab({ obj }: { obj: Obj }) {
       </div>
 
       <div className="scrivito_detail_content">
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap gap-2">
           <div className="w-full sm:w-[calc(50%-0.75rem)]">
             <FacebookInput obj={obj} />
           </div>
