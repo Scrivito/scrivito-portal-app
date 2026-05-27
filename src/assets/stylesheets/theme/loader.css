@@ -1,6 +1,6 @@
 @layer components {
   .loader {
-    @apply absolute z-[1111] mx-auto block size-[50px] overflow-hidden rounded-full text-[10px] indent-[-9999em];
+    @apply absolute z-[1111] mx-auto block size-[50px] overflow-hidden rounded-full indent-[-9999em] text-[10px];
     top: calc(50% - 25px);
     left: calc(50% - 25px);
     background: linear-gradient(
@@ -23,8 +23,7 @@
 
   .loader-dialog,
   .loader-dialog:focus-visible {
-    @apply size-full bg-transparent outline-none;
-    border: none !important;
+    @apply size-full border-0 bg-transparent outline-none;
   }
 
   dialog::backdrop {
