@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
+@import './theme/loader.css';
 
 @theme {
   /* Use bootstrap 5 breakpoints */
@@ -17,7 +18,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-primary-heading: best-contrast(
+  --color-on-portal-primary-headline: best-contrast(
     var(--color-portal-primary),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -29,7 +30,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-secondary-heading: best-contrast(
+  --color-on-portal-secondary-headline: best-contrast(
     var(--color-portal-secondary),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -41,7 +42,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-white-heading: best-contrast(
+  --color-on-portal-white-headline: best-contrast(
     var(--color-portal-white),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -53,7 +54,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-light-grey-heading: best-contrast(
+  --color-on-portal-light-grey-headline: best-contrast(
     var(--color-portal-light-grey),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -65,7 +66,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-middle-grey-heading: best-contrast(
+  --color-on-portal-middle-grey-headline: best-contrast(
     var(--color-portal-middle-grey),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -77,7 +78,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-dark-grey-heading: best-contrast(
+  --color-on-portal-dark-grey-headline: best-contrast(
     var(--color-portal-dark-grey),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -89,7 +90,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-success-heading: best-contrast(
+  --color-on-portal-success-headline: best-contrast(
     var(--color-portal-success),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -101,7 +102,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-info-heading: best-contrast(
+  --color-on-portal-info-headline: best-contrast(
     var(--color-portal-info),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -113,7 +114,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-warning-heading: best-contrast(
+  --color-on-portal-warning-headline: best-contrast(
     var(--color-portal-warning),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -125,7 +126,7 @@
     var(--dark-text-color),
     var(--light-text-color)
   );
-  --color-on-portal-danger-heading: best-contrast(
+  --color-on-portal-danger-headline: best-contrast(
     var(--color-portal-danger),
     var(--dark-headline-text-color),
     var(--light-headline-text-color)
@@ -264,43 +265,43 @@
 
 @layer base {
   :where(.text-on-portal-primary) {
-    --headline-text-color: var(--color-on-portal-primary-heading);
+    --headline-text-color: var(--color-on-portal-primary-headline);
   }
 
   :where(.text-on-portal-secondary) {
-    --headline-text-color: var(--color-on-portal-secondary-heading);
+    --headline-text-color: var(--color-on-portal-secondary-headline);
   }
 
   :where(.text-on-portal-white) {
-    --headline-text-color: var(--color-on-portal-white-heading);
+    --headline-text-color: var(--color-on-portal-white-headline);
   }
 
   :where(.text-on-portal-light-grey) {
-    --headline-text-color: var(--color-on-portal-light-grey-heading);
+    --headline-text-color: var(--color-on-portal-light-grey-headline);
   }
 
   :where(.text-on-portal-middle-grey) {
-    --headline-text-color: var(--color-on-portal-middle-grey-heading);
+    --headline-text-color: var(--color-on-portal-middle-grey-headline);
   }
 
   :where(.text-on-portal-dark-grey) {
-    --headline-text-color: var(--color-on-portal-dark-grey-heading);
+    --headline-text-color: var(--color-on-portal-dark-grey-headline);
   }
 
   :where(.text-on-portal-success) {
-    --headline-text-color: var(--color-on-portal-success-heading);
+    --headline-text-color: var(--color-on-portal-success-headline);
   }
 
   :where(.text-on-portal-info) {
-    --headline-text-color: var(--color-on-portal-info-heading);
+    --headline-text-color: var(--color-on-portal-info-headline);
   }
 
   :where(.text-on-portal-warning) {
-    --headline-text-color: var(--color-on-portal-warning-heading);
+    --headline-text-color: var(--color-on-portal-warning-headline);
   }
 
   :where(.text-on-portal-danger) {
-    --headline-text-color: var(--color-on-portal-danger-heading);
+    --headline-text-color: var(--color-on-portal-danger-headline);
   }
 
   .display-1,
