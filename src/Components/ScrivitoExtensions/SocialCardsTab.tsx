@@ -17,22 +17,22 @@ export function SocialCardsTab({ obj }: { obj: Obj }) {
   return (
     <div className={`social-cards-tab scrivito_${theme}`}>
       <div className="scrivito_detail_content">
-        <div className="flex flex-wrap gap-2">
-          <div className="w-full sm:w-[calc(50%-0.75rem)]">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <div>
             <TwitterInput obj={obj} />
           </div>
-          <div className="w-full sm:w-[calc(50%-0.75rem)]">
+          <div>
             <TwitterPreview obj={obj} />
           </div>
         </div>
       </div>
 
       <div className="scrivito_detail_content">
-        <div className="flex flex-wrap gap-2">
-          <div className="w-full sm:w-[calc(50%-0.75rem)]">
+        <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <div>
             <FacebookInput obj={obj} />
           </div>
-          <div className="w-full sm:w-[calc(50%-0.75rem)]">
+          <div>
             <FacebookPreview obj={obj} />
           </div>
         </div>
