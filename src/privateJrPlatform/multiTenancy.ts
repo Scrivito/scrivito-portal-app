@@ -7,6 +7,7 @@ const INSTANCE_ALIAS: Partial<Record<string, string>> = {
   'my-beta.justrelate.com': '6d226c03f32a8ea4e8ae8e5cbe6c6e2c',
   'keller-gdpr.justrelate.io': 'd0729905a82344378749eb68b834e83c',
   'datenverarbeitung.keller-lufttechnik.de': 'd0729905a82344378749eb68b834e83c',
+  'ferber-gdpr.justrelate.de': '7a1755b4e2b04aabf8322ed203296b8e',
 }
 
 export function getJrPlatformInstanceId(): string | null {
