@@ -14,6 +14,7 @@ import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 import { backgroundClassName } from '../../utils/theme/backgroundClassName'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
+import './CardWidgetComponent.css'
 
 provideComponent(CardWidget, ({ widget }) => {
   const cardBodyClassNames: string[] = ['card-body']
@@ -32,15 +33,7 @@ provideComponent(CardWidget, ({ widget }) => {
   cardClassNames.push(backgroundClassName(backgroundColor))
   if (backgroundColor === 'transparent') cardClassNames.push('shadow-none')
 
-  if (widget.get('cardExtended')) {
-    cardClassNames.push(
-      'overflow-visible',
-      "after:rounded-portal after:pointer-events-none after:absolute after:top-0 after:bottom-0 after:-z-[1] after:block after:bg-inherit after:content-['']",
-      '[*:first-child_&]:after:right-0 [*:first-child_&]:after:left-[-2600px]',
-      '[*:last-child_&]:after:right-[-2600px] [*:last-child_&]:after:left-0',
-      '[*:only-child_&]:after:right-0 [*:only-child_&]:after:left-0',
-    )
-  }
+  if (widget.get('cardExtended')) cardClassNames.push('card-widget-extended')
 
   return (
     <WidgetTag
