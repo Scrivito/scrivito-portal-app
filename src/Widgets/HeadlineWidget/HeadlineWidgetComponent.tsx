@@ -20,8 +20,8 @@ provideComponent(HeadlineWidget, ({ widget }) => {
 
   if (widget.get('uppercase')) classNames.push('uppercase')
 
-  const bootstrapMarginBottom = widget.get('margin') ?? 'mb-2'
-  classNames.push(tailwindMarginBottomFor(bootstrapMarginBottom))
+  const marginBottom = widget.get('margin') ?? 'mb-2'
+  classNames.push(tailwindMarginBottomFor(marginBottom))
 
   return (
     <ContentTag
@@ -43,10 +43,10 @@ const tailwindMarginBottomClassNames: Record<string, string> = {
   'mb-5': 'mb-12',
 }
 
-function tailwindMarginBottomFor(bootstrapMarginBottom: string): string {
-  const className = tailwindMarginBottomClassNames[bootstrapMarginBottom]
+function tailwindMarginBottomFor(marginBottom: string): string {
+  const className = tailwindMarginBottomClassNames[marginBottom]
   if (className === undefined) {
-    throw new Error(`Unknown bootstrap margin: ${bootstrapMarginBottom}`)
+    throw new Error(`Unknown margin: ${marginBottom}`)
   }
   return className
 }
