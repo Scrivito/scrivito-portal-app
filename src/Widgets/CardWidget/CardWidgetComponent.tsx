@@ -17,16 +17,16 @@ import { useRef } from 'react'
 
 provideComponent(CardWidget, ({ widget }) => {
   const cardBodyClassNames: string[] = ['card-body']
-  const bootstrapPadding = widget.get('padding') || 'p-4'
-  cardBodyClassNames.push(tailwindPaddingFor(bootstrapPadding))
+  const padding = widget.get('padding') || 'p-4'
+  cardBodyClassNames.push(tailwindPaddingFor(padding))
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   const image = widget.get('image')
 
   const cardClassNames: string[] = ['card']
 
-  const bootstrapMarginBottom = widget.get('margin') ?? 'mb-4'
-  cardClassNames.push(tailwindMarginBottomFor(bootstrapMarginBottom))
+  const marginBottom = widget.get('margin') ?? 'mb-4'
+  cardClassNames.push(tailwindMarginBottomFor(marginBottom))
 
   const backgroundColor = widget.get('backgroundColor') || 'white'
   cardClassNames.push(backgroundClassName(backgroundColor))
@@ -94,10 +94,10 @@ const tailwindPaddingClassNames: Record<string, string> = {
   'p-5': 'p-12',
 }
 
-function tailwindPaddingFor(bootstrapPadding: string): string {
-  const className = tailwindPaddingClassNames[bootstrapPadding]
+function tailwindPaddingFor(padding: string): string {
+  const className = tailwindPaddingClassNames[padding]
   if (className === undefined) {
-    throw new Error(`Unknown bootstrap padding: ${bootstrapPadding}`)
+    throw new Error(`Unknown padding: ${padding}`)
   }
   return className
 }
@@ -111,10 +111,10 @@ const tailwindMarginBottomClassNames: Record<string, string> = {
   'mb-5': 'mb-12',
 }
 
-function tailwindMarginBottomFor(bootstrapMarginBottom: string): string {
-  const className = tailwindMarginBottomClassNames[bootstrapMarginBottom]
+function tailwindMarginBottomFor(marginBottom: string): string {
+  const className = tailwindMarginBottomClassNames[marginBottom]
   if (className === undefined) {
-    throw new Error(`Unknown bootstrap margin: ${bootstrapMarginBottom}`)
+    throw new Error(`Unknown margin: ${marginBottom}`)
   }
   return className
 }
