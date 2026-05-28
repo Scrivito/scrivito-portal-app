@@ -695,38 +695,6 @@ header section {
   }
 }
 
-// -- non transparent image for full height box  -- //
-
-.img-box {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  object-position: center;
-  position: absolute;
-  left: 0;
-  top: 0;
-  transition: all 1.5s;
-  z-index: -1;
-}
-@media (max-width: 991px) {
-  .img-box {
-    position: static;
-  }
-}
-
-.img-box.img-h-200 {
-  position: static;
-  height: 200px;
-}
-.img-box.img-h-100 {
-  position: static;
-  height: 100px;
-}
-.img-box.img-h-50 {
-  position: static;
-  height: 50px;
-}
-
 // -- editor -- //
 
 .editor {
