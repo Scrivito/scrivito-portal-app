@@ -7,6 +7,7 @@ import {
   currentLanguage,
 } from 'scrivito'
 import { useMotionPreference } from '../hooks/useMotionPreference'
+import './ImageOrVideo.css'
 
 export interface TogglePlayPauseRef {
   togglePlayPause: (e: React.MouseEvent) => void
@@ -64,16 +65,6 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
   if (className) classNames.push(className)
 
   if (background.contentType().startsWith('video/')) {
-    const playButtonClassNames = [
-      'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
-      'flex h-[50px] w-[50px] items-center justify-center',
-      'rounded-full border-none bg-black/40 shadow-[0_0_50px_5px_rgba(255,255,255,0.8)]',
-      'z-[1111] cursor-pointer transition-all duration-[400ms] ease-in-out',
-      'hover:scale-[1.3] hover:bg-black/60',
-      isPaused
-        ? 'pointer-events-auto opacity-100 motion-reduce:pointer-events-none'
-        : 'pointer-events-none opacity-0',
-    ]
     return (
       <>
         <video
@@ -88,12 +79,12 @@ export const ImageOrVideo = connect(function ImageOrVideo<T extends string>({
           onClick={handleVideoClick}
         />
         <button
-          className={playButtonClassNames.join(' ')}
+          className={`image-or-video-play-button ${isPaused ? 'is-paused' : ''}`}
           aria-label={
             isPaused ? localizePlayVideoLabel() : localizePauseVideoLabel()
           }
         >
-          <i className="bi bi-play-fill bi-3x indent-[2px] text-white" />
+          <i className="bi bi-play-fill bi-3x text-white" />
         </button>
       </>
     )
