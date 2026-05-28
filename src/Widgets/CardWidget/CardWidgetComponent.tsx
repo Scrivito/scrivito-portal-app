@@ -55,7 +55,7 @@ provideComponent(CardWidget, ({ widget }) => {
             <ImageTag
               content={widget}
               attribute="image"
-              className="img-box img-h-200"
+              className="h-[200px] w-full object-cover object-center"
               alt={alternativeTextForObj(widget.get('image'))}
             />
           </InPlaceEditingOff>
