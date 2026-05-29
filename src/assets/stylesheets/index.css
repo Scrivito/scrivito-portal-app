@@ -12,8 +12,6 @@
 
   --radius-portal: 8.5px;
 
-  --shadow-portal: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
-
   --color-portal-primary: #274486;
   --color-on-portal-primary: best-contrast(
     var(--color-portal-primary),
@@ -140,6 +138,8 @@
   --dark-headline-text-color: #3b3b3b;
   --light-text-color: #fff;
   --light-headline-text-color: #fff;
+
+  --shadow-portal: 0 0.375rem 1.5rem 0 rgba(140, 152, 164, 0.25);
 }
 
 /* Use bootstrap 5 container widths */
@@ -151,6 +151,71 @@
   @apply lg:max-w-[960px];
   @apply xl:max-w-[1140px];
   @apply 2xl:max-w-[1320px];
+}
+
+/* Card
+ ================================================== */
+
+@layer components {
+  .card {
+    @apply rounded-portal relative z-[1] flex min-w-0 flex-col overflow-hidden break-words;
+    box-shadow: var(--shadow-portal);
+  }
+
+  .card-body {
+    @apply relative z-[1] flex-auto p-8;
+  }
+
+  .card-footer {
+    @apply relative z-[1] px-8 pb-4;
+  }
+}
+
+/* Image / Video background
+ ================================================== */
+
+@layer components {
+  section:has(.img-background) {
+    @apply relative z-[1];
+  }
+
+  .img-zoom-container {
+    @apply absolute inset-0 overflow-hidden;
+  }
+
+  .img-background {
+    @apply absolute top-0 left-0 -z-[1] h-full w-full object-cover object-center;
+    border-radius: inherit;
+    transition: all 1s ease-in-out;
+  }
+
+  :is(
+      .bg-portal-primary,
+      .bg-portal-secondary,
+      .bg-portal-white,
+      .bg-portal-light-grey,
+      .bg-portal-middle-grey,
+      .bg-portal-dark-grey,
+      .bg-portal-success,
+      .bg-portal-info,
+      .bg-portal-warning,
+      .bg-portal-danger,
+      .img-zoom-container
+    )
+    > .img-background {
+    opacity: 0.2;
+    filter: blur(0px) grayscale(0.8);
+  }
+
+  section:hover > .img-background.img-zoom,
+  section:focus > .img-background.img-zoom,
+  section:hover > .img-zoom-container > .img-background.img-zoom,
+  section:focus > .img-zoom-container > .img-background.img-zoom,
+  .card:not([data-scrivito-private-widget]):hover .img-background.img-zoom,
+  .card:not([data-scrivito-private-widget]):focus .img-background.img-zoom {
+    transform: scale(1.2);
+    filter: blur(10px);
+  }
 }
 
 /* Bootstrap Icons - Sizes Add-on
