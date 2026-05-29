@@ -7,7 +7,7 @@ import {
   currentLanguage,
 } from 'scrivito'
 import { useMotionPreference } from '../hooks/useMotionPreference'
-import './ImageOrVideo.scss'
+import './ImageOrVideo.css'
 
 export interface TogglePlayPauseRef {
   togglePlayPause: (e: React.MouseEvent) => void

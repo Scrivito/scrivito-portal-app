@@ -20,7 +20,7 @@ export const ProductPreview = connect(function ProductPreview({
           <InPlaceEditingOff>
             <ImageTag
               attribute="image"
-              className="img-box img-h-100"
+              className="h-[100px] w-full object-cover object-center"
               content={product}
               alt=""
             />
