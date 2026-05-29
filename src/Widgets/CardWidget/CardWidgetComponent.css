@@ -1,34 +1,32 @@
 @reference '../../assets/stylesheets/index.css';
 
-@layer components {
-  .card.card-widget-extended {
-    @apply overflow-visible;
-  }
+.card.card-widget-extended {
+  @apply overflow-visible;
+}
 
-  .card-widget-extended::after {
-    @apply content-[''];
-    @apply block;
-    @apply absolute;
-    @apply top-0;
-    @apply bottom-0;
-    @apply -z-[1];
-    @apply bg-inherit;
-    @apply pointer-events-none;
-    @apply rounded-portal;
-  }
+.card-widget-extended::after {
+  @apply content-[''];
+  @apply block;
+  @apply absolute;
+  @apply top-0;
+  @apply bottom-0;
+  @apply -z-[1];
+  @apply bg-inherit;
+  @apply pointer-events-none;
+  @apply rounded-portal;
+}
 
-  *:first-child .card-widget-extended::after {
-    @apply right-0;
-    @apply left-[-2600px];
-  }
+*:first-child .card-widget-extended::after {
+  @apply right-0;
+  @apply left-[-2600px];
+}
 
-  *:last-child .card-widget-extended::after {
-    @apply left-0;
-    @apply right-[-2600px];
-  }
+*:last-child .card-widget-extended::after {
+  @apply left-0;
+  @apply right-[-2600px];
+}
 
-  *:only-child .card-widget-extended::after {
-    @apply left-0;
-    @apply right-0;
-  }
+*:only-child .card-widget-extended::after {
+  @apply left-0;
+  @apply right-0;
 }
