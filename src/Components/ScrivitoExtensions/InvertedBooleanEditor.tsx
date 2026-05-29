@@ -1,5 +1,5 @@
 import { connect, uiContext } from 'scrivito'
-import './InvertedBooleanEditor.scss'
+import './InvertedBooleanEditor.css'
 
 export const InvertedBooleanEditor = connect(function InvertedBooleanEditor({
   attributeValue,
@@ -21,7 +21,6 @@ export const InvertedBooleanEditor = connect(function InvertedBooleanEditor({
       >
         <input
           type="checkbox"
-          className="btn-check"
           checked={!attributeValue}
           onChange={() => updateAttributeValue(!attributeValue)}
           disabled={readOnly}
