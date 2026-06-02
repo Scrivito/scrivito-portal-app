@@ -7,7 +7,7 @@ async function attributes(): Promise<DataAttributeDefinitions> {
   return {
     countryCode: [
       'string',
-      { title: lang === 'de' ? 'Telefonvorwahl' : 'Telephone country code' },
+      { title: lang === 'de' ? 'Landesvorwahl' : 'Country calling code' },
     ],
     iso3166A2: [
       'string',
