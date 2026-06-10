@@ -8,21 +8,21 @@ import { ensureObject } from '../../utils/ensureObject'
 import { ensureString } from '../../utils/ensureString'
 
 const attributes = {
-    acquisition_date: ['date', { title: 'Acquisition date' }],
-    creator_date_of_birth: ['date', { title: 'Artist’s date of birth' }],
-    creator_date_of_death: ['date', { title: 'Artist’s date of death' }],
-    creator: ['string', { title: 'Artist' }],
-    current_location_name: ['string', { title: 'Current location' }],
-    frontend_url: ['string', { title: 'URL' }],
-    geo_location: ['string', { title: 'Geo location' }],
-    has_image: ['boolean', { title: 'Has image?' }],
-    image_native: ['string', { title: 'Image URL (high resolution)' }],
-    image_thumbnail: ['string', { title: 'Image URL (thumbnail)' }],
-    label: ['string', { title: 'Label' }],
-    on_display: ['boolean', { title: 'On display?' }],
-    production_date: ['date', { title: 'Creation date' }],
-    public_domain: ['boolean', { title: 'Public domain?' }],
-    title: ['string', { title: 'Title' }],
+  acquisition_date: ['date', { title: 'Acquisition date' }],
+  creator_date_of_birth: ['date', { title: 'Artist’s date of birth' }],
+  creator_date_of_death: ['date', { title: 'Artist’s date of death' }],
+  creator: ['string', { title: 'Artist' }],
+  current_location_name: ['string', { title: 'Current location' }],
+  frontend_url: ['string', { title: 'URL' }],
+  geo_location: ['string', { title: 'Geo location' }],
+  has_image: ['boolean', { title: 'Has image?' }],
+  image_native: ['string', { title: 'Image URL (high resolution)' }],
+  image_thumbnail: ['string', { title: 'Image URL (thumbnail)' }],
+  label: ['string', { title: 'Label' }],
+  on_display: ['boolean', { title: 'On display?' }],
+  production_date: ['date', { title: 'Creation date' }],
+  public_domain: ['boolean', { title: 'Public domain?' }],
+  title: ['string', { title: 'Title' }],
 } as const
 
 export const SmkArtwork = provideDataClass('SmkArtwork', {
@@ -109,7 +109,9 @@ function formatItem(item: Record<string, unknown>) {
   const firstTitle = ensureObject(titles[0])
 
   return {
-    ...item,
+    ...Object.fromEntries(
+      Object.keys(attributes).map((key) => [key, item[key]]),
+    ),
     // Some object numbers contain spaces, therefore we encode it.
     _id: encodeURIComponent(ensureString(item.object_number)),
 
