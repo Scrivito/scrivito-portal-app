@@ -7,9 +7,7 @@ import { ensureArray } from '../../utils/ensureArray'
 import { ensureObject } from '../../utils/ensureObject'
 import { ensureString } from '../../utils/ensureString'
 
-export const SmkArtwork = provideDataClass('SmkArtwork', {
-  title: 'National Gallery of Denmark - Artwork',
-  attributes: {
+const attributes = {
     acquisition_date: ['date', { title: 'Acquisition date' }],
     creator_date_of_birth: ['date', { title: 'Artist’s date of birth' }],
     creator_date_of_death: ['date', { title: 'Artist’s date of death' }],
@@ -25,7 +23,11 @@ export const SmkArtwork = provideDataClass('SmkArtwork', {
     production_date: ['date', { title: 'Creation date' }],
     public_domain: ['boolean', { title: 'Public domain?' }],
     title: ['string', { title: 'Title' }],
-  },
+} as const
+
+export const SmkArtwork = provideDataClass('SmkArtwork', {
+  title: 'National Gallery of Denmark - Artwork',
+  attributes,
   connection: {
     async index(params) {
       // See https://www.smk.dk/en/article/smk-api/ for documentation
