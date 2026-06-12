@@ -55,7 +55,6 @@ export function PortalBot() {
         config={{ systemPrompt, dataClasses }}
         isVisible={showChatbot}
         onHide={() => setShowChatbot(false)}
-        showHistory
         conversationSharing
       />
 
