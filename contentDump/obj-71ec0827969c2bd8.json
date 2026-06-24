@@ -378,7 +378,7 @@
       ],
       "headline": [
         "string",
-        "Page ​not found"
+        "Page \u200bnot found"
       ],
       "style": [
         "string",
@@ -626,7 +626,7 @@
       ],
       "text": [
         "html",
-        "<p>We are pleased to invite you to an exclusive event unveiling Mixx — our latest innovation, a revitalizing beverage crafted to enhance performance and foster professional connections.</p><p>This unique evening will gather key partners, industry leaders, and collaborators for an exclusive first look at the Mixx experience.</p><p>Join a select group of professionals to discover the future of energy and innovation.</p>"
+        "<p>We are pleased to invite you to an exclusive event unveiling Mixx \u2014 our latest innovation, a revitalizing beverage crafted to enhance performance and foster professional connections.</p><p>This unique evening will gather key partners, industry leaders, and collaborators for an exclusive first look at the Mixx experience.</p><p>Join a select group of professionals to discover the future of energy and innovation.</p>"
       ]
     },
     "d2e2e2a0": {
@@ -1219,7 +1219,7 @@
       "_obj_class": "HeadlineWidget",
       "headline": [
         "string",
-        "© MIXX 2026 All rights reserved."
+        "\u00a9 MIXX 2026 All rights reserved."
       ],
       "level": [
         "string",
@@ -2137,7 +2137,7 @@
       ],
       "headline": [
         "string",
-        " 🕶️ Unveiling the New Mixx"
+        "\u00a0\ud83d\udd76\ufe0f Unveiling the New Mixx"
       ],
       "style": [
         "string",
@@ -2177,7 +2177,7 @@
       ],
       "headline": [
         "string",
-        " 🥂 Tasting & Networking"
+        "\u00a0\ud83e\udd42 Tasting & Networking"
       ],
       "level": [
         "string",
@@ -2252,7 +2252,7 @@
       ],
       "headline": [
         "string",
-        " 🎶 Buzzing with Guest DJ"
+        "\u00a0\ud83c\udfb6 Buzzing with Guest DJ"
       ],
       "level": [
         "string",
@@ -2327,7 +2327,7 @@
       ],
       "headline": [
         "string",
-        " 🍸 Live Mixxology"
+        "\u00a0\ud83c\udf78 Live Mixxology"
       ],
       "level": [
         "string",
@@ -2762,5 +2762,15 @@
   "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "content_description": [
+    "string",
+    "Marketing landing page"
+  ],
+  "content_thumbnail": [
+    "binary",
+    {
+      "id": "thumbnail-mixx-v1"
+    }
+  ]
 }

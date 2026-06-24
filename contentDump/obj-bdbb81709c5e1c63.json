@@ -101,19 +101,19 @@
   ],
   "tc_title": [
     "string",
-    "Tynacoon – Die richtige Lösung für Ihre Branche"
+    "Tynacoon \u2013\u00a0Die richtige L\u00f6sung f\u00fcr Ihre Branche"
   ],
   "og_title": [
     "string",
-    "Tynacoon – Die richtige Lösung für Ihre Branche"
+    "Tynacoon \u2013\u00a0Die richtige L\u00f6sung f\u00fcr Ihre Branche"
   ],
   "tc_description": [
     "string",
-    "Über fünf Kontinente verteilt mit 33 Tochtergesellschaften in 29 Ländern sowie 19 Produktionsstandorten und zahlreichen Importeuren und Agenturen."
+    "\u00dcber f\u00fcnf Kontinente verteilt mit 33 Tochtergesellschaften in 29 L\u00e4ndern sowie 19 Produktionsstandorten und zahlreichen Importeuren und Agenturen."
   ],
   "og_description": [
     "string",
-    "Über fünf Kontinente verteilt mit 33 Tochtergesellschaften in 29 Ländern sowie 19 Produktionsstandorten und zahlreichen Importeuren und Agenturen."
+    "\u00dcber f\u00fcnf Kontinente verteilt mit 33 Tochtergesellschaften in 29 L\u00e4ndern sowie 19 Produktionsstandorten und zahlreichen Importeuren und Agenturen."
   ],
   "tc_creator": [
     "string",
@@ -334,7 +334,7 @@
       ],
       "headline": [
         "string",
-        "Systeme für Industrie und Handel in Premiumqualität"
+        "Systeme f\u00fcr Industrie und Handel in Premiumqualit\u00e4t"
       ],
       "style": [
         "string",
@@ -353,7 +353,7 @@
       ],
       "text": [
         "html",
-        "<p>Mit einer globalen Präsenz in über 29 Ländern durch 33 Tochtergesellschaften, 19 Produktionsstandorten und einem Netzwerk von Importeuren und Agenturen garantiert unser Unternehmen die Zugänglichkeit. Sicherheitskritische Komponenten werden vom Forschungs- und Materialprüfungsinstitut für das Bauwesen (FMPA) strengsten Tests unterzogen.</p>"
+        "<p>Mit einer globalen Pr\u00e4senz in \u00fcber 29 L\u00e4ndern durch 33 Tochtergesellschaften, 19 Produktionsstandorten und einem Netzwerk von Importeuren und Agenturen garantiert unser Unternehmen die Zug\u00e4nglichkeit. Sicherheitskritische Komponenten werden vom Forschungs- und Materialpr\u00fcfungsinstitut f\u00fcr das Bauwesen (FMPA) strengsten Tests unterzogen.</p>"
       ]
     },
     "39d3a71d": {
@@ -490,7 +490,7 @@
       "_obj_class": "HeadlineWidget",
       "headline": [
         "string",
-        "Öffentliche Einrichtungen"
+        "\u00d6ffentliche Einrichtungen"
       ],
       "alignment": [
         "string",
@@ -751,7 +751,7 @@
       ],
       "text": [
         "html",
-        "<p>Erkunden Sie unsere Ecoline-Serie, die für Nachhaltigkeit und Effizienz entwickelt wurde. Verbessern Sie Ihre Betriebsabläufe mit umweltfreundlichen Lösungen, ohne auf Qualität zu verzichten.</p>"
+        "<p>Erkunden Sie unsere Ecoline-Serie, die f\u00fcr Nachhaltigkeit und Effizienz entwickelt wurde. Verbessern Sie Ihre Betriebsabl\u00e4ufe mit umweltfreundlichen L\u00f6sungen, ohne auf Qualit\u00e4t zu verzichten.</p>"
       ]
     },
     "44a2b98b": {
@@ -866,7 +866,7 @@
       ],
       "text": [
         "html",
-        "<p>Entdecken Sie unsere Proline-Serie für Profis, die erstklassige Qualität und Leistung suchen. Bringen Sie Ihr Unternehmen auf ein neues Niveau mit führenden Lösungen, die speziell für anspruchsvolle Anwendungen entwickelt wurden.</p>"
+        "<p>Entdecken Sie unsere Proline-Serie f\u00fcr Profis, die erstklassige Qualit\u00e4t und Leistung suchen. Bringen Sie Ihr Unternehmen auf ein neues Niveau mit f\u00fchrenden L\u00f6sungen, die speziell f\u00fcr anspruchsvolle Anwendungen entwickelt wurden.</p>"
       ]
     },
     "dffc234b": {
@@ -1083,7 +1083,7 @@
       "_obj_class": "HeadlineWidget",
       "headline": [
         "string",
-        "Komplettlösungen für Industrie und Handel"
+        "Komplettl\u00f6sungen f\u00fcr Industrie und Handel"
       ],
       "alignment": [
         "string",
@@ -1366,7 +1366,7 @@
       ],
       "text": [
         "html",
-        "<p>Über uns<br>Karriere<br>Blog<br>Kunden<br>Engagieren Sie uns</p>"
+        "<p>\u00dcber uns<br>Karriere<br>Blog<br>Kunden<br>Engagieren Sie uns</p>"
       ]
     },
     "614bcfb6": {
@@ -1519,7 +1519,7 @@
       ],
       "text": [
         "html",
-        "<p>© Tynacoon 2026 Alle Rechte vorbehalten.</p>"
+        "<p>\u00a9 Tynacoon 2026 Alle Rechte vorbehalten.</p>"
       ]
     },
     "83a3d258": {
@@ -1839,7 +1839,7 @@
       ],
       "location_street_address": [
         "string",
-        "Goethestraße 123"
+        "Goethestra\u00dfe 123"
       ],
       "location_postal_code": [
         "string",
@@ -2073,7 +2073,7 @@
       ],
       "headline": [
         "string",
-        "Die richtige Lösung für Ihre Branche"
+        "Die richtige L\u00f6sung f\u00fcr Ihre Branche"
       ],
       "style": [
         "string",
@@ -2145,7 +2145,7 @@
       ],
       "text": [
         "html",
-        "<p>Über fünf Kontinente verteilt mit 33 Tochtergesellschaften in 29 Ländern sowie 19 Produktionsstandorten und zahlreichen Importeuren und Agenturen.</p>"
+        "<p>\u00dcber f\u00fcnf Kontinente verteilt mit 33 Tochtergesellschaften in 29 L\u00e4ndern sowie 19 Produktionsstandorten und zahlreichen Importeuren und Agenturen.</p>"
       ]
     },
     "1ba85f73": {
@@ -2219,7 +2219,7 @@
       ],
       "text": [
         "html",
-        "<p>Melden Sie sich an, um zu sehen, ob mehr verfügbar ist.</p>"
+        "<p>Melden Sie sich an, um zu sehen, ob mehr verf\u00fcgbar ist.</p>"
       ]
     },
     "2ca2373d": {
@@ -2290,21 +2290,21 @@
       "_obj_class": "TickListItemWidget",
       "statement": [
         "string",
-        "Weltweite Präsenz: In über 70 Ländern weltweit."
+        "Weltweite Pr\u00e4senz: In \u00fcber 70 L\u00e4ndern weltweit."
       ]
     },
     "8600c7c7": {
       "_obj_class": "TickListItemWidget",
       "statement": [
         "string",
-        "Strenger Qualitätskontrolle: Strenge Überprüfung durch FMPA."
+        "Strenger Qualit\u00e4tskontrolle: Strenge \u00dcberpr\u00fcfung durch FMPA."
       ]
     },
     "1cc2bb2b": {
       "_obj_class": "TickListItemWidget",
       "statement": [
         "string",
-        "Umfassende Lösungen: Ecoline und Proline-Serie für Industrie und Handel."
+        "Umfassende L\u00f6sungen: Ecoline und Proline-Serie f\u00fcr Industrie und Handel."
       ]
     },
     "58de5784": {
@@ -2403,7 +2403,7 @@
       ],
       "headline": [
         "string",
-        "Systeme für Industrie und Gewerbe"
+        "Systeme f\u00fcr Industrie und Gewerbe"
       ],
       "style": [
         "string",
@@ -2426,7 +2426,7 @@
       ],
       "text": [
         "html",
-        "<p>Sicherheitskritische Bauteile werden von der Forschungs- und Materialprüfungsanstalt für das Bauwesen (FMPA) auf Herz und Nieren geprüft.</p>"
+        "<p>Sicherheitskritische Bauteile werden von der Forschungs- und Materialpr\u00fcfungsanstalt f\u00fcr das Bauwesen (FMPA) auf Herz und Nieren gepr\u00fcft.</p>"
       ]
     },
     "bda0426d": {
@@ -2526,7 +2526,7 @@
       ],
       "headline": [
         "string",
-        "Neuen, hochmodernen Abfüllanlagen"
+        "Neuen, hochmodernen Abf\u00fcllanlagen"
       ],
       "level": [
         "string",
@@ -2719,7 +2719,7 @@
       ],
       "text": [
         "html",
-        "<p>Durch unsere fortschrittlichen Abfüllanlagen können Sie Ihren Produktionsausstoß um bis zu 40% erhöhen. Verabschieden Sie sich von Engpässen und begrüßen Sie reibungslose Abläufe, die mit Ihrer wachsenden Nachfrage Schritt halten.</p>"
+        "<p>Durch unsere fortschrittlichen Abf\u00fcllanlagen k\u00f6nnen Sie Ihren Produktionsaussto\u00df um bis zu 40% erh\u00f6hen. Verabschieden Sie sich von Engp\u00e4ssen und begr\u00fc\u00dfen Sie reibungslose Abl\u00e4ufe, die mit Ihrer wachsenden Nachfrage Schritt halten.</p>"
       ]
     },
     "9ee450e8": {
@@ -2813,7 +2813,7 @@
       ],
       "text": [
         "html",
-        "<p>Erleben Sie reibungsarme Betriebsabläufe mit unseren zuverlässigen Abfüllanlagen. Mit integrierten Funktionen für die vorausschauende Wartung und der robusten Konstruktion können Sie die Stillstandszeiten um bis zu 30% reduzieren und Ihre Produktion auf Höchstleistung halten.</p>"
+        "<p>Erleben Sie reibungsarme Betriebsabl\u00e4ufe mit unseren zuverl\u00e4ssigen Abf\u00fcllanlagen. Mit integrierten Funktionen f\u00fcr die vorausschauende Wartung und der robusten Konstruktion k\u00f6nnen Sie die Stillstandszeiten um bis zu 30% reduzieren und Ihre Produktion auf H\u00f6chstleistung halten.</p>"
       ]
     },
     "6a9bbaba": {
@@ -2856,5 +2856,15 @@
   "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "content_description": [
+    "string",
+    "E-commerce starter site"
+  ],
+  "content_thumbnail": [
+    "binary",
+    {
+      "id": "thumbnail-tynacoon-v1"
+    }
+  ]
 }
