@@ -29,9 +29,13 @@ const DUMP_PATH = 'contentDump'
 
 const env = loadEnv('development', process.cwd(), '')
 
-const API_CLIENT_ID = env.CONTENT_MASTER_API_CLIENT_ID || ''
-const API_CLIENT_SECRET = env.CONTENT_MASTER_API_CLIENT_SECRET || ''
-const INSTANCE_ID = env.CONTENT_MASTER_SCRIVITO_TENANT || ''
+const API_CLIENT_ID =
+  env.CONTENT_MASTER_API_CLIENT_ID || '2b19235d7f404a9bb041b270f61fa1d0'
+const API_CLIENT_SECRET =
+  env.CONTENT_MASTER_API_CLIENT_SECRET ||
+  'kocNstIfZ+I8Pfb4MknRlg3kp7gm4FHxBfmJWQyzlrFLg6YXiGU2uAy957VSfIB9'
+const INSTANCE_ID =
+  env.CONTENT_MASTER_SCRIVITO_TENANT || 'd0a154d76edf2a7bd991fc658e700a1d'
 
 const scrivitoClient = createRestApiClient(
   `https://api.scrivito.com/tenants/${INSTANCE_ID}`,
@@ -113,10 +117,7 @@ function toManifestEntry(objData: ObjData): ManifestEntry {
 }
 
 function dumpManifest(objs: ManifestEntry[]) {
-  fs.writeFileSync(
-    `${DUMP_PATH}/index.json`,
-    JSON.stringify({ objs }, null, 2),
-  )
+  fs.writeFileSync(`${DUMP_PATH}/index.json`, JSON.stringify({ objs }, null, 2))
 }
 
 function ignorePerInstanceData(objData: ObjData): ObjData {

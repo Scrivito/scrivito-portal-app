@@ -16,6 +16,16 @@ provideEditingConfig(Homepage, {
     contentTitle: {
       title: 'Site name',
     },
+    contentDescription: {
+      title: 'Site description',
+      description:
+        'Shown next to the title in the template picker and the site overview.',
+    },
+    contentThumbnail: {
+      title: 'Site thumbnail',
+      description:
+        'Preview image shown in the template picker and the site overview.',
+    },
     baseUrl: {
       title: 'Base URL',
       description:
@@ -82,6 +92,8 @@ provideEditingConfig(Homepage, {
       title: 'Site settings',
       properties: [
         'contentTitle',
+        'contentDescription',
+        'contentThumbnail',
         'baseUrl',
         site.id() === import.meta.env.SCRIVITO_ROOT_OBJ_ID ? 'pisaUrl' : null,
         'siteLogoDark',
