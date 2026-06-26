@@ -17,6 +17,13 @@ provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
     ...defaultPageEditingConfigAttributes,
+    contentDescription: {
+      options: { multiLine: true },
+      title: 'Site description',
+    },
+    contentThumbnail: {
+      title: 'Site thumbnail',
+    },
     contentTitle: {
       title: 'Site name',
     },
@@ -123,7 +130,7 @@ provideEditingConfig(Homepage, {
     ...defaultPagePropertiesGroups,
     {
       title: 'Site profile',
-      properties: ['contentTitle'],
+      properties: ['contentTitle', 'contentDescription', 'contentThumbnail'],
       key: 'site-profile-group',
     },
     {
