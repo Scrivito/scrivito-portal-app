@@ -2763,12 +2763,12 @@
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "content_thumbnail": [
+    "reference",
+    "a6417ce55f02f243"
+  ],
   "content_description": [
     "string",
     "Marketing landing page"
-  ],
-  "content_thumbnail": [
-    "reference",
-    "2e44384af30acbc8"
   ]
 }

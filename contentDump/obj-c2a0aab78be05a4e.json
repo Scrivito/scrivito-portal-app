@@ -2856,12 +2856,12 @@
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "content_thumbnail": [
+    "reference",
+    "1409db9bede134fb"
+  ],
   "content_description": [
     "string",
     "E-commerce starter site"
-  ],
-  "content_thumbnail": [
-    "reference",
-    "29bd97232006ec75"
   ]
 }
