@@ -8,7 +8,7 @@ export const Homepage = provideObjClass('Homepage', {
     body: 'widgetlist',
     contentDescription: 'string',
     contentFormat: 'string',
-    contentThumbnail: 'binary',
+    contentThumbnail: ['reference', { only: 'Image' }],
     contentTitle: 'string',
     pisaUrl: 'string',
     siteCartPage: 'reference',

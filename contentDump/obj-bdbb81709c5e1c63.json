@@ -2859,12 +2859,10 @@
   "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "content_description": [
     "string",
-    "E-commerce starter site"
+    "E-Commerce-Startseite"
   ],
   "content_thumbnail": [
-    "binary",
-    {
-      "id": "thumbnail-tynacoon-v1"
-    }
+    "reference",
+    "29bd97232006ec75"
   ]
 }

@@ -2768,9 +2768,7 @@
     "Marketing landing page"
   ],
   "content_thumbnail": [
-    "binary",
-    {
-      "id": "thumbnail-mixx-v1"
-    }
+    "reference",
+    "2e44384af30acbc8"
   ]
 }

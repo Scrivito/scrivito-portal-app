@@ -2861,9 +2861,7 @@
     "E-commerce starter site"
   ],
   "content_thumbnail": [
-    "binary",
-    {
-      "id": "thumbnail-tynacoon-v1"
-    }
+    "reference",
+    "29bd97232006ec75"
   ]
 }
