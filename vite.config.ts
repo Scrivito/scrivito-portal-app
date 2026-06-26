@@ -52,14 +52,17 @@ export default defineConfig(({ mode }) => {
             : {},
         ],
         output: {
-          manualChunks: {
-            react: [
-              '@dr.pogodin/react-helmet',
-              'react-bootstrap',
-              'react-dropzone',
-              'react-toastify',
+          codeSplitting: {
+            groups: [
+              {
+                name: 'react',
+                test: /node_modules\/(@dr\.pogodin\/react-helmet|react-bootstrap|react-dropzone|react-toastify)/,
+              },
+              {
+                name: 'scrivito',
+                test: /node_modules\/scrivito-neoletter-form-widgets\/index/,
+              },
             ],
-            scrivito: ['scrivito-neoletter-form-widgets'],
           },
         },
       },
