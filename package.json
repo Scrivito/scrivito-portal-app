@@ -55,7 +55,7 @@
     "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^8.57.2",
     "@typescript-eslint/parser": "^8.42.0",
-    "@vitejs/plugin-react-swc": "^4.3.0",
+    "@vitejs/plugin-react-swc": "^4.3.1",
     "bootstrap-icons": "^1.13.1",
     "concurrently": "^9.2.3",
     "content-security-policy-builder": "^2.3.0",
@@ -74,7 +74,7 @@
     "typescript": "^5.9.3",
     "vite": "^8.1.0",
     "vite-node": "^6.0.0",
-    "vite-plugin-sri-gen": "^1.4.1"
+    "vite-plugin-sri-gen": "^1.6.1"
   },
   "overrides": {
     "@lhci/cli": {
