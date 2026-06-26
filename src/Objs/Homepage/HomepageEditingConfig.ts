@@ -17,6 +17,13 @@ provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
     ...defaultPageEditingConfigAttributes,
+    contentDescription: {
+      options: { multiLine: true },
+      title: 'Site description',
+    },
+    contentThumbnail: {
+      title: 'Site thumbnail',
+    },
     contentTitle: {
       title: 'Site name',
     },
@@ -122,9 +129,13 @@ provideEditingConfig(Homepage, {
   propertiesGroups: (site) => [
     ...defaultPagePropertiesGroups,
     {
+      title: 'Site profile',
+      properties: ['contentTitle', 'contentDescription', 'contentThumbnail'],
+      key: 'site-profile-group',
+    },
+    {
       title: 'Site settings',
       properties: [
-        'contentTitle',
         'baseUrl',
         ...(site.id() === jwtPisaSalesConfigSite()?.id()
           ? ['jwtPisaSalesApiUrl']
