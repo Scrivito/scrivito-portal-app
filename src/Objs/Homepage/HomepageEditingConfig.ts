@@ -122,9 +122,13 @@ provideEditingConfig(Homepage, {
   propertiesGroups: (site) => [
     ...defaultPagePropertiesGroups,
     {
+      title: 'Site profile',
+      properties: ['contentTitle'],
+      key: 'site-profile-group',
+    },
+    {
       title: 'Site settings',
       properties: [
-        'contentTitle',
         'baseUrl',
         ...(site.id() === jwtPisaSalesConfigSite()?.id()
           ? ['jwtPisaSalesApiUrl']
