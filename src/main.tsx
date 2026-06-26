@@ -48,7 +48,6 @@ async function boot() {
   renderOrHydrateApp(rootElement)
 
   if (isEditorLoggedIn()) {
-    import('./assets/stylesheets/scrivitoEditing.scss')
     import('./Data/editingConfigs')
     import('./Objs/editingConfigs')
     import('./Widgets/editingConfigs')
