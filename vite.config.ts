@@ -2,7 +2,7 @@ import dns from 'dns'
 import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
 import type { Rollup } from 'vite'
-import react from '@vitejs/plugin-react-swc'
+import react from '@vitejs/plugin-react'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
 import sri from 'vite-plugin-sri-gen'
@@ -52,14 +52,17 @@ export default defineConfig(({ mode }) => {
             : {},
         ],
         output: {
-          manualChunks: {
-            react: [
-              '@dr.pogodin/react-helmet',
-              'react-bootstrap',
-              'react-dropzone',
-              'react-toastify',
+          codeSplitting: {
+            groups: [
+              {
+                name: 'react',
+                test: /node_modules\/(@dr\.pogodin\/react-helmet|react-bootstrap|react-dropzone|react-toastify)/,
+              },
+              {
+                name: 'scrivito',
+                test: /node_modules\/scrivito-neoletter-form-widgets\/index/,
+              },
             ],
-            scrivito: ['scrivito-neoletter-form-widgets'],
           },
         },
       },

@@ -4,6 +4,7 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "target": "ESNext",
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
   },
   "include": ["vite.config.ts", "headers.config.ts", "postcss.config.ts"]
