@@ -8,15 +8,15 @@ import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
 import { SinglePageSite } from './Components/SinglePageSite'
 
-export const helmetContext: { helmet?: HelmetServerState } = {}
-
 export function App({
   appWrapperRef,
+  onServerState,
 }: {
   appWrapperRef?: React.RefCallback<HTMLElement>
+  onServerState?: (state: HelmetServerState) => void
 }) {
   return (
-    <HelmetProvider context={helmetContext}>
+    <HelmetProvider onServerState={onServerState}>
       <ErrorBoundary>
         <div ref={appWrapperRef} id="app-wrapper">
           <SkipToContent />
