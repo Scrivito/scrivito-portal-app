@@ -17,6 +17,13 @@ provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
     ...defaultPageEditingConfigAttributes,
+    contentDescription: {
+      options: { multiLine: true },
+      title: 'Description',
+    },
+    contentThumbnail: {
+      title: 'Thumbnail',
+    },
     contentTitle: {
       title: 'Site name',
     },
@@ -165,6 +172,11 @@ provideEditingConfig(Homepage, {
         'siteFontBodyWeight',
       ],
       key: 'site-fonts-group',
+    },
+    {
+      title: 'Template',
+      properties: ['contentDescription', 'contentThumbnail'],
+      key: 'template-group',
     },
   ],
   properties: [...defaultPageProperties],
