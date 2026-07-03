@@ -98,6 +98,16 @@
       "c74f1a8c820fd90c"
     ]
   ],
+  "content_description": [
+    "string",
+    "An elegant event landing page for the market launch of Mixx, a new energy drink targeting an exclusive, professional audience — with event details, an agenda, and a registration form."
+  ],
+  "content_thumbnail": [
+    "binary",
+    {
+      "id": "71ec0827969c2bd8/aeed79c4b83f/main.scrivito-portal-app.pages.dev_71ec0827969c2bd8_en-iPad-Pro-.webp"
+    }
+  ],
   "_conflicts": null,
   "_content_id": "71ec0827969c2bd8",
   "_created_at": "20250911084327",
@@ -106,14 +116,14 @@
   "_first_published_at": "20250911091033",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20260130103504",
+  "_last_changed": "20260703150901",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20260130103720",
+  "_published_at": "20260703151230",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "202601301037200000000000000000325f016c9943ab70",
+  "_version": "202607031512300000000000000000eb4940a34a747e67",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
@@ -2761,6 +2771,6 @@
   },
   "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_published_by": "scrivito:943667111e7b464abf6dba5382978956"
 }

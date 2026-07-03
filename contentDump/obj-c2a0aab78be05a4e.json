@@ -162,6 +162,16 @@
     "string",
     "#ffffff"
   ],
+  "content_description": [
+    "string",
+    "A complete industrial company website available in English and German, designed for product presentation and a customer portal for tickets, events, orders, and documents."
+  ],
+  "content_thumbnail": [
+    "binary",
+    {
+      "id": "c2a0aab78be05a4e/b5fe8488f466/main.scrivito-portal-app.pages.dev_71ec0827969c2bd8_en-iPad-Pro-.webp"
+    }
+  ],
   "_conflicts": null,
   "_content_id": "c2a0aab78be05a4e",
   "_created_at": "20230509091921",
@@ -170,14 +180,14 @@
   "_first_published_at": "20230509091931",
   "_id": "c2a0aab78be05a4e",
   "_language": "en",
-  "_last_changed": "20260130103311",
+  "_last_changed": "20260703151138",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20260130103720",
+  "_published_at": "20260703151230",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202601301037200000000000000000325f016c9943ab70",
+  "_version": "202607031512300000000000000000eb4940a34a747e67",
   "_widget_pool": {
     "10914562": {
       "_obj_class": "ColumnContainerWidget",
@@ -602,7 +612,7 @@
       "_obj_class": "HeadlineWidget",
       "headline": [
         "string",
-        "API & IoT "
+        "API & IoT"
       ],
       "alignment": [
         "string",
@@ -1178,7 +1188,7 @@
       ],
       "headline": [
         "string",
-        "View Individual Products in more Detail"
+        "View Individual Products in More Detail"
       ],
       "style": [
         "string",
@@ -1796,7 +1806,7 @@
       ],
       "headline": [
         "string",
-        "Page ​not found"
+        "Page not found"
       ],
       "style": [
         "string",
@@ -2327,7 +2337,7 @@
       "_obj_class": "TickListItemWidget",
       "statement": [
         "string",
-        "Global Presence:  In over 29 countries worldwide."
+        "Global Presence: In over 29 countries worldwide."
       ]
     },
     "372970df": {
@@ -2352,7 +2362,7 @@
       ],
       "headline": [
         "string",
-        "Our ​products"
+        "Our Products"
       ],
       "style": [
         "string",
@@ -2550,7 +2560,7 @@
       ],
       "headline": [
         "string",
-        "Our new Cutting-Edge Filling Lines"
+        "Our New Cutting-Edge Filling Lines"
       ],
       "level": [
         "string",
@@ -2854,6 +2864,6 @@
   },
   "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
-  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+  "_last_changed_by": "scrivito:943667111e7b464abf6dba5382978956",
+  "_published_by": "scrivito:943667111e7b464abf6dba5382978956"
 }
