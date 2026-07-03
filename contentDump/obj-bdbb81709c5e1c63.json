@@ -164,10 +164,8 @@
     "Eine vollständige Website für Industrieunternehmen – auf Deutsch und Englisch – mit Produktpräsentation und Kundenportal für Tickets, Veranstaltungen, Bestellungen und Dokumente."
   ],
   "content_thumbnail": [
-    "binary",
-    {
-      "id": "bdbb81709c5e1c63/772ace034958/main.scrivito-portal-app.pages.dev_de-iPad-Pro-.webp"
-    }
+    "reference",
+    "f341a4a956e9efe2"
   ],
   "_conflicts": null,
   "_content_id": "c2a0aab78be05a4e",
@@ -177,14 +175,14 @@
   "_first_published_at": "20240405121103",
   "_id": "bdbb81709c5e1c63",
   "_language": "de",
-  "_last_changed": "20260703151154",
+  "_last_changed": "20260703161207",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20260703151230",
+  "_published_at": "20260703161256",
   "_restriction": null,
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202607031512300000000000000000eb4940a34a747e67",
+  "_version": "20260703161256000000000000000009bf89e274953088",
   "_widget_pool": {
     "43891776": {
       "_obj_class": "ColumnWidget",

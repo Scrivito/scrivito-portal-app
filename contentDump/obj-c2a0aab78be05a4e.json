@@ -167,10 +167,8 @@
     "A complete industrial company website available in English and German, designed for product presentation and a customer portal for tickets, events, orders, and documents."
   ],
   "content_thumbnail": [
-    "binary",
-    {
-      "id": "c2a0aab78be05a4e/b5fe8488f466/main.scrivito-portal-app.pages.dev_71ec0827969c2bd8_en-iPad-Pro-.webp"
-    }
+    "reference",
+    "b892fb4f5320a2ac"
   ],
   "_conflicts": null,
   "_content_id": "c2a0aab78be05a4e",
@@ -180,14 +178,14 @@
   "_first_published_at": "20230509091931",
   "_id": "c2a0aab78be05a4e",
   "_language": "en",
-  "_last_changed": "20260703151138",
+  "_last_changed": "20260703161136",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20260703151230",
+  "_published_at": "20260703161256",
   "_restriction": null,
   "_site_id": "56a14d0750cc844e",
-  "_version": "202607031512300000000000000000eb4940a34a747e67",
+  "_version": "20260703161256000000000000000009bf89e274953088",
   "_widget_pool": {
     "10914562": {
       "_obj_class": "ColumnContainerWidget",

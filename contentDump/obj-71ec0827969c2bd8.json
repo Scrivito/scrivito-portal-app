@@ -103,10 +103,8 @@
     "An elegant event landing page for the market launch of Mixx, a new energy drink targeting an exclusive, professional audience — with event details, an agenda, and a registration form."
   ],
   "content_thumbnail": [
-    "binary",
-    {
-      "id": "71ec0827969c2bd8/aeed79c4b83f/main.scrivito-portal-app.pages.dev_71ec0827969c2bd8_en-iPad-Pro-.webp"
-    }
+    "reference",
+    "1144a97b685dd0cc"
   ],
   "_conflicts": null,
   "_content_id": "71ec0827969c2bd8",
@@ -116,14 +114,14 @@
   "_first_published_at": "20250911091033",
   "_id": "71ec0827969c2bd8",
   "_language": "en",
-  "_last_changed": "20260703150901",
+  "_last_changed": "20260703161219",
   "_modification": null,
   "_path": "/",
   "_permalink": null,
-  "_published_at": "20260703151230",
+  "_published_at": "20260703161256",
   "_restriction": null,
   "_site_id": "696dde5f0b15a227",
-  "_version": "202607031512300000000000000000eb4940a34a747e67",
+  "_version": "20260703161256000000000000000009bf89e274953088",
   "_widget_pool": {
     "47981733": {
       "_obj_class": "FormStepContainerWidget",
