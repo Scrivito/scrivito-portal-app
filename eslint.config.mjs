@@ -1,43 +1,22 @@
-import { fixupConfigRules, fixupPluginRules } from '@eslint/compat'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
+import tsEslint from 'typescript-eslint'
+import arabastaReact from '@arabasta/eslint-plugin-react'
 import jsxA11Y from 'eslint-plugin-jsx-a11y'
+import importX from 'eslint-plugin-import-x'
+import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
-import tsParser from '@typescript-eslint/parser'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import js from '@eslint/js'
-import { FlatCompat } from '@eslint/eslintrc'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-})
 
 export default [
-  ...fixupConfigRules(
-    compat.extends(
-      'eslint:recommended',
-      'plugin:@arabasta/react/recommended-legacy',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:react/recommended',
-      'plugin:react/jsx-runtime',
-      'plugin:import/recommended',
-      'plugin:import/typescript',
-      'plugin:jsx-a11y/recommended',
-    ),
-  ),
+  ...tsEslint.configs.recommended,
+  arabastaReact.configs.recommended,
+  react.configs.flat.recommended,
+  react.configs.flat['jsx-runtime'],
+  importX.flatConfigs.recommended,
+  importX.flatConfigs.typescript,
+  jsxA11Y.flatConfigs.recommended,
+  reactHooks.configs.flat['recommended-latest'],
   {
-    plugins: {
-      '@typescript-eslint': fixupPluginRules(typescriptEslint),
-      'jsx-a11y': fixupPluginRules(jsxA11Y),
-      'react-hooks': reactHooks,
-    },
-
     languageOptions: {
-      parser: tsParser,
+      parser: tsEslint.parser,
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
@@ -45,6 +24,10 @@ export default [
     },
 
     settings: {
+      'import-x/resolver-next': [
+        importX.createNodeResolver({ extensions: ['.ts', '.tsx', '.js'] }),
+      ],
+
       react: {
         version: 'detect',
       },
@@ -57,7 +40,6 @@ export default [
     },
 
     rules: {
-      ...reactHooks.configs.recommended.rules,
       curly: ['error', 'multi-line'],
 
       eqeqeq: ['warn'],

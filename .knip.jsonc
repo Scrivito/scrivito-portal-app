@@ -12,11 +12,6 @@
   "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
-
-    // used by eslint.config.mjs; Workaround for https://github.com/webpro-nl/knip/issues/818
-    "@arabasta/eslint-plugin-react",
-    "eslint-plugin-import",
-    "eslint-plugin-react",
   ],
   "project": ["**/*.{js,ts,tsx}"],
 }
