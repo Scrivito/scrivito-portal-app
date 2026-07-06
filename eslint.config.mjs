@@ -1,3 +1,4 @@
+import js from '@eslint/js'
 import tsEslint from 'typescript-eslint'
 import arabastaReact from '@arabasta/eslint-plugin-react'
 import jsxA11Y from 'eslint-plugin-jsx-a11y'
@@ -6,6 +7,7 @@ import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 
 export default [
+  js.configs.recommended,
   ...tsEslint.configs.recommended,
   arabastaReact.configs.recommended,
   react.configs.flat.recommended,
