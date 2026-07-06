@@ -18,7 +18,6 @@ export default [
   reactHooks.configs.flat['recommended-latest'],
   {
     languageOptions: {
-      parser: tsEslint.parser,
       parserOptions: {
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
