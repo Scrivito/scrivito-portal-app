@@ -1,3 +1,4 @@
+import { defineConfig } from 'eslint/config'
 import js from '@eslint/js'
 import tsEslint from 'typescript-eslint'
 import arabastaReact from '@arabasta/eslint-plugin-react'
@@ -6,7 +7,7 @@ import importX from 'eslint-plugin-import-x'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 
-export default [
+export default defineConfig([
   js.configs.recommended,
   ...tsEslint.configs.recommended,
   arabastaReact.configs.recommended,
@@ -84,4 +85,4 @@ export default [
       '@typescript-eslint/ban-ts-comment': 0,
     },
   },
-]
+])
