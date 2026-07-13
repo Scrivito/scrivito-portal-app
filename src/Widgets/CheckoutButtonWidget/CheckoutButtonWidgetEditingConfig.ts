@@ -9,7 +9,7 @@ provideEditingConfig(CheckoutButtonWidget, {
     successMessage: { title: 'Success Message' },
     alignment: {
       title: 'Alignment',
-      description: 'Default: Left',
+      description: 'Default: Center',
       values: [
         { value: 'left', title: 'Left' },
         { value: 'center', title: 'Center' },
