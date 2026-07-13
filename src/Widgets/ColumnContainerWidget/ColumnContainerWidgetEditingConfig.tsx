@@ -20,6 +20,7 @@ import { InvertedBooleanEditor } from '../../Components/ScrivitoExtensions/Inver
 
 provideEditingConfig(ColumnContainerWidget, {
   title: 'Columns',
+  description: 'Arranges content side by side in up to 6 columns.',
   thumbnail: Thumbnail,
   attributes: {
     alignment: {
