@@ -11,10 +11,8 @@ export function jrPlatformConfigureEtracker() {
   if (typeof window === 'undefined') return
   if (isEditorLoggedIn()) return
 
-  const secureCode =
-    getJrPlatformInstanceId() === '8e775f86c0194b4ca7b11bef3f458ee3'
-      ? 'LVKmem'
-      : 'L9bLhx'
+  const jrPlatformInstanceId = getJrPlatformInstanceId()
+  if (!jrPlatformInstanceId) return
 
   const hostnameInstance = instanceFromHostname()
   if (
@@ -33,7 +31,7 @@ export function jrPlatformConfigureEtracker() {
   script.id = '_etLoader'
   script.type = 'text/javascript'
   script.setAttribute('data-block-cookies', 'true')
-  script.setAttribute('data-secure-code', secureCode)
+  script.setAttribute('data-instance-id', jrPlatformInstanceId)
   script.setAttribute('data-page-changed-detection', 'url')
   script.src = 'https://code.etracker.com/code/e.js'
   script.async = true
