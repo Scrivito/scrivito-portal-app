@@ -12,7 +12,7 @@
   "ignoreBinaries": ["break"], // Lighthouse false positive
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
-    "tailwindcss" // used by @tailwindcss/vite
+    "tailwindcss", // used by @tailwindcss/vite
   ],
   "project": ["**/*.{js,ts,tsx}"],
 }
