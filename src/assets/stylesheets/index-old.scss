@@ -553,16 +553,6 @@ td,
   }
 }
 
-/* Language Icon
- ================================================== */
-
-img.img-flag {
-  display: inline-block;
-  margin: -3px 6px 0 0;
-  max-height: 15px;
-  width: 17px;
-}
-
 /* section / card background upgrades
  ================================================== */
 
@@ -740,11 +730,6 @@ header section {
     padding: 0 5px 0 0;
     box-shadow: none;
   }
-  .navbar-brand-logo {
-    max-height: 100%;
-    max-width: 155px;
-    min-height: 45px;
-  }
   .navbar-meta .nav-link {
     padding: 17px;
 
@@ -821,14 +806,6 @@ section.bg-primary {
   }
 }
 
-.navbar-brand-logo {
-  margin: auto;
-  max-width: 135px;
-  max-height: 81px;
-  min-height: 37px;
-  object-fit: contain;
-  width: min-content;
-}
 .navbar {
   padding: 0;
 }
@@ -886,14 +863,6 @@ section.bg-primary {
   }
   .nav-link.btn:active {
     background: var(--bs-primary-darken);
-  }
-  .profile-img {
-    object-fit: cover;
-    border-radius: var(--radius-portal);
-    max-width: 30px;
-    min-width: 30px;
-    height: 30px;
-    margin: -5px 0 -5px -5px;
   }
 }
 
