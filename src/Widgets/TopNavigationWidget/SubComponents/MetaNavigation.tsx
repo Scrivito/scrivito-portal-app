@@ -21,8 +21,8 @@ export const MetaNavigation = connect(function MetaNavigation({
   const itemsCount = showCart && numberOfCartItems()
 
   return (
-    <div className="navbar-meta">
-      <Nav className="me-auto">
+    <div className="navbar-meta flex w-full">
+      <Nav className="flex me-auto">
         {widget.get('metaNavigationObjs').map((metaObj, index) => (
           <NavItem
             obj={metaObj}
@@ -32,7 +32,7 @@ export const MetaNavigation = connect(function MetaNavigation({
         ))}
       </Nav>
 
-      <Nav className="border-left ms-auto">
+      <Nav className="border-left flex">
         <LanguageSwitch align="start" />
         {showCart && (
           <Nav.Item>

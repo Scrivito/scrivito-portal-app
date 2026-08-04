@@ -824,12 +824,6 @@ section.bg-primary {
     border-bottom: 1px solid var(--border);
   }
 }
-.navbar-landing,
-.navbar-meta,
-.navbar-main {
-  display: flex;
-  width: 100%;
-}
 .navbar-meta {
   position: relative;
   .dropdown-menu {

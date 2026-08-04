@@ -33,21 +33,23 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
 
   return (
     <NavDropdown
+      className="whitespace-nowrap"
       title={
         <>
           <ProfileImg />
-          <span className="nav-link-extended">
+          <span className="nav-link-extended inline-block">
             <ContentTag
               content={widget}
               attribute="metaNavigationUserTitle"
               tag="span"
+              className="block"
             />
 
             <ContentTag
               content={widget}
               attribute="metaNavigationUserDescription"
               tag="span"
-              className="text-meta"
+              className="text-meta block"
             />
           </span>
         </>
