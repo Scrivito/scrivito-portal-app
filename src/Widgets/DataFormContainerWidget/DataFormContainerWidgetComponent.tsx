@@ -101,12 +101,7 @@ function Spinner({ isModal }: { isModal: boolean }) {
 async function attributesFromForm(formElement: HTMLFormElement) {
   const attributes: {
     [key: string]:
-      | string
-      | boolean
-      | number
-      | null
-      | DataBinaryUpload
-      | DataBinaryUpload[]
+      string | boolean | number | null | DataBinaryUpload | DataBinaryUpload[]
   } = {}
 
   for (const element of formElement.elements) {
