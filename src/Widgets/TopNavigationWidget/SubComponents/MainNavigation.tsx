@@ -10,9 +10,9 @@ export const MainNavigation = connect(function MainNavigation({
   root: HomepageInstance
 }) {
   return (
-    <Nav className="navbar-main">
+    <Nav className="navbar-main flex w-full">
       <ChildListTag
-        className="navbar-nav mb-md-0 me-auto mb-2"
+        className="navbar-nav mb-md-0 me-auto mb-2 flex"
         tag="div"
         parent={root}
         renderChild={(child) => (

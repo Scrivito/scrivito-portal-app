@@ -19,10 +19,15 @@ export const NavItem = connect(function ScrivitoNavItem({
       .filter((child) => child.get('hideInNavigation') !== true)
 
     return (
-      <NavDropdown title={objTitle(obj)} active={isOnCurrentPath(obj)}>
+      <NavDropdown
+        className="inline whitespace-nowrap"
+        title={objTitle(obj)}
+        active={isOnCurrentPath(obj)}
+      >
         {shownChildren.map((child) => (
           <NavDropdown.Item
             {...itemProps(child)}
+            className="block"
             eventKey={`NavItem-${eventKey}-${child.id()}`}
             key={`NavItem-${eventKey}-${child.id()}`}
           >
