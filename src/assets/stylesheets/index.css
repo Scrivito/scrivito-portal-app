@@ -258,7 +258,7 @@
   }
 
   .profile-img {
-    @apply -m-[5px] inline-block size-[30px] rounded-[var(--radius-portal)] object-cover;
+    @apply -my-[5px] -ml-[5px] inline-block size-[30px] rounded-[var(--radius-portal)] object-cover;
   }
 
   .navbar-brand-logo {
