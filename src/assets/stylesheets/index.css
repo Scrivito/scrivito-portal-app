@@ -249,6 +249,27 @@
   }
 }
 
+/* Fixed-size images
+ ================================================== */
+
+@layer components {
+  .img-flag {
+    @apply -mt-[3px] mr-1.5 inline-block max-h-[15px] w-[17px] min-w-[17px];
+  }
+
+  .profile-img {
+    @apply -my-[5px] -ml-[5px] inline-block size-[30px] rounded-[var(--radius-portal)] object-cover;
+  }
+
+  .navbar-brand-logo {
+    @apply m-auto max-h-[81px] min-h-[37px] w-min max-w-[135px] object-contain;
+  }
+
+  .slim-nav .navbar-brand-logo {
+    @apply max-h-full min-h-[45px] max-w-[155px];
+  }
+}
+
 /* full height website
  ================================================== */
 
