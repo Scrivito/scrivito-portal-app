@@ -24,6 +24,7 @@
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.2.3",
     "@honeybadger-io/js": "^6.16.0",
+    "@justrelate/chatbot": "file:vendor/justrelate-chatbot-0.0.3.tgz",
     "@justrelate/icon-picker": "^1.0.3",
     "@justrelate/slugify": "^1.0.1",
     "@radix-ui/react-slider": "^1.4.7",
