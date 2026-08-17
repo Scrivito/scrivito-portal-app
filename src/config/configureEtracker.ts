@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-export function jrPlatformConfigureEtracker() {
+export function configureEtracker() {
   if (typeof window === 'undefined') return
   if (isEditorLoggedIn()) return
 
