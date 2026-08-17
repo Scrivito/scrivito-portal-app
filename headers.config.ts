@@ -23,7 +23,6 @@ function headers({
       },
     }),
     'X-Frame-Options': 'sameorigin',
-    'X-XSS-Protection': '1; mode=block',
     'X-Content-Type-Options': 'nosniff',
     'Referrer-Policy': 'strict-origin-when-cross-origin',
   }
