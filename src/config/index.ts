@@ -1,5 +1,5 @@
 import { configureErrorReporting } from './configureErrorReporting'
-import { jrPlatformConfigureEtracker } from '../privateJrPlatform/jrPlatformConfigureEtracker'
+import { configureEtracker } from './configureEtracker'
 import { configurePisaSalesQuestionnaireWidgets } from './configurePisaSalesQuestionnaireWidgets'
 import { configureHistory } from './history'
 import { configureObjClassForContentType } from './objClassForContentType'
@@ -16,8 +16,5 @@ export function configure() {
   configureErrorReporting()
   configureWindowScrivito()
   configurePisaSalesQuestionnaireWidgets()
-
-  if (import.meta.env.PRIVATE_JR_PLATFORM) {
-    jrPlatformConfigureEtracker()
-  }
+  configureEtracker()
 }

@@ -8,9 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-dist
+dist/*
 !vendor/scrivito/dist
-dist-ssr
+dist-ssr/*
 *.local
 *.local.json
 .lighthouseci

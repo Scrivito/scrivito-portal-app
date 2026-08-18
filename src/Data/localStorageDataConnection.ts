@@ -248,12 +248,10 @@ function compare({
   if (opCode !== 'eq' && opCode !== 'neq') {
     if (filterValue === null) return false
 
-    if (
-      !(
-        (typeof itemValue === 'number' || typeof itemValue === 'string') &&
-        (typeof filterValue === 'number' || typeof filterValue === 'string')
-      )
-    ) {
+    if (!(
+      (typeof itemValue === 'number' || typeof itemValue === 'string') &&
+      (typeof filterValue === 'number' || typeof filterValue === 'string')
+    )) {
       throw new Error(
         `Invalid comparison: ${JSON.stringify(itemValue)} and ${JSON.stringify(filterValue)} must be numbers or strings.`,
       )

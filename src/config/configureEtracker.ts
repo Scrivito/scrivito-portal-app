@@ -1,5 +1,4 @@
-import { isEditorLoggedIn } from 'scrivito'
-import { getJrPlatformInstanceId, instanceFromHostname } from './multiTenancy'
+import { getInstanceId, isEditorLoggedIn } from 'scrivito'
 
 declare global {
   interface Window {
@@ -7,22 +6,9 @@ declare global {
   }
 }
 
-export function jrPlatformConfigureEtracker() {
+export function configureEtracker() {
   if (typeof window === 'undefined') return
   if (isEditorLoggedIn()) return
-
-  const secureCode =
-    getJrPlatformInstanceId() === '8e775f86c0194b4ca7b11bef3f458ee3'
-      ? 'LVKmem'
-      : 'L9bLhx'
-
-  const hostnameInstance = instanceFromHostname()
-  if (
-    hostnameInstance &&
-    hostnameInstance !== '13b78a0a81072f996f5010bb59b48957' // allow tynacoon.com for now
-  ) {
-    return
-  }
 
   // Copyright (c) 2000-2026 etracker GmbH. All rights reserved.
   // No reproduction, publication or modification allowed without permission.
@@ -33,7 +19,7 @@ export function jrPlatformConfigureEtracker() {
   script.id = '_etLoader'
   script.type = 'text/javascript'
   script.setAttribute('data-block-cookies', 'true')
-  script.setAttribute('data-secure-code', secureCode)
+  script.setAttribute('data-instance-id', getInstanceId())
   script.setAttribute('data-page-changed-detection', 'url')
   script.src = 'https://code.etracker.com/code/e.js'
   script.async = true

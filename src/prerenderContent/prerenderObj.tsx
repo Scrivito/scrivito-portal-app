@@ -1,5 +1,6 @@
 import * as ReactDOMServer from 'react-dom/server'
-import { App, helmetContext } from '../App'
+import { type HelmetServerState } from '@dr.pogodin/react-helmet'
+import { App } from '../App'
 import { filenameFromUrl } from './filenameFromUrl'
 import { generateHtml } from './generateHtml'
 import { generatePreloadDumpScript } from './generatePreloadDumpScript'
@@ -13,8 +14,14 @@ export async function prerenderObj(
     result: { objUrl, ...data },
     preloadDump,
   } = await renderPage(obj, () => {
-    const bodyContent = ReactDOMServer.renderToString(<App />)
-    const { helmet } = helmetContext
+    let helmet: HelmetServerState | undefined
+    const bodyContent = ReactDOMServer.renderToString(
+      <App
+        onServerState={(s) => {
+          helmet = s
+        }}
+      />,
+    )
 
     return {
       bodyAttributes: helmet?.bodyAttributes.toString() || '',
