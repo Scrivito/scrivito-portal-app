@@ -1,8 +1,10 @@
-import { getInstanceId, isEditorLoggedIn } from 'scrivito'
+import { currentUser, getInstanceId, isEditorLoggedIn, load } from 'scrivito'
 
 declare global {
   interface Window {
     _etr?: { protocol: string }
+    _etracker?: { setUserEmailAddress: (email: string) => void }
+    _etrackerOnReady?: Array<() => void>
   }
 }
 
@@ -25,4 +27,14 @@ export function configureEtracker() {
   script.async = true
 
   document.head.appendChild(script)
+
+  registerUserEmail()
+}
+
+function registerUserEmail() {
+  window._etrackerOnReady = window._etrackerOnReady ?? []
+  window._etrackerOnReady.push(async () => {
+    const email = await load(() => currentUser()?.email())
+    if (email) window._etracker?.setUserEmailAddress(email)
+  })
 }
