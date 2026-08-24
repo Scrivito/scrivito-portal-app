@@ -19,7 +19,7 @@ provideComponent(TopNavigationWidget, ({ widget }) => {
   return (
     <WidgetTag tag="section" className={classNames.join(' ')}>
       <div className="container">
-        <Navbar className="flex" expand="lg" collapseOnSelect>
+        <Navbar className="flex max-lg:flex-wrap" expand="lg" collapseOnSelect>
           <Brand
             root={root}
             linkTo={widget.get('brandLink') || root}
@@ -27,7 +27,7 @@ provideComponent(TopNavigationWidget, ({ widget }) => {
           />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse
-            className="flex flex-col basis-full"
+            className="flex basis-full flex-col max-lg:flex-col-reverse"
             id="basic-navbar-nav"
           >
             <MetaNavigation widget={widget} root={root} />

@@ -962,22 +962,8 @@ section.bg-primary {
 /* ============ mobile view ============ */
 
 @media (max-width: 991px) {
-  header .navbar-collapse {
-    flex-flow: column-reverse;
-  }
-  .navbar-main {
-    flex-flow: column-reverse;
-  }
-  .navbar-meta {
-    flex-flow: column;
-  }
   .navbar-meta,
   .navbar-main {
-    margin-top: 12px;
-
-    .navbar-nav {
-      margin: 0 !important;
-    }
     .navbar-nav.border-left {
       .nav-item {
         border: none !important;
