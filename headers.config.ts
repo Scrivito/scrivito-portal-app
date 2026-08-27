@@ -66,11 +66,12 @@ function productionHeaders(scriptHashes: string[]): Record<string, string> {
     frameAncestors: [
       "'self'",
       'https://*.scrivito.com',
+      'https://*.justrelate.com',
       'https://*.etracker.com',
 
       // TODO: Remove later on:
       'http://localhost:8090',
-      'https://*.scrivito-ui.pages.dev',
+      'https://*.pages.dev',
     ],
   })
 }
