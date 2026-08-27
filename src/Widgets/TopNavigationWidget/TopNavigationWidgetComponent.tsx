@@ -11,14 +11,21 @@ provideComponent(TopNavigationWidget, ({ widget }) => {
   const root = Obj.root()
   if (!isHomepage(root)) return null
 
-  const classNames = ['z-[3]']
+  const classNames = ['relative z-[3]']
+  const brandClassNames = [
+    'flex self-stretch rounded-b-portal bg-white empty:min-w-[100px]',
+  ]
 
   if (widget.get('slimDesign')) {
     classNames.push('slim-nav')
+    brandClassNames.push('h-[55px] pr-[5px] max-lg:h-[45px]')
   } else {
     // two color top navbar
     classNames.push(
       "after:pointer-events-none after:absolute after:inset-x-0 after:top-0 after:-z-[1] after:block after:h-[38px] after:bg-portal-light-grey after:content-['']",
+    )
+    brandClassNames.push(
+      'mr-[5px] -mb-[10px] px-[15px] py-[5px] shadow-[var(--shadow-portal)]',
     )
   }
 
@@ -29,7 +36,7 @@ provideComponent(TopNavigationWidget, ({ widget }) => {
           <Brand
             root={root}
             linkTo={widget.get('brandLink') || root}
-            linkClassName="navbar-brand"
+            linkClassName={brandClassNames.join(' ')}
           />
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse
