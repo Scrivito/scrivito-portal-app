@@ -22,7 +22,7 @@ export const MetaNavigation = connect(function MetaNavigation({
 
   return (
     <div className="navbar-meta flex w-full max-lg:mt-3 max-lg:flex-col">
-      <Nav className="me-auto flex max-lg:flex-col">
+      <Nav className="flex max-lg:flex-col lg:me-auto">
         {widget.get('metaNavigationObjs').map((metaObj, index) => (
           <NavItem
             obj={metaObj}

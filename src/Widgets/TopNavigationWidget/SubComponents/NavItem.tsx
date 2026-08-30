@@ -20,7 +20,7 @@ export const NavItem = connect(function ScrivitoNavItem({
 
     return (
       <NavDropdown
-        className="inline whitespace-nowrap"
+        className="inline-flex flex-col whitespace-nowrap"
         title={objTitle(obj)}
         active={isOnCurrentPath(obj)}
       >
