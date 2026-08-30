@@ -37,19 +37,19 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
       title={
         <>
           <ProfileImg />
-          <span className="nav-link-extended inline-block">
+          <span className="nav-link-extended -my-4 inline-block h-9 overflow-hidden">
             <ContentTag
               content={widget}
               attribute="metaNavigationUserTitle"
               tag="span"
-              className="block"
+              className="block leading-[18px]"
             />
 
             <ContentTag
               content={widget}
               attribute="metaNavigationUserDescription"
               tag="span"
-              className="text-meta block"
+              className="text-meta block text-[9px] leading-[12px]"
             />
           </span>
         </>
@@ -67,7 +67,7 @@ export const CurrentUserDropdown = connect(function CurrentUserDropdown({
             <ObjIconAndTitle obj={siteUserProfilePage} />
           </NavDropdown.Item>
           <li>
-            <hr className="dropdown-divider" />
+            <hr className="border-portal-middle-grey m-0 h-0 overflow-hidden border-t opacity-100" />
           </li>
         </>
       ) : null}

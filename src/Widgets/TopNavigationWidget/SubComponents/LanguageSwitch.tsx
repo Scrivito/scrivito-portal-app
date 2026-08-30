@@ -65,7 +65,6 @@ export const LanguageSwitch = connect(function LanguageSwitch({
           active={false}
           aria-label={currentVersion.label}
           as={NavLink}
-          className="inline-flex"
           eventKey={null}
           lang={currentVersion.language}
         >
@@ -81,7 +80,6 @@ export const LanguageSwitch = connect(function LanguageSwitch({
               active={root.language() === currentVersion.language}
               aria-label={label}
               as={LinkTag}
-              className="flex"
               lang={language}
               params={currentPageParams()}
               to={version || root}

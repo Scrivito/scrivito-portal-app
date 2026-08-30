@@ -12,7 +12,7 @@ export const MainNavigation = connect(function MainNavigation({
   return (
     <Nav className="navbar-main flex w-full max-lg:mt-3 max-lg:flex-col-reverse">
       <ChildListTag
-        className="navbar-nav me-auto flex max-lg:flex-col"
+        className="navbar-nav flex max-lg:flex-col lg:me-auto"
         tag="div"
         parent={root}
         renderChild={(child) => (
