@@ -67,6 +67,7 @@ function productionHeaders(scriptHashes: string[]): Record<string, string> {
       "'self'",
       'https://*.scrivito.com',
       'https://*.etracker.com',
+      'https://*.justrelate.com',
 
       // TODO: Remove later on:
       'http://localhost:8090',
