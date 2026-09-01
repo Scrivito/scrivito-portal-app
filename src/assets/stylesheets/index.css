@@ -320,6 +320,23 @@
     @apply text-[0.75rem];
   }
 
+  .dropdown-toggle {
+    @apply whitespace-nowrap;
+  }
+
+  .dropdown-toggle::after {
+    @apply ml-[0.6em] inline-block align-[-0.125em] leading-none normal-case not-italic transition-transform duration-300 ease-in-out;
+    font-weight: 500 !important;
+    font-variant: normal;
+    font-family: bootstrap-icons !important;
+    border: none;
+    content: '\f282';
+  }
+
+  .dropdown-toggle.show::after {
+    @apply -rotate-180;
+  }
+
   .navbar-main .nav-link.active,
   .navbar-meta .nav-link.active {
     @apply max-lg:bg-portal-primary max-lg:text-on-portal-primary;
