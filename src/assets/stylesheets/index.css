@@ -337,6 +337,11 @@
     @apply -rotate-180;
   }
 
+  .nav-link i,
+  .dropdown-item i {
+    @apply mr-1.5;
+  }
+
   .navbar-main .nav-link.active,
   .navbar-meta .nav-link.active {
     @apply max-lg:bg-portal-primary max-lg:text-on-portal-primary;
