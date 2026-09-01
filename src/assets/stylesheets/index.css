@@ -342,6 +342,10 @@
     @apply mr-1.5;
   }
 
+  .navbar-nav.border-left .nav-item:not(:first-child) {
+    @apply lg:border-l lg:border-black/10;
+  }
+
   .navbar-main .nav-link.active,
   .navbar-meta .nav-link.active {
     @apply max-lg:bg-portal-primary max-lg:text-on-portal-primary;

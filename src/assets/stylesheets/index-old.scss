@@ -743,12 +743,6 @@ section.bg-primary {
 .navbar {
   padding: 0;
 }
-.navbar-nav.border-left .nav-item {
-  border-left: 1px solid var(--border);
-}
-.navbar-nav.border-left .nav-item:first-child {
-  border: none;
-}
 .navbar-collapse {
   display: flex;
   flex-flow: column;
@@ -846,15 +840,6 @@ section.bg-primary {
 /* ============ mobile view ============ */
 
 @media (max-width: 991px) {
-  .navbar-meta,
-  .navbar-main {
-    .navbar-nav.border-left {
-      .nav-item {
-        border: none !important;
-      }
-    }
-  }
-
   .form-control {
     background-color: var(--light-grey);
   }
