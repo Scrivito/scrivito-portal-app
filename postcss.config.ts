@@ -32,10 +32,10 @@ const bestContrast: PluginCreator<void> = () => {
       // Convert background luminance to binary alpha (0 or 1) at pivot threshold,
       // then use that alpha to select between darkText (light bg) or liteText (dark bg)
       decl.value = `color(from
-        color-mix(in srgb,
-          color-mix(in srgb, ${darkText} 0%,
+        color-mix(in xyz,
+          color-mix(in xyz, ${darkText} 0%,
             color(from ${bg} xyz none none none / calc(round(y + ${PIVOT_Y_OFFSET})))),
-          color-mix(in srgb, ${liteText} 0%,
+          color-mix(in xyz, ${liteText} 0%,
             color(from ${bg} xyz none none none / calc(1 - round(y + ${PIVOT_Y_OFFSET})))))
         srgb r g b / 1)`
     },
