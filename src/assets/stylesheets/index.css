@@ -274,8 +274,24 @@
  ================================================== */
 
 @layer components {
+  .dropdown {
+    @apply relative;
+  }
+
   .dropdown-menu {
-    @apply min-w-[10rem] list-none rounded-none border border-black/5 bg-white shadow-[0_30px_30px_rgba(0,0,0,0.05)] max-lg:border-0 max-lg:shadow-none;
+    @apply z-[1000] hidden min-w-[10rem] list-none rounded-none border border-black/5 bg-white bg-clip-padding shadow-[0_30px_30px_rgba(0,0,0,0.05)] max-lg:border-0 max-lg:shadow-none lg:absolute;
+  }
+
+  .dropdown-menu.show {
+    @apply block;
+  }
+
+  .navbar .dropdown-menu {
+    @apply top-full left-0;
+  }
+
+  .navbar-meta .dropdown-menu {
+    @apply right-0 left-auto;
   }
 
   .dropdown-item,
