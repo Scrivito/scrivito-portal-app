@@ -33,7 +33,7 @@
     "react": "^19.2.8",
     "react-bootstrap": "^3.0.0-beta.5",
     "react-dom": "^19.2.8",
-    "react-dropzone": "^19.1.1",
+    "react-dropzone": "^20.1.0",
     "react-toastify": "^11.1.0",
     "scrivito": "^1.63.0",
     "scrivito-neoletter-form-widgets": "^0.0.48",
