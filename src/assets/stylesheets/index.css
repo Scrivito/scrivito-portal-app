@@ -254,7 +254,7 @@
 
 @layer components {
   .img-flag {
-    @apply -mt-[3px] mr-1.5 inline-block max-h-[15px] w-[17px] min-w-[17px];
+    @apply -mt-[3px] mr-1.5 inline-block max-h-[15px] w-[17px];
   }
 
   .profile-img {
