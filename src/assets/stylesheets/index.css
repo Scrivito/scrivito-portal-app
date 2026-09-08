@@ -341,7 +341,8 @@
   }
 
   .slim-nav .navbar-meta .nav-link {
-    @apply p-[17px] hover:bg-black/5;
+    @apply p-[17px] transition-colors duration-150 hover:bg-black/5;
+    transition-timing-function: ease-in-out;
   }
 
   .slim-nav .navbar-meta .navbar-nav:not(.border-left) .nav-link {
