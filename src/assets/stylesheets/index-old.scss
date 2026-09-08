@@ -716,17 +716,6 @@ header section {
   &:after {
     display: none !important;
   }
-  .navbar-meta .nav-link {
-    padding: 17px;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.05);
-    }
-  }
-  .navbar-meta .navbar-nav.me-auto .nav-link {
-    font-size: 1rem;
-    padding: 14px;
-  }
 }
 
 /* navbar

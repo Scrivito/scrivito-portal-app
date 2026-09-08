@@ -322,18 +322,30 @@
     color: rgba(0, 0, 0, 0.65);
   }
 
-  .navbar-main .nav-link:hover,
-  .navbar-main .nav-link:focus {
+  .nav-link:hover,
+  .nav-link:focus {
     color: rgba(0, 0, 0, 0.8);
   }
 
   .navbar-main .nav-link.active,
-  .navbar-main .nav-link.show {
+  .nav-link.show {
     color: rgba(0, 0, 0, 1);
   }
 
   .navbar-meta .nav-link {
     @apply text-[0.75rem];
+  }
+
+  .navbar-meta .nav-link:is(.active, :active, :hover, :focus) {
+    color: inherit;
+  }
+
+  .slim-nav .navbar-meta .nav-link {
+    @apply p-[17px] hover:bg-black/5;
+  }
+
+  .slim-nav .navbar-meta .navbar-nav:not(.border-left) .nav-link {
+    @apply p-[14px] text-[1rem];
   }
 
   .dropdown-toggle {
