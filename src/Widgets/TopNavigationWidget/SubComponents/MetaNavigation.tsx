@@ -44,7 +44,7 @@ export const MetaNavigation = connect(function MetaNavigation({
             >
               <ObjIconAndTitle obj={siteCartPage} />{' '}
               {itemsCount && (
-                <span className="badge rounded-pill bg-secondary">
+                <span className="bg-portal-secondary text-on-portal-secondary inline-block rounded-full px-[0.65em] py-[0.35em] text-center align-baseline text-[0.75em] leading-none font-bold whitespace-nowrap">
                   {itemsCount}
                 </span>
               )}
