@@ -59,12 +59,13 @@ export default defineConfig([
 
       // Disable opinionated React 19 rules
       '@eslint-react/no-use-context': 'off',
-      '@eslint-react/prefer-use-state-lazy-initialization': 'off',
-      '@eslint-react/hooks-extra/no-direct-set-state-in-use-effect': 'off',
 
       // TODO: Enable these stricter @eslint-react rules and fix the issues for better code quality
+      '@eslint-react/use-state': 'off',
+      '@eslint-react/set-state-in-effect': 'off',
+      '@eslint-react/purity': 'off',
       '@eslint-react/no-array-index-key': 'off',
-      '@eslint-react/jsx-key-before-spread': 'off',
+      '@eslint-react/jsx-no-key-after-spread': 'off',
 
       '@typescript-eslint/no-unused-vars': [
         1,
