@@ -57,7 +57,7 @@
     "content-security-policy-builder": "^2.3.0",
     "eslint": "^9.39.2",
     "eslint-plugin-import-x": "^4.17.1",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-jsx-a11y-x": "^0.2.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
     "jsontoxml": "^1.0.1",

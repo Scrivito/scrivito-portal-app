@@ -2,7 +2,7 @@ import { defineConfig } from 'eslint/config'
 import js from '@eslint/js'
 import tsEslint from 'typescript-eslint'
 import arabastaReact from '@arabasta/eslint-plugin-react'
-import jsxA11Y from 'eslint-plugin-jsx-a11y'
+import jsxA11Y from 'eslint-plugin-jsx-a11y-x'
 import importX from 'eslint-plugin-import-x'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -15,7 +15,7 @@ export default defineConfig([
   react.configs.flat['jsx-runtime'],
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
-  jsxA11Y.flatConfigs.recommended,
+  jsxA11Y.configs.recommended,
   reactHooks.configs.flat['recommended-latest'],
   {
     languageOptions: {
@@ -33,7 +33,7 @@ export default defineConfig([
         version: 'detect',
       },
 
-      'jsx-a11y': {
+      'jsx-a11y-x': {
         components: {
           ImageTag: 'img',
         },
