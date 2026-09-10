@@ -2,22 +2,23 @@ import { defineConfig } from 'eslint/config'
 import js from '@eslint/js'
 import tsEslint from 'typescript-eslint'
 import arabastaReact from '@arabasta/eslint-plugin-react'
-import jsxA11Y from 'eslint-plugin-jsx-a11y'
+import jsxA11Y from 'eslint-plugin-jsx-a11y-x'
 import importX from 'eslint-plugin-import-x'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
+import eslintReact from '@eslint-react/eslint-plugin'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default defineConfig([
   js.configs.recommended,
   ...tsEslint.configs.recommended,
   arabastaReact.configs.recommended,
-  react.configs.flat.recommended,
-  react.configs.flat['jsx-runtime'],
+  eslintReact.configs['recommended-typescript'],
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
-  jsxA11Y.flatConfigs.recommended,
-  reactHooks.configs.flat['recommended-latest'],
+  jsxA11Y.configs.recommended,
   {
+    plugins: {
+      '@stylistic': stylistic,
+    },
     languageOptions: {
       parserOptions: {
         projectService: true,
@@ -33,7 +34,7 @@ export default defineConfig([
         version: 'detect',
       },
 
-      'jsx-a11y': {
+      'jsx-a11y-x': {
         components: {
           ImageTag: 'img',
         },
@@ -54,8 +55,17 @@ export default defineConfig([
         },
       ],
 
-      'react/jsx-curly-brace-presence': ['warn'],
-      'react/prop-types': 'off',
+      '@stylistic/jsx-curly-brace-presence': ['warn'],
+
+      // Disable opinionated React 19 rules
+      '@eslint-react/no-use-context': 'off',
+
+      // TODO: Enable these stricter @eslint-react rules and fix the issues for better code quality
+      '@eslint-react/use-state': 'off',
+      '@eslint-react/set-state-in-effect': 'off',
+      '@eslint-react/purity': 'off',
+      '@eslint-react/no-array-index-key': 'off',
+      '@eslint-react/jsx-no-key-after-spread': 'off',
 
       '@typescript-eslint/no-unused-vars': [
         1,
