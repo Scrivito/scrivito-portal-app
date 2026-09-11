@@ -7,16 +7,16 @@ export const TwitterPreview = connect(({ obj }: { obj: Obj }) => {
   if (!theme) return null
 
   return (
-    <div className={`social_card_preview scrivito_${theme}`}>
+    <div className={`social-card-preview scrivito_${theme}`}>
       <div className="creator">
         Tweet creator: {lookupMetadata(obj, 'twitter:creator')}
       </div>
 
-      <div className="card twitter_card">
-        <div className="social_card_img">
+      <div className="card twitter-card">
+        <div className="social-card-img">
           <OptionalImage src={lookupMetadata(obj, 'twitter:image')} />
         </div>
-        <div className="card_text">
+        <div className="card-text">
           <h5>{lookupMetadata(obj, 'twitter:title')}</h5>
           <p>{lookupMetadata(obj, 'twitter:description')}</p>
         </div>
@@ -30,12 +30,12 @@ export const FacebookPreview = connect(({ obj }: { obj: Obj }) => {
   if (!theme) return null
 
   return (
-    <div className={`social_card_preview scrivito_${theme}`}>
-      <div className="card fb_card">
-        <div className="social_card_img">
+    <div className={`social-card-preview scrivito_${theme}`}>
+      <div className="card fb-card">
+        <div className="social-card-img">
           <OptionalImage src={lookupMetadata(obj, 'og:image')} />
         </div>
-        <div className="card_text">
+        <div className="card-text">
           <h5>{lookupMetadata(obj, 'og:title')}</h5>
           <p>{lookupMetadata(obj, 'og:description')}</p>
         </div>

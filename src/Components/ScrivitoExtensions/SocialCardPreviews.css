@@ -1,4 +1,4 @@
-.social_card_preview {
+.social-card-preview {
   .creator {
     font-size: 13px;
     font-weight: bold;
@@ -14,22 +14,23 @@
     background: #fff;
     margin: 0;
   }
-  .card_text {
+  .card-text {
     padding: 10px 10px 5px 10px;
     font-size: 13px;
+
+    h5 {
+      margin: 0 0 3px 0;
+      font-weight: bold;
+      font-size: 17px;
+    }
+    p {
+      margin: 0 0 5px 0;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
-  .card_text h5 {
-    margin: 0 0 3px 0;
-    font-weight: bold;
-    font-size: 17px;
-  }
-  .card_text p {
-    margin: 0 0 5px 0;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .social_card_img {
+  .social-card-img {
     max-height: 240px;
     overflow: hidden;
     padding: 0;
@@ -37,11 +38,11 @@
     width: auto;
     border-radius: 0;
   }
-  .twitter_card {
+  .twitter-card {
     max-width: 506px;
     min-height: 125px;
   }
-  .fb_card {
+  .fb-card {
     max-width: 470px;
     min-height: 157px;
   }
@@ -53,11 +54,13 @@
     .card {
       background: rgba(222, 222, 222, 0.2);
     }
-    .card_text h5 {
-      color: #ccc !important;
-    }
-    .card_text p {
-      color: #ddd !important;
+    .card-text {
+      h5 {
+        color: #ccc !important;
+      }
+      p {
+        color: #ddd !important;
+      }
     }
     .creator {
       color: #5e86be;
