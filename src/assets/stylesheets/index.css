@@ -3,6 +3,7 @@
 @import './theme/fonts.css';
 @import './theme/loader.css';
 @import './theme/attachment.css';
+@import './theme/loading-placeholder.css';
 
 @theme {
   /* Use bootstrap 5 breakpoints */
