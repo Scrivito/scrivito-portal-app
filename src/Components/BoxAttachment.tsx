@@ -24,8 +24,8 @@ export const BoxAttachment = connect(function BoxAttachment({
         />
       </div>
       <div className="box-meta flex-row">
-        <div className="d-flex flex-column min-vw-0 flex-grow-1">
-          <span className="box-name text-truncate">{filename}</span>
+        <div className="flex min-w-0 grow flex-col">
+          <span className="box-name">{filename}</span>
           <span className="box-size">
             {prettyBytes(contentLength, {
               locale: currentLanguage() ?? 'en',
@@ -33,9 +33,9 @@ export const BoxAttachment = connect(function BoxAttachment({
           </span>
         </div>
         {onDelete && (
-          <div className="d-flex">
+          <div className="flex">
             <button
-              className="btn btn-sm"
+              className="btn-portal px-2 py-1 text-sm"
               onClick={(e) => {
                 e.preventDefault()
                 e.stopPropagation()
