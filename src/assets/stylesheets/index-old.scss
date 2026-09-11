@@ -322,6 +322,14 @@ fieldset:disabled .btn {
   }
 }
 
+.navbar-main .input-group {
+  margin-top: 4px;
+  .form-control,
+  .btn {
+    height: 38px;
+  }
+}
+
 .navbar-meta .input-group {
   margin-top: 2px;
   .form-control,
@@ -762,6 +770,15 @@ section.bg-primary {
 .navbar-main {
   .nav-link {
     font-size: 1rem;
+  }
+
+  .form-control {
+    font-size: 0.8rem;
+    height: 100%;
+  }
+  .form-control:focus {
+    background-color: var(--light-grey);
+    box-shadow: 0 0 0 1px var(--bs-primary) inset;
   }
 }
 

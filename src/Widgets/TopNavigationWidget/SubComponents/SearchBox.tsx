@@ -11,7 +11,6 @@ export const SearchBox = connect(function SearchBox({
 
   return (
     <form
-      className="max-lg:w-full"
       role="search"
       onSubmit={(event) => {
         event.preventDefault()
@@ -24,9 +23,9 @@ export const SearchBox = connect(function SearchBox({
         navigateTo(searchResultsPage, { q })
       }}
     >
-      <div className="input-group mt-1 flex w-full">
+      <div className="input-group flex">
         <input
-          className="form-control rounded-l-portal bg-portal-light-grey h-[38px] w-[1%] min-w-0 flex-1 border border-r-0 border-[rgba(0,0,0,0.2)] px-3 py-1.5 text-[0.8rem] placeholder:text-[rgba(33,37,41,0.75)]"
+          className="form-control"
           type="search"
           placeholder={localizeSearchInputLabel()}
           aria-label={localizeSearchInputLabel()}
@@ -35,10 +34,10 @@ export const SearchBox = connect(function SearchBox({
 
         <button
           type="submit"
-          className="btn btn-primary rounded-r-portal border-portal-primary bg-portal-primary text-on-portal-primary -ml-px flex h-[38px] border px-3 py-1.5 text-base"
+          className="btn btn-primary"
           aria-label={localizeSearchInputLabel()}
         >
-          <i className="bi bi-search m-auto p-0" aria-hidden="true"></i>
+          <i className="bi bi-search" aria-hidden="true"></i>
         </button>
       </div>
     </form>
