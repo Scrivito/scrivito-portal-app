@@ -9,10 +9,9 @@ import {
 import { toast } from 'react-toastify'
 import { CheckoutButtonWidget } from './CheckoutButtonWidgetClass'
 import { checkoutCart, containsItems } from '../../Data/CartItem/Cart'
-import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { EditorNote } from '../../Components/EditorNote'
-import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { useState } from 'react'
+import { buttonColorClassName } from '../../utils/theme/buttonColorClassName'
 import { ModalSpinner } from '../../Components/ModalSpinner'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
 
@@ -26,14 +25,23 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
   const successMessage = widget.get('successMessage')
   const errorMessage = getErrorMessage()
 
-  const buttonClassNames = ['btn']
-  buttonClassNames.push(widget.get('buttonColor') || 'btn-primary')
+  const buttonClassNames = ['btn-portal']
+  const widgetTagClassNames: string[] = []
 
-  const buttonSize = buttonSizeClassName(widget.get('buttonSize'))
-  if (buttonSize) buttonClassNames.push(buttonSize)
+  const buttonColor = widget.get('buttonColor') || 'btn-primary'
+  buttonClassNames.push(buttonColorClassName(buttonColor))
+
+  const buttonSize = widget.get('buttonSize') || 'medium'
+  if (buttonSize === 'small') buttonClassNames.push('px-2', 'py-1', 'text-sm')
+  if (buttonSize === 'large') buttonClassNames.push('px-4', 'py-2', 'text-lg')
+
+  const alignment = widget.get('alignment')
+  if (alignment === 'block') buttonClassNames.push('w-full')
+  if (alignment === 'center') widgetTagClassNames.push('text-center')
+  if (alignment === 'right') widgetTagClassNames.push('text-right')
 
   return (
-    <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
+    <WidgetTag className={widgetTagClassNames.join(' ')}>
       <InPlaceEditingOff>
         <ContentTag
           content={widget}
