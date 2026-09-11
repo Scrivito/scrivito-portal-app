@@ -7,7 +7,7 @@ import {
   validationResultsFor,
   ContentTag,
 } from 'scrivito'
-import { getMetadata } from '../../utils/getMetadata'
+import { TwitterPreview, FacebookPreview } from './SocialCardPreviews'
 import './SocialCardsTab.scss'
 
 export function SocialCardsTab({ obj }: { obj: Obj }) {
@@ -102,52 +102,6 @@ const FacebookInput = connect(({ obj }) => (
   </div>
 ))
 
-const TwitterPreview = connect(({ obj }: { obj: Obj }) => (
-  <div className="social_card_preview">
-    <div className="scrivito_detail_label">
-      <span className="headline">X Twitter preview</span>
-      <span>Summary Card with Large Image</span>
-    </div>
-    <div className="creator">
-      Tweet creator: {lookupMetadata(obj, 'twitter:creator')}
-    </div>
-
-    <div className="card twitter_card">
-      <div className="social_card_img">
-        <OptionalImage src={lookupMetadata(obj, 'twitter:image')} />
-      </div>
-      <div className="card_text">
-        <h5>{lookupMetadata(obj, 'twitter:title')}</h5>
-        <p>{lookupMetadata(obj, 'twitter:description')}</p>
-      </div>
-    </div>
-  </div>
-))
-
-const FacebookPreview = connect(({ obj }) => (
-  <div className="social_card_preview">
-    <div className="scrivito_detail_label">
-      <span className="headline">Facebook preview</span>
-      <span>Facebook (Article style)</span>
-    </div>
-    <div className="card fb_card">
-      <div className="social_card_img">
-        <OptionalImage src={lookupMetadata(obj, 'og:image')} />
-      </div>
-      <div className="card_text">
-        <h5>{lookupMetadata(obj, 'og:title')}</h5>
-        <p>{lookupMetadata(obj, 'og:description')}</p>
-      </div>
-    </div>
-  </div>
-))
-
-function OptionalImage({ src }: { src: string }) {
-  if (!src) return null
-
-  return <img src={src} alt="seo-card-preview-img" />
-}
-
 const ContentProperty = connect(
   ({
     content,
@@ -204,20 +158,4 @@ function findHighestSeverity(
     validationResults.find((v) => v.severity === 'warning') ||
     validationResults.find((v) => v.severity === 'info')
   return highestSeverityValidation?.severity
-}
-
-function lookupMetadata(obj: Obj, value: string) {
-  const metadata = getMetadata(obj)
-
-  if (value.includes('og:')) {
-    const ogData = metadata.find((x) => x.property === value)
-    if (ogData) return ogData.content
-  }
-
-  if (value.includes('twitter:')) {
-    const twitterData = metadata.find((x) => x.name === value)
-    if (twitterData) return twitterData.content
-  }
-
-  return ''
 }
