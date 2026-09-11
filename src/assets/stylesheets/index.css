@@ -232,6 +232,8 @@
 
 @layer components {
   .bi {
+    color: var(--headline-text-color);
+
     &.bi-1x {
       @apply text-[1em] leading-none;
     }
