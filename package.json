@@ -75,6 +75,7 @@
   },
   "overrides": {
     "@lhci/cli": {
+      "@puppeteer/browsers": "^3.2.1",
       "cookie": "^0.7.0",
       "express": "^5.2.1",
       "rimraf": "4",
