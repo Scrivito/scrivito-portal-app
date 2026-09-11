@@ -12,45 +12,48 @@ import { DataDeleteButtonWidget } from './DataDeleteButtonWidgetClass'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
 import { EditorNote } from '../../Components/EditorNote'
-import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
-import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { errorToast } from '../../Data/CurrentUser/errorToast'
 import { ModalSpinner } from '../../Components/ModalSpinner'
+import { buttonColorClassName } from '../../utils/theme/buttonColorClassName'
 
 provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const dataItem = useData().dataItem()
 
-  const buttonClassNames = ['btn']
-  const cancelButtonClassNames = ['btn']
-  const buttonSize = buttonSizeClassName(widget.get('buttonSize'))
-  if (buttonSize) {
-    buttonClassNames.push(buttonSize)
-    cancelButtonClassNames.push(buttonSize)
-  }
+  const baseClassNames = ['btn-portal']
+  const widgetTagClassNames: string[] = []
+
+  const buttonSize = widget.get('buttonSize') || 'medium'
+  if (buttonSize === 'small') baseClassNames.push('px-2', 'py-1', 'text-sm')
+  if (buttonSize === 'large') baseClassNames.push('px-4', 'py-2', 'text-lg')
 
   const deletedMessage = useResolvedStringValue(widget.get('deletedMessage'))
   const errorMessage = getErrorMessage()
   const redirectAfterDelete = widget.get('redirectAfterDelete')
-  const buttonColor = widget.get('buttonColor') || 'btn-danger'
-  if (buttonColor) buttonClassNames.push(buttonColor)
 
-  const alignmentClassName = alignmentClassNameWithBlock(
-    widget.get('alignment'),
-  )
+  const alignment = widget.get('alignment')
+  if (alignment === 'block') baseClassNames.push('w-full')
+  if (alignment === 'center') widgetTagClassNames.push('text-center')
+  if (alignment === 'right') widgetTagClassNames.push('text-right')
+
+  const buttonColor = widget.get('buttonColor') || 'btn-danger'
+  const buttonClassNames = [
+    ...baseClassNames,
+    buttonColorClassName(buttonColor),
+  ]
 
   if (!dataItem) return null
 
   if (showConfirmation && widget.get('requireConfirmation')) {
     return (
-      <WidgetTag className={alignmentClassName}>
+      <WidgetTag className={widgetTagClassNames.join(' ')}>
         <InPlaceEditingOff>
           <ContentTag
             content={widget}
             attribute="cancelTitle"
             tag="button"
-            className={cancelButtonClassNames.join(' ')}
+            className={baseClassNames.join(' ')}
             onClick={onDeleteRejected}
           />
 
@@ -68,7 +71,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag className={alignmentClassName}>
+    <WidgetTag className={widgetTagClassNames.join(' ')}>
       <EditorNote>Deletes {dataItem.dataClass().name()}.</EditorNote>
       <InPlaceEditingOff>
         <ContentTag
