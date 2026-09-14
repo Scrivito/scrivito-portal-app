@@ -112,29 +112,29 @@ export const defaultPagePropertiesGroups = [
   {
     title: 'X Twitter card',
     properties: [
-      'tcCreator',
-      'tcImage',
-      'tcTitle',
-      'tcDescription',
       {
         key: 'twitterPreview',
         component: TwitterPreview,
         title: 'Preview',
       },
+      'tcCreator',
+      'tcImage',
+      'tcTitle',
+      'tcDescription',
     ],
     key: 'twitter-card-group',
   },
   {
     title: 'Facebook card',
     properties: [
-      'ogImage',
-      'ogTitle',
-      'ogDescription',
       {
         key: 'facebookPreview',
         component: FacebookPreview,
         title: 'Preview',
       },
+      'ogImage',
+      'ogTitle',
+      'ogDescription',
     ],
     key: 'facebook-card-group',
   },
