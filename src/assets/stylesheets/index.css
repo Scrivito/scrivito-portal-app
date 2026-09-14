@@ -551,6 +551,7 @@
 
   .btn-portal i {
     @apply pr-1.5;
+    color: inherit;
   }
 
   .btn-portal i:only-child {
