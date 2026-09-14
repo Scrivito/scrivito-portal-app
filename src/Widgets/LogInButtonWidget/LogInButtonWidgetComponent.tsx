@@ -21,7 +21,7 @@ provideComponent(LogInButtonWidget, ({ widget }) => {
 
   const buttonSize = widget.get('buttonSize') || 'medium'
   if (buttonSize === 'small') buttonClassNames.push('px-2', 'py-1', 'text-sm')
-  if (buttonSize === 'large') buttonClassNames.push('px-4', 'py-2', 'text-lg')
+  if (buttonSize === 'large') buttonClassNames.push('px-4', 'py-2', 'text-xl')
 
   const alignment = widget.get('alignment')
   if (alignment === 'block') buttonClassNames.push('w-full')

@@ -26,7 +26,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
 
   const buttonSize = widget.get('buttonSize') || 'medium'
   if (buttonSize === 'small') baseClassNames.push('px-2', 'py-1', 'text-sm')
-  if (buttonSize === 'large') baseClassNames.push('px-4', 'py-2', 'text-lg')
+  if (buttonSize === 'large') baseClassNames.push('px-4', 'py-2', 'text-xl')
 
   const deletedMessage = useResolvedStringValue(widget.get('deletedMessage'))
   const errorMessage = getErrorMessage()

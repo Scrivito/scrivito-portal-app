@@ -12,7 +12,7 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
 
   const size = widget.get('size') || 'medium'
   if (size === 'small') baseButtonStyles.push('px-2', 'py-1', 'text-sm')
-  if (size === 'large') baseButtonStyles.push('px-4', 'py-2', 'text-lg')
+  if (size === 'large') baseButtonStyles.push('px-4', 'py-2', 'text-xl')
 
   const alignment = widget.get('alignment')
   if (alignment === 'block') baseButtonStyles.push('w-full')

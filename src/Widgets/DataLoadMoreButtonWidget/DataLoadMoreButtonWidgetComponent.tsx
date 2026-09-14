@@ -20,7 +20,7 @@ provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
 
   const buttonSize = widget.get('buttonSize') || 'medium'
   if (buttonSize === 'small') classNames.push('px-2', 'py-1', 'text-sm')
-  if (buttonSize === 'large') classNames.push('px-4', 'py-2', 'text-lg')
+  if (buttonSize === 'large') classNames.push('px-4', 'py-2', 'text-xl')
 
   const alignment = widget.get('alignment')
   if (alignment === 'block') classNames.push('w-full')
