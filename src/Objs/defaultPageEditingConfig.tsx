@@ -113,7 +113,7 @@ export const defaultPagePropertiesGroups = [
     title: 'X Twitter card',
     properties: [
       {
-        key: 'twitterPreview',
+        key: 'twitter-preview',
         component: TwitterPreview,
         title: 'Preview',
       },
@@ -128,7 +128,7 @@ export const defaultPagePropertiesGroups = [
     title: 'Facebook card',
     properties: [
       {
-        key: 'facebookPreview',
+        key: 'facebook-preview',
         component: FacebookPreview,
         title: 'Preview',
       },
