@@ -1,7 +1,10 @@
 import { Obj } from 'scrivito'
-import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { ensureString } from '../utils/ensureString'
+import {
+  TwitterPreview,
+  FacebookPreview,
+} from '../Components/ScrivitoExtensions/SocialCardPreviews'
 
 export const defaultPageEditingConfigAttributes = {
   title: {
@@ -54,6 +57,34 @@ export const defaultPageEditingConfigAttributes = {
     description:
       'The right sidebar will be displayed on this page and all its descendant pages.',
   },
+  tcCreator: {
+    title: 'Creator',
+    description: 'Username of the content creator. Start with @',
+  },
+  tcImage: {
+    title: 'Image',
+    description: 'Add or replace the image here.',
+  },
+  tcTitle: {
+    title: 'Title',
+  },
+  tcDescription: {
+    title: 'Description',
+    description: 'Limit to 200 characters',
+  },
+  ogTitle: {
+    title: 'Title',
+    description: 'Add a catchy title for the post.',
+  },
+  ogDescription: {
+    title: 'Description',
+    description:
+      'What is this post about and why would someone want to read it? Limit to 300 characters.',
+  },
+  ogImage: {
+    title: 'Image',
+    description: 'Add or replace the image here.',
+  },
 }
 
 export const defaultPageInitialContent = {
@@ -80,15 +111,24 @@ export const defaultPagePropertiesGroups = [
   },
   {
     title: 'Social cards',
-    component: SocialCardsTab,
     properties: [
-      'ogDescription',
-      'ogImage',
-      'ogTitle',
+      {
+        key: 'twitter-preview',
+        component: TwitterPreview,
+        title: 'X Twitter preview',
+      },
       'tcCreator',
-      'tcDescription',
       'tcImage',
       'tcTitle',
+      'tcDescription',
+      {
+        key: 'facebook-preview',
+        component: FacebookPreview,
+        title: 'Facebook preview',
+      },
+      'ogImage',
+      'ogTitle',
+      'ogDescription',
     ],
     key: 'social-cards-group',
   },
