@@ -12,6 +12,7 @@ import { useContext, useEffect, useRef } from 'react'
 import { DataBatchContext } from '../../Components/DataBatchContext'
 import { ensureString } from '../../utils/ensureString'
 import { EditorNote } from '../../Components/EditorNote'
+import { buttonColorClassName } from '../../utils/theme/buttonColorClassName'
 
 provideComponent(DataSearchWidget, ({ widget }) => {
   const { setSearch } = useContext(DataBatchContext)
@@ -48,16 +49,14 @@ provideComponent(DataSearchWidget, ({ widget }) => {
         ref={inputRef}
         defaultValue={search}
       />
-      <span className="input-group-btn">
-        <button
-          className={`btn ${buttonColor}`}
-          type="submit"
-          aria-label={buttonAriaLabel}
-        >
-          <i className="bi bi-search" aria-hidden="true" />
-          <span className="d-none d-sm-inline ps-1">{buttonLabel}</span>
-        </button>
-      </span>
+      <button
+        className={`btn-portal ${buttonColorClassName(buttonColor)}`}
+        type="submit"
+        aria-label={buttonAriaLabel}
+      >
+        <i className="bi bi-search" aria-hidden="true" />
+        <span className="hidden pl-1 sm:inline">{buttonLabel}</span>
+      </button>
     </form>
   )
 

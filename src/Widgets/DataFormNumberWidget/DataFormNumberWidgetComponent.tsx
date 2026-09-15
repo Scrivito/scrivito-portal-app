@@ -83,7 +83,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
       <div className="input-group input-group-sm flex-nowrap">
         <button
           aria-label="-"
-          className="btn btn-primary btn-sm"
+          className="btn-portal btn-portal-primary rounded-r-none px-2 py-1 text-sm"
           disabled={hasValue && min !== undefined && defaultValue <= min}
           onClick={down}
         >
@@ -106,7 +106,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
         />
         <button
           aria-label="+"
-          className="btn btn-primary btn-sm"
+          className="btn-portal btn-portal-primary rounded-l-none px-2 py-1 text-sm"
           disabled={hasValue && max !== undefined && defaultValue >= max}
           onClick={up}
         >

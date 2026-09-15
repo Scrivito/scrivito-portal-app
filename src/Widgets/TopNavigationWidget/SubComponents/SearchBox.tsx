@@ -34,7 +34,7 @@ export const SearchBox = connect(function SearchBox({
 
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn-portal btn-portal-primary"
           aria-label={localizeSearchInputLabel()}
         >
           <i className="bi bi-search" aria-hidden="true"></i>

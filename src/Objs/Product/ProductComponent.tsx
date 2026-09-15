@@ -98,7 +98,7 @@ provideComponent(Product, ({ page }) => {
                             key={`Product-ProductParameters-${page.id()}-${parameter}-${valueOption}`}
                           >
                             <div
-                              className="btn btn-sm btn-outline-primary disabled"
+                              className="btn-portal btn-portal-outline-primary disabled px-2 py-1 text-sm"
                               style={{ opacity: '100%' }}
                             >
                               {valueOption}
@@ -218,7 +218,7 @@ const CartActionButton = connect(function CartActionButton({
   if (!isUserLoggedIn()) {
     return (
       <button
-        className="btn btn-sm btn-outline-primary"
+        className="btn-portal btn-portal-outline-primary px-2 py-1 text-sm"
         title={cartUnavailableMessage}
         onClick={() => ensureUserIsLoggedIn()}
       >
@@ -236,7 +236,7 @@ const CartActionButton = connect(function CartActionButton({
           <div className="input-group input-group-sm">
             <button
               aria-label="-"
-              className="btn btn-primary"
+              className="btn-portal btn-portal-primary rounded-r-none px-2 py-1 text-sm"
               disabled={quantity < 2}
               onClick={down}
             >
@@ -252,14 +252,18 @@ const CartActionButton = connect(function CartActionButton({
               title={quantityLabel}
               type="number"
             />
-            <button aria-label="+" className="btn btn-primary" onClick={up}>
+            <button
+              aria-label="+"
+              className="btn-portal btn-portal-primary rounded-l-none px-2 py-1 text-sm"
+              onClick={up}
+            >
               <i className="bi bi-plus-lg px-0" />
             </button>
           </div>
         </div>
         <div className="col-auto">
           <button
-            className="btn btn-sm btn-primary"
+            className="btn-portal btn-portal-primary px-2 py-1 text-sm"
             onClick={() => {
               removeFromCart(product)
               toast.info(cartRemovedMessage)
@@ -275,7 +279,7 @@ const CartActionButton = connect(function CartActionButton({
 
   return (
     <button
-      className="btn btn-sm btn-primary my-1"
+      className="btn-portal btn-portal-primary my-1 px-2 py-1 text-sm"
       onClick={async () => {
         await updateQuantityInCart(product, 1)
         toast.success(cartAddedMessage)
