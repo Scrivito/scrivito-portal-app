@@ -110,33 +110,27 @@ export const defaultPagePropertiesGroups = [
     key: 'metadata-group',
   },
   {
-    title: 'X Twitter card',
+    title: 'Social cards',
     properties: [
       {
         key: 'twitter-preview',
         component: TwitterPreview,
-        title: 'Preview',
+        title: 'X Twitter preview',
       },
       'tcCreator',
       'tcImage',
       'tcTitle',
       'tcDescription',
-    ],
-    key: 'twitter-card-group',
-  },
-  {
-    title: 'Facebook card',
-    properties: [
       {
         key: 'facebook-preview',
         component: FacebookPreview,
-        title: 'Preview',
+        title: 'Facebook preview',
       },
       'ogImage',
       'ogTitle',
       'ogDescription',
     ],
-    key: 'facebook-card-group',
+    key: 'social-cards-group',
   },
 ] as const
 
