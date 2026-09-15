@@ -39,11 +39,11 @@
     border-radius: 0;
   }
   .twitter-card {
-    max-width: 506px;
+    max-width: 600px;
     min-height: 125px;
   }
   .fb-card {
-    max-width: 470px;
+    max-width: 600px;
     min-height: 157px;
   }
   img {
