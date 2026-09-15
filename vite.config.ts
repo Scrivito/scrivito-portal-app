@@ -39,8 +39,11 @@ export default defineConfig(({ mode }) => {
       outDir,
       rollupOptions: {
         input: {
-          main: resolve(__dirname, 'index.html'),
-          _scrivito_extensions: resolve(__dirname, '_scrivito_extensions.html'),
+          main: resolve(import.meta.dirname, 'index.html'),
+          _scrivito_extensions: resolve(
+            import.meta.dirname,
+            '_scrivito_extensions.html',
+          ),
         },
         plugins: [
           HONEYBADGER_API_KEY
@@ -109,7 +112,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@honeybadger-io/js': HONEYBADGER_API_KEY
           ? '@honeybadger-io/js'
-          : resolve(__dirname, 'src/honeybadgerStub.ts'),
+          : resolve(import.meta.dirname, 'src/honeybadgerStub.ts'),
       },
     },
     server: {
@@ -185,7 +188,7 @@ function writeProductionHeadersFile(outDir: string) {
           .map((hash) => `'${hash}'`)
 
         await fs.promises.writeFile(
-          resolve(__dirname, outDir, '_headers'),
+          resolve(import.meta.dirname, outDir, '_headers'),
           productionHeadersFile(scriptHashes),
         )
       },
@@ -194,7 +197,7 @@ function writeProductionHeadersFile(outDir: string) {
 }
 
 function readProductionHeadersFile(outDir: string) {
-  const headersPath = resolve(__dirname, outDir, '_headers')
+  const headersPath = resolve(import.meta.dirname, outDir, '_headers')
   if (!fs.existsSync(headersPath)) return {}
   const headersContent = fs.readFileSync(headersPath, 'utf-8')
   return parseProductionHeadersFile(headersContent)
