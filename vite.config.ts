@@ -1,3 +1,4 @@
+import { createHash } from 'crypto'
 import dns from 'dns'
 import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
@@ -5,7 +6,6 @@ import type { Rollup } from 'vite'
 import react from '@vitejs/plugin-react'
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
-import sri from 'vite-plugin-sri-gen'
 import {
   DEV_CSP_NONCE,
   developmentHeaders,
@@ -98,11 +98,7 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       force: true,
     },
-    plugins: [
-      react(),
-      sri({ preloadDynamicChunks: false }),
-      writeProductionHeadersFile(outDir),
-    ],
+    plugins: [react(), writeProductionHeadersFile(outDir)],
     preview: {
       port: 8080,
       strictPort: true,
@@ -173,19 +169,26 @@ function writeProductionHeadersFile(outDir: string) {
     generateBundle: {
       order: 'post' as const,
       async handler(_options: unknown, bundle: Rollup.OutputBundle) {
-        const scriptHashes = Object.values(bundle)
-          .filter(
-            (item): item is Rollup.OutputAsset & { source: string } =>
-              item.type === 'asset' &&
-              item.fileName?.endsWith('.html') &&
-              typeof item.source === 'string',
-          )
-          .flatMap(({ source }) =>
-            Array.from(source.matchAll(/<script[^<>]+\bintegrity="([^"]+)"/g)),
-          )
-          .map(([, hash]) => hash)
-          .filter((hash): hash is string => typeof hash === 'string')
-          .map((hash) => `'${hash}'`)
+        const htmlAssets = Object.values(bundle).filter(
+          (item): item is Rollup.OutputAsset & { source: string } =>
+            item.type === 'asset' && typeof item.source === 'string',
+        )
+
+        const scriptHashes: string[] = []
+
+        for (const chunk of Object.values(bundle)) {
+          if (chunk.type !== 'chunk' || !chunk.isEntry) continue
+
+          const integrity = `sha384-${createHash('sha384').update(chunk.code).digest('base64')}`
+          scriptHashes.push(`'${integrity}'`)
+
+          for (const html of htmlAssets) {
+            html.source = html.source.replaceAll(
+              `src="/${chunk.fileName}"`,
+              `$& integrity="${integrity}"`,
+            )
+          }
+        }
 
         await fs.promises.writeFile(
           resolve(import.meta.dirname, outDir, '_headers'),
