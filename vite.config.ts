@@ -11,7 +11,7 @@ import {
   developmentHeaders,
   parseProductionHeadersFile,
   productionHeadersFile,
-} from './headers.config'
+} from './headers.config.ts'
 
 // Ensure, that vite prints "localhost" instead of 127.0.0.1
 // See https://vitejs.dev/config/server-options.html#server-host
