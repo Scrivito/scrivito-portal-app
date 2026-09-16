@@ -36,7 +36,6 @@ export async function prerenderObj(
       meta: helmet?.meta.toString() || '',
       objUrl: urlFor(obj),
       style: helmet?.style.toString() || '',
-      title: helmet?.title.toString() || '',
     }
   })
 

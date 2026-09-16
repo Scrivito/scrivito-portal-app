@@ -9,7 +9,6 @@ export async function generateHtml(
     meta: string
     preloadDumpScript: string
     style: string
-    title: string
   },
 ): Promise<string> {
   return keys.reduce((html, key) => {
@@ -29,7 +28,6 @@ const replacements: Record<(typeof keys)[number], RegExp> = {
   meta: /<!-- meta -->/,
   preloadDumpScript: /<!-- preload-dump-script -->/,
   style: /<!-- style -->/,
-  title: /<!-- title -->/,
 }
 
 const keys = [
@@ -41,5 +39,4 @@ const keys = [
   'meta',
   'preloadDumpScript',
   'style',
-  'title',
 ] as const
