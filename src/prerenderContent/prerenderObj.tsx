@@ -1,5 +1,4 @@
 import * as ReactDOMServer from 'react-dom/server'
-import { type HelmetServerState } from '@dr.pogodin/react-helmet'
 import { App } from '../App'
 import { filenameFromUrl } from './filenameFromUrl'
 import { generateHtml } from './generateHtml'
@@ -14,15 +13,10 @@ export async function prerenderObj(
     result: { objUrl, ...data },
     preloadDump,
   } = await renderPage(obj, () => {
-    let helmet: HelmetServerState | undefined
     const rawContent = ReactDOMServer.renderToString(
       <>
         <head />
-        <App
-          onServerState={(s) => {
-            helmet = s
-          }}
-        />
+        <App />
       </>,
     )
     const { headContent, bodyContent } = splitHead(rawContent)

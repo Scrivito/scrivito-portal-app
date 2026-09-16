@@ -1,5 +1,4 @@
 import { connect, currentLanguage, CurrentPage } from 'scrivito'
-import { HelmetProvider, HelmetServerState } from '@dr.pogodin/react-helmet'
 
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
@@ -11,28 +10,24 @@ import { SinglePageSite } from './Components/SinglePageSite'
 
 export function App({
   appWrapperRef,
-  onServerState,
 }: {
   appWrapperRef?: React.RefCallback<HTMLElement>
-  onServerState?: (state: HelmetServerState) => void
 }) {
   return (
-    <HelmetProvider onServerState={onServerState}>
-      <ErrorBoundary>
-        <div ref={appWrapperRef} id="app-wrapper">
-          <Favicon />
-          <SkipToContent />
-          <DesignAdjustments>
-            <SinglePageSite>
-              <CurrentPage />
-              <NotFoundErrorPage />
-              <CurrentPageMetadata />
-            </SinglePageSite>
-          </DesignAdjustments>
-          <Toasts />
-        </div>
-      </ErrorBoundary>
-    </HelmetProvider>
+    <ErrorBoundary>
+      <div ref={appWrapperRef} id="app-wrapper">
+        <Favicon />
+        <SkipToContent />
+        <DesignAdjustments>
+          <SinglePageSite>
+            <CurrentPage />
+            <NotFoundErrorPage />
+            <CurrentPageMetadata />
+          </SinglePageSite>
+        </DesignAdjustments>
+        <Toasts />
+      </div>
+    </ErrorBoundary>
   )
 }
 
