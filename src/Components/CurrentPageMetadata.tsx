@@ -1,11 +1,15 @@
+import { useEffect } from 'react'
 import { connect, currentPage, urlFor } from 'scrivito'
-import { Helmet } from '@dr.pogodin/react-helmet'
 import { ensureString } from '../utils/ensureString'
 import { getMetadata } from '../utils/getMetadata'
 
 export const CurrentPageMetadata = connect(() => {
   const page = currentPage()
   const lang = page?.language() || 'en'
+
+  useEffect(() => {
+    document.documentElement.lang = lang
+  }, [lang])
 
   return (
     <>
@@ -20,7 +24,6 @@ export const CurrentPageMetadata = connect(() => {
             content={content}
           />
         ))}
-      <Helmet htmlAttributes={{ lang }} />
     </>
   )
 })

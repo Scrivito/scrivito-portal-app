@@ -31,7 +31,8 @@ export async function prerenderObj(
       bodyAttributes: helmet?.bodyAttributes.toString() || '',
       bodyContent,
       headContent,
-      htmlAttributes: helmet?.htmlAttributes.toString() || '',
+      // Scrivito ensures, that `obj.language()` is a valid lang attribute, so no escaping is needed
+      htmlAttributes: `lang="${obj.language() || 'en'}"`,
       objUrl: urlFor(obj),
       style: helmet?.style.toString() || '',
     }
