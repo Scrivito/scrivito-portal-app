@@ -3,6 +3,7 @@ export async function generateHtml(
   data: {
     bodyAttributes: string
     bodyContent: string
+    headContent: string
     htmlAttributes: string
     link: string
     meta: string
@@ -22,6 +23,7 @@ const replacements: Record<(typeof keys)[number], RegExp> = {
   bodyAttributes: /data-body-attributes(="")?/,
   bodyContent:
     /\n *<!-- body-content start -->[^!]*<!-- body-content end -->\s*/,
+  headContent: /<!-- head-content -->/,
   htmlAttributes: /data-html-attributes(="")?/,
   link: /<!-- link -->/,
   meta: /<!-- meta -->/,
@@ -33,6 +35,7 @@ const replacements: Record<(typeof keys)[number], RegExp> = {
 const keys = [
   'bodyAttributes',
   'bodyContent',
+  'headContent',
   'htmlAttributes',
   'link',
   'meta',
