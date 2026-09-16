@@ -11,19 +11,20 @@ export const CurrentPageMetadata = connect(() => {
     document.documentElement.lang = lang
   }, [lang])
 
+  if (!page) return null
+
   return (
     <>
-      <title>{ensureString(page?.get('title'))}</title>
-      {page && <link rel="canonical" href={urlFor(page)} />}
-      {page &&
-        getMetadata(page).map(({ name, property, content }) => (
-          <meta
-            key={name ?? property}
-            name={name}
-            property={property}
-            content={content}
-          />
-        ))}
+      <title>{ensureString(page.get('title'))}</title>
+      <link rel="canonical" href={urlFor(page)} />
+      {getMetadata(page).map(({ name, property, content }) => (
+        <meta
+          key={name ?? property}
+          name={name}
+          property={property}
+          content={content}
+        />
+      ))}
     </>
   )
 })
