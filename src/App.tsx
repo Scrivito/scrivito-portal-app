@@ -3,6 +3,7 @@ import { HelmetProvider, HelmetServerState } from '@dr.pogodin/react-helmet'
 
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
+import { Favicon } from './Components/Favicon'
 import { NotFoundErrorPage } from './Components/NotFoundErrorPage'
 import { Toasts } from './Components/Toasts'
 import { DesignAdjustments } from './Components/DesignAdjustments'
@@ -19,6 +20,7 @@ export function App({
     <HelmetProvider onServerState={onServerState}>
       <ErrorBoundary>
         <div ref={appWrapperRef} id="app-wrapper">
+          <Favicon />
           <SkipToContent />
           <DesignAdjustments>
             <SinglePageSite>
