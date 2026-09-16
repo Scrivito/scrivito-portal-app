@@ -6,7 +6,6 @@ export async function generateHtml(
     headContent: string
     htmlAttributes: string
     preloadDumpScript: string
-    style: string
   },
 ): Promise<string> {
   return keys.reduce((html, key) => {
@@ -23,7 +22,6 @@ const replacements: Record<(typeof keys)[number], RegExp> = {
   headContent: /<!-- head-content -->/,
   htmlAttributes: /data-html-attributes(="")?/,
   preloadDumpScript: /<!-- preload-dump-script -->/,
-  style: /<!-- style -->/,
 }
 
 const keys = [
@@ -32,5 +30,4 @@ const keys = [
   'headContent',
   'htmlAttributes',
   'preloadDumpScript',
-  'style',
 ] as const
