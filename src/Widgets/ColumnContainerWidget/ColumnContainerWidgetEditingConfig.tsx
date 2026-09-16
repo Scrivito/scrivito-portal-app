@@ -1,9 +1,4 @@
-import {
-  canEdit,
-  isComparisonActive,
-  provideEditingConfig,
-  Widget,
-} from 'scrivito'
+import { provideEditingConfig, Widget } from 'scrivito'
 import {
   ColumnContainerWidget,
   ColumnContainerWidgetInstance,
@@ -51,15 +46,30 @@ provideEditingConfig(ColumnContainerWidget, {
     [
       'columns',
       {
-        component: ({ widget }: { widget: Widget }) => (
-          <ColumnsEditor widget={widget as ColumnContainerWidgetInstance} />
+        component: ({
+          widget,
+          readOnly = false,
+        }: {
+          widget: Widget
+          readOnly?: boolean
+        }) => (
+          <ColumnsEditor
+            widget={widget as ColumnContainerWidgetInstance}
+            readOnly={readOnly}
+          />
         ),
       },
     ],
     [
       'alignment',
       {
-        component: ({ widget }: { widget: Widget }) => (
+        component: ({
+          widget,
+          readOnly = false,
+        }: {
+          widget: Widget
+          readOnly?: boolean
+        }) => (
           <AdvancedEnumEditor
             attributeValue={widget.get('alignment')}
             options={[
@@ -86,7 +96,7 @@ provideEditingConfig(ColumnContainerWidget, {
                 icon: stretchSvg,
               },
             ]}
-            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            readOnly={readOnly}
             updateAttributeValue={(value: string) =>
               widget.update({ alignment: value })
             }
@@ -97,10 +107,16 @@ provideEditingConfig(ColumnContainerWidget, {
     [
       'disableResponsiveAdaption',
       {
-        component: ({ widget }: { widget: Widget }) => (
+        component: ({
+          widget,
+          readOnly = false,
+        }: {
+          widget: Widget
+          readOnly?: boolean
+        }) => (
           <InvertedBooleanEditor
             attributeValue={widget.get('disableResponsiveAdaption') === true}
-            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            readOnly={readOnly}
             updateAttributeValue={(value) =>
               widget.update({ disableResponsiveAdaption: value })
             }
@@ -111,10 +127,16 @@ provideEditingConfig(ColumnContainerWidget, {
     [
       'disableGutters',
       {
-        component: ({ widget }: { widget: Widget }) => (
+        component: ({
+          widget,
+          readOnly = false,
+        }: {
+          widget: Widget
+          readOnly?: boolean
+        }) => (
           <InvertedBooleanEditor
             attributeValue={widget.get('disableGutters') === true}
-            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            readOnly={readOnly}
             updateAttributeValue={(value) =>
               widget.update({ disableGutters: value })
             }
