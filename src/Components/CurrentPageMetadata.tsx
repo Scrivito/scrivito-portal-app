@@ -4,7 +4,6 @@ import { ensureString } from '../utils/ensureString'
 import { getMetadata } from '../utils/getMetadata'
 
 export const CurrentPageMetadata = connect(() => {
-  const links: HelmetProps['link'] = []
   let meta: HelmetProps['meta'] = []
   let lang = 'en'
 
@@ -12,14 +11,14 @@ export const CurrentPageMetadata = connect(() => {
 
   if (page) {
     lang = page.language() || 'en'
-    links.push({ rel: 'canonical', href: urlFor(page) })
     meta = getMetadata(page)
   }
 
   return (
     <>
       <title>{ensureString(page?.get('title'))}</title>
-      <Helmet htmlAttributes={{ lang }} link={links} meta={meta} />
+      {page && <link rel="canonical" href={urlFor(page)} />}
+      <Helmet htmlAttributes={{ lang }} meta={meta} />
     </>
   )
 })
