@@ -59,7 +59,7 @@ export default defineConfig(({ mode }) => {
             groups: [
               {
                 name: 'react',
-                test: /node_modules\/(@dr\.pogodin\/react-helmet|react-bootstrap|react-dropzone|react-toastify)/,
+                test: /node_modules\/(react-bootstrap|react-dropzone|react-toastify)/,
               },
               {
                 name: 'scrivito',

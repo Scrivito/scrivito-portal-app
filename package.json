@@ -22,7 +22,6 @@
     "start": "vite"
   },
   "dependencies": {
-    "@dr.pogodin/react-helmet": "^3.2.3",
     "@honeybadger-io/js": "^6.16.0",
     "@justrelate/icon-picker": "^1.0.3",
     "@justrelate/slugify": "^1.0.1",
