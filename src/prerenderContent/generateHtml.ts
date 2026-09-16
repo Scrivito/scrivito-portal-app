@@ -1,7 +1,6 @@
 export async function generateHtml(
   baseHtmlTemplate: string,
   data: {
-    bodyAttributes: string
     bodyContent: string
     headContent: string
     htmlAttributes: string
@@ -16,7 +15,6 @@ export async function generateHtml(
 }
 
 const replacements: Record<(typeof keys)[number], RegExp> = {
-  bodyAttributes: /data-body-attributes(="")?/,
   bodyContent:
     /\n *<!-- body-content start -->[^!]*<!-- body-content end -->\s*/,
   headContent: /<!-- head-content -->/,
@@ -25,7 +23,6 @@ const replacements: Record<(typeof keys)[number], RegExp> = {
 }
 
 const keys = [
-  'bodyAttributes',
   'bodyContent',
   'headContent',
   'htmlAttributes',

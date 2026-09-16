@@ -28,7 +28,6 @@ export async function prerenderObj(
     const { headContent, bodyContent } = splitHead(rawContent)
 
     return {
-      bodyAttributes: helmet?.bodyAttributes.toString() || '',
       bodyContent,
       headContent,
       // Scrivito ensures, that `obj.language()` is a valid lang attribute, so no escaping is needed
