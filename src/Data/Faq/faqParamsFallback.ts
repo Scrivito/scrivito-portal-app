@@ -147,23 +147,13 @@ export function faqParamsFallback() {
           createdAt: '2026-04-17T07:04:31Z',
         },
         {
-          _id: '04AF72A23ABA40A6966A41E168001A7B',
-          keyword: "Oil pump of lubrication system dosn't work",
-          number: 'FAQ-09.000287',
-          question: "What can I do, if the gear oil pump dosn't work?",
-          answer:
-            'Follow the instructions:\n\n1. Check the electrical installation including all connectors.\n2. Check the connector between electric motor and gear oil pump.\n3. Check, if oil leaks from the unit-injector.',
-          language: 'ENG',
-          createdAt: '2009-01-22T15:39:28Z',
-        },
-        {
           _id: '47CD3C11259148DFBA9FE79C61AABB5B',
           keyword: 'Ölaustritt zwischen Motor und Pumpe',
           number: 'FAQ-08.000131',
           question:
             'Welche Maßnahmen sind bei starkem Ölaustritt zwischen Pumpenmotor und Pumpengehäuse vorzunehmen?',
           answer:
-            'Bei Dauerbelastung und maximaler Förderleistung kann es durch Vibrationen zu Rissen an den Verbindungselementen des Motors oder der Pumpe kommen. In diesem Fall sind folgende Maßnahmen durchzuführen.\n\n1. Pumpenmotor auf Risse an der Grundplatte prüfen. ggf. Pumpenmotor austauschen\n\n2.Tritt der Fehler auch nach Austausch des Motors auf. wurde auch das Pumpengehäuse in Mitleidenschaft gezogen. In diesem Fall muss die gesamte Pumpe ausgetauscht werden.',
+            'Bei Dauerbelastung und maximaler Förderleistung kann es durch Vibrationen zu Rissen an den Verbindungselementen des Motors oder der Pumpe kommen. In diesem Fall sind folgende Maßnahmen durchzuführen.\n\n1. Pumpenmotor auf Risse an der Grundplatte prüfen. ggf. Pumpenmotor austauschen\n\n2.Tritt der Fehler auch nach Austausch des Motors auf, wurde auch das Pumpengehäuse in Mitleidenschaft gezogen. In diesem Fall muss die gesamte Pumpe ausgetauscht werden.',
           type1: 'PSA_FAQ_TYP_21',
           type2: 'PSA_FAQ_TY2_151',
           language: 'GER',
