@@ -19,7 +19,13 @@ export async function prerenderObj(
         <App />
       </>,
     )
-    const { headContent, bodyContent } = splitHead(rawContent)
+    const headMatch = rawContent.match(/^<head>(.*?)<\/head>(.*)$/s)
+    const [, headContent, bodyContent] = headMatch ?? []
+    if (headContent === undefined || bodyContent === undefined) {
+      throw new Error(
+        'Prerendered output does not contain a <head>...</head> block at the start.',
+      )
+    }
 
     return {
       bodyContent,
@@ -38,24 +44,5 @@ export async function prerenderObj(
       ...data,
       preloadDumpScript,
     }),
-  }
-}
-
-const HEAD_START = '<head>'
-const HEAD_END = '</head>'
-
-function splitHead(html: string): { headContent: string; bodyContent: string } {
-  if (!html.startsWith(HEAD_START)) {
-    throw new Error('Prerendered output does not start with <head>.')
-  }
-
-  const end = html.indexOf(HEAD_END)
-  if (end === -1) {
-    throw new Error('Prerendered output contains no </head>.')
-  }
-
-  return {
-    headContent: html.slice(HEAD_START.length, end),
-    bodyContent: html.slice(end + HEAD_END.length),
   }
 }
