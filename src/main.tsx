@@ -31,7 +31,7 @@ async function boot() {
     }
   }
 
-  configure()
+  await configure()
 
   if (import.meta.env.PRIVATE_JR_PLATFORM) {
     if (!(await isJrPlatformValidContentFormat())) {
