@@ -30,7 +30,7 @@ export async function prerenderObj(
     return {
       bodyContent,
       headContent,
-      // Scrivito ensures, that `obj.language()` is a valid lang attribute, so no escaping is needed
+      // The Web Builder backend ensures, that `obj.language()` is a valid lang attribute, so no escaping is needed
       htmlAttributes: `lang="${obj.language() || 'en'}"`,
       objUrl: urlFor(obj),
     }
