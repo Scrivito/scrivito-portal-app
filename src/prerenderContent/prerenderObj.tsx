@@ -21,7 +21,7 @@ export async function prerenderObj(
     )
     const headMatch = rawContent.match(/^<head>(.*?)<\/head>(.*)$/s)
     const [, headContent, bodyContent] = headMatch ?? []
-    if (headContent === undefined || bodyContent === undefined) {
+    if (!headContent || !bodyContent) {
       throw new Error(
         'Prerendered output does not contain a <head>...</head> block at the start.',
       )
