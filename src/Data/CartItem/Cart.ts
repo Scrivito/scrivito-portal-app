@@ -2,12 +2,12 @@ import {
   DataItem,
   currentLanguage,
   currentUser,
+  getDataClass,
   isUserLoggedIn,
   load,
 } from 'scrivito'
 import { ProductInstance } from '../../Objs/Product/ProductObjClass'
 import { CartItem } from './CartItemDataClass'
-import { Opportunity } from '../Opportunity/OpportunityDataClass'
 import { ensureString } from '../../utils/ensureString'
 
 export async function updateQuantityInCart(
@@ -84,6 +84,11 @@ export async function checkoutCart(): Promise<DataItem> {
   const description = cartItemDetails
     .map(({ id, quantity, title }) => `${quantity} × ${title} (ID: ${id})`)
     .join('\n')
+
+  const Opportunity = await load(() => getDataClass('Opportunity'))
+  if (!Opportunity) {
+    throw new Error('Opportunity data class is not available.')
+  }
 
   const opportunity = await Opportunity.create({ keyword, description })
 
