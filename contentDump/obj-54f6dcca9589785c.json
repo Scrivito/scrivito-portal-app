@@ -1,0 +1,284 @@
+{
+  "_obj_class": "Page",
+  "layout_main_background_color": [
+    "string",
+    "transparent"
+  ],
+  "robots_index": [
+    "boolean",
+    true
+  ],
+  "title": [
+    "string",
+    "FAQ"
+  ],
+  "link_icon": [
+    "string",
+    "bi-patch-question"
+  ],
+  "data": [
+    "datalocator",
+    {
+      "class": "Faq",
+      "order_by": [
+        [
+          "question",
+          "asc"
+        ]
+      ],
+      "query": [
+        {
+          "field": "language",
+          "value": "ENG"
+        }
+      ]
+    }
+  ],
+  "body": [
+    "widgetlist",
+    [
+      "adf5f4d8",
+      "bb5d0107",
+      "f8f4426c",
+      "0487c029"
+    ]
+  ],
+  "_conflicts": null,
+  "_content_id": "54f6dcca9589785c",
+  "_created_at": "20260326132920",
+  "_data_param": null,
+  "_editing_asset": false,
+  "_first_published_at": "20260922092924",
+  "_id": "54f6dcca9589785c",
+  "_language": "en",
+  "_last_changed": "20260917093715",
+  "_modification": null,
+  "_path": "/33cbdf671c7b83b1/edd1e72884bf7d89/18abc9aaf148b079",
+  "_permalink": null,
+  "_published_at": "20260922092924",
+  "_restriction": [
+    "_auth"
+  ],
+  "_site_id": "56a14d0750cc844e",
+  "_version": "2026092209292400000000000000009f17649a782a524f",
+  "_widget_pool": {
+    "bb5d0107": {
+      "_obj_class": "DataWidget",
+      "content": [
+        "widgetlist",
+        [
+          "85af19ca"
+        ]
+      ]
+    },
+    "9565c4cc": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "datetime_format": [
+        "string",
+        "date"
+      ],
+      "value_size": [
+        "string",
+        "body-font-size"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Faq",
+          "field": "answer",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "b1492e86": {
+      "_obj_class": "DataLabelWidget",
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "datetime_format": [
+        "string",
+        "date"
+      ],
+      "value_size": [
+        "string",
+        "h5"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Faq",
+          "field": "question",
+          "via_ref": "single"
+        }
+      ],
+      "margin_bottom": [
+        "boolean",
+        true
+      ]
+    },
+    "3eb7c691": {
+      "_obj_class": "DataLabelWidget",
+      "label": [
+        "string",
+        " "
+      ],
+      "show_as": [
+        "string",
+        "text"
+      ],
+      "datetime_format": [
+        "string",
+        "date"
+      ],
+      "value_size": [
+        "string",
+        "text-small"
+      ],
+      "data": [
+        "datalocator",
+        {
+          "class": "Faq",
+          "field": "number",
+          "via_ref": "single"
+        }
+      ]
+    },
+    "06911f89": {
+      "_obj_class": "ColumnContainerWidget",
+      "alignment": [
+        "string",
+        "start"
+      ],
+      "columns": [
+        "widgetlist",
+        [
+          "fa69b350",
+          "f46305e6"
+        ]
+      ],
+      "layout_mode": [
+        "string",
+        "grid"
+      ]
+    },
+    "fa69b350": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        10
+      ],
+      "flex_grow": [
+        "boolean",
+        true
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "b1492e86",
+          "9565c4cc"
+        ]
+      ]
+    },
+    "f46305e6": {
+      "_obj_class": "ColumnWidget",
+      "col_size": [
+        "number",
+        2
+      ],
+      "content": [
+        "widgetlist",
+        [
+          "3eb7c691"
+        ]
+      ]
+    },
+    "adf5f4d8": {
+      "_obj_class": "DataSearchWidget",
+      "button_color": [
+        "string",
+        "btn-primary"
+      ],
+      "margin": [
+        "string",
+        "mb-3"
+      ],
+      "placeholder": [
+        "string",
+        "Search for frequently asked question (FAQ)"
+      ],
+      "url_param_name": [
+        "string",
+        "search"
+      ]
+    },
+    "f8f4426c": {
+      "_obj_class": "DataLoadMoreButtonWidget",
+      "alignment": [
+        "string",
+        "center"
+      ],
+      "button_color": [
+        "string",
+        "btn-outline-primary"
+      ],
+      "button_size": [
+        "string",
+        "medium"
+      ],
+      "title": [
+        "string",
+        "Load more"
+      ]
+    },
+    "e6761dd6": {
+      "_obj_class": "TextWidget",
+      "alignment": [
+        "string",
+        "left"
+      ],
+      "text": [
+        "html",
+        "<p>No FAQs found.</p>"
+      ]
+    },
+    "0487c029": {
+      "_obj_class": "DataEmptyWidget",
+      "content": [
+        "widgetlist",
+        [
+          "e6761dd6"
+        ]
+      ]
+    },
+    "85af19ca": {
+      "_obj_class": "CardWidget",
+      "background_color": [
+        "string",
+        "white"
+      ],
+      "padding": [
+        "string",
+        "p-4"
+      ],
+      "margin": [
+        "string",
+        "mb-4"
+      ],
+      "card_body": [
+        "widgetlist",
+        [
+          "06911f89"
+        ]
+      ]
+    }
+  },
+  "_created_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_last_changed_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
+  "_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71"
+}

@@ -14,6 +14,7 @@
       "486f8f791abc7a5f",
       "5ea4d48ed6e829a7",
       "d54072c39c8ad493",
+      "01e25a293ddfaa06",
       "40fcff128372c95a",
       "09a152b36247dc0a"
     ]
@@ -69,16 +70,16 @@
   "_first_published_at": "20240405121103",
   "_id": "bd53fa4ef38c1c40",
   "_language": "de",
-  "_last_changed": "20250805132940",
+  "_last_changed": "20260326142133",
   "_modification": null,
   "_path": "/84435b45662730da/bd53fa4ef38c1c40",
   "_permalink": null,
-  "_published_at": "20250806071623",
+  "_published_at": "20260922092924",
   "_restriction": [
     "_auth"
   ],
   "_site_id": "dc07b5fb5abd4c35",
-  "_version": "202508060716230000000000000000297565bdf5c97a35",
+  "_version": "2026092209292400000000000000009f17649a782a524f",
   "_widget_pool": {
     "88220160": {
       "_obj_class": "TextWidget",
