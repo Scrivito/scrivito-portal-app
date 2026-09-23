@@ -12,4 +12,4 @@ import './assets/stylesheets/scrivitoExtensions.scss'
 
 createRoot(document.createElement('div')).render(<Extensions />)
 
-configure()
+await configure()
