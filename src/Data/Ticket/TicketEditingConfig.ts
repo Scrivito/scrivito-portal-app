@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
+import { Ticket } from './TicketDataClass'
 
-provideEditingConfig('Ticket', {
+provideEditingConfig(Ticket, {
   attributes: {
     attachments: { title: 'Attachments' },
   },

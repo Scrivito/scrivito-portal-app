@@ -6,9 +6,8 @@ import { configureObjClassForContentType } from './objClassForContentType'
 import { configureScrivito } from './scrivito'
 import { configureScrivitoContentBrowser } from './scrivitoContentBrowser'
 import { configureWindowScrivito } from './windowScrivito'
-import { configurePisaSalesDataService } from '../Data/configurePisaSalesDataService'
 
-export async function configure(): Promise<void> {
+export function configure() {
   configureScrivito()
 
   configureObjClassForContentType()
@@ -16,7 +15,6 @@ export async function configure(): Promise<void> {
   configureHistory()
   configureErrorReporting()
   configureWindowScrivito()
-  await configurePisaSalesDataService()
   configurePisaSalesQuestionnaireWidgets()
   configureEtracker()
 }
