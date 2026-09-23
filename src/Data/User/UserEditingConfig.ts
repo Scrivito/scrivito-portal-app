@@ -1,6 +1,7 @@
 import { provideEditingConfig } from 'scrivito'
+import { User } from './UserDataClass'
 
-provideEditingConfig('User', {
+provideEditingConfig(User, {
   attributes: {
     image: { title: 'Image' },
   },
