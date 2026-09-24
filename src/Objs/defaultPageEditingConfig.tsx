@@ -58,31 +58,31 @@ export const defaultPageEditingConfigAttributes = {
       'The right sidebar will be displayed on this page and all its descendant pages.',
   },
   tcCreator: {
-    title: 'Creator',
+    title: 'X Twitter creator',
     description: 'Username of the content creator. Start with @',
   },
   tcImage: {
-    title: 'Image',
+    title: 'X Twitter image',
     description: 'Add or replace the image here.',
   },
   tcTitle: {
-    title: 'Title',
+    title: 'X Twitter title',
   },
   tcDescription: {
-    title: 'Description',
+    title: 'X Twitter description',
     description: 'Limit to 200 characters',
   },
   ogTitle: {
-    title: 'Title',
+    title: 'Facebook title',
     description: 'Add a catchy title for the post.',
   },
   ogDescription: {
-    title: 'Description',
+    title: 'Facebook description',
     description:
       'What is this post about and why would someone want to read it? Limit to 300 characters.',
   },
   ogImage: {
-    title: 'Image',
+    title: 'Facebook image',
     description: 'Add or replace the image here.',
   },
 }
