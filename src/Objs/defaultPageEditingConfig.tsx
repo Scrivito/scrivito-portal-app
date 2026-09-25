@@ -58,18 +58,18 @@ export const defaultPageEditingConfigAttributes = {
       'The right sidebar will be displayed on this page and all its descendant pages.',
   },
   tcCreator: {
-    title: 'X Twitter creator',
+    title: 'X (Twitter) creator',
     description: 'Username of the content creator. Start with @',
   },
   tcImage: {
-    title: 'X Twitter image',
+    title: 'X (Twitter) image',
     description: 'Add or replace the image here.',
   },
   tcTitle: {
-    title: 'X Twitter title',
+    title: 'X (Twitter) title',
   },
   tcDescription: {
-    title: 'X Twitter description',
+    title: 'X (Twitter) description',
     description: 'Limit to 200 characters',
   },
   ogTitle: {
@@ -115,7 +115,7 @@ export const defaultPagePropertiesGroups = [
       {
         key: 'twitter-preview',
         component: TwitterPreview,
-        title: 'X Twitter preview',
+        title: 'X (Twitter) preview',
       },
       'tcCreator',
       'tcImage',
