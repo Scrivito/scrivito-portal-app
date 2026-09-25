@@ -58,31 +58,31 @@ export const defaultPageEditingConfigAttributes = {
       'The right sidebar will be displayed on this page and all its descendant pages.',
   },
   tcCreator: {
-    title: 'Creator',
+    title: 'X (Twitter) creator',
     description: 'Username of the content creator. Start with @',
   },
   tcImage: {
-    title: 'Image',
+    title: 'X (Twitter) image',
     description: 'Add or replace the image here.',
   },
   tcTitle: {
-    title: 'Title',
+    title: 'X (Twitter) title',
   },
   tcDescription: {
-    title: 'Description',
+    title: 'X (Twitter) description',
     description: 'Limit to 200 characters',
   },
   ogTitle: {
-    title: 'Title',
+    title: 'Open Graph (Facebook) title',
     description: 'Add a catchy title for the post.',
   },
   ogDescription: {
-    title: 'Description',
+    title: 'Open Graph (Facebook) description',
     description:
       'What is this post about and why would someone want to read it? Limit to 300 characters.',
   },
   ogImage: {
-    title: 'Image',
+    title: 'Open Graph (Facebook) image',
     description: 'Add or replace the image here.',
   },
 }
@@ -113,22 +113,22 @@ export const defaultPagePropertiesGroups = [
     title: 'Social cards',
     properties: [
       {
+        key: 'facebook-preview',
+        component: FacebookPreview,
+        title: 'Open Graph (Facebook) preview',
+      },
+      'ogImage',
+      'ogTitle',
+      'ogDescription',
+      {
         key: 'twitter-preview',
         component: TwitterPreview,
-        title: 'X Twitter preview',
+        title: 'X (Twitter) preview',
       },
       'tcCreator',
       'tcImage',
       'tcTitle',
       'tcDescription',
-      {
-        key: 'facebook-preview',
-        component: FacebookPreview,
-        title: 'Facebook preview',
-      },
-      'ogImage',
-      'ogTitle',
-      'ogDescription',
     ],
     key: 'social-cards-group',
   },
@@ -207,7 +207,8 @@ export const defaultPageValidations = [
     (ogDescription: unknown) => {
       if (ensureString(ogDescription).length > 300) {
         return {
-          message: 'The Facebook description should not exceed 300 characters.',
+          message:
+            'The Open Graph (Facebook) description should not exceed 300 characters.',
           severity: 'warning',
         }
       }
