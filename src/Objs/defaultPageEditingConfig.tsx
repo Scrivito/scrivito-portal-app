@@ -73,16 +73,16 @@ export const defaultPageEditingConfigAttributes = {
     description: 'Limit to 200 characters',
   },
   ogTitle: {
-    title: 'Facebook title',
+    title: 'Open Graph (Facebook) title',
     description: 'Add a catchy title for the post.',
   },
   ogDescription: {
-    title: 'Facebook description',
+    title: 'Open Graph (Facebook) description',
     description:
       'What is this post about and why would someone want to read it? Limit to 300 characters.',
   },
   ogImage: {
-    title: 'Facebook image',
+    title: 'Open Graph (Facebook) image',
     description: 'Add or replace the image here.',
   },
 }
@@ -124,7 +124,7 @@ export const defaultPagePropertiesGroups = [
       {
         key: 'facebook-preview',
         component: FacebookPreview,
-        title: 'Facebook preview',
+        title: 'Open Graph (Facebook) preview',
       },
       'ogImage',
       'ogTitle',
@@ -207,7 +207,8 @@ export const defaultPageValidations = [
     (ogDescription: unknown) => {
       if (ensureString(ogDescription).length > 300) {
         return {
-          message: 'The Facebook description should not exceed 300 characters.',
+          message:
+            'The Open Graph (Facebook) description should not exceed 300 characters.',
           severity: 'warning',
         }
       }
