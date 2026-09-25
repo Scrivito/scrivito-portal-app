@@ -113,6 +113,14 @@ export const defaultPagePropertiesGroups = [
     title: 'Social cards',
     properties: [
       {
+        key: 'facebook-preview',
+        component: FacebookPreview,
+        title: 'Open Graph (Facebook) preview',
+      },
+      'ogImage',
+      'ogTitle',
+      'ogDescription',
+      {
         key: 'twitter-preview',
         component: TwitterPreview,
         title: 'X (Twitter) preview',
@@ -121,14 +129,6 @@ export const defaultPagePropertiesGroups = [
       'tcImage',
       'tcTitle',
       'tcDescription',
-      {
-        key: 'facebook-preview',
-        component: FacebookPreview,
-        title: 'Open Graph (Facebook) preview',
-      },
-      'ogImage',
-      'ogTitle',
-      'ogDescription',
     ],
     key: 'social-cards-group',
   },
