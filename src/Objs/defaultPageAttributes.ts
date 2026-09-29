@@ -34,6 +34,7 @@ export const defaultPageAttributes = {
   // Meta tags
   description: 'string',
   robotsIndex: 'boolean',
+  jsonLd: 'string',
   // Twitter attributes
   tcCreator: 'string',
   tcDescription: 'string',

@@ -19,6 +19,12 @@ export const defaultPageEditingConfigAttributes = {
     title: 'Should this page be indexed?',
     description: 'If not, search engines will ignore this page. Default: Yes',
   },
+  jsonLd: {
+    options: { multiLine: true },
+    title: 'JSON-LD',
+    description:
+      'Valid JSON expressing schema.org structured data for this page (e.g. Article, Event, Product). It will be embedded in a <script type="application/ld+json"> tag to help search engines understand the page content.',
+  },
   layoutMainBackgroundColor: {
     title: 'Background color',
     description:
@@ -106,7 +112,7 @@ export const defaultPagePropertiesGroups = [
   },
   {
     title: 'Metadata',
-    properties: ['description', 'robotsIndex'],
+    properties: ['description', 'robotsIndex', 'jsonLd'],
     key: 'metadata-group',
   },
   {
