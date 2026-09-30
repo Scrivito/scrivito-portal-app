@@ -14,6 +14,8 @@ export const CurrentPageMetadata = connect(() => {
 
   if (!page) return null
 
+  const jsonLd = ensureString(page.get('jsonLd'))
+
   return (
     <>
       <title>{ensureString(page.get('title'))}</title>
@@ -29,6 +31,15 @@ export const CurrentPageMetadata = connect(() => {
           content={content}
         />
       ))}
+      {jsonLd && (
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
+          dangerouslySetInnerHTML={{
+            __html: jsonLd.replace(/<\/script/gi, '<\\/script'),
+          }}
+        />
+      )}
     </>
   )
 })
