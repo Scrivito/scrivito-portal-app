@@ -220,4 +220,35 @@ export const defaultPageValidations = [
       }
     },
   ],
+  [
+    'jsonLd',
+
+    (jsonLd: string) => {
+      if (!jsonLd) return
+
+      let parsed: unknown
+      try {
+        parsed = JSON.parse(jsonLd)
+      } catch {
+        return {
+          message: 'The JSON-LD content must be valid JSON.',
+          severity: 'error',
+        }
+      }
+
+      if (typeof parsed !== 'object' || parsed === null) {
+        return {
+          message: 'The JSON-LD content must be a JSON object or array.',
+          severity: 'error',
+        }
+      }
+
+      if (jsonLd.toLowerCase().includes('</script')) {
+        return {
+          message: 'The JSON-LD content must not contain "</script".',
+          severity: 'error',
+        }
+      }
+    },
+  ],
 ] as const
