@@ -71,6 +71,20 @@ export default defineConfig(({ mode }) => {
       },
       sourcemap: !!HONEYBADGER_API_KEY,
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // The vendored Bootstrap 5 sources (src/assets/stylesheets/vendor/bs5)
+          // still use APIs that Dart Sass deprecated. Loading them via
+          // `loadPaths` makes them "dependencies", whose warnings `quietDeps`
+          // silences (without affecting our own stylesheets).
+          loadPaths: [
+            resolve(import.meta.dirname, 'src/assets/stylesheets/vendor'),
+          ],
+          quietDeps: true,
+        },
+      },
+    },
     define: {
       'import.meta.env.SCRIVITO_DEFAULT_CONTENT_ID': JSON.stringify(
         env.SCRIVITO_DEFAULT_CONTENT_ID || 'c2a0aab78be05a4e',
