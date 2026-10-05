@@ -1,9 +1,11 @@
 // -- main file -- //
 
+@use 'sass:meta';
+
 /* bs5 imports (used parts depends on project)
  ================================================== */
 
-@import 'bs5/bootstrap';
+@use 'bs5/bootstrap' as *;
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import 'scrivito-neoletter-form-widgets/index.css';
 @import 'scrivito-pisasales-questionnaire-builder/index.css';
@@ -368,14 +370,14 @@ fieldset:disabled .btn {
 /* parts imports
  ================================================== */
 
-@import 'theme/fonts';
-@import 'theme/loader';
-@import 'theme/table';
-@import 'theme/steps';
-@import 'theme/loading-placeholder';
-@import 'theme/print';
-@import 'theme/attachment';
-@import 'theme/box-comment';
+@include meta.load-css('theme/fonts');
+@include meta.load-css('theme/loader');
+@include meta.load-css('theme/table');
+@include meta.load-css('theme/steps');
+@include meta.load-css('theme/loading-placeholder');
+@include meta.load-css('theme/print');
+@include meta.load-css('theme/attachment');
+@include meta.load-css('theme/box-comment');
 
 /* general styles + helper classes
  =================================================================== */
@@ -534,7 +536,8 @@ a.btn {
   min-width: 0vw;
 }
 
-mark {
+mark,
+.mark {
   padding: 0 3px;
   border-radius: var(--bs-border-radius);
   background: var(--bs-secondary);
