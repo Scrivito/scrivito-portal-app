@@ -1,6 +1,7 @@
 import { Obj } from 'scrivito'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { ensureString } from '../utils/ensureString'
+import { validateStructuredData } from '../utils/validateStructuredData'
 import {
   TwitterPreview,
   FacebookPreview,
@@ -249,6 +250,8 @@ export const defaultPageValidations = [
           severity: 'error',
         }
       }
+
+      return validateStructuredData(parsed)
     },
   ],
 ] as const

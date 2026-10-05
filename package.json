@@ -22,6 +22,7 @@
     "start": "vite"
   },
   "dependencies": {
+    "@adobe/structured-data-validator": "^1.7.0",
     "@honeybadger-io/js": "^6.17.0",
     "@justrelate/icon-picker": "^1.0.3",
     "@justrelate/slugify": "^1.0.1",
