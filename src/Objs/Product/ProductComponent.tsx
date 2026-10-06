@@ -222,7 +222,7 @@ const CartActionButton = connect(function CartActionButton({
         title={cartUnavailableMessage}
         onClick={() => ensureUserIsLoggedIn()}
       >
-        <i className="bi bi-cart"></i>
+        <i className="bi bi-cart me-1"></i>
         {cartLoginLabel}
       </button>
     )
@@ -265,7 +265,7 @@ const CartActionButton = connect(function CartActionButton({
               toast.info(cartRemovedMessage)
             }}
           >
-            <i className="bi bi-x-lg"></i>
+            <i className="bi bi-x-lg me-1"></i>
             {cartRemoveLabel}
           </button>
         </div>
@@ -281,7 +281,7 @@ const CartActionButton = connect(function CartActionButton({
         toast.success(cartAddedMessage)
       }}
     >
-      <i className="bi bi-cart"></i>
+      <i className="bi bi-cart me-1"></i>
       {cartAddLabel}
     </button>
   )
