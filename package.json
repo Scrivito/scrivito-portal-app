@@ -34,7 +34,7 @@
     "react-dom": "^19.3.0",
     "react-dropzone": "^20.1.2",
     "react-toastify": "^11.1.0",
-    "scrivito": "^1.63.0",
+    "scrivito": "^1.64.0",
     "scrivito-neoletter-form-widgets": "^0.0.49",
     "scrivito-pisasales-questionnaire-builder": "^1.1.5",
     "scroll-to-fragment": "^1.1.0"
@@ -74,6 +74,8 @@
   "overrides": {
     "@lhci/cli": {
       "@puppeteer/browsers": "^3.2.1",
+      "argparse": "^2.0.1",
+      "basic-ftp": "^6.2.1",
       "cookie": "^0.7.0",
       "express": "^5.2.1",
       "rimraf": "4",
