@@ -1,10 +1,4 @@
-import {
-  canEdit,
-  connect,
-  isComparisonActive,
-  uiContext,
-  Widget,
-} from 'scrivito'
+import { connect, uiContext, Widget } from 'scrivito'
 import * as Slider from '@radix-ui/react-slider'
 import { isEqual, times } from 'lodash-es'
 import {
@@ -18,16 +12,16 @@ import { normalizeColSizes } from './normalizeColSizes'
 
 export const ColumnsEditor = connect(function ColumnsEditor({
   widget,
+  readOnly,
 }: {
   widget: ColumnContainerWidgetInstance
+  readOnly: boolean
 }) {
   const baselineRef = useRef<Widget[][]>([])
   const preserveBaselineRef = useRef(false)
 
   const { theme } = uiContext() || { theme: null }
   if (!theme) return null
-
-  const readOnly = !canEdit(widget.obj()) || isComparisonActive()
 
   // Read unconditionally, so "connect" always tracks column contents and rerenders on external changes
   const currentContents = calculateContents(widget)
