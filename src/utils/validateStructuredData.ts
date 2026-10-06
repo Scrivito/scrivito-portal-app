@@ -36,6 +36,41 @@ class ArticleValidator extends BaseValidator {
   }
 }
 
+// Google's Event requirements: https://developers.google.com/search/docs/appearance/structured-data/event
+class EventValidator extends BaseValidator {
+  getConditions(): Condition[] {
+    return [
+      this.required('name', 'string'),
+      this.required('startDate', 'date'),
+      this.required('location'),
+      this.recommended('description', 'string'),
+      this.recommended('endDate', 'date'),
+      this.recommended('eventAttendanceMode', 'string'),
+      this.recommended('eventStatus', 'string'),
+      this.recommended('image'),
+      this.recommended('offers'),
+      this.recommended('organizer'),
+      this.recommended('performer'),
+    ].map((condition) => condition.bind(this))
+  }
+}
+
+class PlaceValidator extends BaseValidator {
+  getConditions(): Condition[] {
+    return [this.required('address'), this.recommended('name', 'string')].map(
+      (condition) => condition.bind(this),
+    )
+  }
+}
+
+class VirtualLocationValidator extends BaseValidator {
+  getConditions(): Condition[] {
+    return [this.required('url', 'url')].map((condition) =>
+      condition.bind(this),
+    )
+  }
+}
+
 type HandlerClass = typeof BaseValidator
 
 // Mirrors the registry of the package's async `Validator`, which cannot be used
@@ -48,6 +83,7 @@ const HANDLERS: Record<string, HandlerClass[]> = {
   Brand: [Brand],
   Certification: [Certification],
   DefinedRegion: [DefinedRegion],
+  Event: [EventValidator],
   ImageObject: [ImageObject],
   MerchantReturnPolicy: [MerchantReturnPolicy],
   NewsArticle: [ArticleValidator],
@@ -56,6 +92,7 @@ const HANDLERS: Record<string, HandlerClass[]> = {
   Organization: [Organization],
   PeopleAudience: [PeopleAudience],
   Person: [Person],
+  Place: [PlaceValidator],
   PriceSpecification: [PriceSpecification],
   Product: [Product],
   QuantitativeValue: [QuantitativeValue],
@@ -64,6 +101,7 @@ const HANDLERS: Record<string, HandlerClass[]> = {
   ShippingDeliveryTime: [ShippingDeliveryTime],
   SizeSpecification: [SizeSpecification],
   UnitPriceSpecification: [PriceSpecification],
+  VirtualLocation: [VirtualLocationValidator],
 }
 
 export function validateStructuredData(
