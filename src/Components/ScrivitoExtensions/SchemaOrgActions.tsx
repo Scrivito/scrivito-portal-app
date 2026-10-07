@@ -9,7 +9,7 @@ const JSON_LD_RULES = `Rules for the JSON-LD:
 - Values must never be invented or guessed, not even for properties Google requires. Properties for which the page provides no information are left out.
 - The JSON-LD uses the schema.org type that best matches the page. If a type that Google supports for rich results (e.g. Article, Event, Product) matches the page, it is preferred, and the JSON-LD includes the properties Google requires or recommends for it, as far as the page provides information for them. If the main content of the page consists of questions and answers, FAQPage is a fitting type, even though Google no longer shows rich results for it. If no such type matches, any other fitting schema.org type is fine.
 - The JSON-LD must not describe the website's own organization or the page's breadcrumb trail (no top-level "Organization" or "BreadcrumbList"), as they are provided separately. Nested organizations as property values (e.g. "author", "publisher", "organizer", "seller") are allowed.
-- The JSON-LD is a single, valid JSON object that includes "@context": "https://schema.org". It is pretty printed with an indentation of 2 spaces.`
+- The JSON-LD is a single, syntactically valid JSON object (not an array) with "@context": "https://schema.org" at its top level. It uses only types and properties defined by schema.org. It describes one main entity; further entities are nested as property values. It is pretty printed with an indentation of 2 spaces.`
 
 const ANALYZE_PROMPT = `Check whether the JSON-LD of this page follows the rules below.
 
