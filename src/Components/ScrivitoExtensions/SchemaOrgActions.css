@@ -27,10 +27,11 @@
 }
 
 .schema-org-actions-dark .schema-org-action-item {
-  background: #3a3a3a;
-  color: #eee;
+  background: rgb(39, 45, 55);
+  color: rgb(238, 238, 238);
 }
 
 .schema-org-actions-dark .schema-org-action-item:hover {
-  background: #4a4a4a;
+  background: rgb(58, 67, 83);
+  color: rgb(238, 238, 238);
 }
