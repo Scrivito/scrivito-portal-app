@@ -30,6 +30,7 @@
 
 .schema-org-message {
   margin-top: 12px;
+  color: #444;
   font-size: 13px;
 }
 
@@ -38,18 +39,23 @@
 }
 
 .schema-org-prompt {
-  margin: 0 0 8px;
+  margin: 0;
   padding: 8px 10px;
   border-radius: 4px;
   background: #f4f4f4;
-  color: inherit;
+  color: #444;
   font-size: 12px;
   white-space: pre-wrap;
   user-select: text;
 }
 
+.schema-org-actions-dark .schema-org-message {
+  color: rgb(238, 238, 238);
+}
+
 .schema-org-actions-dark .schema-org-prompt {
   background: rgb(28, 33, 41);
+  color: rgb(238, 238, 238);
 }
 
 .schema-org-actions-dark .schema-org-action-item {

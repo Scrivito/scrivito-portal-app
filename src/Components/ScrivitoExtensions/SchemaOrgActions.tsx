@@ -17,13 +17,7 @@ Report every discrepancy you find, and suggest a corrected JSON-LD.`
 export function SchemaOrgActions() {
   const { theme } = uiContext() || { theme: null }
   const [activeAction, setActiveAction] = useState<string | null>(null)
-  const [copied, setCopied] = useState(false)
   if (!theme) return null
-
-  async function copyPrompt() {
-    await navigator.clipboard.writeText(ANALYZE_PROMPT)
-    setCopied(true)
-  }
 
   return (
     <div className={`schema-org-actions-wrapper schema-org-actions-${theme}`}>
@@ -35,7 +29,6 @@ export function SchemaOrgActions() {
               className="schema-org-action-item"
               onClick={() => {
                 setActiveAction(key)
-                setCopied(false)
               }}
             >
               <i className={`bi ${icon}`} />
@@ -49,16 +42,6 @@ export function SchemaOrgActions() {
         <div className="schema-org-message">
           <p>Copy the following prompt over to CoWorker:</p>
           <pre className="schema-org-prompt">{ANALYZE_PROMPT}</pre>
-          <button
-            type="button"
-            className="schema-org-action-item"
-            onClick={copyPrompt}
-          >
-            <i className={`bi ${copied ? 'bi-check-lg' : 'bi-clipboard'}`} />
-            <span className="schema-org-action-label">
-              {copied ? 'Copied' : 'Copy prompt'}
-            </span>
-          </button>
         </div>
       )}
     </div>
