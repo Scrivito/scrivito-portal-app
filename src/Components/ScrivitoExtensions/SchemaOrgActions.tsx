@@ -3,8 +3,9 @@ import { uiContext } from 'scrivito'
 import './SchemaOrgActions.css'
 
 const JSON_LD_RULES = `Rules for the JSON-LD:
+- MOST IMPORTANT RULE: The JSON-LD must never contradict the page. The page content always has priority over the JSON-LD. Every single value in the JSON-LD (e.g. dates, times, prices, names, locations) must match what the page says. For example: if the page says that something takes place in 2025, the JSON-LD must not say 2024.
 - Only the main content of the page counts. Teasers and promotional boxes that point to other pages or entities (e.g. a teaser for an upcoming event on a page that is not about that event), as well as navigation, header and footer, are ignored.
-- The page content has priority over the JSON-LD. The JSON-LD must only contain information that is actually present in the main content of the page, and must not contradict it. For example: if the page says that something takes place in 2025, the JSON-LD must not say 2024.
+- The JSON-LD must only contain information that is actually present in the main content of the page.
 - Values must never be invented or guessed, not even for properties Google requires. Properties for which the page provides no information are left out.
 - The JSON-LD uses the schema.org type that best matches the page. If a type that Google supports for rich results (e.g. Article, Event, Product, FAQPage) matches the page, it is preferred, and the JSON-LD includes the properties Google requires or recommends for it, as far as the page provides information for them. If no such type matches, any other fitting schema.org type is fine.
 - The JSON-LD must not contain the types "Organization" and "BreadcrumbList", as they are provided separately, nor the "mentions" and "relatedLink" attributes.
@@ -14,7 +15,7 @@ const ANALYZE_PROMPT = `Check whether the JSON-LD of this page follows the rules
 
 ${JSON_LD_RULES}
 
-Report every rule violation you find, including every Google-required or recommended property that is missing although the page provides information for it.
+Report every rule violation you find. Above all, report every value that contradicts the page. Also report every Google-required or recommended property that is missing although the page provides information for it.
 
 This is a read-only analysis. Do not change the page, and do not write anything to the "jsonLd" attribute or any other attribute. Only report your findings in your answer, and describe the changes that would be needed in words.`
 
