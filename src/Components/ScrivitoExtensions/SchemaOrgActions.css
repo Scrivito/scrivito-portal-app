@@ -17,6 +17,8 @@
   background: #e8e8e8;
   color: #444;
   font-size: 13px;
+  width: 100%;
+  border: 0;
   cursor: pointer;
   user-select: none;
   transition: background 0.2s ease;
@@ -24,6 +26,30 @@
 
 .schema-org-action-item:hover {
   background: #dcdcdc;
+}
+
+.schema-org-message {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.schema-org-message p {
+  margin: 0 0 6px;
+}
+
+.schema-org-prompt {
+  margin: 0 0 8px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  background: #f4f4f4;
+  color: inherit;
+  font-size: 12px;
+  white-space: pre-wrap;
+  user-select: text;
+}
+
+.schema-org-actions-dark .schema-org-prompt {
+  background: rgb(28, 33, 41);
 }
 
 .schema-org-actions-dark .schema-org-action-item {
