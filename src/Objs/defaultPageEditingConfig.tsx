@@ -2,6 +2,7 @@ import { Obj } from 'scrivito'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { ensureString } from '../utils/ensureString'
 import { validateStructuredData } from '../utils/validateStructuredData'
+import { SchemaOrgActions } from '../Components/ScrivitoExtensions/SchemaOrgActions'
 import {
   TwitterPreview,
   FacebookPreview,
@@ -141,7 +142,14 @@ export const defaultPagePropertiesGroups = [
   },
   {
     title: 'Schema.org',
-    properties: ['jsonLd'],
+    properties: [
+      {
+        key: 'schema-org-actions',
+        component: SchemaOrgActions,
+        title: 'Actions',
+      },
+      'jsonLd',
+    ],
     key: 'schema-org-group',
   },
 ] as const
