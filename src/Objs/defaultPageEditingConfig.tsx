@@ -113,7 +113,7 @@ export const defaultPagePropertiesGroups = [
   },
   {
     title: 'Metadata',
-    properties: ['description', 'robotsIndex', 'jsonLd'],
+    properties: ['description', 'robotsIndex'],
     key: 'metadata-group',
   },
   {
@@ -138,6 +138,11 @@ export const defaultPagePropertiesGroups = [
       'tcDescription',
     ],
     key: 'social-cards-group',
+  },
+  {
+    title: 'Schema.org',
+    properties: ['jsonLd'],
+    key: 'schema-org-group',
   },
 ] as const
 
