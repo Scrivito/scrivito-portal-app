@@ -2,27 +2,33 @@ import { useState } from 'react'
 import { uiContext } from 'scrivito'
 import './SchemaOrgActions.css'
 
-const ANALYZE_PROMPT = `Check whether the JSON-LD of this page contains only information that can also be found on the rest of the page.
+const JSON_LD_RULES = `Rules for the JSON-LD:
+- Only the main content of the page counts. Teasers and promotional boxes that point to other pages or entities (e.g. a teaser for an upcoming event on a page that is not about that event), as well as navigation, header and footer, are ignored.
+- The page content has priority over the JSON-LD. The JSON-LD must only contain information that is actually present in the main content of the page, and must not contradict it. For example: if the page says that something takes place in 2025, the JSON-LD must not say 2024.
+- Values must never be invented or guessed, not even for properties Google requires. Properties for which the page provides no information are left out.
+- The JSON-LD uses the schema.org type that best matches the page. If a type that Google supports for rich results (e.g. Article, Event, Product, FAQPage) matches the page, it is preferred, and the JSON-LD includes the properties Google requires or recommends for it, as far as the page provides information for them. If no such type matches, any other fitting schema.org type is fine.
+- The JSON-LD must not contain the types "Organization" and "BreadcrumbList", as they are provided separately, nor the "mentions" and "relatedLink" attributes.
+- The JSON-LD is a single, valid JSON object that includes "@context": "https://schema.org". It must not contain the text "</script". It is pretty printed with an indentation of 2 spaces.`
 
-The page content has priority over the JSON-LD. Only the main content of the page counts. Ignore teasers and promotional boxes that point to other pages or entities (e.g. a teaser for an upcoming event on a page that is not about that event), as well as navigation, header and footer. If the JSON-LD contradicts the page, or contains information that the page does not mention, the JSON-LD is not correct. For example: if the page says that something takes place in 2025, but the JSON-LD says 2024, the JSON-LD is wrong.
+const ANALYZE_PROMPT = `Check whether the JSON-LD of this page follows the rules below.
 
-Also check whether the JSON-LD uses the schema.org type that best matches the page. If a type that Google supports for rich results (e.g. Article, Event, Product, FAQPage) matches the page, it should be preferred, and the JSON-LD should include the properties Google requires for it, plus the recommended ones the page provides information for. If no such type matches, any other fitting schema.org type is fine. The JSON-LD should not contain the types "Organization" and "BreadcrumbList", as they are provided separately, nor the "mentions" and "relatedLink" attributes.
+${JSON_LD_RULES}
 
-Report every discrepancy and every missing Google-required or recommended property you find.
+Report every rule violation you find, including every Google-required or recommended property that is missing although the page provides information for it.
 
 This is a read-only analysis. Do not change the page, and do not write anything to the "jsonLd" attribute or any other attribute. Only report your findings in your answer, and describe the changes that would be needed in words.`
 
-const CREATE_PROMPT = `Create schema.org structured data (JSON-LD) for this page.
+const CREATE_PROMPT = `Create schema.org structured data (JSON-LD) for this page that follows the rules below.
 
-Pick the schema.org type that best describes the page. If a type that Google supports for rich results (e.g. Article, Event, Product, FAQPage) matches the page, prefer it and fill in all properties Google requires for it, plus the recommended properties as far as the page provides information for them. If no such type matches, use any other fitting schema.org type. Only use information that is actually present in the main content of the page. Ignore teasers and promotional boxes that point to other pages or entities (e.g. a teaser for an upcoming event on a page that is not about that event), as well as navigation, header and footer. Do not invent or guess any values. Leave out properties for which the page provides no information.
+${JSON_LD_RULES}
 
-Return a single, valid JSON object that includes "@context": "https://schema.org". It must not contain the text "</script". Avoid the "mentions" and "relatedLink" attributes. Do not include the types "Organization" and "BreadcrumbList", as they are provided separately. Pretty print the JSON with an indentation of 2 spaces. Write the resulting JSON to the "jsonLd" attribute of this page.`
+Write the resulting JSON to the "jsonLd" attribute of this page.`
 
-const UPDATE_PROMPT = `Update the existing JSON-LD of this page so that it matches the current content of the page.
+const UPDATE_PROMPT = `Update the existing JSON-LD of this page so that it matches the current content of the page and follows the rules below. Correct every value that contradicts the page, remove everything that violates the rules (including information that stems from teasers), and add properties for information that is on the page but missing in the JSON-LD. Keep everything else that is still correct unchanged.
 
-The page content has priority over the JSON-LD. Only the main content of the page counts. Ignore teasers and promotional boxes that point to other pages or entities (e.g. a teaser for an upcoming event on a page that is not about that event), as well as navigation, header and footer. Correct every value that contradicts the page (e.g. if the page says that something takes place in 2025, but the JSON-LD says 2024, change it to 2025). Remove information that the main content of the page does not mention, including information that stems from teasers. Add relevant schema.org properties for information that is on the page but missing in the JSON-LD. Make sure the JSON-LD uses the schema.org type that best matches the page. If a type that Google supports for rich results matches the page, prefer it, include all properties Google requires for it, and add the recommended properties as far as the page provides information for them. If no such type matches, any other fitting schema.org type is fine. Keep everything else that is still correct unchanged.
+${JSON_LD_RULES}
 
-Return a single, valid JSON object that includes "@context": "https://schema.org". It must not contain the text "</script". Avoid the "mentions" and "relatedLink" attributes. Do not include the types "Organization" and "BreadcrumbList", as they are provided separately. Pretty print the JSON with an indentation of 2 spaces. Write the updated JSON to the "jsonLd" attribute of this page.`
+Write the updated JSON to the "jsonLd" attribute of this page.`
 
 export function SchemaOrgActions() {
   const { theme } = uiContext() || { theme: null }
