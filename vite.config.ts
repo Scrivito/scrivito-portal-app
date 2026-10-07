@@ -78,9 +78,7 @@ export default defineConfig(({ mode }) => {
           // still use APIs that Dart Sass deprecated. Loading them via
           // `loadPaths` makes them "dependencies", whose warnings `quietDeps`
           // silences (without affecting our own stylesheets).
-          loadPaths: [
-            resolve(import.meta.dirname, 'src/assets/stylesheets/vendor'),
-          ],
+          loadPaths: ['src/assets/stylesheets/vendor'],
           quietDeps: true,
         },
       },
