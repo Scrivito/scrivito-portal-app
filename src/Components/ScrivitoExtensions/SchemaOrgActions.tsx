@@ -8,7 +8,9 @@ The page content has priority over the JSON-LD. Only the main content of the pag
 
 Also check whether the JSON-LD uses the schema.org type that best matches the page. If a type that Google supports for rich results (e.g. Article, Event, Product, FAQPage) matches the page, it should be preferred, and the JSON-LD should include the properties Google requires for it, plus the recommended ones the page provides information for. If no such type matches, any other fitting schema.org type is fine. The JSON-LD should not contain the types "Organization" and "BreadcrumbList", as they are provided separately, nor the "mentions" and "relatedLink" attributes.
 
-Report every discrepancy and every missing Google-required or recommended property you find, and suggest a corrected JSON-LD.`
+Report every discrepancy and every missing Google-required or recommended property you find.
+
+This is a read-only analysis. Do not change the page, and do not write anything to the "jsonLd" attribute or any other attribute. Only report your findings in your answer, and describe the changes that would be needed in words.`
 
 const CREATE_PROMPT = `Create schema.org structured data (JSON-LD) for this page.
 
