@@ -146,7 +146,6 @@ export const defaultPagePropertiesGroups = [
       {
         key: 'schema-org-actions',
         component: SchemaOrgActions,
-        title: 'Actions',
       },
       'jsonLd',
     ],
