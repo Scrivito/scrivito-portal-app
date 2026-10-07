@@ -6,19 +6,21 @@ const ANALYZE_PROMPT = `Check whether the JSON-LD of this page contains only inf
 
 The page content has priority over the JSON-LD. If the JSON-LD contradicts the page, or contains information that the page does not mention, the JSON-LD is not correct. For example: if the page says that something takes place in 2025, but the JSON-LD says 2024, the JSON-LD is wrong.
 
-Report every discrepancy you find, and suggest a corrected JSON-LD.`
+Also check whether the JSON-LD is optimized for Google rich results: it should use a type that Google supports for rich results (e.g. Article, Event, Product, FAQPage, BreadcrumbList, Organization), include all properties that Google requires for that type, and include the recommended properties that the page provides information for.
+
+Report every discrepancy and every missing required or recommended property you find, and suggest a corrected JSON-LD.`
 
 const CREATE_PROMPT = `Create schema.org structured data (JSON-LD) for this page.
 
-Pick the schema.org type that best describes the page (e.g. Article, Event, Product, FAQPage, Organization) and fill in its properties. Only use information that is actually present on the page. Do not invent or guess any values. Leave out properties for which the page provides no information.
+Optimize the JSON-LD for Google rich results. Pick the schema.org type that best describes the page and is supported by Google for rich results (e.g. Article, Event, Product, FAQPage, BreadcrumbList, Organization). Fill in all properties that Google requires for that type, and the recommended properties as far as the page provides information for them. Only use information that is actually present on the page. Do not invent or guess any values. Leave out properties for which the page provides no information.
 
-Return a single, valid JSON object that includes "@context": "https://schema.org". It must not contain the text "</script". Avoid the "mentions" attribute. Pretty print the JSON with an indentation of 2 spaces. Return only the JSON, so it can be pasted directly into the JSON-LD field of the page.`
+Return a single, valid JSON object that includes "@context": "https://schema.org". It must not contain the text "</script". Avoid the "mentions" and "relatedLink" attributes. Pretty print the JSON with an indentation of 2 spaces. Return only the JSON, so it can be pasted directly into the JSON-LD field of the page.`
 
 const UPDATE_PROMPT = `Update the existing JSON-LD of this page so that it matches the current content of the page.
 
-The page content has priority over the JSON-LD. Correct every value that contradicts the page (e.g. if the page says that something takes place in 2025, but the JSON-LD says 2024, change it to 2025). Remove information that the page does not mention. Add relevant schema.org properties for information that is on the page but missing in the JSON-LD. Keep everything that is still correct unchanged.
+The page content has priority over the JSON-LD. Correct every value that contradicts the page (e.g. if the page says that something takes place in 2025, but the JSON-LD says 2024, change it to 2025). Remove information that the page does not mention. Add relevant schema.org properties for information that is on the page but missing in the JSON-LD. Make sure the JSON-LD is optimized for Google rich results: use a type that Google supports for rich results, include all properties that Google requires for that type, and add the recommended properties as far as the page provides information for them. Keep everything else that is still correct unchanged.
 
-Return a single, valid JSON object that includes "@context": "https://schema.org". It must not contain the text "</script". Avoid the "mentions" attribute. Pretty print the JSON with an indentation of 2 spaces. Return only the updated JSON, so it can be pasted directly into the JSON-LD field of the page.`
+Return a single, valid JSON object that includes "@context": "https://schema.org". It must not contain the text "</script". Avoid the "mentions" and "relatedLink" attributes. Pretty print the JSON with an indentation of 2 spaces. Return only the updated JSON, so it can be pasted directly into the JSON-LD field of the page.`
 
 export function SchemaOrgActions() {
   const { theme } = uiContext() || { theme: null }
