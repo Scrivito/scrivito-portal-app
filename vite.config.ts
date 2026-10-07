@@ -74,10 +74,6 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         scss: {
-          // The vendored Bootstrap 5 sources (src/assets/stylesheets/vendor/bs5)
-          // still use APIs that Dart Sass deprecated. Loading them via
-          // `loadPaths` makes them "dependencies", whose warnings `quietDeps`
-          // silences (without affecting our own stylesheets).
           loadPaths: ['src/assets/stylesheets/vendor'],
           quietDeps: true,
         },
