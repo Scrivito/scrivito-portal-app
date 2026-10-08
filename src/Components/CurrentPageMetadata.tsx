@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { connect, currentPage, urlFor } from 'scrivito'
+import { connect, currentPage, Obj, urlFor } from 'scrivito'
+import { buildJsonLd } from '../utils/buildJsonLd'
 import { ensureString } from '../utils/ensureString'
 import { getMetadata } from '../utils/getMetadata'
 import { hreflangAlternates } from '../utils/hreflangAlternates'
@@ -14,7 +15,7 @@ export const CurrentPageMetadata = connect(() => {
 
   if (!page) return null
 
-  const jsonLd = ensureString(page.get('jsonLd'))
+  const jsonLd = stringifyJsonLd(page)
 
   return (
     <>
@@ -43,3 +44,11 @@ export const CurrentPageMetadata = connect(() => {
     </>
   )
 })
+
+function stringifyJsonLd(page: Obj): string {
+  try {
+    return JSON.stringify(buildJsonLd(page), null, 2)
+  } catch {
+    return ''
+  }
+}

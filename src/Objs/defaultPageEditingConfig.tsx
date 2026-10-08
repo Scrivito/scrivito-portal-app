@@ -1,5 +1,6 @@
 import { Obj } from 'scrivito'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
+import { buildJsonLd } from '../utils/buildJsonLd'
 import { ensureString } from '../utils/ensureString'
 import { validateStructuredData } from '../utils/validateStructuredData'
 import { SchemaOrgActions } from '../Components/ScrivitoExtensions/SchemaOrgActions'
@@ -236,12 +237,12 @@ export const defaultPageValidations = [
   [
     'jsonLd',
 
-    (jsonLd: string) => {
+    (jsonLd: string, { obj }: { obj: Obj }) => {
       if (!jsonLd) return
 
       let parsed: unknown
       try {
-        parsed = JSON.parse(jsonLd)
+        parsed = buildJsonLd(obj)
       } catch {
         return {
           message: 'The JSON-LD content must be valid JSON.',
