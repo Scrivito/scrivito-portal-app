@@ -33,12 +33,15 @@ function prerenderSitemapSearch(objClassesWhitelist: string[]) {
     .and('_siteId', 'equals', getSiteIds())
 }
 
-function pageToSitemapUrl(page: Scrivito.Obj) {
+function pageToSitemapUrl(page: Scrivito.Obj): SitemapUrl {
+  const lastmod = formatDate(page.lastChanged())
+
   return {
-    url: {
-      loc: Scrivito.urlFor(page),
-      lastmod: formatDate(page.lastChanged()),
-    },
+    name: 'url',
+    children: [
+      { name: 'loc', text: Scrivito.urlFor(page) },
+      ...(lastmod ? [{ name: 'lastmod', text: lastmod }] : []),
+    ],
   }
 }
 
@@ -47,10 +50,8 @@ function formatDate(date: Date | null) {
 }
 
 type SitemapUrl = {
-  url: {
-    loc: string
-    lastmod?: string
-  }
+  name: 'url'
+  children: { name: string; text: string }[]
 }
 
 function sitemapUrlsToSitemapXml(sitemapUrls: SitemapUrl[]) {
