@@ -2,6 +2,7 @@ import * as Scrivito from 'scrivito'
 import jsontoxml from 'jsontoxml'
 import { storeResult } from './storeResult'
 import { getSiteIds } from './getSiteIds'
+import { hreflangAlternates } from '../utils/hreflangAlternates'
 
 export async function prerenderSitemap(
   targetDir: string,
@@ -41,6 +42,10 @@ function pageToSitemapUrl(page: Scrivito.Obj): SitemapUrl {
     children: [
       { name: 'loc', text: Scrivito.urlFor(page) },
       ...(lastmod ? [{ name: 'lastmod', text: lastmod }] : []),
+      ...hreflangAlternates(page).map(({ hreflang, href }) => ({
+        name: 'xhtml:link',
+        attrs: { rel: 'alternate', hreflang, href },
+      })),
     ],
   }
 }
@@ -51,7 +56,11 @@ function formatDate(date: Date | null) {
 
 type SitemapUrl = {
   name: 'url'
-  children: { name: string; text: string }[]
+  children: {
+    name: string
+    text?: string
+    attrs?: Record<string, string>
+  }[]
 }
 
 function sitemapUrlsToSitemapXml(sitemapUrls: SitemapUrl[]) {
@@ -59,7 +68,10 @@ function sitemapUrlsToSitemapXml(sitemapUrls: SitemapUrl[]) {
     [
       {
         name: 'urlset',
-        attrs: { xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9' },
+        attrs: {
+          xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9',
+          'xmlns:xhtml': 'http://www.w3.org/1999/xhtml',
+        },
         children: sitemapUrls,
       },
     ],
