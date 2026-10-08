@@ -1,4 +1,4 @@
-import { Obj } from 'scrivito'
+import { Obj, urlFor } from 'scrivito'
 import { ensureObject } from './ensureObject'
 import { ensureString } from './ensureString'
 import { isCreativeWork } from './isCreativeWork'
@@ -6,7 +6,10 @@ import { isCreativeWork } from './isCreativeWork'
 /** @throws {SyntaxError} if the JSON-LD is not valid JSON */
 export function buildJsonLd(page: Obj): Record<string, unknown> {
   const data: unknown = JSON.parse(ensureString(page.get('jsonLd')))
-  const record = ensureObject(data)
+  const record: Record<string, unknown> = {
+    ...ensureObject(data),
+    url: urlFor(page),
+  }
   if (!isCreativeWork(record['@type'])) return record
 
   return {
