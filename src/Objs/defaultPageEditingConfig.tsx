@@ -240,19 +240,12 @@ export const defaultPageValidations = [
     (jsonLd: string, { obj }: { obj: Obj }) => {
       if (!jsonLd) return
 
-      let parsed: unknown
+      let parsed: Record<string, unknown>
       try {
         parsed = buildJsonLd(obj)
       } catch {
         return {
           message: 'The JSON-LD content must be valid JSON.',
-          severity: 'error',
-        }
-      }
-
-      if (typeof parsed !== 'object' || parsed === null) {
-        return {
-          message: 'The JSON-LD content must be a JSON object or array.',
           severity: 'error',
         }
       }
@@ -264,7 +257,7 @@ export const defaultPageValidations = [
         }
       }
 
-      return validateStructuredData(parsed)
+      return validateStructuredData(parsed, obj)
     },
   ],
 ] as const

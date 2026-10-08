@@ -1,3 +1,6 @@
+import { Obj } from 'scrivito'
+import { ensureObject } from './ensureObject'
+import { ensureString } from './ensureString'
 import AggregateOffer from '@adobe/structured-data-validator/src/types/AggregateOffer.js'
 import AggregateRating from '@adobe/structured-data-validator/src/types/AggregateRating.js'
 import BaseValidator, {
@@ -105,21 +108,60 @@ const HANDLERS: Record<string, HandlerClass[]> = {
 }
 
 export function validateStructuredData(
-  jsonLd: unknown,
+  jsonLd: Record<string, unknown>,
+  page: Obj,
 ): { message: string; severity: 'error' | 'warning' } | undefined {
   const issues = rootItems(jsonLd).flatMap((item, index) =>
     validateNode(item, [{ type: typeNames(item)[0], index }]),
   )
-  if (issues.length === 0) return
+  const messages = issues.map(
+    (issue) => `${pathLabel(issue.path)}: ${issue.issueMessage}`,
+  )
+
+  const typeIssue = typeConsistencyIssue(jsonLd, page)
+  if (typeIssue) messages.push(typeIssue)
+  if (messages.length === 0) return
 
   return {
-    message: issues
-      .map((issue) => `${pathLabel(issue.path)}: ${issue.issueMessage}`)
-      .join('; '),
+    message: messages.join('; '),
     severity: issues.some((issue) => issue.severity === 'ERROR')
       ? 'error'
       : 'warning',
   }
+}
+
+// The @type of a page should be the same in all of its language versions.
+function typeConsistencyIssue(
+  jsonLd: Record<string, unknown>,
+  page: Obj,
+): string | undefined {
+  const types = typesLabel(jsonLd)
+  if (!types) return
+
+  const differences = page
+    .versionsOnAllSites()
+    .filter((version) => version.id() !== page.id())
+    .flatMap((version) => {
+      const versionTypes = typesLabel(parseJsonLd(version))
+      return versionTypes && versionTypes !== types
+        ? [`${version.language() ?? version.id()}: ${versionTypes}`]
+        : []
+    })
+  if (differences.length === 0) return
+
+  return `The @type differs from other language versions (this page: ${types}; ${differences.join('; ')})`
+}
+
+function parseJsonLd(page: Obj): Record<string, unknown> {
+  try {
+    return ensureObject(JSON.parse(ensureString(page.get('jsonLd'))))
+  } catch {
+    return {}
+  }
+}
+
+function typesLabel(jsonLd: Record<string, unknown>): string {
+  return typeNames(jsonLd).sort().join(', ')
 }
 
 function rootItems(jsonLd: unknown): Record<string, unknown>[] {
