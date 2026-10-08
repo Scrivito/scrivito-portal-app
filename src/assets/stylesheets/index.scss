@@ -1,11 +1,17 @@
 // -- main file -- //
 
-@use 'sass:meta';
-
 /* bs5 imports (used parts depends on project)
  ================================================== */
 
 @use 'bs5/bootstrap' as *;
+@use 'theme/fonts';
+@use 'theme/loader';
+@use 'theme/table';
+@use 'theme/steps';
+@use 'theme/loading-placeholder';
+@use 'theme/print';
+@use 'theme/attachment';
+@use 'theme/box-comment';
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 @import 'scrivito-neoletter-form-widgets/index.css';
 @import 'scrivito-pisasales-questionnaire-builder/index.css';
@@ -367,17 +373,6 @@ fieldset:disabled .btn {
 .btn i {
   padding-right: 6px;
 }
-/* parts imports
- ================================================== */
-
-@include meta.load-css('theme/fonts');
-@include meta.load-css('theme/loader');
-@include meta.load-css('theme/table');
-@include meta.load-css('theme/steps');
-@include meta.load-css('theme/loading-placeholder');
-@include meta.load-css('theme/print');
-@include meta.load-css('theme/attachment');
-@include meta.load-css('theme/box-comment');
 
 /* general styles + helper classes
  =================================================================== */
