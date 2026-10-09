@@ -34,8 +34,15 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
   }, [defaultValue, hasFocus, id])
 
   const inputRef = useRef<HTMLInputElement>(null)
-  const down = useCallback(() => inputRef.current?.stepDown(), [inputRef])
-  const up = useCallback(() => inputRef.current?.stepUp(), [inputRef])
+  const step = useCallback((direction: 'stepDown' | 'stepUp') => {
+    const input = inputRef.current
+    if (!input) return
+
+    input[direction]()
+    input.dispatchEvent(new Event('input', { bubbles: true }))
+  }, [])
+  const down = useCallback(() => step('stepDown'), [step])
+  const up = useCallback(() => step('stepUp'), [step])
 
   const hasValue = defaultValue !== undefined
 
@@ -84,6 +91,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
         <button
           aria-label="-"
           className="btn btn-primary btn-sm"
+          type="button"
           disabled={hasValue && min !== undefined && defaultValue <= min}
           onClick={down}
         >
@@ -107,6 +115,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
         <button
           aria-label="+"
           className="btn btn-primary btn-sm"
+          type="button"
           disabled={hasValue && max !== undefined && defaultValue >= max}
           onClick={up}
         >
