@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { connect, currentPage, urlFor } from 'scrivito'
 import { ensureString } from '../utils/ensureString'
 import { getMetadata } from '../utils/getMetadata'
+import { hreflangAlternates } from '../utils/hreflangAlternates'
 
 export const CurrentPageMetadata = connect(() => {
   const page = currentPage()
@@ -17,6 +18,9 @@ export const CurrentPageMetadata = connect(() => {
     <>
       <title>{ensureString(page.get('title'))}</title>
       <link rel="canonical" href={urlFor(page)} />
+      {hreflangAlternates(page).map(({ hreflang, href }) => (
+        <link key={href} rel="alternate" hrefLang={hreflang} href={href} />
+      ))}
       {getMetadata(page).map(({ name, property, content }) => (
         <meta
           key={name ?? property}
