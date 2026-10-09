@@ -54,7 +54,7 @@
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
     "bootstrap-icons": "^1.13.1",
-    "concurrently": "^10.0.5",
+    "concurrently": "^10.0.6",
     "content-security-policy-builder": "^2.3.0",
     "eslint": "^10.10.0",
     "eslint-plugin-import-x": "^4.17.1",
