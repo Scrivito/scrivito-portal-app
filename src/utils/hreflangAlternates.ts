@@ -5,15 +5,20 @@ interface HreflangAlternate {
   href: string
 }
 
-export function hreflangAlternates(obj: Obj): HreflangAlternate[] {
-  const alternates = obj
-    .versionsOnAllSites()
-    .filter((version) => version.get('robotsIndex') === true)
-    .flatMap((version) => {
-      const hreflang = version.language()
-      const href = urlFor(version)
-      return hreflang && href ? [{ hreflang, href }] : []
-    })
+export function hreflangAlternates(
+  obj: Obj,
+  { excludeNoindex = false }: { excludeNoindex?: boolean } = {},
+): HreflangAlternate[] {
+  const versions = obj.versionsOnAllSites()
+  const candidates = excludeNoindex
+    ? versions.filter((version) => version.get('robotsIndex') === true)
+    : versions
+
+  const alternates = candidates.flatMap((version) => {
+    const hreflang = version.language()
+    const href = urlFor(version)
+    return hreflang && href ? [{ hreflang, href }] : []
+  })
 
   return alternates.length > 1 ? alternates : []
 }

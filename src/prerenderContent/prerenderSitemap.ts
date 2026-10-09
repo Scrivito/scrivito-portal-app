@@ -42,10 +42,12 @@ function pageToSitemapUrl(page: Scrivito.Obj): SitemapUrl {
     children: [
       { name: 'loc', text: Scrivito.urlFor(page) },
       ...(lastmod ? [{ name: 'lastmod', text: lastmod }] : []),
-      ...hreflangAlternates(page).map(({ hreflang, href }) => ({
-        name: 'xhtml:link',
-        attrs: { rel: 'alternate', hreflang, href },
-      })),
+      ...hreflangAlternates(page, { excludeNoindex: true }).map(
+        ({ hreflang, href }) => ({
+          name: 'xhtml:link',
+          attrs: { rel: 'alternate', hreflang, href },
+        }),
+      ),
     ],
   }
 }
