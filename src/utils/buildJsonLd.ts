@@ -10,6 +10,7 @@ export function buildJsonLd(page: Obj): Record<string, unknown> {
   const record: Record<string, unknown> = {
     ...ensureObject(data),
     url: urlFor(page),
+    image: imageUrls(page),
   }
   if (!isCreativeWork(record['@type'])) return record
 
@@ -31,4 +32,18 @@ export function buildJsonLd(page: Obj): Record<string, unknown> {
         }))
       : undefined,
   }
+}
+
+function imageUrls(page: Obj): string | string[] | undefined {
+  const images = page.get('jsonLdImage')
+  if (!Array.isArray(images)) return
+
+  const urls = images.flatMap((image) =>
+    image instanceof Obj && image.get('blob') ? [image.contentUrl()] : [],
+  )
+
+  if (urls.length === 0) return
+  if (urls.length === 1) return urls[0]
+
+  return urls
 }

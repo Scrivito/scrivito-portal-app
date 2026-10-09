@@ -35,6 +35,7 @@ export const defaultPageAttributes = {
   description: 'string',
   robotsIndex: 'boolean',
   jsonLd: 'string',
+  jsonLdImage: ['referencelist', { only: ['Image'] }],
   // Twitter attributes
   tcCreator: 'string',
   tcDescription: 'string',
