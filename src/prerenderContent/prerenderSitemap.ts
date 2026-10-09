@@ -77,6 +77,6 @@ function sitemapUrlsToSitemapXml(sitemapUrls: SitemapUrl[]) {
         children: sitemapUrls,
       },
     ],
-    { xmlHeader: true },
+    { escape: true, xmlHeader: true },
   )
 }
