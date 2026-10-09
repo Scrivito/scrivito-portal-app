@@ -110,7 +110,7 @@ const HANDLERS: Record<string, HandlerClass[]> = {
 export function validateStructuredData(
   jsonLd: Record<string, unknown>,
   page: Obj,
-): { message: string; severity: 'error' | 'warning' } | undefined {
+): { message: string; severity: Severity } | undefined {
   const issues = rootItems(jsonLd).flatMap((item, index) =>
     validateNode(item, [{ type: typeNames(item)[0], index }]),
   )
@@ -118,16 +118,39 @@ export function validateStructuredData(
     (issue) => `${pathLabel(issue.path)}: ${issue.issueMessage}`,
   )
 
+  const severities = issues.map(issueSeverity)
+
   const typeIssue = typeConsistencyIssue(jsonLd, page)
-  if (typeIssue) messages.push(typeIssue)
+  if (typeIssue) {
+    messages.push(typeIssue)
+    severities.push('warning')
+  }
   if (messages.length === 0) return
 
   return {
     message: messages.join('; '),
-    severity: issues.some((issue) => issue.severity === 'ERROR')
-      ? 'error'
-      : 'warning',
+    severity: severities.reduce(moreSevere, 'info'),
   }
+}
+
+type Severity = 'error' | 'warning' | 'info'
+
+const SEVERITY_RANK: Record<Severity, number> = {
+  info: 0,
+  warning: 1,
+  error: 2,
+}
+
+function moreSevere(a: Severity, b: Severity): Severity {
+  return SEVERITY_RANK[b] > SEVERITY_RANK[a] ? b : a
+}
+
+// The package only knows ERROR and WARNING. Missing optional fields are
+// reported as WARNING with an "(optional)" suffix, but are merely informational.
+function issueSeverity(issue: StructuredDataIssue): Severity {
+  if (issue.severity === 'ERROR') return 'error'
+
+  return issue.issueMessage.endsWith('(optional)') ? 'info' : 'warning'
 }
 
 // The @type of a page should be the same in all of its language versions.

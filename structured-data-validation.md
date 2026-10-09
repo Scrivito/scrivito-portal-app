@@ -5,7 +5,8 @@ The `jsonLd` page attribute is validated while editing by `validateStructuredDat
 [`@adobe/structured-data-validator`](https://github.com/adobe/structured-data-validator).
 
 "Required" means the handler reports an error if the property is missing. Everything else
-it checks is only reported as a warning. The "Google use" lines reflect Google's
+it checks is only reported as a warning, except for missing optional (recommended)
+properties, which are reported as info. The "Google use" lines reflect Google's
 documentation as known at the time of writing and should be re-checked against the
 current docs.
 
