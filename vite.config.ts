@@ -71,6 +71,14 @@ export default defineConfig(({ mode }) => {
       },
       sourcemap: !!HONEYBADGER_API_KEY,
     },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          loadPaths: ['src/assets/stylesheets/vendor'],
+          quietDeps: true,
+        },
+      },
+    },
     define: {
       'import.meta.env.SCRIVITO_DEFAULT_CONTENT_ID': JSON.stringify(
         env.SCRIVITO_DEFAULT_CONTENT_ID || 'c2a0aab78be05a4e',

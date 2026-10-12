@@ -221,6 +221,7 @@ const CartActionButton = connect(function CartActionButton({
         className="btn btn-sm btn-outline-primary"
         title={cartUnavailableMessage}
         onClick={() => ensureUserIsLoggedIn()}
+        type="button"
       >
         <i className="bi bi-cart me-1"></i>
         {cartLoginLabel}
@@ -239,6 +240,7 @@ const CartActionButton = connect(function CartActionButton({
               className="btn btn-primary"
               disabled={quantity < 2}
               onClick={down}
+              type="button"
             >
               <i className="bi bi-dash-lg px-0" />
             </button>
@@ -252,7 +254,12 @@ const CartActionButton = connect(function CartActionButton({
               title={quantityLabel}
               type="number"
             />
-            <button aria-label="+" className="btn btn-primary" onClick={up}>
+            <button
+              aria-label="+"
+              className="btn btn-primary"
+              onClick={up}
+              type="button"
+            >
               <i className="bi bi-plus-lg px-0" />
             </button>
           </div>
@@ -264,6 +271,7 @@ const CartActionButton = connect(function CartActionButton({
               removeFromCart(product)
               toast.info(cartRemovedMessage)
             }}
+            type="button"
           >
             <i className="bi bi-x-lg me-1"></i>
             {cartRemoveLabel}
@@ -280,6 +288,7 @@ const CartActionButton = connect(function CartActionButton({
         await updateQuantityInCart(product, 1)
         toast.success(cartAddedMessage)
       }}
+      type="button"
     >
       <i className="bi bi-cart me-1"></i>
       {cartAddLabel}
