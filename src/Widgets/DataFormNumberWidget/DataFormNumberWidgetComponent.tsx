@@ -7,7 +7,7 @@ import {
 
 import { OverlayTrigger, Popover } from 'react-bootstrap'
 import { DataFormNumberWidget } from './DataFormNumberWidgetClass'
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 provideComponent(DataFormNumberWidget, ({ widget }) => {
   const max = widget.get('maxValue') ?? undefined
@@ -34,15 +34,16 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
   }, [defaultValue, hasFocus, id])
 
   const inputRef = useRef<HTMLInputElement>(null)
-  const step = useCallback((direction: 'stepDown' | 'stepUp') => {
-    const input = inputRef.current
-    if (!input) return
 
-    input[direction]()
-    input.dispatchEvent(new Event('input', { bubbles: true }))
-  }, [])
-  const down = useCallback(() => step('stepDown'), [step])
-  const up = useCallback(() => step('stepUp'), [step])
+  function down() {
+    inputRef.current?.stepDown()
+    inputRef.current?.dispatchEvent(new Event('input', { bubbles: true }))
+  }
+
+  function up() {
+    inputRef.current?.stepUp()
+    inputRef.current?.dispatchEvent(new Event('input', { bubbles: true }))
+  }
 
   const hasValue = defaultValue !== undefined
 
