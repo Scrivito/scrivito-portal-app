@@ -1,6 +1,6 @@
 # JSON-LD validation: supported schema.org types
 
-The `jsonLd` page attribute is validated while editing by `validateStructuredData`
+The `structuredData` page attribute is validated while editing by `validateStructuredData`
 (`src/utils/validateStructuredData.ts`), based on the synchronous type handlers of
 [`@adobe/structured-data-validator`](https://github.com/adobe/structured-data-validator).
 

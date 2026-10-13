@@ -6,7 +6,7 @@ import { isCreativeWork } from './isCreativeWork'
 
 /** @throws {SyntaxError} if the JSON-LD is not valid JSON */
 export function buildJsonLd(page: Obj): Record<string, unknown> {
-  const data: unknown = JSON.parse(ensureString(page.get('jsonLd')))
+  const data: unknown = JSON.parse(ensureString(page.get('structuredData')))
   const record: Record<string, unknown> = {
     ...ensureObject(data),
     url: urlFor(page),
@@ -35,7 +35,7 @@ export function buildJsonLd(page: Obj): Record<string, unknown> {
 }
 
 function imageUrls(page: Obj): string | string[] | undefined {
-  const images = page.get('jsonLdImage')
+  const images = page.get('structuredDataImages')
   if (!Array.isArray(images)) return
 
   const urls = images.flatMap((image) =>

@@ -177,7 +177,7 @@ function typeConsistencyIssue(
 
 function parseJsonLd(page: Obj): Record<string, unknown> {
   try {
-    return ensureObject(JSON.parse(ensureString(page.get('jsonLd'))))
+    return ensureObject(JSON.parse(ensureString(page.get('structuredData'))))
   } catch {
     return {}
   }

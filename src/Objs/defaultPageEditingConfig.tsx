@@ -22,14 +22,14 @@ export const defaultPageEditingConfigAttributes = {
     title: 'Should this page be indexed?',
     description: 'If not, search engines will ignore this page. Default: Yes',
   },
-  jsonLd: {
+  structuredData: {
     options: { multiLine: true },
-    title: 'JSON-LD',
+    title: 'Structured data',
     description:
-      'Valid JSON expressing schema.org structured data for this page (e.g. Article, Event, Product). It will be embedded in a <script type="application/ld+json"> tag to help search engines understand the page content. An "image" in this JSON is ignored: use the attribute `jsonLdImage` instead.',
+      'Valid JSON expressing schema.org structured data for this page (e.g. Article, Event, Product). It will be embedded in a <script type="application/ld+json"> tag to help search engines understand the page content. An "image" in this JSON is ignored: use "Structured data images" instead.',
   },
-  jsonLdImage: {
-    title: 'JSON-LD images',
+  structuredDataImages: {
+    title: 'Structured data images',
     description:
       'Rendered as the schema.org "image" property. Add several crops (1:1, 4:3, 16:9) of the same image. The image must also be visible on the page.',
   },
@@ -153,8 +153,8 @@ export const defaultPagePropertiesGroups = [
         key: 'schema-org-actions',
         component: SchemaOrgActions,
       },
-      'jsonLd',
-      'jsonLdImage',
+      'structuredData',
+      'structuredDataImages',
     ],
     key: 'schema-org-group',
   },
@@ -241,24 +241,24 @@ export const defaultPageValidations = [
     },
   ],
   [
-    'jsonLd',
+    'structuredData',
 
-    (jsonLd: string, { obj }: { obj: Obj }) => {
-      if (!jsonLd) return
+    (structuredData: string, { obj }: { obj: Obj }) => {
+      if (!structuredData) return
 
       let parsed: Record<string, unknown>
       try {
         parsed = buildJsonLd(obj)
       } catch {
         return {
-          message: 'The JSON-LD content must be valid JSON.',
+          message: 'Structured data must be valid JSON.',
           severity: 'error',
         }
       }
 
-      if (jsonLd.toLowerCase().includes('</script')) {
+      if (structuredData.toLowerCase().includes('</script')) {
         return {
-          message: 'The JSON-LD content must not contain "</script".',
+          message: 'Structured data must not contain "</script".',
           severity: 'error',
         }
       }
