@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
-import { connect, currentPage, Obj, urlFor } from 'scrivito'
-import { buildJsonLd } from '../utils/buildJsonLd'
+import { connect, currentPage, urlFor } from 'scrivito'
 import { ensureString } from '../utils/ensureString'
 import { getMetadata } from '../utils/getMetadata'
 import { hreflangAlternates } from '../utils/hreflangAlternates'
@@ -14,8 +13,6 @@ export const CurrentPageMetadata = connect(() => {
   }, [lang])
 
   if (!page) return null
-
-  const jsonLd = stringifyJsonLd(page)
 
   return (
     <>
@@ -32,23 +29,6 @@ export const CurrentPageMetadata = connect(() => {
           content={content}
         />
       ))}
-      {jsonLd && (
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
-          dangerouslySetInnerHTML={{
-            __html: jsonLd.replace(/<\/script/gi, '<\\/script'),
-          }}
-        />
-      )}
     </>
   )
 })
-
-function stringifyJsonLd(page: Obj): string {
-  try {
-    return JSON.stringify(buildJsonLd(page), null, 2)
-  } catch {
-    return ''
-  }
-}

@@ -1,5 +1,6 @@
 import { connect, currentLanguage, CurrentPage } from 'scrivito'
 
+import { CurrentPageJsonLd } from './Components/CurrentPageJsonLd'
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
 import { Favicon } from './Components/Favicon'
@@ -23,6 +24,7 @@ export function App({
             <CurrentPage />
             <NotFoundErrorPage />
             <CurrentPageMetadata />
+            <CurrentPageJsonLd />
           </SinglePageSite>
         </DesignAdjustments>
         <Toasts />
