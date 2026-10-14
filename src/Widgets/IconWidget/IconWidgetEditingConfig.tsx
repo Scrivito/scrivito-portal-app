@@ -7,6 +7,11 @@ provideEditingConfig(IconWidget, {
   title: 'Icon',
   thumbnail: Thumbnail,
   attributes: {
+    image: {
+      title: 'Image (optional)',
+      description:
+        'Use an image instead of the selected icon. It is rendered as a one-color shape in the icon color, so use a monochrome SVG or a PNG with transparency.',
+    },
     alignment: {
       title: 'Alignment',
       description: 'A icon list widget ignores this setting. Default: Left',
@@ -45,6 +50,7 @@ provideEditingConfig(IconWidget, {
         ),
       },
     ],
+    'image',
     'size',
     'alignment',
     'link',

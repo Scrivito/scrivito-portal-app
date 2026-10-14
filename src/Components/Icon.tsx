@@ -10,15 +10,20 @@ import { Link, LinkTag } from 'scrivito'
  */
 export function SvgIcon({
   icon,
+  imageUrl,
   className,
   title,
 }: {
   icon: string
+  imageUrl?: string
   className?: string
   title?: string
 }) {
   const name = (icon || 'bi-box').replace(/^bi-/, '')
-  const mask = `url("${import.meta.env.BASE_URL}icons/${encodeURIComponent(name)}.svg")`
+  const mask = `url("${
+    imageUrl ??
+    `${import.meta.env.BASE_URL}icons/${encodeURIComponent(name)}.svg`
+  }")`
 
   return (
     <i
@@ -32,34 +37,48 @@ export function SvgIcon({
 
 function Icon({
   icon,
+  imageUrl,
   size,
   title,
 }: {
   icon: string
+  imageUrl?: string
   size: string | null
   title?: string
 }) {
-  return <SvgIcon icon={icon} className={size ?? undefined} title={title} />
+  return (
+    <SvgIcon
+      icon={icon}
+      imageUrl={imageUrl}
+      className={size ?? undefined}
+      title={title}
+    />
+  )
 }
 
 export function IconComponent({
   icon,
+  imageUrl,
   size,
   link,
   title,
 }: {
   icon: string
+  /** If set, this image is used as the icon shape instead of the Bootstrap icon. */
+  imageUrl?: string
   size: string | null
   link: Link | null
   title?: string
 }) {
-  if (!link) return <Icon icon={icon} size={size} title={title} />
+  if (!link) {
+    return <Icon icon={icon} imageUrl={imageUrl} size={size} title={title} />
+  }
 
   const linkTitle = title || link.title() || ''
 
   return (
     <LinkTag to={link} aria-label={linkTitle}>
-      <Icon icon={icon} size={size} title={linkTitle} />
+      <Icon icon={icon} imageUrl={imageUrl} size={size} title={linkTitle} />
     </LinkTag>
   )
 }
