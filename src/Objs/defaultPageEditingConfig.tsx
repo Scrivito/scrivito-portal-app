@@ -106,6 +106,19 @@ export const defaultPageInitialContent = {
   layoutMainBackgroundColor: 'transparent',
 } as const
 
+export const structuredDataGroup = {
+  title: 'Structured data',
+  properties: [
+    {
+      key: 'structured-data-actions',
+      component: StructuredDataActions,
+    },
+    'structuredData',
+    'structuredDataImages',
+  ],
+  key: 'structured-data-group',
+} as const
+
 export const defaultPagePropertiesGroups = [
   {
     title: 'Layout',
@@ -146,18 +159,7 @@ export const defaultPagePropertiesGroups = [
     ],
     key: 'social-cards-group',
   },
-  {
-    title: 'Structured data',
-    properties: [
-      {
-        key: 'structured-data-actions',
-        component: StructuredDataActions,
-      },
-      'structuredData',
-      'structuredDataImages',
-    ],
-    key: 'structured-data-group',
-  },
+  structuredDataGroup,
 ] as const
 
 export const defaultPageProperties = [
