@@ -26,7 +26,7 @@ export const defaultPageEditingConfigAttributes = {
     options: { multiLine: true },
     title: 'Structured data',
     description:
-      'schema.org data as JSON (e.g. Article, Event, Product) for search engines. Images belong in "Structured data images".',
+      'Describes this page for search engines, e.g. as an Article, Event or Product. Written as JSON in the schema.org format.',
   },
   structuredDataImages: {
     title: 'Structured data images',
