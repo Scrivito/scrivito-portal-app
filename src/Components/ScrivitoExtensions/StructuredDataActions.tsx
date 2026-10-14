@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { uiContext } from 'scrivito'
+import { Obj, connect, uiContext } from 'scrivito'
 import './StructuredDataActions.css'
 
 const JSON_LD_RULES = `The JSON-LD of this page consists of two attributes: "structuredData" contains the JSON, and "structuredDataImages" references the image objects that are used as its top-level "image".
@@ -34,10 +34,16 @@ ${JSON_LD_RULES}
 
 Write the result to the "structuredData" and "structuredDataImages" attributes of this page.`
 
-export function StructuredDataActions() {
+export const StructuredDataActions = connect(function StructuredDataActions({
+  obj,
+}: {
+  obj: Obj
+}) {
   const { theme } = uiContext() || { theme: null }
   const [prompt, setPrompt] = useState('')
   if (!theme) return null
+
+  const hasStructuredData = !!obj.get('structuredData')
 
   return (
     <div
@@ -56,19 +62,16 @@ export function StructuredDataActions() {
         <li>
           <button
             className="structured-data-action-item"
-            onClick={() => setPrompt(CREATE_PROMPT)}
+            onClick={() =>
+              setPrompt(hasStructuredData ? UPDATE_PROMPT : CREATE_PROMPT)
+            }
           >
-            <i className="bi bi-stars" />
-            <span className="structured-data-action-label">Create</span>
-          </button>
-        </li>
-        <li>
-          <button
-            className="structured-data-action-item"
-            onClick={() => setPrompt(UPDATE_PROMPT)}
-          >
-            <i className="bi bi-arrow-repeat" />
-            <span className="structured-data-action-label">Update</span>
+            <i
+              className={`bi ${hasStructuredData ? 'bi-arrow-repeat' : 'bi-stars'}`}
+            />
+            <span className="structured-data-action-label">
+              {hasStructuredData ? 'Update' : 'Create'}
+            </span>
           </button>
         </li>
       </ul>
@@ -81,4 +84,4 @@ export function StructuredDataActions() {
       )}
     </div>
   )
-}
+})
