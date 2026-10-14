@@ -1,6 +1,7 @@
 import { Obj } from 'scrivito'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { buildJsonLd } from '../utils/buildJsonLd'
+import { ensureObject } from '../utils/ensureObject'
 import { ensureString } from '../utils/ensureString'
 import { validateStructuredData } from '../utils/validateStructuredData'
 import { StructuredDataActions } from '../Components/ScrivitoExtensions/StructuredDataActions'
@@ -265,7 +266,17 @@ export const defaultPageValidations = [
         }
       }
 
-      return validateStructuredData(parsed, obj)
+      const result = validateStructuredData(parsed, obj)
+      if (!('image' in ensureObject(JSON.parse(structuredData)))) return result
+
+      const imageMessage =
+        'The "image" property is ignored. Use "Structured data images" instead.'
+      if (!result) return { message: imageMessage, severity: 'warning' }
+
+      return {
+        message: `${imageMessage} ${result.message}`,
+        severity: result.severity === 'error' ? 'error' : 'warning',
+      }
     },
   ],
 ] as const
