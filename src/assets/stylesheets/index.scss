@@ -809,6 +809,18 @@ img.img-flag {
   }
 }
 
+.bi-svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-origin: content-box;
+}
+
 /* section / card background upgrades
  ================================================== */
 

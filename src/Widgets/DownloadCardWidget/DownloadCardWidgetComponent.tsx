@@ -5,6 +5,7 @@ import {
   ContentTag,
   isInPlaceEditingActive,
 } from 'scrivito'
+import { SvgIcon } from '../../Components/Icon'
 import { DownloadCardWidget } from './DownloadCardWidgetClass'
 
 provideComponent(DownloadCardWidget, ({ widget }) => {
@@ -21,12 +22,10 @@ provideComponent(DownloadCardWidget, ({ widget }) => {
             <div className="d-flex">
               <div className="px-2">
                 <div className="d-flex h-100">
-                  <i
-                    className={`bi ${
-                      widget.get('icon') || 'bi-filetype-pdf'
-                    } bi-4x m-auto`}
-                    aria-hidden="true"
-                  ></i>
+                  <SvgIcon
+                    icon={widget.get('icon') || 'bi-filetype-pdf'}
+                    className="bi-4x m-auto"
+                  />
                 </div>
               </div>
               <div className="flex-grow-1">
