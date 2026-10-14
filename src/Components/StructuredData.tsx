@@ -1,7 +1,7 @@
 import { connect, currentPage, Obj } from 'scrivito'
 import { buildJsonLd } from '../utils/buildJsonLd'
 
-export const CurrentPageStructuredData = connect(() => {
+export const StructuredData = connect(() => {
   const page = currentPage()
   if (!page) return null
 
