@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { uiContext } from 'scrivito'
-import './SchemaOrgActions.css'
+import './StructuredDataActions.css'
 
 const JSON_LD_RULES = `The JSON-LD of this page consists of two attributes: "structuredData" contains the JSON, and "structuredDataImages" references the image objects that are used as its top-level "image".
 
@@ -34,47 +34,49 @@ ${JSON_LD_RULES}
 
 Write the result to the "structuredData" and "structuredDataImages" attributes of this page.`
 
-export function SchemaOrgActions() {
+export function StructuredDataActions() {
   const { theme } = uiContext() || { theme: null }
   const [prompt, setPrompt] = useState('')
   if (!theme) return null
 
   return (
-    <div className={`schema-org-actions-wrapper schema-org-actions-${theme}`}>
-      <ul className="schema-org-actions">
+    <div
+      className={`structured-data-actions-wrapper structured-data-actions-${theme}`}
+    >
+      <ul className="structured-data-actions">
         <li>
           <button
-            className="schema-org-action-item"
+            className="structured-data-action-item"
             onClick={() => setPrompt(ANALYZE_PROMPT)}
           >
             <i className="bi bi-search" />
-            <span className="schema-org-action-label">Analyze</span>
+            <span className="structured-data-action-label">Analyze</span>
           </button>
         </li>
         <li>
           <button
-            className="schema-org-action-item"
+            className="structured-data-action-item"
             onClick={() => setPrompt(CREATE_PROMPT)}
           >
             <i className="bi bi-stars" />
-            <span className="schema-org-action-label">Create</span>
+            <span className="structured-data-action-label">Create</span>
           </button>
         </li>
         <li>
           <button
-            className="schema-org-action-item"
+            className="structured-data-action-item"
             onClick={() => setPrompt(UPDATE_PROMPT)}
           >
             <i className="bi bi-arrow-repeat" />
-            <span className="schema-org-action-label">Update</span>
+            <span className="structured-data-action-label">Update</span>
           </button>
         </li>
       </ul>
 
       {prompt && (
-        <div className="schema-org-message">
+        <div className="structured-data-message">
           <p>Copy the following prompt over to CoWorker:</p>
-          <pre className="schema-org-prompt">{prompt}</pre>
+          <pre className="structured-data-prompt">{prompt}</pre>
         </div>
       )}
     </div>

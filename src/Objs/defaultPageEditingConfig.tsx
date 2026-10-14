@@ -3,7 +3,7 @@ import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { buildJsonLd } from '../utils/buildJsonLd'
 import { ensureString } from '../utils/ensureString'
 import { validateStructuredData } from '../utils/validateStructuredData'
-import { SchemaOrgActions } from '../Components/ScrivitoExtensions/SchemaOrgActions'
+import { StructuredDataActions } from '../Components/ScrivitoExtensions/StructuredDataActions'
 import {
   TwitterPreview,
   FacebookPreview,
@@ -147,16 +147,16 @@ export const defaultPagePropertiesGroups = [
     key: 'social-cards-group',
   },
   {
-    title: 'Schema.org',
+    title: 'Structured data',
     properties: [
       {
-        key: 'schema-org-actions',
-        component: SchemaOrgActions,
+        key: 'structured-data-actions',
+        component: StructuredDataActions,
       },
       'structuredData',
       'structuredDataImages',
     ],
-    key: 'schema-org-group',
+    key: 'structured-data-group',
   },
 ] as const
 
