@@ -26,12 +26,12 @@ export const defaultPageEditingConfigAttributes = {
     options: { multiLine: true },
     title: 'Structured data',
     description:
-      'Valid JSON expressing schema.org structured data for this page (e.g. Article, Event, Product). It will be embedded in a <script type="application/ld+json"> tag to help search engines understand the page content. An "image" in this JSON is ignored: use "Structured data images" instead.',
+      'schema.org data as JSON (e.g. Article, Event, Product) for search engines. Images belong in "Structured data images".',
   },
   structuredDataImages: {
     title: 'Structured data images',
     description:
-      'Rendered as the schema.org "image" property. Add several crops (1:1, 4:3, 16:9) of the same image. The image must also be visible on the page.',
+      'Images that show what this page is about. They must also be visible on the page.',
   },
   layoutMainBackgroundColor: {
     title: 'Background color',
