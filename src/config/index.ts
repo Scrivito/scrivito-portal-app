@@ -8,7 +8,7 @@ import { configureScrivitoContentBrowser } from './scrivitoContentBrowser'
 import { configureWindowScrivito } from './windowScrivito'
 import { configurePisaSalesDataService } from '../Data/configurePisaSalesDataService'
 
-export function configure() {
+export function configure(): void {
   configureScrivito()
 
   configureObjClassForContentType()
