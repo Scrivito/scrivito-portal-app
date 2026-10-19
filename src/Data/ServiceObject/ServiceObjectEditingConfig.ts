@@ -1,7 +1,6 @@
 import { provideEditingConfig } from 'scrivito'
-import { ServiceObject } from './ServiceObjectDataClass'
 
-provideEditingConfig(ServiceObject, {
+provideEditingConfig('ServiceObject', {
   attributes: {
     picture: { title: 'Picture' },
   },
