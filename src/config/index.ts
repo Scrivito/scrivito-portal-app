@@ -6,6 +6,7 @@ import { configureObjClassForContentType } from './objClassForContentType'
 import { configureScrivito } from './scrivito'
 import { configureScrivitoContentBrowser } from './scrivitoContentBrowser'
 import { configureWindowScrivito } from './windowScrivito'
+import { configurePisaSalesDataService } from '../Data/configurePisaSalesDataService'
 
 export function configure() {
   configureScrivito()
@@ -15,6 +16,7 @@ export function configure() {
   configureHistory()
   configureErrorReporting()
   configureWindowScrivito()
+  configurePisaSalesDataService()
   configurePisaSalesQuestionnaireWidgets()
   configureEtracker()
 }
