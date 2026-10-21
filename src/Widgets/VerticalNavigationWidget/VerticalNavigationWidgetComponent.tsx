@@ -1,6 +1,7 @@
 import {
   ChildListTag,
   connect,
+  designProps,
   isCurrentPage,
   isOnCurrentPath,
   LinkTag,
@@ -16,7 +17,7 @@ provideComponent(VerticalNavigationWidget, ({ widget }) => {
   const navigationDepth = Number(widget.get('navigationDepth'))
 
   return (
-    <Navbar expand="lg" collapseOnSelect>
+    <Navbar {...designProps(widget.get('design'))} expand="lg" collapseOnSelect>
       <div>
         <Navbar.Toggle className="btn mb-3 w-100">
           <span className="d-flex px-2 justify-content-between align-items-center w-100">

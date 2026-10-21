@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { Design, provideEditingConfig } from 'scrivito'
 import { Homepage } from './HomepageObjClass'
 import {
   defaultPageEditingConfigAttributes,
@@ -184,7 +184,14 @@ provideEditingConfig(Homepage, {
     ...defaultPageInitialContent,
     body: [
       new SectionWidget({
-        backgroundColor: 'primary',
+        // The design cannot name a theme color, so this is the primary color spelled out.
+        design: new Design({
+          desktop: {
+            backgroundColor: '#274486',
+            paddingTop: '3rem',
+            paddingBottom: '3rem',
+          },
+        }),
         content: [new HeadlineWidget(), new TextWidget()],
       }),
     ],

@@ -1,6 +1,7 @@
 import {
   Binary,
   ContentTag,
+  designProps,
   isInPlaceEditingActive,
   Obj,
   provideComponent,
@@ -21,6 +22,7 @@ provideComponent(VideoWidget, ({ widget }) => {
 
   return (
     <ContentTag
+      {...designProps(widget.get('design'))}
       tag="video"
       key={`${src}${posterUrl}`}
       className={`video-widget aspect-ratio-${aspectRatio}`}

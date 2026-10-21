@@ -1,5 +1,6 @@
 import {
   WidgetTag,
+  designProps,
   isComparisonActive,
   isInPlaceEditingActive,
   provideComponent,
@@ -12,6 +13,7 @@ import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 
 provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
   const { hasMore, loadMore } = useContext(DataBatchContext)
+  const design = designProps(widget.get('design'))
 
   const classNames = ['btn', 'mt-4']
 
@@ -31,14 +33,16 @@ provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
     classNames.push('opacity-60')
     return (
       <WidgetTag className={alignmentClassName}>
-        <button className={classNames.join(' ')}>{widget.get('title')}</button>
+        <button {...design} className={classNames.join(' ')}>
+          {widget.get('title')}
+        </button>
       </WidgetTag>
     )
   }
 
   return (
     <WidgetTag className={alignmentClassName}>
-      <button className={classNames.join(' ')} onClick={loadMore}>
+      <button {...design} className={classNames.join(' ')} onClick={loadMore}>
         {widget.get('title')}
       </button>
     </WidgetTag>

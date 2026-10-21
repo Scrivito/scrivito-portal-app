@@ -1,4 +1,4 @@
-import { provideComponent } from 'scrivito'
+import { designProps, provideComponent } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import './YoutubeVideoWidget.scss'
 import { YoutubeVideoWidget } from './YoutubeVideoWidgetClass'
@@ -16,7 +16,10 @@ provideComponent(YoutubeVideoWidget, ({ widget }) => {
   }
 
   return (
-    <div className={`youtube-video-widget aspect-ratio-${aspectRatioValue}`}>
+    <div
+      {...designProps(widget.get('design'))}
+      className={`youtube-video-widget aspect-ratio-${aspectRatioValue}`}
+    >
       <iframe
         title="Youtube Video Widget"
         src={`https://www.youtube-nocookie.com/embed/${youtubeVideoId}`}

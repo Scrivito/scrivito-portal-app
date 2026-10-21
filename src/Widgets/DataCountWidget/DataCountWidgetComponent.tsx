@@ -1,6 +1,7 @@
 import {
   connect,
   ContentTag,
+  designProps,
   provideComponent,
   useData,
   WidgetTag,
@@ -10,20 +11,19 @@ import {
   DataCountWidgetInstance,
 } from './DataCountWidgetClass'
 import { EditorNote } from '../../Components/EditorNote'
-import { alignmentClassName } from '../../utils/alignmentClassName'
 import { DataErrorEditorNote } from '../../Components/DataErrorEditorNote'
 
 provideComponent(DataCountWidget, ({ widget }) => {
-  const classNames: string[] = [widget.get('margin') ?? 'mb-2']
+  const classNames: string[] = []
 
   const style = widget.get('style') ?? 'body-font-size'
   if (style !== 'body-font-size') classNames.push(style)
 
-  const alignment = alignmentClassName(widget.get('alignment'))
-  if (alignment) classNames.push(alignment)
-
   return (
-    <WidgetTag className={classNames.join(' ')}>
+    <WidgetTag
+      {...designProps(widget.get('design'))}
+      className={classNames.join(' ')}
+    >
       <Count widget={widget} />
     </WidgetTag>
   )

@@ -5,6 +5,7 @@ import {
   ImageTag,
   ContentTag,
   connect,
+  designProps,
   Link,
   LinkTag,
   isInPlaceEditingActive,
@@ -15,24 +16,17 @@ import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
 
 provideComponent(CardWidget, ({ widget }) => {
-  const cardBodyClassNames: string[] = ['card-body']
-  const padding = widget.get('padding')
-  cardBodyClassNames.push(padding ? padding : 'p-4')
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   const image = widget.get('image')
 
   const cardClassNames: string[] = ['card']
 
-  cardClassNames.push(widget.get('margin') ?? 'mb-4')
-
-  const backgroundColor = widget.get('backgroundColor') || 'white'
-  cardClassNames.push(`bg-${backgroundColor}`)
-
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
 
   return (
     <WidgetTag
+      {...designProps(widget.get('design'))}
       className={cardClassNames.join(' ')}
       onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
     >
@@ -58,10 +52,9 @@ provideComponent(CardWidget, ({ widget }) => {
         </LinkOrNotTag>
       )}
 
-      <LinkOrNotTag
-        link={widget.get('linkTo')}
-        className={cardBodyClassNames.join(' ')}
-      >
+      {/* No padding utility: the card's own design owns the padding, and a Bootstrap utility
+          would win over it — they are all declared `!important`. */}
+      <LinkOrNotTag link={widget.get('linkTo')} className="card-body p-0">
         <ContentTag content={widget} attribute="cardBody" />
       </LinkOrNotTag>
 

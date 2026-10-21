@@ -1,9 +1,22 @@
-.column-container-widget--flex-wrapper {
-  margin: 0 calc(0px - 0.5rem);
+.column-container-widget {
+  display: grid;
+  grid-template-columns: var(--column-template, 1fr);
+
+  // What Bootstrap's gutters used to contribute. A design's `gap` overrides it, which is why
+  // there is no gutter attribute any more.
+  gap: 1.5rem;
 }
 
-@media (max-width: 767px) {
-  .column-container-widget--flex-wrapper.d-md-flex {
-    margin: 0;
+// Below the mobile breakpoint the columns stack. 767.98px is the boundary the design editor
+// calls "mobile", so the stacking and a column's mobile design settings agree.
+@media (max-width: 767.98px) {
+  .column-container-widget--responsive {
+    grid-template-columns: 1fr;
   }
+}
+
+// A column holding a single widget, in a container whose design asks for stretched columns:
+// being a flex box is what lets that widget fill the column's height.
+.column-container-widget__column--fill {
+  display: flex;
 }

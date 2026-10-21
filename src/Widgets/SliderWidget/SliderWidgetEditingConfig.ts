@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { Design, provideEditingConfig } from 'scrivito'
 import { SliderWidget } from './SliderWidgetClass'
 import { SlideWidget } from '../SlideWidget/SlideWidgetClass'
 import thumbnail from './thumbnail.svg'
@@ -18,10 +18,6 @@ provideEditingConfig(SliderWidget, {
     controls: {
       title: 'Show controls?',
       description: 'Shows arrows and indicators. Default: Yes',
-    },
-    margin: {
-      title: 'Margin',
-      description: 'Space below the widget. Default: mb-4',
     },
     minHeight: {
       title: 'Minimum height (in px)',
@@ -43,16 +39,12 @@ provideEditingConfig(SliderWidget, {
         ['controls', { enabled: widget.get('autoplay') }],
       ],
     },
-    {
-      title: 'Margin',
-      key: 'margin-group',
-      properties: ['margin'],
-    },
   ],
   initialContent: {
     autoplayInterval: 5,
     controls: true,
-    margin: 'mb-4',
+    // What `margin: 'mb-4'` used to render.
+    design: new Design({ desktop: { marginBottom: '1.5rem' } }),
     minHeight: 400,
     slides: [new SlideWidget({}), new SlideWidget({})],
   },

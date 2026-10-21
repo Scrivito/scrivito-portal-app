@@ -41,26 +41,10 @@ provideEditingConfig(HeadlineWidget, {
         { value: 'div', title: 'No semantic tag' },
       ],
     },
-    alignment: {
-      title: 'Alignment',
-      description: 'Default: Left',
-      values: [
-        { value: 'left', title: 'Left' },
-        { value: 'center', title: 'Center' },
-        { value: 'right', title: 'Right' },
-      ],
-    },
-    margin: {
-      title: 'Margin',
-      description: 'Space below the widget. Default: mb-2',
-    },
-    uppercase: { title: 'Uppercase?', description: 'Default: No' },
   },
-  properties: ['style', 'level', 'alignment', 'margin', 'uppercase'],
+  properties: ['style', 'level'],
   initialContent: {
-    alignment: 'left',
     headline: 'Headline',
-    margin: 'mb-2',
     style: 'h2',
   },
   validations: [

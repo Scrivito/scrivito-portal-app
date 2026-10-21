@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { Design, provideEditingConfig } from 'scrivito'
 import {
   DEFAULT_URL_PARAM_NAME,
   DataSearchWidget,
@@ -21,10 +21,6 @@ provideEditingConfig(DataSearchWidget, {
     buttonLabel: {
       title: 'Button label (optional)',
     },
-    margin: {
-      title: 'Margin',
-      description: 'Space below the widget. Default: mb-3',
-    },
     placeholder: {
       title: 'Input placeholder text',
     },
@@ -33,16 +29,11 @@ provideEditingConfig(DataSearchWidget, {
       description: 'Default: search',
     },
   },
-  properties: [
-    'buttonColor',
-    'buttonLabel',
-    'placeholder',
-    'urlParamName',
-    'margin',
-  ],
+  properties: ['buttonColor', 'buttonLabel', 'placeholder', 'urlParamName'],
   initialContent: {
     buttonColor: 'btn-primary',
-    margin: 'mb-3',
+    // What `margin: 'mb-3'` used to render.
+    design: new Design({ desktop: { marginBottom: '1rem' } }),
     placeholder: 'Search',
     urlParamName: DEFAULT_URL_PARAM_NAME,
   },

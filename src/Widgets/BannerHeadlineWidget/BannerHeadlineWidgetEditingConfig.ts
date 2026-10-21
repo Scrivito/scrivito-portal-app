@@ -1,4 +1,4 @@
-import { provideEditingConfig } from 'scrivito'
+import { Design, provideEditingConfig } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
@@ -6,22 +6,6 @@ provideEditingConfig(BannerHeadlineWidget, {
   title: 'Banner Headline',
   thumbnail: Thumbnail,
   attributes: {
-    backgroundColor: {
-      title: 'Background color',
-      description: 'Default: White',
-      values: [
-        { value: 'white', title: 'White' },
-        { value: 'primary', title: 'Primary color' },
-        { value: 'secondary', title: 'Secondary color' },
-        { value: 'light-grey', title: 'Light grey' },
-        { value: 'middle-grey', title: 'Grey' },
-        { value: 'dark-grey', title: 'Dark grey' },
-        { value: 'success', title: 'Success' },
-        { value: 'info', title: 'Info' },
-        { value: 'warning', title: 'Warning' },
-        { value: 'danger', title: 'Danger' },
-      ],
-    },
     style: {
       title: 'Style',
       description: 'Default: Heading 2',
@@ -55,9 +39,10 @@ provideEditingConfig(BannerHeadlineWidget, {
       ],
     },
   },
-  properties: ['style', 'level', 'backgroundColor'],
+  properties: ['style', 'level'],
   initialContent: {
-    backgroundColor: 'white',
+    // What `backgroundColor: 'white'` used to render.
+    design: new Design({ desktop: { backgroundColor: '#ffffff' } }),
     headline: 'Headline',
     style: 'h2',
   },

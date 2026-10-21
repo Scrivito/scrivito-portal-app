@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
+import { ContentTag, designProps, provideComponent, WidgetTag } from 'scrivito'
 import { TickListItemWidget } from './TickListItemWidgetClass'
 import { TickListIconContext } from '../TickListWidget/TickListWidgetComponent'
 
 provideComponent(TickListItemWidget, ({ widget }) => (
-  <WidgetTag tag="li">
+  <WidgetTag {...designProps(widget.get('design'))} tag="li">
     <i
       className={`icon bi bi-3x ${useContext(TickListIconContext)}`}
       aria-hidden="true"

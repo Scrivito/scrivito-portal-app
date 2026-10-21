@@ -1,4 +1,4 @@
-import { Link, provideComponent } from 'scrivito'
+import { designProps, Link, provideComponent } from 'scrivito'
 import { IconComponent } from '../../Components/Icon'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import { IconContainerWidget } from './IconContainerWidgetClass'
@@ -16,7 +16,7 @@ provideComponent(IconContainerWidget, ({ widget }) => {
   }
 
   return (
-    <ul className="list-inline mb-0">
+    <ul {...designProps(widget.get('design'))} className="list-inline mb-0">
       {iconList.map((iconListItem) => {
         const link = iconListItem.get('link')
         if (!isLinkOrNull(link)) return null

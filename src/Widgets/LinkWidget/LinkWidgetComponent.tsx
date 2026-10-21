@@ -1,14 +1,21 @@
-import { Link, LinkTag, provideComponent, WidgetTag } from 'scrivito'
+import {
+  designProps,
+  Link,
+  LinkTag,
+  provideComponent,
+  WidgetTag,
+} from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import { LinkWidget } from './LinkWidgetClass'
 import { ensureString } from '../../utils/ensureString'
 
 provideComponent(LinkWidget, ({ widget }) => {
   const link = widget.get('link')
+  const design = designProps(widget.get('design'))
 
   if (!link) {
     return (
-      <WidgetTag tag="li">
+      <WidgetTag {...design} tag="li">
         <InPlaceEditingPlaceholder>
           Provide a link in the widget properties.
         </InPlaceEditingPlaceholder>
@@ -17,7 +24,7 @@ provideComponent(LinkWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag tag="li">
+    <WidgetTag {...design} tag="li">
       <LinkTag to={link}>{linkTitle(link)}</LinkTag>
     </WidgetTag>
   )

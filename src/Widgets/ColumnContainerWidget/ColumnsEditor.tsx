@@ -50,7 +50,6 @@ export const ColumnsEditor = connect(function ColumnsEditor({
     <div className={`scrivito_${theme}`}>
       <ColumnsLayoutEditor
         key={baselineKey}
-        widget={widget}
         readOnly={readOnly}
         currentGrid={currentGrid}
         adjustCols={adjustCols}
@@ -69,18 +68,14 @@ export const ColumnsEditor = connect(function ColumnsEditor({
 })
 
 const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
-  widget,
   readOnly,
   currentGrid,
   adjustCols,
 }: {
-  widget: ColumnContainerWidgetInstance
   readOnly: boolean
   currentGrid: number[]
   adjustCols: (newGrid: number[]) => void
 }) {
-  const isFlex = widget.get('layoutMode') === 'flex'
-
   return (
     <div className="columns-editor-content">
       <div className="item_content">
@@ -182,43 +177,22 @@ const ColumnsLayoutEditor = connect(function ColumnsLayoutEditor({
             />
           </div>
         </div>
-        {isFlex ? (
-          <FlexLayoutEditor
-            currentGrow={growOfWidget(widget)}
-            adjustGrow={adjustGrow}
-            readOnly={readOnly}
-          />
-        ) : (
-          <GridLayoutEditor
-            currentGrid={currentGrid}
-            adjustGrid={adjustGrid}
-            readOnly={readOnly}
-          />
-        )}
+        <GridLayoutEditor
+          currentGrid={currentGrid}
+          adjustGrid={adjustGrid}
+          readOnly={readOnly}
+        />
       </div>
     </div>
   )
 
   function isActive(grid: number[]) {
-    return isFlex
-      ? isEqual(growFromGrid(grid), growOfWidget(widget))
-      : isEqual(grid, currentGrid)
+    return isEqual(grid, currentGrid)
   }
 
   function adjustGrid(newGrid: number[]) {
     if (readOnly) return
     adjustCols(newGrid)
-    adjustFlexGrowFromGrid(widget.get('columns'), newGrid)
-  }
-
-  function adjustGrow(newGrow: boolean[]) {
-    if (readOnly) return
-    const newGrid =
-      newGrow.length === 5
-        ? [2, 2, 2, 2, 4]
-        : newGrow.map(() => 12 / newGrow.length)
-    adjustCols(newGrid)
-    adjustFlexGrow(widget.get('columns'), newGrow)
   }
 })
 
@@ -259,56 +233,6 @@ function PresetGrid({
   )
 }
 
-function FlexLayoutEditor({
-  readOnly,
-  adjustGrow,
-  currentGrow,
-}: {
-  readOnly: boolean
-  adjustGrow: (newGrow: boolean[]) => void
-  currentGrow: boolean[]
-}) {
-  return (
-    <div className="gle flex-layout">
-      <div className={`grid-columns ${readOnly ? '' : 'clickable'}`}>
-        {currentGrow.map((flexGrow, index) => (
-          <div
-            key={index}
-            className={`grid-col grid-col-${flexGrow ? 'grow' : 'shrink'}`}
-          >
-            {!readOnly && currentGrow.length > 1 && (
-              <button
-                className="btn grid-del"
-                title="delete column"
-                disabled={readOnly}
-                onClick={() =>
-                  adjustGrow(currentGrow.filter((_, i) => i !== index))
-                }
-              />
-            )}
-            <button
-              className="btn grid-button"
-              title={flexGrow ? 'shrink column' : 'grow column'}
-              disabled={readOnly}
-              onClick={() =>
-                adjustGrow(currentGrow.map((v, i) => (i === index ? !v : v)))
-              }
-            />
-          </div>
-        ))}
-
-        {!readOnly && currentGrow.length < 6 && (
-          <button
-            className="p-0 grid-handle grid-handle-plus"
-            title="add a column"
-            disabled={readOnly}
-            onClick={() => adjustGrow([...currentGrow, true])}
-          />
-        )}
-      </div>
-    </div>
-  )
-}
 interface GridLayoutEditorProps {
   currentGrid: number[]
   adjustGrid: (newGrid: number[]) => void
@@ -401,12 +325,6 @@ function GridSlider({
   }
 }
 
-function growOfWidget(containerWidget: ColumnContainerWidgetInstance) {
-  return containerWidget
-    .get('columns')
-    .map((column) => (column as ColumnWidgetInstance).get('flexGrow'))
-}
-
 function adjustNumberOfColumns(
   containerWidget: ColumnContainerWidgetInstance,
   desiredLength: number,
@@ -440,24 +358,6 @@ function adjustColSize(columns: Widget[], newGrid: number[]) {
   columns.forEach((column, index) => {
     column.update({ colSize: newGrid[index] })
   })
-}
-
-function adjustFlexGrow(columns: Widget[], newGrow: boolean[]) {
-  columns.forEach((column, index) => {
-    column.update({ flexGrow: newGrow[index] })
-  })
-}
-
-function adjustFlexGrowFromGrid(columns: Widget[], grid: number[]) {
-  const flexGrow = growFromGrid(grid)
-  columns.forEach((column, index) =>
-    column.update({ flexGrow: flexGrow[index] }),
-  )
-}
-
-function growFromGrid(grid: number[]) {
-  const max = Math.max(...grid)
-  return grid.map((colSize) => colSize === max)
 }
 
 function gridToBoundaries(columnWidths: number[]) {

@@ -1,5 +1,6 @@
 import {
   currentPage,
+  designProps,
   currentPageParams,
   navigateTo,
   provideComponent,
@@ -37,7 +38,8 @@ provideComponent(DataSearchWidget, ({ widget }) => {
 
   return (
     <form
-      className={`input-group ${widget.get('margin') ?? 'mb-3'}`}
+      {...designProps(widget.get('design'))}
+      className="input-group"
       role="search"
       onSubmit={onSubmit}
     >

@@ -6,22 +6,12 @@ provideEditingConfig(TextWidget, {
   title: 'Text',
   thumbnail: Thumbnail,
   attributes: {
-    alignment: {
-      title: 'Alignment',
-      description: 'Default: Left',
-      values: [
-        { value: 'left', title: 'Left' },
-        { value: 'center', title: 'Center' },
-        { value: 'right', title: 'Right' },
-      ],
-    },
     text: {
       title: 'Content',
     },
   },
-  properties: ['alignment', 'text'],
+  properties: ['text'],
   initialContent: {
-    alignment: 'left',
     text: 'Text',
   },
 })

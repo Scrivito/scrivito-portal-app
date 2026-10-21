@@ -13,24 +13,8 @@ export const defaultPageAttributes = {
   layoutShowLeftSidebar: 'boolean',
   layoutRightSidebar: 'widgetlist',
   layoutShowRightSidebar: 'boolean',
-  layoutMainBackgroundColor: [
-    'enum',
-    {
-      values: [
-        'white',
-        'primary',
-        'secondary',
-        'light-grey',
-        'middle-grey',
-        'dark-grey',
-        'transparent',
-        'success',
-        'info',
-        'warning',
-        'danger',
-      ],
-    },
-  ],
+  // The design of the main area, i.e. of everything but the header and the footer.
+  design: ['design', { preset: 'container' }],
   // Meta tags
   description: 'string',
   robotsIndex: 'boolean',

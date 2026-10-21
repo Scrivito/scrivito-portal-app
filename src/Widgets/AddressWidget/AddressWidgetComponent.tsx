@@ -3,6 +3,7 @@ import {
   provideComponent,
   WidgetTag,
   connect,
+  designProps,
   Obj,
   ImageTag,
   isInPlaceEditingActive,
@@ -13,7 +14,7 @@ import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(AddressWidget, ({ widget }) => (
-  <WidgetTag>
+  <WidgetTag {...designProps(widget.get('design'))}>
     {widget.get('showLogo') && <Logo />}
     <address>
       <Address addressWidget={widget} />

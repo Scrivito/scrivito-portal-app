@@ -1,5 +1,6 @@
 import {
   ContentTag,
+  designProps,
   currentLanguage,
   InPlaceEditingOff,
   navigateTo,
@@ -39,6 +40,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const alignmentClassName = alignmentClassNameWithBlock(
     widget.get('alignment'),
   )
+  const design = designProps(widget.get('design'))
 
   if (!dataItem) return null
 
@@ -47,6 +49,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
       <WidgetTag className={alignmentClassName}>
         <InPlaceEditingOff>
           <ContentTag
+            {...design}
             content={widget}
             attribute="cancelTitle"
             tag="button"
@@ -55,6 +58,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
           />
 
           <ContentTag
+            {...design}
             content={widget}
             attribute="confirmTitle"
             tag="button"
@@ -72,6 +76,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
       <EditorNote>Deletes {dataItem.dataClass().name()}.</EditorNote>
       <InPlaceEditingOff>
         <ContentTag
+          {...design}
           content={widget}
           attribute="title"
           tag="button"

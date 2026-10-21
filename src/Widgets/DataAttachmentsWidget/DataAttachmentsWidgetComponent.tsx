@@ -2,6 +2,7 @@ import {
   connect,
   ContentTag,
   currentLanguage,
+  designProps,
   provideComponent,
   useData,
 } from 'scrivito'
@@ -21,7 +22,7 @@ provideComponent(DataAttachmentsWidget, ({ widget }) => {
   if (attachments.length === 0) return null
 
   return (
-    <div>
+    <div {...designProps(widget.get('design'))}>
       <ContentTag
         content={widget}
         attribute="label"

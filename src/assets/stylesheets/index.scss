@@ -742,10 +742,10 @@ section {
 
 // -- new override -- //
 
+// Deliberately without `p`, `th` and `td`: those inherit the color, so that a design set on a
+// widget around them can decide it. A rule matching them directly would always win over the
+// inherited value, whatever the design says.
 a:not(.btn, .nav-link),
-p,
-th,
-td,
 .form-label,
 .text-mandatory {
   color: var(--text-color);

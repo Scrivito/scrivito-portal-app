@@ -2,6 +2,7 @@ import {
   connect,
   ContentTag,
   currentLanguage,
+  designProps,
   InPlaceEditingOff,
   provideComponent,
   useData,
@@ -87,7 +88,11 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
   }, [state, inputRef])
 
   return (
-    <div className="mb-3" key={[id, attributeName].join('-')}>
+    <div
+      {...designProps(widget.get('design'))}
+      className="mb-3"
+      key={[id, attributeName].join('-')}
+    >
       <ContentTag
         content={widget}
         attribute="label"

@@ -5,6 +5,10 @@ export const DataLoadMoreButtonWidget = provideWidgetClass(
   {
     attributes: {
       alignment: ['enum', { values: ['left', 'center', 'right', 'block'] }],
+      // The design goes on the button itself: padding, size, colors and corners are the
+      // buttons own. `alignment` stays — it places the button in its row, which is the
+      // wrappers business, and offers "Full width", which no single design property expresses.
+      design: ['design', { groups: ['box', 'text', 'decoration'] }],
       buttonColor: [
         'enum',
         {

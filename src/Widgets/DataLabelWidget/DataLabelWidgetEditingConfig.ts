@@ -26,9 +26,6 @@ provideEditingConfig(DataLabelWidget, {
         { value: 'relative', title: 'Relative' },
       ],
     },
-    marginBottom: {
-      title: 'Add margin bottom?',
-    },
     valueSize: {
       title: 'Value size',
       description: 'Default: Body font size',
@@ -57,12 +54,10 @@ provideEditingConfig(DataLabelWidget, {
     'showAs',
     ...(widget.get('showAs') === 'datetime' ? ['datetimeFormat'] : []),
     'valueSize',
-    'marginBottom',
   ],
   initialContent: {
     datetimeFormat: 'date',
     label: 'Label',
-    marginBottom: false,
     showAs: 'text',
     valueSize: 'body-font-size',
   },

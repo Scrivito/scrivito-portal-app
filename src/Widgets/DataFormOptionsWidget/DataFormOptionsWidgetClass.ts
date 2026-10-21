@@ -6,6 +6,7 @@ export const DataFormOptionsWidget = provideWidgetClass(
     attributes: {
       data: 'datalocator',
       defaultValue: 'string',
+      design: ['design', { preset: 'text' }],
       helpText: 'html',
       label: 'string',
       required: 'boolean',

@@ -1,18 +1,10 @@
-import { provideComponent, ContentTag, WidgetTag } from 'scrivito'
+import { provideComponent, ContentTag, WidgetTag, designProps } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
 
 provideComponent(SectionWidget, ({ widget }) => {
-  const sectionClassNames: string[] = []
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
-
-  const backgroundColor = widget.get('backgroundColor')
-  if (backgroundColor && backgroundColor !== 'transparent') {
-    sectionClassNames.push(`bg-${backgroundColor}`)
-  }
-
-  if (widget.get('showPadding')) sectionClassNames.push('py-5')
 
   let contentClassName = 'container'
   if (widget.get('containerWidth') === '95-percent') {
@@ -24,8 +16,8 @@ provideComponent(SectionWidget, ({ widget }) => {
 
   return (
     <WidgetTag
+      {...designProps(widget.get('design'))}
       tag="section"
-      className={sectionClassNames.join(' ')}
       onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
     >
       <ImageOrVideo

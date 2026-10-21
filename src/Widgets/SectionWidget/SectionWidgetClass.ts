@@ -3,27 +3,17 @@ import { provideWidgetClass } from 'scrivito'
 export const SectionWidget = provideWidgetClass('SectionWidget', {
   attributes: {
     backgroundAnimateOnHover: 'boolean',
-    backgroundColor: [
-      'enum',
-      {
-        values: [
-          'white',
-          'primary',
-          'secondary',
-          'light-grey',
-          'middle-grey',
-          'dark-grey',
-          'transparent',
-          'success',
-          'info',
-          'warning',
-          'danger',
-        ],
-      },
-    ],
     backgroundImage: ['reference', { only: ['Image', 'Video'] }],
     content: 'widgetlist',
-    showPadding: 'boolean',
+    // Background color and padding used to be attributes of their own. The background image is
+    // not a design property — a reference cannot be one — but it belongs next to the design.
+    design: [
+      'design',
+      {
+        preset: 'container',
+        extraAttributes: ['backgroundImage', 'backgroundAnimateOnHover'],
+      },
+    ],
     containerWidth: [
       'enum',
       { values: ['fixed', '95-percent', '100-percent'] },

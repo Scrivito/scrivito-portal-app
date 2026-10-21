@@ -2,13 +2,11 @@ import { provideWidgetClass } from 'scrivito'
 
 export const HeadlineWidget = provideWidgetClass('HeadlineWidget', {
   attributes: {
-    alignment: ['enum', { values: ['left', 'center', 'right'] }],
+    // Alignment, spacing and capitalization used to be enums of their own. The design
+    // attribute covers all three, per breakpoint.
+    design: ['design', { preset: 'text' }],
     headline: 'string',
     level: ['enum', { values: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'] }],
-    margin: [
-      'enum',
-      { values: ['mb-0', 'mb-1', 'mb-2', 'mb-3', 'mb-4', 'mb-5'] },
-    ],
     style: [
       'enum',
       {
@@ -30,7 +28,6 @@ export const HeadlineWidget = provideWidgetClass('HeadlineWidget', {
         ],
       },
     ],
-    uppercase: 'boolean',
   },
   extractTextAttributes: ['headline'],
 })

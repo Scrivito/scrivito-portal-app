@@ -2,6 +2,7 @@ import {
   connect,
   ContentTag,
   DataItem,
+  designProps,
   provideComponent,
   useData,
 } from 'scrivito'
@@ -38,7 +39,7 @@ provideComponent(
     if (dataError) return <DataErrorEditorNote error={dataError} />
 
     return (
-      <div>
+      <div {...designProps(widget.get('design'))}>
         <ContentTag
           tag="h6"
           content={widget}

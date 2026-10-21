@@ -2,10 +2,12 @@ import {
   connect,
   ContentTag,
   CurrentPage,
+  designProps,
   Obj,
   ObjClass,
   provideLayoutComponent,
 } from 'scrivito'
+import { designOf } from '../utils/designOf'
 
 export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
   provideLayoutComponent(objClass, DefaultPageLayoutComponent)
@@ -23,9 +25,9 @@ export const DefaultPageLayoutComponent = connect(
           <ContentTag tag="header" content={page} attribute="layoutHeader" />
         )}
 
-        <BackgroundWrapper
-          backgroundColor={page.get('layoutMainBackgroundColor')}
-        >
+        {/* Always a section, even without a design: the element the page's design applies to
+            has to be there before there is anything to apply. */}
+        <section {...designProps(designOf(page.get('design')))}>
           {showSidebar ? (
             <SidebarLayout
               page={page}
@@ -35,7 +37,7 @@ export const DefaultPageLayoutComponent = connect(
           ) : (
             <CurrentPage />
           )}
-        </BackgroundWrapper>
+        </section>
 
         {!!page.get('layoutShowFooter') && (
           <ContentTag tag="footer" content={page} attribute="layoutFooter" />
@@ -44,19 +46,6 @@ export const DefaultPageLayoutComponent = connect(
     )
   },
 )
-
-const BackgroundWrapper = connect(function BackgroundWrapper({
-  backgroundColor,
-  children,
-}: {
-  children: React.ReactNode
-  backgroundColor?: unknown
-}) {
-  if (typeof backgroundColor !== 'string') return children
-  if (backgroundColor === 'transparent') return children
-
-  return <section className={`bg-${backgroundColor}`}>{children}</section>
-})
 
 const SidebarLayout = connect(function SidebarLayout({
   page,

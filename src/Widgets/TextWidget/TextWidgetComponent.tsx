@@ -1,11 +1,10 @@
-import { provideComponent, ContentTag } from 'scrivito'
-import { alignmentClassName } from '../../utils/alignmentClassName'
+import { provideComponent, ContentTag, designProps } from 'scrivito'
 import { TextWidget } from './TextWidgetClass'
 
 provideComponent(TextWidget, ({ widget }) => (
   <ContentTag
+    {...designProps(widget.get('design'))}
     attribute="text"
-    className={alignmentClassName(widget.get('alignment'))}
     content={widget}
     tag="div"
   />

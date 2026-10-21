@@ -1,4 +1,4 @@
-import { provideComponent } from 'scrivito'
+import { designProps, provideComponent } from 'scrivito'
 import { LanguageSwitchWidget } from './LanguageSwitchWidgetClass'
 import { LanguageSwitch } from '../TopNavigationWidget/SubComponents/LanguageSwitch'
 import { alignmentClassName } from '../../utils/alignmentClassName'
@@ -9,7 +9,10 @@ provideComponent(LanguageSwitchWidget, ({ widget }) => {
   if (alignment) classNames.push(alignment)
 
   return (
-    <div className={classNames.join(' ')}>
+    <div
+      {...designProps(widget.get('design'))}
+      className={classNames.join(' ')}
+    >
       <LanguageSwitch
         align={widget.get('alignment') === 'right' ? 'end' : 'start'}
         onlyCurrentPageVersions

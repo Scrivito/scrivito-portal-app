@@ -5,6 +5,7 @@ export const DataFormInputFieldWidget = provideWidgetClass(
   {
     attributes: {
       data: 'datalocator',
+      design: ['design', { preset: 'text' }],
       label: 'string',
       placeholder: 'string',
       required: 'boolean',

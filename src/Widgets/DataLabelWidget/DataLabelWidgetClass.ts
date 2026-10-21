@@ -2,6 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
   attributes: {
+    design: ['design', { preset: 'text' }],
     label: 'string',
     data: 'datalocator',
     details: 'string',
@@ -31,6 +32,5 @@ export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
         ],
       },
     ],
-    marginBottom: 'boolean',
   },
 })

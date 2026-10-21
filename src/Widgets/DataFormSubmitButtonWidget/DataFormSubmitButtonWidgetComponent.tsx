@@ -1,5 +1,6 @@
 import {
   ContentTag,
+  designProps,
   InPlaceEditingOff,
   WidgetTag,
   provideComponent,
@@ -10,6 +11,7 @@ import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { MouseEvent } from 'react'
 
 provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
+  const design = designProps(widget.get('design'))
   const baseButtonStyles = ['btn']
   const size = buttonSizeClassName(widget.get('size'))
   if (size) baseButtonStyles.push(size)
@@ -18,6 +20,7 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <InPlaceEditingOff>
         <ContentTag
+          {...design}
           tag="button"
           content={widget}
           attribute="submitTitle"
@@ -27,6 +30,7 @@ provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
         ></ContentTag>{' '}
         {widget.get('hasReset') && (
           <ContentTag
+            {...design}
             tag="button"
             content={widget}
             attribute="resetTitle"

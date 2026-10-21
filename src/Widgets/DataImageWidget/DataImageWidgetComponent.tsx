@@ -3,6 +3,7 @@ import {
   isInPlaceEditingActive,
   LinkTag,
   connect,
+  designProps,
   Link,
   useData,
   WidgetTag,
@@ -17,7 +18,6 @@ import {
 } from './DataImageWidgetClass'
 import { isDataBinary } from '../../utils/dataBinaryToUrl'
 import { DataBinaryImage } from '../../Components/DataBinaryImage'
-import { CSSProperties } from 'react'
 
 provideComponent(DataImageWidget, ({ widget }) => {
   const classNames = ['image-widget']
@@ -51,28 +51,21 @@ const ImageComponent = connect(function ImageComponent({
 }: {
   widget: DataImageWidgetInstance
 }) {
-  const className = widget.get('roundCorners') ? 'rounded' : undefined
+  // The design goes on the image, not on the widget: size, object fit and corners are
+  // properties of the image, and the widget is only what positions it.
+  const design = designProps(widget.get('design'))
 
   const dataItemAttribute = useData().dataItemAttribute()
   if (!dataItemAttribute) return null
-
-  let style: CSSProperties | undefined
-  const height = widget.get('height')
-  if (height) style = { ...style, height }
-  const width = widget.get('width')
-  if (width) style = { ...style, width }
-  const objectFit = widget.get('objectFit')
-  if (height && objectFit === 'cover') style = { ...style, objectFit }
 
   const objValue = dataItemAttribute.dataItem().obj()
   if (objValue) {
     return (
       <InPlaceEditingOff>
         <ImageTag
+          {...design}
           content={objValue}
           attribute={dataItemAttribute.attributeName()}
-          className={className}
-          style={style}
           alt=""
         />
       </InPlaceEditingOff>
@@ -84,23 +77,15 @@ const ImageComponent = connect(function ImageComponent({
     const content = attributeValue.obj()
     if (!content) return null
 
-    return (
-      <ImageTag content={content} className={className} style={style} alt="" />
-    )
+    return <ImageTag {...design} content={content} alt="" />
   }
 
   if (isDataBinary(attributeValue)) {
-    return (
-      <DataBinaryImage
-        dataBinary={attributeValue}
-        className={className}
-        style={style}
-      />
-    )
+    return <DataBinaryImage {...design} dataBinary={attributeValue} />
   }
 
   if (typeof attributeValue !== 'string') return null
   if (!attributeValue) return null
 
-  return <img src={attributeValue} className={className} style={style} alt="" />
+  return <img {...design} src={attributeValue} alt="" />
 })

@@ -2,6 +2,7 @@ import { OverlayTrigger, Popover } from 'react-bootstrap'
 import {
   connect,
   ContentTag,
+  designProps,
   InPlaceEditingOff,
   provideComponent,
   useData,
@@ -24,7 +25,11 @@ provideComponent(DataFormOptionsWidget, ({ widget }) => {
     typeof value === 'string' ? value : widget.get('defaultValue')
 
   return (
-    <div className="mb-3" key={[id, attributeName, defaultValue].join('-')}>
+    <div
+      {...designProps(widget.get('design'))}
+      className="mb-3"
+      key={[id, attributeName, defaultValue].join('-')}
+    >
       <ContentTag
         content={widget}
         attribute="label"

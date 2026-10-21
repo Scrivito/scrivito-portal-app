@@ -1,18 +1,16 @@
-import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
+import { ContentTag, designProps, provideComponent, WidgetTag } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 
 provideComponent(BannerHeadlineWidget, ({ widget }) => {
   const style = widget.get('style') || 'h2'
 
-  const backgroundColor = widget.get('backgroundColor') || 'white'
-
   return (
     <WidgetTag tag={tag(widget.get('level'), style)} className={style}>
       <ContentTag
+        {...designProps(widget.get('design'))}
         content={widget}
         attribute="headline"
         tag="span"
-        className={`bg-${backgroundColor}`}
       />
     </WidgetTag>
   )

@@ -4,25 +4,14 @@ export const SlideWidget = provideWidgetClass('SlideWidget', {
   onlyInside: 'SliderWidget',
   attributes: {
     background: ['reference', { only: ['Image', 'Video'] }],
-    backgroundColor: [
-      'enum',
-      {
-        values: [
-          'white',
-          'primary',
-          'secondary',
-          'light-grey',
-          'middle-grey',
-          'dark-grey',
-          'transparent',
-          'success',
-          'info',
-          'warning',
-          'danger',
-        ],
-      },
-    ],
     content: 'widgetlist',
+    // The background color used to be an enum of theme colors; the design carries it now.
+    // The background image is not a design property — a reference cannot be one — but it
+    // belongs next to the design, as it does on a section.
+    design: [
+      'design',
+      { preset: 'container', extraAttributes: ['background'] },
+    ],
   },
   extractTextAttributes: ['content'],
 })

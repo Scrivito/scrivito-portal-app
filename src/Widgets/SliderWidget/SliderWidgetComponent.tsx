@@ -1,4 +1,4 @@
-import { ContentTag, provideComponent } from 'scrivito'
+import { ContentTag, designProps, provideComponent } from 'scrivito'
 import { Carousel } from 'react-bootstrap'
 import { SliderWidget } from './SliderWidgetClass'
 import { isSlideWidgetInstance } from '../SlideWidget/SlideWidgetClass'
@@ -16,7 +16,8 @@ provideComponent(SliderWidget, ({ widget }) => {
 
   return (
     <Carousel
-      className={`slider-widget ${widget.get('margin') || 'mb-4'}`}
+      {...designProps(widget.get('design'))}
+      className="slider-widget"
       controls={showControls}
       indicators={showControls}
       interval={autoplay ? intervalMs : null}
@@ -26,25 +27,33 @@ provideComponent(SliderWidget, ({ widget }) => {
       {widget
         .get('slides')
         .filter(isSlideWidgetInstance)
-        .map((item) => (
-          <Carousel.Item
-            key={item.id()}
-            style={{ minHeight: `${widget.get('minHeight') || 400}px` }}
-            className={[
-              `bg-${item.get('backgroundColor') || 'transparent'}`,
-              showControls ? 'has-controls' : '',
-            ].join(' ')}
-            onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
-          >
-            <ImageOrVideo
-              widget={item}
-              attribute="background"
-              togglePlayPauseRef={togglePlayPauseRef}
-            />
+        .map((item) => {
+          // The slide's own design has to be merged with the slider's minimum height rather
+          // than spread over it, so that a slide can be made taller than the slider without
+          // losing the slider's default.
+          const { style, ...slideDesign } = designProps(item.get('design'))
 
-            <ContentTag content={item} attribute="content" />
-          </Carousel.Item>
-        ))}
+          return (
+            <Carousel.Item
+              key={item.id()}
+              {...slideDesign}
+              style={{
+                minHeight: `${widget.get('minHeight') || 400}px`,
+                ...style,
+              }}
+              className={showControls ? 'has-controls' : undefined}
+              onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
+            >
+              <ImageOrVideo
+                widget={item}
+                attribute="background"
+                togglePlayPauseRef={togglePlayPauseRef}
+              />
+
+              <ContentTag content={item} attribute="content" />
+            </Carousel.Item>
+          )
+        })}
     </Carousel>
   )
 })
