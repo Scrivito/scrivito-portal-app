@@ -20,9 +20,9 @@ export function buildJsonLd(page: Obj): Record<string, unknown> {
 
   return {
     ...record,
-    dateModified: page.lastChanged()?.toISOString(),
     datePublished: page.firstPublishedAt()?.toISOString(),
     inLanguage: page.language() || 'en',
+    dateModified: page.publishedAt()?.toISOString(),
     workTranslation: translations.length
       ? translations.map(({ hreflang, href }) => ({
           '@type': record['@type'],
