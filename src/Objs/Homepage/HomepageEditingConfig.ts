@@ -6,7 +6,6 @@ import {
   defaultPageProperties,
   defaultPagePropertiesGroups,
   defaultPageValidations,
-  structuredDataGroup,
 } from '../defaultPageEditingConfig'
 import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNavigationWidgetClass'
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
@@ -130,9 +129,7 @@ provideEditingConfig(Homepage, {
     },
   },
   propertiesGroups: (site) => [
-    ...defaultPagePropertiesGroups.filter(
-      (group) => group.key !== structuredDataGroup.key,
-    ),
+    ...defaultPagePropertiesGroups,
     {
       title: 'Site settings',
       properties: [
@@ -180,7 +177,6 @@ provideEditingConfig(Homepage, {
       ],
       key: 'site-fonts-group',
     },
-    structuredDataGroup,
   ],
   properties: [...defaultPageProperties],
   initialContent: {
