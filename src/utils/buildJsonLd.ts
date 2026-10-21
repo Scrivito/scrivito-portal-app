@@ -19,9 +19,9 @@ export function buildJsonLd(page: Obj): Record<string, unknown> {
   )
 
   return {
-    ...record,
     datePublished: page.firstPublishedAt()?.toISOString(),
     inLanguage: page.language() || 'en',
+    ...record,
     dateModified: page.publishedAt()?.toISOString(),
     workTranslation: translations.length
       ? translations.map(({ hreflang, href }) => ({
