@@ -20,7 +20,6 @@ export function buildJsonLd(page: Obj): Record<string, unknown> {
 
   return {
     ...record,
-    dateCreated: page.createdAt()?.toISOString(),
     dateModified: page.lastChanged()?.toISOString(),
     datePublished: page.firstPublishedAt()?.toISOString(),
     inLanguage: page.language() || 'en',
