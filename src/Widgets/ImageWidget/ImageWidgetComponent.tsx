@@ -4,7 +4,6 @@ import {
   isInPlaceEditingActive,
   LinkTag,
   connect,
-  designProps,
   Link,
   WidgetTag,
 } from 'scrivito'
@@ -23,7 +22,7 @@ provideComponent(ImageWidget, ({ widget }) => {
         {/* The design goes on the image, not on the widget: size, object fit and corners are
             properties of the image, and the widget is only what positions it. */}
         <ImageTag
-          {...designProps(widget.get('design'))}
+          design
           alt={
             widget.get('alternativeText') ||
             alternativeTextForObj(widget.get('image'))

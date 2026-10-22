@@ -23,7 +23,7 @@ provideComponent(ButtonWidget, ({ widget }) => {
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <LinkTag
-        {...designProps(widget.get('design'))}
+        {...designProps(widget)}
         to={target}
         className={buttonClassNames.join(' ')}
       >

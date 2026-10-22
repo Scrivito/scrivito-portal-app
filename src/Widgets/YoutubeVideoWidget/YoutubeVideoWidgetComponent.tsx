@@ -17,7 +17,7 @@ provideComponent(YoutubeVideoWidget, ({ widget }) => {
 
   return (
     <div
-      {...designProps(widget.get('design'))}
+      {...designProps(widget)}
       className={`youtube-video-widget aspect-ratio-${aspectRatioValue}`}
     >
       <iframe

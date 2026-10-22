@@ -13,7 +13,7 @@ import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 
 provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
   const { hasMore, loadMore } = useContext(DataBatchContext)
-  const design = designProps(widget.get('design'))
+  const design = designProps(widget)
 
   const classNames = ['btn', 'mt-4']
 

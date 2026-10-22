@@ -1,8 +1,8 @@
-import { ContentTag, designProps, provideComponent, WidgetTag } from 'scrivito'
+import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
 import { LinkContainerWidget } from './LinkContainerWidgetClass'
 
 provideComponent(LinkContainerWidget, ({ widget }) => (
-  <WidgetTag {...designProps(widget.get('design'))} className="mb-7 mb-sm-0">
+  <WidgetTag design className="mb-7 mb-sm-0">
     <ContentTag
       tag="h5"
       className="mb-3"

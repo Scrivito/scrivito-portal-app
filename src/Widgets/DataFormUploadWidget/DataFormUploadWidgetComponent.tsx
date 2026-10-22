@@ -89,7 +89,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
 
   return (
     <div
-      {...designProps(widget.get('design'))}
+      {...designProps(widget)}
       className="mb-3"
       key={[id, attributeName].join('-')}
     >

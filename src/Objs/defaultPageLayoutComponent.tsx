@@ -7,7 +7,6 @@ import {
   ObjClass,
   provideLayoutComponent,
 } from 'scrivito'
-import { designOf } from '../utils/designOf'
 
 export function provideDefaultPageLayoutComponent(objClass: ObjClass) {
   provideLayoutComponent(objClass, DefaultPageLayoutComponent)
@@ -27,7 +26,7 @@ export const DefaultPageLayoutComponent = connect(
 
         {/* Always a section, even without a design: the element the page's design applies to
             has to be there before there is anything to apply. */}
-        <section {...designProps(designOf(page.get('design')))}>
+        <section {...designProps(page)}>
           {showSidebar ? (
             <SidebarLayout
               page={page}

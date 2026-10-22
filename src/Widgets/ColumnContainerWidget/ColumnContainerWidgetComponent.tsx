@@ -63,7 +63,7 @@ const Column = connect(function Column({
 
   return (
     <ContentTag
-      {...designProps(columnWidget.get('design'))}
+      design
       content={columnWidget}
       attribute="content"
       className={fillsColumn ? 'column-container-widget__column--fill' : ''}

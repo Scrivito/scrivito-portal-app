@@ -1,4 +1,4 @@
-import { provideComponent, ContentTag, designProps } from 'scrivito'
+import { provideComponent, ContentTag } from 'scrivito'
 import { HeadlineWidget } from './HeadlineWidgetClass'
 import { slugify } from '@justrelate/slugify'
 
@@ -16,7 +16,7 @@ provideComponent(HeadlineWidget, ({ widget }) => {
 
   return (
     <ContentTag
-      {...designProps(widget.get('design'))}
+      design
       content={widget}
       attribute="headline"
       className={classNames.join(' ')}

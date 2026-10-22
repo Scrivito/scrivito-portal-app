@@ -1,6 +1,5 @@
 import {
   ContentTag,
-  designProps,
   InPlaceEditingOff,
   WidgetTag,
   currentLanguage,
@@ -37,7 +36,7 @@ provideComponent(CheckoutButtonWidget, ({ widget }) => {
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <InPlaceEditingOff>
         <ContentTag
-          {...designProps(widget.get('design'))}
+          design
           content={widget}
           attribute="buttonText"
           tag="button"

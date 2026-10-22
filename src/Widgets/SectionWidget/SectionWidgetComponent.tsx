@@ -1,4 +1,4 @@
-import { provideComponent, ContentTag, WidgetTag, designProps } from 'scrivito'
+import { provideComponent, ContentTag, WidgetTag } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
@@ -16,7 +16,7 @@ provideComponent(SectionWidget, ({ widget }) => {
 
   return (
     <WidgetTag
-      {...designProps(widget.get('design'))}
+      design
       tag="section"
       onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
     >

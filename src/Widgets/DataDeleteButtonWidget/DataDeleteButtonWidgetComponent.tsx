@@ -40,7 +40,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const alignmentClassName = alignmentClassNameWithBlock(
     widget.get('alignment'),
   )
-  const design = designProps(widget.get('design'))
+  const design = designProps(widget)
 
   if (!dataItem) return null
 

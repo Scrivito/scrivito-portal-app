@@ -39,7 +39,7 @@ provideComponent(
     if (dataError) return <DataErrorEditorNote error={dataError} />
 
     return (
-      <div {...designProps(widget.get('design'))}>
+      <div {...designProps(widget)}>
         <ContentTag
           tag="h6"
           content={widget}

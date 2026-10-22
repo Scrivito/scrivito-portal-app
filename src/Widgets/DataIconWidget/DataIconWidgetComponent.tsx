@@ -2,7 +2,6 @@ import {
   ContentTag,
   WidgetTag,
   connect,
-  designProps,
   currentLanguage,
   provideComponent,
   useData,
@@ -19,10 +18,7 @@ import { useEnumOptions } from '../../utils/useEnumOptions'
 
 provideComponent(DataIconWidget, ({ widget }) => {
   return (
-    <WidgetTag
-      {...designProps(widget.get('design'))}
-      className={alignmentClassName(widget.get('alignment'))}
-    >
+    <WidgetTag design className={alignmentClassName(widget.get('alignment'))}>
       <ContentTag
         content={widget}
         attribute="label"

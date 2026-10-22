@@ -24,7 +24,7 @@ provideComponent(LogInButtonWidget, ({ widget }) => {
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <button
-        {...designProps(widget.get('design'))}
+        {...designProps(widget)}
         className={buttonClassNames.join(' ')}
         onClick={() => ensureUserIsLoggedIn()}
       >

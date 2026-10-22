@@ -27,7 +27,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
 
   return (
     <div
-      {...designProps(widget.get('design'))}
+      {...designProps(widget)}
       className={classNames.join(' ')}
       key={[id, defaultChecked].join('-')}
     >

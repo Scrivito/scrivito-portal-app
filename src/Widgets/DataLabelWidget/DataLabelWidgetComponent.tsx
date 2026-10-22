@@ -2,7 +2,6 @@ import {
   connect,
   ContentTag,
   currentLanguage,
-  designProps,
   provideComponent,
   useData,
   WidgetTag,
@@ -29,7 +28,7 @@ provideComponent(DataLabelWidget, ({ widget }) => {
   }
 
   return (
-    <WidgetTag {...designProps(widget.get('design'))}>
+    <WidgetTag design>
       <ContentTag
         content={widget}
         attribute="label"

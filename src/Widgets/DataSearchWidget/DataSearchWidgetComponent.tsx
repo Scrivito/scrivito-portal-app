@@ -38,7 +38,7 @@ provideComponent(DataSearchWidget, ({ widget }) => {
 
   return (
     <form
-      {...designProps(widget.get('design'))}
+      {...designProps(widget)}
       className="input-group"
       role="search"
       onSubmit={onSubmit}

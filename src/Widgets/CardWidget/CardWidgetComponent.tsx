@@ -5,7 +5,6 @@ import {
   ImageTag,
   ContentTag,
   connect,
-  designProps,
   Link,
   LinkTag,
   isInPlaceEditingActive,
@@ -26,7 +25,7 @@ provideComponent(CardWidget, ({ widget }) => {
 
   return (
     <WidgetTag
-      {...designProps(widget.get('design'))}
+      design
       className={cardClassNames.join(' ')}
       onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
     >

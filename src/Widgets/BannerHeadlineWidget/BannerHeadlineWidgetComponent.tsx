@@ -1,4 +1,4 @@
-import { ContentTag, designProps, provideComponent, WidgetTag } from 'scrivito'
+import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 
 provideComponent(BannerHeadlineWidget, ({ widget }) => {
@@ -6,12 +6,7 @@ provideComponent(BannerHeadlineWidget, ({ widget }) => {
 
   return (
     <WidgetTag tag={tag(widget.get('level'), style)} className={style}>
-      <ContentTag
-        {...designProps(widget.get('design'))}
-        content={widget}
-        attribute="headline"
-        tag="span"
-      />
+      <ContentTag design content={widget} attribute="headline" tag="span" />
     </WidgetTag>
   )
 })

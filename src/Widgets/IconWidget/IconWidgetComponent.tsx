@@ -1,4 +1,4 @@
-import { designProps, provideComponent, WidgetTag } from 'scrivito'
+import { provideComponent, WidgetTag } from 'scrivito'
 import { IconComponent } from '../../Components/Icon'
 import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 import { IconWidget } from './IconWidgetClass'
@@ -6,7 +6,7 @@ import { IconWidget } from './IconWidgetClass'
 provideComponent(IconWidget, ({ widget }) => {
   return (
     <WidgetTag
-      {...designProps(widget.get('design'))}
+      design
       className={alignmentClassNameWithBlock(widget.get('alignment'))}
     >
       <IconComponent

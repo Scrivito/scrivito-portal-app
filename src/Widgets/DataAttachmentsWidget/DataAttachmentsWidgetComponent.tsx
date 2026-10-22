@@ -22,7 +22,7 @@ provideComponent(DataAttachmentsWidget, ({ widget }) => {
   if (attachments.length === 0) return null
 
   return (
-    <div {...designProps(widget.get('design'))}>
+    <div {...designProps(widget)}>
       <ContentTag
         content={widget}
         attribute="label"

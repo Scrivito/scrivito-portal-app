@@ -1,5 +1,4 @@
 import {
-  designProps,
   provideComponent,
   WidgetTag,
   LinkTag,
@@ -10,7 +9,7 @@ import { DownloadCardWidget } from './DownloadCardWidgetClass'
 
 provideComponent(DownloadCardWidget, ({ widget }) => {
   return (
-    <WidgetTag {...designProps(widget.get('design'))}>
+    <WidgetTag design>
       <ContentTag
         content={widget}
         attribute="label"

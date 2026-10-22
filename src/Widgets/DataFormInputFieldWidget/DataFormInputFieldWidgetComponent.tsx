@@ -21,7 +21,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
   const defaultValue = value ? value.toString() : ''
 
   return (
-    <div {...designProps(widget.get('design'))} className="mb-3" key={id}>
+    <div {...designProps(widget)} className="mb-3" key={id}>
       <ContentTag
         content={widget}
         attribute="label"

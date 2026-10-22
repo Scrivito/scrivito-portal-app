@@ -9,10 +9,7 @@ provideComponent(LanguageSwitchWidget, ({ widget }) => {
   if (alignment) classNames.push(alignment)
 
   return (
-    <div
-      {...designProps(widget.get('design'))}
-      className={classNames.join(' ')}
-    >
+    <div {...designProps(widget)} className={classNames.join(' ')}>
       <LanguageSwitch
         align={widget.get('alignment') === 'right' ? 'end' : 'start'}
         onlyCurrentPageVersions

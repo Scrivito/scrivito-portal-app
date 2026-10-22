@@ -41,7 +41,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
   const hasValue = defaultValue !== undefined
 
   return (
-    <div {...designProps(widget.get('design'))} className="mb-3" key={key}>
+    <div {...designProps(widget)} className="mb-3" key={key}>
       <ContentTag
         content={widget}
         attribute="label"

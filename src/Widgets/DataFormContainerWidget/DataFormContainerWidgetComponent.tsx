@@ -2,7 +2,6 @@ import {
   ContentTag,
   currentLanguage,
   DataItem,
-  designProps,
   InPlaceEditingOff,
   navigateTo,
   provideComponent,
@@ -36,10 +35,7 @@ provideComponent(DataFormContainerWidget, ({ widget }) => {
   const errorMessage = getErrorMessage()
 
   return (
-    <WidgetTag
-      {...designProps(widget.get('design'))}
-      className="data-form-container-widget"
-    >
+    <WidgetTag design className="data-form-container-widget">
       <form
         ref={formRef}
         key={key}

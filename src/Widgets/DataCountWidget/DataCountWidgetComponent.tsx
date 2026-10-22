@@ -1,7 +1,6 @@
 import {
   connect,
   ContentTag,
-  designProps,
   provideComponent,
   useData,
   WidgetTag,
@@ -20,10 +19,7 @@ provideComponent(DataCountWidget, ({ widget }) => {
   if (style !== 'body-font-size') classNames.push(style)
 
   return (
-    <WidgetTag
-      {...designProps(widget.get('design'))}
-      className={classNames.join(' ')}
-    >
+    <WidgetTag design className={classNames.join(' ')}>
       <Count widget={widget} />
     </WidgetTag>
   )

@@ -16,7 +16,7 @@ provideComponent(IconContainerWidget, ({ widget }) => {
   }
 
   return (
-    <ul {...designProps(widget.get('design'))} className="list-inline mb-0">
+    <ul {...designProps(widget)} className="list-inline mb-0">
       {iconList.map((iconListItem) => {
         const link = iconListItem.get('link')
         if (!isLinkOrNull(link)) return null
