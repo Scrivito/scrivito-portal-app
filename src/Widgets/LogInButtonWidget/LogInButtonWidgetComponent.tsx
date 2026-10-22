@@ -1,5 +1,5 @@
 import {
-  designProps,
+  designTagProps,
   ensureUserIsLoggedIn,
   isEditorLoggedIn,
   isInPlaceEditingActive,
@@ -24,7 +24,7 @@ provideComponent(LogInButtonWidget, ({ widget }) => {
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <button
-        {...designProps(widget)}
+        {...designTagProps(widget)}
         className={buttonClassNames.join(' ')}
         onClick={() => ensureUserIsLoggedIn()}
       >

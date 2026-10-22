@@ -2,7 +2,7 @@ import {
   connect,
   ContentTag,
   CurrentPage,
-  designProps,
+  designTagProps,
   Obj,
   ObjClass,
   provideLayoutComponent,
@@ -26,7 +26,7 @@ export const DefaultPageLayoutComponent = connect(
 
         {/* Always a section, even without a design: the element the page's design applies to
             has to be there before there is anything to apply. */}
-        <section {...designProps(page)}>
+        <section {...designTagProps(page)}>
           {showSidebar ? (
             <SidebarLayout
               page={page}

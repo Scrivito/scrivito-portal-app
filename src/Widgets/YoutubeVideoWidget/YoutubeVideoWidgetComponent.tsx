@@ -1,4 +1,4 @@
-import { designProps, provideComponent } from 'scrivito'
+import { designTagProps, provideComponent } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import './YoutubeVideoWidget.scss'
 import { YoutubeVideoWidget } from './YoutubeVideoWidgetClass'
@@ -17,7 +17,7 @@ provideComponent(YoutubeVideoWidget, ({ widget }) => {
 
   return (
     <div
-      {...designProps(widget)}
+      {...designTagProps(widget)}
       className={`youtube-video-widget aspect-ratio-${aspectRatioValue}`}
     >
       <iframe

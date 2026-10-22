@@ -1,4 +1,4 @@
-import { designProps, provideComponent } from 'scrivito'
+import { designTagProps, provideComponent } from 'scrivito'
 import { InPlaceEditingPlaceholder } from '../../Components/InPlaceEditingPlaceholder'
 import './VimeoVideoWidget.scss'
 import { VimeoVideoWidget } from './VimeoVideoWidgetClass'
@@ -17,7 +17,7 @@ provideComponent(VimeoVideoWidget, ({ widget }) => {
 
   return (
     <div
-      {...designProps(widget)}
+      {...designTagProps(widget)}
       className={`vimeo-video-widget aspect-ratio-${aspectRatioValue}`}
     >
       <iframe

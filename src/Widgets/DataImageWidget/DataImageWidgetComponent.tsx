@@ -3,7 +3,7 @@ import {
   isInPlaceEditingActive,
   LinkTag,
   connect,
-  designProps,
+  designTagProps,
   Link,
   useData,
   WidgetTag,
@@ -53,7 +53,7 @@ const ImageComponent = connect(function ImageComponent({
 }) {
   // The design goes on the image, not on the widget: size, object fit and corners are
   // properties of the image, and the widget is only what positions it.
-  const design = designProps(widget)
+  const design = designTagProps(widget)
 
   const dataItemAttribute = useData().dataItemAttribute()
   if (!dataItemAttribute) return null

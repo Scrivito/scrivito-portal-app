@@ -2,7 +2,7 @@ import {
   LinkTag,
   Obj,
   currentPage,
-  designProps,
+  designTagProps,
   provideComponent,
 } from 'scrivito'
 import { BreadcrumbWidget } from './BreadcrumbWidgetClass'
@@ -17,7 +17,7 @@ provideComponent(BreadcrumbWidget, ({ widget }) => {
     .filter((item): item is Obj => !!item && !item.get('hideInNavigation'))
 
   return (
-    <nav {...designProps(widget)} aria-label="breadcrumb" className="py-2">
+    <nav {...designTagProps(widget)} aria-label="breadcrumb" className="py-2">
       <ol className="breadcrumb m-1">
         {breadcrumbItems.map((obj) => (
           <li className="breadcrumb-item" key={obj.id()}>

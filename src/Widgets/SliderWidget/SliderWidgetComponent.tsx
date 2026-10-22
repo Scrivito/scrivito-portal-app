@@ -1,4 +1,4 @@
-import { ContentTag, designProps, provideComponent } from 'scrivito'
+import { ContentTag, designTagProps, provideComponent } from 'scrivito'
 import { Carousel } from 'react-bootstrap'
 import { SliderWidget } from './SliderWidgetClass'
 import { isSlideWidgetInstance } from '../SlideWidget/SlideWidgetClass'
@@ -16,7 +16,7 @@ provideComponent(SliderWidget, ({ widget }) => {
 
   return (
     <Carousel
-      {...designProps(widget)}
+      {...designTagProps(widget)}
       className="slider-widget"
       controls={showControls}
       indicators={showControls}
@@ -31,7 +31,7 @@ provideComponent(SliderWidget, ({ widget }) => {
           // The slide's own design has to be merged with the slider's minimum height rather
           // than spread over it, so that a slide can be made taller than the slider without
           // losing the slider's default.
-          const { style, ...slideDesign } = designProps(item)
+          const { style, ...slideDesign } = designTagProps(item)
 
           return (
             <Carousel.Item

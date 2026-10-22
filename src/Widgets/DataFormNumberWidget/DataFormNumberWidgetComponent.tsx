@@ -1,6 +1,6 @@
 import {
   ContentTag,
-  designProps,
+  designTagProps,
   InPlaceEditingOff,
   provideComponent,
   useData,
@@ -41,7 +41,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
   const hasValue = defaultValue !== undefined
 
   return (
-    <div {...designProps(widget)} className="mb-3" key={key}>
+    <div {...designTagProps(widget)} className="mb-3" key={key}>
       <ContentTag
         content={widget}
         attribute="label"

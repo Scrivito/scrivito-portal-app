@@ -1,6 +1,6 @@
 import {
   ContentTag,
-  designProps,
+  designTagProps,
   currentLanguage,
   InPlaceEditingOff,
   navigateTo,
@@ -40,7 +40,7 @@ provideComponent(DataDeleteButtonWidget, ({ widget }) => {
   const alignmentClassName = alignmentClassNameWithBlock(
     widget.get('alignment'),
   )
-  const design = designProps(widget)
+  const design = designTagProps(widget)
 
   if (!dataItem) return null
 

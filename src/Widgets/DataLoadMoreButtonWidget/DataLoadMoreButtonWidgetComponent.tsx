@@ -1,6 +1,6 @@
 import {
   WidgetTag,
-  designProps,
+  designTagProps,
   isComparisonActive,
   isInPlaceEditingActive,
   provideComponent,
@@ -13,7 +13,7 @@ import { alignmentClassNameWithBlock } from '../../utils/alignmentClassName'
 
 provideComponent(DataLoadMoreButtonWidget, ({ widget }) => {
   const { hasMore, loadMore } = useContext(DataBatchContext)
-  const design = designProps(widget)
+  const design = designTagProps(widget)
 
   const classNames = ['btn', 'mt-4']
 

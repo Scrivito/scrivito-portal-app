@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react'
-import { provideComponent, ContentTag, connect, designProps } from 'scrivito'
+import { provideComponent, ContentTag, connect, designTagProps } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnWidgetInstance } from '../ColumnWidget/ColumnWidgetClass'
 import './ColumnContainerWidget.scss'
@@ -13,7 +13,7 @@ provideComponent(ColumnContainerWidget, ({ widget }) => {
   if (!columns.length) return null
 
   const design = widget.get('design')
-  const { style, ...containerDesign } = designProps(design)
+  const { style, ...containerDesign } = designTagProps(design)
 
   const classNames = ['column-container-widget']
   if (!widget.get('disableResponsiveAdaption')) {

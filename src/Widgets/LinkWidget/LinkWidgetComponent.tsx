@@ -1,5 +1,5 @@
 import {
-  designProps,
+  designTagProps,
   Link,
   LinkTag,
   provideComponent,
@@ -11,7 +11,7 @@ import { ensureString } from '../../utils/ensureString'
 
 provideComponent(LinkWidget, ({ widget }) => {
   const link = widget.get('link')
-  const design = designProps(widget)
+  const design = designTagProps(widget)
 
   if (!link) {
     return (

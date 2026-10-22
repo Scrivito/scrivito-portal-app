@@ -2,7 +2,7 @@ import {
   connect,
   ContentTag,
   currentLanguage,
-  designProps,
+  designTagProps,
   InPlaceEditingOff,
   provideComponent,
   useData,
@@ -89,7 +89,7 @@ provideComponent(DataFormUploadWidget, ({ widget }) => {
 
   return (
     <div
-      {...designProps(widget)}
+      {...designTagProps(widget)}
       className="mb-3"
       key={[id, attributeName].join('-')}
     >

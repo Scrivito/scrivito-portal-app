@@ -1,6 +1,6 @@
 import {
   ContentTag,
-  designProps,
+  designTagProps,
   InPlaceEditingOff,
   provideComponent,
   useData,
@@ -27,7 +27,7 @@ provideComponent(DataFormBooleanWidget, ({ widget }) => {
 
   return (
     <div
-      {...designProps(widget)}
+      {...designTagProps(widget)}
       className={classNames.join(' ')}
       key={[id, defaultChecked].join('-')}
     >

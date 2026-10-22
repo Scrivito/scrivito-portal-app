@@ -1,6 +1,6 @@
 import {
   ContentTag,
-  designProps,
+  designTagProps,
   InPlaceEditingOff,
   WidgetTag,
   provideComponent,
@@ -11,7 +11,7 @@ import { buttonSizeClassName } from '../../utils/buttonSizeClassName'
 import { MouseEvent } from 'react'
 
 provideComponent(DataFormSubmitButtonWidget, ({ widget }) => {
-  const design = designProps(widget)
+  const design = designTagProps(widget)
   const baseButtonStyles = ['btn']
   const size = buttonSizeClassName(widget.get('size'))
   if (size) baseButtonStyles.push(size)

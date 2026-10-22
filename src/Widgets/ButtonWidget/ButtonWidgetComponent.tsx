@@ -1,5 +1,5 @@
 import {
-  designProps,
+  designTagProps,
   isInPlaceEditingActive,
   LinkTag,
   provideComponent,
@@ -23,7 +23,7 @@ provideComponent(ButtonWidget, ({ widget }) => {
   return (
     <WidgetTag className={alignmentClassNameWithBlock(widget.get('alignment'))}>
       <LinkTag
-        {...designProps(widget)}
+        {...designTagProps(widget)}
         to={target}
         className={buttonClassNames.join(' ')}
       >
