@@ -10,7 +10,7 @@ export const SectionWidget = provideWidgetClass('SectionWidget', {
     design: [
       'design',
       {
-        preset: 'container',
+        kind: 'container',
         extraAttributes: ['backgroundImage', 'backgroundAnimateOnHover'],
       },
     ],

@@ -6,7 +6,7 @@ export const ImageWidget = provideWidgetClass('ImageWidget', {
     alternativeText: 'string',
     // Width, height, object fit and round corners used to be attributes of their own. The
     // design applies to the image itself, which is what all four of them styled.
-    design: ['design', { preset: 'media' }],
+    design: ['design', { kind: 'media' }],
     image: ['reference', { only: 'Image' }],
     link: 'link',
   },

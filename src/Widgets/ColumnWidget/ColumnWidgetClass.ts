@@ -7,7 +7,7 @@ export const ColumnWidget = provideWidgetClass('ColumnWidget', {
     // tracks, so they need not add up to anything in particular.
     colSize: 'integer',
     content: 'widgetlist',
-    design: ['design', { preset: 'container' }],
+    design: ['design', { kind: 'container' }],
   },
   extractTextAttributes: ['content'],
 })

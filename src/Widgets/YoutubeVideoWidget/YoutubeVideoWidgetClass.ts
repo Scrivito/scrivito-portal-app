@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const YoutubeVideoWidget = provideWidgetClass('YoutubeVideoWidget', {
   attributes: {
-    design: ['design', { preset: 'media' }],
+    design: ['design', { kind: 'media' }],
     youtubeVideoId: 'string',
     aspectRatio: [
       'enum',

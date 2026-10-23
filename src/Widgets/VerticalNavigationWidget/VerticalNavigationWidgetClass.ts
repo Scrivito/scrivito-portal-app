@@ -4,7 +4,7 @@ export const VerticalNavigationWidget = provideWidgetClass(
   'VerticalNavigationWidget',
   {
     attributes: {
-      design: ['design', { preset: 'container' }],
+      design: ['design', { kind: 'container' }],
       navigationDepth: ['enum', { values: ['0', '1', '2'] }],
       showParentLink: 'boolean',
     },

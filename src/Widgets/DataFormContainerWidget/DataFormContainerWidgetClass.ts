@@ -5,7 +5,7 @@ export const DataFormContainerWidget = provideWidgetClass(
   {
     attributes: {
       content: 'widgetlist',
-      design: ['design', { preset: 'container' }],
+      design: ['design', { kind: 'container' }],
       redirectAfterSubmit: 'boolean',
       submitOnChange: 'boolean',
       submittedMessage: 'string',

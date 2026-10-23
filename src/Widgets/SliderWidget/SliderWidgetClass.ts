@@ -6,7 +6,7 @@ export const SliderWidget = provideWidgetClass('SliderWidget', {
     autoplayInterval: 'float',
     controls: 'boolean',
     // The margin used to be an enum of Bootstrap spacers. The design covers it, per breakpoint.
-    design: ['design', { preset: 'container' }],
+    design: ['design', { kind: 'container' }],
     minHeight: 'integer',
     slides: ['widgetlist', { only: 'SlideWidget' }],
   },

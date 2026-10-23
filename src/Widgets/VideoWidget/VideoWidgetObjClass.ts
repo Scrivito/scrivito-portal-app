@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const VideoWidget = provideWidgetClass('VideoWidget', {
   attributes: {
-    design: ['design', { preset: 'media' }],
+    design: ['design', { kind: 'media' }],
     source: ['reference', { only: ['Video'] }],
     poster: ['reference', { only: ['Image'] }],
     aspectRatio: [

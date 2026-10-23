@@ -3,7 +3,7 @@ import { provideWidgetClass } from 'scrivito'
 export const DataFormUploadWidget = provideWidgetClass('DataFormUploadWidget', {
   attributes: {
     data: 'datalocator',
-    design: ['design', { preset: 'text' }],
+    design: ['design', { kind: 'text' }],
     helpText: 'html',
     label: 'string',
     multiple: 'boolean',

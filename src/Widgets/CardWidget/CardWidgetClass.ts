@@ -11,7 +11,7 @@ export const CardWidget = provideWidgetClass('CardWidget', {
     design: [
       'design',
       {
-        preset: 'container',
+        kind: 'container',
         extraAttributes: ['backgroundImage', 'backgroundAnimateOnHover'],
       },
     ],

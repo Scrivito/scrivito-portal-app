@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const VimeoVideoWidget = provideWidgetClass('VimeoVideoWidget', {
   attributes: {
-    design: ['design', { preset: 'media' }],
+    design: ['design', { kind: 'media' }],
     vimeoVideoId: 'string',
     aspectRatio: [
       'enum',
