@@ -251,8 +251,29 @@ export const defaultPageValidations = [
         }
       }
 
+      const raw = ensureObject(JSON.parse(structuredData))
+      if (raw['@context'] !== 'https://schema.org') {
+        return {
+          message:
+            'Structured data must contain "@context" with the value "https://schema.org".',
+          severity: 'error',
+        }
+      }
+      if (typeof raw['@type'] !== 'string') {
+        return {
+          message: 'Structured data must contain "@type" with a string value.',
+          severity: 'error',
+        }
+      }
+      if (!raw['@type'].trim()) {
+        return {
+          message: 'The "@type" of the structured data must not be empty.',
+          severity: 'error',
+        }
+      }
+
       const result = validateStructuredData(parsed, obj)
-      if (!('image' in ensureObject(JSON.parse(structuredData)))) return result
+      if (!('image' in raw)) return result
 
       const imageMessage =
         'The "image" property is ignored. Use "Structured data images" instead.'
