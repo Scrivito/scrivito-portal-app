@@ -1,4 +1,4 @@
-import { canEdit, connect, isComparisonActive, Widget } from 'scrivito'
+import { connect, Widget } from 'scrivito'
 import { AdvancedEnumEditor } from './AdvancedEnumEditor'
 import containSvg from './ObjectFitEditor/object-fit-contain.svg'
 import coverSvg from './ObjectFitEditor/object-fit-cover.svg'
@@ -9,8 +9,10 @@ type ObjectFitWidget = Widget<{
 
 export const ObjectFitEditor = connect(function ObjectFitEditor({
   widget,
+  readOnly = false,
 }: {
   widget: ObjectFitWidget
+  readOnly?: boolean
 }) {
   return (
     <AdvancedEnumEditor
@@ -31,7 +33,7 @@ export const ObjectFitEditor = connect(function ObjectFitEditor({
           icon: coverSvg,
         },
       ]}
-      readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+      readOnly={readOnly}
       updateAttributeValue={(objectFit: string) => widget.update({ objectFit })}
     />
   )
