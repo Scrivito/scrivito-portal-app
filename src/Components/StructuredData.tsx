@@ -8,7 +8,11 @@ export const StructuredData = connect(() => {
   const json = currentJson()
 
   useEffect(() => {
-    if (!json) return
+    if (!json) {
+      // Drop a stale prerendered script that no current page owns
+      document.getElementById(SCRIPT_ID)?.remove()
+      return
+    }
 
     const script = document.getElementById(SCRIPT_ID) ?? createScript()
     script.textContent = json
