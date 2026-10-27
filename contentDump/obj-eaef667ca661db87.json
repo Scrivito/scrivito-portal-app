@@ -6,6 +6,19 @@
       "id": "eaef667ca661db87/3adeb524cb16/flag-de.svg"
     }
   ],
+  "tags": [
+    "stringlist",
+    [
+      "flag",
+      "germany",
+      "black",
+      "red",
+      "yellow",
+      "stripes",
+      "europe",
+      "country"
+    ]
+  ],
   "_conflicts": null,
   "_content_id": "eaef667ca661db87",
   "_created_at": "20240412142015",
@@ -14,14 +27,14 @@
   "_first_published_at": "20240412142121",
   "_id": "eaef667ca661db87",
   "_language": "de",
-  "_last_changed": "20240625122255",
+  "_last_changed": "20261022111426",
   "_modification": null,
   "_path": null,
   "_permalink": null,
-  "_published_at": "20240625122412",
+  "_published_at": "20261027102116",
   "_restriction": null,
   "_site_id": null,
-  "_version": "20240625122412000000000000000026611f5e6e994203",
+  "_version": "202610271021160000000000000000f04bf3a474c01618",
   "_widget_pool": {},
   "_created_by": "scrivito:943667111e7b464abf6dba5382978956",
   "_first_published_by": "scrivito:943667111e7b464abf6dba5382978956",

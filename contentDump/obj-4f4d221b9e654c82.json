@@ -6,6 +6,22 @@
       "id": "4f4d221b9e654c82/8d30e0c45729/whitepaper-transparent.png"
     }
   ],
+  "tags": [
+    "stringlist",
+    [
+      "whitepaper",
+      "brand:tynacoon",
+      "blue",
+      "white",
+      "text",
+      "filling line",
+      "marketing material",
+      "manufacturing equipment",
+      "mockup",
+      "transparent",
+      "format:portrait"
+    ]
+  ],
   "_conflicts": null,
   "_content_id": "4f4d221b9e654c82",
   "_created_at": "20240424111128",
@@ -14,14 +30,14 @@
   "_first_published_at": "20240424120949",
   "_id": "4f4d221b9e654c82",
   "_language": "en",
-  "_last_changed": "20240515071854",
+  "_last_changed": "20261023120508",
   "_modification": null,
   "_path": null,
   "_permalink": null,
-  "_published_at": "20240515071927",
+  "_published_at": "20261027102116",
   "_restriction": null,
   "_site_id": null,
-  "_version": "202405150719270000000000000000d95b6b025268479b",
+  "_version": "202610271021160000000000000000f04bf3a474c01618",
   "_widget_pool": {},
   "_created_by": "scrivito:1ba850ffc8fb4adda8b34c00ca2b88af",
   "_first_published_by": "scrivito:65a0e747eaf64fa6a193cebce8470e71",
