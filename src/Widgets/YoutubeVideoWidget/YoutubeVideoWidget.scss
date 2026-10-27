@@ -4,6 +4,11 @@
     padding-top: calc(100% / (21 / 9));
   }
 
+  &.aspect-ratio-16to10 {
+    position: relative;
+    padding-top: calc(100% / (16 / 10));
+  }
+
   &.aspect-ratio-16to9 {
     position: relative;
     padding-top: calc(100% / (16 / 9));
@@ -27,6 +32,11 @@
   &.aspect-ratio-9to16 {
     position: relative;
     padding-top: calc(100% / (9 / 16));
+  }
+
+  &.aspect-ratio-10to16 {
+    position: relative;
+    padding-top: calc(100% / (10 / 16));
   }
 }
 

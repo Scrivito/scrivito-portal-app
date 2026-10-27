@@ -5,6 +5,10 @@
     aspect-ratio: calc(21 / 9);
   }
 
+  &.aspect-ratio-16to10 {
+    aspect-ratio: calc(16 / 10);
+  }
+
   &.aspect-ratio-16to9 {
     aspect-ratio: calc(16 / 9);
   }
@@ -23,5 +27,9 @@
 
   &.aspect-ratio-9to16 {
     aspect-ratio: calc(9 / 16);
+  }
+
+  &.aspect-ratio-10to16 {
+    aspect-ratio: calc(10 / 16);
   }
 }
