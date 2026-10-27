@@ -1,0 +1,5 @@
+// What `p-4` used to render; the old `mb-4` is deliberately not restored, because the space
+// between widgets is the page's rhythm rather than the card's own look.
+.card-widget {
+  padding: 1.5rem;
+}

@@ -1,5 +1,6 @@
 import { ContentTag, currentPage, provideComponent } from 'scrivito'
 import { PageTitleWidget } from './PageTitleWidgetClass'
+import './PageTitleWidget.scss'
 
 provideComponent(PageTitleWidget, ({ widget }) => (
   <div className="header-caption">
@@ -11,6 +12,7 @@ provideComponent(PageTitleWidget, ({ widget }) => (
         content={currentPage()}
         attribute="title"
         tag="span"
+        className="page-title-widget"
       />
     </h1>
   </div>

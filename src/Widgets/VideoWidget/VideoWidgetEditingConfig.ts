@@ -6,6 +6,8 @@ provideEditingConfig(VideoWidget, {
   title: 'Video',
   thumbnail: Thumbnail,
   attributes: {
+    // The design goes on the `<video>` itself, which is what `objectFit` needs.
+    design: { kind: 'replaced' },
     aspectRatio: {
       title: 'Aspect ratio',
       description: 'Default: HD TV (16:9)',

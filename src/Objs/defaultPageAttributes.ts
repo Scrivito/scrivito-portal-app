@@ -14,7 +14,7 @@ export const defaultPageAttributes = {
   layoutRightSidebar: 'widgetlist',
   layoutShowRightSidebar: 'boolean',
   // The design of the main area, i.e. of everything but the header and the footer.
-  design: ['design', { kind: 'container' }],
+  design: 'design',
   // Meta tags
   description: 'string',
   robotsIndex: 'boolean',

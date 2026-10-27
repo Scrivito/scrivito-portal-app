@@ -5,15 +5,9 @@ export const SectionWidget = provideWidgetClass('SectionWidget', {
     backgroundAnimateOnHover: 'boolean',
     backgroundImage: ['reference', { only: ['Image', 'Video'] }],
     content: 'widgetlist',
-    // Background color and padding used to be attributes of their own. The background image is
-    // not a design property — a reference cannot be one — but it belongs next to the design.
-    design: [
-      'design',
-      {
-        kind: 'container',
-        extraAttributes: ['backgroundImage', 'backgroundAnimateOnHover'],
-      },
-    ],
+    // Background color and padding used to be attributes of their own. The background image
+    // stays an attribute of its own, because a reference cannot be a design property.
+    design: 'design',
     containerWidth: [
       'enum',
       { values: ['fixed', '95-percent', '100-percent'] },

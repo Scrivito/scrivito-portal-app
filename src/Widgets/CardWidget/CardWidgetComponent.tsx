@@ -13,13 +13,14 @@ import { CardWidget } from './CardWidgetClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
+import './CardWidget.scss'
 
 provideComponent(CardWidget, ({ widget }) => {
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
 
   const image = widget.get('image')
 
-  const cardClassNames: string[] = ['card']
+  const cardClassNames: string[] = ['card', 'card-widget']
 
   if (widget.get('cardExtended')) cardClassNames.push('card-extended')
 

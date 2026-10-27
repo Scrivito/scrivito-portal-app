@@ -1,4 +1,4 @@
-import { Design, provideEditingConfig } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { SliderWidget } from './SliderWidgetClass'
 import { SlideWidget } from '../SlideWidget/SlideWidgetClass'
 import thumbnail from './thumbnail.svg'
@@ -43,8 +43,6 @@ provideEditingConfig(SliderWidget, {
   initialContent: {
     autoplayInterval: 5,
     controls: true,
-    // What `margin: 'mb-4'` used to render.
-    design: new Design({ desktop: { marginBottom: '1.5rem' } }),
     minHeight: 400,
     slides: [new SlideWidget({}), new SlideWidget({})],
   },

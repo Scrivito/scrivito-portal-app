@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const TextWidget = provideWidgetClass('TextWidget', {
   attributes: {
-    design: ['design', { kind: 'text' }],
+    design: 'design',
     text: 'html',
   },
   extractTextAttributes: ['text'],

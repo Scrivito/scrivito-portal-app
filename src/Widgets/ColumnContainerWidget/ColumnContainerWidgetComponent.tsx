@@ -1,72 +1,85 @@
-import { CSSProperties } from 'react'
 import { provideComponent, ContentTag, connect, designTagProps } from 'scrivito'
 import { ColumnContainerWidget } from './ColumnContainerWidgetClass'
 import { ColumnWidgetInstance } from '../ColumnWidget/ColumnWidgetClass'
+import { normalizeColSizes } from './normalizeColSizes'
 import './ColumnContainerWidget.scss'
-
-type ColumnTemplateStyle = CSSProperties & {
-  [customProperty: `--column-${string}`]: string
-}
 
 provideComponent(ColumnContainerWidget, ({ widget }) => {
   const columns = widget.get('columns')
   if (!columns.length) return null
 
-  const design = widget.get('design')
-  const { style, ...containerDesign } = designTagProps(design)
+  const alignment = widget.get('alignment') || 'start'
+  const isResponsive = !widget.get('disableResponsiveAdaption')
+  const isFlex = widget.get('layoutMode') === 'flex'
 
-  const classNames = ['column-container-widget']
-  if (!widget.get('disableResponsiveAdaption')) {
-    classNames.push('column-container-widget--responsive')
-  }
+  const normalizedColSizes = isFlex
+    ? columns.map(() => 1)
+    : normalizeColSizes(columns as ColumnWidgetInstance[])
+  const classNames = [`align-items-${alignment}`]
 
-  // The column sizes become grid tracks. An `fr` is a share of whatever is left *after* the
-  // gaps, so spacing the columns can never push one of them onto a line of its own. The tracks
-  // travel as a custom property rather than as `grid-template-columns` itself, so that the
-  // stylesheet can still override them where the columns stack.
-  const containerStyle: ColumnTemplateStyle = {
-    '--column-template': columns
-      .map(
-        (column) => `${(column as ColumnWidgetInstance).get('colSize') || 1}fr`,
-      )
-      .join(' '),
-    ...style,
+  if (isFlex) {
+    classNames.push(
+      'column-container-widget--flex-wrapper',
+      isResponsive ? 'd-md-flex' : 'd-flex',
+    )
+  } else {
+    classNames.push('row')
+    if (widget.get('disableGutters')) classNames.push('g-0')
   }
 
   return (
-    <div
-      {...containerDesign}
-      className={classNames.join(' ')}
-      style={containerStyle}
-    >
-      {columns.map((columnWidget: ColumnWidgetInstance) => (
-        <Column
-          key={columnWidget.id()}
-          columnWidget={columnWidget}
-          // Stretching a column is up to the column, so the container's `align-items` has to
-          // be read, not just rendered.
-          isStretch={design.get('alignItems') === 'stretch'}
-        />
-      ))}
+    <div {...designTagProps(widget)} className={classNames.join(' ')}>
+      {columns.map((columnWidget: ColumnWidgetInstance, index: number) => {
+        return (
+          <Column
+            key={columnWidget.id()}
+            columnWidget={columnWidget}
+            normalizedColSize={normalizedColSizes[index]!} // normalizedColSizes is guaranteed to have the same length as columns
+            isFlex={isFlex}
+            isResponsive={isResponsive}
+            isStretch={alignment === 'stretch'}
+          />
+        )
+      })}
     </div>
   )
 })
 
 const Column = connect(function Column({
   columnWidget,
+  normalizedColSize,
+  isFlex,
+  isResponsive,
   isStretch,
 }: {
   columnWidget: ColumnWidgetInstance
+  normalizedColSize: number
+  isFlex: boolean
+  isResponsive: boolean
   isStretch: boolean
 }) {
-  const fillsColumn = isStretch && columnWidget.get('content').length < 2
+  const classNames = []
+
+  if (isFlex) {
+    classNames.push(
+      ...(isResponsive ? ['my-md-0', 'my-2', 'mx-md-2'] : ['mx-2']),
+    )
+    if (columnWidget.get('flexGrow')) classNames.push('flex-grow-1')
+    if (isStretch && columnWidget.get('content').length < 2) {
+      classNames.push(isResponsive ? 'd-md-flex' : 'd-flex')
+    }
+  } else {
+    classNames.push(
+      isResponsive ? `col-md-${normalizedColSize}` : `col-${normalizedColSize}`,
+    )
+  }
 
   return (
     <ContentTag
       design
       content={columnWidget}
       attribute="content"
-      className={fillsColumn ? 'column-container-widget__column--fill' : ''}
+      className={classNames.join(' ')}
       renderEmptyAttribute
     />
   )

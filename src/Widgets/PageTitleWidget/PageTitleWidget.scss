@@ -1,0 +1,7 @@
+// What `backgroundColor: 'primary'` used to render. In a stylesheet the site's colors are
+// available again, so this follows `siteColorPrimary` instead of spelling it out as a design
+// value could only do.
+.page-title-widget {
+  background-color: var(--bs-primary);
+  color: var(--bs-primary-text-color);
+}

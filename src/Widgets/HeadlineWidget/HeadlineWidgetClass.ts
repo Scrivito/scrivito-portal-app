@@ -4,7 +4,7 @@ export const HeadlineWidget = provideWidgetClass('HeadlineWidget', {
   attributes: {
     // Alignment, spacing and capitalization used to be enums of their own. The design
     // attribute covers all three, per breakpoint.
-    design: ['design', { kind: 'text' }],
+    design: 'design',
     headline: 'string',
     level: ['enum', { values: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'] }],
     style: [

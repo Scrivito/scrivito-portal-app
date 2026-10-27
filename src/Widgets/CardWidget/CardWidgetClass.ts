@@ -8,13 +8,7 @@ export const CardWidget = provideWidgetClass('CardWidget', {
     cardExtended: 'boolean',
     cardFooter: 'widgetlist',
     // Background color, padding and margin used to be attributes of their own.
-    design: [
-      'design',
-      {
-        kind: 'container',
-        extraAttributes: ['backgroundImage', 'backgroundAnimateOnHover'],
-      },
-    ],
+    design: 'design',
     image: ['reference', { only: ['Image'] }],
     linkTo: 'link',
     showFooter: 'boolean',

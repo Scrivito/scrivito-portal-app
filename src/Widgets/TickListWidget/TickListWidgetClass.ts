@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const TickListWidget = provideWidgetClass('TickListWidget', {
   attributes: {
-    design: ['design', { kind: 'container' }],
+    design: 'design',
     icon: 'string',
     items: ['widgetlist', { only: 'TickListItemWidget' }],
   },

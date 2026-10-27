@@ -1,15 +1,13 @@
-import { Design, provideEditingConfig } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { PageTitleWidget } from './PageTitleWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
 provideEditingConfig(PageTitleWidget, {
   title: 'Page Title',
   thumbnail: Thumbnail,
-  initialContent: {
-    // What `backgroundColor: 'primary'` used to render — as literal colors, because a design
-    // color cannot be a theme variable.
-    design: new Design({
-      desktop: { backgroundColor: '#274486', color: '#ffffff' },
-    }),
+  attributes: {
+    // The design goes on a `<span>` around the title, so that the colored plate hugs the
+    // text rather than spanning the column. A size would be ignored there.
+    design: { kind: 'inline' },
   },
 })

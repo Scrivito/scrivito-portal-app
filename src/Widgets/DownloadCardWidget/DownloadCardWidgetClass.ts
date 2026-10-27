@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const DownloadCardWidget = provideWidgetClass('DownloadCardWidget', {
   attributes: {
-    design: ['design', { kind: 'container' }],
+    design: 'design',
     details: 'string',
     icon: 'string',
     link: 'link',

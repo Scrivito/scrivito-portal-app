@@ -1,0 +1,6 @@
+// What `showPadding: true` used to render. The default lives here rather than in the widget's
+// initial content, so that it reaches sections that already exist and follows the stylesheet
+// when it changes. A design's padding beats it, because a design rule is a doubled selector.
+.section-widget {
+  padding-block: 3rem;
+}

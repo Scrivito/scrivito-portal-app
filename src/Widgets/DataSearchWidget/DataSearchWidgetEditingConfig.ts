@@ -1,4 +1,4 @@
-import { Design, provideEditingConfig } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import {
   DEFAULT_URL_PARAM_NAME,
   DataSearchWidget,
@@ -32,8 +32,6 @@ provideEditingConfig(DataSearchWidget, {
   properties: ['buttonColor', 'buttonLabel', 'placeholder', 'urlParamName'],
   initialContent: {
     buttonColor: 'btn-primary',
-    // What `margin: 'mb-3'` used to render.
-    design: new Design({ desktop: { marginBottom: '1rem' } }),
     placeholder: 'Search',
     urlParamName: DEFAULT_URL_PARAM_NAME,
   },

@@ -1,12 +1,19 @@
 import { ContentTag, provideComponent, WidgetTag } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
+import './BannerHeadlineWidget.scss'
 
 provideComponent(BannerHeadlineWidget, ({ widget }) => {
   const style = widget.get('style') || 'h2'
 
   return (
     <WidgetTag tag={tag(widget.get('level'), style)} className={style}>
-      <ContentTag design content={widget} attribute="headline" tag="span" />
+      <ContentTag
+        design
+        content={widget}
+        attribute="headline"
+        tag="span"
+        className="banner-headline-widget"
+      />
     </WidgetTag>
   )
 })

@@ -6,6 +6,8 @@ provideEditingConfig(ImageWidget, {
   title: 'Image',
   thumbnail: Thumbnail,
   attributes: {
+    // The design goes on the `<img>` itself, which is what `objectFit` needs.
+    design: { kind: 'replaced' },
     alignment: {
       title: 'Alignment',
       description: 'Default: Left',

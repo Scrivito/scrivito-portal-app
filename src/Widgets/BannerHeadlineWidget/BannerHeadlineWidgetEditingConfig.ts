@@ -1,4 +1,4 @@
-import { Design, provideEditingConfig } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { BannerHeadlineWidget } from './BannerHeadlineWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
@@ -6,6 +6,9 @@ provideEditingConfig(BannerHeadlineWidget, {
   title: 'Banner Headline',
   thumbnail: Thumbnail,
   attributes: {
+    // The design goes on a `<span>` around the headline, so that the plate hugs the text
+    // rather than spanning the banner. A size would be ignored there.
+    design: { kind: 'inline' },
     style: {
       title: 'Style',
       description: 'Default: Heading 2',
@@ -41,8 +44,6 @@ provideEditingConfig(BannerHeadlineWidget, {
   },
   properties: ['style', 'level'],
   initialContent: {
-    // What `backgroundColor: 'white'` used to render.
-    design: new Design({ desktop: { backgroundColor: '#ffffff' } }),
     headline: 'Headline',
     style: 'h2',
   },

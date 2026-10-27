@@ -4,6 +4,6 @@ export const DataColumnListWidget = provideWidgetClass('DataColumnListWidget', {
   attributes: {
     columnsCount: ['enum', { values: ['1', '2', '3', '4', '5', '6'] }],
     content: 'widgetlist',
-    design: ['design', { kind: 'container' }],
+    design: 'design',
   },
 })

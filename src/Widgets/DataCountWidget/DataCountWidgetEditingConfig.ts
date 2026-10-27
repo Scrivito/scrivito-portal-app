@@ -1,4 +1,4 @@
-import { Design, provideEditingConfig } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { DataCountWidget } from './DataCountWidgetClass'
 import thumbnail from './thumbnail.svg'
 
@@ -43,8 +43,6 @@ provideEditingConfig(DataCountWidget, {
     'style',
   ],
   initialContent: {
-    // What `margin: 'mb-2'` used to render.
-    design: new Design({ desktop: { marginBottom: '0.5rem' } }),
     headline: '__count__ items',
     headline0: 'No items',
     headline1: '1 item',

@@ -6,7 +6,7 @@ export const DataFormBooleanWidget = provideWidgetClass(
     attributes: {
       data: 'datalocator',
       defaultValue: 'boolean',
-      design: ['design', { kind: 'text' }],
+      design: 'design',
       helpText: 'html',
       offLabel: 'string',
       onLabel: 'string',

@@ -1,6 +1,5 @@
 import {
   canEdit,
-  Design,
   isComparisonActive,
   provideEditingConfig,
   Widget,
@@ -11,6 +10,11 @@ import {
 } from './ColumnContainerWidgetClass'
 import { ColumnsEditor } from './ColumnsEditor'
 import { ColumnWidget } from '../ColumnWidget/ColumnWidgetClass'
+import { AdvancedEnumEditor } from '../../Components/ScrivitoExtensions/AdvancedEnumEditor'
+import startSvg from './alignment-start.svg'
+import centerSvg from './alignment-center.svg'
+import endSvg from './alignment-end.svg'
+import stretchSvg from './alignment-stretch.svg'
 import Thumbnail from './thumbnail.svg'
 import { InvertedBooleanEditor } from '../../Components/ScrivitoExtensions/InvertedBooleanEditor'
 
@@ -19,20 +23,74 @@ provideEditingConfig(ColumnContainerWidget, {
   description: 'Arranges content side by side in up to 6 columns.',
   thumbnail: Thumbnail,
   attributes: {
+    alignment: {
+      title: 'Alignment',
+      description: 'Default: Top',
+    },
     columns: {
       title: 'Layout (desktop)',
     },
+    layoutMode: {
+      title: 'Display mode',
+      values: [
+        { value: 'grid', title: 'Grid' },
+        { value: 'flex', title: 'Flex' },
+      ],
+      description: 'Default: Grid',
+    },
+    disableGutters: {
+      title: 'Show gutters?',
+      description: 'Gutters are the spaces between columns in a layout.',
+    },
     disableResponsiveAdaption: {
       title: 'Responsive adaption?',
-      description: 'Whether the columns stack on a phone. Default: Yes',
     },
   },
   properties: [
+    'layoutMode',
     [
       'columns',
       {
         component: ({ widget }: { widget: Widget }) => (
           <ColumnsEditor widget={widget as ColumnContainerWidgetInstance} />
+        ),
+      },
+    ],
+    [
+      'alignment',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <AdvancedEnumEditor
+            attributeValue={widget.get('alignment')}
+            options={[
+              {
+                value: 'start',
+                title: 'Top',
+                icon: startSvg,
+              },
+              {
+                value: 'center',
+                title: 'Center',
+                icon: centerSvg,
+              },
+              {
+                value: 'end',
+                title: 'Bottom',
+                icon: endSvg,
+              },
+              {
+                value: 'stretch',
+                title: 'Stretch',
+                description:
+                  'Stretch only works with one box widget inside a column.',
+                icon: stretchSvg,
+              },
+            ]}
+            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            updateAttributeValue={(value: string) =>
+              widget.update({ alignment: value })
+            }
+          />
         ),
       },
     ],
@@ -50,14 +108,28 @@ provideEditingConfig(ColumnContainerWidget, {
         ),
       },
     ],
+    [
+      'disableGutters',
+      {
+        component: ({ widget }: { widget: Widget }) => (
+          <InvertedBooleanEditor
+            attributeValue={widget.get('disableGutters') === true}
+            readOnly={!canEdit(widget.obj()) || isComparisonActive()}
+            updateAttributeValue={(value) =>
+              widget.update({ disableGutters: value })
+            }
+          />
+        ),
+      },
+    ],
   ],
   initialContent: {
     columns: [
-      new ColumnWidget({ colSize: 4 }),
-      new ColumnWidget({ colSize: 4 }),
-      new ColumnWidget({ colSize: 4 }),
+      new ColumnWidget({ colSize: 4, flexGrow: true }),
+      new ColumnWidget({ colSize: 4, flexGrow: true }),
+      new ColumnWidget({ colSize: 4, flexGrow: true }),
     ],
-    // What the former alignment default `start` used to render.
-    design: new Design({ desktop: { alignItems: 'flex-start' } }),
+    alignment: 'start',
+    layoutMode: 'grid',
   },
 })

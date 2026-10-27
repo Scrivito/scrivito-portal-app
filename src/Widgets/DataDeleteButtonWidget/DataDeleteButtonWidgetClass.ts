@@ -22,7 +22,7 @@ export const DataDeleteButtonWidget = provideWidgetClass(
       cancelTitle: 'string',
       // The design goes on the button itself: padding, size, colors and corners are the
       // buttons own. `alignment` stays — it places the button in its row.
-      design: ['design', { kind: 'control' }],
+      design: 'design',
       confirmTitle: 'string',
       deletedMessage: 'string',
       redirectAfterDelete: 'reference',

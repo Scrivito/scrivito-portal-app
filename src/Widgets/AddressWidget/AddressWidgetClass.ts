@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const AddressWidget = provideWidgetClass('AddressWidget', {
   attributes: {
-    design: ['design', { kind: 'container' }],
+    design: 'design',
     showLogo: 'boolean',
 
     locationName: 'string',

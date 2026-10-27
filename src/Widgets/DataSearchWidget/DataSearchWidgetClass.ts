@@ -5,7 +5,7 @@ export const DataSearchWidget = provideWidgetClass('DataSearchWidget', {
     buttonColor: ['enum', { values: ['btn-primary', 'btn-secondary'] }],
     buttonLabel: 'string',
     // The margin used to be an enum of Bootstrap spacers.
-    design: ['design', { kind: 'container' }],
+    design: 'design',
     placeholder: 'string',
     urlParamName: 'string',
   },

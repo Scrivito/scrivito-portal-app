@@ -3,7 +3,7 @@ import { provideWidgetClass } from 'scrivito'
 export const DataCountWidget = provideWidgetClass('DataCountWidget', {
   attributes: {
     // Alignment and margin used to be enums of their own.
-    design: ['design', { kind: 'text' }],
+    design: 'design',
     headline: 'string',
     headline0: 'string',
     headline1: 'string',

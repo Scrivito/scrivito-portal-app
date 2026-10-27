@@ -3,7 +3,7 @@ import { provideWidgetClass } from 'scrivito'
 export const DataIconWidget = provideWidgetClass('DataIconWidget', {
   attributes: {
     alignment: ['enum', { values: ['left', 'center', 'right'] }],
-    design: ['design', { kind: 'inline' }],
+    design: 'design',
     conditions: ['widgetlist', { only: 'DataIconConditionWidget' }],
     data: 'datalocator',
     fallbackIcon: 'string',

@@ -1,4 +1,4 @@
-import { Design, provideEditingConfig } from 'scrivito'
+import { provideEditingConfig } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 import Thumbnail from './thumbnail.svg'
 
@@ -23,12 +23,8 @@ provideEditingConfig(SectionWidget, {
       ],
     },
   },
-  properties: ['containerWidth'],
+  properties: ['containerWidth', 'backgroundImage', 'backgroundAnimateOnHover'],
   initialContent: {
     containerWidth: 'fixed',
-    // What `showPadding: true` used to render.
-    design: new Design({
-      desktop: { paddingTop: '3rem', paddingBottom: '3rem' },
-    }),
   },
 })

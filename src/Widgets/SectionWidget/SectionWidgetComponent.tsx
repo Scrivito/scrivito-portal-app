@@ -2,6 +2,7 @@ import { provideComponent, ContentTag, WidgetTag } from 'scrivito'
 import { SectionWidget } from './SectionWidgetClass'
 import { ImageOrVideo, TogglePlayPauseRef } from '../../Components/ImageOrVideo'
 import { useRef } from 'react'
+import './SectionWidget.scss'
 
 provideComponent(SectionWidget, ({ widget }) => {
   const togglePlayPauseRef = useRef<TogglePlayPauseRef>(null)
@@ -18,6 +19,7 @@ provideComponent(SectionWidget, ({ widget }) => {
     <WidgetTag
       design
       tag="section"
+      className="section-widget"
       onClick={(e) => togglePlayPauseRef.current?.togglePlayPause(e)}
     >
       <ImageOrVideo

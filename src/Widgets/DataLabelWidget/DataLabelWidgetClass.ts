@@ -2,7 +2,7 @@ import { provideWidgetClass } from 'scrivito'
 
 export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
   attributes: {
-    design: ['design', { kind: 'text' }],
+    design: 'design',
     label: 'string',
     data: 'datalocator',
     details: 'string',
