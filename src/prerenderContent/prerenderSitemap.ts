@@ -35,7 +35,7 @@ function prerenderSitemapSearch(objClassesWhitelist: string[]) {
 }
 
 function pageToSitemapUrl(page: Scrivito.Obj): SitemapUrl {
-  const lastmod = formatDate(page.lastChanged())
+  const lastmod = formatDate(page.publishedAt())
 
   return {
     name: 'url',
