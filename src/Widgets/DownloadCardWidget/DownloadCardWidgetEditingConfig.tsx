@@ -6,6 +6,9 @@ import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 provideEditingConfig(DownloadCardWidget, {
   title: 'Download Card',
   thumbnail: Thumbnail,
+  attributes: {
+    cardDesign: { title: 'Card' },
+  },
   properties: [
     'link',
     [

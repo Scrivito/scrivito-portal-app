@@ -43,9 +43,10 @@ provideComponent(CardWidget, ({ widget }) => {
         <LinkOrNotTag link={widget.get('linkTo')}>
           <InPlaceEditingOff>
             <ImageTag
+              design={widget.get('imageDesign')}
               content={widget}
               attribute="image"
-              className="img-box img-h-200"
+              className="img-box"
               alt={alternativeTextForObj(widget.get('image'))}
             />
           </InPlaceEditingOff>

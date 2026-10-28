@@ -91,6 +91,7 @@ provideComponent(DataFormNumberWidget, ({ widget }) => {
           <i className="bi bi-dash-lg px-0 text-white" />
         </button>
         <input
+          {...designTagProps(widget.get('fieldDesign'))}
           className="form-control text-center no-arrows"
           defaultValue={defaultValue}
           id={id}

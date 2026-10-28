@@ -44,6 +44,7 @@ provideComponent(DataSearchWidget, ({ widget }) => {
       onSubmit={onSubmit}
     >
       <input
+        {...designTagProps(widget.get('fieldDesign'))}
         key={search}
         className="form-control"
         placeholder={placeholder}

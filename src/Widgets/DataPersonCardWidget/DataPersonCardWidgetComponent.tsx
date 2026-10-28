@@ -2,6 +2,7 @@ import {
   connect,
   ContentTag,
   DataItem,
+  Design,
   designTagProps,
   provideComponent,
   useData,
@@ -47,7 +48,11 @@ provideComponent(
           className="h6 text-uppercase"
         />
         {dataItems.map((dataItem) => (
-          <PersonCard dataItem={dataItem} key={dataItem.id()} />
+          <PersonCard
+            dataItem={dataItem}
+            design={widget.get('cardDesign')}
+            key={dataItem.id()}
+          />
         ))}
       </div>
     )
@@ -57,8 +62,10 @@ provideComponent(
 
 const PersonCard = connect(function PersonCard({
   dataItem,
+  design,
 }: {
   dataItem: DataItem
+  design: Design | null
 }) {
   const name = ensureString(dataItem.get('name'))
   const position = ensureString(dataItem.get('position'))
@@ -66,7 +73,10 @@ const PersonCard = connect(function PersonCard({
   const image = dataItem.get('image') || { url: personCircle }
 
   return (
-    <div className="card mb-2 bg-white max-width-350">
+    <div
+      {...designTagProps(design)}
+      className="card mb-2 bg-white max-width-350"
+    >
       <div className="card-body p-3">
         <div className="row">
           <div className="col-3 d-none d-xl-block">

@@ -6,6 +6,11 @@ provideEditingConfig(CardWidget, {
   title: 'Card',
   thumbnail: Thumbnail,
   attributes: {
+    imageDesign: {
+      title: 'Top image',
+      // The design goes on the `<img>` itself, which is what a height and a fit need.
+      kind: 'replaced',
+    },
     backgroundAnimateOnHover: {
       title: 'Animate background on hover?',
       description: 'Default: No',

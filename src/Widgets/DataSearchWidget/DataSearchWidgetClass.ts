@@ -6,6 +6,8 @@ export const DataSearchWidget = provideWidgetClass('DataSearchWidget', {
     buttonLabel: 'string',
     // The margin used to be an enum of Bootstrap spacers.
     design: 'design',
+    // The input is its own surface: the widget's design styles the group around it.
+    fieldDesign: 'design',
     placeholder: 'string',
     urlParamName: 'string',
   },

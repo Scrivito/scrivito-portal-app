@@ -64,6 +64,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
 
       {widget.get('type') === 'multi_line' ? (
         <textarea
+          {...designTagProps(widget.get('fieldDesign'))}
           className="form-control"
           id={id}
           name={attributeName ?? ''}
@@ -75,6 +76,7 @@ provideComponent(DataFormInputFieldWidget, ({ widget }) => {
         />
       ) : (
         <input
+          {...designTagProps(widget.get('fieldDesign'))}
           className="form-control"
           id={id}
           name={attributeName ?? ''}

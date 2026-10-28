@@ -6,6 +6,8 @@ export const DataFormInputFieldWidget = provideWidgetClass(
     attributes: {
       data: 'datalocator',
       design: 'design',
+      // The field itself, which the widget's design cannot reach: it styles the row.
+      fieldDesign: 'design',
       label: 'string',
       placeholder: 'string',
       required: 'boolean',
