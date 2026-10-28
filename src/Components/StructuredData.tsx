@@ -1,45 +1,62 @@
 import { useEffect } from 'react'
 import { connect, currentPage, Obj } from 'scrivito'
 import { buildJsonLd } from '../utils/buildJsonLd'
+import { buildOrganizationJsonLd } from '../utils/buildOrganizationJsonLd'
 
 const SCRIPT_ID = 'current-page-structured-data'
+const ORGANIZATION_SCRIPT_ID = 'organization-structured-data'
 
 export const StructuredData = connect(() => {
-  const json = currentJson()
-
-  useEffect(() => {
-    if (!json) {
-      // Drop a stale prerendered script that no current page owns
-      document.getElementById(SCRIPT_ID)?.remove()
-      return
-    }
-
-    const script = document.getElementById(SCRIPT_ID) ?? createScript()
-    script.textContent = json
-
-    return () => script.remove()
-  }, [json])
+  useJsonLdScript(SCRIPT_ID, currentJson())
 
   return null
 })
 
-export const StructuredDataHeadScript = connect(() => {
-  const json = currentJson()
+export const StructuredDataHeadScript = connect(() => (
+  <HeadScript id={SCRIPT_ID} json={currentJson()} />
+))
+
+export const OrganizationStructuredData = connect(() => {
+  useJsonLdScript(ORGANIZATION_SCRIPT_ID, organizationJson())
+
+  return null
+})
+
+export const OrganizationStructuredDataHeadScript = connect(() => (
+  <HeadScript id={ORGANIZATION_SCRIPT_ID} json={organizationJson()} />
+))
+
+function useJsonLdScript(id: string, json: string) {
+  useEffect(() => {
+    if (!json) {
+      // Drop a stale prerendered script that no current page owns
+      document.getElementById(id)?.remove()
+      return
+    }
+
+    const script = document.getElementById(id) ?? createScript(id)
+    script.textContent = json
+
+    return () => script.remove()
+  }, [id, json])
+}
+
+function HeadScript({ id, json }: { id: string; json: string }) {
   if (!json) return null
 
   return (
     <script
-      id={SCRIPT_ID}
+      id={id}
       type="application/ld+json"
       // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
       dangerouslySetInnerHTML={{ __html: json }}
     />
   )
-})
+}
 
-function createScript(): HTMLElement {
+function createScript(id: string): HTMLElement {
   const script = document.createElement('script')
-  script.id = SCRIPT_ID
+  script.id = id
   script.type = 'application/ld+json'
   document.head.appendChild(script)
 
@@ -50,14 +67,24 @@ function currentJson(): string {
   const page = currentPage()
   if (!page) return ''
 
-  // Escaping "<" keeps the JSON from terminating the script element (or the
-  // <head>, which the prerendering looks for) and is still valid JSON.
-  return stringifyJsonLd(page).replaceAll('<', '\\u003c')
+  return stringifyJsonLd(() => buildJsonLd(page))
 }
 
-function stringifyJsonLd(page: Obj): string {
+function organizationJson(): string {
+  const homepage = Obj.root()
+  if (!homepage) return ''
+
+  return stringifyJsonLd(() => buildOrganizationJsonLd(homepage))
+}
+
+function stringifyJsonLd(build: () => unknown): string {
   try {
-    return JSON.stringify(buildJsonLd(page), null, 2)
+    const data = build()
+    if (!data) return ''
+
+    // Escaping "<" keeps the JSON from terminating the script element (or the
+    // <head>, which the prerendering looks for) and is still valid JSON.
+    return JSON.stringify(data, null, 2).replaceAll('<', '\\u003c')
   } catch {
     return ''
   }

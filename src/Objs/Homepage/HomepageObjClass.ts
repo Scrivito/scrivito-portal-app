@@ -41,6 +41,8 @@ export const Homepage = provideObjClass('Homepage', {
     siteLanguageIcon: ['reference', { only: 'Image' }],
     siteLogoDark: ['reference', { only: 'Image' }],
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
+    siteOrganizationLogo: ['reference', { only: 'Image' }],
+    siteOrganizationStructuredData: 'string',
     siteRoundedCorners: 'boolean', // deprecated by siteBorderRadius
     siteSearchResultsPage: 'reference',
     siteSinglePage: 'reference',

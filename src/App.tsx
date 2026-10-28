@@ -1,6 +1,9 @@
 import { connect, currentLanguage, CurrentPage } from 'scrivito'
 
-import { StructuredData } from './Components/StructuredData'
+import {
+  OrganizationStructuredData,
+  StructuredData,
+} from './Components/StructuredData'
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
 import { Favicon } from './Components/Favicon'
@@ -25,6 +28,7 @@ export function App({
             <NotFoundErrorPage />
             <CurrentPageMetadata />
             <StructuredData />
+            <OrganizationStructuredData />
           </SinglePageSite>
         </DesignAdjustments>
         <Toasts />

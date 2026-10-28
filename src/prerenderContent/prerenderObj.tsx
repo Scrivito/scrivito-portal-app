@@ -1,6 +1,9 @@
 import * as ReactDOMServer from 'react-dom/server'
 import { App } from '../App'
-import { StructuredDataHeadScript } from '../Components/StructuredData'
+import {
+  OrganizationStructuredDataHeadScript,
+  StructuredDataHeadScript,
+} from '../Components/StructuredData'
 import { filenameFromUrl } from './filenameFromUrl'
 import { generateHtml } from './generateHtml'
 import { generatePreloadDumpScript } from './generatePreloadDumpScript'
@@ -18,6 +21,7 @@ export async function prerenderObj(
       <>
         <head>
           <StructuredDataHeadScript />
+          <OrganizationStructuredDataHeadScript />
         </head>
         <App />
       </>,

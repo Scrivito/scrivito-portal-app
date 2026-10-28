@@ -11,6 +11,13 @@ import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNaviga
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
+import { buildOrganizationJsonLd } from '../../utils/buildOrganizationJsonLd'
+import { ensureString } from '../../utils/ensureString'
+import { validateJsonLd } from '../../utils/validateStructuredData'
+import {
+  validateStructuredDataSource,
+  withIgnoredProperty,
+} from '../../utils/validateStructuredDataSource'
 import { jwtPisaSalesConfigSite } from '../../Data/jwtPisaSalesApiConfig'
 
 provideEditingConfig(Homepage, {
@@ -46,6 +53,17 @@ provideEditingConfig(Homepage, {
     },
     siteFavicon: {
       title: 'Favicon',
+    },
+    siteOrganizationStructuredData: {
+      options: { multiLine: true },
+      title: 'Organization structured data',
+      description:
+        'Describes the organization behind this site for search engines. Written as JSON in the schema.org format, e.g. {"@context": "https://schema.org", "@type": "Organization", "name": "…"}. Nothing is emitted if empty.',
+    },
+    siteOrganizationLogo: {
+      title: 'Organization logo',
+      description:
+        'Replaces the "logo" in the structured data. Should be at least 112x112 px and legible on a white background.',
     },
     siteBorderRadius: {
       title: 'Rounded corners',
@@ -156,6 +174,11 @@ provideEditingConfig(Homepage, {
       key: 'site-settings-group',
     },
     {
+      title: 'Organization',
+      properties: ['siteOrganizationStructuredData', 'siteOrganizationLogo'],
+      key: 'site-organization-group',
+    },
+    {
       title: 'Colors',
       properties: [
         'siteColorPrimary',
@@ -219,6 +242,25 @@ provideEditingConfig(Homepage, {
   },
   validations: [
     ...defaultPageValidations,
+    [
+      'siteOrganizationStructuredData',
+      (source: unknown, { obj }) => {
+        const json = ensureString(source)
+        if (!json.trim()) return
+
+        const sourceIssue = validateStructuredDataSource(json)
+        if (sourceIssue) return sourceIssue
+
+        const jsonLd = buildOrganizationJsonLd(obj)
+
+        return withIgnoredProperty(
+          json,
+          'logo',
+          'Organization logo',
+          jsonLd && validateJsonLd(jsonLd),
+        )
+      },
+    ],
     [
       '_language',
       (language: string | null, { obj }) => {
