@@ -11,13 +11,7 @@ import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNaviga
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
-import { buildOrganizationJsonLd } from '../../utils/buildOrganizationJsonLd'
-import { ensureString } from '../../utils/ensureString'
-import { validateJsonLd } from '../../utils/validateStructuredData'
-import {
-  validateStructuredDataSource,
-  withIgnoredProperty,
-} from '../../utils/validateStructuredDataSource'
+import { validateOrganizationStructuredData } from '../../utils/validateOrganizationStructuredData'
 import { jwtPisaSalesConfigSite } from '../../Data/jwtPisaSalesApiConfig'
 
 provideEditingConfig(Homepage, {
@@ -244,22 +238,8 @@ provideEditingConfig(Homepage, {
     ...defaultPageValidations,
     [
       'siteOrganizationStructuredData',
-      (source: unknown, { obj }) => {
-        const json = ensureString(source)
-        if (!json.trim()) return
-
-        const sourceIssue = validateStructuredDataSource(json)
-        if (sourceIssue) return sourceIssue
-
-        const jsonLd = buildOrganizationJsonLd(obj)
-
-        return withIgnoredProperty(
-          json,
-          'logo',
-          'Organization logo',
-          jsonLd && validateJsonLd(jsonLd),
-        )
-      },
+      (source: unknown, { obj }) =>
+        validateOrganizationStructuredData(source, obj),
     ],
     [
       '_language',
