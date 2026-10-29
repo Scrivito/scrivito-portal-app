@@ -1,6 +1,7 @@
 export function getJrPlatformConfig() {
   return {
     unstable: {
+      assetUrlBase: '/scrivito',
       initialContentDumpUrl:
         'https://v6-content.scrivito-portal-app.pages.dev/index.json',
       trustedUiOrigins: [
