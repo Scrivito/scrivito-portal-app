@@ -3,6 +3,7 @@ import { connect, currentLanguage, CurrentPage } from 'scrivito'
 import {
   OrganizationStructuredData,
   StructuredData,
+  WebSiteStructuredData,
 } from './Components/StructuredData'
 import { CurrentPageMetadata } from './Components/CurrentPageMetadata'
 import { ErrorBoundary } from './Components/ErrorBoundary'
@@ -29,6 +30,7 @@ export function App({
             <CurrentPageMetadata />
             <StructuredData />
             <OrganizationStructuredData />
+            <WebSiteStructuredData />
           </SinglePageSite>
         </DesignAdjustments>
         <Toasts />

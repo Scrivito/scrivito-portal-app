@@ -48,6 +48,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteSinglePage: 'reference',
     siteTwitterSite: 'string',
     siteUserProfilePage: 'reference',
+    siteWebSiteStructuredData: 'string',
   },
   extractTextAttributes: ['body'],
   onlyAsRoot: true,

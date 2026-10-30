@@ -2,9 +2,11 @@ import { useEffect } from 'react'
 import { connect, currentPage, Obj } from 'scrivito'
 import { buildJsonLd } from '../utils/buildJsonLd'
 import { buildOrganizationJsonLd } from '../utils/buildOrganizationJsonLd'
+import { buildWebSiteJsonLd } from '../utils/buildWebSiteJsonLd'
 
 const SCRIPT_ID = 'current-page-structured-data'
 const ORGANIZATION_SCRIPT_ID = 'organization-structured-data'
+const WEBSITE_SCRIPT_ID = 'website-structured-data'
 
 export const StructuredData = connect(() => {
   useJsonLdScript(SCRIPT_ID, currentJson())
@@ -24,6 +26,16 @@ export const OrganizationStructuredData = connect(() => {
 
 export const OrganizationStructuredDataHeadScript = connect(() => (
   <HeadScript id={ORGANIZATION_SCRIPT_ID} json={organizationJson()} />
+))
+
+export const WebSiteStructuredData = connect(() => {
+  useJsonLdScript(WEBSITE_SCRIPT_ID, webSiteJson())
+
+  return null
+})
+
+export const WebSiteStructuredDataHeadScript = connect(() => (
+  <HeadScript id={WEBSITE_SCRIPT_ID} json={webSiteJson()} />
 ))
 
 function useJsonLdScript(id: string, json: string) {
@@ -75,6 +87,13 @@ function organizationJson(): string {
   if (!homepage) return ''
 
   return stringifyJsonLd(() => buildOrganizationJsonLd(homepage))
+}
+
+function webSiteJson(): string {
+  const homepage = Obj.root()
+  if (!homepage) return ''
+
+  return stringifyJsonLd(() => buildWebSiteJsonLd(homepage))
 }
 
 function stringifyJsonLd(build: () => unknown): string {

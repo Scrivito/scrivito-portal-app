@@ -3,6 +3,7 @@ import { App } from '../App'
 import {
   OrganizationStructuredDataHeadScript,
   StructuredDataHeadScript,
+  WebSiteStructuredDataHeadScript,
 } from '../Components/StructuredData'
 import { filenameFromUrl } from './filenameFromUrl'
 import { generateHtml } from './generateHtml'
@@ -22,6 +23,7 @@ export async function prerenderObj(
         <head>
           <StructuredDataHeadScript />
           <OrganizationStructuredDataHeadScript />
+          <WebSiteStructuredDataHeadScript />
         </head>
         <App />
       </>,

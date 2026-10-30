@@ -12,6 +12,7 @@ import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
 import { validateOrganizationStructuredData } from '../../utils/validateOrganizationStructuredData'
+import { validateWebSiteStructuredData } from '../../utils/validateWebSiteStructuredData'
 import { jwtPisaSalesConfigSite } from '../../Data/jwtPisaSalesApiConfig'
 
 provideEditingConfig(Homepage, {
@@ -58,6 +59,12 @@ provideEditingConfig(Homepage, {
       title: 'Organization logo',
       description:
         'Replaces the "logo" in the structured data. Should be at least 112x112 px and legible on a white background.',
+    },
+    siteWebSiteStructuredData: {
+      options: { multiLine: true },
+      title: 'WebSite structured data',
+      description:
+        'Describes this site as a whole for search engines, e.g. to provide its name. Written as JSON in the schema.org format, e.g. {"@context": "https://schema.org", "@type": "WebSite", "name": "…"}. Nothing is emitted if empty.',
     },
     siteBorderRadius: {
       title: 'Rounded corners',
@@ -173,6 +180,11 @@ provideEditingConfig(Homepage, {
       key: 'site-organization-group',
     },
     {
+      title: 'WebSite',
+      properties: ['siteWebSiteStructuredData'],
+      key: 'site-website-group',
+    },
+    {
       title: 'Colors',
       properties: [
         'siteColorPrimary',
@@ -240,6 +252,10 @@ provideEditingConfig(Homepage, {
       'siteOrganizationStructuredData',
       (source: unknown, { obj }) =>
         validateOrganizationStructuredData(source, obj),
+    ],
+    [
+      'siteWebSiteStructuredData',
+      (source: unknown) => validateWebSiteStructuredData(source),
     ],
     [
       '_language',
