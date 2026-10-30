@@ -32,4 +32,12 @@
   &.aspect-ratio-10to16 {
     aspect-ratio: calc(10 / 16);
   }
+
+  &:fullscreen {
+    all: revert;
+  }
+
+  &:-webkit-full-screen {
+    all: revert;
+  }
 }
