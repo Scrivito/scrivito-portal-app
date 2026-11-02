@@ -120,6 +120,7 @@ function dumpManifest(objs: ManifestEntry[]) {
 }
 
 function ignorePerInstanceData(objData: ObjData): ObjData {
+  delete objData.jwt_pisa_sales_api_url
   delete objData.pisa_url
 
   return objData

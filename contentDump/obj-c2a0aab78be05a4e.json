@@ -130,10 +130,6 @@
     "string",
     "Homepage"
   ],
-  "jwt_pisa_sales_api_url": [
-    "string",
-    "https://web102.crm.pisasales.de/api"
-  ],
   "site_border_radius": [
     "string",
     "8.5px"
