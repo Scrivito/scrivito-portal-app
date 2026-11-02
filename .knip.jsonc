@@ -1,6 +1,5 @@
 {
   "entry": [
-    "src/scrivitoExtensions.tsx",
     "functions/auth/*.ts",
 
     // Workaround for https://github.com/webpro-nl/knip/issues/168
