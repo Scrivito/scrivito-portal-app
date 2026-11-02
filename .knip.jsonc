@@ -5,5 +5,5 @@
   "ignoreDependencies": [
     "@cloudflare/workers-types", // used by functions/*
   ],
-  "project": ["**/*.{js,ts,tsx}"],
+  "project": ["**/*.{js,ts,tsx,sass,scss}"],
 }
