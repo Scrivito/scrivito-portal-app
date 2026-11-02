@@ -1,5 +1,7 @@
 .video-widget {
-  object-fit: cover;
+  &:not(:fullscreen) {
+    object-fit: cover;
+  }
 
   &.aspect-ratio-21to9 {
     aspect-ratio: calc(21 / 9);
@@ -31,13 +33,5 @@
 
   &.aspect-ratio-10to16 {
     aspect-ratio: calc(10 / 16);
-  }
-
-  &:fullscreen {
-    all: revert;
-  }
-
-  &:-webkit-full-screen {
-    all: revert;
   }
 }
