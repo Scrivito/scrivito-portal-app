@@ -11,14 +11,18 @@ import { TopNavigationWidget } from '../../Widgets/TopNavigationWidget/TopNaviga
 import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
-import { validateOrganizationStructuredData } from '../../utils/validateOrganizationStructuredData'
-import { validateWebSiteStructuredData } from '../../utils/validateWebSiteStructuredData'
 import { jwtPisaSalesConfigSite } from '../../Data/jwtPisaSalesApiConfig'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
     ...defaultPageEditingConfigAttributes,
+    structuredData: {
+      options: { multiLine: true },
+      title: 'Structured data',
+      description:
+        'Describes the site and this page for search engines. Written as JSON in the schema.org format, with the nodes in a "@graph", e.g. {"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "…"}, {"@type": "WebSite", "name": "…"}]}. The first Organization and the first WebSite are used on all pages. The first of the other nodes describes this page.',
+    },
     contentDescription: {
       options: { multiLine: true },
       title: 'Site description',
@@ -49,22 +53,10 @@ provideEditingConfig(Homepage, {
     siteFavicon: {
       title: 'Favicon',
     },
-    siteOrganizationStructuredData: {
-      options: { multiLine: true },
-      title: 'Organization structured data',
-      description:
-        'Describes the organization behind this site for search engines. Written as JSON in the schema.org format, e.g. {"@context": "https://schema.org", "@type": "Organization", "name": "…"}. Nothing is emitted if empty.',
-    },
     siteOrganizationLogo: {
       title: 'Organization logo',
       description:
-        'Replaces the "logo" in the structured data. Should be at least 112x112 px and legible on a white background.',
-    },
-    siteWebSiteStructuredData: {
-      options: { multiLine: true },
-      title: 'WebSite structured data',
-      description:
-        'Describes this site as a whole for search engines, e.g. to provide its name. Written as JSON in the schema.org format, e.g. {"@context": "https://schema.org", "@type": "WebSite", "name": "…"}. Nothing is emitted if empty.',
+        'Replaces the "logo" of the Organization in the structured data. Should be at least 112x112 px and legible on a white background.',
     },
     siteBorderRadius: {
       title: 'Rounded corners',
@@ -175,14 +167,13 @@ provideEditingConfig(Homepage, {
       key: 'site-settings-group',
     },
     {
-      title: 'Organization',
-      properties: ['siteOrganizationStructuredData', 'siteOrganizationLogo'],
-      key: 'site-organization-group',
-    },
-    {
-      title: 'WebSite',
-      properties: ['siteWebSiteStructuredData'],
-      key: 'site-website-group',
+      title: 'Structured data',
+      properties: [
+        'structuredData',
+        'structuredDataImages',
+        'siteOrganizationLogo',
+      ],
+      key: 'site-structured-data-group',
     },
     {
       title: 'Colors',
@@ -248,15 +239,6 @@ provideEditingConfig(Homepage, {
   },
   validations: [
     ...defaultPageValidations,
-    [
-      'siteOrganizationStructuredData',
-      (source: unknown, { obj }) =>
-        validateOrganizationStructuredData(source, obj),
-    ],
-    [
-      'siteWebSiteStructuredData',
-      (source: unknown) => validateWebSiteStructuredData(source),
-    ],
     [
       '_language',
       (language: string | null, { obj }) => {

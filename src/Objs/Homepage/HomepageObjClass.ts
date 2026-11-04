@@ -42,13 +42,11 @@ export const Homepage = provideObjClass('Homepage', {
     siteLogoDark: ['reference', { only: 'Image' }],
     siteNotFound: ['widgetlist', { only: 'SectionWidget' }],
     siteOrganizationLogo: ['reference', { only: 'Image' }],
-    siteOrganizationStructuredData: 'string',
     siteRoundedCorners: 'boolean', // deprecated by siteBorderRadius
     siteSearchResultsPage: 'reference',
     siteSinglePage: 'reference',
     siteTwitterSite: 'string',
     siteUserProfilePage: 'reference',
-    siteWebSiteStructuredData: 'string',
   },
   extractTextAttributes: ['body'],
   onlyAsRoot: true,

@@ -1,7 +1,5 @@
 import { Obj } from 'scrivito'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
-import { buildJsonLd } from '../utils/buildJsonLd'
-import { ensureObject } from '../utils/ensureObject'
 import { ensureString } from '../utils/ensureString'
 import { validateStructuredData } from '../utils/validateStructuredData'
 import {
@@ -26,7 +24,7 @@ export const defaultPageEditingConfigAttributes = {
     options: { multiLine: true },
     title: 'Structured data',
     description:
-      'Describes this page for search engines, e.g. as an Article, Event or Product. Written as JSON in the schema.org format.',
+      'Describes this page for search engines, e.g. as an Article, Event or Product. Written as JSON in the schema.org format. Several entities can be combined in a "@graph". The first one describes the page.',
   },
   structuredDataImages: {
     title: 'Structured data images',
@@ -230,59 +228,7 @@ export const defaultPageValidations = [
   ],
   [
     'structuredData',
-
-    (structuredData: string, { obj }: { obj: Obj }) => {
-      if (!structuredData) return
-
-      let parsed: Record<string, unknown>
-      try {
-        parsed = buildJsonLd(obj)
-      } catch {
-        return {
-          message: 'Structured data must be valid JSON.',
-          severity: 'error',
-        }
-      }
-
-      if (structuredData.toLowerCase().includes('</script')) {
-        return {
-          message: 'Structured data must not contain "</script".',
-          severity: 'error',
-        }
-      }
-
-      const raw = ensureObject(JSON.parse(structuredData))
-      if (raw['@context'] !== 'https://schema.org') {
-        return {
-          message:
-            'Structured data must contain "@context" with the value "https://schema.org".',
-          severity: 'error',
-        }
-      }
-      if (typeof raw['@type'] !== 'string') {
-        return {
-          message: 'Structured data must contain "@type" with a string value.',
-          severity: 'error',
-        }
-      }
-      if (!raw['@type'].trim()) {
-        return {
-          message: 'The "@type" of the structured data must not be empty.',
-          severity: 'error',
-        }
-      }
-
-      const result = validateStructuredData(parsed, obj)
-      if (!('image' in raw)) return result
-
-      const imageMessage =
-        'The "image" property is ignored. Use "Structured data images" instead.'
-      if (!result) return { message: imageMessage, severity: 'warning' }
-
-      return {
-        message: `${imageMessage} ${result.message}`,
-        severity: result.severity === 'error' ? 'error' : 'warning',
-      }
-    },
+    (structuredData: string, { obj }: { obj: Obj }) =>
+      validateStructuredData(structuredData, obj),
   ],
 ] as const

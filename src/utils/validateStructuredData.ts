@@ -1,6 +1,12 @@
 import { Obj } from 'scrivito'
+import {
+  buildJsonLd,
+  splitStructuredData,
+  type StructuredDataNodes,
+} from './buildJsonLd'
 import { ensureObject } from './ensureObject'
 import { ensureString } from './ensureString'
+import { type JsonLdNode, parseJsonLdNodes } from './parseJsonLdNodes'
 import AggregateOffer from '@adobe/structured-data-validator/src/types/AggregateOffer.js'
 import AggregateRating from '@adobe/structured-data-validator/src/types/AggregateRating.js'
 import BaseValidator, {
@@ -110,31 +116,110 @@ const HANDLERS: Record<string, HandlerClass[]> = {
   VirtualLocation: [VirtualLocationValidator],
 }
 
-export function validateStructuredData(
-  jsonLd: Record<string, unknown>,
-  page: Obj,
-): { message: string; severity: Severity } | undefined {
-  const typeIssue = typeConsistencyIssue(jsonLd, page)
+type Result = { message: string; severity: Severity }
 
-  return summarizeIssues(
-    collectIssues(jsonLd, HANDLERS),
-    typeIssue ? [{ message: typeIssue, severity: 'warning' }] : [],
+export function validateStructuredData(
+  source: string,
+  page: Obj,
+): Result | undefined {
+  if (!source.trim()) return
+
+  let built: StructuredDataNodes
+  let raw: StructuredDataNodes
+  let root: Record<string, unknown>
+  try {
+    built = buildJsonLd(page)
+    raw = splitStructuredData(page)
+    root = ensureObject(JSON.parse(source))
+  } catch {
+    return { message: 'Structured data must be valid JSON.', severity: 'error' }
+  }
+
+  if (source.toLowerCase().includes('</script')) {
+    return {
+      message: 'Structured data must not contain "</script".',
+      severity: 'error',
+    }
+  }
+
+  if (root['@context'] !== 'https://schema.org') {
+    return {
+      message:
+        'Structured data must contain "@context" with the value "https://schema.org".',
+      severity: 'error',
+    }
+  }
+
+  const subject =
+    '@graph' in root ? 'Every node of "@graph"' : 'Structured data'
+  const nodes = parseJsonLdNodes(source)
+  if (nodes.some((node) => typeof node['@type'] !== 'string')) {
+    return {
+      message: `${subject} must contain "@type" with a string value.`,
+      severity: 'error',
+    }
+  }
+  if (nodes.some((node) => !ensureString(node['@type']).trim())) {
+    return {
+      message: `The "@type" of ${subject.toLowerCase()} must not be empty.`,
+      severity: 'error',
+    }
+  }
+
+  const typeIssue = typeConsistencyIssue(raw.page[0], page)
+  const extra: Result[] = [
+    ...(typeIssue
+      ? [{ message: typeIssue, severity: 'warning' as const }]
+      : []),
+    ...ignoredPropertyIssues(raw),
+  ]
+  const jsonLd = {
+    '@graph': [...built.page, built.organization, built.webSite].filter(
+      (node) => node !== undefined,
+    ),
+  }
+
+  return summarizeIssues(collectIssues(jsonLd, HANDLERS), extra)
+}
+
+// These properties are set from other attributes, so a value in the JSON would
+// be overwritten.
+function ignoredPropertyIssues({
+  page,
+  organization,
+  webSite,
+}: StructuredDataNodes): Result[] {
+  return [
+    page[0] &&
+      'image' in page[0] &&
+      'The "image" property of the page node is ignored. Use "Structured data images" instead.',
+    organization &&
+      'logo' in organization &&
+      'The "logo" property of the Organization is ignored. Use "Organization logo" instead.',
+    webSite &&
+      'url' in webSite &&
+      'The "url" property of the WebSite is ignored. The homepage URL is used.',
+    webSite &&
+      !ensureString(webSite.name).trim() &&
+      'The WebSite should contain a "name", which search engines use as the site name.',
+  ].flatMap((message) =>
+    message ? [{ message, severity: 'warning' as const }] : [],
   )
 }
 
 // The @type of a page should be the same in all of its language versions.
 function typeConsistencyIssue(
-  jsonLd: Record<string, unknown>,
+  main: JsonLdNode | undefined,
   page: Obj,
 ): string | undefined {
-  const types = typesLabel(jsonLd)
+  const types = typesLabel(main)
   if (!types) return
 
   const differences = page
     .versionsOnAllSites()
     .filter((version) => version.id() !== page.id())
     .flatMap((version) => {
-      const versionTypes = typesLabel(parseJsonLd(version))
+      const versionTypes = typesLabel(mainNode(version))
       return versionTypes && versionTypes !== types
         ? [`${version.language() ?? version.id()}: ${versionTypes}`]
         : []
@@ -144,14 +229,14 @@ function typeConsistencyIssue(
   return `The @type differs from other language versions (this page: ${types}; ${differences.join('; ')})`
 }
 
-function parseJsonLd(page: Obj): Record<string, unknown> {
+function mainNode(page: Obj): JsonLdNode | undefined {
   try {
-    return ensureObject(JSON.parse(ensureString(page.get('structuredData'))))
+    return splitStructuredData(page).page[0]
   } catch {
-    return {}
+    return
   }
 }
 
-function typesLabel(jsonLd: Record<string, unknown>): string {
-  return typeNames(jsonLd).sort().join(', ')
+function typesLabel(node: JsonLdNode | undefined): string {
+  return node ? typeNames(node).sort().join(', ') : ''
 }
