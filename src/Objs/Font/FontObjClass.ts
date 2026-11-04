@@ -8,6 +8,8 @@ export const Font = provideObjClass('Font', {
 })
 
 export type FontInstance = InstanceType<typeof Font>
-export function isFont(input: unknown): input is FontInstance {
+export function isFont(
+  input: unknown,
+): input is FontInstance & { objClass(): 'Font' } {
   return input instanceof Font
 }

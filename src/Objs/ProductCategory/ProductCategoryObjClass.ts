@@ -13,6 +13,6 @@ export type ProductCategoryInstance = InstanceType<typeof ProductCategory>
 
 export function isProductCategory(
   input: unknown,
-): input is ProductCategoryInstance {
+): input is ProductCategoryInstance & { objClass(): 'ProductCategory' } {
   return input instanceof ProductCategory
 }

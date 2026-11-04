@@ -10,6 +10,8 @@ export const Redirect = provideObjClass('Redirect', {
 
 export type RedirectInstance = InstanceType<typeof Redirect>
 
-export function isRedirect(input: unknown): input is RedirectInstance {
+export function isRedirect(
+  input: unknown,
+): input is RedirectInstance & { objClass(): 'Redirect' } {
   return input instanceof Redirect
 }

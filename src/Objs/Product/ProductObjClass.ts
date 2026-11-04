@@ -22,6 +22,8 @@ export const Product = provideObjClass('Product', {
 
 export type ProductInstance = InstanceType<typeof Product>
 
-export function isProduct(input: unknown): input is ProductInstance {
+export function isProduct(
+  input: unknown,
+): input is ProductInstance & { objClass(): 'Product' } {
   return input instanceof Product
 }
