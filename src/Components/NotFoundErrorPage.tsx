@@ -19,7 +19,7 @@ const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (isUserLoggedIn() && !currentSiteId() && isPortalAppContentMissing()) {
+    if (isUserLoggedIn() && !currentSiteId() && isDefaultSiteMissing()) {
       return <NotFound />
     }
 
@@ -48,7 +48,9 @@ const NotFound = connect(function NotFound() {
     }
   }, [])
 
-  if (isPortalAppContentMissing()) return <DefaultSiteMissing />
+  if (isEditorLoggedIn() && isDefaultSiteMissing()) {
+    return <DefaultSiteMissing />
+  }
 
   if (!root) {
     return (
@@ -91,9 +93,9 @@ const DefaultSiteMissing = connect(function DefaultSiteMissing() {
     <main id="main">
       <section className="py-1">
         <div className="container">
-          <h6>Portal App content is missing!</h6>
-          <div>The default site could not be found.</div>
-          {isEditorLoggedIn() && sites.length > 0 && (
+          <h6>Default site is missing!</h6>
+          <div>The default site of the Portal App could not be found.</div>
+          {sites.length > 0 && (
             <>
               <div className="mt-3">Available sites:</div>
               <ul>
@@ -113,7 +115,7 @@ const DefaultSiteMissing = connect(function DefaultSiteMissing() {
   )
 })
 
-function isPortalAppContentMissing(): boolean {
+function isDefaultSiteMissing(): boolean {
   return !defaultSiteVersions().toArray().length
 }
 
