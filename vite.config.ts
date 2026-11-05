@@ -52,7 +52,7 @@ export default defineConfig(({ mode }) => {
                 assetsUrl: 'https://*',
                 revision: HONEYBADGER_REVISION,
               })
-            : {},
+            : null,
         ],
         output: {
           codeSplitting: {
