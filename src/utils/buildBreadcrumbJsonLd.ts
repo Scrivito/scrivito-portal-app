@@ -5,8 +5,10 @@ import { objTitle } from './title'
 
 /**
  * The breadcrumb trail of the page, like the one of the breadcrumb widget, as
- * a JSON-LD document of its own. Google needs at least two items, so there is none for a page without
- * (visible) ancestors, e.g. the homepage.
+ * a JSON-LD document of its own. Google needs at least two items, so there is
+ * none for a page without (visible) ancestors, e.g. the homepage.
+ *
+ * Unlike the widget, it links dropdowns: their URL redirects to the first child.
  */
 export function buildBreadcrumbJsonLd(page: Obj): JsonLdNode | undefined {
   const trail = [...breadcrumbAncestors(page), page]
