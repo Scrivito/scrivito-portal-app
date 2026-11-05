@@ -98,7 +98,7 @@ const DefaultSiteMissing = connect(function DefaultSiteMissing() {
                 {sites.map((site) => (
                   <li key={site.id()}>
                     <LinkTag to={site}>
-                      {site.siteId()} ({site.language() ?? '-'})
+                      {ensureString(site.get('title')) || '-'} ({site.siteId()})
                     </LinkTag>
                   </li>
                 ))}
