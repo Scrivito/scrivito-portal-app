@@ -5,10 +5,12 @@ import {
   LinkTag,
   currentLanguage,
   currentSiteId,
+  isEditorLoggedIn,
   isUserLoggedIn,
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
+import { ensureString } from '../utils/ensureString'
 import { Loading } from './Loading'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
 
@@ -91,7 +93,7 @@ const DefaultSiteMissing = connect(function DefaultSiteMissing() {
         <div className="container">
           <h6>Portal App content is missing!</h6>
           <div>The default site could not be found.</div>
-          {sites.length > 0 && (
+          {isEditorLoggedIn() && sites.length > 0 && (
             <>
               <div className="mt-3">Available sites:</div>
               <ul>
