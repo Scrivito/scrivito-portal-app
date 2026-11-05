@@ -2,11 +2,10 @@ import { useEffect } from 'react'
 import {
   connect,
   ContentTag,
+  LinkTag,
   currentLanguage,
   currentSiteId,
-  isEditorLoggedIn,
   isUserLoggedIn,
-  load,
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
@@ -47,32 +46,7 @@ const NotFound = connect(function NotFound() {
     }
   }, [])
 
-  useEffect(() => {
-    beginEditingIfContentIsEmpty()
-
-    async function beginEditingIfContentIsEmpty() {
-      if (await load(() => isEditorLoggedIn())) return
-      if (await load(() => hasSomeContent())) return
-
-      location.href = `https://edit.scrivito.com/${location.href}`
-    }
-  }, [])
-
-  if (isPortalAppContentMissing() && hasSomeContent()) {
-    return (
-      <main id="main">
-        <section className="py-1">
-          <div className="container">
-            <h6>Portal App content is missing!</h6>
-            <div>
-              Your instance contains content, but the Portal App root object is
-              not available.
-            </div>
-          </div>
-        </section>
-      </main>
-    )
-  }
+  if (isPortalAppContentMissing()) return <DefaultSiteMissing />
 
   if (!root) {
     return (
@@ -105,12 +79,40 @@ const NotFound = connect(function NotFound() {
   )
 })
 
+const DefaultSiteMissing = connect(function DefaultSiteMissing() {
+  const sites = Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .andNot('_siteId', 'equals', null)
+    .toArray()
+
+  return (
+    <main id="main">
+      <section className="py-1">
+        <div className="container">
+          <h6>Portal App content is missing!</h6>
+          <div>The default site could not be found.</div>
+          {sites.length > 0 && (
+            <>
+              <div className="mt-3">Available sites:</div>
+              <ul>
+                {sites.map((site) => (
+                  <li key={site.id()}>
+                    <LinkTag to={site}>
+                      {site.siteId()} ({site.language() ?? '-'})
+                    </LinkTag>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      </section>
+    </main>
+  )
+})
+
 function isPortalAppContentMissing(): boolean {
   return !defaultSiteVersions().toArray().length
-}
-
-function hasSomeContent(): boolean {
-  return Obj.onAllSites().all().count() > 0
 }
 
 function localizePageNotFound(): string {

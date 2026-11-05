@@ -1,6 +1,7 @@
 import {
   currentSiteId,
   ensureUserIsLoggedIn,
+  isUserLoggedIn,
   load,
   Obj,
   urlFor,
@@ -12,6 +13,12 @@ export async function ensureSiteIsPresent() {
   if (await load(() => currentSiteId())) return
 
   if (await load(() => !defaultSiteVersions().toArray().length)) {
+    if (isUserLoggedIn() && window.self === window.top) {
+      window.location.assign(
+        `https://edit.scrivito.com/${window.location.href}`,
+      )
+    }
+
     ensureUserIsLoggedIn()
     return
   }
