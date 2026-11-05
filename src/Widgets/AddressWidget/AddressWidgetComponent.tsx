@@ -11,7 +11,6 @@ import {
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
-import { phoneNumberToTelUri } from '../../utils/phoneNumberToTelUri'
 
 provideComponent(AddressWidget, ({ widget }) => (
   <WidgetTag>
@@ -115,7 +114,7 @@ const Table = connect(function Table({
                 href={
                   name === 'email'
                     ? `mailto:${value}`
-                    : phoneNumberToTelUri(value)
+                    : `tel:${value.replace(/[^+\d]/g, '')}`
                 }
               />
             </td>
