@@ -1,17 +1,23 @@
 import { useEffect } from 'react'
 import { connect, currentPage, Obj } from 'scrivito'
+import { buildBreadcrumbJsonLd } from '../utils/buildBreadcrumbJsonLd'
 import { buildGraphJsonLd } from '../utils/buildGraphJsonLd'
 
 const SCRIPT_ID = 'current-page-structured-data'
+const BREADCRUMB_SCRIPT_ID = 'current-page-breadcrumb-structured-data'
 
 export const StructuredData = connect(() => {
   useJsonLdScript(SCRIPT_ID, currentJson())
+  useJsonLdScript(BREADCRUMB_SCRIPT_ID, currentBreadcrumbJson())
 
   return null
 })
 
 export const StructuredDataHeadScript = connect(() => (
-  <HeadScript id={SCRIPT_ID} json={currentJson()} />
+  <>
+    <HeadScript id={SCRIPT_ID} json={currentJson()} />
+    <HeadScript id={BREADCRUMB_SCRIPT_ID} json={currentBreadcrumbJson()} />
+  </>
 ))
 
 function useJsonLdScript(id: string, json: string) {
@@ -53,6 +59,14 @@ function createScript(id: string): HTMLElement {
 
 function currentJson(): string {
   return stringifyJsonLd(() => buildGraphJsonLd(currentPage(), Obj.root()))
+}
+
+function currentBreadcrumbJson(): string {
+  return stringifyJsonLd(() => {
+    const page = currentPage()
+
+    return page && buildBreadcrumbJsonLd(page)
+  })
 }
 
 function stringifyJsonLd(build: () => unknown): string {
