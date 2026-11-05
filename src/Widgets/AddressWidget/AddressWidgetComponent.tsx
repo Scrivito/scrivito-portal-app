@@ -11,6 +11,7 @@ import {
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
+import { phoneNumberToTelUri } from '../../utils/phoneNumberToTelUri'
 
 provideComponent(AddressWidget, ({ widget }) => (
   <WidgetTag>
@@ -111,7 +112,11 @@ const Table = connect(function Table({
                 tag="a"
                 content={widget}
                 attribute={name}
-                href={`${LINK_PREFIXES[name]}:${value}`}
+                href={
+                  name === 'email'
+                    ? `mailto:${value}`
+                    : phoneNumberToTelUri(value)
+                }
               />
             </td>
           </tr>
@@ -120,9 +125,3 @@ const Table = connect(function Table({
     </table>
   )
 })
-
-const LINK_PREFIXES = {
-  phone: 'tel',
-  fax: 'tel',
-  email: 'mailto',
-}
