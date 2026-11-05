@@ -1,5 +1,6 @@
 import { LinkTag, currentPage, provideComponent } from 'scrivito'
 import { BreadcrumbWidget } from './BreadcrumbWidgetClass'
+import { isDropdown } from '../../Objs/Dropdown/DropdownObjClass'
 import { breadcrumbAncestors } from '../../utils/breadcrumbAncestors'
 import { objTitle } from '../../utils/title'
 
@@ -14,7 +15,12 @@ provideComponent(BreadcrumbWidget, () => {
       <ol className="breadcrumb m-1">
         {breadcrumbItems.map((obj) => (
           <li className="breadcrumb-item" key={obj.id()}>
-            <LinkTag to={obj}>{objTitle(obj)}</LinkTag>
+            {/* A dropdown is no page of its own, so it is not linked here. */}
+            {isDropdown(obj) ? (
+              objTitle(obj)
+            ) : (
+              <LinkTag to={obj}>{objTitle(obj)}</LinkTag>
+            )}
           </li>
         ))}
         <li className="breadcrumb-item active">{objTitle(currentPageObj)}</li>
