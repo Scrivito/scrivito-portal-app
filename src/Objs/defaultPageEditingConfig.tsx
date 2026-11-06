@@ -20,17 +20,6 @@ export const defaultPageEditingConfigAttributes = {
     title: 'Should this page be indexed?',
     description: 'If not, search engines will ignore this page. Default: Yes',
   },
-  structuredData: {
-    options: { multiLine: true },
-    title: 'Structured data',
-    description:
-      'Describes this page for search engines, e.g. as an Article, Event or Product. Written as JSON in the schema.org format. Several entities can be combined in a "@graph". The first one describes the page.',
-  },
-  structuredDataImages: {
-    title: 'Structured data images',
-    description:
-      'Images that show what this page is about. They must also be visible on the page.',
-  },
   layoutMainBackgroundColor: {
     title: 'Background color',
     description:

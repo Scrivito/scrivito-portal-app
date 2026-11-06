@@ -17,12 +17,6 @@ provideEditingConfig(Homepage, {
   title: 'Homepage',
   attributes: {
     ...defaultPageEditingConfigAttributes,
-    structuredData: {
-      options: { multiLine: true },
-      title: 'Structured data',
-      description:
-        'Describes the site and this page for search engines. Written as JSON in the schema.org format, with the nodes in a "@graph", e.g. {"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "…"}, {"@type": "WebSite", "name": "…"}]}. The first Organization and the first WebSite are used on all pages. The first of the other nodes describes this page.',
-    },
     contentDescription: {
       options: { multiLine: true },
       title: 'Site description',
@@ -52,11 +46,6 @@ provideEditingConfig(Homepage, {
     },
     siteFavicon: {
       title: 'Favicon',
-    },
-    siteOrganizationLogo: {
-      title: 'Organization logo',
-      description:
-        'Replaces the "logo" of the Organization in the structured data. Should be at least 112x112 px and legible on a white background.',
     },
     siteBorderRadius: {
       title: 'Rounded corners',
@@ -165,15 +154,6 @@ provideEditingConfig(Homepage, {
         'siteSinglePage',
       ],
       key: 'site-settings-group',
-    },
-    {
-      title: 'Structured data',
-      properties: [
-        'structuredData',
-        'structuredDataImages',
-        'siteOrganizationLogo',
-      ],
-      key: 'site-structured-data-group',
     },
     {
       title: 'Colors',
