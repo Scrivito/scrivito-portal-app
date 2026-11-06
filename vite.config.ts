@@ -4,6 +4,7 @@ import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
 import type { Rollup } from 'vite'
 import react from '@vitejs/plugin-react'
+// @ts-expect-error The package ships no types, see https://github.com/honeybadger-io/honeybadger-js/pull/1693
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
 import {
