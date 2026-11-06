@@ -111,7 +111,11 @@ const Table = connect(function Table({
                 tag="a"
                 content={widget}
                 attribute={name}
-                href={`${LINK_PREFIXES[name]}:${value}`}
+                href={
+                  name === 'email'
+                    ? `mailto:${value}`
+                    : phoneNumberToTelUri(value)
+                }
               />
             </td>
           </tr>
@@ -121,8 +125,6 @@ const Table = connect(function Table({
   )
 })
 
-const LINK_PREFIXES = {
-  phone: 'tel',
-  fax: 'tel',
-  email: 'mailto',
+function phoneNumberToTelUri(phoneNumber: string): string {
+  return `tel:${phoneNumber.replace(/[^\w+().*#;=-]/g, '')}`
 }
