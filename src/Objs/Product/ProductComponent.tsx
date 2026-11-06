@@ -22,8 +22,6 @@ import {
 import { useCallback, useRef } from 'react'
 
 provideComponent(Product, ({ page }) => {
-  if (!isProduct(page)) return null // narrows `page` to `ProductInstance`
-
   const plainParameters = page
     .get('parameters')
     .filter(isProductParameterWidget)
@@ -62,7 +60,7 @@ provideComponent(Product, ({ page }) => {
                     tag="p"
                   />
 
-                  <CartActionButton product={page} />
+                  <CartActionButton product={page as ProductInstance} />
 
                   <ul className="nav nav-underline">
                     <li className="nav-item">
