@@ -11,7 +11,6 @@ import {
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
 import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
-import { phoneNumberToTelUri } from '../../utils/phoneNumberToTelUri'
 
 provideComponent(AddressWidget, ({ widget }) => (
   <WidgetTag>
@@ -125,3 +124,7 @@ const Table = connect(function Table({
     </table>
   )
 })
+
+function phoneNumberToTelUri(phoneNumber: string): string {
+  return `tel:${phoneNumber.replace(/[^\w+().*#;=-]/g, '')}`
+}
