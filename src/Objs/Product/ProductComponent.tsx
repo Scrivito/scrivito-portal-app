@@ -22,6 +22,8 @@ import {
 import { useCallback, useRef } from 'react'
 
 provideComponent(Product, ({ page }) => {
+  if (!isProduct(page)) return null // narrows `page` to `ProductInstance`
+
   const plainParameters = page
     .get('parameters')
     .filter(isProductParameterWidget)
