@@ -60,7 +60,7 @@ provideComponent(Product, ({ page }) => {
                     tag="p"
                   />
 
-                  <CartActionButton product={page} />
+                  <CartActionButton product={page as ProductInstance} />
 
                   <ul className="nav nav-underline">
                     <li className="nav-item">
