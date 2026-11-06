@@ -114,7 +114,7 @@ const Table = connect(function Table({
                 href={
                   name === 'email'
                     ? `mailto:${value}`
-                    : `tel:${value.replace(/[^+\d]/g, '')}`
+                    : phoneNumberToTelUri(value)
                 }
               />
             </td>
@@ -124,3 +124,7 @@ const Table = connect(function Table({
     </table>
   )
 })
+
+function phoneNumberToTelUri(phoneNumber: string): string {
+  return `tel:${phoneNumber.replace(/[^\w+().*#;=-]/g, '')}`
+}
