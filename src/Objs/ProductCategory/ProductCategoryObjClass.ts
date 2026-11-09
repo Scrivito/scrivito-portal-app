@@ -9,7 +9,9 @@ export const ProductCategory = provideObjClass('ProductCategory', {
   extractTextAttributes: ['description'],
 })
 
-export type ProductCategoryInstance = InstanceType<typeof ProductCategory>
+export type ProductCategoryInstance = InstanceType<typeof ProductCategory> & {
+  objClass(): 'ProductCategory'
+}
 
 export function isProductCategory(
   input: unknown,

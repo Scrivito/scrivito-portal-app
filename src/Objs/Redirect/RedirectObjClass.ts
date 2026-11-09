@@ -8,7 +8,9 @@ export const Redirect = provideObjClass('Redirect', {
   },
 })
 
-export type RedirectInstance = InstanceType<typeof Redirect>
+export type RedirectInstance = InstanceType<typeof Redirect> & {
+  objClass(): 'Redirect'
+}
 
 export function isRedirect(input: unknown): input is RedirectInstance {
   return input instanceof Redirect
