@@ -18,7 +18,7 @@ const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (isUserLoggedIn() && !currentSiteId() && isPortalAppContentMissing()) {
+    if (isUserLoggedIn() && !currentSiteId() && isDefaultSiteMissing()) {
       return <NotFound />
     }
 
@@ -58,7 +58,7 @@ const NotFound = connect(function NotFound() {
     }
   }, [])
 
-  if (isPortalAppContentMissing() && hasSomeContent()) {
+  if (isDefaultSiteMissing() && hasSomeContent()) {
     return (
       <main id="main">
         <section className="py-1">
@@ -105,7 +105,7 @@ const NotFound = connect(function NotFound() {
   )
 })
 
-function isPortalAppContentMissing(): boolean {
+function isDefaultSiteMissing(): boolean {
   return !defaultSiteVersions().toArray().length
 }
 
