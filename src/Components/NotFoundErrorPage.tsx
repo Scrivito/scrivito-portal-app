@@ -48,11 +48,12 @@ const NotFound = connect(function NotFound() {
   }, [])
 
   useEffect(() => {
-    beginEditingIfContentIsEmpty()
+    beginEditingIfDefaultSiteIsMissing()
 
-    async function beginEditingIfContentIsEmpty() {
+    async function beginEditingIfDefaultSiteIsMissing() {
       if (await load(() => isEditorLoggedIn())) return
-      if (await load(() => hasSomeContent())) return
+      if (await load(() => currentSiteId())) return
+      if (!(await load(() => isDefaultSiteMissing()))) return
 
       location.href = `https://edit.scrivito.com/${location.href}`
     }
