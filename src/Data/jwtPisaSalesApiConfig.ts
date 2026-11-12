@@ -1,5 +1,5 @@
-import type { ApiClientOptions, Obj } from 'scrivito'
-import { currentLanguage, load } from 'scrivito'
+import type { ApiClientOptions } from 'scrivito'
+import { currentLanguage, load, Obj } from 'scrivito'
 import { orderBy } from 'lodash-es'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { getTokenAuthorization } from './getTokenAuthorization'
@@ -37,11 +37,21 @@ export async function jwtPisaSalesApiAuth(): Promise<{
 }
 
 export function jwtPisaSalesConfigSite(): Obj | undefined {
-  return orderBy(defaultSiteVersions().toArray(), [
+  const defaultSites = defaultSiteVersions().toArray()
+
+  return orderBy(defaultSites.length ? defaultSites : portalAppSites(), [
     (site) => (site.language() === 'en' ? 0 : 1),
     (site) => site.createdAt(),
     (site) => site.id(),
   ])[0]
+}
+
+function portalAppSites(): Obj[] {
+  return Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .andNot('_siteId', 'equals', null)
+    .and('contentFormat', 'startsWith', 'portal-app:')
+    .toArray()
 }
 
 async function jwtPisaSalesApiUrl(): Promise<string | null> {
