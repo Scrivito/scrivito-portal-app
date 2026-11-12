@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
+import { groupBy } from 'lodash-es'
 import {
   connect,
   ContentTag,
+  LinkTag,
   currentLanguage,
   currentSiteId,
   isEditorLoggedIn,
@@ -10,6 +12,7 @@ import {
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
 } from 'scrivito'
+import { ensureString } from '../utils/ensureString'
 import { Loading } from './Loading'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
 
@@ -59,20 +62,8 @@ const NotFound = connect(function NotFound() {
     }
   }, [])
 
-  if (isDefaultSiteMissing() && hasSomeContent()) {
-    return (
-      <main id="main">
-        <section className="py-1">
-          <div className="container">
-            <h6>Portal App content is missing!</h6>
-            <div>
-              Your instance contains content, but the Portal App root object is
-              not available.
-            </div>
-          </div>
-        </section>
-      </main>
-    )
+  if (isEditorLoggedIn() && !currentSiteId() && isDefaultSiteMissing()) {
+    return <DefaultSiteMissing />
   }
 
   if (!root) {
@@ -103,6 +94,56 @@ const NotFound = connect(function NotFound() {
         <ContentTag tag="footer" content={root} attribute="layoutFooter" />
       )}
     </>
+  )
+})
+
+const DefaultSiteMissing = connect(function DefaultSiteMissing() {
+  const sites = Obj.onAllSites()
+    .where('_path', 'equals', '/')
+    .andNot('_siteId', 'equals', null)
+    .and('contentFormat', 'startsWith', 'portal-app:')
+    .toArray()
+
+  return (
+    <main id="main">
+      <section className="py-1">
+        <div className="container">
+          <h6>Default site is missing!</h6>
+          {sites.length === 0 && hasSomeContent() ? (
+            <div>
+              Your instance contains content, but none of it is a Portal App
+              site.
+            </div>
+          ) : (
+            <div>The default site of the Portal App could not be found.</div>
+          )}
+          {sites.length > 0 && (
+            <>
+              <div className="mt-3">Available sites:</div>
+              <ul>
+                {Object.entries(groupBy(sites, (site) => site.contentId())).map(
+                  ([contentId, versions]) => (
+                    <li key={contentId}>
+                      {contentId}:
+                      <ul>
+                        {versions.map((site) => (
+                          <li key={site.id()}>
+                            <LinkTag to={site}>
+                              {ensureString(site.get('title')) || '-'} (
+                              {site.language() || 'no language'})
+                            </LinkTag>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ),
+                )}
+              </ul>
+            </>
+          )}
+        </div>
+      </section>
+    </main>
   )
 })
 
