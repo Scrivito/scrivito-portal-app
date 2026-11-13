@@ -1,13 +1,14 @@
 import { Obj, urlFor } from 'scrivito'
-import { buildJsonLd } from './buildJsonLd'
+import { buildJsonLd, buildSiteJsonLd } from './buildJsonLd'
 import { isCreativeWork } from './isCreativeWork'
 import { type JsonLdNode } from './parseJsonLdNodes'
 
 const CONTEXT = 'https://schema.org'
 
 /**
- * Combines the structured data of the page and the homepage (the organization
- * and the website) into one `@graph` and links the nodes:
+ * Combines the structured data of the page and the site structured data of the
+ * homepage (the organization and the website) into one `@graph` and links the
+ * nodes:
  * - the website is published by the organization
  * - a page that is a creative work is part of the website and published by the
  *   organization
@@ -20,12 +21,10 @@ export function buildGraphJsonLd(
   homepage: Obj | null,
 ): JsonLdNode | undefined {
   const own = page && tryBuild(() => buildJsonLd(page))
-  const site =
-    homepage &&
-    (homepage.id() === page?.id() ? own : tryBuild(() => buildJsonLd(homepage)))
+  const site = homepage && tryBuild(() => buildSiteJsonLd(homepage))
   const organization = site?.organization
   const webSite = site?.webSite
-  const [main, ...others] = own?.page ?? []
+  const [main, ...others] = own ?? []
 
   const organizationId =
     homepage && organization && idOf(organization, homepage, 'organization')

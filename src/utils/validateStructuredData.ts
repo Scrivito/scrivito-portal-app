@@ -1,8 +1,9 @@
 import { Obj } from 'scrivito'
 import {
   buildJsonLd,
+  buildSiteJsonLd,
+  splitSiteStructuredData,
   splitStructuredData,
-  type StructuredDataNodes,
 } from './buildJsonLd'
 import { ensureObject } from './ensureObject'
 import { ensureString } from './ensureString'
@@ -122,14 +123,75 @@ export function validateStructuredData(
   source: string,
   page: Obj,
 ): Result | undefined {
+  const syntaxIssue = validateSyntax(source)
+  if (syntaxIssue) return syntaxIssue
   if (!source.trim()) return
 
-  let built: StructuredDataNodes
-  let raw: StructuredDataNodes
+  const raw = splitStructuredData(page)
+  const typeIssue = typeConsistencyIssue(raw[0], page)
+  const extra: Result[] = [
+    ...(typeIssue
+      ? [{ message: typeIssue, severity: 'warning' as const }]
+      : []),
+    ...warnings([
+      raw[0] &&
+        'image' in raw[0] &&
+        'The "image" property of the page node is ignored. Use "Structured data images" instead.',
+    ]),
+  ]
+
+  return summarizeIssues(
+    collectIssues({ '@graph': buildJsonLd(page) }, HANDLERS),
+    extra,
+  )
+}
+
+/** Validates the "siteStructuredData" of the homepage. */
+export function validateSiteStructuredData(
+  source: string,
+  homepage: Obj,
+): Result | undefined {
+  const syntaxIssue = validateSyntax(source)
+  if (syntaxIssue) return syntaxIssue
+  if (!source.trim()) return
+
+  const { organization, webSite, ignored } = splitSiteStructuredData(homepage)
+  const built = buildSiteJsonLd(homepage)
+  const extra = warnings([
+    !organization && !webSite && 'Add an Organization and/or a WebSite.',
+    ignored.length > 0 &&
+      'Only the first Organization and the first WebSite are used. All other nodes are ignored.',
+    organization &&
+      'logo' in organization &&
+      'The "logo" property of the Organization is ignored. Use "Organization logo" instead.',
+    webSite &&
+      'url' in webSite &&
+      'The "url" property of the WebSite is ignored. The homepage URL is used.',
+    webSite &&
+      !ensureString(webSite.name).trim() &&
+      'The WebSite should contain a "name", which search engines use as the site name.',
+  ])
+  const jsonLd = {
+    '@graph': [built.organization, built.webSite].filter(
+      (node) => node !== undefined,
+    ),
+  }
+
+  return summarizeIssues(collectIssues(jsonLd, HANDLERS), extra)
+}
+
+function warnings(messages: (string | false | undefined)[]): Result[] {
+  return messages.flatMap((message) =>
+    message ? [{ message, severity: 'warning' as const }] : [],
+  )
+}
+
+// The checks that all kinds of structured data have in common.
+function validateSyntax(source: string): Result | undefined {
+  if (!source.trim()) return
+
   let root: Record<string, unknown>
   try {
-    built = buildJsonLd(page)
-    raw = splitStructuredData(page)
     root = ensureObject(JSON.parse(source))
   } catch {
     return { message: 'Structured data must be valid JSON.', severity: 'error' }
@@ -165,46 +227,6 @@ export function validateStructuredData(
       severity: 'error',
     }
   }
-
-  const typeIssue = typeConsistencyIssue(raw.page[0], page)
-  const extra: Result[] = [
-    ...(typeIssue
-      ? [{ message: typeIssue, severity: 'warning' as const }]
-      : []),
-    ...ignoredPropertyIssues(raw),
-  ]
-  const jsonLd = {
-    '@graph': [...built.page, built.organization, built.webSite].filter(
-      (node) => node !== undefined,
-    ),
-  }
-
-  return summarizeIssues(collectIssues(jsonLd, HANDLERS), extra)
-}
-
-// These properties are set from other attributes, so a value in the JSON would
-// be overwritten.
-function ignoredPropertyIssues({
-  page,
-  organization,
-  webSite,
-}: StructuredDataNodes): Result[] {
-  return [
-    page[0] &&
-      'image' in page[0] &&
-      'The "image" property of the page node is ignored. Use "Structured data images" instead.',
-    organization &&
-      'logo' in organization &&
-      'The "logo" property of the Organization is ignored. Use "Organization logo" instead.',
-    webSite &&
-      'url' in webSite &&
-      'The "url" property of the WebSite is ignored. The homepage URL is used.',
-    webSite &&
-      !ensureString(webSite.name).trim() &&
-      'The WebSite should contain a "name", which search engines use as the site name.',
-  ].flatMap((message) =>
-    message ? [{ message, severity: 'warning' as const }] : [],
-  )
 }
 
 // The @type of a page should be the same in all of its language versions.
@@ -231,7 +253,7 @@ function typeConsistencyIssue(
 
 function mainNode(page: Obj): JsonLdNode | undefined {
   try {
-    return splitStructuredData(page).page[0]
+    return splitStructuredData(page)[0]
   } catch {
     return
   }

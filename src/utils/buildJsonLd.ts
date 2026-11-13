@@ -5,51 +5,71 @@ import { isCreativeWork } from './isCreativeWork'
 import { isOrganization } from './isOrganization'
 import { type JsonLdNode, parseJsonLdNodes } from './parseJsonLdNodes'
 
-export type StructuredDataNodes = {
-  /** The nodes that describe the page itself. The first one is the main node. */
-  page: JsonLdNode[]
-  /** Only set for the homepage: the Organization behind the whole site. */
+export type SiteNodes = {
+  /** The Organization behind the whole site. */
   organization?: JsonLdNode
-  /** Only set for the homepage: the WebSite as a whole. */
+  /** The WebSite as a whole. */
   webSite?: JsonLdNode
 }
 
 /**
- * Splits the "structuredData" of a page into its nodes. On the homepage, the
- * first Organization and the first WebSite describe the whole site. All other
- * nodes describe the page itself.
+ * Returns the nodes of the "structuredData" of a page. All of them describe the
+ * page itself. The first one is the main node.
  *
  * @throws {SyntaxError} if the JSON-LD is not valid JSON
  */
-export function splitStructuredData(page: Obj): StructuredDataNodes {
-  const nodes = parseJsonLdNodes(ensureString(page.get('structuredData')))
-  if (page.objClass() !== 'Homepage') return { page: nodes }
+export function splitStructuredData(page: Obj): JsonLdNode[] {
+  return parseJsonLdNodes(ensureString(page.get('structuredData')))
+}
 
+/**
+ * Returns the nodes of the "siteStructuredData" of the homepage. The first
+ * Organization and the first WebSite describe the whole site. All other nodes
+ * are ignored.
+ *
+ * @throws {SyntaxError} if the JSON-LD is not valid JSON
+ */
+export function splitSiteStructuredData(homepage: Obj): SiteNodes & {
+  ignored: JsonLdNode[]
+} {
+  const nodes = parseJsonLdNodes(
+    ensureString(homepage.get('siteStructuredData')),
+  )
   const organization = nodes.find((node) => isOrganization(node['@type']))
   const webSite = nodes.find((node) =>
     [node['@type']].flat().includes('WebSite'),
   )
 
   return {
-    page: nodes.filter((node) => node !== organization && node !== webSite),
     organization,
     webSite,
+    ignored: nodes.filter((node) => node !== organization && node !== webSite),
   }
 }
 
+/**
+ * Returns the nodes that describe the page itself. The first one is the main
+ * node.
+ *
+ * @throws {SyntaxError} if the JSON-LD is not valid JSON
+ */
+export function buildJsonLd(page: Obj): JsonLdNode[] {
+  const [main, ...others] = splitStructuredData(page)
+
+  return main ? [buildMainNode(page, main), ...others] : []
+}
+
 /** @throws {SyntaxError} if the JSON-LD is not valid JSON */
-export function buildJsonLd(page: Obj): StructuredDataNodes {
-  const { page: nodes, organization, webSite } = splitStructuredData(page)
-  const [main, ...others] = nodes
+export function buildSiteJsonLd(homepage: Obj): SiteNodes {
+  const { organization, webSite } = splitSiteStructuredData(homepage)
 
   return {
-    page: main ? [buildMainNode(page, main), ...others] : [],
     organization: organization && {
       ...organization,
-      url: urlFor(page),
-      logo: logoUrl(page.get('siteOrganizationLogo')),
+      url: urlFor(homepage),
+      logo: logoUrl(homepage.get('siteOrganizationLogo')),
     },
-    webSite: webSite && { ...webSite, url: urlFor(page) },
+    webSite: webSite && { ...webSite, url: urlFor(homepage) },
   }
 }
 

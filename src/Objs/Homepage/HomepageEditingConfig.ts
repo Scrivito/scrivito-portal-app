@@ -12,6 +12,7 @@ import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
 import { jwtPisaSalesConfigSite } from '../../Data/jwtPisaSalesApiConfig'
+import { validateSiteStructuredData } from '../../utils/validateStructuredData'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',
@@ -219,6 +220,11 @@ provideEditingConfig(Homepage, {
   },
   validations: [
     ...defaultPageValidations,
+    [
+      'siteStructuredData',
+      (siteStructuredData: string, { obj }) =>
+        validateSiteStructuredData(siteStructuredData, obj),
+    ],
     [
       '_language',
       (language: string | null, { obj }) => {

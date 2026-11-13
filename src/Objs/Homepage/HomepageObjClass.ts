@@ -45,6 +45,7 @@ export const Homepage = provideObjClass('Homepage', {
     siteRoundedCorners: 'boolean', // deprecated by siteBorderRadius
     siteSearchResultsPage: 'reference',
     siteSinglePage: 'reference',
+    siteStructuredData: 'string',
     siteTwitterSite: 'string',
     siteUserProfilePage: 'reference',
   },
