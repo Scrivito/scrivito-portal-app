@@ -48,10 +48,10 @@ provideEditingConfig(ColumnContainerWidget, {
       {
         component: ({
           widget,
-          readOnly = false,
+          readOnly,
         }: {
           widget: Widget
-          readOnly?: boolean
+          readOnly: boolean
         }) => (
           <ColumnsEditor
             widget={widget as ColumnContainerWidgetInstance}
@@ -65,10 +65,10 @@ provideEditingConfig(ColumnContainerWidget, {
       {
         component: ({
           widget,
-          readOnly = false,
+          readOnly,
         }: {
           widget: Widget
-          readOnly?: boolean
+          readOnly: boolean
         }) => (
           <AdvancedEnumEditor
             attributeValue={widget.get('alignment')}
@@ -109,10 +109,10 @@ provideEditingConfig(ColumnContainerWidget, {
       {
         component: ({
           widget,
-          readOnly = false,
+          readOnly,
         }: {
           widget: Widget
-          readOnly?: boolean
+          readOnly: boolean
         }) => (
           <InvertedBooleanEditor
             attributeValue={widget.get('disableResponsiveAdaption') === true}
@@ -129,10 +129,10 @@ provideEditingConfig(ColumnContainerWidget, {
       {
         component: ({
           widget,
-          readOnly = false,
+          readOnly,
         }: {
           widget: Widget
-          readOnly?: boolean
+          readOnly: boolean
         }) => (
           <InvertedBooleanEditor
             attributeValue={widget.get('disableGutters') === true}

@@ -9,10 +9,10 @@ type ObjectFitWidget = Widget<{
 
 export const ObjectFitEditor = connect(function ObjectFitEditor({
   widget,
-  readOnly = false,
+  readOnly,
 }: {
   widget: ObjectFitWidget
-  readOnly?: boolean
+  readOnly: boolean
 }) {
   return (
     <AdvancedEnumEditor
