@@ -1,15 +1,17 @@
 import { Obj, urlFor } from 'scrivito'
-import { ensureString } from './ensureString'
-import { hreflangAlternates } from './hreflangAlternates'
+import { ensureString, hreflangAlternates } from './helpers'
 import { isCreativeWork } from './isCreativeWork'
 import { isOrganization } from './isOrganization'
-import { type JsonLdNode, parseJsonLdNodes } from './parseJsonLdNodes'
+import {
+  type StructuredDataNode,
+  parseStructuredDataNodes,
+} from './parseStructuredDataNodes'
 
 export type SiteNodes = {
   /** The Organization behind the whole site. */
-  organization?: JsonLdNode
+  organization?: StructuredDataNode
   /** The WebSite as a whole. */
-  webSite?: JsonLdNode
+  webSite?: StructuredDataNode
 }
 
 /**
@@ -18,8 +20,8 @@ export type SiteNodes = {
  *
  * @throws {SyntaxError} if the JSON-LD is not valid JSON
  */
-export function splitStructuredData(page: Obj): JsonLdNode[] {
-  return parseJsonLdNodes(ensureString(page.get('structuredData')))
+export function splitStructuredData(page: Obj): StructuredDataNode[] {
+  return parseStructuredDataNodes(ensureString(page.get('structuredData')))
 }
 
 /**
@@ -30,9 +32,9 @@ export function splitStructuredData(page: Obj): JsonLdNode[] {
  * @throws {SyntaxError} if the JSON-LD is not valid JSON
  */
 export function splitSiteStructuredData(homepage: Obj): SiteNodes & {
-  ignored: JsonLdNode[]
+  ignored: StructuredDataNode[]
 } {
-  const nodes = parseJsonLdNodes(
+  const nodes = parseStructuredDataNodes(
     ensureString(homepage.get('siteStructuredData')),
   )
   const organization = nodes.find((node) => isOrganization(node['@type']))
@@ -53,14 +55,14 @@ export function splitSiteStructuredData(homepage: Obj): SiteNodes & {
  *
  * @throws {SyntaxError} if the JSON-LD is not valid JSON
  */
-export function buildJsonLd(page: Obj): JsonLdNode[] {
+export function buildStructuredData(page: Obj): StructuredDataNode[] {
   const [main, ...others] = splitStructuredData(page)
 
   return main ? [buildMainNode(page, main), ...others] : []
 }
 
 /** @throws {SyntaxError} if the JSON-LD is not valid JSON */
-export function buildSiteJsonLd(homepage: Obj): SiteNodes {
+export function buildSiteStructuredData(homepage: Obj): SiteNodes {
   const { organization, webSite } = splitSiteStructuredData(homepage)
 
   return {
@@ -73,8 +75,11 @@ export function buildSiteJsonLd(homepage: Obj): SiteNodes {
   }
 }
 
-function buildMainNode(page: Obj, node: JsonLdNode): JsonLdNode {
-  const record: JsonLdNode = {
+function buildMainNode(
+  page: Obj,
+  node: StructuredDataNode,
+): StructuredDataNode {
+  const record: StructuredDataNode = {
     ...node,
     url: urlFor(page),
     image: imageUrls(page),

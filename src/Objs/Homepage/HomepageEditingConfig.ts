@@ -12,7 +12,7 @@ import { SectionWidget } from '../../Widgets/SectionWidget/SectionWidgetClass'
 import { HeadlineWidget } from '../../Widgets/HeadlineWidget/HeadlineWidgetClass'
 import { TextWidget } from '../../Widgets/TextWidget/TextWidgetClass'
 import { jwtPisaSalesConfigSite } from '../../Data/jwtPisaSalesApiConfig'
-import { validateSiteStructuredData } from '../../utils/validateStructuredData'
+import { validateSiteStructuredData } from '../../structuredData'
 
 provideEditingConfig(Homepage, {
   title: 'Homepage',

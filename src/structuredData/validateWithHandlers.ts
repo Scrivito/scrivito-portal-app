@@ -13,12 +13,12 @@ const SEVERITY_RANK: Record<Severity, number> = {
   error: 2,
 }
 
-/** Runs the handlers registered for the `@type`s of all nodes of `jsonLd`. */
+/** Runs the handlers registered for the `@type`s of all nodes of `structuredData`. */
 export function collectIssues(
-  jsonLd: Record<string, unknown>,
+  structuredData: Record<string, unknown>,
   handlers: Record<string, HandlerClass[]>,
 ): StructuredDataIssue[] {
-  return rootItems(jsonLd).flatMap((item, index) =>
+  return rootItems(structuredData).flatMap((item, index) =>
     validateNode(item, [{ type: typeNames(item)[0], index }], handlers),
   )
 }
@@ -63,12 +63,14 @@ function issueSeverity(issue: StructuredDataIssue): Severity {
   return issue.issueMessage.endsWith('(optional)') ? 'info' : 'warning'
 }
 
-function rootItems(jsonLd: unknown): Record<string, unknown>[] {
-  if (Array.isArray(jsonLd)) return jsonLd.flatMap(rootItems)
-  if (!isRecord(jsonLd)) return []
-  if (Array.isArray(jsonLd['@graph'])) return rootItems(jsonLd['@graph'])
+function rootItems(structuredData: unknown): Record<string, unknown>[] {
+  if (Array.isArray(structuredData)) return structuredData.flatMap(rootItems)
+  if (!isRecord(structuredData)) return []
+  if (Array.isArray(structuredData['@graph'])) {
+    return rootItems(structuredData['@graph'])
+  }
 
-  return [jsonLd]
+  return [structuredData]
 }
 
 function validateNode(

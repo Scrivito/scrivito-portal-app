@@ -1,6 +1,6 @@
-import { ensureObject } from './ensureObject'
+import { ensureObject } from './helpers'
 
-export type JsonLdNode = Record<string, unknown>
+export type StructuredDataNode = Record<string, unknown>
 
 /**
  * Returns the nodes of a JSON-LD document: the entries of its "@graph", or the
@@ -8,7 +8,7 @@ export type JsonLdNode = Record<string, unknown>
  *
  * @throws {SyntaxError} if the JSON-LD is not valid JSON
  */
-export function parseJsonLdNodes(json: string): JsonLdNode[] {
+export function parseStructuredDataNodes(json: string): StructuredDataNode[] {
   if (!json.trim()) return []
 
   const root = ensureObject(JSON.parse(json))

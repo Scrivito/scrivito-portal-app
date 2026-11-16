@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
-import { connect, currentPage, Obj } from 'scrivito'
-import { buildBreadcrumbJsonLd } from '../utils/buildBreadcrumbJsonLd'
-import { buildGraphJsonLd } from '../utils/buildGraphJsonLd'
+import { connect, currentPage } from 'scrivito'
+import { buildBreadcrumbStructuredData } from '../utils/buildBreadcrumbStructuredData'
+import { currentStructuredData } from '../structuredData'
 
 const SCRIPT_ID = 'current-page-structured-data'
 const BREADCRUMB_SCRIPT_ID = 'current-page-breadcrumb-structured-data'
 
 export const StructuredData = connect(() => {
-  useJsonLdScript(SCRIPT_ID, currentJson())
-  useJsonLdScript(BREADCRUMB_SCRIPT_ID, currentBreadcrumbJson())
+  useStructuredDataScript(SCRIPT_ID, currentJson())
+  useStructuredDataScript(BREADCRUMB_SCRIPT_ID, currentBreadcrumbJson())
 
   return null
 })
@@ -20,7 +20,7 @@ export const StructuredDataHeadScript = connect(() => (
   </>
 ))
 
-function useJsonLdScript(id: string, json: string) {
+function useStructuredDataScript(id: string, json: string) {
   useEffect(() => {
     if (!json) {
       // Drop a stale prerendered script that no current page owns
@@ -58,18 +58,18 @@ function createScript(id: string): HTMLElement {
 }
 
 function currentJson(): string {
-  return stringifyJsonLd(() => buildGraphJsonLd(currentPage(), Obj.root()))
+  return stringifyStructuredData(currentStructuredData)
 }
 
 function currentBreadcrumbJson(): string {
-  return stringifyJsonLd(() => {
+  return stringifyStructuredData(() => {
     const page = currentPage()
 
-    return page && buildBreadcrumbJsonLd(page)
+    return page && buildBreadcrumbStructuredData(page)
   })
 }
 
-function stringifyJsonLd(build: () => unknown): string {
+function stringifyStructuredData(build: () => unknown): string {
   try {
     const data = build()
     if (!data) return ''

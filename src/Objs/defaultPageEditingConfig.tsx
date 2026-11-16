@@ -1,7 +1,7 @@
 import { Obj } from 'scrivito'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { ensureString } from '../utils/ensureString'
-import { validateStructuredData } from '../utils/validateStructuredData'
+import { validateStructuredData } from '../structuredData'
 import {
   TwitterPreview,
   FacebookPreview,

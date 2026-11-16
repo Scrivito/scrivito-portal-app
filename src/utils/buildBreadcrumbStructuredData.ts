@@ -1,6 +1,5 @@
 import { Obj, urlFor } from 'scrivito'
 import { breadcrumbAncestors } from './breadcrumbAncestors'
-import { type JsonLdNode } from './parseJsonLdNodes'
 import { objTitle } from './title'
 
 /**
@@ -10,7 +9,9 @@ import { objTitle } from './title'
  *
  * Unlike the widget, it links dropdowns: their URL redirects to the first child.
  */
-export function buildBreadcrumbJsonLd(page: Obj): JsonLdNode | undefined {
+export function buildBreadcrumbStructuredData(
+  page: Obj,
+): Record<string, unknown> | undefined {
   const trail = [...breadcrumbAncestors(page), page]
   if (trail.length < 2) return
 

@@ -1,13 +1,15 @@
 import { Obj } from 'scrivito'
 import {
-  buildJsonLd,
-  buildSiteJsonLd,
+  buildStructuredData,
+  buildSiteStructuredData,
   splitSiteStructuredData,
   splitStructuredData,
-} from './buildJsonLd'
-import { ensureObject } from './ensureObject'
-import { ensureString } from './ensureString'
-import { type JsonLdNode, parseJsonLdNodes } from './parseJsonLdNodes'
+} from './buildStructuredData'
+import { ensureObject, ensureString } from './helpers'
+import {
+  type StructuredDataNode,
+  parseStructuredDataNodes,
+} from './parseStructuredDataNodes'
 import AggregateOffer from '@adobe/structured-data-validator/src/types/AggregateOffer.js'
 import AggregateRating from '@adobe/structured-data-validator/src/types/AggregateRating.js'
 import BaseValidator, {
@@ -141,7 +143,7 @@ export function validateStructuredData(
   ]
 
   return summarizeIssues(
-    collectIssues({ '@graph': buildJsonLd(page) }, HANDLERS),
+    collectIssues({ '@graph': buildStructuredData(page) }, HANDLERS),
     extra,
   )
 }
@@ -156,7 +158,7 @@ export function validateSiteStructuredData(
   if (!source.trim()) return
 
   const { organization, webSite, ignored } = splitSiteStructuredData(homepage)
-  const built = buildSiteJsonLd(homepage)
+  const built = buildSiteStructuredData(homepage)
   const extra = warnings([
     !organization && !webSite && 'Add an Organization and/or a WebSite.',
     ignored.length > 0 &&
@@ -171,13 +173,13 @@ export function validateSiteStructuredData(
       !ensureString(webSite.name).trim() &&
       'The WebSite should contain a "name", which search engines use as the site name.',
   ])
-  const jsonLd = {
+  const structuredData = {
     '@graph': [built.organization, built.webSite].filter(
       (node) => node !== undefined,
     ),
   }
 
-  return summarizeIssues(collectIssues(jsonLd, HANDLERS), extra)
+  return summarizeIssues(collectIssues(structuredData, HANDLERS), extra)
 }
 
 function warnings(messages: (string | false | undefined)[]): Result[] {
@@ -214,7 +216,7 @@ function validateSyntax(source: string): Result | undefined {
 
   const subject =
     '@graph' in root ? 'Every node of "@graph"' : 'Structured data'
-  const nodes = parseJsonLdNodes(source)
+  const nodes = parseStructuredDataNodes(source)
   if (nodes.some((node) => typeof node['@type'] !== 'string')) {
     return {
       message: `${subject} must contain "@type" with a string value.`,
@@ -231,7 +233,7 @@ function validateSyntax(source: string): Result | undefined {
 
 // The @type of a page should be the same in all of its language versions.
 function typeConsistencyIssue(
-  main: JsonLdNode | undefined,
+  main: StructuredDataNode | undefined,
   page: Obj,
 ): string | undefined {
   const types = typesLabel(main)
@@ -251,7 +253,7 @@ function typeConsistencyIssue(
   return `The @type differs from other language versions (this page: ${types}; ${differences.join('; ')})`
 }
 
-function mainNode(page: Obj): JsonLdNode | undefined {
+function mainNode(page: Obj): StructuredDataNode | undefined {
   try {
     return splitStructuredData(page)[0]
   } catch {
@@ -259,6 +261,6 @@ function mainNode(page: Obj): JsonLdNode | undefined {
   }
 }
 
-function typesLabel(node: JsonLdNode | undefined): string {
+function typesLabel(node: StructuredDataNode | undefined): string {
   return node ? typeNames(node).sort().join(', ') : ''
 }
