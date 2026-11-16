@@ -201,6 +201,22 @@ provideEditingConfig(Homepage, {
     siteDropShadow: true,
     siteFontBodyWeight: '500',
     siteFontHeadlineWeight: '500',
+    siteNotFound: [
+      new SectionWidget({
+        backgroundColor: 'dark-grey',
+        content: [
+          new HeadlineWidget({
+            headline: 'Page not found',
+            level: 'h1',
+            margin: 'mb-2',
+            style: 'h1',
+          }),
+          new TextWidget({
+            text: '<p>The page you are looking for does not exist.</p>',
+          }),
+        ],
+      }),
+    ],
   },
   validations: [
     ...defaultPageValidations,
