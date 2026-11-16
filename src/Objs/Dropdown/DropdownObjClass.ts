@@ -9,7 +9,9 @@ export const Dropdown = provideObjClass('Dropdown', {
   },
 })
 
-export type DropdownInstance = InstanceType<typeof Dropdown>
+export type DropdownInstance = InstanceType<typeof Dropdown> & {
+  objClass(): 'Dropdown'
+}
 
 export function isDropdown(input: unknown): input is DropdownInstance {
   return input instanceof Dropdown

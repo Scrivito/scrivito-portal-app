@@ -9,7 +9,7 @@ import {
   ContentTag,
 } from 'scrivito'
 import { AddressWidget, AddressWidgetInstance } from './AddressWidgetClass'
-import { Homepage } from '../../Objs/Homepage/HomepageObjClass'
+import { isHomepage } from '../../Objs/Homepage/HomepageObjClass'
 import { alternativeTextForObj } from '../../utils/alternativeTextForObj'
 
 provideComponent(AddressWidget, ({ widget }) => (
@@ -23,8 +23,8 @@ provideComponent(AddressWidget, ({ widget }) => (
 ))
 
 const Logo = connect(() => {
-  const root: unknown = Obj.root()
-  if (!(root instanceof Homepage)) return null
+  const root = Obj.root()
+  if (!isHomepage(root)) return null
 
   const logo = root.get('siteLogoDark')
   if (!logo) return null
