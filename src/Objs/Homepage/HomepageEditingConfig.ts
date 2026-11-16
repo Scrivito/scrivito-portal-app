@@ -19,10 +19,12 @@ provideEditingConfig(Homepage, {
     ...defaultPageEditingConfigAttributes,
     contentDescription: {
       options: { multiLine: true },
-      title: 'Description',
+      title: 'Site description',
+      description: 'A short summary of what this site is about.',
     },
     contentThumbnail: {
-      title: 'Thumbnail',
+      title: 'Site thumbnail',
+      description: 'Image representing the site.',
     },
     contentTitle: {
       title: 'Site name',
@@ -132,6 +134,8 @@ provideEditingConfig(Homepage, {
       title: 'Site settings',
       properties: [
         'contentTitle',
+        'contentDescription',
+        'contentThumbnail',
         'baseUrl',
         ...(site.id() === jwtPisaSalesConfigSite()?.id()
           ? ['jwtPisaSalesApiUrl']
@@ -172,11 +176,6 @@ provideEditingConfig(Homepage, {
         'siteFontBodyWeight',
       ],
       key: 'site-fonts-group',
-    },
-    {
-      title: 'Template',
-      properties: ['contentDescription', 'contentThumbnail'],
-      key: 'template-group',
     },
   ],
   properties: [...defaultPageProperties],
