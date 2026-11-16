@@ -1,14 +1,10 @@
 export async function generateHtml(
   baseHtmlTemplate: string,
   data: {
-    bodyAttributes: string
     bodyContent: string
+    headContent: string
     htmlAttributes: string
-    link: string
-    meta: string
     preloadDumpScript: string
-    style: string
-    title: string
   },
 ): Promise<string> {
   return keys.reduce((html, key) => {
@@ -19,24 +15,16 @@ export async function generateHtml(
 }
 
 const replacements: Record<(typeof keys)[number], RegExp> = {
-  bodyAttributes: /data-body-attributes(="")?/,
   bodyContent:
     /\n *<!-- body-content start -->[^!]*<!-- body-content end -->\s*/,
+  headContent: /<!-- head-content -->/,
   htmlAttributes: /data-html-attributes(="")?/,
-  link: /<!-- link -->/,
-  meta: /<!-- meta -->/,
   preloadDumpScript: /<!-- preload-dump-script -->/,
-  style: /<!-- style -->/,
-  title: /<!-- title -->/,
 }
 
 const keys = [
-  'bodyAttributes',
   'bodyContent',
+  'headContent',
   'htmlAttributes',
-  'link',
-  'meta',
   'preloadDumpScript',
-  'style',
-  'title',
 ] as const

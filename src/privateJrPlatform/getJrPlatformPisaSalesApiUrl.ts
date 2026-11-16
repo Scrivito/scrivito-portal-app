@@ -1,9 +1,9 @@
 import { getInstanceId, load, provideDataClass } from 'scrivito'
 
 const InstanceConfigDataClass = provideDataClass({
-  restApi: 'https://api.justrelate.com/ams/instances',
+  restApi: 'https://api.justrelate.com/ams/instance-config',
   attributes: {
-    pisa_sales_api_url: 'unknown',
+    pisa_sales_api_url: 'string',
   },
 })
 
@@ -13,5 +13,5 @@ export async function getJrPlatformPisaSalesApiUrl(): Promise<string | null> {
   )
   if (!instanceConfig) return null
 
-  return instanceConfig.get('pisa_sales_api_url') as string | null
+  return (instanceConfig.get('pisa_sales_api_url') as string) || null
 }

@@ -1,5 +1,4 @@
 import * as ReactDOMServer from 'react-dom/server'
-import { type HelmetServerState } from '@dr.pogodin/react-helmet'
 import { App } from '../App'
 import { filenameFromUrl } from './filenameFromUrl'
 import { generateHtml } from './generateHtml'
@@ -14,24 +13,26 @@ export async function prerenderObj(
     result: { objUrl, ...data },
     preloadDump,
   } = await renderPage(obj, () => {
-    let helmet: HelmetServerState | undefined
-    const bodyContent = ReactDOMServer.renderToString(
-      <App
-        onServerState={(s) => {
-          helmet = s
-        }}
-      />,
+    const rawContent = ReactDOMServer.renderToString(
+      <>
+        <head />
+        <App />
+      </>,
     )
+    const headMatch = rawContent.match(/^<head>(.*?)<\/head>(.*)$/s)
+    const [, headContent, bodyContent] = headMatch ?? []
+    if (!headContent || !bodyContent) {
+      throw new Error(
+        'Prerendered output does not contain a <head>...</head> block at the start.',
+      )
+    }
 
     return {
-      bodyAttributes: helmet?.bodyAttributes.toString() || '',
       bodyContent,
-      htmlAttributes: helmet?.htmlAttributes.toString() || '',
-      link: helmet?.link.toString() || '',
-      meta: helmet?.meta.toString() || '',
+      headContent,
+      // The Web Builder backend ensures, that `obj.language()` is a valid lang attribute, so no escaping is needed
+      htmlAttributes: `lang="${obj.language() || 'en'}"`,
       objUrl: urlFor(obj),
-      style: helmet?.style.toString() || '',
-      title: helmet?.title.toString() || '',
     }
   })
 

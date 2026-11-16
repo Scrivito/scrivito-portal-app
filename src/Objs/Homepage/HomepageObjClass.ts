@@ -51,7 +51,9 @@ export const Homepage = provideObjClass('Homepage', {
   onlyAsRoot: true,
 })
 
-export type HomepageInstance = InstanceType<typeof Homepage>
+export type HomepageInstance = InstanceType<typeof Homepage> & {
+  objClass(): 'Homepage'
+}
 
 export function isHomepage(input: unknown): input is HomepageInstance {
   return input instanceof Homepage

@@ -8,7 +8,9 @@ export const Image = provideObjClass('Image', {
   },
 })
 
-export type ImageInstance = InstanceType<typeof Image>
+export type ImageInstance = InstanceType<typeof Image> & {
+  objClass(): 'Image'
+}
 
 export function isImage(input: unknown): input is ImageInstance {
   return input instanceof Image

@@ -19,9 +19,11 @@ provideEditingConfig(VimeoVideoWidget, {
       values: [
         { value: '21to9', title: 'CinemaScope (21:9)' },
         { value: '16to9', title: 'HD TV (16:9)' },
+        { value: '16to10', title: 'Widescreen (16:10)' },
         { value: '4to3', title: 'Traditional TV (4:3)' },
         { value: '1to1', title: 'Square (1:1)' },
         { value: '3to4', title: 'Portrait traditional TV (3:4)' },
+        { value: '10to16', title: 'Portrait widescreen (10:16)' },
         { value: '9to16', title: 'Portrait HD TV (9:16)' },
       ],
     },

@@ -1,7 +1,10 @@
 import { Obj } from 'scrivito'
-import { SocialCardsTab } from '../Components/ScrivitoExtensions/SocialCardsTab'
 import { ScrivitoBootstrapIconPicker } from '@justrelate/icon-picker'
 import { ensureString } from '../utils/ensureString'
+import {
+  TwitterPreview,
+  FacebookPreview,
+} from '../Components/ScrivitoExtensions/SocialCardPreviews'
 
 export const defaultPageEditingConfigAttributes = {
   title: {
@@ -54,6 +57,34 @@ export const defaultPageEditingConfigAttributes = {
     description:
       'The right sidebar will be displayed on this page and all its descendant pages.',
   },
+  tcCreator: {
+    title: 'X (Twitter) creator',
+    description: 'Username of the content creator. Start with @',
+  },
+  tcImage: {
+    title: 'X (Twitter) image',
+    description: 'Add or replace the image here.',
+  },
+  tcTitle: {
+    title: 'X (Twitter) title',
+  },
+  tcDescription: {
+    title: 'X (Twitter) description',
+    description: 'Limit to 200 characters',
+  },
+  ogTitle: {
+    title: 'Open Graph (Facebook) title',
+    description: 'Add a catchy title for the post.',
+  },
+  ogDescription: {
+    title: 'Open Graph (Facebook) description',
+    description:
+      'What is this post about and why would someone want to read it? Limit to 300 characters.',
+  },
+  ogImage: {
+    title: 'Open Graph (Facebook) image',
+    description: 'Add or replace the image here.',
+  },
 }
 
 export const defaultPageInitialContent = {
@@ -80,15 +111,24 @@ export const defaultPagePropertiesGroups = [
   },
   {
     title: 'Social cards',
-    component: SocialCardsTab,
     properties: [
-      'ogDescription',
+      {
+        key: 'facebook-preview',
+        component: FacebookPreview,
+        title: 'Open Graph (Facebook) preview',
+      },
       'ogImage',
       'ogTitle',
+      'ogDescription',
+      {
+        key: 'twitter-preview',
+        component: TwitterPreview,
+        title: 'X (Twitter) preview',
+      },
       'tcCreator',
-      'tcDescription',
       'tcImage',
       'tcTitle',
+      'tcDescription',
     ],
     key: 'social-cards-group',
   },
@@ -167,7 +207,8 @@ export const defaultPageValidations = [
     (ogDescription: unknown) => {
       if (ensureString(ogDescription).length > 300) {
         return {
-          message: 'The Facebook description should not exceed 300 characters.',
+          message:
+            'The Open Graph (Facebook) description should not exceed 300 characters.',
           severity: 'warning',
         }
       }

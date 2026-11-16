@@ -1,17 +1,18 @@
+import { createHash } from 'crypto'
 import dns from 'dns'
 import fs from 'fs'
 import { defineConfig, loadEnv } from 'vite'
 import type { Rollup } from 'vite'
 import react from '@vitejs/plugin-react'
+// @ts-expect-error The package ships no types, see https://github.com/honeybadger-io/honeybadger-js/pull/1693
 import honeybadgerRollupPlugin from '@honeybadger-io/rollup-plugin'
 import { resolve } from 'path'
-import sri from 'vite-plugin-sri-gen'
 import {
   DEV_CSP_NONCE,
   developmentHeaders,
   parseProductionHeadersFile,
   productionHeadersFile,
-} from './headers.config'
+} from './headers.config.ts'
 
 // Ensure, that vite prints "localhost" instead of 127.0.0.1
 // See https://vitejs.dev/config/server-options.html#server-host
@@ -39,8 +40,11 @@ export default defineConfig(({ mode }) => {
       outDir,
       rollupOptions: {
         input: {
-          main: resolve(__dirname, 'index.html'),
-          _scrivito_extensions: resolve(__dirname, '_scrivito_extensions.html'),
+          main: resolve(import.meta.dirname, 'index.html'),
+          _scrivito_extensions: resolve(
+            import.meta.dirname,
+            '_scrivito_extensions.html',
+          ),
         },
         plugins: [
           HONEYBADGER_API_KEY
@@ -49,14 +53,14 @@ export default defineConfig(({ mode }) => {
                 assetsUrl: 'https://*',
                 revision: HONEYBADGER_REVISION,
               })
-            : {},
+            : null,
         ],
         output: {
           codeSplitting: {
             groups: [
               {
                 name: 'react',
-                test: /node_modules\/(@dr\.pogodin\/react-helmet|react-bootstrap|react-dropzone|react-toastify)/,
+                test: /node_modules\/(react-bootstrap|react-dropzone|react-toastify)/,
               },
               {
                 name: 'scrivito',
@@ -67,6 +71,14 @@ export default defineConfig(({ mode }) => {
         },
       },
       sourcemap: !!HONEYBADGER_API_KEY,
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          loadPaths: ['src/assets/stylesheets/vendor'],
+          quietDeps: true,
+        },
+      },
     },
     define: {
       'import.meta.env.SCRIVITO_DEFAULT_CONTENT_ID': JSON.stringify(
@@ -95,11 +107,7 @@ export default defineConfig(({ mode }) => {
     optimizeDeps: {
       force: true,
     },
-    plugins: [
-      react(),
-      sri({ preloadDynamicChunks: false }),
-      writeProductionHeadersFile(outDir),
-    ],
+    plugins: [react(), writeProductionHeadersFile(outDir)],
     preview: {
       port: 8080,
       strictPort: true,
@@ -109,7 +117,7 @@ export default defineConfig(({ mode }) => {
       alias: {
         '@honeybadger-io/js': HONEYBADGER_API_KEY
           ? '@honeybadger-io/js'
-          : resolve(__dirname, 'src/honeybadgerStub.ts'),
+          : resolve(import.meta.dirname, 'src/honeybadgerStub.ts'),
       },
     },
     server: {
@@ -170,22 +178,29 @@ function writeProductionHeadersFile(outDir: string) {
     generateBundle: {
       order: 'post' as const,
       async handler(_options: unknown, bundle: Rollup.OutputBundle) {
-        const scriptHashes = Object.values(bundle)
-          .filter(
-            (item): item is Rollup.OutputAsset & { source: string } =>
-              item.type === 'asset' &&
-              item.fileName?.endsWith('.html') &&
-              typeof item.source === 'string',
-          )
-          .flatMap(({ source }) =>
-            Array.from(source.matchAll(/<script[^<>]+\bintegrity="([^"]+)"/g)),
-          )
-          .map(([, hash]) => hash)
-          .filter((hash): hash is string => typeof hash === 'string')
-          .map((hash) => `'${hash}'`)
+        const htmlAssets = Object.values(bundle).filter(
+          (item): item is Rollup.OutputAsset & { source: string } =>
+            item.type === 'asset' && typeof item.source === 'string',
+        )
+
+        const scriptHashes: string[] = []
+
+        for (const chunk of Object.values(bundle)) {
+          if (chunk.type !== 'chunk' || !chunk.isEntry) continue
+
+          const integrity = `sha384-${createHash('sha384').update(chunk.code).digest('base64')}`
+          scriptHashes.push(`'${integrity}'`)
+
+          for (const html of htmlAssets) {
+            html.source = html.source.replaceAll(
+              `src="/${chunk.fileName}"`,
+              `$& integrity="${integrity}"`,
+            )
+          }
+        }
 
         await fs.promises.writeFile(
-          resolve(__dirname, outDir, '_headers'),
+          resolve(import.meta.dirname, outDir, '_headers'),
           productionHeadersFile(scriptHashes),
         )
       },
@@ -194,7 +209,7 @@ function writeProductionHeadersFile(outDir: string) {
 }
 
 function readProductionHeadersFile(outDir: string) {
-  const headersPath = resolve(__dirname, outDir, '_headers')
+  const headersPath = resolve(import.meta.dirname, outDir, '_headers')
   if (!fs.existsSync(headersPath)) return {}
   const headersContent = fs.readFileSync(headersPath, 'utf-8')
   return parseProductionHeadersFile(headersContent)
