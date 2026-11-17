@@ -13,44 +13,31 @@ const CONTEXT = 'https://schema.org'
 /**
  * Returns the structured data of the current page, or `null` if there is none.
  *
- * The result is a schema.org JSON-LD document with a single `@graph`. It
- * consists of the nodes of the page's own structured data, a
- * {@link https://schema.org/BreadcrumbList | BreadcrumbList} for the page, and
- * the Organization and WebSite of the site. Each of them is only included if it
- * is available.
+ * The result is a schema.org JSON-LD document with a single `@graph`: the
+ * nodes of the page, a
+ * {@link https://schema.org/BreadcrumbList | BreadcrumbList}, and the
+ * {@link https://schema.org/Organization | Organization} and
+ * {@link https://schema.org/WebSite | WebSite} of the site. Each of them is
+ * only included if it is available.
  *
  * Sources, by attribute name:
  * - `structuredData` (every page): the nodes that describe the page. The first
- *   node is the main node. Its `url` is set from the page. Its `image` is set
- *   from `structuredDataImages`.
- * - `siteStructuredData` (homepage, i.e. `Obj.root()`): the site-wide nodes.
- *   The first {@link https://schema.org/Organization | Organization} and the
- *   first {@link https://schema.org/WebSite | WebSite} are used, all others
- *   are ignored. Their `url` is the homepage URL. The Organization's `logo` is
- *   set from `siteOrganizationLogo`.
+ *   one describes the page itself (the "main node").
+ * - `structuredDataImages` (every page): the images of the main node.
+ * - `siteStructuredData` (on `Obj.root()`): the site-wide nodes.
+ *   The first Organization and the first WebSite are used, all others are
+ *   ignored.
+ * - `siteOrganizationLogo` (on `Obj.root()`): the logo of the Organization.
  *
- * The nodes are linked by `@id`:
- * - The WebSite is published by the Organization.
- * - A main node that is a {@link https://schema.org/CreativeWork | CreativeWork}
- *   is part of the WebSite and published by the Organization. A main node that
- *   is a {@link https://schema.org/WebPage | WebPage} references the
- *   breadcrumb.
+ * The main node is completed with what the Obj knows about the page, such as
+ * its dates and language versions.
  *
- * For a CreativeWork, the Obj also provides
- * {@link https://schema.org/datePublished | datePublished} and
- * {@link https://schema.org/inLanguage | inLanguage} (if the editor has not
- * set them), as well as {@link https://schema.org/dateModified | dateModified}
- * and {@link https://schema.org/workTranslation | workTranslation} (the other
- * language versions, on all sites).
+ * The breadcrumb ends with the current page, and its items are named by their
+ * `title`. A page without ancestors, such as the root, has none.
  *
  * @param breadcrumbAncestors The ancestors of the current page that make up
- * its breadcrumb, from the root down to the parent. They are followed by the
- * current page and become a
- * {@link https://schema.org/BreadcrumbList | BreadcrumbList} node. Defaults to
- * all ancestors (`page.ancestors()`). Pass an empty array for no breadcrumb.
- * Items without a `title` are left out, and a page without a `title` has no
- * breadcrumb. A page without ancestors, such as the homepage, has none either,
- * because a breadcrumb needs at least two items.
+ * its breadcrumb, from the root down to the parent. Defaults to
+ * `currentPage().ancestors()`. Pass an empty array for no breadcrumb.
  */
 export function currentStructuredData(
   breadcrumbAncestors?: Array<Obj | null>,
