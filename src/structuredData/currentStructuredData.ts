@@ -11,7 +11,8 @@ import { type StructuredDataNode } from './parseStructuredDataNodes'
 const CONTEXT = 'https://schema.org'
 
 /**
- * Returns the structured data of the current page, or `null` if there is none.
+ * Returns the structured data of the current page and the site, or `null` if
+ * there is no current page or no structured data at all.
  *
  * The result is a schema.org JSON-LD document with a single `@graph`: the
  * nodes of the page, a
@@ -50,17 +51,19 @@ export function currentStructuredData({
   breadcrumbAncestors?: Array<Obj | null>
 } = {}): Record<string, unknown> | null {
   const page = currentPage()
+  if (!page) return null
+
   const homepage = Obj.root()
-  const own = page && tryBuild(() => buildStructuredData(page))
+  const own = tryBuild(() => buildStructuredData(page))
   const site = homepage && tryBuild(() => buildSiteStructuredData(homepage))
   const organization = site?.organization
   const webSite = site?.webSite
   const [main, ...others] = own ?? []
-  const breadcrumbList = page && buildBreadcrumbList(page, breadcrumbAncestors)
+  const breadcrumbList = buildBreadcrumbList(page, breadcrumbAncestors)
 
   const organizationId =
     homepage && organization && idOf(organization, homepage, 'organization')
-  const breadcrumbId = page && breadcrumbList && `${urlFor(page)}#breadcrumb`
+  const breadcrumbId = breadcrumbList && `${urlFor(page)}#breadcrumb`
   const webSiteId = homepage && webSite && idOf(webSite, homepage, 'website')
 
   const nodes = [
