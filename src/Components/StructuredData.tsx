@@ -1,23 +1,18 @@
 import { useEffect } from 'react'
 import { connect, currentPage } from 'scrivito'
-import { buildBreadcrumbStructuredData } from '../utils/buildBreadcrumbStructuredData'
+import { breadcrumbAncestors } from '../utils/breadcrumbAncestors'
 import { currentStructuredData } from '../structuredData'
 
 const SCRIPT_ID = 'current-page-structured-data'
-const BREADCRUMB_SCRIPT_ID = 'current-page-breadcrumb-structured-data'
 
 export const StructuredData = connect(() => {
   useStructuredDataScript(SCRIPT_ID, currentJson())
-  useStructuredDataScript(BREADCRUMB_SCRIPT_ID, currentBreadcrumbJson())
 
   return null
 })
 
 export const StructuredDataHeadScript = connect(() => (
-  <>
-    <HeadScript id={SCRIPT_ID} json={currentJson()} />
-    <HeadScript id={BREADCRUMB_SCRIPT_ID} json={currentBreadcrumbJson()} />
-  </>
+  <HeadScript id={SCRIPT_ID} json={currentJson()} />
 ))
 
 function useStructuredDataScript(id: string, json: string) {
@@ -58,22 +53,13 @@ function createScript(id: string): HTMLElement {
 }
 
 function currentJson(): string {
-  return stringifyStructuredData(currentStructuredData)
-}
+  const page = currentPage()
+  if (!page) return ''
 
-function currentBreadcrumbJson(): string {
-  return stringifyStructuredData(() => {
-    const page = currentPage()
+  const data = currentStructuredData(breadcrumbAncestors(page))
+  if (!data) return ''
 
-    return page && buildBreadcrumbStructuredData(page)
-  })
-}
-
-function stringifyStructuredData(build: () => unknown): string {
   try {
-    const data = build()
-    if (!data) return ''
-
     // Escaping "<" keeps the JSON from terminating the script element (or the
     // <head>, which the prerendering looks for) and is still valid JSON.
     return JSON.stringify(data, null, 2).replaceAll('<', '\\u003c')

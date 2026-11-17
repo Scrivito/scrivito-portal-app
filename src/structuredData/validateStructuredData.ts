@@ -223,6 +223,13 @@ function validateSyntax(source: string): Result | undefined {
       severity: 'error',
     }
   }
+  if (nodes.some((node) => node['@type'] === 'BreadcrumbList')) {
+    return {
+      message:
+        'Structured data must not contain a "BreadcrumbList". It is generated from the position of the page in the navigation.',
+      severity: 'error',
+    }
+  }
   if (nodes.some((node) => !ensureString(node['@type']).trim())) {
     return {
       message: `The "@type" of ${subject.toLowerCase()} must not be empty.`,
