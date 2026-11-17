@@ -20,6 +20,10 @@ const CONTEXT = 'https://schema.org'
  * {@link https://schema.org/WebSite | WebSite} of the site. Each of them is
  * only included if it is available.
  *
+ * It is meant to be embedded as `JSON.stringify(result)` in a
+ * `<script type="application/ld+json">` tag. Escaping `<` as `\u003c` keeps
+ * the JSON from ending that tag early.
+ *
  * Sources, by attribute name:
  * - `structuredData` (every page): the nodes that describe the page. The first
  *   one describes the page itself (the "main node").
@@ -38,6 +42,7 @@ const CONTEXT = 'https://schema.org'
  * @param options.breadcrumbAncestors The ancestors of the current page that
  * make up its breadcrumb, from the root down to the parent. Defaults to
  * `currentPage().ancestors()`. Pass an empty array for no breadcrumb.
+ * Should match the visible breadcrumb. Entries that are `null` are skipped.
  */
 export function currentStructuredData({
   breadcrumbAncestors,
