@@ -56,7 +56,9 @@ function currentJson(): string {
   const page = currentPage()
   if (!page) return ''
 
-  const data = currentStructuredData(breadcrumbAncestors(page))
+  const data = currentStructuredData({
+    breadcrumbAncestors: breadcrumbAncestors(page),
+  })
   if (!data) return ''
 
   try {

@@ -35,13 +35,15 @@ const CONTEXT = 'https://schema.org'
  * The breadcrumb ends with the current page, and its items are named by their
  * `title`. A page without ancestors, such as the root, has none.
  *
- * @param breadcrumbAncestors The ancestors of the current page that make up
- * its breadcrumb, from the root down to the parent. Defaults to
+ * @param options.breadcrumbAncestors The ancestors of the current page that
+ * make up its breadcrumb, from the root down to the parent. Defaults to
  * `currentPage().ancestors()`. Pass an empty array for no breadcrumb.
  */
-export function currentStructuredData(
-  breadcrumbAncestors?: Array<Obj | null>,
-): Record<string, unknown> | null {
+export function currentStructuredData({
+  breadcrumbAncestors,
+}: {
+  breadcrumbAncestors?: Array<Obj | null>
+} = {}): Record<string, unknown> | null {
   const page = currentPage()
   const homepage = Obj.root()
   const own = page && tryBuild(() => buildStructuredData(page))
