@@ -12,7 +12,11 @@ const CONTEXT = 'https://schema.org'
 
 /**
  * Returns the structured data of the current page and the site, or `null` if
- * there is no current page or no structured data at all.
+ * there is no current page or no structured data at all. Structured data that
+ * is not valid JSON is ignored.
+ *
+ * This function is reactive, so it works inside `connect` and `load`. Outside
+ * of them, it throws if content is not yet loaded.
  *
  * The result is a schema.org JSON-LD document with a single `@graph`: the
  * nodes of the page, a
@@ -53,12 +57,8 @@ export function currentStructuredData(options?: {
   return graph && serialize(graph)
 }
 
-function serialize(graph: Record<string, unknown>): string | null {
-  try {
-    return JSON.stringify(graph, null, 2).replaceAll('<', '\\u003c')
-  } catch {
-    return null
-  }
+function serialize(graph: Record<string, unknown>): string {
+  return JSON.stringify(graph, null, 2).replaceAll('<', '\\u003c')
 }
 
 function buildGraph(
@@ -138,11 +138,15 @@ function titleOf(obj: Obj): string {
   return ensureString(obj.get('title')).trim()
 }
 
+// Invalid JSON from the editor is ignored. Any other error is rethrown, in
+// particular Scrivito's "content not yet loaded" error, which must not be
+// swallowed.
 function tryBuild<T>(build: () => T): T | undefined {
   try {
     return build()
-  } catch {
-    return
+  } catch (error) {
+    if (error instanceof SyntaxError) return
+    throw error
   }
 }
 
