@@ -16,6 +16,7 @@ import {
 import { ensureString } from '../utils/ensureString'
 import { Loading } from './Loading'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
+import { portalAppSites } from '../multiSite/portalAppSites'
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']
@@ -99,11 +100,7 @@ const NotFound = connect(function NotFound() {
 })
 
 const DefaultSiteMissing = connect(function DefaultSiteMissing() {
-  const sites = Obj.onAllSites()
-    .where('_path', 'equals', '/')
-    .andNot('_siteId', 'equals', null)
-    .and('contentFormat', 'startsWith', 'portal-app:')
-    .toArray()
+  const sites = portalAppSites()
 
   return (
     <main id="main">

@@ -4,6 +4,7 @@ import { orderBy } from 'lodash-es'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { getTokenAuthorization } from './getTokenAuthorization'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
+import { portalAppSites } from '../multiSite/portalAppSites'
 
 export async function jwtPisaSalesApiConfig({
   subPath,
@@ -44,14 +45,6 @@ export function jwtPisaSalesConfigSite(): Obj | undefined {
     (site) => site.createdAt(),
     (site) => site.id(),
   ])[0]
-}
-
-function portalAppSites(): Obj[] {
-  return Obj.onAllSites()
-    .where('_path', 'equals', '/')
-    .andNot('_siteId', 'equals', null)
-    .and('contentFormat', 'startsWith', 'portal-app:')
-    .toArray()
 }
 
 async function jwtPisaSalesApiUrl(): Promise<string | null> {
