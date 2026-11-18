@@ -1,4 +1,5 @@
 import { currentUser, getInstanceId, isEditorLoggedIn, load } from 'scrivito'
+import { applyJrPlatformEtrackerEndpoint } from '../privateJrPlatform/applyJrPlatformEtrackerEndpoint'
 
 declare global {
   interface Window {
@@ -25,6 +26,10 @@ export function configureEtracker() {
   script.setAttribute('data-page-changed-detection', 'url')
   script.src = 'https://code.etracker.com/code/e.js'
   script.async = true
+
+  if (import.meta.env.PRIVATE_JR_PLATFORM) {
+    applyJrPlatformEtrackerEndpoint(script)
+  }
 
   document.head.appendChild(script)
 
