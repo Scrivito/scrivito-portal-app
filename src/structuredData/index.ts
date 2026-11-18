@@ -1,4 +1,4 @@
-export { currentStructuredData } from './currentStructuredData'
+export { currentStructuredDataJson } from './currentStructuredDataJson'
 export {
   validateSiteStructuredData,
   validateStructuredData,

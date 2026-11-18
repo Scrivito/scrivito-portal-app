@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { connect, currentPage } from 'scrivito'
 import { breadcrumbAncestors } from '../utils/breadcrumbAncestors'
-import { currentStructuredData } from '../structuredData'
+import { currentStructuredDataJson } from '../structuredData'
 
 const SCRIPT_ID = 'current-page-structured-data'
 
@@ -47,6 +47,8 @@ function currentJson(): string | null {
   const page = currentPage()
 
   return page
-    ? currentStructuredData({ breadcrumbAncestors: breadcrumbAncestors(page) })
+    ? currentStructuredDataJson({
+        breadcrumbAncestors: breadcrumbAncestors(page),
+      })
     : null
 }

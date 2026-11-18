@@ -11,9 +11,8 @@ import { type StructuredDataNode } from './parseStructuredDataNodes'
 const CONTEXT = 'https://schema.org'
 
 /**
- * Returns the structured data of the current page and the site, or `null` if
- * there is no current page or no structured data at all. Structured data that
- * is not valid JSON is ignored.
+ * Builds the structured data of the current page and the site. Structured data
+ * that is not valid JSON is ignored.
  *
  * This function is reactive, so it works inside `connect` and `load`. Outside
  * of them, it throws if content is not yet loaded.
@@ -25,18 +24,20 @@ const CONTEXT = 'https://schema.org'
  * {@link https://schema.org/WebSite | WebSite} of the site. Each of them is
  * only included if it is available.
  *
- * It is returned as a JSON string that is ready to be embedded in a
- * `<script type="application/ld+json">` tag. Any `<` is escaped as `\u003c`,
- * so the JSON can not end that tag early.
+ * Any `<` is escaped as `\u003c`, so the JSON can not end the surrounding
+ * `<script>` tag early.
  *
- * Sources, by attribute name:
- * - `structuredData` (every page): the nodes that describe the page. The first
- *   one describes the page itself (the "main node").
- * - `structuredDataImages` (every page): the images of the main node.
- * - `siteStructuredData` (on `Obj.root()`): the site-wide nodes.
- *   The first Organization and the first WebSite are used, all others are
- *   ignored.
- * - `siteOrganizationLogo` (on `Obj.root()`): the logo of the Organization.
+ * Sources, by attribute name and Scrivito attribute type:
+ * - `structuredData` (`'string'`, every page): the nodes that describe the
+ *   page, as a JSON object or array of objects. The first one describes the
+ *   page itself (the "main node").
+ * - `structuredDataImages` (`['referencelist', { only: ['Image'] }]`, every
+ *   page): the images of the main node.
+ * - `siteStructuredData` (`'string'`, on `Obj.root()`): the site-wide nodes,
+ *   in the same format as `structuredData`. The first Organization and the
+ *   first WebSite are used, all others are ignored.
+ * - `siteOrganizationLogo` (`['reference', { only: 'Image' }]`, on
+ *   `Obj.root()`): the logo of the Organization.
  *
  * The main node is completed with what the Obj knows about the page, such as
  * its dates and language versions.
@@ -48,8 +49,11 @@ const CONTEXT = 'https://schema.org'
  * make up its breadcrumb, from the root down to the parent. Defaults to
  * `currentPage().ancestors()`. Pass an empty array for no breadcrumb.
  * Should match the visible breadcrumb. Entries that are `null` are skipped.
+ * @returns The JSON-LD document as a string, ready for a
+ * `<script type="application/ld+json">` tag, or `null` if there is no current
+ * page or the page and the site have no structured data.
  */
-export function currentStructuredData(options?: {
+export function currentStructuredDataJson(options?: {
   breadcrumbAncestors?: Array<Obj | null>
 }): string | null {
   const graph = buildGraph(options?.breadcrumbAncestors)
