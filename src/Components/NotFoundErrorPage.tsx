@@ -21,7 +21,7 @@ const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (isUserLoggedIn() && !currentSiteId() && isDefaultSiteMissing()) {
+    if (isUserLoggedIn() && !currentSiteId() && !hasDefaultSite()) {
       return <NotFound />
     }
 
@@ -56,13 +56,13 @@ const NotFound = connect(function NotFound() {
     async function beginEditingIfDefaultSiteIsMissing() {
       if (await load(() => isEditorLoggedIn())) return
       if (await load(() => currentSiteId())) return
-      if (!(await load(() => isDefaultSiteMissing()))) return
+      if (await load(() => hasDefaultSite())) return
 
       location.href = `https://edit.scrivito.com/${location.href}`
     }
   }, [])
 
-  if (isEditorLoggedIn() && !currentSiteId() && isDefaultSiteMissing()) {
+  if (isEditorLoggedIn() && !currentSiteId() && !hasDefaultSite()) {
     return <DefaultSiteMissing />
   }
 
@@ -147,8 +147,8 @@ const DefaultSiteMissing = connect(function DefaultSiteMissing() {
   )
 })
 
-function isDefaultSiteMissing(): boolean {
-  return !defaultSiteVersions().toArray().length
+function hasDefaultSite(): boolean {
+  return defaultSiteVersions().toArray().length > 0
 }
 
 function hasSomeContent(): boolean {
