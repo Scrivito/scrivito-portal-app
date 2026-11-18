@@ -111,7 +111,7 @@ const DefaultSiteMissing = connect(function DefaultSiteMissing() {
           <h6>Default site is missing!</h6>
           {sites.length === 0 && hasSomeContent() ? (
             <div>
-              Your instance contains content, but none of it is a Portal App
+              This instance contains content, but none of it is a Portal App
               site.
             </div>
           ) : (
