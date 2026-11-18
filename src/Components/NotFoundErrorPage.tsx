@@ -129,7 +129,7 @@ const DefaultSiteMissing = connect(function DefaultSiteMissing() {
                   <li key={site.id()}>
                     <LinkTag to={site}>
                       {ensureString(site.get('title')) || urlFor(site)} (
-                      {site.language() || 'no language'})
+                      {site.language() || 'no language set'})
                     </LinkTag>
                   </li>
                 ))}
