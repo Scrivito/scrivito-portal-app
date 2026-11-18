@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { groupBy } from 'lodash-es'
+import { sortBy } from 'lodash-es'
 import {
   connect,
   ContentTag,
@@ -11,6 +11,7 @@ import {
   load,
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
+  urlFor,
 } from 'scrivito'
 import { ensureString } from '../utils/ensureString'
 import { Loading } from './Loading'
@@ -121,23 +122,17 @@ const DefaultSiteMissing = connect(function DefaultSiteMissing() {
             <>
               <div className="mt-3">Available sites:</div>
               <ul>
-                {Object.entries(groupBy(sites, (site) => site.contentId())).map(
-                  ([contentId, versions]) => (
-                    <li key={contentId}>
-                      {contentId}:
-                      <ul>
-                        {versions.map((site) => (
-                          <li key={site.id()}>
-                            <LinkTag to={site}>
-                              {ensureString(site.get('title')) || '-'} (
-                              {site.language() || 'no language'})
-                            </LinkTag>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ),
-                )}
+                {sortBy(sites, [
+                  (site) => site.contentId(),
+                  (site) => site.language() || '',
+                ]).map((site) => (
+                  <li key={site.id()}>
+                    <LinkTag to={site}>
+                      {ensureString(site.get('title')) || urlFor(site)} (
+                      {site.language() || 'no language'})
+                    </LinkTag>
+                  </li>
+                ))}
               </ul>
             </>
           )}
