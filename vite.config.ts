@@ -183,29 +183,70 @@ function writeProductionHeadersFile(outDir: string) {
             item.type === 'asset' && typeof item.source === 'string',
         )
 
-        const scriptHashes: string[] = []
+        const scriptHashes = new Set<string>()
 
         for (const chunk of Object.values(bundle)) {
           if (chunk.type !== 'chunk' || !chunk.isEntry) continue
 
-          const integrity = `sha384-${createHash('sha384').update(chunk.code).digest('base64')}`
-          scriptHashes.push(`'${integrity}'`)
+          const entryTag = `<script type="module" crossorigin src="/${chunk.fileName}"></script>`
+          const integrity = sha384(chunk.code)
+          const bootstrap = entryBootstrapScript(chunk.fileName, integrity)
+          scriptHashes.add(`'${sha384(bootstrap)}'`)
 
           for (const html of htmlAssets) {
             html.source = html.source.replaceAll(
-              `src="/${chunk.fileName}"`,
-              `$& integrity="${integrity}"`,
+              entryTag,
+              `<link rel="modulepreload" crossorigin href="/${chunk.fileName}" integrity="${integrity}">` +
+                `<script>${bootstrap}</script>`,
+            )
+          }
+        }
+
+        for (const html of htmlAssets) {
+          if (/<script[^>]+type="module"[^>]+src=/.test(html.source)) {
+            throw new Error(
+              `${html.fileName}: Found an unhandled parser-inserted module script.` +
+                " It would be blocked by the CSP's 'strict-dynamic'.",
             )
           }
         }
 
         await fs.promises.writeFile(
           resolve(import.meta.dirname, outDir, '_headers'),
-          productionHeadersFile(scriptHashes),
+          productionHeadersFile([...scriptHashes]),
         )
       },
     },
   }
+}
+
+function sha384(content: string): string {
+  return `sha384-${createHash('sha384').update(content).digest('base64')}`
+}
+
+/**
+ * Returns an inline (CSP hash-allowed) script, which inserts the entry module
+ * script once the document is parsed (like a deferred module script).
+ *
+ * A script inserted via `document.createElement` is "not parser-inserted".
+ * Thanks to `'strict-dynamic'` it and its whole module graph are allowed
+ * to load. A parser-inserted `<script type="module">` (as emitted by Vite)
+ * only passes CSP itself via its integrity hash, but its imports do not.
+ * Chrome < 158 let them through due to a CSP bypass via `modulepreload`,
+ * see https://crbug.com/515948871.
+ */
+function entryBootstrapScript(fileName: string, integrity: string): string {
+  const props = JSON.stringify({
+    type: 'module',
+    crossOrigin: '',
+    integrity,
+    src: `/${fileName}`,
+  })
+
+  return (
+    `(()=>{const l=()=>document.head.append(Object.assign(document.createElement('script'),${props}));` +
+    `document.readyState==='loading'?document.addEventListener('DOMContentLoaded',l):l()})()`
+  )
 }
 
 function readProductionHeadersFile(outDir: string) {
