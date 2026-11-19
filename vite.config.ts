@@ -183,20 +183,48 @@ function writeProductionHeadersFile(outDir: string) {
             item.type === 'asset' && typeof item.source === 'string',
         )
 
-        const scriptHashes: string[] = []
-
+        // Every JS chunk (static and lazy) gets an SRI hash. The same hashes
+        // are allowed by the CSP, so that each module request carrying one
+        // (via an `integrity` attribute or the import map) passes CSP.
+        const integrities: Record<string, string> = {}
         for (const chunk of Object.values(bundle)) {
-          if (chunk.type !== 'chunk' || !chunk.isEntry) continue
-
-          const integrity = `sha384-${createHash('sha384').update(chunk.code).digest('base64')}`
-          scriptHashes.push(`'${integrity}'`)
-
-          for (const html of htmlAssets) {
-            html.source = html.source.replaceAll(
-              `src="/${chunk.fileName}"`,
-              `$& integrity="${integrity}"`,
-            )
+          if (chunk.type === 'chunk') {
+            integrities[`/${chunk.fileName}`] = sha384(chunk.code)
           }
+        }
+
+        const importMap = JSON.stringify({ integrity: integrities })
+        const importMapTag = `<script type="importmap">${importMap}</script>`
+
+        const scriptHashes = [
+          // An inline import map is subject to `script-src` as well.
+          `'${sha384(importMap)}'`,
+          ...Object.values(integrities).map((integrity) => `'${integrity}'`),
+        ]
+
+        for (const html of htmlAssets) {
+          const tagWithSrc =
+            /<(script type="module"|link rel="modulepreload") crossorigin (src|href)="([^"]+)"/g
+
+          if (!html.source.match(tagWithSrc)) continue
+
+          html.source = html.source
+            .replace(
+              tagWithSrc,
+              (tag, _name, _attr, url) =>
+                `${tag} integrity="${integrityFor(url)}"`,
+            )
+            // The import map must precede all module scripts and preloads.
+            .replace(
+              /<(script type="module"|link rel="modulepreload")/,
+              `${importMapTag}\n    $&`,
+            )
+        }
+
+        function integrityFor(url: string): string {
+          const integrity = integrities[url]
+          if (!integrity) throw new Error(`No SRI hash for module "${url}".`)
+          return integrity
         }
 
         await fs.promises.writeFile(
@@ -206,6 +234,10 @@ function writeProductionHeadersFile(outDir: string) {
       },
     },
   }
+}
+
+function sha384(content: string): string {
+  return `sha384-${createHash('sha384').update(content).digest('base64')}`
 }
 
 function readProductionHeadersFile(outDir: string) {
