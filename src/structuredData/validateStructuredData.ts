@@ -138,7 +138,7 @@ export function validateStructuredData(
     ...warnings([
       raw[0] &&
         'image' in raw[0] &&
-        'The "image" property of the page node is ignored. Use "Structured data images" instead.',
+        'The "image" property of the page node is ignored. Use the attribute "structuredDataImages" instead.',
     ]),
   ]
 
@@ -165,7 +165,7 @@ export function validateSiteStructuredData(
       'Only the first Organization and the first WebSite are used. All other nodes are ignored.',
     organization &&
       'logo' in organization &&
-      'The "logo" property of the Organization is ignored. Use "Organization logo" instead.',
+      'The "logo" property of the Organization is ignored. Use the attribute "siteOrganizationLogo" instead.',
     webSite &&
       'url' in webSite &&
       'The "url" property of the WebSite is ignored. The homepage URL is used.',
