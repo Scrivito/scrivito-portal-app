@@ -1,9 +1,10 @@
-import type { ApiClientOptions, Obj } from 'scrivito'
-import { currentLanguage, load } from 'scrivito'
+import type { ApiClientOptions } from 'scrivito'
+import { currentLanguage, load, Obj } from 'scrivito'
 import { orderBy } from 'lodash-es'
 import { isHomepage } from '../Objs/Homepage/HomepageObjClass'
 import { getTokenAuthorization } from './getTokenAuthorization'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
+import { portalAppSites } from '../multiSite/portalAppSites'
 
 export async function jwtPisaSalesApiConfig({
   subPath,
@@ -37,7 +38,9 @@ export async function jwtPisaSalesApiAuth(): Promise<{
 }
 
 export function jwtPisaSalesConfigSite(): Obj | undefined {
-  return orderBy(defaultSiteVersions().toArray(), [
+  const defaultSites = defaultSiteVersions().toArray()
+
+  return orderBy(defaultSites.length ? defaultSites : portalAppSites(), [
     (site) => (site.language() === 'en' ? 0 : 1),
     (site) => site.createdAt(),
     (site) => site.id(),

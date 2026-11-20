@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
+import { sortBy } from 'lodash-es'
 import {
   connect,
   ContentTag,
+  LinkTag,
   currentLanguage,
   currentSiteId,
   isEditorLoggedIn,
@@ -9,16 +11,19 @@ import {
   load,
   Obj,
   NotFoundErrorPage as ScrivitoNotFoundErrorPage,
+  urlFor,
 } from 'scrivito'
+import { ensureString } from '../utils/ensureString'
 import { Loading } from './Loading'
 import { defaultSiteVersions } from '../multiSite/defaultSiteVersions'
+import { portalAppSites } from '../multiSite/portalAppSites'
 
 // Make sure, that you have a proxy running for these URLs, otherwise you'll see an endless loop.
 const RELOAD_SUBPATHS = ['/auth']
 
 export const NotFoundErrorPage = connect(
   function NotFoundErrorPage() {
-    if (isUserLoggedIn() && !currentSiteId() && isPortalAppContentMissing()) {
+    if (isUserLoggedIn() && !currentSiteId() && !hasDefaultSite()) {
       return <NotFound />
     }
 
@@ -48,30 +53,19 @@ const NotFound = connect(function NotFound() {
   }, [])
 
   useEffect(() => {
-    beginEditingIfContentIsEmpty()
+    beginEditingIfDefaultSiteIsMissing()
 
-    async function beginEditingIfContentIsEmpty() {
+    async function beginEditingIfDefaultSiteIsMissing() {
       if (await load(() => isEditorLoggedIn())) return
-      if (await load(() => hasSomeContent())) return
+      if (await load(() => currentSiteId())) return
+      if (await load(() => hasDefaultSite())) return
 
       location.href = `https://edit.scrivito.com/${location.href}`
     }
   }, [])
 
-  if (isPortalAppContentMissing() && hasSomeContent()) {
-    return (
-      <main id="main">
-        <section className="py-1">
-          <div className="container">
-            <h6>Portal App content is missing!</h6>
-            <div>
-              Your instance contains content, but the Portal App root object is
-              not available.
-            </div>
-          </div>
-        </section>
-      </main>
-    )
+  if (isEditorLoggedIn() && !currentSiteId() && !hasDefaultSite()) {
+    return <DefaultSiteMissing />
   }
 
   if (!root) {
@@ -105,8 +99,48 @@ const NotFound = connect(function NotFound() {
   )
 })
 
-function isPortalAppContentMissing(): boolean {
-  return !defaultSiteVersions().toArray().length
+const DefaultSiteMissing = connect(function DefaultSiteMissing() {
+  const sites = portalAppSites()
+
+  return (
+    <main id="main">
+      <section className="py-1">
+        <div className="container">
+          <h6>Default site is missing!</h6>
+          {sites.length === 0 && hasSomeContent() ? (
+            <div>
+              This instance contains content, but none of it is a Portal App
+              site.
+            </div>
+          ) : (
+            <div>The default site of the Portal App could not be found.</div>
+          )}
+          {sites.length > 0 && (
+            <>
+              <div className="mt-3">Available sites:</div>
+              <ul>
+                {sortBy(sites, [
+                  (site) => site.contentId(),
+                  (site) => site.language() || '',
+                ]).map((site) => (
+                  <li key={site.id()}>
+                    <LinkTag to={site}>
+                      {ensureString(site.get('title')) || urlFor(site)} (
+                      {site.language() || 'no language set'})
+                    </LinkTag>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      </section>
+    </main>
+  )
+})
+
+function hasDefaultSite(): boolean {
+  return defaultSiteVersions().toArray().length > 0
 }
 
 function hasSomeContent(): boolean {
