@@ -14,7 +14,7 @@ provideEditingConfig(DataLabelWidget, {
         { value: 'currency', title: 'Currency' },
         { value: 'datetime', title: 'Date' },
         { value: 'link', title: 'Link' },
-        { value: 'mailto', title: 'E-Mail' },
+        { value: 'email', title: 'Email' },
       ],
     },
     datetimeFormat: {

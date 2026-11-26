@@ -7,7 +7,7 @@ export const DataLabelWidget = provideWidgetClass('DataLabelWidget', {
     details: 'string',
     showAs: [
       'enum',
-      { values: ['text', 'currency', 'datetime', 'link', 'mailto'] },
+      { values: ['text', 'currency', 'datetime', 'link', 'email'] },
     ],
     datetimeFormat: [
       'enum',

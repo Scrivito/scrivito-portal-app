@@ -73,7 +73,7 @@ const AttributeValue = connect(
       return <Datetime value={attributeValue} datetimeFormat={datetimeFormat} />
     }
     if (showAs === 'link') return <Link value={attributeValue} />
-    if (showAs === 'mailto') return <Mailto value={attributeValue} />
+    if (showAs === 'email') return <Mailto value={attributeValue} />
 
     if (typeof attributeValue === 'number') {
       return <NumberText value={attributeValue} />
@@ -152,7 +152,8 @@ function Link({ value }: { value: unknown }) {
   )
 }
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+$/
+// Single address, no mailto params (e.g. ?subject=) or multiple recipients (e.g. a,b@example.com)
+const EMAIL_REGEX = /^[^\s@,;?&]+@[^\s@,;?&]+$/
 
 function Mailto({ value }: { value: unknown }) {
   if (typeof value !== 'string') return localizeNotAvailable()
